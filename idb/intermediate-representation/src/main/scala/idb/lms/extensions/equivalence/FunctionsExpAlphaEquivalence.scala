@@ -46,12 +46,17 @@ trait FunctionsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A: Manifest, B: Manifest] (a: Exp[A], b: Exp[B]): Boolean = {
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def(Lambda (_, xa, ba)), Def(Lambda (_, xb, bb))) =>
-                (xa == xb && ba == bb) || isEquivalent (ba.res, bb.res)
+            case (Def (Lambda (_, xa: Sym[_], ba)), Def (Lambda (_, xb: Sym[_], bb))) =>
+                // either same variable is used, or we add a renaming
+                (xa == xb && isEquivalent (ba.res, bb.res)) || isEquivalent (ba.res, bb.res)(renamings.add (xa, xb))
+
+            case (Def (Apply (fa, xa)), Def (Apply (fb, xb))) =>
+                isEquivalent (xa, xb) && isEquivalent (fa, fb)
+
             case _ => super.isEquivalent (a, b)
         }
-    }
+
 
 }

@@ -32,60 +32,47 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.BaseExp
-import scala.collection.mutable
+import scala.virtualization.lms.common.LiftAll
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-trait BaseExpAlphaEquivalence
-    extends BaseExp
-    with BaseAlphaEquivalence
+class TestBaseExpAlphaEquivalence
+    extends LiftAll with BaseExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
-    type VarExp[+T] = Sym[T]
+    @Test
+    def testBoundVarsEq () {
+        val x = fresh[Int]
+        val y = fresh[Int]
 
-    def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        (a, b) match {
-            case (Const (x), Const (y)) => x == y
-            //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
-
-            case (Def (x), Def (y)) =>
-                throw new IllegalArgumentException (
-                    "Expression types are unknown to alpha equivalence: " + x + " =?= " + y)
-
-            case (x: Sym[_], y: Sym[_]) => x == y || renamings.canRename (x, y)
-
-            case (x: Sym[_], y: Const[_]) => false
-
-            case (x: Const[_], y: Sym[_]) => false
-
-            case _ => throw new
-                    IllegalArgumentException ("Expression types are unknown to alpha equivalence: " + a + " =?= " + b)
-        }
-
-    class MultiMapVariableRenamings ()
-        extends VariableRenamings
-    {
-
-        private val map: mutable.MultiMap[VarExp[Any], VarExp[Any]] =
-            new mutable.HashMap[VarExp[Any], mutable.Set[VarExp[Any]]] with mutable.MultiMap[VarExp[Any], VarExp[Any]]
-
-        def add[T] (x: VarExp[T], y: VarExp[T]): VariableRenamings = {
-            map.addBinding (x, y)
-            map.addBinding (y, x)
-            this
-        }
-
-        def canRename[T] (x: VarExp[T], y: VarExp[T]): Boolean = {
-            map.entryExists (x, _ == y)
-        }
-
+        assertEquivalent (x, y)(emptyRenaming.add (x, y))
     }
 
-    def emptyRenaming = new MultiMapVariableRenamings ()
+    @Test
+    def testFreeVarsNotEq () {
+        val x = fresh[Int]
+        val y = fresh[Int]
 
+        assertNotEquivalent (x, y)
+    }
+
+
+    @Test
+    def testConstEq () {
+        val x = unit (1)
+        val y = unit (1)
+
+        assertEquivalent (x, y)
+    }
+
+    @Test
+    def testConstNotEq () {
+        val x = unit (1)
+        val y = unit (5)
+
+        assertNotEquivalent (x, y)
+    }
 }

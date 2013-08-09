@@ -43,7 +43,24 @@ import scala.virtualization.lms.common.Base
 trait BaseAlphaEquivalence
     extends Base
 {
-    def isEquivalent[A: Manifest, B: Manifest] (a: Rep[A], b: Rep[B]): Boolean
 
-    trait Bound
+    type VarExp[+T] // Var and Variable are already used somewhere in LMS
+
+    def isEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming): Boolean
+
+    /**
+     * Captures a set of possible reanmings for variables
+     * Variable renamings are always commutative, i.e., adding a renaming (a, b) is equivalent to adding (b, a) and
+     * canRename will return true for (a,b) or (b,a)
+     */
+    trait VariableRenamings
+    {
+
+        def add[T] (x: VarExp[T], y: VarExp[T]): VariableRenamings
+
+        def canRename[T] (x: VarExp[T], y: VarExp[T]): Boolean
+
+    }
+
+    def emptyRenaming: VariableRenamings
 }

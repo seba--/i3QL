@@ -45,12 +45,18 @@ trait NumericOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A: Manifest, B: Manifest] (a: Exp[A], b: Exp[B]): Boolean = {
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def(NumericPlus(x, y)), Def(NumericPlus(u, v))) =>
+            case (Def (NumericPlus (x, y)), Def (NumericPlus (u, v))) =>
+                isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (NumericMinus (x, y)), Def (NumericMinus (u, v))) =>
+                isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (NumericTimes (x, y)), Def (NumericTimes (u, v))) =>
+                isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (NumericDivide (x, y)), Def (NumericDivide (u, v))) =>
                 isEquivalent (x, u) && isEquivalent (y, v)
             case _ => super.isEquivalent (a, b)
         }
-    }
+
 
 }

@@ -38,18 +38,17 @@ import org.junit.Assert._
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils extends BaseAlphaEquivalence
+trait AssertAlphaEquivalence extends BaseAlphaEquivalence
 {
 
-    def assertSameReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertSame (f1, f2)
+    def assertEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
+        assertTrue (isEquivalent (a, b))
+        assertTrue (isEquivalent (b, a))
     }
 
-
-    def assertEquivalentReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertTrue (
-            isEquivalent (f1, f2)
-        )
+    def assertNotEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
+        assertFalse (isEquivalent (a, b))
+        assertFalse (isEquivalent (b, a))
     }
 
 

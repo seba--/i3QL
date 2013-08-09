@@ -39,17 +39,64 @@ import org.junit.Test
  *
  * @author Ralf Mitschke
  */
-class TestBasicAlphaEquivalence
-    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
+class TestFunctionsExpAlphaEquivalence
+    extends LiftAll with FunctionsExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
     @Test
-    def testSameMethodBody () {
-        assertEquivalentReified (
-            (x: Rep[Int]) => x + 1,
-            (y: Rep[Int]) => y + 1
-        )
+    def testBoundVarsEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        assertEquivalent (f1, f2)
+    }
+
+    @Test
+    def testFreeVarsNotEq () {
+        val u = fresh[Int]
+        val v = fresh[Int]
+        val f1 = fun ((x: Rep[Int]) => u)
+        val f2 = fun ((y: Rep[Int]) => v)
+
+        assertNotEquivalent (f1, f2)
     }
 
 
+    @Test
+    def testConstEq () {
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (1))
+
+        assertEquivalent (f1, f2)
+    }
+
+    @Test
+    def testConstNotEq () {
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (5))
+
+        assertNotEquivalent (f1, f2)
+    }
+
+    @Test
+    def testApplicationEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (v)))
+
+        assertEquivalent (f3, f4)
+    }
+
+    @Test
+    def testApplicationNotEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (unit(1))))
+
+        assertNotEquivalent (f3, f4)
+    }
 }
