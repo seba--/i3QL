@@ -37,6 +37,7 @@ import idb.lms.extensions.ScalaOpsExpOptExtensions
 import scala.language.implicitConversions
 import scala.virtualization.lms.common._
 import idb.algebra.RelationalAlgebraIROptPackage
+import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
 
 
 /**
@@ -49,16 +50,14 @@ import idb.algebra.RelationalAlgebraIROptPackage
  * @author Ralf Mitschke
  */
 object IR
-    extends ScalaOpsPkgExp
-    //with FunctionBlocksExp // TODO consider using this for function recreation
-    with StructExp
-    with TupledFunctionsExp
-    with LoopsFatExp
-    with IfThenElseFatExp
-    with LiftAll
-    with ScalaOpsExpOptExtensions
+    extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROptPackage
     with RelationalAlgebraGenSAEBinding
+    with StructExpAlphaEquivalence
+    with TupledFunctionsExpAlphaEquivalence
+    with LiftAll
 {
+
+    type SubQuery[+T] = IQL_SUB_QUERY[T]
 
 }

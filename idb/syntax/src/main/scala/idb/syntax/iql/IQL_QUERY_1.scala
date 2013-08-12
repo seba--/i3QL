@@ -38,7 +38,7 @@ package idb.syntax.iql
  * @author Ralf Mitschke
  */
 trait IQL_QUERY_1[Select, Domain, Range]
-    extends IR.SubQuery[Range]
+    extends IQL_SUB_QUERY[Range]
 {
 
 

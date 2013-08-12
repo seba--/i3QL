@@ -109,6 +109,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
@@ -128,6 +129,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
@@ -150,6 +152,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testJoin2 () {
         val query = plan (
@@ -171,6 +174,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testJoin2Projection () {
         val query = plan (
@@ -195,7 +199,7 @@ class TestBasicClauses2
         )
     }
 
-
+    @Ignore
     @Test
     def testJoin2SelectionBoth () {
         val query = plan (
@@ -219,6 +223,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testJoin2SelectionBothAndCompare () {
         val query = plan (

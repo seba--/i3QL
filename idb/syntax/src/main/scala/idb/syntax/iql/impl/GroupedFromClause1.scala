@@ -10,6 +10,7 @@ import idb.syntax.iql.IR._
  * Time: 13:43
  * To change this template use File | Settings | File Templates.
  */
+/*
 case class GroupedFromClause1[Group : Manifest, Domain : Manifest, Range : Manifest](
 	relation : Rep[Query[Domain]],
 	selectClause : SelectClause1[Group,Range]) extends GROUPED_FROM_CLAUSE_1[Group, Domain, Range] {
@@ -17,3 +18,4 @@ case class GroupedFromClause1[Group : Manifest, Domain : Manifest, Range : Manif
 	def WHERE (predicate: Rep[Domain] => Rep[Boolean]) = WhereClause1[Group,Domain,Range](predicate,this)
 
 }
+*/

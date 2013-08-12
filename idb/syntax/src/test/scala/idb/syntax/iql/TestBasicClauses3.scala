@@ -68,7 +68,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1st () {
         val query = plan (
@@ -96,7 +96,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2nd () {
         val query = plan (
@@ -131,7 +131,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rd () {
         val query = plan (
@@ -170,7 +170,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rdInterleaved () {
         val query =
@@ -220,7 +220,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndCombined () {
         val query =
@@ -257,7 +257,7 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3ndCombined () {
         val query =
@@ -289,6 +289,7 @@ class TestBasicClauses3
         )
     }
 
+    @Ignore
     @Test
     def testJoin3On1stAnd2nd () {
         val query =
@@ -324,6 +325,7 @@ class TestBasicClauses3
         )
     }
 
+    @Ignore
     @Test
     def testJoin3On1stAnd2ndPlusOn2ndAnd3rd () {
         val query =

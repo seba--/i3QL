@@ -30,33 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
-
-import idb.syntax.iql.IR._
-import idb.syntax.iql._
+package idb.syntax.iql
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-case class SelectClause2[SelectA: Manifest, SelectB: Manifest, Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range],
-    asDistinct: Boolean = false
-)
-    extends SELECT_CLAUSE_2[SelectA, SelectB, Range]
-{
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ) =
-        FromClause2 (
-            relationA,
-            relationB,
-            this
-        )
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ) = throw new UnsupportedOperationException
+trait IQL_SUB_QUERY[+T]
+{
 
 }

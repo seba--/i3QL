@@ -90,6 +90,7 @@ class TestBasicClauseOptimizations
         )
     }
 
+    @Ignore
     @Test
     def testLocalIncrementJoin () {
         val query = plan (

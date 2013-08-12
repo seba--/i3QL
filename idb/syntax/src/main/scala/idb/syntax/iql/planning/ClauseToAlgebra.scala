@@ -68,11 +68,13 @@ object ClauseToAlgebra
 			case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, true))) =>
 				duplicateElimination (projection (selection (relation, predicate), project))
 
+                /*
 			case GroupByFromClause1 (group, FromClause1 (relation, SelectClause1 (projection, false))) =>
 				projection (grouping (relation, group), project)
 
 			case GroupByFromClause1 (group, FromClause1 (relation, SelectClause1 (projection, true))) =>
 				duplicateElimination (projection (grouping (relation, group), project))
+				*/
 
         }
 

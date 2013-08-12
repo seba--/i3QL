@@ -52,10 +52,7 @@ case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     def GROUP (
         grouping: (Rep[Domain]) => Rep[Select]
     ): GROUP_BY_CLAUSE_1[Domain, Range] =
-        GroupByWhereClause1[Select,Domain,Range](grouping, this)
+        GroupByWhereClause1[Select, Domain, Range](grouping, this)
 
-
-    def transform (f: IR.Transformer): IR.SubQuery[Range] =
-        WhereClause1(mirror(toDef(predicate), f), fromClause.transform(f))
 
 }
