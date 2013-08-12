@@ -44,6 +44,7 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_1[Select, Range]
+    with SubstitutableExp[SelectClause1[Select, Range]]
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
@@ -53,6 +54,6 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ) = throw new UnsupportedOperationException
+    ) = FromSelect1Clause2(relationA,relationB,this)
 
 }

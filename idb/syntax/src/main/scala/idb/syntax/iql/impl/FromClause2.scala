@@ -58,5 +58,5 @@ case class FromClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, 
     def GROUP (
         grouping: (Rep[DomainA], Rep[DomainB]) => Rep[(SelectA, SelectB)]
     ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
-        throw new UnsupportedOperationException
+        GroupByClause2(grouping, this)
 }
