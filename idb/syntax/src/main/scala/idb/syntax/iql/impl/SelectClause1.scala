@@ -53,6 +53,6 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ) = throw new UnsupportedOperationException
+    ) = FromSelect1Clause2(relationA,relationB,this)
 
 }

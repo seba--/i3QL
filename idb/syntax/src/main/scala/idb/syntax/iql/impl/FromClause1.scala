@@ -18,6 +18,7 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
 )
     extends FROM_CLAUSE_1[Select, Domain, Range]
     with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
+	with GROUPED_FROM_CLAUSE_1[Select, Domain, Range]
 {
     def WHERE (
         predicate: Rep[Domain] => Rep[Boolean]
@@ -25,8 +26,8 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
         WhereClause1 (predicate, this)
 
     def GROUP (
-        grouping: (IR.Rep[Domain]) => IR.Rep[Select]
+        grouping: (Rep[Domain]) => Rep[Select]
     ): GROUP_BY_CLAUSE_1[Domain, Range] =
-        throw new UnsupportedOperationException
+        GroupByClause1(grouping, this)
 
 }

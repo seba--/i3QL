@@ -118,14 +118,11 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
                         false
                     )
                 else
-                    throw new UnsupportedOperationException ("compiling grouping needs implementation")
-                /*
                     AggregationForSelfMaintainableFunctions (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
                         false
                     )
-                    */
             }
 
 
