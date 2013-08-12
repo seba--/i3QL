@@ -33,6 +33,7 @@
 package idb.lms.extensions.functions
 
 import scala.virtualization.lms.common.FunctionsExp
+import scala.reflect.SourceContext
 
 /**
  *
@@ -62,10 +63,10 @@ trait FunctionsExpDynamicLambda
         new DynamicLambda (x, block)
     }
 
-    def dynamicLambda[A, B] (x: Exp[A], body: Exp[B]): Exp[A => B] = {
+    def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
         implicit val ma = x.tp
         implicit val mb = body.tp
-        dynamicLambdaDef(x, body)
+        dynamicLambdaDef (x, body)
     }
 
 

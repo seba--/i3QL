@@ -34,6 +34,7 @@ package idb.lms.extensions.equivalence
 
 import scala.virtualization.lms.common.BaseExp
 import scala.collection.mutable
+import scala.reflect.SourceContext
 
 /**
  *
@@ -87,5 +88,30 @@ trait BaseExpAlphaEquivalence
     }
 
     def emptyRenaming = new MultiMapVariableRenamings ()
+
+    /**
+     * Create a definition or find an equivalent one
+     */
+    def createOrFindEquivalent[T: Manifest] (doCreate: => Def[T])(implicit pos: SourceContext): Exp[T] = {
+        // with reifySubGraph the whole reification is done without saving all nodes
+        val ((createdExp, equivalentExp), defs) = reifySubGraph {
+            val eNew = findOrCreateDefinitionExp (doCreate, List (pos))
+            val eOld = getFirstEquivalentDefinitionExp (eNew)
+            (eNew, eOld)
+        }
+        // if we have created a new function, i.e., not found another alpha equivalent one, save the nodes
+        // saving is done by reflectSubGraph
+        if (createdExp == equivalentExp) {
+            reflectSubGraph (defs)
+        }
+        equivalentExp
+    }
+
+    /**
+     * Find the first equivalent definition, assumes at least the exp itself is stored as a definition
+     */
+    def getFirstEquivalentDefinitionExp[T] (e: Exp[T]): Exp[T] =
+        globalDefs.collectFirst { case TP (sym: Sym[T], _) if sym == e || isEquivalent (sym, e) => sym }.get
+
 
 }

@@ -32,30 +32,35 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.OrderingOpsExp
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-trait OrderingOpsExpAlphaEquivalence
-    extends OrderingOpsExp
-    with BaseExpAlphaEquivalence
+trait TupledFunctionsExpAlphaEquivalence
+    extends TupledFunctionsExp
+    with FunctionsExpAlphaEquivalence
 {
-
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (OrderingLT (x, y)), Def (OrderingLT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingLTEQ (x, y)), Def (OrderingLTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingGT (x, y)), Def (OrderingGT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingGTEQ (x, y)), Def (OrderingGTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingEquiv (x, y)), Def (OrderingEquiv (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingMax (x, y)), Def (OrderingMax (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
-            case (Def (OrderingMin (x, y)), Def (OrderingMin (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (Lambda (_, UnboxedTuple (varsA), ba)), Def (Lambda (_, UnboxedTuple (varsB), bb)))
+                if varsA.size == varsB.size =>
+                // either same variable is used, or we add a renaming
+                (varsA == varsB && isEquivalent (ba.res, bb.res)) ||
+                    isEquivalent (ba.res, bb.res)(
+                        varsA.zip (varsB).foldLeft (
+                            renamings
+                        )(
+                            (renamingsAcc: VariableRenamings, pair: (Exp[_], Exp[_])) =>
+                                renamingsAcc.add (pair._1.asInstanceOf[Sym[_]], pair._2.asInstanceOf[Sym[_]]))
+                    )
+
+            case (Def (Lambda (_, _: UnboxedTuple[_], _)), Def (Lambda (_, _: Sym[_], _))) => false
+
+            case (Def (Lambda (_, _: Sym[_], _)), Def (Lambda (_, _: UnboxedTuple[_], _))) => false
+
             case _ => super.isEquivalent (a, b)
         }
-
-
 }

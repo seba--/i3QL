@@ -34,7 +34,8 @@ package idb.algebra.normalization
 
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common._
-import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionCreator}
+import idb.lms.extensions.ExpressionUtils
+import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
 
 /**
@@ -53,9 +54,8 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     with EffectExp
     with TupleOpsExp
     with TupledFunctionsExp
-    with FunctionsExpOptAlphaEquivalence
+    with FunctionsExpDynamicLambdaAlphaEquivalence
     with ExpressionUtils
-    with FunctionCreator
 {
 
     override def selection[Domain: Manifest] (
@@ -69,22 +69,22 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                         // σ{x ∨ y}(a) = σ{x}(a) ∪ σ{y}(a)
                         case Def (BooleanOr (lhs, rhs)) =>
                             unionMax (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                selection (relation, recreateFunRepDynamic (x, rhs))
+                                selection (relation, dynamicLambda (x, lhs)),
+                                selection (relation, dynamicLambda (x, rhs))
                             )
 
                         // σ{x ∧ ¬y}(a) = σ{x}(a) - σ{y}(a)
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
                             difference (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                selection (relation, recreateFunRepDynamic (x, rhs))
+                                selection (relation, dynamicLambda (x, lhs)),
+                                selection (relation, dynamicLambda (x, rhs))
                             )
 
                         // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
                         case Def (BooleanAnd (lhs, rhs)) =>
                             selection (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                recreateFunRepDynamic (x, rhs)
+                                selection (relation, dynamicLambda (x, lhs)),
+                                dynamicLambda (x, rhs)
                             )
 
                         case _ => super.selection (relation, function)

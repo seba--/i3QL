@@ -32,11 +32,10 @@
  */
 package idb.lms.extensions.functions
 
+import scala.virtualization.lms.common._
 import org.junit.Test
 import org.junit.Assert._
-import idb.lms.extensions.equivalence.{OrderingOpsExpAlphaEquivalence, EqualExpAlphaEquivalence,
-NumericOpsExpAlphaEquivalence, FunctionsExpAlphaEquivalence}
-import scala.virtualization.lms.common.LiftAll
+import idb.lms.extensions.equivalence._
 
 /**
  *
@@ -44,21 +43,24 @@ import scala.virtualization.lms.common.LiftAll
  *
  */
 
-class TestFunctionsExpDefAlphaEquivalence
-    extends FunctionsExpDefAlphaEquivalence
-    with FunctionsExpAlphaEquivalence
+class TestFunctionsExpDynamicLambdaAlphaEquivalence
+    extends FunctionsExpDynamicLambdaAlphaEquivalence
     with NumericOpsExpAlphaEquivalence
     with EqualExpAlphaEquivalence
     with OrderingOpsExpAlphaEquivalence
     with LiftAll
+    with AssertAlphaEquivalence
 {
+
 
     @Test
     def testLambda1Param () {
-        val f = fun ((i: Rep[Int]) => {1 + i })
-        val g = fun ((j: Rep[Int]) => {1 + j })
+        val f = (i: Rep[Int]) => {1 + i }
+        val x = fresh[Int]
+        val body = f (x)
 
-        assertSame (f, g)
+        assertSame (fun(f), dynamicLambda (x, body))
     }
+
 
 }

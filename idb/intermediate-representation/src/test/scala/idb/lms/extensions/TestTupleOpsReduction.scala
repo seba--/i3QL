@@ -53,8 +53,10 @@ class TestTupleOpsReduction
 
     }
 
+    @Ignore
     @Test
     def testTuple2ReduceFunComposeThenDirect () {
+        // TODO should create fun first to be a good test
         val f1 = (x: Rep[Int]) => (x, x > 0)
         val f2 = (x: Rep[(Int, Boolean)]) => x._2
         val f3 = (x: Rep[Int]) => f2 (f1 (x))
@@ -64,6 +66,7 @@ class TestTupleOpsReduction
         assertSame (fun (f3), fun (f4))
     }
 
+    @Ignore
     @Test
     def testTuple2ReduceFunComposeThenEqTest () {
         val f1 = (x: Rep[Int]) => (x, x > 0)

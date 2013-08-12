@@ -32,13 +32,13 @@
  */
 package idb.algebra.opt
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
-import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, LiftAll, ScalaOpsPkgExp}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, LiftAll}
 import idb.algebra.TestUtils
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
+import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
+import idb.algebra.print.{RelationalAlgebraPrintPlanBasicOperators, RelationalAlgebraPrintPlan}
 
 /**
  *
@@ -46,92 +46,84 @@ import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebr
  *
  */
 class TestIROptPushSelection
-    extends LiftAll
-    with ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
+    extends RelationalAlgebraIROptPushSelect
+    with RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraPrintPlanBasicOperators
+    with ScalaOpsPkgExpAlphaEquivalence
     with StructExp
     with TupledFunctionsExp
-    with RelationalAlgebraIROptPushSelect
+    with LiftAll
     with TestUtils
-    with RelationalAlgebraPrintPlan
-	with RelationalAlgebraIRBasicOperators
-	with RelationalAlgebraIRSetTheoryOperators
-	with RelationalAlgebraIRRecursiveOperators
-	with RelationalAlgebraIRAggregationOperators
 {
 
+    // needs binding for printing relation
     override val IR : this.type = this
     override def reset { super.reset }
 
-
-    // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
-    assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
-
-
-
     @Test
     def testSelectionOverProjectionSimpleInt () {
-        val f1 = (x: Rep[Int]) => x + 2
-        val f2 = (x: Rep[Int]) => x > 0
+        val f1 = fun ((x: Rep[Int]) => x + 2)
+        val f2 = fun ((x: Rep[Int]) => x > 0)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) => x > -2
+        val f3 = (x: Rep[Int]) => f2 (f1 (x)) // x > -2
 
         val expB = projection (selection (emptyRelation[Int](), f3), f1)
 
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
     }
 
     @Test
     def testSelectionOverProjectionConditionalInt () {
-        val f1 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-        val f2 = (x: Rep[Boolean]) => x
+        val f1 = fun((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
+        val f2 = fun((x: Rep[Boolean]) => x)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) => x > 0
-
-        val f4 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        val expB = projection (selection (emptyRelation[Int](), f4), f1)
-
-        assertEquals (expB, expA)
-    }
-
-    @Test
-    def testSelectionOverProjectionSimpleTuple () {
-        val f1: Rep[Int] => Rep[(Int, Boolean)] =
-            (x: Rep[Int]) => (x, x > 0) // needs annotation for correct implicits, why?
-
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-
-        val expA = selection (projection (emptyRelation[Int](), f1), f2)
-
-        val f3 = (x: Rep[Int]) => x > 0
+        val f3 = (x: Rep[Int]) =>  f2 (f1 (x)) // if (x > 0) unit (true) else unit (false) // x > 0
 
         val expB = projection (selection (emptyRelation[Int](), f3), f1)
 
-        assertEquals (quote(expB), quote(expA))
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
     }
 
+    @Ignore // needs tupled functions
     @Test
-    def testSelectionOverProjectionConditionalTuple () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
+    def testSelectionOverProjectionSimpleTuple () {
+        val f1 = fun((x: Rep[Int]) => (x, x > 0))
+
+        val f2 = fun((x: Rep[(Int, Boolean)]) => x._2)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 
-        //val f3 = (x: Rep[Int]) => x > 0 == true
+        val f3 = (x: Rep[Int]) => f2 (f1 (x)) // x > 0
 
-        val f4 = (x: Rep[Int]) => (if (x > 0) (x, unit (true)) else (x, unit (false)))._2
+        val expB = projection (selection (emptyRelation[Int](), f3), f1)
+
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
+        assertEquals (expB, expA)
+    }
+
+    @Ignore // needs tupled functions
+    @Test
+    def testSelectionOverProjectionConditionalTuple () {
+        val f1 = fun((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
+        val f2 = fun((x: Rep[(Int, Boolean)]) => x._2)
+
+        val expA = selection (projection (emptyRelation[Int](), f1), f2)
+
+        val f3 = (x: Rep[Int]) => f2 (f1 (x)) //x > 0 == true
+
+        //val f4 = (x: Rep[Int]) => (if (x > 0) (x, unit (true)) else (x, unit (false)))._2
 
         //val f4 = (x: Rep[Int]) => (if (x > 0) unit (true) else unit (false)) == true
 
-        val expB = projection (selection (emptyRelation[Int](), f4), f1)
+        val expB = projection (selection (emptyRelation[Int](), f3), f1)
 
-        assertEquals (quote(expB), quote(expA))
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
     }
 

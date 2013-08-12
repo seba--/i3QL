@@ -46,6 +46,16 @@ trait EqualExpAlphaEquivalence
 {
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+        (a, b) match {
+            case (Def (Equal (x1, y1)), Def (Equal (x2, y2))) =>
+                isEquivalent (x1, x2) &&
+                    isEquivalent (y1, y2)
+
+            case (Def (NotEqual (x1, y1)), Def (NotEqual (x2, y2))) =>
+                isEquivalent (x1, x2) &&
+                    isEquivalent (y1, y2)
+
+            case _ => super.isEquivalent (a, b)
+        }
 
 }

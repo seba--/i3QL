@@ -46,6 +46,35 @@ trait StringOpsExpAlphaEquivalence
 {
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+        (a, b) match {
+            case (Def (StringPlus (s1, o1)), Def (StringPlus (s2, o2))) =>
+                isEquivalent (s1, s2) &&
+                    isEquivalent (o1, o2)
+
+            case (Def (StringStartsWith (s1, starts1)), Def (StringStartsWith (s2, starts2))) =>
+                isEquivalent (s1, s2) &&
+                    isEquivalent (starts1, starts2)
+
+            case (Def (StringTrim (s1)), Def (StringTrim (s2))) =>
+                isEquivalent (s1, s2)
+
+            case (Def (StringSplit (s1, separators1)), Def (StringSplit (s2, separators2))) =>
+                isEquivalent (s1, s2) &&
+                    isEquivalent (separators1, separators2)
+
+            case (Def (StringValueOf (x1)), Def (StringValueOf (x2))) =>
+                isEquivalent (x1, x2)
+
+            case (Def (StringToDouble (s1)), Def (StringToDouble (s2))) =>
+                isEquivalent (s1, s2)
+
+            case (Def (StringToFloat (s1)), Def (StringToFloat (s2))) =>
+                isEquivalent (s1, s2)
+
+            case (Def (StringToInt (s1)), Def (StringToInt (s2))) =>
+                isEquivalent (s1, s2)
+
+            case _ => super.isEquivalent (a, b)
+        }
 
 }

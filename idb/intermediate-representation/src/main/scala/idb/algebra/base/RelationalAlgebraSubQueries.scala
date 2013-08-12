@@ -46,6 +46,9 @@ trait RelationalAlgebraSubQueries
     with TransformingGenericProducts
 {
 
+    type SubQuery[+T]
+
+     /*
     /**
      * Represents a sub query used inside a function.
      * A sub query can only be translated to the algebra once we translate the outer context and must syntactically
@@ -57,6 +60,8 @@ trait RelationalAlgebraSubQueries
     {
 
     }
+
+    */
 
     /**
      * Create an existential condition inside a function. The node itself is a boolean expression, but conveys that the

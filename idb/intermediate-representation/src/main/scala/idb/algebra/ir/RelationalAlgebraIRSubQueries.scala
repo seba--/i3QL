@@ -82,14 +82,14 @@ trait RelationalAlgebraIRSubQueries
         new ExistsCondition(subQuery, planSubQueryWithContext)
 
 
-
+/*
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
         case c@ExistsCondition (subQuery) =>
             existCondition(subQuery.transform(f), c.contextualQueryPlan)
 
         case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
-
+*/
     /*
     case class ExistsCondition[Domain] (
         subQuery: AnyRef

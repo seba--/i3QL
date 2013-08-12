@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.ScalaOpsPkg
+import scala.virtualization.lms.common.ScalaOpsPkgExp
 
 /**
  *
@@ -41,7 +41,7 @@ import scala.virtualization.lms.common.ScalaOpsPkg
  */
 
 trait ScalaOpsPkgExpAlphaEquivalence
-    extends ScalaOpsPkg
+    extends ScalaOpsPkgExp
     with ImplicitOpsExpAlphaEquivalence
     with NumericOpsExpAlphaEquivalence
     with FractionalOpsExpAlphaEquivalence
@@ -54,6 +54,8 @@ trait ScalaOpsPkgExpAlphaEquivalence
     with PrimitiveOpsExpAlphaEquivalence
     with MiscOpsExpAlphaEquivalence
     with FunctionsExpAlphaEquivalence
+    // the trait below ensures that alpha equivalent functions are reflected via the same sym
+    with FunctionsExpDefAlphaEquivalence
     with EqualExpAlphaEquivalence
     with IfThenElseExpAlphaEquivalence
     with VariablesExpAlphaEquivalence
