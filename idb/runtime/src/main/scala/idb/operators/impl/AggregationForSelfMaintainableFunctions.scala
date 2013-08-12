@@ -280,6 +280,21 @@ object AggregationForSelfMaintainableFunctions {
 			isSet
 		)
 	}
+
+	def apply[Domain, Result](
+		source: Relation[Domain],
+		grouping: Domain => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		apply(source,
+			grouping,
+			(x :Domain) => true,
+			(x :Domain) => true,
+			Function.tupled((x : Domain, y : Domain) => true),
+			Function.tupled((x : Result, y : Boolean) => x),
+			isSet
+		)
+	}
 }
 
 

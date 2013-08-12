@@ -100,8 +100,6 @@ trait RelationalAlgebraIRAggregationOperators
 		grouping : Rep[Domain => Result]
 	): Rep[Query[Result]] =
 		Grouping (relation,grouping)
-
-
 }
 
 

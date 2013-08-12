@@ -65,7 +65,7 @@ trait FunctionCreator
     ): Rep[A] => Rep[B] =
         (t: Rep[A]) => {
             transformer.subst =
-                x8 match {
+                x match {
                     case UnboxedTuple (args) =>
                         args match {
                             case List (a, b) =>
