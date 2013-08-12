@@ -51,12 +51,13 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
         FromClause1 (relation, this)
 
 
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range] =
-        throw new UnsupportedOperationException
+	def FROM[Domain: Manifest] (
+		relation: Rep[Query[Domain]]
+	) =
+		GroupedFromClause1[Select,Domain,Range](relation,this)
+
 
     def transform (f: IR.Transformer): SelectClause1[Select, Range] =
         SelectClause1 (mirror (toDef(projection), f), asDistinct)
+
 }
