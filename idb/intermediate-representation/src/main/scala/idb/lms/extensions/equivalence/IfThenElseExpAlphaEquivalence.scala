@@ -46,6 +46,10 @@ trait IfThenElseExpAlphaEquivalence
 {
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+        (a, b) match {
+            case (Def (IfThenElse (c1, Block(y1), Block(n1))), Def (IfThenElse (c2, Block(y2), Block(n2)))) =>
+                isEquivalent (c1, c2) && isEquivalent (y1, y2) && isEquivalent (n1, n2)
+            case _ => super.isEquivalent (a, b)
+        }
 
 }

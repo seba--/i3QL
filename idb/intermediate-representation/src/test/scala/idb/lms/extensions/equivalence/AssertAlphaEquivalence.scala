@@ -38,17 +38,20 @@ import org.junit.Assert._
  *
  * @author Ralf Mitschke
  */
-trait AssertAlphaEquivalence extends BaseAlphaEquivalence
+trait AssertAlphaEquivalence
+    extends BaseAlphaEquivalence
 {
 
     def assertEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
-        assertTrue (isEquivalent (a, b))
-        assertTrue (isEquivalent (b, a))
+        val msg = "<" + a + "> must be equivalent to " + b
+        assertTrue (msg, isEquivalent (a, b))
+        assertTrue (msg, isEquivalent (b, a))
     }
 
     def assertNotEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
-        assertFalse (isEquivalent (a, b))
-        assertFalse (isEquivalent (b, a))
+        val msg = "<" + a + "> must not be equivalent to " + b
+        assertFalse (msg, isEquivalent (a, b))
+        assertFalse (msg, isEquivalent (b, a))
     }
 
 

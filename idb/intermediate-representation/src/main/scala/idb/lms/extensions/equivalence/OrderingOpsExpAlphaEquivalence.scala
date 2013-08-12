@@ -46,6 +46,16 @@ trait OrderingOpsExpAlphaEquivalence
 {
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+        (a, b) match {
+            case (Def (OrderingLT (x, y)), Def (OrderingLT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingLTEQ (x, y)), Def (OrderingLTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingGT (x, y)), Def (OrderingGT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingGTEQ (x, y)), Def (OrderingGTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingEquiv (x, y)), Def (OrderingEquiv (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingMax (x, y)), Def (OrderingMax (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingMin (x, y)), Def (OrderingMin (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case _ => super.isEquivalent (a, b)
+        }
+
 
 }

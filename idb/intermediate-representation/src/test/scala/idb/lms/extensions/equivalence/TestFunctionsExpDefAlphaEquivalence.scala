@@ -30,73 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
 import org.junit.Test
 import org.junit.Assert._
-import scala.virtualization.lms.common._
+import scala.virtualization.lms.common.LiftAll
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestFunctionConversion
-    extends BaseFatExp
-    with NumericOpsExp
-    with EffectExp
-    with EqualExp
-    with TupledFunctionsExp
-    with TupleOpsExp
-    with FunctionsExpOptAlphaEquivalence
-    with ExpressionUtils
+
+class TestFunctionsExpDefAlphaEquivalence
+    extends FunctionsExpDefAlphaEquivalence
+    with FunctionsExpAlphaEquivalence
+    with NumericOpsExpAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
     with LiftAll
-    with FunctionCreator
 {
 
-
     @Test
-    def testFun1Recreate () {
-        val f = (i: Rep[Int]) => {1 + i }
-        val x = fresh[Int]
-        val body = f (x)
+    def testLambda1Param () {
+        val f = fun ((i: Rep[Int]) => {1 + i })
+        val g = fun ((j: Rep[Int]) => {1 + j })
 
-        val g = recreateFun (x, body)
-
-        assertEquals (fun (f), fun (g))
+        assertSame (f, g)
     }
 
-    @Test
-    def testFun2Recreate () {
-        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
-        val funF = fun (f)
-
-        val x = fresh[Int]
-        val y = fresh[Int]
-        val body = f (x, y)
-
-        val params: Rep[(Int, Int)] = (x, y)
-
-        val g = recreateFun (params, body)
-
-        val funG = fun (g)
-        assertEquals (funF, funG)
-    }
-
-
-    @Test
-    def testFun2AsUnboxedTupleRecreate () {
-        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
-        val funF = fun (f)
-
-        val x = fresh[Int]
-        val y = fresh[Int]
-        val body = f (x, y)
-
-        val params: Rep[(Int, Int)] = UnboxedTuple (List (x, y))
-
-        val g = recreateFun (params, body)
-
-        val funG = fun (g)
-        assertEquals (funF, funG)
-    }
 }

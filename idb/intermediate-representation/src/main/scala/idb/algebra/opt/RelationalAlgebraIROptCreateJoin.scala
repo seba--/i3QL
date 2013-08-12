@@ -33,8 +33,9 @@
 package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionCreator, FunctionUtils}
+import idb.lms.extensions.FunctionUtils
 import scala.virtualization.lms.common.{EqualExp, TupledFunctionsExp}
+import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
 /**
  *
@@ -47,7 +48,7 @@ trait RelationalAlgebraIROptCreateJoin
     with TupledFunctionsExp
     with EqualExp
     with FunctionUtils
-    with FunctionCreator
+    with FunctionsExpDynamicLambdaAlphaEquivalence
 {
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
@@ -63,6 +64,35 @@ trait RelationalAlgebraIROptCreateJoin
                 equiJoin (a, b, createEqualityFunctions (function) :: xs).asInstanceOf[Rep[Query[Domain]]]
 
             case _ => super.selection (relation, function)
+        }
+    }
+
+
+
+    def createEqualityFunctions[A, B] (function: Exp[A => Boolean]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
+        val params = parameters (function)
+        if (params.size != 2) {
+            throw new IllegalArgumentException ("Expected two parameters for function " + function)
+        }
+        body (function) match {
+            case Def (Equal (lhs: Exp[Boolean], rhs: Exp[Boolean])) => {
+                val usedByLeft = findSyms (lhs)(params.toSet)
+                val usedByRight = findSyms (rhs)(params.toSet)
+                if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+                    throw new IllegalArgumentException (
+                        "Expected equality that separates left and right parameter in function " + function)
+                }
+                val x = params (0)
+                val y = params (1)
+                if (usedByLeft == Set (x)) {
+                    (dynamicLambda (x, lhs), dynamicLambda (y, rhs))
+                }
+                else
+                {
+                    (dynamicLambda (x, rhs), dynamicLambda (y, lhs))
+                }
+            }
+            case _ => throw new IllegalArgumentException ("Expected equality in function " + function)
         }
     }
 }

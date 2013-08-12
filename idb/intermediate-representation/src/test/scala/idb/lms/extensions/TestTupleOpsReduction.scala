@@ -64,6 +64,7 @@ class TestTupleOpsReduction
         assertSame (fun (f3), fun (f4))
     }
 
+    @Ignore
     @Test
     def testTuple2ReduceFunComposeThenEqTest () {
         val f1 = (x: Rep[Int]) => (x, x > 0)

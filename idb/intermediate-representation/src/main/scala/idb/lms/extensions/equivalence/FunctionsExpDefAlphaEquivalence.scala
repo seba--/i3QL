@@ -30,13 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions.functions
+package idb.lms.extensions.equivalence
 
-import org.junit.Test
-import org.junit.Assert._
-import idb.lms.extensions.equivalence.{OrderingOpsExpAlphaEquivalence, EqualExpAlphaEquivalence,
-NumericOpsExpAlphaEquivalence, FunctionsExpAlphaEquivalence}
-import scala.virtualization.lms.common.LiftAll
+import scala.reflect.SourceContext
 
 /**
  *
@@ -44,21 +40,11 @@ import scala.virtualization.lms.common.LiftAll
  *
  */
 
-class TestFunctionsExpDefAlphaEquivalence
-    extends FunctionsExpDefAlphaEquivalence
-    with FunctionsExpAlphaEquivalence
-    with NumericOpsExpAlphaEquivalence
-    with EqualExpAlphaEquivalence
-    with OrderingOpsExpAlphaEquivalence
-    with LiftAll
+trait FunctionsExpDefAlphaEquivalence
+    extends FunctionsExpAlphaEquivalence
 {
 
-    @Test
-    def testLambda1Param () {
-        val f = fun ((i: Rep[Int]) => {1 + i })
-        val g = fun ((j: Rep[Int]) => {1 + j })
-
-        assertSame (f, g)
-    }
+    override def doLambda[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B])(implicit pos: SourceContext): Exp[A => B] =
+        createOrFindEquivalent ({ doLambdaDef (f) })
 
 }

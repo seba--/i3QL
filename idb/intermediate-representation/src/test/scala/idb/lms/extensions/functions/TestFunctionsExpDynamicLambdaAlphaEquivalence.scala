@@ -30,10 +30,12 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.functions
 
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import scala.virtualization.lms.common._
 import org.junit.Test
+import org.junit.Assert._
+import idb.lms.extensions.equivalence._
 
 /**
  *
@@ -41,35 +43,24 @@ import org.junit.Test
  *
  */
 
-class TestCompositions
-//extends FunctionsExp
+class TestFunctionsExpDynamicLambdaAlphaEquivalence
+    extends FunctionsExpDynamicLambdaAlphaEquivalence
+    with NumericOpsExpAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
+    with LiftAll
+    with AssertAlphaEquivalence
 {
+
 
     @Test
-    def testComposition () {
-        val rep1 = new Rep1
-        val rep2 = new Rep2
+    def testLambda1Param () {
+        val f = (i: Rep[Int]) => {1 + i }
+        val x = fresh[Int]
+        val body = f (x)
 
-        val f1 = rep1.f ()
-        val f2 = rep2.f ()
-
-        //println (f1)
-        //println (f2)
+        assertSame (fun(f), dynamicLambda (x, body))
     }
 
-}
 
-class Rep extends LiftAll with ScalaOpsPkgExp
-
-class Rep1 extends Rep
-{
-
-    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 1
-
-}
-
-class Rep2 extends Rep
-{
-
-    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 2
 }

@@ -32,13 +32,15 @@
  */
 package idb.lms.extensions
 
+import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
+
 /**
  *
  * @author Ralf Mitschke
  */
 trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
-    with FunctionsExpOptAlphaEquivalence
+    with ScalaOpsPkgExpAlphaEquivalence
     with FunctionsExpOptBetaReduction
     with ScalaOpsExpConstantPropagation
     with ScalaOpsExpNormalization

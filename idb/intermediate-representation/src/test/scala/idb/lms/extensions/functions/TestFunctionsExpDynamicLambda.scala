@@ -33,7 +33,8 @@
 package idb.lms.extensions.functions
 
 import scala.virtualization.lms.common._
-import org.junit.Test
+import org.junit.{Ignore, Test}
+import org.junit.Assert._
 import idb.lms.extensions.equivalence._
 
 /**
@@ -52,15 +53,45 @@ class TestFunctionsExpDynamicLambda
     with AssertAlphaEquivalence
 {
 
-
     @Test
     def testLambda1Param () {
         val f = (i: Rep[Int]) => {1 + i }
         val x = fresh[Int]
         val body = f (x)
+        val g = dynamicLambda (x, body)
 
-        assertEquivalent (fun (f), dynamicLambda (x, body))
+        assertNotSame (fun (f), g)
+        assertEquivalent (fun (f), g)
     }
 
 
+    @Test
+    def testLambda1ParamDynamicApplyOnRep () {
+        val f = fun ((i: Rep[Int]) => {1 + i })
+        val x = fresh[Int]
+        val body = f (x)
+        val g = dynamicLambda (x, body)
+
+        // these functions are not alpha equivalent,
+        // but the second one can be simplified to an alpha equivalent expression
+        // f = \x. 1 + x
+        // g = \x. (\y. 1 + y) x
+        assertNotSame (f, g)
+        assertNotEquivalent (f, g)
+    }
+
+    @Ignore
+    @Test
+    def testLambda2Param () {
+        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
+        //val funF = fun (f)
+
+        val x = fresh[Int]
+        val y = fresh[Int]
+        val body = f (x, y)
+
+        //val params: Rep[(Int, Int)] = (x, y)
+        //val funG = dynamicLambda (params, body)
+        //assertEquals (funF, funG)
+    }
 }

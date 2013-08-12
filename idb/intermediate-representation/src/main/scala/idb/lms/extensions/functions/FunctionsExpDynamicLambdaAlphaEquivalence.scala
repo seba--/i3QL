@@ -32,8 +32,8 @@
  */
 package idb.lms.extensions.functions
 
-import idb.lms.extensions.equivalence.FunctionsExpAlphaEquivalence
 import scala.reflect.SourceContext
+import idb.lms.extensions.equivalence.FunctionsExpAlphaEquivalence
 
 /**
  *
@@ -41,54 +41,18 @@ import scala.reflect.SourceContext
  *
  */
 
-class FunctionsExpDefAlphaEquivalence
-    extends FunctionsExpAlphaEquivalence
+trait FunctionsExpDynamicLambdaAlphaEquivalence
+    extends FunctionsExpDynamicLambda
+    with FunctionsExpAlphaEquivalence
 {
 
-    override def doLambda[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
+    override def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
+        implicit val ma = x.tp
+        implicit val mb = body.tp
 
-        val (lambdas, defs) = reifySubGraph {
-            val eNew = findOrCreateDefinitionExp (doLambdaDef (f), List (pos))
-            val eOld = getFirstEquivalentDefinitionExp (eNew)
-            (eNew, eOld)
-        }
-
-        if( lambdas._1 == lambdas._2) {
-            reflectSubGraph(defs)
-        }
-        lambdas._2
+        createOrFindEquivalent ({ dynamicLambdaDef (x, body) })
     }
 
-    def getFirstEquivalentDefinitionExp[T] (e: Exp[T]): Exp[T] =
-        globalDefs.collectFirst { case TP (sym: Sym[T], _) if sym == e || isEquivalent (sym, e) => sym }.get
 
-
-    def infix_equivalent[A] (stm: Stm, other: Exp[A]): Option[Sym[A]] =
-        stm match {
-            case TP (sym: Sym[A], _) if sym == other || isEquivalent (sym, other) => Some (sym)
-            case _ => None
-        }
-
-
-    /*
-    def toExp[T](s: Def[T]): Exp[T] = findDefinition(s).flatMap(_.defines(s)).get
-
-    def infix_equivalent[A] (stm: Stm, rhs: Def[A]): Option[Sym[A]] =
-        stm match {
-            case TP (sym: Sym[A], other) if isEquivalent (toExp(rhs), toExp(other)) => Some (sym)
-            case _ => None
-        }
-
-
-    def findEquivalentDefinition[T] (d: Def[T]): Option[Stm] =
-        globalDefs.find (x => x.equivalent (d).nonEmpty)
-
-    def findEquivalentOrCreateDefinition[T: Manifest] (d: Def[T], pos: List[SourceContext]): Stm =
-        findEquivalentDefinition[T](d) map { x => x.defines (d).foreach (_.withPos (pos)); x } getOrElse {
-            createDefinition (fresh[T](pos), d)
-        }
-
-    def finsEquivalentOrCreateDefinitionExp[T: Manifest] (d: Def[T], pos: List[SourceContext]): Exp[T] =
-        findEquivalentOrCreateDefinition (d, pos).defines (d).get
-    */
 }
+
