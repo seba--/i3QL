@@ -30,10 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Test
+import scala.virtualization.lms.common.DSLOpsExp
 
 /**
  *
@@ -41,35 +40,12 @@ import org.junit.Test
  *
  */
 
-class TestCompositions
-//extends FunctionsExp
+trait DSLOpsExpAlphaEquivalence
+    extends DSLOpsExp
+    with BaseExpAlphaEquivalence
 {
 
-    @Test
-    def testComposition () {
-        val rep1 = new Rep1
-        val rep2 = new Rep2
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        super.isEquivalent (a, b) // TODO implement this
 
-        val f1 = rep1.f ()
-        val f2 = rep2.f ()
-
-        //println (f1)
-        //println (f2)
-    }
-
-}
-
-class Rep extends LiftAll with ScalaOpsPkgExp
-
-class Rep1 extends Rep
-{
-
-    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 1
-
-}
-
-class Rep2 extends Rep
-{
-
-    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 2
 }

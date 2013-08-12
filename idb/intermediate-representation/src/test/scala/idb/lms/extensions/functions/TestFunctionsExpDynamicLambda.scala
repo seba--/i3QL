@@ -30,59 +30,68 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.functions
 
+import scala.virtualization.lms.common._
 import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
 import org.junit.Assert._
+import idb.lms.extensions.equivalence._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+
+class TestFunctionsExpDynamicLambda
+    extends FunctionsExpDynamicLambda
+    with FunctionsExpAlphaEquivalence
+    with NumericOpsExpAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
+    with LiftAll
+    with AssertAlphaEquivalence
 {
 
     @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
+    def testLambda1Param () {
+        val f = (i: Rep[Int]) => {1 + i }
+        val x = fresh[Int]
+        val body = f (x)
+        val g = dynamicLambda (x, body)
 
-        assertSame (fun (f1), fun (f2))
-
+        assertNotSame (fun (f), g)
+        assertEquivalent (fun (f), g)
     }
 
+
     @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testLambda1ParamDynamicApplyOnRep () {
+        val f = fun ((i: Rep[Int]) => {1 + i })
+        val x = fresh[Int]
+        val body = f (x)
+        val g = dynamicLambda (x, body)
 
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
+        // these functions are not alpha equivalent,
+        // but the second one can be simplified to an alpha equivalent expression
+        // f = \x. 1 + x
+        // g = \x. (\y. 1 + y) x
+        assertNotSame (f, g)
+        assertNotEquivalent (f, g)
     }
 
     @Ignore
     @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testLambda2Param () {
+        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
+        //val funF = fun (f)
 
-        val f4 = (x: Rep[Int]) => x > 0 == true
+        val x = fresh[Int]
+        val y = fresh[Int]
+        val body = f (x, y)
 
-        assertSame (fun (f3), fun (f4))
+        //val params: Rep[(Int, Int)] = (x, y)
+        //val funG = dynamicLambda (params, body)
+        //assertEquals (funF, funG)
     }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
-    }
-
 }

@@ -30,59 +30,73 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
+import scala.virtualization.lms.common.LiftAll
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+class TestNumericOpsExpAlphaEquivalence
+    extends LiftAll with FunctionsExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
     @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
+    def testBoundVarsEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
 
-        assertSame (fun (f1), fun (f2))
-
+        assertEquivalent (f1, f2)
     }
 
     @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testFreeVarsNotEq () {
+        val u = fresh[Int]
+        val v = fresh[Int]
+        val f1 = fun ((x: Rep[Int]) => u)
+        val f2 = fun ((y: Rep[Int]) => v)
 
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
+        assertNotEquivalent (f1, f2)
     }
 
-    @Ignore
+
     @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testConstEq () {
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (1))
 
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
+        assertEquivalent (f1, f2)
     }
 
     @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
+    def testConstNotEq () {
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (5))
 
-        assertSame (fun (f1), fun (f2))
+        assertNotEquivalent (f1, f2)
     }
 
+    @Test
+    def testApplicationEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (v)))
+
+        assertEquivalent (f3, f4)
+    }
+
+    @Test
+    def testApplicationNotEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (unit(1))))
+
+        assertNotEquivalent (f3, f4)
+    }
 }

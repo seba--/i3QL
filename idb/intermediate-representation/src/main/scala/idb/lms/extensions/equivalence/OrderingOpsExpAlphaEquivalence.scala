@@ -30,73 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import org.junit.Test
-import org.junit.Assert._
-import scala.virtualization.lms.common._
+import scala.virtualization.lms.common.OrderingOpsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestFunctionConversion
-    extends BaseFatExp
-    with NumericOpsExp
-    with EffectExp
-    with EqualExp
-    with TupledFunctionsExp
-    with TupleOpsExp
-    with FunctionsExpOptAlphaEquivalence
-    with ExpressionUtils
-    with LiftAll
-    with FunctionCreator
+
+trait OrderingOpsExpAlphaEquivalence
+    extends OrderingOpsExp
+    with BaseExpAlphaEquivalence
 {
 
-
-    @Test
-    def testFun1Recreate () {
-        val f = (i: Rep[Int]) => {1 + i }
-        val x = fresh[Int]
-        val body = f (x)
-
-        val g = recreateFun (x, body)
-
-        assertEquals (fun (f), fun (g))
-    }
-
-    @Test
-    def testFun2Recreate () {
-        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
-        val funF = fun (f)
-
-        val x = fresh[Int]
-        val y = fresh[Int]
-        val body = f (x, y)
-
-        val params: Rep[(Int, Int)] = (x, y)
-
-        val g = recreateFun (params, body)
-
-        val funG = fun (g)
-        assertEquals (funF, funG)
-    }
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (Def (OrderingLT (x, y)), Def (OrderingLT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingLTEQ (x, y)), Def (OrderingLTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingGT (x, y)), Def (OrderingGT (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingGTEQ (x, y)), Def (OrderingGTEQ (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingEquiv (x, y)), Def (OrderingEquiv (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingMax (x, y)), Def (OrderingMax (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case (Def (OrderingMin (x, y)), Def (OrderingMin (u, v))) => isEquivalent (x, u) && isEquivalent (y, v)
+            case _ => super.isEquivalent (a, b)
+        }
 
 
-    @Test
-    def testFun2AsUnboxedTupleRecreate () {
-        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
-        val funF = fun (f)
-
-        val x = fresh[Int]
-        val y = fresh[Int]
-        val body = f (x, y)
-
-        val params: Rep[(Int, Int)] = UnboxedTuple (List (x, y))
-
-        val g = recreateFun (params, body)
-
-        val funG = fun (g)
-        assertEquals (funF, funG)
-    }
 }

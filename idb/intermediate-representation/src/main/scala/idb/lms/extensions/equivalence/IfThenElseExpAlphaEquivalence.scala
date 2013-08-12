@@ -30,59 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
+import scala.virtualization.lms.common.IfThenElseExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+
+trait IfThenElseExpAlphaEquivalence
+    extends IfThenElseExp
+    with BaseExpAlphaEquivalence
 {
 
-    @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f1), fun (f2))
-
-    }
-
-    @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
-    }
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (Def (IfThenElse (c1, Block(y1), Block(n1))), Def (IfThenElse (c2, Block(y2), Block(n2)))) =>
+                isEquivalent (c1, c2) && isEquivalent (y1, y2) && isEquivalent (n1, n2)
+            case _ => super.isEquivalent (a, b)
+        }
 
 }

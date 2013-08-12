@@ -34,10 +34,10 @@ package idb.algebra.opt
 
 import org.junit.Test
 import org.junit.Assert._
-import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import scala.virtualization.lms.common.LiftAll
 import idb.algebra.TestUtils
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
+import idb.lms.extensions.equivalence.{FunctionsExpDefAlphaEquivalence, ScalaOpsPkgExpAlphaEquivalence}
 
 /**
  *
@@ -45,24 +45,20 @@ import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
  *
  */
 class TestIROptFusion
-    extends LiftAll
-    with ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
-    with RelationalAlgebraIRFuseBasicOperators
+    extends RelationalAlgebraIRFuseBasicOperators
+    with ScalaOpsPkgExpAlphaEquivalence
+    with LiftAll
     with TestUtils
 {
-
-    // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
-    assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
     @Test
     def testSelectionFusion () {
 
-        val f1 = (x: Rep[Int]) => x > 0
-        val f2 = (x: Rep[Int]) => x < 1000
+        val f1 = fun((x: Rep[Int]) => x > 0)
+        val f2 = fun((x: Rep[Int]) => x < 1000)
         val expA = selection (selection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
+        val f3 = (x: Rep[Int]) => f1(x) && f2(x) //(x > 0) && (x < 1000)
 
         val expB = selection (emptyRelation[Int](), f3)
 
@@ -84,13 +80,13 @@ class TestIROptFusion
 
         val base = emptyRelation[Impl]()
 
-        val f1 = (x: Rep[A]) => x.isA
+        val f1 = fun((x: Rep[A]) => x.isA)
 
-        val f2 = (x: Rep[B]) => x.isB
+        val f2 = fun((x: Rep[B]) => x.isB)
 
         val expA = selection (selection (base, f1), f2)
 
-        val f3 = (x: Rep[Impl]) => x.isA && x.isB
+        val f3 = (x: Rep[Impl]) => f1(x) && f2(x) // x.isA && x.isB
 
         val expB = selection (base, f3)
         assertEquals (expB, expA)
@@ -108,13 +104,13 @@ class TestIROptFusion
 
         val base = emptyRelation[Impl]()
 
-        val f1 = (x: Rep[A]) => x.isA1
+        val f1 = fun((x: Rep[A]) => x.isA1)
 
-        val f2 = (x: Rep[A]) => x.isA2
+        val f2 = fun((x: Rep[A]) => x.isA2)
 
         val expA = selection (selection (base, f1), f2)
 
-        val f3 = (x: Rep[A]) => x.isA1 && x.isA2
+        val f3 = (x: Rep[A]) =>  f1(x) && f2(x) // x.isA1 && x.isA2
 
         val expB = selection (base, f3)
         assertEquals (expB, expA)
@@ -133,13 +129,13 @@ class TestIROptFusion
 
         val base = emptyRelation[Impl]()
 
-        val f1 = (x: Rep[A]) => x.isA1
+        val f1 = fun((x: Rep[A]) => x.isA1)
 
-        val f2 = (x: Rep[A]) => x.isA2
+        val f2 = fun((x: Rep[A]) => x.isA2)
 
         val expA = selection (selection (base, f1), f2)
 
-        val f3 = (x: Rep[Impl]) => x.isA1 && x.isA2
+        val f3 = (x: Rep[Impl]) => f1(x) && f2(x) // x.isA1 && x.isA2
 
         val expB = selection (base, f3)
         assertEquals (expB, expA)
@@ -148,11 +144,11 @@ class TestIROptFusion
     @Test
     def testProjectionFusion () {
 
-        val f1 = (x: Rep[Int]) => x + 1
-        val f2 = (x: Rep[Int]) => x + 2
+        val f1 = fun((x: Rep[Int]) => x + 1)
+        val f2 = fun((x: Rep[Int]) => x + 2)
         val expA = projection (projection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) => x + 3
+        val f3 = (x: Rep[Int]) => f2(f1(x)) // x + 3
 
         val expB = projection (emptyRelation[Int](), f3)
 

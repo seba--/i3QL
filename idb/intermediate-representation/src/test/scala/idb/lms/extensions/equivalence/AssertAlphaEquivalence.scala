@@ -32,23 +32,26 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.LiftAll
-import org.junit.Test
+import org.junit.Assert._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestBasicAlphaEquivalence
-    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
+trait AssertAlphaEquivalence
+    extends BaseAlphaEquivalence
 {
 
-    @Test
-    def testSameMethodBody () {
-        assertEquivalentReified (
-            (x: Rep[Int]) => x + 1,
-            (y: Rep[Int]) => y + 1
-        )
+    def assertEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
+        val msg = "<" + a + "> must be equivalent to " + b
+        assertTrue (msg, isEquivalent (a, b))
+        assertTrue (msg, isEquivalent (b, a))
+    }
+
+    def assertNotEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming) {
+        val msg = "<" + a + "> must not be equivalent to " + b
+        assertFalse (msg, isEquivalent (a, b))
+        assertFalse (msg, isEquivalent (b, a))
     }
 
 

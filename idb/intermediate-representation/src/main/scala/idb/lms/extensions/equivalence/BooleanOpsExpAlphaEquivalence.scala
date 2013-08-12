@@ -32,25 +32,24 @@
  */
 package idb.lms.extensions.equivalence
 
-import org.junit.Assert._
+import scala.virtualization.lms.common.BooleanOpsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait LMSTestUtils extends BaseAlphaEquivalence
+
+trait BooleanOpsExpAlphaEquivalence
+    extends BooleanOpsExp
+    with BaseExpAlphaEquivalence
 {
 
-    def assertSameReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertSame (f1, f2)
-    }
-
-
-    def assertEquivalentReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertTrue (
-            isEquivalent (f1, f2)
-        )
-    }
-
-
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a,b) match {
+            case (Def(BooleanNegate(x)), Def(BooleanNegate(y))) => isEquivalent(x, y)
+            case (Def(BooleanAnd(x,y)), Def(BooleanAnd(u,v))) => isEquivalent(x, u) && isEquivalent(y, v)
+            case (Def(BooleanOr(x,y)), Def(BooleanOr(u,v))) => isEquivalent(x, u) && isEquivalent(y, v)
+            case _ => super.isEquivalent (a, b)
+        }
 }

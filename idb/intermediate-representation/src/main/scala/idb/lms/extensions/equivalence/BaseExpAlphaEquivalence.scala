@@ -33,6 +33,8 @@
 package idb.lms.extensions.equivalence
 
 import scala.virtualization.lms.common.BaseExp
+import scala.collection.mutable
+import scala.reflect.SourceContext
 
 /**
  *
@@ -45,20 +47,71 @@ trait BaseExpAlphaEquivalence
     with BaseAlphaEquivalence
 {
 
-    def isEquivalent[A: Manifest, B: Manifest] (a: Exp[A], b: Exp[B]): Boolean = {
+    type VarExp[+T] = Sym[T]
+
+    def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
             case (Const (x), Const (y)) => x == y
             //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
 
-            case (Def (x), Def (y)) =>
+            case (Def (x), Def (y)) if x.getClass.isAssignableFrom (y.getClass) || y.getClass
+                .isAssignableFrom (x.getClass) =>
                 throw new IllegalArgumentException (
                     "Expression types are unknown to alpha equivalence: " + x + " =?= " + y)
 
-            case (Sym(x), Sym(y)) => x == y || a.tp <:< b.tp || b.tp <:< a.tp
+            case (x: Sym[_], y: Sym[_]) => x == y || renamings.canRename (x, y)
 
-            case _ => throw new
-                    IllegalArgumentException ("Expression types are unknown to alpha equivalence: " + a + " =?= " + b)
+            case (x: Sym[_], y: Const[_]) => false
+
+            case (x: Const[_], y: Sym[_]) => false
+
+            case _ => false
         }
+
+    class MultiMapVariableRenamings ()
+        extends VariableRenamings
+    {
+
+        private val map: mutable.MultiMap[VarExp[Any], VarExp[Any]] =
+            new mutable.HashMap[VarExp[Any], mutable.Set[VarExp[Any]]] with mutable.MultiMap[VarExp[Any], VarExp[Any]]
+
+        def add[T] (x: VarExp[T], y: VarExp[T]): VariableRenamings = {
+            map.addBinding (x, y)
+            map.addBinding (y, x)
+            this
+        }
+
+        def canRename[T] (x: VarExp[T], y: VarExp[T]): Boolean = {
+            map.entryExists (x, _ == y)
+        }
+
     }
+
+    def emptyRenaming = new MultiMapVariableRenamings ()
+
+    /**
+     * Create a definition or find an equivalent one
+     */
+    def createOrFindEquivalent[T: Manifest] (doCreate: => Def[T])(implicit pos: SourceContext): Exp[T] = {
+        // with reifySubGraph the whole reification is done without saving all nodes
+        val ((createdExp, equivalentExp), defs) = reifySubGraph {
+            val eNew = findOrCreateDefinitionExp (doCreate, List (pos))
+            val eOld = getFirstEquivalentDefinitionExp (eNew)
+            (eNew, eOld)
+        }
+        // if we have created a new function, i.e., not found another alpha equivalent one, save the nodes
+        // saving is done by reflectSubGraph
+        if (createdExp == equivalentExp) {
+            reflectSubGraph (defs)
+        }
+        equivalentExp
+    }
+
+    /**
+     * Find the first equivalent definition, assumes at least the exp itself is stored as a definition
+     */
+    def getFirstEquivalentDefinitionExp[T] (e: Exp[T]): Exp[T] =
+        globalDefs.collectFirst { case TP (sym: Sym[T], _) if sym == e || isEquivalent (sym, e) => sym }.get
+
 
 }

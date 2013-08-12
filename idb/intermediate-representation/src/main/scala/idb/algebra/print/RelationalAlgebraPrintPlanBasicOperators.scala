@@ -48,6 +48,8 @@ trait RelationalAlgebraPrintPlanBasicOperators
 
     override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators
 
+
+
     import IR.Exp
     import IR.Def
     import IR.Projection

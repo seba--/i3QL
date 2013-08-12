@@ -34,7 +34,8 @@ package idb.algebra.opt
 
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionsExpOptAlphaEquivalence, FunctionCreator, FunctionUtils, ExpressionUtils}
+import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
+import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
 /**
  *
@@ -51,8 +52,7 @@ trait RelationalAlgebraIROptPushSelect
     with EqualExp
     with ExpressionUtils
     with FunctionUtils
-    with FunctionCreator
-    with FunctionsExpOptAlphaEquivalence
+    with FunctionsExpDynamicLambdaAlphaEquivalence
 {
 
     /**
@@ -122,14 +122,14 @@ trait RelationalAlgebraIROptPushSelect
         val functionParameters = parameters (function)
         if (freeV.size == 2) {
             return (
-                Some (recreateFunRepDynamic (functionParameters (0), functionBody)),
-                Some (recreateFunRepDynamic (functionParameters (1), functionBody))
+                Some (dynamicLambda (functionParameters (0), functionBody)),
+                Some (dynamicLambda (functionParameters (1), functionBody))
                 )
         }
 
         functionParameters.indexOf (freeV (0)) match {
-            case 0 => (None, Some (recreateFunRepDynamic (functionParameters (1), functionBody)))
-            case 1 => (Some (recreateFunRepDynamic (functionParameters (0), functionBody)), None)
+            case 0 => (None, Some (dynamicLambda (functionParameters (1), functionBody)))
+            case 1 => (Some (dynamicLambda (functionParameters (0), functionBody)), None)
         }
 
     }

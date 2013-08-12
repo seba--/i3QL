@@ -30,59 +30,57 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
+import scala.virtualization.lms.common.LiftAll
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+class TestBaseExpAlphaEquivalence
+    extends LiftAll with BaseExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
     @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
+    def testBoundVarsEq () {
+        val x = fresh[Int]
+        val y = fresh[Int]
 
-        assertSame (fun (f1), fun (f2))
-
+        assertEquivalent (x, y)(emptyRenaming.add (x, y))
     }
 
     @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testFreeVarsNotEq () {
+        val x = fresh[Int]
+        val y = fresh[Int]
 
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
+        assertNotEquivalent (x, y)
     }
 
-    @Ignore
+
     @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+    def testConstEq () {
+        val x = unit (1)
+        val y = unit (1)
 
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
+        assertEquivalent (x, y)
     }
 
     @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
+    def testConstNotEq () {
+        val x = unit (1)
+        val y = unit (5)
 
-        assertSame (fun (f1), fun (f2))
+        assertNotEquivalent (x, y)
     }
 
+    @Test
+    def testConstVarsNotEq () {
+        val x = fresh[Int]
+        val y = unit(1)
+
+        assertNotEquivalent (x, y)
+    }
 }

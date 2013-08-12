@@ -30,59 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.functions
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
+import scala.reflect.SourceContext
+import idb.lms.extensions.equivalence.FunctionsExpAlphaEquivalence
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+
+trait FunctionsExpDynamicLambdaAlphaEquivalence
+    extends FunctionsExpDynamicLambda
+    with FunctionsExpAlphaEquivalence
 {
 
-    @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
+    override def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
+        implicit val ma = x.tp
+        implicit val mb = body.tp
 
-        assertSame (fun (f1), fun (f2))
-
+        createOrFindEquivalent ({ dynamicLambdaDef (x, body) })
     }
 
-    @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
-    }
 
 }
+

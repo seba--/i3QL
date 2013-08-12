@@ -40,9 +40,10 @@ import org.junit.{Ignore, Test}
  * @author Ralf Mitschke
  */
 class TestOptimizedAlphaEquivalence
-    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
+    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence
 {
 
+    /*
     @Ignore
     @Test
     def testConstantFolding () {
@@ -68,5 +69,6 @@ class TestOptimizedAlphaEquivalence
             (y: Rep[Int]) => y + 3
         )
     }
+    */
 
 }

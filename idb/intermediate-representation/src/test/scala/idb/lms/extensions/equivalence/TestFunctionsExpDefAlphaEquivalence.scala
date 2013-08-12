@@ -30,59 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Test
 import org.junit.Assert._
+import scala.virtualization.lms.common.LiftAll
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+
+class TestFunctionsExpDefAlphaEquivalence
+    extends FunctionsExpDefAlphaEquivalence
+    with FunctionsExpAlphaEquivalence
+    with NumericOpsExpAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
+    with LiftAll
 {
 
     @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
+    def testLambda1Param () {
+        val f = fun ((i: Rep[Int]) => {1 + i })
+        val g = fun ((j: Rep[Int]) => {1 + j })
 
-        assertSame (fun (f1), fun (f2))
-
-    }
-
-    @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
+        assertSame (f, g)
     }
 
 }

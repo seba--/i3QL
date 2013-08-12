@@ -5,17 +5,17 @@
  *  Technische Universität Darmstadt
  *  All rights reserved.
  *
- *  Redistribution and use in source and binary forms, with or without
+ *  Redistribution and use in source and binary forms,AlphaEquivalence with orAlphaEquivalence without
  *  modification, are permitted provided that the following conditions are met:
  *
  *  - Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
+ *    and/or other materials providedAlphaEquivalence with the distribution.
  *  - Neither the name of the Software Technology Group or Technische
  *    Universität Darmstadt nor the names of its contributors may be used to
- *    endorse or promote products derived from this software without specific
+ *    endorse or promote products derived from this softwareAlphaEquivalence without specific
  *    prior written permission.
  *
  *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.Base
+import scala.virtualization.lms.common.ScalaOpsPkgExp
 
 /**
  *
@@ -41,17 +41,34 @@ import scala.virtualization.lms.common.Base
  */
 
 trait ScalaOpsPkgExpAlphaEquivalence
-    extends Base // ScalaOpsPkg
+    extends ScalaOpsPkgExp
+    with ImplicitOpsExpAlphaEquivalence
     with NumericOpsExpAlphaEquivalence
+    with FractionalOpsExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
+    with StringOpsExpAlphaEquivalence
+    with RangeOpsExpAlphaEquivalence
+    with IOOpsExpAlphaEquivalence
+    with ArrayOpsExpAlphaEquivalence
+    with BooleanOpsExpAlphaEquivalence
+    with PrimitiveOpsExpAlphaEquivalence
+    with MiscOpsExpAlphaEquivalence
     with FunctionsExpAlphaEquivalence
-    // TODO should look like this with alpha equivalence
-    /*
-    with ImplicitOpsExp with NumericOpsExp with FractionalOpsExp with OrderingOpsExp with StringOpsExp
-    with RangeOpsExp with IOOpsExp with ArrayOpsExp with BooleanOpsExp with PrimitiveOpsExp with MiscOpsExp
-    with FunctionsExp with EqualExp with IfThenElseExp with VariablesExp with WhileExp with TupleOpsExp with ListOpsExp
-    with SeqOpsExp with DSLOpsExp with MathOpsExp with CastingOpsExp with SetOpsExp with ObjectOpsExp with
-    ArrayBufferOpsExp
-    */
+    // the trait below ensures that alpha equivalent functions are reflected via the same sym
+    with FunctionsExpDefAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with IfThenElseExpAlphaEquivalence
+    with VariablesExpAlphaEquivalence
+    with WhileExpAlphaEquivalence
+    with TupleOpsExpAlphaEquivalence
+    with ListOpsExpAlphaEquivalence
+    with SeqOpsExpAlphaEquivalence
+    with DSLOpsExpAlphaEquivalence
+    with MathOpsExpAlphaEquivalence
+    with CastingOpsExpAlphaEquivalence
+    with SetOpsExpAlphaEquivalence
+    with ObjectOpsExpAlphaEquivalence
+    with ArrayBufferOpsExpAlphaEquivalence
 {
 
 }

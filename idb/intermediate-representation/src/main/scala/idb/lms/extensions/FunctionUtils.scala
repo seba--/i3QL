@@ -53,7 +53,7 @@ trait FunctionUtils
     }
 
     def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
-        parameter(function) match {
+        parameter (function) match {
             case UnboxedTuple (xs) => xs
             case x => List (x)
         }
@@ -61,8 +61,8 @@ trait FunctionUtils
 
     def parameter[A, B] (function: Exp[A => B]): Exp[A] = {
         function match {
-            case Def (Lambda (_, x:Exp[A], _)) => x
-            case c@Const (_) => unboxedFresh[A] (c.tp.typeArguments (0).typeArguments (0).asInstanceOf[Manifest[A]])
+            case Def (Lambda (_, x: Exp[A], _)) => x
+            case c@Const (_) => unboxedFresh[A](c.tp.typeArguments (0).typeArguments (0).asInstanceOf[Manifest[A]])
             case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
@@ -88,7 +88,7 @@ trait FunctionUtils
     def body[A, B] (function: Exp[A => B]): Exp[B] = {
         function match {
             case Def (Lambda (_, _, Block (b))) => b
-            case c: Const[B] => c
+            case c: Const[B@unchecked] => c // a constant function returns a value of type B
             case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
