@@ -32,14 +32,13 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators,
+RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import idb.operators.impl.opt._
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
-import scala.virtualization.lms.common.FunctionsExp
-import idb.MaterializedView
 
 /**
  *
@@ -52,73 +51,85 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 {
 
     val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraGenSAEBinding
-		with FunctionsExp
+        with RelationalAlgebraIRSetTheoryOperators
+        with RelationalAlgebraIRRecursiveOperators
+        with RelationalAlgebraIRAggregationOperators
+        with RelationalAlgebraGenSAEBinding
+        with FunctionsExp
 
-    import IR._
+    import IR.Rep
+    import IR.Def
+    import IR.Query
+    import IR.Relation
+    import IR.AggregationSelfMaintained
+    import IR.AggregationSelfMaintainedWithoutGrouping
+    import IR.Grouping
 
     // TODO incorporate set semantics into ir
     override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-			case Def (e@AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
-				if (e.isIncrementLocal)
-					TransactionalAggregation(compile(r),
-						compileFunctionWithDynamicManifests(fGroup),
-						compileFunctionWithDynamicManifests(fAdd),
-						compileFunctionWithDynamicManifests(fRemove),
-						compileFunctionWithDynamicManifests(fUpdate),
-						compileFunctionWithDynamicManifests(fConvert),
-						false
-					)
-				else
-					AggregationForSelfMaintainableFunctions(compile(r),
-						compileFunctionWithDynamicManifests(fGroup),
-						compileFunctionWithDynamicManifests(fAdd),
-						compileFunctionWithDynamicManifests(fRemove),
-						compileFunctionWithDynamicManifests(fUpdate),
-						compileFunctionWithDynamicManifests(fConvert),
-						false
-					)
-			}
+            case Def (e@AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
+                if (e.isIncrementLocal)
+                    TransactionalAggregation (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fGroup),
+                        compileFunctionWithDynamicManifests (fAdd),
+                        compileFunctionWithDynamicManifests (fRemove),
+                        compileFunctionWithDynamicManifests (fUpdate),
+                        compileFunctionWithDynamicManifests (fConvert),
+                        false
+                    )
+                else
+                    AggregationForSelfMaintainableFunctions (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fGroup),
+                        compileFunctionWithDynamicManifests (fAdd),
+                        compileFunctionWithDynamicManifests (fRemove),
+                        compileFunctionWithDynamicManifests (fUpdate),
+                        compileFunctionWithDynamicManifests (fConvert),
+                        false
+                    )
+            }
 
-			case Def (e@AggregationSelfMaintainedWithoutGrouping (r, fAdd, fRemove, fUpdate)) => {
-				if (e.isIncrementLocal)
-					TransactionalAggregation(compile(r),
-						compileFunctionWithDynamicManifests(fAdd),
-						compileFunctionWithDynamicManifests(fRemove),
-						compileFunctionWithDynamicManifests(fUpdate),
-						false
-					)
-				else
-					AggregationForSelfMaintainableFunctions(compile(r),
-						compileFunctionWithDynamicManifests(fAdd),
-						compileFunctionWithDynamicManifests(fRemove),
-						compileFunctionWithDynamicManifests(fUpdate),
-						false
-					)
-			}
+            case Def (e@AggregationSelfMaintainedWithoutGrouping (r, fAdd, fRemove, fUpdate)) => {
+                if (e.isIncrementLocal)
+                    TransactionalAggregation (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fAdd),
+                        compileFunctionWithDynamicManifests (fRemove),
+                        compileFunctionWithDynamicManifests (fUpdate),
+                        false
+                    )
+                else
+                    AggregationForSelfMaintainableFunctions (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fAdd),
+                        compileFunctionWithDynamicManifests (fRemove),
+                        compileFunctionWithDynamicManifests (fUpdate),
+                        false
+                    )
+            }
 
-			case Def (e@Grouping(r, fGroup)) => {
-				if (e.isIncrementLocal)
-					TransactionalAggregation(compile(r),
-						compileFunctionWithDynamicManifests(fGroup),
-						false
-				)
-				else
-				AggregationForSelfMaintainableFunctions(compile(r),
-					compileFunctionWithDynamicManifests(fGroup),
-					false
-				)
-			}
+            case Def (e@Grouping (r, fGroup)) => {
+                if (e.isIncrementLocal)
+                    TransactionalAggregation (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fGroup),
+                        false
+                    )
+                else
+                    throw new UnsupportedOperationException ("compiling grouping needs implementation")
+                /*
+                    AggregationForSelfMaintainableFunctions (
+                        compile (r),
+                        compileFunctionWithDynamicManifests (fGroup),
+                        false
+                    )
+                    */
+            }
 
 
-
-
-
-			case _ => super.compile (query)
+            case _ => super.compile (query)
         }
     }
 

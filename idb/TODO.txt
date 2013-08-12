@@ -1,3 +1,10 @@
+Implementation:
+
+
+Marked with UnsupportedOperationExceptions:
+- Aggregation with only grouping needs implementation in runtime compiler
+
+
 Functions with multiple parameters and functions on tuples create the same representation (see below)
 How does this work with code generation (since we definitely pass tuples as results of cross products.
 val q2 =selection (
