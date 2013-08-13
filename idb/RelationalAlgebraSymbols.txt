@@ -1,0 +1,22 @@
+Basic Operators:
+Selection       σ
+Projection      Π
+CrossProduct    ×
+DuplicateElim.  δ
+Join            ⋈
+
+AggregateOperators:
+Aggregation     γ
+
+Set Theory Operators:
+UnionAdd        ⊎
+UnionMax        ∪
+Intersection    ∩
+Difference      -
+
+Derived Operators:
+SemiJoin        ⋉
+AntiSemiJoin    ⊳
+
+Others (unused):
+Sorting         τ

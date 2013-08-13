@@ -61,7 +61,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
                     body.res match {
                         // de-correlation of EXISTS( SELECT .... )
-                        case Def (exists: ExistsCondition [Any, Domain]) =>
+                        case Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]) =>
                             naturalJoin (
                                 relation,
                                 duplicateElimination (

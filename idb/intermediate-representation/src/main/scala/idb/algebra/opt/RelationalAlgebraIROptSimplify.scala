@@ -82,6 +82,7 @@ trait RelationalAlgebraIROptSimplify
             super.projection (relation, function)
         }
 
+
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
