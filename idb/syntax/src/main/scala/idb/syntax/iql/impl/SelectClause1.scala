@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case class SelectClause1[Select: Manifest, Range: Manifest] (
-    projection: Rep[Select => Range],
+    projection: FUNCTION_1[Select, Range],
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_1[Select, Range]
@@ -54,5 +54,15 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ) = FromSelect1Clause2(relationA,relationB,this)
+
+}
+
+object SelectClause1 {
+
+	def apply[Select : Manifest, Range : Manifest](
+		projection : Rep[Select] => Rep[Range],
+		asDistinct : Boolean
+	) : SelectClause1[Select, Range] =
+		SelectClause1(ProjectionFunction1(projection), asDistinct)
 
 }

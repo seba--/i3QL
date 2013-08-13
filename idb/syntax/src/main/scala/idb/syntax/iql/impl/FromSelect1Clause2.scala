@@ -26,7 +26,7 @@ case class FromSelect1Clause2[Select : Manifest, DomainA: Manifest, DomainB : Ma
 		GroupedWhereClause2(predicate, this)
 
     def GROUP (
-        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Select]
+        grouping: (Rep[(DomainA,DomainB)]) => Rep[Select]
     ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
         GroupByClause2(grouping, this)
 }

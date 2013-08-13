@@ -44,6 +44,22 @@ import idb.syntax.iql.IR._
 trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
 
+	def added[Domain] (v: Rep[Domain],
+		previousResult: Rep[Range],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
+	def removed[Domain] (v: Rep[Domain],
+		previousResult: Rep[Range],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
+	def updated[Domain] (oldV: Rep[Domain],
+		newV : Rep[Domain],
+		previousResult: Rep[Range],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
     def apply[Domain: Manifest] (
         column: Rep[Domain] => Rep[Column]
     ): AGGREGATE_FUNCTION_1[Domain, Range] =

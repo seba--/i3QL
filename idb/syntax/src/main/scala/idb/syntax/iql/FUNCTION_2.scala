@@ -30,22 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
-
-import idb.syntax.iql.IR._
-import idb.syntax.iql._
+package idb.syntax.iql
 
 /**
  *
- * The top level where clause has its own type since we can compile this to a query of type Range
- *
  * @author Ralf Mitschke
+ *
  */
-case class WhereClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-    predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
-    fromClause: FromClause2[SelectA, SelectB, DomainA, DomainB, Range]
-)
-    extends WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
+
+trait FUNCTION_2[-DomainA, -DomainB, Result]
 {
 
 }

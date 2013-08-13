@@ -280,7 +280,6 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
     @Test
     def testJoin2AggregateGroup1 () {
 
@@ -291,7 +290,7 @@ class TestBasicClauses2
             ) =>
             {
                 s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
+            }) GROUP BY ((pair : Rep[(Student, Registration)]) => pair._1.lastName)
         )
 
     }

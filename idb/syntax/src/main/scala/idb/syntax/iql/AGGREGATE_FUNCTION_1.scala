@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_1[Domain, Result]
+trait AGGREGATE_FUNCTION_1[-Domain, Result] extends FUNCTION_1[Domain, Result]
 {
 
 }

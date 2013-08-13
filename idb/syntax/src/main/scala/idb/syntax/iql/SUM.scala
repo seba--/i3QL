@@ -15,20 +15,20 @@ case object SUM
     def added[Domain] (v: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) =
+    ) : Rep[Int] =
         previousResult + column (v)
 
     def removed[Domain] (v: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) =
+    ) : Rep[Int] =
         previousResult - column (v)
 
     def updated[Domain] (oldV: Rep[Domain],
         newV: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) =
+    ) : Rep[Int] =
         previousResult - column (oldV) + column (newV)
 
 }

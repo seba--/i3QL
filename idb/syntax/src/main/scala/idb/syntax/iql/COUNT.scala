@@ -39,16 +39,26 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case object COUNT
-    extends AGGREGATE_FUNCTION_FACTORY[Int, Int]
+    extends AGGREGATE_FUNCTION_FACTORY[Any, Int]
 {
 
-    def added (v: Rep[Any], previousResult: Rep[Int]) =
-        previousResult + 1
+	def added[Domain] (v: Rep[Domain],
+		previousResult: Rep[Int],
+		column: Rep[Domain] => Rep[Any]
+	) : Rep[Int] =
+		previousResult + 1
 
-    def removed (v: Rep[Any], previousResult: Rep[Int]) =
-        previousResult - 1
+	def removed[Domain] (v: Rep[Domain],
+		previousResult: Rep[Int],
+		column: Rep[Domain] => Rep[Any]
+	) : Rep[Int] =
+		previousResult - 1
 
-    def updated (oldV: Rep[Any], newV: Rep[Any], previousResult: Rep[Int]) =
-        previousResult
+	def updated[Domain] (oldV: Rep[Domain],
+		newV : Rep[Domain],
+		previousResult: Rep[Int],
+		column: Rep[Domain] => Rep[Any]
+	) : Rep[Int] =
+		previousResult
 
 }

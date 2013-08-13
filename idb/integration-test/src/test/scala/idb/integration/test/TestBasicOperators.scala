@@ -47,16 +47,6 @@ import idb.syntax.iql.IR._
  */
 class TestBasicOperators
 {
-	@Test
-	def testMaterialize () {
-		val query = projection(students, (s : Student) => s)
-
-		query match {
-			case Def (r) => r.asInstanceOf[QueryBaseOps].isMaterialized
-			case _ => Predef.println("Oh oh!")
-		}
-	}
-
     @Test
     def testSelectFirstNameFromStudents () {
         val query = compile (
@@ -148,6 +138,7 @@ class TestBasicOperators
 		assertFalse(query.contains(reg3))
 	}
 
+	@Ignore
 	@Test
 	def testGetStudentMatriculationNumber () {
 		val query = compile(
@@ -181,6 +172,9 @@ class TestBasicOperators
 		assertFalse(query.contains(33333))
 	}
 
+
+	//TODO Re-enable this test as soon as materialized is re-enabled again
+	@Ignore
 	@Test
 	def testGetStudentPairs () {
 		val query = compile (
@@ -310,6 +304,26 @@ class TestBasicOperators
 
 
 	}
+
+	@Test
+	def testStudentNames() {
+		val query = compile (
+			SELECT (
+				(pair : Rep[(String, String)]) => pair._1 + " " + pair._2
+			) FROM students GROUP BY ((s: Rep[Student]) => (s.firstName, s.lastName))
+		).asMaterialized
+
+		val john = Student(11111, "John", "Doe")
+		val judy = Student(22222, "Judy", "Carter")
+		val jane = Student(33333, "Jane", "Doe")
+
+		students += john += judy += jane
+
+		assertTrue(query.contains("John Doe"))
+		assertTrue(query.contains("Judy Carter"))
+		assertTrue(query.contains("Jane Doe"))
+	}
+
 
 
 
