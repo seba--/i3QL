@@ -110,6 +110,7 @@ trait RelationalAlgebraIRRecursiveOperators
             case QueryExtent (e, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
+            // TODO why is sometimes the matched r used and sometimes e.relation?
             case Def (e@Projection (r, _)) =>
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)

@@ -70,7 +70,7 @@ trait QuoteFunction
                     }
                 }
             }
-                //stream.print (": " + y.tp)
+                stream.print (": " + y.tp)
                 stream.println (" => {")
                 addIndent ()
                 emitBlock (y)

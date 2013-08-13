@@ -42,7 +42,7 @@ import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPushSelect
+trait RelationalAlgebraIROptPushSelection
     extends RelationalAlgebraIRBasicOperators
     with BaseFatExp
     with LiftBoolean

@@ -76,7 +76,7 @@ trait RelationalAlgebraDerivedOperators
                         keyB
                     )
                 ),
-                List ((keyA, fun((key: Rep[Any]) => key)))
+                List ((keyA, fun((key: Rep[Any]) => key)(manifest[Any], manifest[Any])))
             ),
             (x: Rep[(DomainA, Any)]) => x._1
         )

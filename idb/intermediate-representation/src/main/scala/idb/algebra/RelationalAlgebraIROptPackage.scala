@@ -59,7 +59,8 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraDerivedOperators
     with RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIROptSimplify
-    with RelationalAlgebraIROptPushSelect
+    with RelationalAlgebraIROptPushSelection
+    //with RelationalAlgebraIROptPush
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIRNormalizeBasicOperators

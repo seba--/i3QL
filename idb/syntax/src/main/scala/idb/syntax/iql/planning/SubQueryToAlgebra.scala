@@ -79,9 +79,9 @@ object SubQueryToAlgebra
                 applyDistinct (
                     projection (
                         selection (
-                            //crossProduct (context, relation),
-                            extent(BagExtent.empty[(ContextRange, Domain)]),
-                            (ctx: Rep[ContextRange], dom: Rep[Domain]) => predicate (dom)
+                            crossProduct (context, relation),
+                            //extent(BagExtent.empty[(ContextRange, Domain)]),
+                            dynamicLambda( UnboxedTuple(scala.List(contextParameter, parameter(predicate))), body(predicate))
                         ),
                         (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
                     ),

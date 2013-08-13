@@ -46,14 +46,16 @@ trait TupledFunctionsExpAlphaEquivalence
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
             case (Def (Lambda (_, UnboxedTuple (varsA), ba)), Def (Lambda (_, UnboxedTuple (varsB), bb))) =>
-                (varsA == varsB && isEquivalent (ba.res, bb.res)) ||
-                    varsA.size == varsB.size &&
-                    isEquivalent (ba.res, bb.res)(
-                        varsA.zip (varsB).foldLeft (
-                            renamings
-                        )(
-                            (renamingsAcc: VariableRenamings, pair: (Exp[_], Exp[_])) =>
-                                renamingsAcc.add (pair._1.asInstanceOf[Sym[_]], pair._2.asInstanceOf[Sym[_]]))
+                ba.tp == bb.tp && (
+                    (varsA == varsB && isEquivalent (ba.res, bb.res)) ||
+                        varsA.size == varsB.size &&
+                            isEquivalent (ba.res, bb.res)(
+                                varsA.zip (varsB).foldLeft (
+                                    renamings
+                                )(
+                                    (renamingsAcc: VariableRenamings, pair: (Exp[_], Exp[_])) =>
+                                        renamingsAcc.add (pair._1.asInstanceOf[Sym[_]], pair._2.asInstanceOf[Sym[_]]))
+                            )
                     )
 
             case (Def (Lambda (_, _: UnboxedTuple[_], _)), Def (Lambda (_, _: Sym[_], _))) => false

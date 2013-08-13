@@ -52,6 +52,31 @@ class TestExistsClauses1
     def testExists () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                EXISTS (
+                    SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                        s.matriculationNumber == r.studentMatriculationNumber
+                        )
+                )
+                )
+        )
+
+        assertEqualStructure (
+            semiJoin (
+                students,
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
+        )
+
+    }
+
+    @Ignore
+    @Test
+    def testExistsWithConjunction () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND
                     EXISTS (
                         SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>

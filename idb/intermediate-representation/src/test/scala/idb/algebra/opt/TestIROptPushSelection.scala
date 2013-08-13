@@ -46,7 +46,7 @@ import idb.algebra.print.{RelationalAlgebraPrintPlanBasicOperators, RelationalAl
  *
  */
 class TestIROptPushSelection
-    extends RelationalAlgebraIROptPushSelect
+    extends RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
     with ScalaOpsPkgExpAlphaEquivalence
