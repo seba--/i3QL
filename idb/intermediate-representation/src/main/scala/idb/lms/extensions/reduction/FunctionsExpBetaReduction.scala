@@ -30,22 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.reduction
 
-import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.lms.extensions.reduction.TupledFunctionsExpBetaReduction
+import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with ScalaOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
+
+trait FunctionsExpBetaReduction
+    extends FunctionsExp
+    with BaseFatExp // required to use the forward transformer
 {
+
+    protected val transformer = new ForwardTransformer
+    {
+        val IR: FunctionsExpBetaReduction.this.type = FunctionsExpBetaReduction.this
+    }
+
+    override def doApply[A: Manifest, B: Manifest] (
+        f: Exp[A => B], x: Exp[A]
+    )(
+        implicit pos: SourceContext
+    ): Exp[B] = f match {
+        case Def (Lambda (_, oldX, block)) => {
+            transformer.subst = Map (oldX -> x)
+            val result = transformer.transformBlock (block).res
+            transformer.subst = Map ()
+            result
+        }
+        case _ => super.doApply (f, x)
+    }
 
 }

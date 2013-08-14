@@ -30,22 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.reduction
 
-import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.lms.extensions.reduction.TupledFunctionsExpBetaReduction
+import scala.virtualization.lms.common.{ForwardTransformer, TupledFunctionsExp}
+import scala.reflect.SourceContext
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with ScalaOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
+
+trait TupledFunctionsExpBetaReduction
+    extends TupledFunctionsExp
+    with FunctionsExpBetaReduction
+    with FunctionUtils
 {
+
+
+
+    override def doApply[A: Manifest, B: Manifest] (
+        f: Exp[A => B], x: Exp[A]
+    )(
+        implicit pos: SourceContext
+    ): Exp[B] = f match {
+        case Def(Lambda (_, oldX, block)) => {
+            transformer.subst =
+                parametersAsList (oldX).zip (parametersAsList (x)).foldLeft (
+                    Map.empty[Exp[Any], Exp[Any]]
+                )((map: Map[Exp[Any], Exp[Any]], params: (Exp[Any], Exp[Any])) => map + (params._1 -> params._2))
+
+            val result = transformer.transformBlock (block).res
+            transformer.subst = Map ()
+            result
+        }
+        case _ => super.doApply (f, x)
+    }
 
 }
