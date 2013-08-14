@@ -91,14 +91,16 @@ trait ExpressionUtils
 
 
     def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Exp[Any]] = {
-        val seen = e match {
+        val traversed = e match {
             case s@Sym (_) => Set (s).asInstanceOf[Set[Exp[Any]]]
             case _ => Set.empty[Exp[Any]]
         }
-        findSymsRec (e, search.asInstanceOf[Set[Exp[Any]]], seen)
+        val startResult = search.filter ((_: Exp[Any]) == e)
+
+        startResult.union (findSymsRec (e, search.asInstanceOf[Set[Exp[Any]]], traversed))
     }
 
-    private def findSymsRec (e: Any, search: Set[Exp[Any]], seen: Set[Exp[Any]]): Set[Exp[Any]] = {
+    private def findSymsRec (e: Any, search: Set[Exp[Any]], traversed: Set[Exp[Any]]): Set[Exp[Any]] = {
         val next = (e match {
 
             case Def (Tuple2Access1 (UnboxedTuple (vars))) => Set (vars (0))
@@ -121,12 +123,12 @@ trait ExpressionUtils
 
             case s@Sym (_) => syms (findDefinition (s)).toSet[Exp[Any]]
             case _ => Set.empty[Exp[Any]]
-        }).diff (seen)
+        }).diff (traversed)
         if (next.isEmpty)
             return Set ()
         val result = search.intersect (next)
         val forward = next.diff (search)
-        val nextSeen = seen.union (forward)
+        val nextSeen = traversed.union (forward)
 
         result.union (
             for (s <- forward;

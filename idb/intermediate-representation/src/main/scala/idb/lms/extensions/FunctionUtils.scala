@@ -32,15 +32,14 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.{FunctionsExp, TupledFunctionsExp}
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait FunctionUtils
-    extends FunctionsExp
-    with TupledFunctionsExp
+    extends TupledFunctionsExp
     with ExpressionUtils
 {
 
@@ -53,10 +52,26 @@ trait FunctionUtils
     }
 
     def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
-        parameter (function) match {
+        parametersAsList (
+            parameter (function)
+        )
+    }
+
+    def parametersAsList[A] (params: Exp[A]): List[Exp[Any]] = {
+        params match {
             case UnboxedTuple (xs) => xs
             case x => List (x)
         }
+    }
+
+    def parameterManifest[A] (a: Exp[A]): Manifest[Any] = {
+        a.tp.asInstanceOf[Manifest[Any]]
+    }
+
+    def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
+        implicit val ma = a.tp
+        implicit val mb = b.tp
+        manifest[(A,B)].asInstanceOf[Manifest[Any]]
     }
 
     def parameter[A, B] (function: Exp[A => B]): Exp[A] = {
@@ -108,5 +123,75 @@ trait FunctionUtils
         }
     }
 
+    def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = {
+        function match {
+            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
+                if body == make_tuple2 (a, b) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
+                if body == make_tuple3 (a, b, c) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == make_tuple4 (a, b, c, d) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == make_tuple5 (a, b, c, d, e) => true
+            case Def (Lambda (_, x, Block (body)))
+                if body == x => true
+            case _ => false
+        }
+    }
+
+    def isObjectEquality[DomainA, DomainB] (
+        equality: (Rep[DomainA => Any], Rep[DomainB => Any])
+    ): Boolean = equality match {
+        case (Def (Lambda (_, a, Block (bodyA))), Def (Lambda (_, b, Block (bodyB)))) =>
+            bodyA.equals (a) && bodyB.equals (b) // TODO why was == not accepted by compiler?
+        case _ => false
+    }
+
+    /**
+     *
+     * @return The index of the parameter returned by the function if it has a form similar to (x,y) => x
+     *         If the body does not simply return a parameter -1 is returned by this function.
+     */
+    def returnedParameter[Domain, Range] (function: Rep[Domain => Range]): Int = {
+        function match {
+
+            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
+                if body == a => 0
+            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
+                if body == b => 1
+
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
+                if body == a => 0
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
+                if body == b => 1
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
+                if body == c => 2
+
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == a => 0
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == b => 1
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == c => 2
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == d => 3
+
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == a => 0
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == b => 1
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == c => 2
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == d => 3
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == e => 4
+
+            case Def (Lambda (_, x, Block (body)))
+                if body == x => 0
+
+            case _ => -1
+        }
+    }
 
 }

@@ -43,25 +43,15 @@ import idb.lms.extensions.substitution.TransformingGenericProducts
 trait RelationalAlgebraSubQueries
     extends RelationalAlgebraBasicOperators
     with RelationalAlgebraSetTheoryOperators
-    with TransformingGenericProducts
 {
 
-    type SubQuery[+T]
-
-     /*
     /**
      * Represents a sub query used inside a function.
-     * A sub query can only be translated to the algebra once we translate the outer context and must syntactically
-     * reflect
-     * any variable renaming made during translation of the outer context.
-     * Hence, the
+     * A sub query can only be translated to the algebra once we translate the outer context and must sometimes be
+     * checked for syntactic equality via Object.equals()
      */
-    trait SubQuery[T] extends SubstitutableExp[SubQuery[T]]
-    {
+    type SubQuery[+T]
 
-    }
-
-    */
 
     /**
      * Create an existential condition inside a function. The node itself is a boolean expression, but conveys that the

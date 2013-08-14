@@ -47,7 +47,6 @@ import scala.language.implicitConversions
 class TestExistsClauses1
 {
 
-    @Ignore
     @Test
     def testExists () {
         val query = plan (

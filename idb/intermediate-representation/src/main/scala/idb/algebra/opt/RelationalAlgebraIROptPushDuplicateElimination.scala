@@ -52,59 +52,19 @@ trait RelationalAlgebraIROptPushDuplicateElimination
     with FunctionUtils
 {
 
-    private def returnsParameterAtIndex[Domain, Range] (function: Rep[Domain => Range]): Int = {
-        function match {
 
-            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
-                if body == a => 0
-            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
-                if body == b => 1
-
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
-                if body == a => 0
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
-                if body == b => 1
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
-                if body == c => 2
-
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
-                if body == a => 0
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
-                if body == b => 1
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
-                if body == c => 2
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
-                if body == d => 3
-
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == a => 0
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == b => 1
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == c => 2
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == d => 3
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == e => 4
-
-            case Def (Lambda (_, x, Block (body)))
-                if body == x => 0
-
-            case _ => -1
-        }
-    }
 
     override def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
         (relation match {
 
-            // δ (Π {(x, y) => x} (a × b)) = δ (a)
-            // δ (Π {(x, y) => y} (a × b)) = δ (b)
+            // δ (Π {(x, y) => x} (a × b)) => δ (a)
+            // δ (Π {(x, y) => y} (a × b)) => δ (b)
             case Def (Projection (Def (cross: CrossProduct[Any@unchecked, Any@unchecked]), f)) =>
             {
                 // TODO, why can I not pattern match the cross product above as CrossProduct(a,b)?
-                val bodyIsParameterAtIndex = returnsParameterAtIndex (f)
+                val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 => super.duplicateElimination (relation)
                     case 0 => duplicateElimination (cross.relationA)(domainOf (cross.relationA))
@@ -116,45 +76,65 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                 }
             }
 
-            // δ (Π {(x, y) => x} (a {xa => ...} ⋈ {xb => ...} b)) = δ (a) {xa => ...} ⋈ {xb => xb} δ (Π {xb => ...} (b))
-            // δ (Π {(x, y) => x} (a {xa => ...} ⋈ {xb => ...} b)) = δ (Π {xa => ...} (a)) {xa => xa} ⋈ {xb => ...} δ (b)
+            // δ (Π {(x, y) => x} (a {xa => ...} ⋈ {xb => ...} b)) =>
+            //   Π {(x, y) => x} (δ (a) {xa => ...} ⋈ {xb => xb} δ (Π {xb => ...} (b)))
+            // δ (Π {(x, y) => y} (a {xa => ...} ⋈ {xb => ...} b)) =>
+            //   Π {(x, y) => y} (δ (Π {xa => ...} (a)) {xa => xa} ⋈ {xb => ...} δ (b))
+            // these rules are primarily being used to simplify expressions after generating exists sub queries
             case Def (Projection (Def (join: EquiJoin[Any@unchecked, Any@unchecked]), f))
                 // TODO, why can I not pattern match the equi join above as EquiJoin(a,b,list)?
                 if join.equalities.size < 6 => // we can only convert this using tupled functions of size 5
             {
 
-                val bodyIsParameterAtIndex = returnsParameterAtIndex (f)
+                val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 =>
                         super.duplicateElimination (relation)
-                    case 0 =>
-                        equiJoin (
-                            duplicateElimination (join.relationA),
-                            duplicateElimination (
-                                projection (
-                                    join.relationB,
-                                    convertEqualitiesToProjectedTuple (
-                                        join.equalities,
-                                        (_: (Rep[Any => Any], Rep[Any => Any]))._2
+                    case 0 => {
+                        val innerProjection =
+                            convertEqualitiesToProjectedTuple (
+                                join.equalities,
+                                (_: (Rep[Any => Any], Rep[Any => Any]))._2
+                            )
+
+                        val newJoin =
+                            equiJoin (
+                                duplicateElimination (join.relationA),
+                                duplicateElimination (
+                                    projection (
+                                        join.relationB,
+                                        innerProjection
                                     )
-                                )
-                            ),
-                            convertEqualitiesToTupleEqualitiesOnSecond (join.equalities)
+                                ),
+                                convertEqualitiesToTupleEqualitiesOnSecond (join.equalities)
+                            )(domainOf (join.relationA), returnType(innerProjection))
+                        val params = unboxedFresh (domainOf (newJoin))
+                        projection (
+                            newJoin,
+                            dynamicLambda (params, parametersAsList (params)(0))
                         )
-                    case 1 =>
-                        equiJoin (
-                            duplicateElimination (
-                                projection (
-                                    join.relationA,
-                                    convertEqualitiesToProjectedTuple (
-                                        join.equalities,
-                                        (_: (Rep[Any => Any], Rep[Any => Any]))._1
+                    }
+                    case 1 => {
+                        val newJoin =
+                            equiJoin (
+                                duplicateElimination (
+                                    projection (
+                                        join.relationA,
+                                        convertEqualitiesToProjectedTuple (
+                                            join.equalities,
+                                            (_: (Rep[Any => Any], Rep[Any => Any]))._1
+                                        )
                                     )
-                                )
-                            ),
-                            duplicateElimination (join.relationB),
-                            convertEqualitiesToTupleEqualitiesOnFirst (join.equalities)
+                                ),
+                                duplicateElimination (join.relationB),
+                                convertEqualitiesToTupleEqualitiesOnFirst (join.equalities)
+                            )(manifest[Any], domainOf (join.relationB))
+                        val params = unboxedFresh (domainOf (newJoin))
+                        projection (
+                            newJoin,
+                            dynamicLambda (params, parametersAsList (params)(1))
                         )
+                    }
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after equi join, " +

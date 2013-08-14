@@ -58,11 +58,13 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIRMultiRelations
     with RelationalAlgebraDerivedOperators
     with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIROptSimplify
+    with RelationalAlgebraIROptSimplifyBasicOps
+    with RelationalAlgebraIROptSimplifySetTheoryOps
     with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptPushDuplicateElimination
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
+    with RelationalAlgebraIROptLiftProjection
     with RelationalAlgebraIRNormalizeBasicOperators
     with RelationalAlgebraIRNormalizeSubQueries
 {

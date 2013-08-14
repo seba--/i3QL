@@ -52,7 +52,7 @@ trait FunctionsExpAlphaEquivalence
                 // functions need to have the same return type
                 // while there is such a thing as allowing covariance in inheritance,
                 // we can not generate the same function with a covariant type in a totally different place
-                ba.tp == bb.tp && (
+                ba.tp == bb.tp && xa.tp == xb.tp && (
                     // either same variable is used, or we add a renaming
                     (xa == xb && isEquivalent (ba.res, bb.res)) || isEquivalent (ba.res, bb.res)(renamings.add (xa, xb))
                     )
