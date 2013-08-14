@@ -41,7 +41,6 @@ import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
 trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
     with ScalaOpsPkgExpAlphaEquivalence
-    with FunctionsExpOptBetaReduction
     with ScalaOpsExpConstantPropagation
     with ScalaOpsExpNormalization
     with TupleOpsExpOptBetaReduction
