@@ -60,7 +60,7 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIROptSimplify
     with RelationalAlgebraIROptPushSelection
-    //with RelationalAlgebraIROptPush
+    with RelationalAlgebraIROptPushDuplicateElimination
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIRNormalizeBasicOperators

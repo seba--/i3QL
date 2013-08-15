@@ -75,7 +75,7 @@ trait RelationalAlgebraIROptCreateJoin
             throw new IllegalArgumentException ("Expected two parameters for function " + function)
         }
         body (function) match {
-            case Def (Equal (lhs: Exp[Boolean], rhs: Exp[Boolean])) => {
+            case Def (Equal (lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
                 val usedByLeft = findSyms (lhs)(params.toSet)
                 val usedByRight = findSyms (rhs)(params.toSet)
                 if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
