@@ -32,9 +32,9 @@
  */
 package idb.algebra.opt
 
-import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
+import scala.virtualization.lms.common._
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -56,8 +56,8 @@ trait RelationalAlgebraIROptSimplifyBasicOps
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
     ): Rep[Query[Range]] =
-        if (isIdentity (function)) {
-            relation.asInstanceOf[Rep[Query[Range]]]
+        (if (isIdentity (function)) {
+            relation
         } else
         {
             // check if the projection ignores some values
@@ -69,68 +69,99 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                 // { (x,y) => x}
                 case 0 =>
                     relation match {
-                        case Def (EquiJoin (ra, rb, equalities)) if equalities.contains (isObjectEquality _) =>
-                            super.projection (relation,function)
+                        case Def (EquiJoin (ra, Def (rb: EquiJoin[Any@unchecked, Any@unchecked]), equalities)) =>
+                            rb.relationA match {
+                                case `ra` =>
+                                    /*
+                                    projection (
+                                        equiJoin (
+                                            ra,
+                                            rb.relationB,
+                                            rb.equalities
+                                        )(domainOf (ra), domainOf (rb.relationB)),
+                                        fun (
+                                            (x: Rep[Domain], y: Rep[Any]) => x
+                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra)).asInstanceOf[Rep[Any => Any]]
+                                    )
+                                    */
+                                                       super.projection (relation, function)
+
+                                case Def (DuplicateElimination (`ra`)) =>
+                                    projection (
+                                        equiJoin (
+                                            ra,
+                                            rb.relationB,
+                                            rb.equalities
+                                        )(domainOf (ra), domainOf (rb.relationB)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => x
+                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra))
+                                    )
+
+                                case _ => super.projection (relation, function)
+                            }
+
                         case _ =>
-                            super.projection (relation,function)
+                            super.projection (relation, function)
                     }
 
 
                 case 1 =>
-                    super.projection (relation,function)
+                    super.projection (relation, function)
 
-                case -1 => super.projection (relation,function)
+                case -1 => super.projection (relation, function)
             }
-        }
+        }).asInstanceOf[Rep[Query[Range]]]
 
-/*
-    // these rules are primarily being used to simplify expressions after generating exists sub queries
-    override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): Rep[Query[(DomainA, DomainB)]] =
-        if (equalities.contains (isObjectEquality _)) {
-            // this join is a natural join, so we can try to find inner expressions containing relationA or relationB
-            ((relationA, relationB) match {
-                case (_, Def (Projection (Def (join: EquiJoin[Any@unchecked, Any@unchecked]), f))) =>
-                    // TODO why can I not pattern match the equi join
-                {
-                    val bodyReturnsParameter = returnedParameter (f)
-
-                    bodyReturnsParameter match
+    /*
+        // these rules are primarily being used to simplify expressions after generating exists sub queries
+        override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
+            relationA: Rep[Query[DomainA]],
+            relationB: Rep[Query[DomainB]],
+            equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
+        ): Rep[Query[(DomainA, DomainB)]] =
+            if (equalities.contains (isObjectEquality _)) {
+                // this join is a natural join, so we can try to find inner expressions containing relationA or
+                relationB
+                ((relationA, relationB) match {
+                    case (_, Def (Projection (Def (join: EquiJoin[Any@unchecked, Any@unchecked]), f))) =>
+                        // TODO why can I not pattern match the equi join
                     {
-                        case 0 =>
-                            join.relationA match
-                            {
-                                case `relationA` =>
-                                    equiJoin (
-                                        relationA,
-                                        join.relationB,
-                                        join.equalities
-                                    )(exactDomainOf (relationA), domainOf (join.relationB))
-                                case Def (DuplicateElimination (`relationA`)) =>
-                                    equiJoin (
-                                        relationA,
-                                        join.relationB,
-                                        join.equalities
-                                    )(exactDomainOf (relationA), domainOf (join.relationB))
-                            }
+                        val bodyReturnsParameter = returnedParameter (f)
 
-                        case 1 =>
-                            super.equiJoin (relationA, relationB, equalities)
+                        bodyReturnsParameter match
+                        {
+                            case 0 =>
+                                join.relationA match
+                                {
+                                    case `relationA` =>
+                                        equiJoin (
+                                            relationA,
+                                            join.relationB,
+                                            join.equalities
+                                        )(exactDomainOf (relationA), domainOf (join.relationB))
+                                    case Def (DuplicateElimination (`relationA`)) =>
+                                        equiJoin (
+                                            relationA,
+                                            join.relationB,
+                                            join.equalities
+                                        )(exactDomainOf (relationA), domainOf (join.relationB))
+                                }
 
-                        case -1 => super.equiJoin (relationA, relationB, equalities)
+                            case 1 =>
+                                super.equiJoin (relationA, relationB, equalities)
+
+                            case -1 => super.equiJoin (relationA, relationB, equalities)
+                        }
                     }
-                }
 
-                case _ => super.equiJoin (relationA, relationB, equalities)
-            }).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
-        }
-        else
-            super.equiJoin (relationA, relationB, equalities)
+                    case _ => super.equiJoin (relationA, relationB, equalities)
+                }).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
+            }
+            else
+                super.equiJoin (relationA, relationB, equalities)
 
-*/
+    */
 }
 
 

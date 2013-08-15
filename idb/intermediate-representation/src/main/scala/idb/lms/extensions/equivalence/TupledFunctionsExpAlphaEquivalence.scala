@@ -62,17 +62,15 @@ trait TupledFunctionsExpAlphaEquivalence
 
             case (Def (Lambda (_, _: Sym[_], _)), Def (Lambda (_, _: UnboxedTuple[_], _))) => false
 
+            case (UnboxedTuple(varsA), UnboxedTuple(varsB)) => {
+                varsA.zip(varsB).foreach( pair =>
+                    if(!renamings.canRename(pair._1.asInstanceOf[Sym[_]], pair._2.asInstanceOf[Sym[_]]))
+                        return false
+                )
+                true
+            }
+
             case _ => super.isEquivalent (a, b)
         }
 
-
-    private def createUnboxedTupleRanmaings(varsA : List[Exp[Any]], varsB:List[Exp[Any]]) : VariableRenamings = {
-        val renamings = emptyRenaming
-        if(varsA.size != varsB.size)
-            return renamings
-
-
-        renamings
-
-    }
 }
