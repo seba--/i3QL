@@ -60,10 +60,30 @@ trait RelationalAlgebraIROptSimplifyBasicOps
             relation.asInstanceOf[Rep[Query[Range]]]
         } else
         {
-            super.projection (relation, function)
+            // check if the projection ignores some values
+            // these rules are primarily being used to simplify expressions after generating exists sub queries
+            val bodyReturnsParameter = returnedParameter (function)
+
+            bodyReturnsParameter match
+            {
+                // { (x,y) => x}
+                case 0 =>
+                    relation match {
+                        case Def (EquiJoin (ra, rb, equalities)) if equalities.contains (isObjectEquality _) =>
+                            super.projection (relation,function)
+                        case _ =>
+                            super.projection (relation,function)
+                    }
+
+
+                case 1 =>
+                    super.projection (relation,function)
+
+                case -1 => super.projection (relation,function)
+            }
         }
 
-
+/*
     // these rules are primarily being used to simplify expressions after generating exists sub queries
     override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
@@ -109,6 +129,8 @@ trait RelationalAlgebraIROptSimplifyBasicOps
         }
         else
             super.equiJoin (relationA, relationB, equalities)
+
+*/
 }
 
 

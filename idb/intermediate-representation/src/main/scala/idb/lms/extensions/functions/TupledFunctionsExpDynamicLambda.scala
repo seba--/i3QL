@@ -30,8 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.lms.extensions.functions
 
+import scala.virtualization.lms.common.TupledFunctionsExp
+import scala.reflect.SourceContext
 
 /**
  *
@@ -39,31 +41,23 @@ package idb.algebra.base
  *
  */
 
-trait RelationalAlgebraSubQueries
-    extends RelationalAlgebraBasicOperators
-    with RelationalAlgebraSetTheoryOperators
+trait TupledFunctionsExpDynamicLambda
+    extends FunctionsExpDynamicLambda
+    with TupledFunctionsExp
 {
 
-    /**
-     * Represents a sub query used inside a function.
-     * A sub query can only be translated to the algebra once we translate the outer context and must sometimes be
-     * checked for syntactic equality via Object.equals()
-     */
-    type SubQuery[+T]
 
+    def dynamicLambda[A1, A2, B] (
+        x1: Exp[A1], x2: Exp[A2], body: Exp[B]
+    )(
+        implicit pos: SourceContext
+    ): Exp[((A1, A2)) => B] = {
+        implicit val ma1 = x1.tp
+        implicit val ma2 = x2.tp
+        implicit val mb = body.tp
+        dynamicLambdaDef (UnboxedTuple[(A1, A2)](List(x1, x2)), body)
+    }
 
-    /**
-     * Create an existential condition inside a function. The node itself is a boolean expression, but conveys that the
-     * sub query must be translated in teh context of the enclosing query.
-     * However, the translation of the sub query is a complex process, since it may refer to variables of the outer
-     * query.
-     * The context needs to be known before translating the syntax of the sub query into algebra.
-     * Hence, a callback for planing the query together with a given context in relational algebra must be provided.
-     */
-    def existCondition[Domain, ContextDomain] (
-        subQuery: SubQuery[Domain],
-        planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
-            Rep[ContextDomain]) => Rep[Query[ContextDomain]]
-    ): Rep[Boolean]
 
 }
+

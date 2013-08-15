@@ -60,6 +60,10 @@ trait FunctionUtils
     def parametersAsList[A] (params: Exp[A]): List[Exp[Any]] = {
         params match {
             case UnboxedTuple (xs) => xs
+            case Def (ETuple2 (a, b)) => List (a, b)
+            case Def (ETuple3 (a, b, c)) => List (a, b, c)
+            case Def (ETuple4 (a, b, c, d)) => List (a, b, c, d)
+            case Def (ETuple5 (a, b, c, d, e)) => List (a, b, c, d, e)
             case x => List (x)
         }
     }
@@ -71,7 +75,7 @@ trait FunctionUtils
     def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
         implicit val ma = a.tp
         implicit val mb = b.tp
-        manifest[(A,B)].asInstanceOf[Manifest[Any]]
+        manifest[(A, B)].asInstanceOf[Manifest[Any]]
     }
 
     def parameter[A, B] (function: Exp[A => B]): Exp[A] = {
@@ -153,12 +157,18 @@ trait FunctionUtils
      *         If the body does not simply return a parameter -1 is returned by this function.
      */
     def returnedParameter[Domain, Range] (function: Rep[Domain => Range]): Int = {
+        implicit val mRange = returnType (function).asInstanceOf[Manifest[Range]]
         function match {
 
             case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
                 if body == a => 0
             case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
                 if body == b => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple2Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple2Access2 (t)))))
+                if p == t => 1
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
                 if body == a => 0
@@ -166,6 +176,13 @@ trait FunctionUtils
                 if body == b => 1
             case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
                 if body == c => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access3 (t)))))
+                if p == t => 2
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
                 if body == a => 0
@@ -175,6 +192,15 @@ trait FunctionUtils
                 if body == c => 2
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
                 if body == d => 3
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access3 (t)))))
+                if p == t => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access4 (t)))))
+                if p == t => 3
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
                 if body == a => 0
@@ -186,6 +212,16 @@ trait FunctionUtils
                 if body == d => 3
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
                 if body == e => 4
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access3 (t)))))
+                if p == t => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access4 (t)))))
+                if p == t => 3
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access5 (t)))))
+                if p == t => 4
 
             case Def (Lambda (_, x, Block (body)))
                 if body == x => 0

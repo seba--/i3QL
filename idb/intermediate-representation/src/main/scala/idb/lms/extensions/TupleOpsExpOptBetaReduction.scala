@@ -84,6 +84,7 @@ trait TupleOpsExpOptBetaReduction
             case _ => super.make_tuple5 (t)
         }
 
+    /*
     override def tuple2_get1[A] (t: Exp[Tuple2[A, _]])
             (implicit evidence$85: Manifest[A], pos: SourceContext): Rep[A] =
         t match {
@@ -184,4 +185,6 @@ trait TupleOpsExpOptBetaReduction
             case UnboxedTuple (vars) => vars (4).asInstanceOf[Rep[E]]
             case _ => super.tuple5_get5 (t)
         }
+
+    */
 }

@@ -43,7 +43,7 @@ import scala.virtualization.lms.common._
 trait ExpressionUtils
     extends Expressions
     with TupledFunctionsExp
-    with EqualExp
+    with EqualExpBridge
 {
 
 

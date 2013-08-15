@@ -30,8 +30,12 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.lms.extensions.reduction
 
+import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
+import org.junit.Test
+import org.junit.Assert._
+import idb.lms.extensions.equivalence.{TupledFunctionsExpAlphaEquivalence, ScalaOpsPkgExpAlphaEquivalence}
 
 /**
  *
@@ -39,31 +43,24 @@ package idb.algebra.base
  *
  */
 
-trait RelationalAlgebraSubQueries
-    extends RelationalAlgebraBasicOperators
-    with RelationalAlgebraSetTheoryOperators
+class TestTupledFunctionsExpBetaReductionDynamic
+    extends FunctionsExpBetaReduction
+    with TupledFunctionsExpDynamicLambda
+    with ScalaOpsPkgExpAlphaEquivalence
+    with TupledFunctionsExpAlphaEquivalence
 {
 
-    /**
-     * Represents a sub query used inside a function.
-     * A sub query can only be translated to the algebra once we translate the outer context and must sometimes be
-     * checked for syntactic equality via Object.equals()
-     */
-    type SubQuery[+T]
+    @Test
+    def testMultipleTuples () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
+        val x = fresh[Int]
+        val y = fresh[(Int, Int)]
 
+        val f2 = dynamicLambda (x, y, f1 (y))
 
-    /**
-     * Create an existential condition inside a function. The node itself is a boolean expression, but conveys that the
-     * sub query must be translated in teh context of the enclosing query.
-     * However, the translation of the sub query is a complex process, since it may refer to variables of the outer
-     * query.
-     * The context needs to be known before translating the syntax of the sub query into algebra.
-     * Hence, a callback for planing the query together with a given context in relational algebra must be provided.
-     */
-    def existCondition[Domain, ContextDomain] (
-        subQuery: SubQuery[Domain],
-        planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
-            Rep[ContextDomain]) => Rep[Query[ContextDomain]]
-    ): Rep[Boolean]
+        val f3 = fun ((i: Rep[Int], p: Rep[(Int, Int)]) => p._1)
+
+        //assertEquals (f3, f2)
+    }
 
 }

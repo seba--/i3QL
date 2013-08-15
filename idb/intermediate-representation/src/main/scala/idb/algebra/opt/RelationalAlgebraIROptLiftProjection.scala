@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.functions.FunctionsExpDynamicLambda
+import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambda}
 
 /**
  * Rules for lifting projections higher up in the operator tree
@@ -44,7 +44,7 @@ import idb.lms.extensions.functions.FunctionsExpDynamicLambda
  */
 trait RelationalAlgebraIROptLiftProjection
     extends RelationalAlgebraIRBasicOperators
-    with FunctionsExpDynamicLambda
+    with TupledFunctionsExpDynamicLambda
     with FunctionUtils
 {
 
@@ -91,17 +91,25 @@ trait RelationalAlgebraIROptLiftProjection
 
             case (ra, Def (Projection (rb, fb))) =>
                 projection (
-                    crossProduct (
-                        ra,
-                        rb
-                    )(manifest[DomainA], domainOf (rb)),
-                    fun (
-                        (x: Rep[DomainA], y: Rep[Any]) => (x, fb (y))
-                    )(
-                        manifest[DomainA],
-                        parameterManifest (parameter (fb)), // dynamic manifests for y
-                        manifest[(DomainA, DomainB)]
-                    )
+                crossProduct (
+                    ra,
+                    rb
+                )(manifest[DomainA], domainOf (rb)),
+                {
+                    val x = fresh[DomainA]
+                    val y = fresh (parameterManifest (parameter (fb)))
+                    val f = dynamicLambda (x, y, (x, fb (y)))
+                    f
+                }
+                /*
+                fun (
+                    (x: Rep[DomainA], y: Rep[Any]) => (x, fb (y))
+                )(
+                    manifest[DomainA],
+                    parameterManifest (parameter (fb)), // dynamic manifests for y
+                    manifest[(DomainA, DomainB)]
+                )
+                */
                 )
 
             case _ => super.crossProduct (relationA, relationB)

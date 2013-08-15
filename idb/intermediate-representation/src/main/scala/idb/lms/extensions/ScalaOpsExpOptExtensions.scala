@@ -33,7 +33,7 @@
 package idb.lms.extensions
 
 import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.lms.extensions.reduction.TupledFunctionsExpBetaReduction
+import idb.lms.extensions.reduction.{FunctionsExpBetaReduction, TupledFunctionsExpBetaReduction}
 
 /**
  *

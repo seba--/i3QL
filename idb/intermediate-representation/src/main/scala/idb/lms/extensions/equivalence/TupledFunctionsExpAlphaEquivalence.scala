@@ -64,4 +64,15 @@ trait TupledFunctionsExpAlphaEquivalence
 
             case _ => super.isEquivalent (a, b)
         }
+
+
+    private def createUnboxedTupleRanmaings(varsA : List[Exp[Any]], varsB:List[Exp[Any]]) : VariableRenamings = {
+        val renamings = emptyRenaming
+        if(varsA.size != varsB.size)
+            return renamings
+
+
+        renamings
+
+    }
 }

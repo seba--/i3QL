@@ -91,27 +91,33 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                     case -1 =>
                         super.duplicateElimination (relation)
                     case 0 => {
+                        // if the first parameter is returned by the projection, this cast is legitimate
+                        val relationA = join.relationA.asInstanceOf[Rep[Query[Domain]]]
+                        val relationB = join.relationB
+                        val equalities = join.equalities.asInstanceOf[List[(Rep[Domain => Any], Rep[Any => Any])]]
                         val innerProjection =
                             convertEqualitiesToProjectedTuple (
                                 join.equalities,
-                                (_: (Rep[Any => Any], Rep[Any => Any]))._2
+                                (_: (Rep[Domain => Any], Rep[Any => Any]))._2
                             )
 
                         val newJoin =
                             equiJoin (
-                                duplicateElimination (join.relationA),
+                                duplicateElimination (relationA),
                                 duplicateElimination (
                                     projection (
-                                        join.relationB,
+                                        relationB,
                                         innerProjection
                                     )
                                 ),
-                                convertEqualitiesToTupleEqualitiesOnSecond (join.equalities)
-                            )(domainOf (join.relationA), returnType(innerProjection))
-                        val params = unboxedFresh (domainOf (newJoin))
+                                convertEqualitiesToTupleEqualitiesOnSecond (equalities)
+                            )(manifest[Domain], returnType(innerProjection))
+                        //val param = fresh (domainOf (newJoin))
+                        //val body = unbox(param)
                         projection (
                             newJoin,
-                            dynamicLambda (params, parametersAsList (params)(0))
+                            ( p: Rep[(Domain, Any)]) => p._1
+                            //dynamicLambda (param, tuple2_get1(param.asInstanceOf[Rep[Tuple2[Any, Any]]]))
                         )
                     }
                     case 1 => {
