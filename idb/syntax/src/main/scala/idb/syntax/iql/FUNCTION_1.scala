@@ -32,7 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
 
 /**
  *
@@ -40,7 +39,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_1[Domain, Result] extends FUNCTION_1[Domain, Result]
+trait FUNCTION_1[Domain, Result]
 {
 
 }

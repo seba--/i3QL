@@ -44,24 +44,24 @@ trait RelationalAlgebraAggregationOperators
   	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, AggregateValue : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
-		added : Rep[Domain => AggregateValue],
-		removed : Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
-        convert: Rep[((Key, AggregateValue)) => Result]
+		start : Rep[AggregateValue],
+		added : Rep[( (Domain, AggregateValue) ) => AggregateValue],
+		removed : Rep[( (Domain, AggregateValue) ) => AggregateValue],
+        updated: Rep[( (Domain, Domain, AggregateValue) ) => AggregateValue],
+        convert: Rep[( (Key, AggregateValue) ) => Result]
 	): Rep[Query[Result]]
 
 	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
-		added : Rep[Domain => Result],
-		removed : Rep[Domain => Result],
-		updated: Rep[((Domain, Domain)) => Result]
+		start : Rep[Result],
+		added : Rep[( (Domain, Result) ) => Result],
+		removed : Rep[( (Domain, Result) ) => Result],
+		updated: Rep[( (Domain, Domain, Result) ) => Result]
 	): Rep[Query[Result]]
 
 	def grouping[Domain : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Result]
 	): Rep[Query[Result]]
-
-
 
 }

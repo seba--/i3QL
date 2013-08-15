@@ -181,7 +181,6 @@ class TestBasicClauses1
 
     }
 
-    @Ignore
     @Test
     def testAggregateGroup1 () {
 
@@ -189,15 +188,26 @@ class TestBasicClauses1
             SELECT ((s: Rep[String]) => s) FROM students GROUP BY (_.lastName)
         )
 
+	/*	assertEqualStructure(
+			projection (
+				grouping (
+					extent (students),
+					fun ((s : Rep[Student]) => s.lastName)
+				),
+				fun ((s: Rep[String]) => s)
+			),
+			query
+		)    */
+
     }
 
-    @Ignore
     @Test
     def testAggregateGroup2 () {
 
         val query = plan (
             SELECT (
-                (firstName: Rep[String], lastName: Rep[String]) => firstName + " " + lastName
+			//	(firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName  //TODO Re-enable in later version
+				(pair : Rep[(String, String)]) => pair._1 + " " + pair._2
             ) FROM students GROUP BY ((s: Rep[Student]) => (s.firstName, s.lastName))
         )
 

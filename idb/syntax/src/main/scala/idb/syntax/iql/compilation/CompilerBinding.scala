@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql.compilation
 
-import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBasicOperatorsAsIncremental}
+import idb.algebra.compiler._
 import scala.virtualization.lms.common._
 
 /**
@@ -41,6 +41,9 @@ import scala.virtualization.lms.common._
  */
 object CompilerBinding
     extends RelationalAlgebraGenBasicOperatorsAsIncremental
+	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
+	with RelationalAlgebraGenAggregationOperatorsAsIncremental
+	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
     with RelationalAlgebraGenSAEBinding
     with ScalaCodeGenPkg
     with ScalaGenStruct

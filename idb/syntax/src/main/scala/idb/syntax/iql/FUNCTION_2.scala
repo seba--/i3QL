@@ -32,15 +32,13 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-trait AGGREGATE_FUNCTION_1[Domain, Result] extends FUNCTION_1[Domain, Result]
+trait FUNCTION_2[-DomainA, -DomainB, Result]
 {
 
 }

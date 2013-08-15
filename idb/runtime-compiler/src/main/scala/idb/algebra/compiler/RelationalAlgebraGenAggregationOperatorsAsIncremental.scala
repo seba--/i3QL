@@ -68,11 +68,12 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     // TODO incorporate set semantics into ir
     override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (e@AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
+            case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvert)) => {
                 if (e.isIncrementLocal)
                     TransactionalAggregation (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
+						start,
                         compileFunctionWithDynamicManifests (fAdd),
                         compileFunctionWithDynamicManifests (fRemove),
                         compileFunctionWithDynamicManifests (fUpdate),
@@ -83,6 +84,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
                     AggregationForSelfMaintainableFunctions (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
+						start,
                         compileFunctionWithDynamicManifests (fAdd),
                         compileFunctionWithDynamicManifests (fRemove),
                         compileFunctionWithDynamicManifests (fUpdate),
@@ -91,23 +93,25 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
                     )
             }
 
-            case Def (e@AggregationSelfMaintainedWithoutGrouping (r, fAdd, fRemove, fUpdate)) => {
+            case Def (e@AggregationSelfMaintainedWithoutGrouping (r, start, fAdd, fRemove, fUpdate)) => {
                 if (e.isIncrementLocal)
                     TransactionalAggregation (
                         compile (r),
-                        compileFunctionWithDynamicManifests (fAdd),
-                        compileFunctionWithDynamicManifests (fRemove),
-                        compileFunctionWithDynamicManifests (fUpdate),
+						start,
+						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
                         false
-                    )
+                    ).asInstanceOf[Relation[Domain]]
                 else
                     AggregationForSelfMaintainableFunctions (
                         compile (r),
-                        compileFunctionWithDynamicManifests (fAdd),
-                        compileFunctionWithDynamicManifests (fRemove),
-                        compileFunctionWithDynamicManifests (fUpdate),
+						start,
+						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
                         false
-                    )
+                    ).asInstanceOf[Relation[Domain]]
             }
 
             case Def (e@Grouping (r, fGroup)) => {

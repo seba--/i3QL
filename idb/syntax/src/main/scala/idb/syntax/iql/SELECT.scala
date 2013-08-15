@@ -46,13 +46,13 @@ object SELECT
     def apply[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (projection)
+        SelectClause1.apply[Domain, Range](projection)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
-        SelectClause2 (projection)
+        SelectClause2.apply[DomainA, DomainB, Range](projection)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
@@ -114,7 +114,7 @@ object SELECT
     def apply[Domain: Manifest, Range: Manifest] (
         aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
-        throw new UnsupportedOperationException ()
+        SelectClause1 (aggregation, asDistinct = false)
 
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, Domain: Manifest, Range: Manifest] (

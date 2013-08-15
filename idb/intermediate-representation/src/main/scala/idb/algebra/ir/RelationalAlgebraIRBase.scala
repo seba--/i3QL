@@ -131,7 +131,7 @@ trait RelationalAlgebraIRBase
 	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
 		r match {
 			case e : QueryBaseOps => e
-			case Def (r) => r.asInstanceOf[QueryBaseOps]
+			case Def ( d ) => d.asInstanceOf[QueryBaseOps]
 		}
 	}
 
