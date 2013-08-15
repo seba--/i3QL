@@ -34,6 +34,7 @@ package idb.syntax.iql
 
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql.impl.AggregationFunction1
 
 /**
  *
@@ -43,6 +44,7 @@ import idb.syntax.iql.IR._
 
 trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
+	def start : Rep[Range]
 
 	def added[Domain] (v: Rep[Domain],
 		previousResult: Rep[Range],
@@ -60,10 +62,17 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 		column: Rep[Domain] => Rep[Column]
 	) : Rep[Range]
 
-    def apply[Domain: Manifest] (
+    def apply[Domain] (
         column: Rep[Domain] => Rep[Column]
-    ): AGGREGATE_FUNCTION_1[Domain, Range] =
-        null
+    )(
+		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
+		): AGGREGATE_FUNCTION_1[Domain, Range] =
+        new AggregationFunction1[Domain, Range](
+			start,
+			(p : Rep[(Domain, Range)]) => added(p._1,p._2,column),
+			(p : Rep[(Domain, Range)]) => removed(p._1,p._2,column),
+			(p : Rep[(Domain, Domain, Range)]) => updated(p._1, p._2, p._3, column)
+		)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest] (

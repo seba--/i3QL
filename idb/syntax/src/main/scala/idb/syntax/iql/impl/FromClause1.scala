@@ -28,6 +28,6 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     def GROUP (
         grouping: (Rep[Domain]) => Rep[Select]
     ): GROUP_BY_CLAUSE_1[Domain, Range] =
-        GroupByClause1(grouping, this)
+        GroupByClause1[Select,Domain,Range](grouping, this)
 
 }

@@ -248,6 +248,49 @@ object AggregationForSelfMaintainableFunctions {
 
 	}
 
+
+	def apply[Domain, Key, AggregateValue, Result](
+		source : Relation[Domain],
+		grouping : Domain => Key,
+		start : AggregateValue,
+		added : ((Domain, AggregateValue)) => AggregateValue,
+		removed : ((Domain, AggregateValue)) => AggregateValue,
+		updated : ( (Domain, Domain, AggregateValue) ) => AggregateValue,
+		convert : ((Key,AggregateValue)) => Result,
+		isSet : Boolean
+	): Relation[Result] = {
+		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
+			override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
+				new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
+					private var aggregate : AggregateValue = start
+
+					def add(newD: Domain): AggregateValue = {
+						val a = added( (newD, aggregate) )
+						aggregate = a
+						a
+					}
+
+					def remove(newD: Domain): AggregateValue = {
+						val a = removed( (newD, aggregate) )
+						aggregate = a
+						a
+					}
+
+					def update(oldD: Domain, newD: Domain): AggregateValue = {
+						val a = updated( (oldD, newD, aggregate) )
+						aggregate = a
+						a
+					}
+
+					def get : AggregateValue =
+						aggregate
+				}
+			}
+		}
+
+		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
+	}
+
 	def apply[Domain, Result](
 		source: Relation[Domain],
 		added: Domain => Result,
@@ -263,6 +306,24 @@ object AggregationForSelfMaintainableFunctions {
 			Function.tupled((x : Boolean, y : Result) => y),
 			isSet
 		)
+	}
+
+	def apply[Domain, Result](
+		source : Relation[Domain],
+     	start : Result,
+		added : ((Domain, Result)) => Result,
+		removed : ((Domain, Result)) => Result,
+		updated : ((Domain, Domain, Result)) => Result,
+		isSet : Boolean
+	): Relation[Result] = {
+		apply(source,
+		(x : Domain) => true,
+		start,
+		added,
+		removed,
+		updated,
+		Function.tupled((x : Boolean, y : Result) => y),
+		isSet)
 	}
 
 	def apply[Domain, Key, Result](

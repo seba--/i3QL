@@ -1,6 +1,5 @@
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.PROJECTION_FUNCTION_1
 
 import idb.syntax.iql.IR._
 import idb.syntax.iql._
@@ -12,9 +11,8 @@ import idb.syntax.iql._
  * Time: 14:59
  * To change this template use File | Settings | File Templates.
  */
-case class ProjectionFunction1[Domain : Manifest, Range : Manifest](
-	projection : Rep[Domain] => Rep[Range]
-) extends PROJECTION_FUNCTION_1[Domain, Range]
-{
+case class ProjectionFunction2[DomainA : Manifest, DomainB : Manifest, Range : Manifest](
+	projection : (Rep[DomainA], Rep[DomainB]) => Rep[Range]
+) extends PROJECTION_FUNCTION_2[DomainA, DomainB, Range] {
 
 }

@@ -16,7 +16,6 @@ case class GroupByClause1[Group : Manifest, Domain : Manifest, Range : Manifest]
  	groupClause : CAN_GROUP_CLAUSE_1[Group,Domain,Range])
 extends GROUP_BY_CLAUSE_1[Domain, Range] {
 
-	def transform (f: IR.Transformer): GroupByClause1[Group, Domain, Range] =
-		throw new UnsupportedOperationException()
+
 }
 

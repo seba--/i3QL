@@ -48,7 +48,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
     ): FROM_CLAUSE_1[Domain, Domain, Domain] =
         FromClause1 (
             relation,
-            SelectClause1 (
+            SelectClause1.apply[Domain,Domain](
                 (x: Rep[Domain]) => x,
                 asDistinct
             )

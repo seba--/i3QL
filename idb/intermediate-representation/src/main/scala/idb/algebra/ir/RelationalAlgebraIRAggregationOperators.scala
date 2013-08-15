@@ -47,9 +47,10 @@ trait RelationalAlgebraIRAggregationOperators
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
         var relation: Rep[Query[Domain]],
         grouping: Rep[Domain => Key],
-        added: Rep[Domain => AggregateValue],
-        removed: Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
+		start : Rep[AggregateValue],
+		added : Rep[((Domain, AggregateValue)) => AggregateValue],
+		removed : Rep[((Domain, AggregateValue)) => AggregateValue],
+		updated: Rep[( (Domain, Domain, AggregateValue) ) => AggregateValue],
         convert: Rep[((Key, AggregateValue)) => Result]
     ) extends Def[Query[Result]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
@@ -59,9 +60,10 @@ trait RelationalAlgebraIRAggregationOperators
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
-		added : Rep[Domain => Result],
-		removed : Rep[Domain => Result],
-		updated: Rep[((Domain, Domain)) => Result]
+		start : Rep[Result],
+		added : Rep[((Domain, Result)) => Result],
+		removed : Rep[((Domain, Result)) => Result],
+		updated: Rep[( (Domain, Domain, Result) ) => Result]
 	) extends Def[Query[Result]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
@@ -80,20 +82,22 @@ trait RelationalAlgebraIRAggregationOperators
     def aggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
         relation: Rep[Query[Domain]],
         grouping: Rep[Domain => Key],
-        added: Rep[Domain => AggregateValue],
-        removed: Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
+		start : Rep[AggregateValue],
+		added : Rep[((Domain, AggregateValue)) => AggregateValue],
+		removed : Rep[((Domain, AggregateValue)) => AggregateValue],
+		updated: Rep[( (Domain, Domain, AggregateValue) ) => AggregateValue],
         convert: Rep[((Key, AggregateValue)) => Result]
     ): Rep[Query[Result]] =
-        AggregationSelfMaintained (relation, grouping, added, removed, updated, convert)
+        AggregationSelfMaintained (relation, grouping, start, added, removed, updated, convert)
 
 	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
-		added : Rep[Domain => Result],
-		removed : Rep[Domain => Result],
-		updated: Rep[((Domain, Domain)) => Result]
+		start : Rep[Result],
+		added : Rep[((Domain, Result)) => Result],
+		removed : Rep[((Domain, Result)) => Result],
+		updated: Rep[( (Domain, Domain, Result) ) => Result]
 	): Rep[Query[Result]] =
-		AggregationSelfMaintainedWithoutGrouping (relation, added, removed, updated)
+		AggregationSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)
 
 	def grouping[Domain : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],

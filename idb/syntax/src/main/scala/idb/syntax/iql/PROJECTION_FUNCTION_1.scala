@@ -38,7 +38,7 @@ package idb.syntax.iql
  *
  */
 
-trait PROJECTION_FUNCTION_1[-Domain, Result] extends FUNCTION_1[Domain, Result]
+trait PROJECTION_FUNCTION_1[Domain, Result] extends FUNCTION_1[Domain, Result]
 {
 
 }

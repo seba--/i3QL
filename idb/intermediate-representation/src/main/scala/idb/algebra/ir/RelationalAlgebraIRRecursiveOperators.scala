@@ -161,7 +161,7 @@ trait RelationalAlgebraIRRecursiveOperators
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
             }
-            case Def (e@AggregationSelfMaintained (r, _, _, _, _, _)) =>
+            case Def (e@AggregationSelfMaintained (r, _, _, _, _, _, _)) =>
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
             }
