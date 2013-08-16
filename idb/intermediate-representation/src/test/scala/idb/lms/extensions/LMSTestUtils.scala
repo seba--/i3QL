@@ -32,59 +32,41 @@
  */
 package idb.lms.extensions
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
+import idb.lms.extensions.print.QuoteFunction
+import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import junit.framework.Assert
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+trait LMSTestUtils
+    extends ScalaOpsPkgExp
+    with StructExp
+    with TupledFunctionsExp
 {
 
-    @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f1), fun (f2))
-
+    val printer = new QuoteFunction
+    {
+        val IR: LMSTestUtils.this.type = LMSTestUtils.this
     }
 
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        // TODO should create fun first to be a good test
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
+    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
+        val expectedString = printer.quoteFunction (a)
+        val actualString = printer.quoteFunction (b)
+        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
+        if (a != b) {
+            Assert.fail (message)
+        }
     }
 
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
 
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
+    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
+        val expectedString = printer.quoteFunction (a)
+        val actualString = printer.quoteFunction (b)
+        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
+        if (a.equals(b)) {
+            Assert.fail (message)
+        }
     }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
-    }
-
 }

@@ -32,35 +32,60 @@
  */
 package idb.lms.extensions.reduction
 
-import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import org.junit.Test
+import org.junit.{Ignore, Test}
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
 import org.junit.Assert._
-import idb.lms.extensions.equivalence.{TupledFunctionsExpAlphaEquivalence, ScalaOpsPkgExpAlphaEquivalence}
+import idb.lms.extensions.ScalaOpsExpOptExtensions
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-class TestTupledFunctionsExpBetaReductionDynamic
-    extends FunctionsExpBetaReduction
-    with TupledFunctionsExpDynamicLambda
-    with ScalaOpsPkgExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
+class TestTupleOpsReduction
+    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
 {
 
     @Test
-    def testMultipleTuples () {
-        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
-        val x = fresh[Int]
-        val y = fresh[(Int, Int)]
+    def testTuple2ReduceDirect () {
+        val f1 = (x: Rep[Int]) => (x, x > 0)._2
+        val f2 = (x: Rep[Int]) => x > 0
 
-        val f2 = dynamicLambda (x, y, f1 (y))
+        assertSame (fun (f1), fun (f2))
 
-        val f3 = fun ((i: Rep[Int], p: Rep[(Int, Int)]) => p._1)
+    }
 
-        //assertEquals (f3, f2)
+    @Ignore
+    @Test
+    def testTuple2ReduceFunComposeThenDirect () {
+        // TODO should create fun first to be a good test
+        val f1 = (x: Rep[Int]) => (x, x > 0)
+        val f2 = (x: Rep[(Int, Boolean)]) => x._2
+        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+
+        val f4 = (x: Rep[Int]) => x > 0
+
+        assertSame (fun (f3), fun (f4))
+    }
+
+    @Ignore
+    @Test
+    def testTuple2ReduceFunComposeThenEqTest () {
+        val f1 = (x: Rep[Int]) => (x, x > 0)
+        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
+        val f3 = (x: Rep[Int]) => f2 (f1 (x))
+
+        val f4 = (x: Rep[Int]) => x > 0 == true
+
+        assertSame (fun (f3), fun (f4))
+    }
+
+    @Test
+    @Ignore
+    def testTuple2ReduceDirectConditional () {
+        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
+        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
+
+        assertSame (fun (f1), fun (f2))
     }
 
 }

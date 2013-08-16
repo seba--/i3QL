@@ -95,13 +95,6 @@ trait RelationalAlgebraIROptLiftProjection
                     ra,
                     rb
                 )(manifest[DomainA], domainOf (rb)),
-                {
-                    val x = fresh[DomainA]
-                    val y = fresh (parameterManifest (parameter (fb)))
-                    val f = dynamicLambda (x, y, (x, fb (y)))
-                    f
-                }
-                /*
                 fun (
                     (x: Rep[DomainA], y: Rep[Any]) => (x, fb (y))
                 )(
@@ -109,7 +102,7 @@ trait RelationalAlgebraIROptLiftProjection
                     parameterManifest (parameter (fb)), // dynamic manifests for y
                     manifest[(DomainA, DomainB)]
                 )
-                */
+
                 )
 
             case _ => super.crossProduct (relationA, relationB)

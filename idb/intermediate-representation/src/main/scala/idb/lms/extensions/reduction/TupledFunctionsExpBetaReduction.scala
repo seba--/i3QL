@@ -70,4 +70,106 @@ trait TupledFunctionsExpBetaReduction
         case _ => super.doApply (f, x)
     }
 
+
+    override def tuple2_get1[A] (t: Exp[Tuple2[A, _]])
+            (implicit evidence$85: Manifest[A], pos: SourceContext): Rep[A] =
+        t match {
+            case UnboxedTuple (vars) => vars (0).asInstanceOf[Rep[A]]
+            case _ => super.tuple2_get1 (t)
+        }
+
+    override def tuple2_get2[B] (t: Exp[Tuple2[_, B]])
+            (implicit evidence$86: Manifest[B], pos: SourceContext): Rep[B] =
+        t match {
+            case UnboxedTuple (vars) => vars (1).asInstanceOf[Rep[B]]
+            case _ => super.tuple2_get2 (t)
+        }
+
+    override def tuple3_get1[A] (t: Exp[Tuple3[A, _, _]])
+            (implicit evidence$87: Manifest[A], pos: SourceContext): Rep[A] =
+        t match {
+            case UnboxedTuple (vars) => vars (0).asInstanceOf[Rep[A]]
+            case _ => super.tuple3_get1 (t)
+        }
+
+    override def tuple3_get2[B] (t: Exp[Tuple3[_, B, _]])
+            (implicit evidence$88: Manifest[B], pos: SourceContext): Rep[B] =
+        t match {
+            case UnboxedTuple (vars) => vars (1).asInstanceOf[Rep[B]]
+            case _ => super.tuple3_get2 (t)
+        }
+
+    override def tuple3_get3[C] (t: Exp[Tuple3[_, _, C]])
+            (implicit evidence$89: Manifest[C], pos: SourceContext): Rep[C] =
+        t match {
+            case UnboxedTuple (vars) => vars (2).asInstanceOf[Rep[C]]
+            case _ => super.tuple3_get3 (t)
+        }
+
+    override def tuple4_get1[A] (t: Exp[Tuple4[A, _, _, _]])
+            (implicit evidence$90: Manifest[A], pos: SourceContext): Rep[A] =
+        t match {
+            case UnboxedTuple (vars) => vars (0).asInstanceOf[Rep[A]]
+            case _ => super.tuple4_get1 (t)
+        }
+
+    override def tuple4_get2[B] (t: Exp[Tuple4[_, B, _, _]])
+            (implicit evidence$91: Manifest[B], pos: SourceContext): Rep[B] =
+        t match {
+            case UnboxedTuple (vars) => vars (1).asInstanceOf[Rep[B]]
+            case _ => super.tuple4_get2 (t)
+        }
+
+    override def tuple4_get3[C] (t: Exp[Tuple4[_, _, C, _]])
+            (implicit evidence$92: Manifest[C], pos: SourceContext): Rep[C] =
+        t match {
+            case UnboxedTuple (vars) => vars (2).asInstanceOf[Rep[C]]
+            case _ => super.tuple4_get3 (t)
+        }
+
+    override def tuple4_get4[D] (t: Exp[Tuple4[_, _, _, D]])
+            (implicit evidence$93: Manifest[D], pos: SourceContext): Rep[D] =
+        t match {
+            case UnboxedTuple (vars) => vars (3).asInstanceOf[Rep[D]]
+            case _ => super.tuple4_get4 (t)
+        }
+
+    override def tuple5_get1[A] (t: Exp[Tuple5[A, _, _, _, _]])
+            (implicit evidence$94: Manifest[A], pos: SourceContext): Rep[A] =
+        t match {
+            case UnboxedTuple (vars) => vars (0).asInstanceOf[Rep[A]]
+            case _ => super.tuple5_get1 (t)
+        }
+
+    override def tuple5_get2[B] (t: Exp[Tuple5[_, B, _, _, _]])
+            (implicit evidence$95: Manifest[B], pos: SourceContext): Rep[B] =
+        t match {
+            case UnboxedTuple (vars) => vars (1).asInstanceOf[Rep[B]]
+            case _ => super.tuple5_get2 (t)
+        }
+
+    override def tuple5_get3[C] (t: Exp[Tuple5[_, _, C, _, _]])
+            (implicit evidence$96: Manifest[C], pos: SourceContext): Rep[C] =
+        t match {
+            case UnboxedTuple (vars) => vars (2).asInstanceOf[Rep[C]]
+            case _ => super.tuple5_get3 (t)
+        }
+
+
+    override def tuple5_get4[D] (t: Exp[Tuple5[_, _, _, D, _]])
+            (implicit evidence$97: Manifest[D], pos: SourceContext): Rep[D] =
+        t match {
+            case UnboxedTuple (vars) => vars (3).asInstanceOf[Rep[D]]
+            case _ => super.tuple5_get4 (t)
+        }
+
+
+    override def tuple5_get5[E] (t: Exp[Tuple5[_, _, _, _, E]])
+            (implicit evidence$98: Manifest[E], pos: SourceContext): Rep[E] =
+        t match {
+            case UnboxedTuple (vars) => vars (4).asInstanceOf[Rep[E]]
+            case _ => super.tuple5_get5 (t)
+        }
+
+
 }

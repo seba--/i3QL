@@ -69,7 +69,8 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                 // { (x,y) => x}
                 case 0 =>
                     relation match {
-                        case Def (EquiJoin (ra, Def (rb: EquiJoin[Any@unchecked, Any@unchecked]), equalities)) =>
+                        case Def (EquiJoin (ra, Def (rb: EquiJoin[Any@unchecked, Any@unchecked]), equalities))
+                            if equalities.contains ((e: (Rep[Any => Any], Rep[Any => Any])) => isIdentity (e._1)) =>
                             rb.relationA match {
                                 case `ra` =>
                                     /*
@@ -81,10 +82,11 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                         )(domainOf (ra), domainOf (rb.relationB)),
                                         fun (
                                             (x: Rep[Domain], y: Rep[Any]) => x
-                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra)).asInstanceOf[Rep[Any => Any]]
+                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra)).asInstanceOf[Rep[Any
+                                         => Any]]
                                     )
                                     */
-                                                       super.projection (relation, function)
+                                    super.projection (relation, function)
 
                                 case Def (DuplicateElimination (`ra`)) =>
                                     projection (
