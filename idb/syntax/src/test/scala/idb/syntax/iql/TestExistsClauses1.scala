@@ -71,7 +71,7 @@ class TestExistsClauses1
 
     }
 
-    @Ignore
+
     @Test
     def testExistsWithConjunction () {
         val query = plan (

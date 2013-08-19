@@ -33,8 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraSubQueries
-import scala.virtualization.lms.common.FunctionsExp
-import scala.reflect.SourceContext
+import idb.lms.extensions.equivalence.FunctionsExpAlphaEquivalence
 
 /**
  *
@@ -44,7 +43,7 @@ import scala.reflect.SourceContext
 
 trait RelationalAlgebraIRSubQueries
     extends RelationalAlgebraSubQueries
-    with FunctionsExp
+    with FunctionsExpAlphaEquivalence
 {
 
 
@@ -79,56 +78,12 @@ trait RelationalAlgebraIRSubQueries
         planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
             Rep[ContextDomain]) => Rep[Query[ContextDomain]]
     ): Rep[Boolean] =
-        new ExistsCondition(subQuery, planSubQueryWithContext)
+        new ExistsCondition (subQuery, planSubQueryWithContext)
 
-
-/*
-    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
-        case c@ExistsCondition (subQuery) =>
-            existCondition(subQuery.transform(f), c.contextualQueryPlan)
-
-        case _ => super.mirror (e, f)
-    }).asInstanceOf[Exp[A]]
-*/
-    /*
-    case class ExistsCondition[Domain] (
-        subQuery: AnyRef
-    ) extends Def[Boolean]
-    {
-
-        def createSubQueryWithContext (
-            context: Rep[Query[Domain]],
-            parameter: Rep[Domain]
-        )(
-            implicit m: Manifest[Domain]
-        ): Rep[Query[Domain]] =
-            contextualQueryPlan (context, parameter, m)
-
-        private var contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]] =
-            null
-
-        def this (
-            subQuery: AnyRef,
-            contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
-        ) {
-            this (subQuery)
-            this.contextualQueryPlan = contextualQueryPlan
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (Def (ExistsCondition (subQueryA)), Def (ExistsCondition (subQueryB))) => subQueryA == subQueryB
+            case _ => super.isEquivalent(a, b)
         }
 
-    }
-
-
-    def existCondition[Domain] (
-        subQuery: AnyRef,
-        contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
-    ): Rep[Boolean] =
-        new ExistsCondition (subQuery, contextualQueryPlan)
-
-
-
-    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = e match {
-        case ExistsCondition (_) => toAtom (e)
-        case _ => super.mirror (e, f)
-    }
-    */
 }
