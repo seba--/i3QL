@@ -127,18 +127,19 @@ trait FunctionUtils
         }
     }
 
+
     def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = {
         function match {
-            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
-                if body == make_tuple2 (a, b) => true
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
-                if body == make_tuple3 (a, b, c) => true
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
-                if body == make_tuple4 (a, b, c, d) => true
-            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
-                if body == make_tuple5 (a, b, c, d, e) => true
-            case Def (Lambda (_, x, Block (body)))
-                if body == x => true
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1)), Block (Def (ETuple2 (a2, b2))))) =>
+                a1 == a2 && b1 == b2
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1)), Block (Def (ETuple3 (a2, b2, c2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1)), Block (Def (ETuple4 (a2, b2, c2, d2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1, e1)), Block (Def (ETuple5 (a2, b2, c2, d2, e2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2 && e1 == e2
+            case Def (Lambda (_, x, Block (body))) =>
+                body == x
             case _ => false
         }
     }
