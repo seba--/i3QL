@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambda}
+import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
 
 /**
  * Rules for lifting projections higher up in the operator tree
@@ -89,13 +89,8 @@ trait RelationalAlgebraIROptLiftProjection
                 )
 
 
-            case (ra, Def (Projection (rb, fb))) =>
-                projection (
-                crossProduct (
-                    ra,
-                    rb
-                )(manifest[DomainA], domainOf (rb)),
-                fun (
+            case (ra, Def (Projection (rb, fb))) => {
+                val newProjection =        fun (
                     (x: Rep[DomainA], y: Rep[Any]) => (x, fb (y))
                 )(
                     manifest[DomainA],
@@ -103,8 +98,15 @@ trait RelationalAlgebraIROptLiftProjection
                     manifest[(DomainA, DomainB)]
                 )
 
-                )
+                projection (
+                    crossProduct (
+                        ra,
+                        rb
+                    )(manifest[DomainA], domainOf (rb)),
+                    newProjection
 
+                )
+            }
             case _ => super.crossProduct (relationA, relationB)
         }
 

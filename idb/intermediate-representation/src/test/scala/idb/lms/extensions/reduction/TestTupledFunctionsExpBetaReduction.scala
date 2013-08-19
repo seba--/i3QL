@@ -75,6 +75,19 @@ class TestTupledFunctionsExpBetaReduction
         assertEqualFunctions (f3, f2)
     }
 
+    @Test
+    def testApplyTupleToUnboxedParameter1 () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
+
+        val f2 = fun ((i: Rep[Int], j: Rep[Int]) => f1 (i, j))
+
+        assertEqualFunctions (f2, f1)
+
+        val f3 = fun ((i: Rep[(Int, Int)]) => i._1)
+
+        assertEqualFunctions (f3, f2)
+    }
+
 
     @Test
     def testApply1ToUnboxedParameter2 () {
@@ -89,6 +102,19 @@ class TestTupledFunctionsExpBetaReduction
         assertEqualFunctions (f3, f2)
     }
 
+
+    @Test
+    def testApplyTupleToUnboxedParameter2 () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => j)
+
+        val f2 = fun ((i: Rep[Int], j: Rep[Int]) => f1 (i, j))
+
+        assertEqualFunctions (f2, f1)
+
+        val f3 = fun ((i: Rep[(Int, Int)]) => i._2)
+
+        assertEqualFunctions (f3, f2)
+    }
 
     @Test
     def testApply1ToIdentityUnboxedParameter1 () {
@@ -187,7 +213,7 @@ class TestTupledFunctionsExpBetaReduction
 
         assertNotEqualFunctions (f2, f1)
 
-        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) =>  i._1 + j)
+        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) => i._1 + j)
 
         assertEqualFunctions (f3, f2)
     }
@@ -201,7 +227,7 @@ class TestTupledFunctionsExpBetaReduction
 
         assertNotEqualFunctions (f2, f1)
 
-        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) =>  i._2 + j)
+        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) => i._2 + j)
 
         assertEqualFunctions (f3, f2)
     }
@@ -215,7 +241,7 @@ class TestTupledFunctionsExpBetaReduction
 
         assertNotEqualFunctions (f2, f1)
 
-        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) =>  i._1 + 1 + j)
+        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) => i._1 + 1 + j)
 
         assertEqualFunctions (f3, f2)
     }
@@ -229,7 +255,7 @@ class TestTupledFunctionsExpBetaReduction
 
         assertNotEqualFunctions (f2, f1)
 
-        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) =>  i._2 + 1 + j)
+        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) => i._2 + 1 + j)
 
         assertEqualFunctions (f3, f2)
     }
@@ -243,9 +269,37 @@ class TestTupledFunctionsExpBetaReduction
 
         assertNotEqualFunctions (f2, f1)
 
-        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) =>  i._2 + i._1 + j)
+        val f3 = fun ((i: Rep[(Int, Int)], j: Rep[Int]) => i._2 + i._1 + j)
 
         assertEqualFunctions (f3, f2)
     }
 
+
+    @Test
+    def testApplyMakeTupleOnIdentityUnboxedParameter1 () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
+
+        val f2 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, f1 (y)))
+
+        assertNotEqualFunctions (f2, f1)
+
+        val f3 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, y._1))
+
+        assertEqualFunctions (f3, f2)
+    }
+
+    @Test
+    def testApplyMakeTupleDynamicOnIdentityUnboxedParameter1 () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
+
+        val f1_dynamic = f1.asInstanceOf[Rep[Any => Any]]
+
+        val f2 = fun ((x: Rep[Int], y: Rep[Any]) => (x, f1_dynamic (y)))(manifest[Int], manifest[(Int, Int)].asInstanceOf[Manifest[Any]], manifest[(Int,Any)])
+
+        assertNotEqualFunctions (f2, f1)
+
+        val f3 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, y._1))
+
+        assertEqualFunctions (f3, f2)
+    }
 }
