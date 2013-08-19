@@ -32,8 +32,8 @@
  */
 package idb.lms.extensions.functions
 
-import scala.virtualization.lms.common.TupledFunctionsExp
 import scala.reflect.SourceContext
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
@@ -45,7 +45,26 @@ trait TupledFunctionsExpDynamicLambda
     extends FunctionsExpDynamicLambda
     with TupledFunctionsExp
 {
+    override implicit def toLambdaOpsAny[B: Manifest] (fun: Rep[Any => B]): LambdaOps[Any, B] =
+        toLambdaOps (fun)
 
+
+    override implicit def toLambdaOps2[A1: Manifest, A2: Manifest, B: Manifest] (fun: Rep[((A1, A2)) => B]) =
+        new LambdaOps2 (fun)
+
+    override implicit def toLambdaOps3[A1: Manifest, A2: Manifest, A3: Manifest, B: Manifest] (fun: Rep[((A1, A2,
+        A3)) => B]) =
+        new LambdaOps3 (fun)
+
+    override implicit def toLambdaOps4[A1: Manifest, A2: Manifest, A3: Manifest, A4: Manifest,
+    B: Manifest] (fun: Rep[((A1, A2, A3, A4)) => B]) =
+        new LambdaOps4 (fun)
+
+    override implicit def toLambdaOps5[A1: Manifest, A2: Manifest, A3: Manifest, A4: Manifest, A5: Manifest,
+    B: Manifest] (
+        fun: Rep[((A1, A2, A3, A4, A5)) => B]
+    ) =
+        new LambdaOps5 (fun)
 
     def dynamicLambda[A1, A2, B] (
         x1: Exp[A1], x2: Exp[A2], body: Exp[B]
@@ -55,7 +74,7 @@ trait TupledFunctionsExpDynamicLambda
         implicit val ma1 = x1.tp
         implicit val ma2 = x2.tp
         implicit val mb = body.tp
-        dynamicLambdaDef (UnboxedTuple[(A1, A2)](List(x1, x2)), body)
+        dynamicLambdaDef (UnboxedTuple[(A1, A2)](List (x1, x2)), body)
     }
 
 

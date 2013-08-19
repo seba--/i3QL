@@ -35,7 +35,7 @@ package idb.algebra.opt
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
+import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambdaAlphaEquivalence}
 
 /**
  *
@@ -48,7 +48,7 @@ trait RelationalAlgebraIROptPushSelection
     with LiftBoolean
     with BooleanOpsExp
     with TupleOpsExp
-    with TupledFunctionsExp
+    with TupledFunctionsExpDynamicLambda
     with EqualExp
     with ExpressionUtils
     with FunctionUtils

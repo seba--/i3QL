@@ -294,7 +294,7 @@ class TestTupledFunctionsExpBetaReduction
 
         val f1_dynamic = f1.asInstanceOf[Rep[Any => Any]]
 
-        val f2 = fun ((x: Rep[Int], y: Rep[Any]) => (x, f1_dynamic (y)))(manifest[Int], manifest[(Int, Int)].asInstanceOf[Manifest[Any]], manifest[(Int,Any)])
+        val f2 = fun ((x: Rep[Int], y: Rep[Any]) => (x, f1_dynamic (y)))(manifest[Int], manifest[(Int, Int)].asInstanceOf[Manifest[Any]], manifest[(Int,Int)].asInstanceOf[Manifest[(Int,Any)]])
 
         assertNotEqualFunctions (f2, f1)
 

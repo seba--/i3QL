@@ -33,6 +33,7 @@
 package idb.lms.extensions.equivalence
 
 import scala.virtualization.lms.common.FunctionsExp
+import idb.lms.extensions.FunctionUtils
 
 
 /**
@@ -44,15 +45,16 @@ import scala.virtualization.lms.common.FunctionsExp
 trait FunctionsExpAlphaEquivalence
     extends FunctionsExp
     with BaseExpAlphaEquivalence
+    with FunctionUtils
 {
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (Lambda (_, xa: Sym[_], ba)), Def (Lambda (_, xb: Sym[_], bb))) =>
+            case (Def (fa@Lambda (_, xa: Sym[_], ba)), Def (fb@Lambda (_, xb: Sym[_], bb))) =>
                 // functions need to have the same return type
                 // while there is such a thing as allowing covariance in inheritance,
                 // we can not generate the same function with a covariant type in a totally different place
-                ba.tp == bb.tp && xa.tp == xb.tp && (
+                returnType(fa) == returnType(fb)  && xa.tp == xb.tp && (
                     // either same variable is used, or we add a renaming
                     (xa == xb && isEquivalent (ba.res, bb.res)) || isEquivalent (ba.res, bb.res)(renamings.add (xa, xb))
                     )

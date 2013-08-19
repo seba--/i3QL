@@ -34,6 +34,7 @@ package idb.lms.extensions.functions
 
 import scala.virtualization.lms.common.FunctionsExp
 import scala.reflect.SourceContext
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
@@ -43,7 +44,15 @@ import scala.reflect.SourceContext
 
 trait FunctionsExpDynamicLambda
     extends FunctionsExp
+    with FunctionUtils
 {
+
+    override implicit def toLambdaOps[A:Manifest,B:Manifest](fun: Rep[A => B]) : LambdaOps[A, B]= {
+        implicit val mA = parameterType (fun).asInstanceOf[Manifest[A]]
+        implicit val mB = returnType (fun).asInstanceOf[Manifest[B]]
+        new LambdaOps (fun)(mA, mB)
+    }
+
 
     private val illegalFunctionCall: Exp[Any] => Exp[Any] =
         (x: Exp[Any]) => throw new
