@@ -112,12 +112,9 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                 ),
                                 convertEqualitiesToTupleEqualitiesOnSecond (equalities)
                             )(manifest[Domain], returnType(innerProjection))
-                        //val param = fresh (domainOf (newJoin))
-                        //val body = unbox(param)
                         projection (
                             newJoin,
                             ( p: Rep[(Domain, Any)]) => p._1
-                            //dynamicLambda (param, tuple2_get1(param.asInstanceOf[Rep[Tuple2[Any, Any]]]))
                         )
                     }
                     case 1 => {

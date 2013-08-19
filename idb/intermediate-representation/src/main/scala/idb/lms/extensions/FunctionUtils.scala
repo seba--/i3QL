@@ -136,10 +136,31 @@ trait FunctionUtils
                 a1 == a2 && b1 == b2 && c1 == c2
             case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1)), Block (Def (ETuple4 (a2, b2, c2, d2))))) =>
                 a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2
-            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1, e1)), Block (Def (ETuple5 (a2, b2, c2, d2, e2))))) =>
+            case Def (
+            Lambda (_, UnboxedTuple (List (a1, b1, c1, d1, e1)), Block (Def (ETuple5 (a2, b2, c2, d2, e2))))) =>
                 a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2 && e1 == e2
             case Def (Lambda (_, x, Block (body))) =>
                 body == x
+            case _ => false
+        }
+    }
+
+    def returnsLeftOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
+        function match {
+            case Def (Lambda (_, x, Block (Def (Tuple2Access1 (t))))) =>
+                x == t
+            case Def (Lambda (_, UnboxedTuple (List (a, _)), Block (r))) =>
+                a == r
+            case _ => false
+        }
+    }
+
+    def returnsRightOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
+        function match {
+            case Def (Lambda (_, x, Block (Def (Tuple2Access2 (t))))) =>
+                x == t
+            case Def (Lambda (_, UnboxedTuple (List (_, b)), Block (r))) =>
+                b == r
             case _ => false
         }
     }

@@ -64,16 +64,14 @@ trait RelationalAlgebraIROptSimplifyBasicOps
             // these rules are primarily being used to simplify expressions after generating exists sub queries
             val bodyReturnsParameter = returnedParameter (function)
 
-            bodyReturnsParameter match
-            {
+            bodyReturnsParameter match {
                 // { (x,y) => x}
                 case 0 =>
                     relation match {
                         case Def (EquiJoin (ra, Def (rb: EquiJoin[Any@unchecked, Any@unchecked]), equalities))
-                            if equalities.contains ((e: (Rep[Any => Any], Rep[Any => Any])) => isIdentity (e._1)) =>
+                            if isEqualLeftToRightLeft (equalities) =>
                             rb.relationA match {
                                 case `ra` =>
-                                    /*
                                     projection (
                                         equiJoin (
                                             ra,
@@ -81,12 +79,9 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             rb.equalities
                                         )(domainOf (ra), domainOf (rb.relationB)),
                                         fun (
-                                            (x: Rep[Domain], y: Rep[Any]) => x
-                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra)).asInstanceOf[Rep[Any
-                                         => Any]]
+                                            (x: Rep[Any], y: Rep[Any]) => x
+                                        )(domainOf (ra), domainOf (rb.relationB), domainOf (ra))
                                     )
-                                    */
-                                    super.projection (relation, function)
 
                                 case Def (DuplicateElimination (`ra`)) =>
                                     projection (
@@ -103,67 +98,171 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                 case _ => super.projection (relation, function)
                             }
 
+                        case Def (EquiJoin (ra, Def (rb: EquiJoin[Any@unchecked, Any@unchecked]), equalities))
+                            if isEqualLeftToRightRight (equalities) =>
+                            rb.relationB match {
+                                case `ra` =>
+                                    projection (
+                                        equiJoin (
+                                            ra,
+                                            rb.relationA,
+                                            rb.equalities
+                                        )(domainOf (ra), domainOf (rb.relationA)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => x
+                                        )(domainOf (ra), domainOf (rb.relationA), domainOf (ra))
+                                    )
+
+                                case Def (DuplicateElimination (`ra`)) =>
+                                    projection (
+                                        equiJoin (
+                                            ra,
+                                            rb.relationA,
+                                            rb.equalities
+                                        )(domainOf (ra), domainOf (rb.relationA)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => x
+                                        )(domainOf (ra), domainOf (rb.relationA), domainOf (ra))
+                                    )
+
+                                case _ => super.projection (relation, function)
+                            }
+
+
                         case _ =>
                             super.projection (relation, function)
                     }
 
 
                 case 1 =>
-                    super.projection (relation, function)
+                    relation match {
+                        case Def (EquiJoin (Def (ra: EquiJoin[Any@unchecked, Any@unchecked]), rb, equalities))
+                            if isEqualRightToLeftLeft (equalities) =>
+                            ra.relationA match {
+                                case `rb` =>
+                                    projection (
+                                        equiJoin (
+                                            ra.relationB,
+                                            rb,
+                                            ra.equalities
+                                        )(domainOf (ra.relationB), domainOf (rb)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => y
+                                        )(domainOf (ra.relationB), domainOf (rb), domainOf (rb))
+                                    )
 
-                case -1 => super.projection (relation, function)
+                                case Def (DuplicateElimination (`rb`)) =>
+                                    projection (
+                                        equiJoin (
+                                            ra.relationB,
+                                            rb,
+                                            ra.equalities
+                                        )(domainOf (ra.relationB), domainOf (rb)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => y
+                                        )(domainOf (ra.relationB), domainOf (rb), domainOf (rb))
+                                    )
+
+                                case _ => super.projection (relation, function)
+                            }
+
+                        case Def (EquiJoin (Def (ra: EquiJoin[Any@unchecked, Any@unchecked]), rb, equalities))
+                            if isEqualRightToLeftRight (equalities) =>
+                            ra.relationB match {
+                                case `rb` =>
+                                    projection (
+                                        equiJoin (
+                                            ra.relationA,
+                                            rb,
+                                            ra.equalities
+                                        )(domainOf (ra.relationA), domainOf (rb)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => y
+                                        )(domainOf (ra.relationA), domainOf (rb), domainOf (rb))
+                                    )
+
+                                case Def (DuplicateElimination (`rb`)) =>
+                                    projection (
+                                        equiJoin (
+                                            ra.relationA,
+                                            rb,
+                                            ra.equalities
+                                        )(domainOf (ra.relationA), domainOf (rb)),
+                                        fun (
+                                            (x: Rep[Any], y: Rep[Any]) => y
+                                        )(domainOf (ra.relationA), domainOf (rb), domainOf (rb))
+                                    )
+
+                                case _ =>
+                                    super.projection (relation, function)
+                            }
+                    }
+
+                case -1 =>
+                    super.projection (relation, function)
             }
         }).asInstanceOf[Rep[Query[Range]]]
 
-    /*
-        // these rules are primarily being used to simplify expressions after generating exists sub queries
-        override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
-            relationA: Rep[Query[DomainA]],
-            relationB: Rep[Query[DomainB]],
-            equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-        ): Rep[Query[(DomainA, DomainB)]] =
-            if (equalities.contains (isObjectEquality _)) {
-                // this join is a natural join, so we can try to find inner expressions containing relationA or
-                relationB
-                ((relationA, relationB) match {
-                    case (_, Def (Projection (Def (join: EquiJoin[Any@unchecked, Any@unchecked]), f))) =>
-                        // TODO why can I not pattern match the equi join
-                    {
-                        val bodyReturnsParameter = returnedParameter (f)
 
-                        bodyReturnsParameter match
-                        {
-                            case 0 =>
-                                join.relationA match
-                                {
-                                    case `relationA` =>
-                                        equiJoin (
-                                            relationA,
-                                            join.relationB,
-                                            join.equalities
-                                        )(exactDomainOf (relationA), domainOf (join.relationB))
-                                    case Def (DuplicateElimination (`relationA`)) =>
-                                        equiJoin (
-                                            relationA,
-                                            join.relationB,
-                                            join.equalities
-                                        )(exactDomainOf (relationA), domainOf (join.relationB))
-                                }
+    /**
+     * Checks that the equality contains two functions of the form:
+     * left  == x => x
+     * right == x => x._1
+     */
+    private def isEqualLeftToRightLeft (equalities: List[(Rep[Any => Any], Rep[Any => Any])]): Boolean = {
+        for ((left, right) <- equalities) {
+            val leftIsIdentity = isIdentity (left)
+            val rightReturnsLeftElement = returnsLeftOfTuple2 (right)
+            if (leftIsIdentity && rightReturnsLeftElement) return true
+        }
 
-                            case 1 =>
-                                super.equiJoin (relationA, relationB, equalities)
+        false
+    }
 
-                            case -1 => super.equiJoin (relationA, relationB, equalities)
-                        }
-                    }
+    /**
+     * Checks that the equality contains two functions of the form:
+     * left  == x => x
+     * right == x => x._2
+     */
+    private def isEqualLeftToRightRight (equalities: List[(Rep[Any => Any], Rep[Any => Any])]): Boolean = {
+        for ((left, right) <- equalities) {
+            val leftIsIdentity = isIdentity (left)
+            val rightReturnsRightElement = returnsRightOfTuple2 (right)
+            if (leftIsIdentity && rightReturnsRightElement) return true
+        }
 
-                    case _ => super.equiJoin (relationA, relationB, equalities)
-                }).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
-            }
-            else
-                super.equiJoin (relationA, relationB, equalities)
+        false
+    }
 
-    */
+    /**
+     * Checks that the equality contains two functions of the form:
+     * left  == x => x._1
+     * right == x => x
+     */
+    private def isEqualRightToLeftLeft (equalities: List[(Rep[Any => Any], Rep[Any => Any])]): Boolean = {
+        for ((left, right) <- equalities) {
+            val rightIsIdentity = isIdentity (right)
+            val leftReturnsLeftElement = returnsLeftOfTuple2 (right)
+            if (rightIsIdentity && leftReturnsLeftElement) return true
+        }
+
+        false
+    }
+
+    /**
+     * Checks that the equality contains two functions of the form:
+     * left  == x => x
+     * right == x => x._2
+     */
+    private def isEqualRightToLeftRight (equalities: List[(Rep[Any => Any], Rep[Any => Any])]): Boolean = {
+        for ((left, right) <- equalities) {
+            val rightIsIdentity = isIdentity (right)
+            val leftReturnsRightElement = returnsRightOfTuple2 (left)
+            if (rightIsIdentity && leftReturnsRightElement) return true
+        }
+
+        false
+    }
 }
 
 
