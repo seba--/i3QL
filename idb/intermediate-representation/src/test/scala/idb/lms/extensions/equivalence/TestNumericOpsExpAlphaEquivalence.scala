@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.LiftAll
+import scala.virtualization.lms.common.{EqualExp, LiftAll}
 import org.junit.Test
 
 /**
@@ -40,7 +40,7 @@ import org.junit.Test
  * @author Ralf Mitschke
  */
 class TestNumericOpsExpAlphaEquivalence
-    extends LiftAll with FunctionsExpAlphaEquivalence with AssertAlphaEquivalence
+    extends LiftAll with EqualExp with FunctionsExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
     @Test

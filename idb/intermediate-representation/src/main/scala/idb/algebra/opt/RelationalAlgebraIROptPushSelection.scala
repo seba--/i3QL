@@ -32,10 +32,10 @@
  */
 package idb.algebra.opt
 
-import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambdaAlphaEquivalence}
+import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -44,6 +44,7 @@ import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsE
  */
 trait RelationalAlgebraIROptPushSelection
     extends RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRSetTheoryOperators
     with BaseFatExp
     with LiftBoolean
     with BooleanOpsExp
@@ -104,6 +105,12 @@ trait RelationalAlgebraIROptPushSelection
                         equiJoin (selection (a, fa)(domainOf (a)), selection (b, fb)(domainOf (b)), l)
                 }
             }
+
+            case Def (Difference (a, b)) =>
+                difference (
+                    selection (a, function),
+                    selection (b, function)
+                )
 
             case _ =>
                 super.selection (relation, function)

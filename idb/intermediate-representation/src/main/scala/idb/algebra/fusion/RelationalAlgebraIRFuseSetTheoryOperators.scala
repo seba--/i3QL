@@ -32,7 +32,7 @@
  */
 package idb.algebra.fusion
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.normalization.RelationalAlgebraNormalize
 import idb.lms.extensions.FunctionUtils
 
@@ -42,44 +42,63 @@ import idb.lms.extensions.FunctionUtils
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIRFuseBasicOperators
+trait RelationalAlgebraIRFuseSetTheoryOperators
     extends RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRSetTheoryOperators
     with RelationalAlgebraNormalize
     with FunctionUtils
 {
 
-    /**
-     * Fusion of projection operations
-     */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
     ): Rep[Query[Range]] =
-        relation match {
-            case Def (Projection (r, f)) =>
-                //val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
-                val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
-                projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType (f), mRangeUnsafe))
-            case _ =>
-                super.projection (relation, function)
-        }
-
-
-    /**
-     * Fusion of selection operations
-     */
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
-        relation match {
-            case Def (Selection (r, f)) => {
+        (relationA, relationB) match {
+            case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (
-                    selection (r, createConjunction (f, function))
+                    selection (
+                        ra.asInstanceOf[Rep[Query[Range]]],
+                        createDisjunction (fa, fb)(parameterType (fa))
+                    )
                 )
-            }
             case _ =>
-                super.selection (relation, function)
+                super.unionMax (relationA, relationB)
         }
 
+    override def intersection[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
+                withoutNormalization (
+                    selection (
+                        ra,
+                        createConjunction (fa, fb)(parameterType (fa))
+                    )
+                )
+
+            case _ =>
+                super.intersection (relationA, relationB)
+        }
+
+
+    override def difference[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
+                withoutNormalization (
+                    selection (
+                        ra,
+                        createConjunction (fa,
+                            fun ((x: Rep[Domain]) => !fb (x))
+                        )(parameterType (fa))
+                    )
+                )
+            case _ =>
+                super.difference (relationA, relationB)
+        }
 }

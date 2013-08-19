@@ -47,6 +47,7 @@ import scala.language.implicitConversions
 class TestExistsClauses1
 {
 
+
     @Test
     def testExists () {
         val query = plan (
@@ -101,9 +102,32 @@ class TestExistsClauses1
     }
 
 
-    @Ignore
     @Test
     def testNotExists () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                    NOT (EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    ))
+                )
+        )
+
+        assertEqualStructure (
+            antiSemiJoin (
+                students,
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
+        )
+
+    }
+
+    @Test
+    def testNotExistsWithConjunction () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 s.lastName == "Fields" AND
@@ -116,5 +140,17 @@ class TestExistsClauses1
                 )
         )
 
+        assertEqualStructure (
+            antiSemiJoin (
+                selection (
+                    students,
+                    (s: Rep[Student]) => s.lastName == "Fields" && !(s.firstName == "Sally")
+                ),
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
+        )
     }
 }

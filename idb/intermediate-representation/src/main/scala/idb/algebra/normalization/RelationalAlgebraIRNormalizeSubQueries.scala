@@ -32,10 +32,10 @@
  */
 package idb.algebra.normalization
 
-import idb.algebra.ir._
-import scala.virtualization.lms.common._
-import idb.lms.extensions._
 import idb.algebra.base.RelationalAlgebraDerivedOperators
+import idb.algebra.ir._
+import idb.lms.extensions._
+import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp}
 
 
 /**
@@ -49,6 +49,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
     with RelationalAlgebraNormalize
     with RelationalAlgebraDerivedOperators
     with TupledFunctionsExp
+    with BooleanOpsExp
     with FunctionUtils
 {
 
@@ -68,6 +69,19 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                     exists.createSubQueryWithContext (relation, parameter (function))
                                 )
                             )
+
+                        // de-correlation of NOT EXISTS( SELECT .... )
+                        case Def (BooleanNegate (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]))) =>
+                            difference (
+                                relation,
+                                naturalJoin (
+                                    relation,
+                                    duplicateElimination (
+                                        exists.createSubQueryWithContext (relation, parameter (function))
+                                    )
+                                )
+                            )
+
 
                         case _ => super.selection (relation, function)
                     }

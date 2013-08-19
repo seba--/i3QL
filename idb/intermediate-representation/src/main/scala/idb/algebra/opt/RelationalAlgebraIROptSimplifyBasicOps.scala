@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
-import scala.virtualization.lms.common._
+import idb.lms.extensions.equivalence.TupledFunctionsExpAlphaEquivalence
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -45,12 +45,25 @@ import scala.virtualization.lms.common._
  */
 trait RelationalAlgebraIROptSimplifyBasicOps
     extends RelationalAlgebraIRBasicOperators
-    with TupledFunctionsExp
+    with TupledFunctionsExpAlphaEquivalence
     with FunctionUtils
 {
 
     /**
-     * Remove projection that use the identity function
+     * Remove equivalent functions. Note that this requires ordering the functions to ensure that equivalent functions
+     * are on top of one another
+     */
+    override def selection[Domain: Manifest] (
+        relation: Rep[Query[Domain]],
+        function: Rep[Domain => Boolean]
+    ): Rep[Query[Domain]] =
+        relation match {
+            case Def (select@Selection (r, f)) if isEquivalent (function, f) => select
+            case _ => super.selection (relation, function)
+        }
+
+    /**
+     * Remove projection that use the identity function or only one argument
      */
     override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],

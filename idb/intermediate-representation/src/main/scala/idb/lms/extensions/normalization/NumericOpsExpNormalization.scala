@@ -30,46 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.lms.extensions.normalization
 
-import idb.algebra.base.RelationalAlgebraDerivedOperators
-import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
-import idb.algebra.ir._
-import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
-import idb.algebra.opt._
-
+import scala.reflect.SourceContext
+import scala.virtualization.lms.common.NumericOpsExpOpt
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
- *
  */
-trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRSetTheoryOperators
-    with RelationalAlgebraIRRecursiveOperators
-    with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRSubQueries
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraDerivedOperators
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIRFuseSetTheoryOperators
-    with RelationalAlgebraIROptSimplifyBasicOps
-    with RelationalAlgebraIROptSimplifySetTheoryOps
-    with RelationalAlgebraIROptSelectionInSetTheoryOps
-    with RelationalAlgebraIROptPushSelection
-    with RelationalAlgebraIROptPushDuplicateElimination
-    with RelationalAlgebraIROptOrderSelections
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIROptLiftProjection
-    with RelationalAlgebraIRNormalizeBasicOperators
-    with RelationalAlgebraIRNormalizeSubQueries
+trait NumericOpsExpNormalization
+    extends NumericOpsExpOpt
 {
-
+    override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
+            (implicit pos: SourceContext): Exp[T] =
+        (lhs, rhs) match {
+            // normalization a + (b + c) = b + c + a
+            case (e1, Def (NumericPlus (e2, e3))) => numeric_plus (numeric_plus (e1, e2), e3)
+            // super optimizations
+            case _ => super.numeric_plus (lhs, rhs)
+        }
 }

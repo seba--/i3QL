@@ -30,24 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.normalization
 
-import scala.virtualization.lms.common.NumericOpsExpOpt
 import scala.reflect.SourceContext
+import scala.virtualization.lms.common.BooleanOpsExp
 
 /**
+ * Brings boolean expressions into disjunctive normal form
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpNormalization
-    extends NumericOpsExpOpt
+trait BooleanOpsExpDNFNormalization
+    extends BooleanOpsExp
 {
-    override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
-            (implicit pos: SourceContext): Exp[T] =
-        (lhs, rhs) match {
-            // normalization a + (b + c) = b + c + a
-            case (e1, Def (NumericPlus (e2, e3))) => numeric_plus (numeric_plus (e1, e2), e3)
-            // super optimizations
-            case _ => super.numeric_plus (lhs, rhs)
+
+    override def boolean_negate (lhs: Exp[Boolean])(implicit pos: SourceContext): Exp[Boolean] =
+        lhs match {
+            case Def (BooleanAnd (left, right)) =>
+                boolean_or (boolean_negate (left), boolean_negate (right))
+
+            case Def (BooleanOr (left, right)) =>
+                boolean_and (boolean_negate (left), boolean_negate (right))
+
+            case _ =>
+                super.boolean_negate (lhs)
         }
+
+
+    override def boolean_and (lhs: Exp[Boolean], rhs: Exp[Boolean])(implicit pos: SourceContext): Exp[Boolean] =
+        (lhs, rhs) match {
+            case (Def (BooleanOr (left, right)), _) =>
+                boolean_or (boolean_and (left, rhs), boolean_and (right, rhs))
+
+            case (_, Def (BooleanOr (left, right))) =>
+                boolean_or (boolean_and (lhs, left), boolean_and (lhs, right))
+
+            case _ => super.boolean_and (lhs, rhs)
+        }
+
+
+    override def boolean_or (lhs: Exp[Boolean], rhs: Exp[Boolean])(implicit pos: SourceContext): Exp[Boolean] =
+        super.boolean_or (lhs, rhs)
+
+
 }

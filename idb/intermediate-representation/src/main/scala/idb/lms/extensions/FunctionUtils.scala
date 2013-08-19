@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.TupledFunctionsExp
+import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp}
 
 /**
  *
@@ -40,6 +40,7 @@ import scala.virtualization.lms.common.TupledFunctionsExp
  */
 trait FunctionUtils
     extends TupledFunctionsExp
+    with BooleanOpsExp
     with ExpressionUtils
 {
 
@@ -252,4 +253,48 @@ trait FunctionUtils
         }
     }
 
+    /**
+     * create a new conjunction.
+     * Types are checked dynamically to conform to Domain.
+     *
+     */
+    def createConjunction[A, B, Domain: Manifest] (
+        fa: Rep[A => Boolean],
+        fb: Rep[B => Boolean]
+    ): Rep[Domain => Boolean] = {
+        val mDomain = implicitly[Manifest[Domain]]
+        if (!(fa.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
+        } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
+        }
+
+        val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
+        val fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
+
+        fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
+    }
+
+
+    /**
+     * create a new conjunction.
+     * Types are checked dynamically to conform to Domain.
+     *
+     */
+    def createDisjunction[A, B, Domain: Manifest] (
+        fa: Rep[A => Boolean],
+        fb: Rep[B => Boolean]
+    ): Rep[Domain => Boolean] = {
+        val mDomain = implicitly[Manifest[Domain]]
+        if (!(fa.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
+        } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
+        }
+
+        val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
+        val fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
+
+        fun ((x: Rep[Domain]) => faUnsafe (x) || fbUnsafe (x))(mDomain, manifest[Boolean])
+    }
 }

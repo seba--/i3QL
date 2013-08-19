@@ -24,8 +24,6 @@ package object iql
     //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strangely
     def NOT (x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate (x)
 
-    //case class InfixAnd()
-
 
     // implicit conversions
 

@@ -30,46 +30,64 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.algebra.opt
 
-import idb.algebra.base.RelationalAlgebraDerivedOperators
-import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
-import idb.algebra.ir._
-import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
-import idb.algebra.opt._
-
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.normalization.RelationalAlgebraNormalize
+import idb.lms.extensions.FunctionUtils
+import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPackage
+trait RelationalAlgebraIROptSelectionInSetTheoryOps
     extends RelationalAlgebraIRBasicOperators
     with RelationalAlgebraIRSetTheoryOperators
-    with RelationalAlgebraIRRecursiveOperators
-    with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRSubQueries
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraDerivedOperators
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIRFuseSetTheoryOperators
-    with RelationalAlgebraIROptSimplifyBasicOps
-    with RelationalAlgebraIROptSimplifySetTheoryOps
-    with RelationalAlgebraIROptSelectionInSetTheoryOps
-    with RelationalAlgebraIROptPushSelection
-    with RelationalAlgebraIROptPushDuplicateElimination
-    with RelationalAlgebraIROptOrderSelections
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIROptLiftProjection
-    with RelationalAlgebraIRNormalizeBasicOperators
-    with RelationalAlgebraIRNormalizeSubQueries
+    with FunctionUtils
+    with FunctionsExpDynamicLambdaAlphaEquivalence
+    with RelationalAlgebraNormalize
 {
+
+    override def intersection[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (_, fa)), Def (Selection (_, fb))) =>
+                super.intersection (
+                    selection (relationA, fb),
+                    selection (relationB, fa)
+                )
+
+            case (Def (Selection (_, fa)), _) =>
+                super.intersection (
+                    relationA,
+                    selection (relationB, fa)
+                )
+
+            case (_, Def (Selection (_, fb))) =>
+                super.intersection (
+                    selection (relationA, fb),
+                    relationB
+                )
+
+            case _ => super.intersection (relationA, relationB)
+        }
+
+    override def difference[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        relationA match {
+            case Def (Selection (_, fa)) =>
+                withoutNormalization (
+                    super.difference (relationA, selection (relationB, fa))
+                )
+
+            case _ =>
+                super.difference (relationA, relationB)
+        }
 
 }

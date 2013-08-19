@@ -30,46 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.algebra.opt
 
-import idb.algebra.base.RelationalAlgebraDerivedOperators
-import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
-import idb.algebra.ir._
-import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
-import idb.algebra.opt._
-
+import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambdaAlphaEquivalence}
+import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
+import scala.virtualization.lms.common._
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
+ * To simplify common sub-expression elimination and finding equivalent conditions, all selections are ordered via
+ * their hash code; where greater hash codes come first
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPackage
+trait RelationalAlgebraIROptOrderSelections
     extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRSetTheoryOperators
-    with RelationalAlgebraIRRecursiveOperators
-    with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRSubQueries
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraDerivedOperators
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIRFuseSetTheoryOperators
-    with RelationalAlgebraIROptSimplifyBasicOps
-    with RelationalAlgebraIROptSimplifySetTheoryOps
-    with RelationalAlgebraIROptSelectionInSetTheoryOps
-    with RelationalAlgebraIROptPushSelection
-    with RelationalAlgebraIROptPushDuplicateElimination
-    with RelationalAlgebraIROptOrderSelections
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIROptLiftProjection
-    with RelationalAlgebraIRNormalizeBasicOperators
-    with RelationalAlgebraIRNormalizeSubQueries
+    with BaseFatExp
+    with LiftBoolean
+    with BooleanOpsExp
+    with TupleOpsExp
+    with TupledFunctionsExpDynamicLambda
+    with EqualExp
+    with ExpressionUtils
+    with FunctionUtils
+    with FunctionsExpDynamicLambdaAlphaEquivalence
 {
+
+    /**
+     * Ordering selections via the hash code of their selection functions
+     */
+    override def selection[Domain: Manifest] (
+        relation: Rep[Query[Domain]],
+        function: Rep[Domain => Boolean]
+    ): Rep[Query[Domain]] =
+        relation match {
+            case Def (Selection (r, f)) if f.hashCode () > function.hashCode () =>
+                selection (selection (r, function)(exactDomainOf (relation)), f)
+
+            case _ =>
+                super.selection (relation, function)
+
+        }
+
 
 }

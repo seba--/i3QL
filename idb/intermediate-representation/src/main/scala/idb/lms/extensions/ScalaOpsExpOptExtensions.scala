@@ -33,8 +33,11 @@
 package idb.lms.extensions
 
 import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.lms.extensions.reduction.{TupleOpsExpOptBetaReduction, FunctionsExpBetaReduction,
+import idb.lms.extensions.normalization.{BooleanOpsExpOrdering, NumericOpsExpNormalization,
+BooleanOpsExpDNFNormalization}
+import idb.lms.extensions.reduction.{TupleOpsExpOptBetaReduction,
 TupledFunctionsExpBetaReduction}
+import idb.lms.extensions.simplification.BooleanOpsExpSimplification
 
 /**
  *
@@ -44,9 +47,12 @@ trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
     with ScalaOpsPkgExpAlphaEquivalence
     with ScalaOpsExpConstantPropagation
-    with ScalaOpsExpNormalization
+    with NumericOpsExpNormalization
     with TupledFunctionsExpBetaReduction
     with TupleOpsExpOptBetaReduction
+    with BooleanOpsExpSimplification
+    with BooleanOpsExpOrdering
+    with BooleanOpsExpDNFNormalization
 {
 
 }

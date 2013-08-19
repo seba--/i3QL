@@ -32,13 +32,13 @@
  */
 package idb.syntax.iql
 
-import UniversityDatabase._
 import TestUtil.assertEqualStructure
+import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
-
 import scala.language.implicitConversions
+
 
 /**
  *
@@ -89,6 +89,40 @@ class TestBasicClauses1
 
         assertEqualStructure (
             selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+            query
+        )
+    }
+
+    @Test
+    def testSelection1Negate () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.lastName == "Fields" && !(s.firstName == "Sally"))
+        )
+
+        assertEqualStructure (
+            selection (
+                selection (extent (students), (s: Rep[Student]) => s.lastName == "Fields"),
+                (s: Rep[Student]) => !(s.firstName == "Sally")
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testSelection1NegateMultiplePositive () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.lastName == "Fields" && s.matriculationNumber > 0 && !(s.firstName == "Sally"))
+        )
+
+        assertEqualStructure (
+
+            selection (
+                selection(
+                    selection (extent (students), (s: Rep[Student]) => s.lastName == "Fields"),
+                    (s: Rep[Student]) => s.matriculationNumber > 0
+                ),
+                (s: Rep[Student]) => !(s.firstName == "Sally")
+            ),
             query
         )
     }
@@ -188,16 +222,16 @@ class TestBasicClauses1
             SELECT ((s: Rep[String]) => s) FROM students GROUP BY (_.lastName)
         )
 
-	/*	assertEqualStructure(
-			projection (
-				grouping (
-					extent (students),
-					fun ((s : Rep[Student]) => s.lastName)
-				),
-				fun ((s: Rep[String]) => s)
-			),
-			query
-		)    */
+        /*	assertEqualStructure(
+                projection (
+                    grouping (
+                        extent (students),
+                        fun ((s : Rep[Student]) => s.lastName)
+                    ),
+                    fun ((s: Rep[String]) => s)
+                ),
+                query
+            )    */
 
     }
 
@@ -206,8 +240,9 @@ class TestBasicClauses1
 
         val query = plan (
             SELECT (
-			//	(firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName  //TODO Re-enable in later version
-				(pair : Rep[(String, String)]) => pair._1 + " " + pair._2
+                //	(firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName  //TODO Re-enable
+                // in later version
+                (pair: Rep[(String, String)]) => pair._1 + " " + pair._2
             ) FROM students GROUP BY ((s: Rep[Student]) => (s.firstName, s.lastName))
         )
 
