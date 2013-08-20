@@ -70,7 +70,7 @@ object ClauseToAlgebra
 						updated
 					),
 					asDistinct
-				)*/
+				)     */
 
 			case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct))) =>
 				distinct (projection (selection (relation, predicate), project), asDistinct)
@@ -80,6 +80,15 @@ object ClauseToAlgebra
 
 			case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct)))) =>
 				distinct (projection (grouping (selection (relation, predicate), group), project), asDistinct)
+
+		/*	case GroupByClause1 (group, FromSelect2Clause1 (relation, SelectClause2 (ProjectionFunction2 (project), asDistinct))) =>
+				distinct (
+					projection (
+						grouping (
+							relation,
+							group),
+						project),
+					asDistinct)  */
 
        }
 
@@ -91,7 +100,15 @@ object ClauseToAlgebra
                 distinct (projection (crossProduct (relationA, relationB), project), asDistinct)
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (ProjectionFunction2 (project), asDistinct))) =>
-				distinct (projection (selection (crossProduct (relationA, relationB), predicate), project), asDistinct)
+				distinct (
+					projection (
+						selection (
+							crossProduct (
+								relationA,
+								relationB),
+							predicate),
+						project),
+					asDistinct)
 
 			case GroupByClause2 (group, FromSelect1Clause2 (relationA, relationB, SelectClause1 (ProjectionFunction1 (project), asDistinct))) =>
 				distinct (projection (grouping (crossProduct (relationA, relationB), group), project), asDistinct)

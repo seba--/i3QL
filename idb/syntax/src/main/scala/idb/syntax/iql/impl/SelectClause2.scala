@@ -58,7 +58,8 @@ case class SelectClause2[SelectA: Manifest, SelectB: Manifest, Range: Manifest] 
 	def FROM[Domain: Manifest] (
 		relation: Rep[Query[Domain]]
 	): GROUPED_FROM_CLAUSE_1[(SelectA, SelectB), Domain, Range] =
-		throw new UnsupportedOperationException("Use SelectClause1 with tupled functions instead.")
+		FromSelect2Clause1[SelectA, SelectB, Domain, Range](relation, this)
+
 
 }
 

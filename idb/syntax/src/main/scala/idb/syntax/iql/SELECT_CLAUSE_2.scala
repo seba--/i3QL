@@ -49,5 +49,5 @@ trait SELECT_CLAUSE_2[SelectA, SelectB, Range]
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
-     //   with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
+       with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
 }

@@ -290,7 +290,7 @@ class TestBasicClauses2
             ) =>
             {
                 s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY ((pair : Rep[(Student, Registration)]) => pair._1.lastName)
+            }) GROUP BY ((s : Rep[Student], r : Rep[Registration]) => s.lastName)
         )
 
     }

@@ -79,14 +79,14 @@ class TestBasicOperators
 	}
 
 
-	//TODO fix manifest bug
+	//TODO fix test
 	@Ignore
 	@Test
 	def testStudentNames2() {
 
 		val query = compile (
 			SELECT (
-				(pair : Rep[(String, String)] ) => pair._1 + " " + pair._2
+				( p : Rep[Any]) => p
 			) FROM
 				students
 			GROUP BY (
@@ -94,19 +94,50 @@ class TestBasicOperators
 			)
 		).asMaterialized
 
-		/*val query = compile (
-			SELECT.apply[(String,String),String]( (pair : Rep[(String, String)] ) => pair._1 + " " + pair._2).FROM(students).GROUP((s: Rep[Student]) => (s.firstName, s.lastName))
-		).asMaterialized */
+
 
 		val john = Student(11111, "John", "Doe")
 		val judy = Student(22222, "Judy", "Carter")
 		val jane = Student(33333, "Jane", "Doe")
 
 		students += john += judy += jane
+		students.endTransaction()
+
+		Predef.println("=====================================")
+		query.foreach(Predef.println)
+		Predef.println("=====================================")
 
 		assertTrue(query.contains("John Doe"))
 		assertTrue(query.contains("Judy Carter"))
 		assertTrue(query.contains("Jane Doe"))
+	}
+
+	@Test
+	def testStudentNames3() {
+
+		val query = compile (
+			SELECT (
+				(s : Rep[String] ) => "Student: " + s
+			) FROM
+				students
+			WHERE (
+				(s : Rep[Student]) => s.matriculationNumber < 30000
+			) GROUP BY (
+				(s: Rep[Student]) => s.firstName
+			)
+		).asMaterialized
+
+		val john = Student(11111, "John", "Doe")
+		val john2 = Student(11111, "John", "Carter")
+		val judy = Student(22222, "Judy", "Carter")
+		val jane = Student(33333, "Jane", "Doe")
+
+		students += john += judy += jane += john2
+		students.endTransaction()
+
+		assertTrue(query.contains("Student: John"))
+		assertTrue(query.contains("Student: Judy"))
+		assertFalse(query.contains("Student: Jane"))
 	}
 
 	@Ignore
@@ -119,7 +150,7 @@ class TestBasicOperators
 			) FROM (
 				students, registrations
 			) GROUP BY (
-				(p : Rep[(Student,Registration)]) => p._1.firstName
+				(s : Rep[Student], r : Rep[Registration]) => s.firstName
 			)
 		).asMaterialized
 

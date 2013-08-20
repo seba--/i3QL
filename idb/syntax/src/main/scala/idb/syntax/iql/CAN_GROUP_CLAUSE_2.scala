@@ -41,6 +41,6 @@ import idb.syntax.iql.IR._
 trait CAN_GROUP_CLAUSE_2[Group, DomainA, DomainB, Range]
 {
     def GROUP (
-        grouping: Rep[(DomainA,DomainB)] => Rep[Group]
+        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Group]
     ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range]
 }
