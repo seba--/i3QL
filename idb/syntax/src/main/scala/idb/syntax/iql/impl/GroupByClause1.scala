@@ -12,7 +12,7 @@ import idb.syntax.iql.IR._
  * To change this template use File | Settings | File Templates.
  */
 case class GroupByClause1[Group : Manifest, Domain : Manifest, Range : Manifest] (
-	grouping : Rep[Domain] => Rep[Group],
+	grouping : Rep[Domain => Group],
  	groupClause : CAN_GROUP_CLAUSE_1[Group,Domain,Range])
 extends GROUP_BY_CLAUSE_1[Domain, Range] {
 

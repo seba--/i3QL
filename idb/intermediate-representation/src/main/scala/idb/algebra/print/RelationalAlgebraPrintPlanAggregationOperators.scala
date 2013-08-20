@@ -30,44 +30,53 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.algebra.print
 
-import idb.lms.extensions.print.QuoteFunction
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
-import junit.framework.Assert
+import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with TupledFunctionsExp
-    with FunctionUtils
+trait RelationalAlgebraPrintPlanAggregationOperators
+    extends RelationalAlgebraPrintPlanBase
+    with QuoteFunction
+    with CodeGenIndent
 {
 
-    val printer = new QuoteFunction
-    {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
-    }
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRAggregationOperators
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
+
+
+    import IR.Exp
+    import IR.Def
+    import IR.Grouping
+
+
+
+    override def quoteRelation (x: Exp[Any]): String =
+        x match {
+            case Def(Grouping(relation, grouping)) =>
+                withIndent ("grouping(" + "\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
+                    withMoreIndent (quoteFunction (grouping) + "\n") +
+                    withIndent (")")
+
+
+         /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
+                withIndent ("aggregation(" + "\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
+                    withMoreIndent (quoteFunction (grouping) + ",\n") +
+                    withMoreIndent (quoteFunction (added) + ",\n") +
+                    withMoreIndent (quoteFunction (removed) + ",\n") +
+                    withMoreIndent (quoteFunction (updated) + ",\n") +
+                    withMoreIndent (quoteFunction (convert) + "\n") +
+                    withIndent (")")*/
+
+            case _ => super.quoteRelation (x)
         }
-    }
 
-
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals(b)) {
-            Assert.fail (message)
-        }
-    }
 }

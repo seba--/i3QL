@@ -36,6 +36,7 @@ import idb.algebra.ir.RelationalAlgebraIRBase
 import scala.virtualization.lms.internal.GenericCodegen
 import scala.virtualization.lms.common.TupledFunctionsExp
 import idb.lms.extensions.print.CodeGenIndent
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
@@ -46,7 +47,7 @@ trait RelationalAlgebraPrintPlanBase
     with CodeGenIndent
 {
 
-    override val IR: TupledFunctionsExp with RelationalAlgebraIRBase
+    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase
 
     import IR.Exp
     import IR.Def
@@ -60,11 +61,11 @@ trait RelationalAlgebraPrintPlanBase
                 withIndent ("extent" + e.hashCode () + ": Extent[" + x.tp.typeArguments (0) + "]")
             case QueryRelation (r, _, _, _) =>
                 withIndent ("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments (0) + "]")
-            case Def(Materialize (r)) =>
+            case Def (Materialize (r)) =>
                 withIndent ("materialize(" + "\n") +
                     withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
-            case _ => throw new IllegalArgumentException("Unknown relation: " + x)
+            case _ => throw new IllegalArgumentException ("Unknown relation: " + x)
         }
 
 }

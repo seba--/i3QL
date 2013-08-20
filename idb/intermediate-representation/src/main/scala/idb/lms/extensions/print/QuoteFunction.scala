@@ -34,6 +34,7 @@ package idb.lms.extensions.print
 
 import scala.virtualization.lms.common._
 import java.io.{PrintWriter, StringWriter}
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
@@ -46,7 +47,7 @@ trait QuoteFunction
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp  with FunctionUtils
 
     import IR.Exp
     import IR.Sym
@@ -54,6 +55,7 @@ trait QuoteFunction
     import IR.Lambda
     import IR.UnboxedTuple
     import IR.Variable
+    import IR.returnType
 
     def quoteFunction[A, B] (f: Exp[A => B]): String = {
         val writer = new StringWriter ()
@@ -70,7 +72,7 @@ trait QuoteFunction
                     }
                 }
             }
-                stream.print (": " + y.tp)
+                stream.print (": " + returnType(f))
                 stream.println (" => {")
                 addIndent ()
                 emitBlock (y)
