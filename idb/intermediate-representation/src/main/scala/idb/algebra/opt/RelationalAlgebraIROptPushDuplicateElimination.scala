@@ -94,7 +94,8 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                         val relationA = join.relationA.asInstanceOf[Rep[Query[Domain]]]
                         val relationB = join.relationB
                         val equalities = join.equalities.asInstanceOf[List[(Rep[Domain => Any], Rep[Any => Any])]]
-                        val innerProjection = convertRightEqualitiesToProjectedTuple (join.equalities)
+                        val innerProjection = convertRightEqualitiesToProjectedTuple (equalities)
+                        val equalityProjection = convertLeftEqualitiesToProjectedTuple (equalities)
 
                         val newJoin =
                             equiJoin (
@@ -105,29 +106,37 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                         innerProjection
                                     )
                                 ),
-                                convertEqualitiesToTupleEqualitiesOnSecond (equalities)
+                                List ((equalityProjection, fun ((x: Rep[Any]) => x)))
                             )(manifest[Domain], returnType (innerProjection))
+
                         projection (
                             newJoin,
                             (p: Rep[(Domain, Any)]) => p._1
                         )
                     }
                     case 1 => {
+                        val relationA = join.relationA
+                        // if the second parameter is returned by the projection, this cast is legitimate
+                        val relationB = join.relationB.asInstanceOf[Rep[Query[Domain]]]
+                        val equalities = join.equalities.asInstanceOf[List[(Rep[Any => Any], Rep[Domain => Any])]]
+                        val innerProjection = convertLeftEqualitiesToProjectedTuple (equalities)
+                        val equalityProjection = convertRightEqualitiesToProjectedTuple (equalities)
+
                         val newJoin =
                             equiJoin (
                                 duplicateElimination (
                                     projection (
-                                        join.relationA,
-                                        convertLeftEqualitiesToProjectedTuple (join.equalities)
+                                        relationA,
+                                        innerProjection
                                     )
                                 ),
-                                duplicateElimination (join.relationB),
-                                convertEqualitiesToTupleEqualitiesOnFirst (join.equalities)
-                            )(manifest[Any], domainOf (join.relationB))
-                        val params = unboxedFresh (domainOf (newJoin))
+                                duplicateElimination (relationB),
+                                List ((fun ((x: Rep[Any]) => x), equalityProjection))
+                            )(returnType (innerProjection), manifest[Domain])
+
                         projection (
                             newJoin,
-                            dynamicLambda (params, parametersAsList (params)(1))
+                            (p: Rep[(Any, Domain)]) => p._2
                         )
                     }
                     case _ =>
@@ -147,12 +156,12 @@ trait RelationalAlgebraIROptPushDuplicateElimination
     private def convertLeftEqualitiesToProjectedTuple[DomainA, DomainB] (
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[DomainA => Any] = {
-        implicit val mA = parameterType(equalities(0)._1).asInstanceOf[Manifest[DomainA]]
+        implicit val mA = parameterType (equalities (0)._1).asInstanceOf[Manifest[DomainA]]
         equalities.map (_._1) match {
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x)))
+                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x)))(mA, tupledManifest (returnType (f1), returnType (f2)))
             /*
         case List (f1, f2, f3) =>
             dynamicLambda(parameter(f1), make_tuple3(body(f1), body(f2), body(f3)))
@@ -163,17 +172,17 @@ trait RelationalAlgebraIROptPushDuplicateElimination
         }
     }
 
-    // takes a list of equalities, selects the first equality function and
+    // takes a list of equalities, selects the second equality function and
     // converts the selected functions into a projection from the Domain to a tuple
     private def convertRightEqualitiesToProjectedTuple[DomainA, DomainB] (
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[DomainB => Any] = {
-        implicit val mA = parameterType(equalities(0)._2).asInstanceOf[Manifest[DomainB]]
+        implicit val mB = parameterType (equalities (0)._2).asInstanceOf[Manifest[DomainB]]
         equalities.map (_._2) match {
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x)))
+                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x)))(mB, tupledManifest (returnType (f1), returnType (f2)))
             /*
         case List (f1, f2, f3) =>
             dynamicLambda(parameter(f1), make_tuple3(body(f1), body(f2), body(f3)))
@@ -184,37 +193,6 @@ trait RelationalAlgebraIROptPushDuplicateElimination
         }
     }
 
-
-    private def convertEqualitiesToTupleEqualitiesOnSecond[DomainA, DomainB] (
-        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): List[(Rep[DomainA => Any], Rep[Any => Any])] = {
-        equalities.map(_._1) match {
-            case List (f) =>
-                List ((f, fun ((x: Rep[Any]) => x)))
-
-            case List (f1, f2) =>
-                List ((f1, fun ((x: Rep[Any]) => x)), (f2, fun ((x: Rep[Any]) => x)))
-
-            case _ => throw new UnsupportedOperationException
-        }
-    }
-
-    private def convertEqualitiesToTupleEqualitiesOnFirst[DomainA, DomainB] (
-        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): List[(Rep[Any => Any], Rep[DomainB => Any])] = {
-        equalities match {
-            case List ((_, fb)) => List ((fun ((x: Rep[Any]) => x), fb))
-            /*
-        case List (f1, f2) =>
-            dynamicLambda(parameter(f1), make_tuple2(body(f1), body(f2)))
-        case List (f1, f2, f3) =>
-            dynamicLambda(parameter(f1), make_tuple3(body(f1), body(f2), body(f3)))
-        case List (f1, f2, f3, f4) =>
-            dynamicLambda(parameter(f1), make_tuple4(body(f1), body(f2), body(f3), body(f4)))
-            */
-            case _ => throw new UnsupportedOperationException
-        }
-    }
 }
 
 

@@ -63,10 +63,13 @@ class TestExistsClauses2
 
         assertEqualStructure (
             semiJoin (
-                students,
+                crossProduct(
+                    students,
+                    courses
+                ),
                 registrations,
-                (s: Rep[Student]) => s.matriculationNumber,
-                (r: Rep[Registration]) => r.studentMatriculationNumber
+                fun((s: Rep[Student], c:Rep[Course]) => (s.matriculationNumber, c.number)),
+                fun((r: Rep[Registration]) => (r.studentMatriculationNumber, r.courseNumber))
             ),
             query
         )

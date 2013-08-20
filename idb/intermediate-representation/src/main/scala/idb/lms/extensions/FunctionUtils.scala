@@ -74,10 +74,18 @@ trait FunctionUtils
     }
 
     def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
+        tupledManifest(a.tp, b.tp).asInstanceOf[Manifest[Any]]
+        /*
         implicit val ma = a.tp
         implicit val mb = b.tp
         manifest[(A, B)].asInstanceOf[Manifest[Any]]
+        */
     }
+
+    def tupledManifest[A, B] (implicit ma: Manifest[A], mb: Manifest[B]): Manifest[(A,B)] = {
+        manifest[(A, B)]
+    }
+
 
     def parameter[A, B] (function: Exp[A => B]): Exp[A] = {
         function match {

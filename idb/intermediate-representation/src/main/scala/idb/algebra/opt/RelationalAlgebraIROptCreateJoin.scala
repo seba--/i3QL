@@ -61,7 +61,7 @@ trait RelationalAlgebraIROptCreateJoin
 
             // add further equality tests to the join
             case Def (EquiJoin (a, b, xs)) if isDisjunctiveParameterEquality (function) =>
-                equiJoin (a, b, createEqualityFunctions (function) :: xs).asInstanceOf[Rep[Query[Domain]]]
+                equiJoin (a, b, xs ::: List(createEqualityFunctions (function)) ).asInstanceOf[Rep[Query[Domain]]]
 
             case _ => super.selection (relation, function)
         }
