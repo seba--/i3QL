@@ -108,9 +108,7 @@ class TestBasicClauses1
         )
     }
 
-	//TODO why does this fail?
     @Test
-	@Ignore
     def testSelection1NegateMultiplePositive () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.lastName == "Fields" && s.matriculationNumber > 0 && !(s.firstName == "Sally"))
