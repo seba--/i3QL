@@ -34,7 +34,6 @@ package idb.syntax.iql.planning
 
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
-import idb.BagExtent
 
 /**
  *
@@ -79,9 +78,17 @@ object SubQueryToAlgebra
                 applyDistinct (
                     projection (
                         selection (
-                            crossProduct (context, relation),
-                            //extent(BagExtent.empty[(ContextRange, Domain)]),
-                            dynamicLambda( UnboxedTuple(scala.List(contextParameter, parameter(predicate))), body(predicate))
+                        crossProduct (context, relation),
+                        {
+                            val ctxFun = dynamicLambda (contextParameter,
+                                dynamicLambda (parameter (predicate), body (predicate)))
+                            fun (
+                                (ctx: Rep[ContextRange], cur: Rep[Domain]) => {
+                                    val app1 = ctxFun (ctx)
+                                    app1 (cur)
+                                }
+                            )
+                        }
                         ),
                         (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
                     ),
