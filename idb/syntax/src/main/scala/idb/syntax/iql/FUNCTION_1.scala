@@ -39,7 +39,7 @@ package idb.syntax.iql
  *
  */
 
-trait FUNCTION_1[Domain, Result]
+trait FUNCTION_1[-Domain, Range]
 {
 
 }

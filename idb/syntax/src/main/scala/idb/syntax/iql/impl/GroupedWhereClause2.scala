@@ -19,7 +19,7 @@ case class GroupedWhereClause2[Group : Manifest, DomainA : Manifest, DomainB : M
 {
 
 	def GROUP(
-		grouping: (Rep[(DomainA,DomainB)]) => Rep[Group]
+		grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Group]
 	): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
 		GroupByClause2 (grouping, this)
 

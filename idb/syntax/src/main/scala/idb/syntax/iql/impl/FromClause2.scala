@@ -48,9 +48,16 @@ case class FromClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, 
     selectClause: SelectClause2[SelectA, SelectB, Range]
 )
     extends FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
+	with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
+	with GROUPED_FROM_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
 {
-    def WHERE (
+    override def WHERE (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]
     ): WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range] =
         WhereClause2 (predicate, this)
+
+	def GROUP (
+		grouping: (Rep[DomainA], Rep[DomainB]) => Rep[(SelectA, SelectB)]
+	): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
+		GroupByClause2[(SelectA, SelectB), DomainA, DomainB, Range](grouping, this)
 }

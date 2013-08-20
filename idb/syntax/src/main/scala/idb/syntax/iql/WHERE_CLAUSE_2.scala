@@ -41,6 +41,7 @@ package idb.syntax.iql
  */
 trait WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
     extends IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
+	with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
 {
 
     //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
