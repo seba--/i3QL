@@ -47,6 +47,7 @@ import scala.language.implicitConversions
 class TestExistsClauses2
 {
 
+
     @Test
     def testExists () {
         val query = plan (
@@ -75,15 +76,15 @@ class TestExistsClauses2
 
     }
 
-/*
     @Test
-    def testExistsWithConjunction () {
+    def testExistsWithOneConjunctions () {
         val query = plan (
-            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
-                s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND
+            SELECT (*) FROM (students, courses) WHERE ((s: Rep[Student], c:Rep[Course]) =>
+                s.lastName == "Fields" AND
                     EXISTS (
                         SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
-                            s.matriculationNumber == r.studentMatriculationNumber
+                            s.matriculationNumber == r.studentMatriculationNumber AND
+                                c.number == r.courseNumber
                             )
                     )
                 )
@@ -91,18 +92,51 @@ class TestExistsClauses2
 
         assertEqualStructure (
             semiJoin (
-                selection (
-                    students,
-                    (s: Rep[Student]) => s.lastName == "Fields" && !(s.firstName == "Sally")
+                crossProduct(
+                    selection(students, (s: Rep[Student]) => s.lastName == "Fields"),
+                    courses
                 ),
                 registrations,
-                (s: Rep[Student]) => s.matriculationNumber,
-                (r: Rep[Registration]) => r.studentMatriculationNumber
+                fun((s: Rep[Student], c:Rep[Course]) => (s.matriculationNumber, c.number)),
+                fun((r: Rep[Registration]) => (r.studentMatriculationNumber, r.courseNumber))
             ),
             query
         )
 
     }
+
+
+    @Test
+    def testExistsWithMultipleConjunctions () {
+        val query = plan (
+            SELECT (*) FROM (students, courses) WHERE ((s: Rep[Student], c:Rep[Course]) =>
+                s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND c.title.startsWith("Introduction") AND
+                EXISTS (
+                    SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                        s.matriculationNumber == r.studentMatriculationNumber AND
+                            c.number == r.courseNumber
+                        )
+                )
+                )
+        )
+
+        assertEqualStructure (
+            semiJoin (
+                crossProduct(
+                    selection(students, (s: Rep[Student]) => s.lastName == "Fields" &&  !(s.firstName == "Sally")),
+                    selection(courses, ( c:Rep[Course]) => c.title.startsWith("Introduction"))
+                ),
+                registrations,
+                fun((s: Rep[Student], c:Rep[Course]) => (s.matriculationNumber, c.number)),
+                fun((r: Rep[Registration]) => (r.studentMatriculationNumber, r.courseNumber))
+            ),
+            query
+        )
+
+    }
+
+/*
+
 
     @Test
     def testExistsWithInterleavedConjunction () {

@@ -85,11 +85,22 @@ trait RelationalAlgebraIROptPushSelection
                     case (None, None) =>
                         super.selection (relation, function)
                     case (Some (f), None) =>
-                        crossProduct (selection (a, f)(domainOf (a)), b)
+                        crossProduct (
+                            selection (a, f)(domainOf (a)),
+                            b
+                        )(domainOf(a), domainOf(b))
+
                     case (None, Some (f)) =>
-                        crossProduct (a, selection (b, f)(domainOf (b)))
+                        crossProduct (
+                            a,
+                            selection (b, f)(domainOf (b))
+                        )(domainOf(a), domainOf(b))
+
                     case (Some (fa), Some (fb)) =>
-                        crossProduct (selection (a, fa)(domainOf (a)), selection (b, fb)(domainOf (b)))
+                        crossProduct (
+                            selection (a, fa)(domainOf (a)),
+                            selection (b, fb)(domainOf (b))
+                        )(domainOf(a), domainOf(b))
                 }
             }
 
@@ -97,12 +108,27 @@ trait RelationalAlgebraIROptPushSelection
                 pushedFunctions (function) match {
                     case (None, None) =>
                         super.selection (relation, function)
+
                     case (Some (f), None) =>
-                        equiJoin (selection (a, f)(domainOf (a)), b, l)
+                        equiJoin (
+                            selection (a, f)(domainOf (a)),
+                            b,
+                            l
+                        )(domainOf(a), domainOf(b))
+
                     case (None, Some (f)) =>
-                        equiJoin (a, selection (b, f)(domainOf (b)), l)
+                        equiJoin (
+                            a,
+                            selection (b, f)(domainOf (b)),
+                            l
+                        )(domainOf(a), domainOf(b))
+
                     case (Some (fa), Some (fb)) =>
-                        equiJoin (selection (a, fa)(domainOf (a)), selection (b, fb)(domainOf (b)), l)
+                        equiJoin (
+                            selection (a, fa)(domainOf (a)),
+                            selection (b, fb)(domainOf (b)),
+                            l
+                        )(domainOf(a), domainOf(b))
                 }
             }
 
