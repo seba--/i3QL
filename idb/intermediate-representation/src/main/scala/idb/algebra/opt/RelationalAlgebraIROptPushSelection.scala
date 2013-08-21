@@ -81,31 +81,31 @@ trait RelationalAlgebraIROptPushSelection
 
 
             case Def (CrossProduct (a, b)) => {
-                pushedFunctions (function) match {
+                pushedOverBinaryOperator (function) match {
                     case (None, None) =>
                         super.selection (relation, function)
                     case (Some (f), None) =>
                         crossProduct (
                             selection (a, f)(domainOf (a)),
                             b
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
 
                     case (None, Some (f)) =>
                         crossProduct (
                             a,
                             selection (b, f)(domainOf (b))
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
 
                     case (Some (fa), Some (fb)) =>
                         crossProduct (
                             selection (a, fa)(domainOf (a)),
                             selection (b, fb)(domainOf (b))
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
                 }
             }
 
             case Def (EquiJoin (a, b, l)) => {
-                pushedFunctions (function) match {
+                pushedOverBinaryOperator (function) match {
                     case (None, None) =>
                         super.selection (relation, function)
 
@@ -114,21 +114,21 @@ trait RelationalAlgebraIROptPushSelection
                             selection (a, f)(domainOf (a)),
                             b,
                             l
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
 
                     case (None, Some (f)) =>
                         equiJoin (
                             a,
                             selection (b, f)(domainOf (b)),
                             l
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
 
                     case (Some (fa), Some (fb)) =>
                         equiJoin (
                             selection (a, fa)(domainOf (a)),
                             selection (b, fb)(domainOf (b)),
                             l
-                        )(domainOf(a), domainOf(b))
+                        )(domainOf (a), domainOf (b))
                 }
             }
 
@@ -144,27 +144,46 @@ trait RelationalAlgebraIROptPushSelection
         }).asInstanceOf[Rep[Query[Domain]]]
 
 
-    private def pushedFunctions[Domain: Manifest] (
+    private def pushedOverBinaryOperator[Domain: Manifest] (
         function: Rep[Domain => Boolean]
     ): (Option[Rep[Any => Boolean]], Option[Rep[Any => Boolean]]) = {
-        val freeV = freeVars (function)
+        val symsInQuestion =
+            parameter (function) match {
+                case UnboxedTuple (List (a, b)) =>
+                    scala.List (a, b)
+
+                // in case we have a function f(x:Tuple2[A,B]) we are looking for usage of only x._1 or x._2
+                case s: Sym[Domain@unchecked] if isTuple2Manifest (s.tp) =>
+                    parametersAsList (unbox (s))
+
+                case e =>
+                    throw new IllegalArgumentException (
+                        "Expected a tupled value type to push over binary operator. Found: " + e.tp)
+            }
+
+
+
+        val freeV = unusedVars (function, symsInQuestion)
         if (freeV.isEmpty) {
             return (None, None)
         }
+
+        // TODO Using symsInQuestion(i) below as parameter means that we can have x._1 and x._2 as a parameter.
+        // We could change that.
+        // However, there is no problem, since there is always a variable (i.e., a Sym) for x._1, i.e., y = x._1
+        // Thus function application will replace the whole y.
         val functionBody = body (function)
-        val functionParameters = parameters (function)
         if (freeV.size == 2) {
             return (
-                Some (dynamicLambda (functionParameters (0), functionBody)),
-                Some (dynamicLambda (functionParameters (1), functionBody))
+                Some (dynamicLambda (symsInQuestion (0), functionBody)),
+                Some (dynamicLambda (symsInQuestion (1), functionBody))
                 )
         }
 
-        functionParameters.indexOf (freeV (0)) match {
-            case 0 => (None, Some (dynamicLambda (functionParameters (1), functionBody)))
-            case 1 => (Some (dynamicLambda (functionParameters (0), functionBody)), None)
+        symsInQuestion.indexOf (freeV (0)) match {
+            case 0 => (None, Some (dynamicLambda (symsInQuestion (1), functionBody)))
+            case 1 => (Some (dynamicLambda (symsInQuestion (0), functionBody)), None)
         }
-
     }
 
 }
