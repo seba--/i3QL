@@ -30,31 +30,62 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.reduction
 
-import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.lms.extensions.normalization.{BooleanOpsExpOrdering, NumericOpsExpNormalization,
-BooleanOpsExpDNFNormalization}
-import idb.lms.extensions.reduction.{TupleOpsExpOptBetaReduction,
-TupledFunctionsExpBetaReduction}
-import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
+import idb.lms.extensions.LMSTestUtils
+import idb.lms.extensions.equivalence._
+import idb.lms.extensions.functions.{FunctionsExpDynamicLambdaAlphaEquivalence, TupledFunctionsExpDynamicLambda}
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
+
+class TestTupledFunctionsExpDynamicWithBetaReduction
+    extends TupledFunctionsExpBetaReduction
+    with TupledFunctionsExpDynamicLambda
+    with TupledFunctionsExpAlphaEquivalence
     with FunctionsExpDynamicLambdaAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with NumericOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
-    with BooleanOpsExpSimplification
-    with BooleanOpsExpOrdering
-    with BooleanOpsExpDNFNormalization
+    with StructExpAlphaEquivalence
+    with ScalaOpsPkgExpAlphaEquivalence
+    with LMSTestUtils
 {
+
+
+    @Test
+    def testApplyMakeTupleDynamicOnIdentityUnboxedParameter1 () {
+        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
+
+        val f1_dynamic = f1.asInstanceOf[Rep[Any => Any]]
+
+        val f2 = fun ((x: Rep[Int], y: Rep[Any]) => (x, f1_dynamic (y)))(manifest[Int], manifest[(Int, Int)].asInstanceOf[Manifest[Any]], manifest[(Int,Int)].asInstanceOf[Manifest[(Int,Any)]])
+
+        assertNotEqualFunctions (f2, f1)
+
+        val f3 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, y._1))
+
+        assertEqualFunctions (f3, f2)
+    }
+
+
+    @Test
+    def testApplyNotBoxedThenBoxed () {
+        val f1 = fun((i: Rep[Int], j: Rep[Int]) => i == j)
+
+
+
+        val x1 = fresh[(Int,Int)]
+        val b1 = f1(x1)
+        val f2 = dynamicLambda(x1, b1)
+
+        val x2 = unboxedFresh[(Int,Int)]
+        val b2 = f2(x2)
+
+        val f3 = dynamicLambda(x2, b2)
+
+        assertEqualFunctions(f1, f3)
+    }
 
 }

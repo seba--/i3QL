@@ -60,10 +60,12 @@ trait TupledFunctionsExpBetaReduction
             // a tuple access to the new boxed variable, e.g., x -> tuple2_get1(UnboxedTuple(List(newX,newY)))
             val oldParameters = parametersAsList (oldX)
             val appliedParameters = parametersAsList (unbox (x))
-            transformer.subst ++=
-                oldParameters.zip (appliedParameters).foldLeft (
-                    Map.empty[Exp[Any], Exp[Any]]
-                )((map: Map[Exp[Any], Exp[Any]], params: (Exp[Any], Exp[Any])) => map + (params._1 -> params._2))
+            if (oldParameters.size == appliedParameters.size) {
+                transformer.subst ++=
+                    oldParameters.zip (appliedParameters).foldLeft (
+                        Map.empty[Exp[Any], Exp[Any]]
+                    )((map: Map[Exp[Any], Exp[Any]], params: (Exp[Any], Exp[Any])) => map + (params._1 -> params._2))
+            }
 
             val result = transformer.transformBlock (block).res
             transformer.subst = Map ()

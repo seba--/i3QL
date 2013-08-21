@@ -45,7 +45,6 @@ import idb.lms.extensions.LMSTestUtils
 
 class TestTupledFunctionsExpBetaReduction
     extends TupledFunctionsExpBetaReduction
-    with TupledFunctionsExpDynamicLambda
     with TupledFunctionsExpAlphaEquivalence
     with StructExpAlphaEquivalence
     with ScalaOpsPkgExpAlphaEquivalence
@@ -288,18 +287,4 @@ class TestTupledFunctionsExpBetaReduction
         assertEqualFunctions (f3, f2)
     }
 
-    @Test
-    def testApplyMakeTupleDynamicOnIdentityUnboxedParameter1 () {
-        val f1 = fun ((i: Rep[Int], j: Rep[Int]) => i)
-
-        val f1_dynamic = f1.asInstanceOf[Rep[Any => Any]]
-
-        val f2 = fun ((x: Rep[Int], y: Rep[Any]) => (x, f1_dynamic (y)))(manifest[Int], manifest[(Int, Int)].asInstanceOf[Manifest[Any]], manifest[(Int,Int)].asInstanceOf[Manifest[(Int,Any)]])
-
-        assertNotEqualFunctions (f2, f1)
-
-        val f3 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, y._1))
-
-        assertEqualFunctions (f3, f2)
-    }
 }

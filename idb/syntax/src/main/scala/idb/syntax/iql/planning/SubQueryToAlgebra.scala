@@ -85,7 +85,8 @@ object SubQueryToAlgebra
                             fun (
                                 (ctx: Rep[ContextRange], cur: Rep[Domain]) => {
                                     val app1 = ctxFun (ctx)
-                                    app1 (cur)
+                                    val app2 = app1 (cur)
+                                    app2
                                 }
                             )
                         }
