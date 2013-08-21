@@ -72,12 +72,41 @@ class TestExistsClauses1
 
     }
 
-
     @Test
-    def testExistsWithConjunction () {
+    def testExistsWithOneOuterConjunction () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
-                s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND
+                s.lastName == "Fields" AND
+                    EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    )
+                )
+        )
+
+        assertEqualStructure (
+            semiJoin (
+                selection (
+                    students,
+                    (s: Rep[Student]) => s.lastName == "Fields"
+                ),
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
+        )
+
+    }
+
+
+    @Test
+    def testExistsWithMultipleOuterConjunctions () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND
+                    NOT (s.firstName == "Sally") AND
                     EXISTS (
                         SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
                             s.matriculationNumber == r.studentMatriculationNumber
@@ -102,7 +131,7 @@ class TestExistsClauses1
     }
 
     @Test
-    def testExistsWithInterleavedConjunction () {
+    def testExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 s.lastName == "Fields" AND
@@ -156,7 +185,34 @@ class TestExistsClauses1
     }
 
     @Test
-    def testNotExistsWithConjunction () {
+    def testNotExistsWithOneOuterConjunction () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND
+                    NOT (EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    ))
+                )
+        )
+
+        assertEqualStructure (
+            antiSemiJoin (
+                selection (
+                    students,
+                    (s: Rep[Student]) => s.lastName == "Fields"
+                ),
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testNotExistsWithMultipleOuterConjunctions () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 s.lastName == "Fields" AND
@@ -184,7 +240,7 @@ class TestExistsClauses1
     }
 
     @Test
-    def testNotExistsWithInterleavedConjunction () {
+    def testNotExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 s.lastName == "Fields" AND
