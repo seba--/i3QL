@@ -109,7 +109,7 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
@@ -129,7 +129,7 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
@@ -152,7 +152,7 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
+
     @Test
     def testJoin2 () {
         val query = plan (
@@ -174,7 +174,7 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
+
     @Test
     def testJoin2Projection () {
         val query = plan (
@@ -199,7 +199,7 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
+
     @Test
     def testJoin2SelectionBoth () {
         val query = plan (
@@ -223,7 +223,6 @@ class TestBasicClauses2
         )
     }
 
-    @Ignore
     @Test
     def testJoin2SelectionBothAndCompare () {
         val query = plan (
@@ -269,41 +268,5 @@ class TestBasicClauses2
             query
         )
     }
-
-    @Ignore
-    @Test
-    def testJoin2CountStar () {
-        val query = plan (
-            SELECT (COUNT (*)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
-                s.matriculationNumber == r.studentMatriculationNumber
-            })
-        )
-    }
-
-    @Test
-    def testJoin2AggregateGroup1 () {
-
-        val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM(students, registrations) WHERE ((
-            s: Rep[Student],
-            r: Rep[Registration]
-            ) =>
-            {
-                s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY ((s : Rep[Student], r : Rep[Registration]) => s.lastName)
-        )
-
-    }
-
-    @Ignore
-    @Test
-    def testJoin2SumCreditPoints () {
-        val query = plan (
-            SELECT (SUM ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints)) FROM(registrations, courses) WHERE (
-                (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number
-                )
-        )
-    }
-
 
 }

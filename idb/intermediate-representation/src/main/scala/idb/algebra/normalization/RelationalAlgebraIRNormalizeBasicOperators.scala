@@ -81,11 +81,14 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                             )
 
                         // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
-                        case Def (BooleanAnd (lhs, rhs)) =>
+                        case Def (BooleanAnd (lhs, rhs)) => {
+                            val mD = manifest[Domain]
+                            val inner = selection (relation, dynamicLambda (x, lhs))
                             selection (
-                                selection (relation, dynamicLambda (x, lhs)),
+                                inner,
                                 dynamicLambda (x, rhs)
                             )
+                        }
 
                         case _ => super.selection (relation, function)
                     }

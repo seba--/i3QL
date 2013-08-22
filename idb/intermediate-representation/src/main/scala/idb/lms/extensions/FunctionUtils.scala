@@ -74,7 +74,7 @@ trait FunctionUtils
     }
 
     def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
-        tupledManifest(a.tp, b.tp).asInstanceOf[Manifest[Any]]
+        tupledManifest (a.tp, b.tp).asInstanceOf[Manifest[Any]]
         /*
         implicit val ma = a.tp
         implicit val mb = b.tp
@@ -82,7 +82,7 @@ trait FunctionUtils
         */
     }
 
-    def tupledManifest[A, B] (implicit ma: Manifest[A], mb: Manifest[B]): Manifest[(A,B)] = {
+    def tupledManifest[A, B] (implicit ma: Manifest[A], mb: Manifest[B]): Manifest[(A, B)] = {
         manifest[(A, B)]
     }
 
@@ -101,15 +101,20 @@ trait FunctionUtils
 
 
     def freeVars[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
-        val params = parameters (function).toSet
+        val params = parameters (function)
+        unusedVars (function, params)
+    }
+
+    def unusedVars[A, B] (function: Exp[A => B], vars: List[Exp[Any]]): List[Exp[Any]] = {
+        val varsAsSet = vars.toSet
         val used =
             function match {
                 case Def (Lambda (_, _, body)) =>
-                    findSyms (body.res)(params).asInstanceOf[Set[Exp[Any]]]
+                    findSyms (body.res)(varsAsSet)
                 case Const (_) => Set.empty[Exp[Any]]
                 case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
             }
-        params.diff (used).toList
+        varsAsSet.diff (used).toList
     }
 
 
@@ -136,6 +141,8 @@ trait FunctionUtils
         }
     }
 
+
+    def isTuple2Manifest[T] (m: Manifest[T]): Boolean = m.erasure.getName startsWith "scala.Tuple2"
 
     def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = {
         function match {
