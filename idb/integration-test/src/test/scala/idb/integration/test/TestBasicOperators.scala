@@ -80,13 +80,12 @@ class TestBasicOperators
 
 
 	//TODO fix test
-	@Ignore
 	@Test
 	def testStudentNames2() {
 
 		val query = compile (
 			SELECT (
-				( p : Rep[Any]) => p
+				( p : Rep[(String,String)]) => p._1 + " " + p._2
 			) FROM
 				students
 			GROUP BY (

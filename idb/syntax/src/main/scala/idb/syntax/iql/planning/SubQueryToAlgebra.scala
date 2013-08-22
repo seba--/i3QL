@@ -55,8 +55,8 @@ object SubQueryToAlgebra
         }
 
 
-    def apply[Select: Manifest, Domain <: Select : Manifest, Range: Manifest, ContextRange: Manifest] (
-        subQuery: IQL_QUERY_1[Select, Domain, Range],
+    def apply[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest, ContextRange: Manifest] (
+        subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range],
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange]
     ): Rep[Query[ContextRange]] =
@@ -66,7 +66,7 @@ object SubQueryToAlgebra
                 applyDistinct (
                     projection (
                         crossProduct (context, relation),
-                        (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
+                        (ctx: Rep[ContextRange], dom: Rep[_]) => ctx //TODO Is Rep[_] ok?
                     ),
                     asDistinct
                 )
@@ -74,7 +74,8 @@ object SubQueryToAlgebra
 
             // This clause might be correlated.
             // But, the clause could also just filter some elements without referring to the context
-            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (_, asDistinct))) =>
+			//TODO Re-enable subquery to algebra
+          /*  case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (_, asDistinct))) =>
                 applyDistinct (
                     projection (
                         selection (
@@ -94,7 +95,7 @@ object SubQueryToAlgebra
                         (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
                     ),
                     asDistinct
-                )
+                )  */
         }
 
     def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest,

@@ -11,10 +11,10 @@ import idb.syntax.iql.IR._
  * Time: 15:29
  * To change this template use File | Settings | File Templates.
  */
-case class GroupByClause1[Group : Manifest, Domain : Manifest, Range : Manifest] (
-	grouping : Rep[Domain => Group],
- 	groupClause : CAN_GROUP_CLAUSE_1[Group,Domain,Range])
-extends GROUP_BY_CLAUSE_1[Domain, Range] {
+case class GroupByClause1[Select : Manifest, Domain : Manifest, GroupDomain : Manifest, GroupRange : Manifest,  Range : Manifest] (
+	grouping : Rep[GroupDomain => GroupRange],
+ 	groupClause : CAN_GROUP_CLAUSE_1[Select,Domain,Range])
+extends GROUP_BY_CLAUSE_1[Select, Domain, GroupDomain, GroupRange, Range] {
 
 
 }

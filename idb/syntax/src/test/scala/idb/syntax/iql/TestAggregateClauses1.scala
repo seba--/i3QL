@@ -83,7 +83,7 @@ class TestAggregateClauses1
     def testAggregateGroup1 () {
 
         val query = plan (
-            SELECT ((s: Rep[Any]) => s) FROM students GROUP BY (_.lastName)
+            SELECT ((s: Rep[Any]) => s) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
 
         assertEqualStructure (
@@ -115,7 +115,7 @@ class TestAggregateClauses1
     @Test
     def testAggregateGroupCountStar () {
         val query = plan (
-            SELECT (COUNT (*)) FROM students GROUP BY (_.lastName)
+            SELECT (COUNT (*)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
     }
 
@@ -123,7 +123,7 @@ class TestAggregateClauses1
     @Test
     def testAggregateGroupCountStarWithGroup () {
         val query = plan (
-            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY (_.lastName)
+            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
     }
 
@@ -132,7 +132,7 @@ class TestAggregateClauses1
     def testAggregateGroupWithWhere () {
 
         val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (_.lastName)
+            SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY ((s: Rep[Student]) => s.lastName)
         )
 
     }
@@ -141,7 +141,7 @@ class TestAggregateClauses1
     @Test
     def testAggregateGroupCountStarWithWhere () {
         val query = plan (
-            SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (_.lastName)
+            SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY ((s: Rep[Student]) => s.lastName)
         )
     }
 
@@ -150,7 +150,7 @@ class TestAggregateClauses1
     def testAggregateGroupCountStarWithGroupWithWhere () {
         val query = plan (
             SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
-                _.lastName)
+				(s: Rep[Student]) => s.lastName)
         )
     }
 

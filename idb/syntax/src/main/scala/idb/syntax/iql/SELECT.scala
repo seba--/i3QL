@@ -46,13 +46,13 @@ object SELECT
     def apply[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1.apply[Domain, Range](projection)
+        SelectClause1 (projection)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
-        SelectClause2.apply[DomainA, DomainB, Range](projection)
+        SelectClause2 (projection)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (

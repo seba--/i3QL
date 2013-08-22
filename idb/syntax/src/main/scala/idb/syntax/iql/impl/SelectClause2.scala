@@ -40,7 +40,7 @@ import idb.syntax.iql._
  * @author Ralf Mitschke
  */
 case class SelectClause2[SelectA: Manifest, SelectB: Manifest, Range: Manifest] (
-    function: FUNCTION_2[SelectA, SelectB, Range],
+    function: (Rep[SelectA], Rep[SelectB]) => Rep[Range],
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_2[SelectA, SelectB, Range]
@@ -58,21 +58,8 @@ case class SelectClause2[SelectA: Manifest, SelectB: Manifest, Range: Manifest] 
 	def FROM[Domain: Manifest] (
 		relation: Rep[Query[Domain]]
 	): GROUPED_FROM_CLAUSE_1[(SelectA, SelectB), Domain, Range] =
-		FromSelect2Clause1[SelectA, SelectB, Domain, Range](relation, this)
+		throw new UnsupportedOperationException("Use tupled functions instead.")
 
 
 }
 
-object SelectClause2 {
-
-	def apply[SelectA : Manifest, SelectB : Manifest, Range : Manifest](
-		projection : (Rep[SelectA], Rep[SelectB]) => Rep[Range],
-		asDistinct : Boolean
-	) : SelectClause2[SelectA, SelectB, Range] =
-		SelectClause2(ProjectionFunction2(projection), asDistinct)
-
-	def apply[SelectA : Manifest, SelectB : Manifest, Range : Manifest](
-		projection : (Rep[SelectA], Rep[SelectB]) => Rep[Range]
-	) : SelectClause2[SelectA, SelectB, Range] =
-		SelectClause2(ProjectionFunction2(projection), false)
-}

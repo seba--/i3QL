@@ -52,13 +52,30 @@ object ClauseToAlgebra
 
     import IR._
 
-    def apply[Select: Manifest, Domain <: Select: Manifest, Range: Manifest] (
-        query: IQL_QUERY_1[Select, Domain, Range]
+    def apply[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
+        query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
+			case FromClause1 (relation, SelectClause1 (project, asDistinct))  =>
+				distinct (
+					projection (
+						relation,
+						project
+					),
+					asDistinct
+				)
 
-			case FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct)) =>
-				distinct (projection (relation, project), asDistinct)
+			case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, asDistinct))) =>
+				distinct (
+					projection (
+						selection (
+							relation,
+							predicate
+						),
+						project
+					),
+					asDistinct
+				)
 
 			/*case FromClause1 (relation, SelectClause1 (AggregationFunction1 (start, added, removed, updated), asDistinct)) =>
 				distinct (
@@ -70,15 +87,13 @@ object ClauseToAlgebra
 						updated
 					),
 					asDistinct
-				)     */
+				)
+			*/
 
-			case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct))) =>
-				distinct (projection (selection (relation, predicate), project), asDistinct)
-
-			case GroupByClause1 (group, FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct))) =>
+			case GroupByClause1 (group, FromClause1 (relation, SelectClause1 (project, asDistinct))) =>
 				distinct (projection (grouping (relation, group), project), asDistinct)
 
-			case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (ProjectionFunction1 (project), asDistinct)))) =>
+			case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, asDistinct)))) =>
 				distinct (projection (grouping (selection (relation, predicate), group), project), asDistinct)
 
 		/*	case GroupByClause1 (group, FromSelect2Clause1 (relation, SelectClause2 (ProjectionFunction2 (project), asDistinct))) =>
@@ -96,10 +111,10 @@ object ClauseToAlgebra
         query: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause2 (relationA, relationB, SelectClause2 (ProjectionFunction2 (project), asDistinct)) =>
+            case FromClause2 (relationA, relationB, SelectClause2 (project, asDistinct)) =>
                 distinct (projection (crossProduct (relationA, relationB), project), asDistinct)
 
-            case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (ProjectionFunction2 (project), asDistinct))) =>
+            case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project, asDistinct))) =>
 				distinct (
 					projection (
 						selection (
@@ -110,10 +125,10 @@ object ClauseToAlgebra
 						project),
 					asDistinct)
 
-			case GroupByClause2 (group, FromSelect1Clause2 (relationA, relationB, SelectClause1 (ProjectionFunction1 (project), asDistinct))) =>
+			case GroupByClause2 (group, FromSelect1Clause2 (relationA, relationB, SelectClause1 (project, asDistinct))) =>
 				distinct (projection (grouping (crossProduct (relationA, relationB), group), project), asDistinct)
 
-			case GroupByClause2 (group, GroupedWhereClause2 (predicate, FromSelect1Clause2 (relationA, relationB, SelectClause1 (ProjectionFunction1 (project), asDistinct)))) =>
+			case GroupByClause2 (group, GroupedWhereClause2 (predicate, FromSelect1Clause2 (relationA, relationB, SelectClause1 (project, asDistinct)))) =>
 				distinct (projection (grouping (selection (crossProduct (relationA, relationB), predicate), group), project), asDistinct)
 
 

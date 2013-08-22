@@ -49,10 +49,10 @@ case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     extends WHERE_CLAUSE_1[Select, Domain, Range]
     with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
-    def GROUP (
-        grouping: (Rep[Domain]) => Rep[Select]
-    ): GROUP_BY_CLAUSE_1[Domain, Range] =
-        GroupByClause1[Select,Domain,Range](grouping, this)
+    def GROUP[GroupDomain : Manifest, GroupRange : Manifest] (
+        grouping: Rep[GroupDomain] => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_1[Select, Domain, GroupDomain, GroupRange, Range] =
+        GroupByClause1 (grouping, this)
 
 
 }

@@ -33,13 +33,13 @@ package object iql
     ): Rep[Query[Domain]] = extent (ext)
 
 
-    implicit def plan[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
-        clause: IQL_QUERY_1[Select, Domain, Range]
+    implicit def plan[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
+        clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
-    def planWithContext[Select: Manifest, Domain <: Select : Manifest, Range: Manifest, ContextRange] (
-        clause: IQL_QUERY_1[Select, Domain, Range]
+    def planWithContext[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest, ContextRange] (
+        clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     )(
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange],
@@ -48,24 +48,26 @@ package object iql
         SubQueryToAlgebra (
             clause, context, contextParameter
         )(
-            implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[Range]], contextManifest
+            implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[GroupDomain]], implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]], contextManifest
         )
     }
 
-    def planSubQueryWithContext[Select, Domain <: Select, Range, ContextRange] (
+    def planSubQueryWithContext[Select, Domain <: GroupDomain, GroupDomain, GroupRange <: Select, Range, ContextRange] (
         selectType: Manifest[Select],
         domainType: Manifest[Domain],
+		groupDomainType : Manifest[GroupDomain],
+		groupRangeType : Manifest[GroupRange],
         rangeType: Manifest[Range]
     )(
         subQuery: SubQuery[Range],
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange]
     ): Rep[Query[ContextRange]] = subQuery match {
-        case q1: IQL_QUERY_1[Select, Domain, Range] =>
+        case q1: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range] =>
             SubQueryToAlgebra (
                 q1, context, contextParameter
             )(
-                selectType, domainType, rangeType, contextParameter.tp
+                selectType, domainType, groupDomainType, groupRangeType, rangeType, contextParameter.tp
             )
         case _ => throw new UnsupportedOperationException
     }
@@ -94,8 +96,8 @@ package object iql
         ClauseToAlgebra (clause)
 
 
-    implicit def compile[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
-        clause: IQL_QUERY_1[Select, Domain, Range]
+    implicit def compile[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
+        clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Relation[Range] =
         CompilerBinding.compile (plan (clause))
 

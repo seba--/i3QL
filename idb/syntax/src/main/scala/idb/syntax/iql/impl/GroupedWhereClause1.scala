@@ -11,16 +11,16 @@ import idb.syntax.iql.IR._
  * Time: 14:10
  * To change this template use File | Settings | File Templates.
  */
-case class GroupedWhereClause1[Group : Manifest, Domain : Manifest, Range : Manifest](
+case class GroupedWhereClause1[Select : Manifest, Domain : Manifest, Range : Manifest](
 	predicate : Rep[Domain] => Rep[Boolean],
-	fromClause : GROUPED_FROM_CLAUSE_1[Group, Domain, Range]
+	fromClause : GROUPED_FROM_CLAUSE_1[Select, Domain, Range]
 )
-	extends CAN_GROUP_CLAUSE_1[Group, Domain, Range]
+	extends CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
 
-	def GROUP(
-		grouping: Rep[Domain] => Rep[Group]
-	): GROUP_BY_CLAUSE_1[Domain, Range] =
+	def GROUP[GroupDomain : Manifest, GroupRange : Manifest](
+		grouping: Rep[GroupDomain] => Rep[GroupRange]
+	): GROUP_BY_CLAUSE_1[Select, Domain, GroupDomain, GroupRange, Range] =
 		GroupByClause1 (grouping, this)
 
 

@@ -38,9 +38,9 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait CAN_GROUP_CLAUSE_1[Group, Domain, Range]
+trait CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
-    def GROUP(
-        grouping: Rep[Domain] => Rep[Group]
-    ): GROUP_BY_CLAUSE_1[Domain, Range]
+    def GROUP[GroupDomain : Manifest, GroupRange : Manifest] (
+        grouping: Rep[GroupDomain] => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_1[Select, Domain, GroupDomain, GroupRange, Range]
 }
