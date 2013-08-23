@@ -1,0 +1,32 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# HEAD detached at c6e80e4
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/AGGREGATE_FUNCTION_1.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/AGGREGATE_FUNCTION_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/AGGREGATE_FUNCTION_FACTORY.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/CAN_GROUP_CLAUSE_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/COUNT.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/FROM_CLAUSE_2.scala
+#	deleted:    idb/syntax/src/main/scala/idb/syntax/iql/FUNCTION_1.scala
+#	deleted:    idb/syntax/src/main/scala/idb/syntax/iql/FUNCTION_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/GROUPED_FROM_CLAUSE_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/GROUP_BY_CLAUSE_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/IQL_QUERY_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/SUM.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/WHERE_CLAUSE_2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/AggregationFunction1.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/FromClause2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/FromSelect1Clause2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/GroupByClause2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/GroupedWhereClause2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/impl/WhereClause2.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/package.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/planning/ClauseToAlgebra.scala
+#	modified:   idb/syntax/src/main/scala/idb/syntax/iql/planning/SubQueryToAlgebra.scala
+#	modified:   idb/syntax/src/test/scala/idb/syntax/iql/TestAggregateClauses1.scala
+#
+
