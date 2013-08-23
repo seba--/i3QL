@@ -56,6 +56,18 @@ object ClauseToAlgebra
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
+			/*case FromClause1 (relation, SelectClause1 (AggregationFunction1 (start, added, removed, updated), asDistinct)) =>
+				distinct (
+					aggregationSelfMaintainedWithoutGrouping (
+						relation,
+						start,
+						added,
+						removed,
+						updated
+					),
+					asDistinct
+				)     */
+
 			case FromClause1 (relation, SelectClause1 (project, asDistinct))  =>
 				distinct (
 					projection (
@@ -77,18 +89,8 @@ object ClauseToAlgebra
 					asDistinct
 				)
 
-			/*case FromClause1 (relation, SelectClause1 (AggregationFunction1 (start, added, removed, updated), asDistinct)) =>
-				distinct (
-					aggregationSelfMaintainedWithoutGrouping (
-						relation,
-						start,
-						added,
-						removed,
-						updated
-					),
-					asDistinct
-				)
-			*/
+
+
 
 			case GroupByClause1 (group, FromClause1 (relation, SelectClause1 (project, asDistinct))) =>
 				distinct (projection (grouping (relation, group), project), asDistinct)
@@ -107,8 +109,8 @@ object ClauseToAlgebra
 
        }
 
-    def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA: Manifest, DomainB <: SelectB: Manifest, Range: Manifest] (
-        query: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
+    def apply[Select : Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest, GroupDomainA : Manifest, GroupDomainB : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
+        query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA, relationB, SelectClause2 (project, asDistinct)) =>

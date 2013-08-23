@@ -40,8 +40,8 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait GROUP_BY_CLAUSE_2[DomainA, DomainB, Range]
-    extends IQL_QUERY_2[DomainA, DomainB, DomainA, DomainB, Range]
+trait GROUP_BY_CLAUSE_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
+    extends IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
 {
 
 }

@@ -98,9 +98,8 @@ object SubQueryToAlgebra
                 )  */
         }
 
-    def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest,
-    Range: Manifest, ContextRange: Manifest] (
-        subQuery: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range],
+    def apply[Select : Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest, GroupDomainA : Manifest, GroupDomainB : Manifest, GroupRange <: Select : Manifest, Range : Manifest, ContextRange] (
+        subQuery: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range],
         context: Rep[Query[ContextRange]]
     ): Rep[Query[Range]] =
         subQuery match {

@@ -96,7 +96,6 @@ class TestAggregateClauses1
 
     }
 
-    @Ignore
     @Test
     def testAggregateGroup2 () {
 

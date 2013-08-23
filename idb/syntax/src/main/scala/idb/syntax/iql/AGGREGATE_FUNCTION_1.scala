@@ -40,9 +40,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_1[-Domain, Range] extends (Domain => Range)
+trait AGGREGATE_FUNCTION_1[Domain, Range] extends Rep[Domain => Range]
 {
-	def apply(dom : Domain) : Range =
-		throw new UnsupportedOperationException()
 
 }
