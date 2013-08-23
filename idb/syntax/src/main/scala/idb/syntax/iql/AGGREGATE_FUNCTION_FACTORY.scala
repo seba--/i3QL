@@ -44,7 +44,7 @@ import idb.syntax.iql.impl.AggregationFunction1
 
 trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
-	def start : Rep[Range]
+	def init : Rep[Range]
 
 	def added[Domain] (v: Rep[Domain],
 		previousResult: Rep[Range],
@@ -68,7 +68,7 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
 		): AGGREGATE_FUNCTION_1[Domain, Range] =
         new AggregationFunction1[Domain, Range](
-			start,
+			init,
 			(p : Rep[(Domain, Range)]) => added(p._1,p._2,column),
 			(p : Rep[(Domain, Range)]) => removed(p._1,p._2,column),
 			(p : Rep[(Domain, Domain, Range)]) => updated(p._1, p._2, p._3, column)

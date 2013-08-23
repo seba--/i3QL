@@ -36,7 +36,7 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait AGGREGATE_FUNCTION_2[-DomainA, -DomainB, Range] extends FUNCTION_2[DomainA, DomainB, Range]
+trait AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] extends ((DomainA, DomainB) => Range)
 {
 
 }
