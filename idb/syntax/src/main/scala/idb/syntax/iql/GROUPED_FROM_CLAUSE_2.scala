@@ -40,12 +40,12 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
-    extends CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
+trait GROUPED_FROM_CLAUSE_2[Group, DomainA, DomainB, Range]
+    extends CAN_GROUP_CLAUSE_2[Group, DomainA, DomainB, Range]
 {
 
     def WHERE (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]
-    ): CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
+    ): CAN_GROUP_CLAUSE_2[Group, DomainA, DomainB, Range]
 
 }

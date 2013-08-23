@@ -32,17 +32,13 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-trait AGGREGATE_FUNCTION_1[-Domain, Range] extends (Domain => Range)
+trait FUNCTION_2[-DomainA, -DomainB, Range]
 {
-	def apply(dom : Domain) : Range =
-		throw new UnsupportedOperationException()
 
 }
