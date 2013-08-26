@@ -46,44 +46,45 @@ import scala.language.implicitConversions
  */
 class TestAggregateClauses1
 {
-
-    @Ignore
+	@Ignore
     @Test
     def testAggregateCountStar () {
         val query = plan (
             SELECT (COUNT (*)) FROM students
         )
 
-        /*
-        assertEqualStructure (
+
+     /*   assertEqualStructure (
             aggregationSelfMaintainedWithoutGrouping (
                 students,
-                COUNT.start,
+				start,
+				COUNT.start,
                 COUNT.added _,
                 COUNT.removed _,
                 COUNT.updated _
             ),
             query
-        )
-        */
+        )*/
+
     }
 
-    @Ignore
+
     @Test
     def testAggregateSumCreditPoints () {
         val query = plan (
-            SELECT (SUM (creditPoints)) FROM courses
+           // SELECT (SUM (creditPoints)) FROM courses
+			SELECT (SUM ((c : Rep[Course]) => c.creditPoints)) FROM courses
         )
 
 
     }
 
-    @Ignore
+
     @Test
     def testAggregateGroup1 () {
 
         val query = plan (
-            SELECT ((s: Rep[Any]) => s) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
+            SELECT ((s: Rep[String]) => s) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
 
         assertEqualStructure (

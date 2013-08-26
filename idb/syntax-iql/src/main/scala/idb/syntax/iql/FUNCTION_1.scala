@@ -33,13 +33,7 @@
 package idb.syntax.iql
 
 
-/**
- *
- * @author Ralf Mitschke
- *
- */
-
-trait FUNCTION_1[-Domain, Range]
+trait FUNCTION_1[Domain, Range]
 {
 
 }
