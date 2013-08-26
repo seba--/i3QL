@@ -9,8 +9,8 @@
         <relativePath>../idb-parent</relativePath>
     </parent>
 
-    <name>idb-syntax</name>
-    <artifactId>syntax</artifactId>
+    <name>idb-syntax-iql</name>
+    <artifactId>syntax-iql</artifactId>
 
     <dependencies>
         <dependency>
