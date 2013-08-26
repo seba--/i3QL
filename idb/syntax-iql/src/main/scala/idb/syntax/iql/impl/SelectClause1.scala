@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case class SelectClause1[Select: Manifest, Range: Manifest] (
-    function: Rep[Select => Range],
+    function: Rep[FUNCTION_1[Select,Range]],
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_1[Select, Range]

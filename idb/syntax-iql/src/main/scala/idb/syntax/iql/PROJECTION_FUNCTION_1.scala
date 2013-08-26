@@ -34,33 +34,7 @@ package idb.syntax.iql
 
 import idb.syntax.iql.IR._
 
-/**
- *
- * @author Ralf Mitschke
- */
-case object COUNT
-    extends AGGREGATE_FUNCTION_FACTORY[Any, Int]
+trait PROJECTION_FUNCTION_1[Domain, Range] extends Rep[FUNCTION_1[Domain,Range]]
 {
-
-	def start : Rep[Int] = 0
-
-	def added[Domain] (v: Rep[Domain],
-		previousResult: Rep[Int],
-		column: Rep[Domain] => Rep[Any]
-	) : Rep[Int] =
-		previousResult + 1
-
-	def removed[Domain] (v: Rep[Domain],
-		previousResult: Rep[Int],
-		column: Rep[Domain] => Rep[Any]
-	) : Rep[Int] =
-		previousResult - 1
-
-	def updated[Domain] (oldV: Rep[Domain],
-		newV : Rep[Domain],
-		previousResult: Rep[Int],
-		column: Rep[Domain] => Rep[Any]
-	) : Rep[Int] =
-		previousResult
 
 }

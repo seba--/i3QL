@@ -32,13 +32,16 @@
  */
 package idb.syntax.iql.impl
 
+import idb.syntax.iql.IR._
+
 /**
   *
   * @author Ralf Mitschke
   *
   */
 
-class AggregateFunctionStar
+object AggregateFunctionStar
 {
 
- }
+
+}

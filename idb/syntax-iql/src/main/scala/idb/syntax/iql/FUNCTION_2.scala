@@ -32,11 +32,6 @@
  */
 package idb.syntax.iql
 
-/**
- *
- * @author Ralf Mitschke
- *
- */
 
 trait FUNCTION_2[-DomainA, -DomainB, Range]
 {
