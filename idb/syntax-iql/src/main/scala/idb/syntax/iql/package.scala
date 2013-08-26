@@ -63,7 +63,7 @@ package object iql
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange]
     ): Rep[Query[ContextRange]] = subQuery match {
-        case q1: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range] =>
+        case q1: IQL_QUERY_1[Select@unchecked, Domain@unchecked, GroupDomain@unchecked, GroupRange@unchecked, Range@unchecked] =>
             SubQueryToAlgebra (
                 q1, context, contextParameter
             )(

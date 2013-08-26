@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case class DistinctFunction1[-Domain: Manifest, Range: Manifest] (
-    function: Rep[Domain] => Rep[Range]
+    function: Rep[Domain => Range]
 )
     extends DISTINCT_FUNCTION_1[Domain, Range]
 {
