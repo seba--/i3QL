@@ -30,14 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.bytecode
 
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.StructExp
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object bytecode
+trait BytecodeStructureSchemaConstructors
+    extends BytecodeStructure
+    with BytecodeTypesSchema
 {
+
+    val IR: StructExp
+
+    import IR.Rep
+    import IR.struct
+    import IR.ClassTag
+
+    def ClassDeclaration (
+        minorVersion: Rep[Int],
+        majorVersion: Rep[Int],
+        accessFlags: Rep[Int],
+        classType: Rep[ObjectType],
+        superClass: Rep[Option[ObjectType]],
+        interfaces: Rep[Seq[ObjectType]]
+    )(implicit ctx: SourceContext) =
+        struct[ClassDeclaration](
+            ClassTag[ClassDeclaration]("ClassDeclaration"),
+            Map ("minorVersion" -> minorVersion,
+                "majorVersion" -> majorVersion,
+                "accessFlags" -> accessFlags,
+                "classType" -> classType,
+                "superClass" -> superClass,
+                "interfaces" -> interfaces)
+        )
+
+    def MethodDeclaration (
+        declaringClass: Rep[ClassDeclaration],
+        accessFlags: Rep[Int],
+        name: Rep[String],
+        returnType: Rep[Type],
+        parameterTypes: Rep[Seq[FieldType]]
+    )(implicit ctx: SourceContext) =
+        struct[MethodDeclaration](
+            ClassTag[MethodDeclaration]("MethodDeclaration"),
+            Map ("declaringClass" -> declaringClass,
+                "accessFlags" -> accessFlags,
+                "name" -> name,
+                "returnType" -> returnType,
+                "parameterTypes" -> parameterTypes)
+        )
 
 }

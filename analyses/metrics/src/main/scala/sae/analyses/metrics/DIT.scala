@@ -30,14 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.analyses.metrics
 
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
 
 /**
  *
+ * Compute the depth of the inheritance tree
+ *
  * @author Ralf Mitschke
+ *
  */
-package object bytecode
+object DIT
+    extends (BytecodeDatabase => Relation[Int])
 {
-
+    def apply (database: BytecodeDatabase): Relation[Int] = {
+        null
+    }
 }

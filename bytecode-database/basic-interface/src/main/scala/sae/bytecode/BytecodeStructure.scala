@@ -33,6 +33,7 @@
 package sae.bytecode
 
 
+
 /**
  *
  * @author Ralf Mitschke
@@ -81,6 +82,10 @@ trait BytecodeStructure
 
         def declaringType: ObjectType = declaringClass.classType
 
+        def name: String
+
+        def accessFlags: Int
+
         def isPublic: Boolean
 
         def isProtected: Boolean
@@ -110,10 +115,6 @@ trait BytecodeStructure
         with MethodInfo
     {
         def declaringClass: ClassDeclaration
-
-        def accessFlags: Int
-
-        def name: String
 
         def returnType: Type
 

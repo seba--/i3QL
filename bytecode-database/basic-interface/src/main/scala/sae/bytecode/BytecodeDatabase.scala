@@ -38,7 +38,12 @@ package sae.bytecode
  * @author Ralf Mitschke
  */
 trait BytecodeDatabase
-    extends BytecodeDatabaseBase
+    extends BytecodeStructureRelations
+    with BytecodeStructureSchemaConstructors
+    with BytecodeStructureSchemaInfixOps
     with BytecodeDatabaseManipulation
+    with BytecodeConstants
 {
+
+    val IR = idb.syntax.iql.IR
 }

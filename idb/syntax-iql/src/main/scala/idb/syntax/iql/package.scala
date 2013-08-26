@@ -17,11 +17,22 @@ package object iql
 
     val * : STAR_KEYWORD = impl.StarKeyword
 
-    def infix_AND (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and (lhs, rhs)
+    // TODO behaves strange
+    //def infix_AND (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and (lhs, rhs)
 
-    def infix_OR (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or (lhs, rhs)
+    // TODO behaves strange
+    //def infix_OR (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or (lhs, rhs)
 
-    //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strangely
+   case class InfixBooleanOps(lhs: Rep[Boolean]) {
+       def AND (rhs: Rep[Boolean]) = boolean_and (lhs, rhs)
+
+       def OR (rhs: Rep[Boolean]) = boolean_or (lhs, rhs)
+   }
+
+    implicit def booleanToInfixOps(lhs: Rep[Boolean]) =
+        InfixBooleanOps(lhs)
+
+    //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strange
     def NOT (x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate (x)
 
 

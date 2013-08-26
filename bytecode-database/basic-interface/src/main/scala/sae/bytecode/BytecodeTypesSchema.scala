@@ -30,14 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
-
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object bytecode
+trait BytecodeTypesSchema
+    extends BytecodeTypes
 {
+
+    /**
+     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     *  provided by implementers
+     */
+    implicit def typeManifest : Manifest[Type]
+
+    /**
+     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     *  provided by implementers
+     */
+    implicit def fieldTypeManifest : Manifest[FieldType]
+
+    /**
+     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     *  provided by implementers
+     */
+    implicit def referenceTypeManifest : Manifest[ReferenceType]
+
+    /**
+     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     *  provided by implementers
+     */
+    implicit def objectTypeManifest : Manifest[ObjectType]
+
 
 }

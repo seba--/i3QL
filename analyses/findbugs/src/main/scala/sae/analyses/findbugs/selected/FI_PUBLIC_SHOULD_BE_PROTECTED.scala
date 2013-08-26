@@ -30,14 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.analyses.findbugs.selected
 
+import language.implicitConversions
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-package object bytecode
+
+object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
+
+    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
+        import database._
+        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
+            m.name == "finalize" AND
+                m.isPublic AND
+                m.returnType == void AND
+                m.parameterTypes == Nil
+            )
+    }
 
 }

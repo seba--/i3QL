@@ -30,14 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.bytecode
 
+import idb.SetExtent
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object bytecode
+trait BytecodeStructureRelations
+    extends BytecodeStructure
 {
 
+    def classDeclarations: SetExtent[ClassDeclaration]
+
+    def methodDeclarations: SetExtent[MethodDeclaration]
+
+    def fieldDeclarations: SetExtent[FieldDeclaration]
+
+    def codeAttributes: SetExtent[CodeAttribute]
+
+    def innerClassAttributes: SetExtent[InnerClassAttribute]
+
+    def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
 }
