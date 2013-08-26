@@ -55,18 +55,23 @@ object SubQueryToAlgebra
         }
 
 
-    def apply[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest, ContextRange: Manifest] (
+    def apply[Select: Manifest,
+    Domain <: GroupDomain : Manifest,
+    GroupDomain: Manifest,
+    GroupRange <: Select : Manifest,
+    Range: Manifest,
+    ContextDomain: Manifest] (
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range],
-        context: Rep[Query[ContextRange]],
-        contextParameter: Rep[ContextRange]
-    ): Rep[Query[ContextRange]] =
+        context: Rep[Query[ContextDomain]],
+        contextParameter: Rep[ContextDomain]
+    ): Rep[Query[ContextDomain]] =
         subQuery match {
             // This clause is definitely not correlated to the context
             case FromClause1 (relation, SelectClause1 (_, asDistinct)) =>
                 applyDistinct (
                     projection (
                         crossProduct (context, relation),
-                        (ctx: Rep[ContextRange], dom: Rep[_]) => ctx //TODO Is Rep[_] ok?
+                        (ctx: Rep[ContextDomain], subDom: Rep[Select]) => ctx
                     ),
                     asDistinct
                 )
@@ -74,8 +79,7 @@ object SubQueryToAlgebra
 
             // This clause might be correlated.
             // But, the clause could also just filter some elements without referring to the context
-			//TODO Re-enable subquery to algebra
-          /*  case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (_, asDistinct))) =>
+            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (_, asDistinct))) =>
                 applyDistinct (
                     projection (
                         selection (
@@ -84,24 +88,25 @@ object SubQueryToAlgebra
                             val ctxFun = dynamicLambda (contextParameter,
                                 dynamicLambda (parameter (predicate), body (predicate)))
                             fun (
-                                (ctx: Rep[ContextRange], cur: Rep[Domain]) => {
-                                    val app1 = ctxFun (ctx)
-                                    val app2 = app1 (cur)
-                                    app2
+                                // TODO: Works, but why does compiler need GroupRange with Domain?
+                                (ctx: Rep[ContextDomain], subDom: Rep[GroupRange with Domain]) => {
+                                    val fun1 = ctxFun (ctx)
+                                    val fun2 = fun1 (subDom)
+                                    fun2
                                 }
                             )
                         }
                         ),
-                        (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
+                        (ctx: Rep[ContextDomain], subDom: Rep[Select]) => ctx
                     ),
                     asDistinct
-                )  */
+                )
         }
 
     def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest,
-    Range: Manifest, ContextRange: Manifest] (
+    Range: Manifest, ContextDomain: Manifest] (
         subQuery: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range],
-        context: Rep[Query[ContextRange]]
+        context: Rep[Query[ContextDomain]]
     ): Rep[Query[Range]] =
         subQuery match {
             case _ => throw new UnsupportedOperationException
