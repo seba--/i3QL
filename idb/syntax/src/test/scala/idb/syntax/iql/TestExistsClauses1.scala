@@ -36,7 +36,7 @@ import TestUtil.assertEqualStructure
 import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import scala.language.implicitConversions
 
 
@@ -159,6 +159,42 @@ class TestExistsClauses1
 
     }
 
+    // works but is not optimized
+    @Ignore
+    @Test
+    def testMultipleExists () {
+        val query = plan (
+            SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                EXISTS (
+                    SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                        s.matriculationNumber == r.studentMatriculationNumber
+                        )
+                ) AND
+                    EXISTS (
+                        SELECT (*) FROM courses WHERE ((c: Rep[Course]) =>
+                            c.number == r.courseNumber
+                            )
+                    )
+
+                )
+        )
+
+        assertEqualStructure (
+            semiJoin (
+                semiJoin (
+                    registrations,
+                    students,
+                    (r: Rep[Registration]) => r.studentMatriculationNumber,
+                    (s: Rep[Student]) => s.matriculationNumber
+                ),
+                courses,
+                (r: Rep[Registration]) => r.courseNumber,
+                (c: Rep[Course]) => c.number
+            ),
+            query
+        )
+
+    }
 
     @Test
     def testNotExists () {
