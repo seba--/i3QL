@@ -12,7 +12,7 @@ import idb.syntax.iql._
  * To change this template use File | Settings | File Templates.
  */
 case class AggregateFunction1[Domain : Manifest, Range : Manifest](
-	start : Rep[Range],
+	start : Range,
 	added : Rep[((Domain, Range)) => Range],
 	removed : Rep[((Domain, Range)) => Range],
 	updated : Rep[((Domain, Domain, Range)) => Range]

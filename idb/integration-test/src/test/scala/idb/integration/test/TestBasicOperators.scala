@@ -198,7 +198,6 @@ class TestBasicOperators
 	}
 
 	//TODO fix test
-	@Ignore
 	@Test
 	def testSumCreditPoints() {
 		val query = compile (

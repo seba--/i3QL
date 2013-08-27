@@ -42,7 +42,7 @@ case object COUNT
     extends AGGREGATE_FUNCTION_FACTORY[Any, Int]
 {
 
-	def start : Rep[Int] = 0
+	def start : Int = 0
 
 	def added[Domain] (v: Rep[Domain],
 		previousResult: Rep[Int],

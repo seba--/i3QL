@@ -44,7 +44,7 @@ import idb.syntax.iql.impl.AggregateFunction1
 
 trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
-	def start : Rep[Range]
+	def start : Range
 
 	def added[Domain] (v: Rep[Domain],
 		previousResult: Rep[Range],

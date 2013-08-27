@@ -101,7 +101,10 @@ class TestBasicClauses1
 
         assertEqualStructure (
             selection (
-                selection (extent (students), (s: Rep[Student]) => s.lastName == "Fields"),
+                selection (
+                    extent (students),
+                    (s: Rep[Student]) => s.lastName == "Fields"
+                ),
                 (s: Rep[Student]) => !(s.firstName == "Sally")
             ),
             query

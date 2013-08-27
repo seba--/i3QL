@@ -44,6 +44,29 @@ import org.junit.{Ignore, Test}
  */
 class TestAggregateClauses2
 {
+    @Ignore
+    @Test
+    def testGrouping () {
+        val query = plan (
+            SELECT ((s: Rep[String]) => s) FROM(students, registrations) GROUP BY (
+                (s: Rep[Student], r: Rep[Registration]) => s.lastName + r.comment
+            )
+        )
+
+
+        assertEqualStructure (
+            grouping (
+                crossProduct (
+                    extent (students),
+                    extent (registrations)
+                ),
+                fun ((s: Rep[Student], r: Rep[Registration]) => s.lastName + r.comment)
+            ),
+            query
+        )
+
+    }
+
 
     @Ignore
     @Test
@@ -65,7 +88,7 @@ class TestAggregateClauses2
             ) =>
             {
                 s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY ((s : Rep[Student], r : Rep[Registration]) => s.lastName)
+            }) GROUP BY ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
         )
 
     }

@@ -10,25 +10,25 @@ import idb.syntax.iql.IR._
 case object SUM
     extends AGGREGATE_FUNCTION_FACTORY[Int, Int]
 {
-	def start : Rep[Int] = 0
+    def start: Int = 0
 
     def added[Domain] (v: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) : Rep[Int] =
+    ): Rep[Int] =
         previousResult + column (v)
 
     def removed[Domain] (v: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) : Rep[Int] =
+    ): Rep[Int] =
         previousResult - column (v)
 
     def updated[Domain] (oldV: Rep[Domain],
         newV: Rep[Domain],
         previousResult: Rep[Int],
         column: Rep[Domain] => Rep[Int]
-    ) : Rep[Int] =
+    ): Rep[Int] =
         previousResult - column (oldV) + column (newV)
 
 }
