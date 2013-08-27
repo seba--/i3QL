@@ -33,7 +33,6 @@
 package sae.bytecode
 
 
-
 /**
  *
  * @author Ralf Mitschke
@@ -153,28 +152,34 @@ trait BytecodeStructure
         extends DeclaredClassMember
         with FieldInfo
     {
-        def isTransient : Boolean
+        def isTransient: Boolean
 
-        def isVolatile : Boolean
+        def isVolatile: Boolean
 
-        def isEnum : Boolean
+        def isEnum: Boolean
 
-        def isSynthetic : Boolean
+        def isSynthetic: Boolean
     }
 
-    trait CodeAttribute {
-        def declaringMethod : MethodDeclaration
+    type ExceptionHandler
+
+    trait CodeAttribute
+    {
+        def declaringMethod: MethodDeclaration
+
+        def codeLength : Int
 
         def maxStack: Int
 
         def maxLocals: Int
 
-        def exceptionHandlers: Seq[ObjectType]
+        def exceptionHandlers: Seq[ExceptionHandler]
     }
 
 
-    trait EnclosingMethodAttribute{
-        def declaringType: ObjectType
+    trait EnclosingMethodAttribute
+    {
+        def declaringClass: ClassDeclaration
 
         def name: Option[String]
 
@@ -186,7 +191,10 @@ trait BytecodeStructure
     }
 
 
-    trait InnerClassAttribute {
+    trait InnerClassAttribute
+    {
+        def declaringClass: ClassDeclaration
+
         def innerClassType: ObjectType
 
         def outerClassType: Option[ObjectType]
@@ -195,4 +203,5 @@ trait BytecodeStructure
 
         def innerClassAccessFlags: Int
     }
+
 }

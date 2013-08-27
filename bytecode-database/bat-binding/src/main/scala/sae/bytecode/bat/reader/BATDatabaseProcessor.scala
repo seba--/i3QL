@@ -30,27 +30,38 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import idb.SetExtent
+package sae.bytecode.bat.reader
 
 /**
+ * Abstract trait that allows us to perform arbitrary actions for each element that is created from the bytecode.
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureRelations
-    extends BytecodeStructure
+trait BATDatabaseProcessor
 {
 
-    def classDeclarations = SetExtent.empty[ClassDeclaration]()
+    type Class_Info
 
-    def methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    type Method_Info
 
-    def fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    type Field_Info
 
-    def codeAttributes = SetExtent.empty[CodeAttribute]()
+    type CodeAttribute
 
-    def innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+    type InnerClassAttribute
 
-    def enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    type EnclosingMethodAttribute
+
+    def processClassInfo (classInfo: Class_Info)
+
+    def processMethodInfo (methodInfo: Method_Info)
+
+    def processFieldInfo (fieldInfo: Field_Info)
+
+    def processCodeAttribute (codeAttribute: CodeAttribute)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+
 }

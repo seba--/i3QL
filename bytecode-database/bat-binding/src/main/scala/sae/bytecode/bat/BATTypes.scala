@@ -30,27 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.bat
 
-import idb.SetExtent
+import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureRelations
-    extends BytecodeStructure
+trait BATTypes
+    extends BytecodeTypes
+    with BytecodeTypesSchema
 {
 
-    def classDeclarations = SetExtent.empty[ClassDeclaration]()
+    type Type = de.tud.cs.st.bat.resolved.Type
 
-    def methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    type FieldType = de.tud.cs.st.bat.resolved.FieldType
 
-    def fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType
 
-    def codeAttributes = SetExtent.empty[CodeAttribute]()
+    type ObjectType = de.tud.cs.st.bat.resolved.ObjectType
 
-    def innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
 
-    def enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    implicit def typeManifest: Manifest[Type] = manifest[de.tud.cs.st.bat.resolved.Type]
+
+    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[de.tud.cs.st.bat.resolved.FieldType]
+
+    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[de.tud.cs.st.bat.resolved.ReferenceType]
+
+    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[de.tud.cs.st.bat.resolved.ObjectType]
+
 }

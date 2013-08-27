@@ -47,5 +47,4 @@ trait BytecodeTypes
 
     type ObjectType <: ReferenceType
 
-
 }

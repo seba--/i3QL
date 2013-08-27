@@ -30,27 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.bat
 
-import idb.SetExtent
+import sae.bytecode.BytecodeStructure
+import de.tud.cs.st.bat._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureRelations
+trait BATStructureUtils
     extends BytecodeStructure
 {
+    private val classCategoryMask: Int =
+        ACC_INTERFACE.mask | ACC_ANNOTATION.mask | ACC_ENUM.mask
 
-    def classDeclarations = SetExtent.empty[ClassDeclaration]()
+    private val annotationMask: Int =
+        ACC_ANNOTATION.mask | ACC_INTERFACE.mask
 
-    def methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    protected def isAnnotation (classDeclaration: ClassDeclaration) =
+        (classDeclaration.accessFlags & classCategoryMask) == annotationMask
 
-    def fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    protected def isClass (classDeclaration: ClassDeclaration) =
+        (classDeclaration.accessFlags & classCategoryMask) == 0
 
-    def codeAttributes = SetExtent.empty[CodeAttribute]()
+    protected def isEnum (classDeclaration: ClassDeclaration) =
+        (classDeclaration.accessFlags & classCategoryMask) == ACC_ENUM.mask
 
-    def innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
-
-    def enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    protected def isInterface (classDeclaration: ClassDeclaration) =
+        (classDeclaration.accessFlags & classCategoryMask) == ACC_INTERFACE.mask
 }

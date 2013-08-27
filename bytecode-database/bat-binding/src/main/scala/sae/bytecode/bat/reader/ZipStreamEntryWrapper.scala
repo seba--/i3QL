@@ -30,27 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.bat.reader
 
-import idb.SetExtent
+import java.io.InputStream
+import java.util.zip.{ZipEntry, ZipInputStream}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureRelations
-    extends BytecodeStructure
+class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
 {
 
-    def classDeclarations = SetExtent.empty[ClassDeclaration]()
+    private var availableCounter =  entry.getCompressedSize.toInt;
 
-    def methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    override def close() {
+        stream.closeEntry ()
+    }
 
-    def fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    override def read: Int = {
+        availableCounter -= 1
+        stream.read
+    }
 
-    def codeAttributes = SetExtent.empty[CodeAttribute]()
+    override def read(b: Array[Byte]) = {
+        availableCounter -= b.size
+        stream.read(b)
+    }
 
-    def innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+    override def read(b: Array[Byte], off: Int, len: Int) = {
+        val read = stream.read(b, off, len)
+        availableCounter -= read
+        read
+    }
 
-    def enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    override def skip(n: Long) = {
+        availableCounter -= n.toInt
+        stream.skip(n)
+    }
+
+    override def available() : Int = {
+        availableCounter
+    }
 }

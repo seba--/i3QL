@@ -32,11 +32,13 @@
  */
 package sae.bytecode.bat
 
+import sae.bytecode.BytecodeDatabase
+
 /**
  *
  * @author Ralf Mitschke
  */
-class BytecodeDatabaseBAT
+object BATDatabaseFactory
 {
-
+    def create (): BATDatabase = null
 }
