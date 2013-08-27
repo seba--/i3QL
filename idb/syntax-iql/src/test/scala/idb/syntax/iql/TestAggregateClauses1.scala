@@ -46,7 +46,7 @@ import scala.language.implicitConversions
  */
 class TestAggregateClauses1
 {
-	@Ignore
+    @Ignore
     @Test
     def testAggregateCountStar () {
         val query = plan (
@@ -54,17 +54,17 @@ class TestAggregateClauses1
         )
 
 
-     /*   assertEqualStructure (
-            aggregationSelfMaintainedWithoutGrouping (
-                students,
-				start,
-				COUNT.start,
-                COUNT.added _,
-                COUNT.removed _,
-                COUNT.updated _
-            ),
-            query
-        )*/
+        /*   assertEqualStructure (
+               aggregationSelfMaintainedWithoutGrouping (
+                   students,
+                   start,
+                   COUNT.start,
+                   COUNT.added _,
+                   COUNT.removed _,
+                   COUNT.updated _
+               ),
+               query
+           )*/
 
     }
 
@@ -72,11 +72,37 @@ class TestAggregateClauses1
     @Test
     def testAggregateSumCreditPoints () {
         val query = plan (
-           // SELECT (SUM (creditPoints)) FROM courses
-			SELECT (SUM ((c : Rep[Course]) => c.creditPoints)) FROM courses
+            SELECT (SUM ((c: Rep[Course]) => c.creditPoints)) FROM courses
         )
 
+        assertEqualStructure (
+            aggregationSelfMaintainedWithoutGrouping (
+                extent (courses),
+                0,
+                fun ((c: Rep[Course], i: Rep[Int]) => i + c.creditPoints),
+                fun ((c: Rep[Course], i: Rep[Int]) => i - c.creditPoints),
+                fun ((c1: Rep[Course], c2: Rep[Course], i: Rep[Int]) => i - c1.creditPoints + c2.creditPoints)
+            ),
+            query
+        )
+    }
 
+    @Test
+    def testAggregateCountStudentNames () {
+        val query = plan (
+            SELECT (COUNT ((s: Rep[Student]) => s.lastName)) FROM students
+        )
+
+        assertEqualStructure (
+            aggregationSelfMaintainedWithoutGrouping (
+                extent (students),
+                0,
+                fun ((s: Rep[Student], i: Rep[Int]) => i + 1),
+                fun ((s: Rep[Student], i: Rep[Int]) => i - 1),
+                fun ((s1: Rep[Student], s2: Rep[Student], i: Rep[Int]) => i)
+            ),
+            query
+        )
     }
 
 
@@ -133,7 +159,8 @@ class TestAggregateClauses1
     def testAggregateGroupWithWhere () {
 
         val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY ((s: Rep[Student]) => s.lastName)
+            SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
+                (s: Rep[Student]) => s.lastName)
         )
 
     }
@@ -142,7 +169,8 @@ class TestAggregateClauses1
     @Test
     def testAggregateGroupCountStarWithWhere () {
         val query = plan (
-            SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY ((s: Rep[Student]) => s.lastName)
+            SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
+                (s: Rep[Student]) => s.lastName)
         )
     }
 
@@ -151,7 +179,7 @@ class TestAggregateClauses1
     def testAggregateGroupCountStarWithGroupWithWhere () {
         val query = plan (
             SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
-				(s: Rep[Student]) => s.lastName)
+                (s: Rep[Student]) => s.lastName)
         )
     }
 
