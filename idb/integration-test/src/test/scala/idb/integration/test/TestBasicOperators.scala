@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
-import idb.schema.university.{Registration, Student}
+import idb.schema.university.{Registration, Student, Course}
 import idb.syntax.iql.IR._
 
 
@@ -79,14 +79,12 @@ class TestBasicOperators
 	}
 
 
-	//TODO fix test
-	@Ignore
 	@Test
 	def testStudentNames2() {
 
 		val query = compile (
 			SELECT (
-				( p : Rep[Any]) => p
+				( p : Rep[(String,String)]) => p._1 + " " + p._2
 			) FROM
 				students
 			GROUP BY (
@@ -172,6 +170,53 @@ class TestBasicOperators
 		assertTrue(query.contains("Student: John"))
 		assertTrue(query.contains("Student: Judy"))
 		assertTrue(query.contains("Student: Jane"))
+	}
+
+	//TODO fix test.
+	@Ignore
+	@Test
+	def testCountStudents() {
+		val query = compile (
+			SELECT (
+	/*			COUNT (
+					(s : Rep[Student]) => s
+				) */ *
+			) FROM
+				students
+		).asMaterialized
+
+		val john = Student(11111, "John", "Doe")
+		val john2 = Student(11111, "John", "Carter")
+		val judy = Student(22222, "Judy", "Carter")
+		val jane = Student(33333, "Jane", "Doe")
+
+		students += john += judy += jane += john2
+		students.endTransaction()
+
+		assertTrue(query.contains(4))
+
+	}
+
+	//TODO fix test
+	@Test
+	def testSumCreditPoints() {
+		val query = compile (
+			SELECT (
+				SUM (
+					(c : Rep[Course]) => c.creditPoints
+				)
+			) FROM
+				courses
+		).asMaterialized
+
+		val se = Course(1, "Software Engineering", 6)
+		val math = Course(2, "Mathematics", 9)
+		val ics = Course(1, "Introduction to Computer Science", 10)
+
+		courses += se += math += ics
+		courses.endTransaction()
+
+		assertTrue(query.contains(25))
 	}
 
 

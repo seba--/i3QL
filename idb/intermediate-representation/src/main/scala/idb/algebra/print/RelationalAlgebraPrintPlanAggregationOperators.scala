@@ -54,6 +54,7 @@ trait RelationalAlgebraPrintPlanAggregationOperators
     import IR.Exp
     import IR.Def
     import IR.Grouping
+    import IR.AggregationSelfMaintainedWithoutGrouping
 
 
 
@@ -65,6 +66,14 @@ trait RelationalAlgebraPrintPlanAggregationOperators
                     withMoreIndent (quoteFunction (grouping) + "\n") +
                     withIndent (")")
 
+            case Def(AggregationSelfMaintainedWithoutGrouping(relation, start, added, removed, updated)) =>
+                withIndent ("aggregation(" + "\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
+                    withMoreIndent (start + "\n") +
+                    withMoreIndent (quoteFunction (added) + "\n") +
+                    withMoreIndent (quoteFunction (removed) + "\n") +
+                    withMoreIndent (quoteFunction (updated) + "\n") +
+                    withIndent (")")
 
          /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
                 withIndent ("aggregation(" + "\n") +

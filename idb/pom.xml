@@ -15,7 +15,7 @@
         <module>schema-examples</module>
         <module>intermediate-representation</module>
         <module>runtime-compiler</module>
-        <module>syntax</module>
+        <module>syntax-iql</module>
         <module>integration-test</module>
     </modules>
 

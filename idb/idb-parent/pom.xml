@@ -129,27 +129,12 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
-                <artifactId>syntax</artifactId>
+                <artifactId>syntax-iql</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>schema-examples</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.tud.cs.st.idb</groupId>
-                <artifactId>macros-impl</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.tud.cs.st.idb</groupId>
-                <artifactId>macros-run</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.tud.cs.st.idb</groupId>
-                <artifactId>macrostest</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
