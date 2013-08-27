@@ -60,7 +60,7 @@ trait RelationalAlgebraIRAggregationOperators
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
-		start : Rep[Result],
+		start : Result,
 		added : Rep[((Domain, Result)) => Result],
 		removed : Rep[((Domain, Result)) => Result],
 		updated: Rep[( (Domain, Domain, Result) ) => Result]
@@ -92,7 +92,7 @@ trait RelationalAlgebraIRAggregationOperators
 
 	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
 		relation : Rep[Query[Domain]],
-		start : Rep[Result],
+		start : Result,
 		added : Rep[((Domain, Result)) => Result],
 		removed : Rep[((Domain, Result)) => Result],
 		updated: Rep[( (Domain, Domain, Result) ) => Result]
