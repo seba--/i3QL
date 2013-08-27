@@ -65,7 +65,7 @@ trait RelationalAlgebraIROptOrderSelections
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         relation match {
-            case Def (Selection (r, f)) if f.hashCode () > function.hashCode () =>
+            case Def (Selection (r, f@Sym (id))) if id > function.asInstanceOf[Sym[_]].id =>
                 selection (selection (r, function)(exactDomainOf (relation)), f)
 
             case _ =>
