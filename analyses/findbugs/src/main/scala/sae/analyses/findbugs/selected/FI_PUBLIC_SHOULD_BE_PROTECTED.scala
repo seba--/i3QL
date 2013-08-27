@@ -32,7 +32,6 @@
  */
 package sae.analyses.findbugs.selected
 
-import language.implicitConversions
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
@@ -43,7 +42,6 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  *
  */
-
 object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
 
