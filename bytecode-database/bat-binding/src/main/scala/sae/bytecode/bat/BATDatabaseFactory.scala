@@ -32,7 +32,6 @@
  */
 package sae.bytecode.bat
 
-import sae.bytecode.BytecodeDatabase
 
 /**
  *
@@ -40,5 +39,5 @@ import sae.bytecode.BytecodeDatabase
  */
 object BATDatabaseFactory
 {
-    def create (): BATDatabase = null
+    def create (): BATDatabase = new BATDatabase ()
 }
