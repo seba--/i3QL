@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>de.tud.cs.st.idb</groupId>
-            <artifactId>syntax</artifactId>
+            <artifactId>syntax-iql</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
