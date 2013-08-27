@@ -46,7 +46,7 @@ object SELECT
     def apply[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (ProjectionFunction1 (projection))
+        SelectClause1 (projection)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
@@ -79,7 +79,7 @@ object SELECT
     def DISTINCT[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (ProjectionFunction1 (projection), asDistinct = true)
+        SelectClause1 (projection, asDistinct = true)
 
 
     def DISTINCT[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (

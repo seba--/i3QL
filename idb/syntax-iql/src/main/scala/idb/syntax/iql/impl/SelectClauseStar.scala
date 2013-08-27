@@ -49,7 +49,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         FromClause1 (
             relation,
             SelectClause1[Domain,Domain](
-				ProjectionFunction1 ((x: Rep[Domain]) => x),
+				(x: Rep[Domain]) => x,
 				asDistinct
             )
         )

@@ -30,23 +30,57 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package sae.analyses.findbugs.selected
 
-import idb.syntax.iql.IR._
+import org.junit.Test
+import org.junit.Assert._
+import sae.bytecode.bat.BATDatabaseFactory
+import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
+import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_PUBLIC}
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-trait AGGREGATE_FUNCTION_SELF[Domain, Result]
+class Test_FI_PUBLIC_SHOULD_BE_PROTECTED
 {
-    def added (v: Rep[Domain], previousResult: Rep[Result]): Rep[Result]
+
+    @Test
+    def truePositive () {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
+
+        val clazz = ClassDeclaration (0, 0, 0, ObjectType ("test/Test"), Some (ObjectType.Object), Nil)
+
+        val method = MethodDeclaration (clazz, ACC_PUBLIC.mask, "finalize", VoidType, Nil)
+
+        database.methodDeclarations += method
+        assertEquals (
+            List (
+                method
+            ),
+            analysis.asList
+        )
+    }
 
 
-    def removed (v: Rep[Domain], previousResult: Rep[Result]): Rep[Result]
+    @Test
+    def trueNegative () {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
 
+        val clazz = ClassDeclaration (0, 0, 0, ObjectType ("test/Test"), Some (ObjectType.Object), Nil)
 
-    def updated (oldV: Rep[Domain], newV: Rep[Domain], previousResult: Rep[Result]): Rep[Result]
+        val method = MethodDeclaration (clazz, ACC_PROTECTED.mask, "finalize", VoidType, Nil)
+
+        database.methodDeclarations += method
+        assertEquals (
+            Nil,
+            analysis.asList
+        )
+    }
+
 }
