@@ -43,11 +43,13 @@
                             <version>${scala.version}</version>
                         </plugin>
                     </compilerPlugins>
+                    <!--
                     <args>
                         <arg>-Yvirtualize</arg>
                         <arg>-P:continuations:enable</arg>
                         <arg>-deprecation</arg>
                     </args>
+                    -->
                     <displayCmd>true</displayCmd>
                     <dependencies>
                         <dependency>
@@ -105,12 +107,18 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Dependencies to external projects -->
+            <!-- Dependencies to maven central external projects -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.10</version>
             </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>4.1</version>
+            </dependency>
+            <!-- Dependencies to stg owned external projects -->
             <dependency>
                 <groupId>de.tud.cs.st</groupId>
                 <artifactId>bat-core</artifactId>
@@ -121,7 +129,7 @@
                 <artifactId>syntax-iql</artifactId>
                 <version>0.0.1</version>
             </dependency>
-            <!-- Dependencies to our own internal projects -->
+            <!-- Dependencies to our internal projects -->
             <dependency>
                 <groupId>de.tud.cs.st.sae.db</groupId>
                 <artifactId>basic-interface</artifactId>

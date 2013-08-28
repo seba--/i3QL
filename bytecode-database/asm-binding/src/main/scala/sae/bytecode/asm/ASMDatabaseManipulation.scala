@@ -32,15 +32,31 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeConstantValues
+import sae.bytecode.util.AbstractBytecodeDatabaseManipulation
+import java.io.InputStream
+import sae.bytecode.asm.reader.ASMProcessor
+import sae.bytecode.asm.ext.ClassReaderExt
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMDatabaseManipulation
+    extends AbstractBytecodeDatabaseManipulation
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+    def additionProcessor: ASMProcessor
+
+    def removalProcessor: ASMProcessor
+
+    protected def doAddClassFile (stream: InputStream) {
+        val reader = new ClassReaderExt (stream)
+        reader.accept (additionProcessor.classVisitor, 0)
+    }
+
+    protected def doRemoveClassFile (stream: InputStream) {
+        val reader = new ClassReaderExt (stream)
+        reader.accept (removalProcessor.classVisitor, 0)
+    }
+
+
 }

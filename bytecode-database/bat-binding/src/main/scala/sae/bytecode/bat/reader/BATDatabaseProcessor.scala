@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.reader
+package sae.bytecode.asm.reader
 
 /**
  * Abstract trait that allows us to perform arbitrary actions for each element that is created from the bytecode.

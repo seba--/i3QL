@@ -55,23 +55,23 @@ trait BytecodeStructure
 
         def interfaces: Seq[ObjectType]
 
-        def isAnnotation: Boolean
+        def isAnnotation: Boolean = BytecodeStructure.this.isAnnotation (this)
 
-        def isClass: Boolean
+        def isClass: Boolean = BytecodeStructure.this.isClass (this)
 
-        def isEnum: Boolean
+        def isEnum: Boolean = BytecodeStructure.this.isEnum (this)
 
-        def isInterface: Boolean
+        def isInterface: Boolean = BytecodeStructure.this.isInterface (this)
 
-        def isPublic: Boolean
+        def isPublic: Boolean = BytecodeStructure.this.isPublic (this)
 
-        def isDefault: Boolean
+        def isDefault: Boolean = BytecodeStructure.this.isDefault (this)
 
-        def isFinal: Boolean
+        def isFinal: Boolean = BytecodeStructure.this.isFinal (this)
 
-        def isAbstract: Boolean
+        def isAbstract: Boolean = BytecodeStructure.this.isAbstract (this)
 
-        def isSynthetic: Boolean
+        def isSynthetic: Boolean = BytecodeStructure.this.isSynthetic (this)
     }
 
 
@@ -85,15 +85,15 @@ trait BytecodeStructure
 
         def accessFlags: Int
 
-        def isPublic: Boolean
+        def isPublic: Boolean = BytecodeStructure.this.isPublic (this)
 
-        def isProtected: Boolean
+        def isProtected: Boolean = BytecodeStructure.this.isProtected (this)
 
-        def isPrivate: Boolean
+        def isPrivate: Boolean = BytecodeStructure.this.isPrivate (this)
 
-        def isStatic: Boolean
+        def isStatic: Boolean = BytecodeStructure.this.isStatic (this)
 
-        def isFinal: Boolean
+        def isFinal: Boolean = BytecodeStructure.this.isFinal (this)
     }
 
 
@@ -121,19 +121,19 @@ trait BytecodeStructure
 
         def receiverType = declaringType
 
-        def isSynchronized: Boolean
+        def isSynchronized: Boolean = BytecodeStructure.this.isSynchronized (this)
 
-        def isBridge: Boolean
+        def isBridge: Boolean = BytecodeStructure.this.isBridge (this)
 
-        def isVarArgs: Boolean
+        def isVarArgs: Boolean = BytecodeStructure.this.isVarArgs (this)
 
-        def isNative: Boolean
+        def isNative: Boolean = BytecodeStructure.this.isNative (this)
 
-        def isAbstract: Boolean
+        def isAbstract: Boolean = BytecodeStructure.this.isAbstract (this)
 
-        def isStrict: Boolean
+        def isStrict: Boolean = BytecodeStructure.this.isStrict (this)
 
-        def isSynthetic: Boolean
+        def isSynthetic: Boolean = BytecodeStructure.this.isSynthetic (this)
     }
 
 
@@ -152,13 +152,13 @@ trait BytecodeStructure
         extends DeclaredClassMember
         with FieldInfo
     {
-        def isTransient: Boolean
+        def isTransient: Boolean = BytecodeStructure.this.isTransient (this)
 
-        def isVolatile: Boolean
+        def isVolatile: Boolean = BytecodeStructure.this.isVolatile (this)
 
-        def isEnum: Boolean
+        def isEnum: Boolean = BytecodeStructure.this.isEnum (this)
 
-        def isSynthetic: Boolean
+        def isSynthetic: Boolean = BytecodeStructure.this.isSynthetic (this)
     }
 
     type ExceptionHandler
@@ -167,7 +167,7 @@ trait BytecodeStructure
     {
         def declaringMethod: MethodDeclaration
 
-        def codeLength : Int
+        def codeLength: Int
 
         def maxStack: Int
 
@@ -203,5 +203,71 @@ trait BytecodeStructure
 
         def innerClassAccessFlags: Int
     }
+
+    trait Instruction
+    {
+        def declaringMethod: MethodDeclaration
+
+        def programCounter: Int
+
+        def sequenceIndex: Int
+
+        def opcode: Short
+
+        def nextProgramCounter: Int
+
+        def mnemonic: String = this.getClass.getSimpleName
+    }
+
+
+    def isAnnotation (classDeclaration: ClassDeclaration): Boolean
+
+    def isClass (classDeclaration: ClassDeclaration): Boolean
+
+    def isEnum (classDeclaration: ClassDeclaration): Boolean
+
+    def isInterface (classDeclaration: ClassDeclaration): Boolean
+
+    def isPublic (classDeclaration: ClassDeclaration): Boolean
+
+    def isDefault (classDeclaration: ClassDeclaration): Boolean
+
+    def isFinal (classDeclaration: ClassDeclaration): Boolean
+
+    def isAbstract (classDeclaration: ClassDeclaration): Boolean
+
+    def isSynthetic (classDeclaration: ClassDeclaration): Boolean
+
+    def isPublic (declaredClassMember: DeclaredClassMember): Boolean
+
+    def isProtected (declaredClassMember: DeclaredClassMember): Boolean
+
+    def isPrivate (declaredClassMember: DeclaredClassMember): Boolean
+
+    def isStatic (declaredClassMember: DeclaredClassMember): Boolean
+
+    def isFinal (declaredClassMember: DeclaredClassMember): Boolean
+
+    def isSynchronized (methodDeclaration: MethodDeclaration): Boolean
+
+    def isBridge (methodDeclaration: MethodDeclaration): Boolean
+
+    def isVarArgs (methodDeclaration: MethodDeclaration): Boolean
+
+    def isNative (methodDeclaration: MethodDeclaration): Boolean
+
+    def isAbstract (methodDeclaration: MethodDeclaration): Boolean
+
+    def isStrict (methodDeclaration: MethodDeclaration): Boolean
+
+    def isSynthetic (methodDeclaration: MethodDeclaration): Boolean
+
+    def isTransient (fieldDeclaration: FieldDeclaration): Boolean
+
+    def isVolatile (fieldDeclaration: FieldDeclaration): Boolean
+
+    def isEnum (fieldDeclaration: FieldDeclaration): Boolean
+
+    def isSynthetic (fieldDeclaration: FieldDeclaration): Boolean
 
 }

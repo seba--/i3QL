@@ -30,17 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
+package sae.bytecode.asm.reader
 
-import sae.bytecode.BytecodeConstantValues
+import sae.bytecode.asm.ASMDatabase
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMElementProcessor
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+    val database: ASMDatabase
+
+    import database._
+
+    def processClassDeclaration (classDeclaration: ClassDeclaration)
+
+    def processMethodDeclaration (methodDeclaration: MethodDeclaration)
+
+    def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
+
+    def processCodeAttribute (codeAttribute: CodeAttribute)
+
+    def processInstruction (instruction: Instruction)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+
 }

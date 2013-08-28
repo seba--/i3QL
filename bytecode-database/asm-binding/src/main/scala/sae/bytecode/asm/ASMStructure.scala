@@ -33,26 +33,37 @@
 package sae.bytecode.asm
 
 import sae.bytecode.{BytecodeAccessFlagReader, BytecodeStructure}
-import de.tud.cs.st.bat._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATStructure
+trait ASMStructure
     extends BytecodeStructure
     with BytecodeAccessFlagReader
 {
 
-
     case class ClassDeclaration (
-        minorVersion: Int,
-        majorVersion: Int,
+        version: Int,
         accessFlags: Int,
         classType: ObjectType,
         superClass: Option[ObjectType],
         interfaces: Seq[ObjectType]
     ) extends super.ClassDeclaration
+    {
+        def majorVersion: Int = version
+
+        def minorVersion: Int = throw new UnsupportedOperationException("Minor version is not supported by ASM")
+    }
+
+
+    case class MethodInfo (
+        receiverType: ReferenceType,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    ) extends super.MethodInfo
+
 
     case class MethodDeclaration (
         declaringClass: ClassDeclaration,
@@ -64,6 +75,13 @@ trait BATStructure
         extends super.MethodDeclaration
 
 
+    case class FieldInfo (
+        declaringType: ObjectType,
+        name: String,
+        fieldType: FieldType
+    ) extends super.FieldInfo
+
+
     case class FieldDeclaration (
         declaringClass: ClassDeclaration,
         accessFlags: Int,
@@ -72,8 +90,6 @@ trait BATStructure
     )
         extends super.FieldDeclaration
 
-
-    type ExceptionHandler = de.tud.cs.st.bat.resolved.ExceptionHandler
 
     case class CodeAttribute (
         declaringMethod: MethodDeclaration,

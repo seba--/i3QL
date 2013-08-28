@@ -30,17 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
+package sae.bytecode.asm.reader
 
-import sae.bytecode.BytecodeConstantValues
+import org.objectweb.asm.{FieldVisitor, MethodVisitor, Opcodes}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMFieldProcessor
+    extends ASMElementProcessor
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    import database._
+
+    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor =
+        new ASMFieldVisitor (fieldDeclaration)
+
+    class ASMFieldVisitor (
+        val fieldDeclaration: FieldDeclaration
+    )
+        extends FieldVisitor (Opcodes.ASM4)
+    {
+
+
+    }
+
+
 }

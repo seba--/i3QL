@@ -30,17 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
-
-import sae.bytecode.BytecodeConstantValues
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait BytecodePredef
+    extends BytecodeTypeConstructors
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    case class Package (name: String)
+
+    lazy val java = new Package ("java")
+    {
+
+        lazy val lang = new Package ("lang")
+        {
+            val Object = ObjectType ("java/lang/Object")
+            val String = ObjectType ("java/lang/String")
+        }
+
+    }
+
+    lazy val Object = java.lang.Object
+
+    lazy val String = java.lang.String
+
 }

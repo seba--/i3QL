@@ -32,15 +32,38 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeConstantValues
+import java.io.FileInputStream
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+class TestASMReader
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    @Test
+    def readJDK () {
+        val database = ASMDatabaseFactory.create ()
+
+        val classes = database.classDeclarations.asMaterialized
+        val methods = database.methodDeclarations.asMaterialized
+        val fields = database.fieldDeclarations.asMaterialized
+        val instructions = database.instructions.asMaterialized
+
+        val start = System.nanoTime()
+        database.addArchive (
+            new FileInputStream ("D:\\workspace\\sae\\legacy\\test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
+
+        val end = System.nanoTime()
+
+        println(classes.size)
+        println(methods.size)
+        println(fields.size)
+        println(instructions.size)
+        //classes.foreach (println)
+        //methods.foreach (println)
+        println("took: " + ((end-start).toDouble / 1000000000) + " s" )
+    }
+
 }

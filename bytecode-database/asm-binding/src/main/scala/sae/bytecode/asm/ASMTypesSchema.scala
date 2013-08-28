@@ -32,15 +32,30 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeConstantValues
+import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMTypesSchema
+    extends ASMTypes
+    with BytecodeTypesSchema
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    implicit def typeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
+
+    implicit def primitiveTypeManifest: Manifest[PrimitiveType] = manifest[org.objectweb.asm.Type]
+
+    implicit def voidTypeManifest: Manifest[VoidType]= manifest[org.objectweb.asm.Type]
+
+    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
+
+    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
+
+    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
+
+    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]] = manifest[org.objectweb.asm.Type]
+
 }

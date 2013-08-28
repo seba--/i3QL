@@ -32,15 +32,12 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeConstantValues
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+object ASMDatabaseFactory
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+    def create (): ASMDatabase = new ASMDatabase ()
 }

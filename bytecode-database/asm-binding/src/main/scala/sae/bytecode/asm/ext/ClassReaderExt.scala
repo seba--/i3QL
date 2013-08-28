@@ -30,33 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.asm.ext
 
-import sae.bytecode.BytecodeStructure
-import de.tud.cs.st.bat._
+import org.objectweb.asm.{Label, ClassReader}
+import java.io.InputStream
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATStructureUtils
-    extends BytecodeStructure
+class ClassReaderExt (in: InputStream)
+    extends ClassReader (in)
 {
-    private val classCategoryMask: Int =
-        ACC_INTERFACE.mask | ACC_ANNOTATION.mask | ACC_ENUM.mask
-
-    private val annotationMask: Int =
-        ACC_ANNOTATION.mask | ACC_INTERFACE.mask
-
-    protected def isAnnotation (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == annotationMask
-
-    protected def isClass (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == 0
-
-    protected def isEnum (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_ENUM.mask
-
-    protected def isInterface (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_INTERFACE.mask
+    override def readLabel (offset: Int, labels: Array[Label]): Label = {
+        if (labels (offset) == null) {
+            labels (offset) = new LabelExt (offset)
+        }
+        labels (offset)
+    }
 }

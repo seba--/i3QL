@@ -30,17 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
+package sae.bytecode.asm.ext
 
-import sae.bytecode.BytecodeConstantValues
+import org.objectweb.asm.Label
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+class LabelExt (val originalOffset: Int)
+    extends Label
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
 }

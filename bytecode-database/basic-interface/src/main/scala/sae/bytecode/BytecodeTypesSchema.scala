@@ -41,28 +41,45 @@ trait BytecodeTypesSchema
 {
 
     /**
-     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     *  provided by implementers
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
      */
-    implicit def typeManifest : Manifest[Type]
+    implicit def typeManifest: Manifest[Type]
 
     /**
-     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     *  provided by implementers
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
      */
-    implicit def fieldTypeManifest : Manifest[FieldType]
+    implicit def primitiveTypeManifest: Manifest[PrimitiveType]
 
     /**
-     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     *  provided by implementers
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
      */
-    implicit def referenceTypeManifest : Manifest[ReferenceType]
+    implicit def voidTypeManifest: Manifest[VoidType]
 
     /**
-     *  Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     *  provided by implementers
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
      */
-    implicit def objectTypeManifest : Manifest[ObjectType]
+    implicit def fieldTypeManifest: Manifest[FieldType]
 
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def referenceTypeManifest: Manifest[ReferenceType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def objectTypeManifest: Manifest[ObjectType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]]
 
 }

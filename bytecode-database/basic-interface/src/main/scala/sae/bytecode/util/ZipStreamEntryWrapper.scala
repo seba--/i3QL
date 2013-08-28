@@ -30,16 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.util
+
+import java.io.InputStream
+import java.util.zip.{ZipEntry, ZipInputStream}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeConstants
-    extends BytecodeTypes
+class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
 {
 
-    def void : Type
+    private var availableCounter =  entry.getCompressedSize.toInt;
 
+    override def close() {
+        stream.closeEntry ()
+    }
+
+    override def read: Int = {
+        availableCounter -= 1
+        stream.read
+    }
+
+    override def read(b: Array[Byte]) = {
+        availableCounter -= b.size
+        stream.read(b)
+    }
+
+    override def read(b: Array[Byte], off: Int, len: Int) = {
+        val read = stream.read(b, off, len)
+        availableCounter -= read
+        read
+    }
+
+    override def skip(n: Long) = {
+        availableCounter -= n.toInt
+        stream.skip(n)
+    }
+
+    override def available() : Int = {
+        availableCounter
+    }
 }

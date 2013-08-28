@@ -231,6 +231,7 @@ object BytecodeOpCodes
     final val INVOKENONVIRTUAL: Short = 183
     final val INVOKESTATIC: Short = 184
     final val INVOKEINTERFACE: Short = 185
+    final val INVOKEDYNAMIC: Short = 186
     final val NEW: Short = 187
     final val NEWARRAY: Short = 188
     final val ANEWARRAY: Short = 189

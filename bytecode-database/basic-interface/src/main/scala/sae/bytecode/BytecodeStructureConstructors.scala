@@ -30,17 +30,82 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
-
-import sae.bytecode.BytecodeConstantValues
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait BytecodeStructureConstructors
+    extends BytecodeStructure
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    def ClassDeclaration (
+        minorVersion: Int,
+        majorVersion: Int,
+        accessFlags: Int,
+        classType: ObjectType,
+        superClass: Option[ObjectType],
+        interfaces: Seq[ObjectType]
+    ): ClassDeclaration
+
+
+    def MethodInfo (
+        receiverType: ReferenceType,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    ): MethodInfo
+
+
+    def MethodDeclaration (
+        declaringClass: ClassDeclaration,
+        accessFlags: Int,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    ): MethodDeclaration
+
+
+    def FieldInfo (
+        declaringType: ObjectType,
+        name: String,
+        fieldType: FieldType
+    ): FieldInfo
+
+
+    def FieldDeclaration (
+        declaringClass: ClassDeclaration,
+        accessFlags: Int,
+        name: String,
+        fieldType: FieldType
+    ): FieldDeclaration
+
+
+    def CodeAttribute (
+        declaringMethod: MethodDeclaration,
+        codeLength: Int,
+        maxStack: Int,
+        maxLocals: Int,
+        exceptionHandlers: Seq[ExceptionHandler]
+    ): CodeAttribute
+
+
+    def EnclosingMethodAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        name: Option[String],
+        parameterTypes: Option[Seq[FieldType]],
+        returnType: Option[Type]
+    ): EnclosingMethodAttribute
+
+
+    def InnerClassAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        outerClassType: Option[ObjectType],
+        innerName: Option[String],
+        innerClassAccessFlags: Int
+    ): InnerClassAttribute
+
 }

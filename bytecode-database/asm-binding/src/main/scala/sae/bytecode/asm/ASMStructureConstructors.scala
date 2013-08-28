@@ -32,73 +32,135 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.{BytecodeAccessFlagReader, BytecodeStructure}
-import de.tud.cs.st.bat._
+import sae.bytecode.BytecodeStructureConstructors
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATStructure
-    extends BytecodeStructure
-    with BytecodeAccessFlagReader
+trait ASMStructureConstructors
+    extends BytecodeStructureConstructors
+    with ASMStructure
 {
 
-
-    case class ClassDeclaration (
-        minorVersion: Int,
+    /*
+    def ClassDeclaration (minorVersion: Int,
         majorVersion: Int,
         accessFlags: Int,
         classType: ObjectType,
         superClass: Option[ObjectType],
         interfaces: Seq[ObjectType]
-    ) extends super.ClassDeclaration
+    ): ClassDeclaration =
+        super.ClassDeclaration (
+            minorVersion,
+            majorVersion,
+            accessFlags,
+            classType,
+            superClass,
+            interfaces
+        )
 
-    case class MethodDeclaration (
+    def MethodInfo (
+        receiverType: ReferenceType,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    ): MethodInfo =
+        super.MethodInfo (
+            receiverType,
+            name,
+            returnType,
+            parameterTypes
+        )
+
+
+    def MethodDeclaration (
         declaringClass: ClassDeclaration,
         accessFlags: Int,
         name: String,
         returnType: Type,
         parameterTypes: Seq[FieldType]
-    )
-        extends super.MethodDeclaration
+    ): MethodDeclaration =
+        super.MethodDeclaration (
+            declaringClass,
+            accessFlags,
+            name,
+            returnType,
+            parameterTypes
+        )
 
 
-    case class FieldDeclaration (
+    def FieldInfo (
+        declaringType: ObjectType,
+        name: String,
+        fieldType: FieldType
+    ): FieldInfo =
+        super.FieldInfo (
+            declaringType,
+            name,
+            fieldType
+        )
+
+
+    def FieldDeclaration (
         declaringClass: ClassDeclaration,
         accessFlags: Int,
         name: String,
         fieldType: FieldType
-    )
-        extends super.FieldDeclaration
+    ): FieldDeclaration =
+        super.FieldDeclaration (
+            declaringClass,
+            accessFlags,
+            name,
+            fieldType
+        )
 
 
-    type ExceptionHandler = de.tud.cs.st.bat.resolved.ExceptionHandler
-
-    case class CodeAttribute (
+    def CodeAttribute (
         declaringMethod: MethodDeclaration,
         codeLength: Int,
         maxStack: Int,
         maxLocals: Int,
         exceptionHandlers: Seq[ExceptionHandler]
-    ) extends super.CodeAttribute
+    ): CodeAttribute =
+        super.CodeAttribute (
+            declaringMethod,
+            codeLength,
+            maxStack,
+            maxLocals,
+            exceptionHandlers
+        )
 
 
-    case class InnerClassAttribute (
-        declaringClass: ClassDeclaration,
-        innerClassType: ObjectType,
-        outerClassType: Option[ObjectType],
-        innerName: Option[String],
-        innerClassAccessFlags: Int
-    ) extends super.InnerClassAttribute
-
-
-    case class EnclosingMethodAttribute (
+    def EnclosingMethodAttribute (
         declaringClass: ClassDeclaration,
         innerClassType: ObjectType,
         name: Option[String],
         parameterTypes: Option[Seq[FieldType]],
         returnType: Option[Type]
-    ) extends super.EnclosingMethodAttribute
+    ): EnclosingMethodAttribute =
+        super.EnclosingMethodAttribute (
+            declaringClass,
+            innerClassType,
+            name,
+            parameterTypes,
+            returnType
+        )
 
+
+    def InnerClassAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        outerClassType: Option[ObjectType],
+        innerName: Option[String],
+        innerClassAccessFlags: Int
+    ): InnerClassAttribute =
+        super.InnerClassAttribute (
+            declaringClass,
+            innerClassType,
+            outerClassType,
+            innerName,
+            innerClassAccessFlags
+        )
+    */
 }

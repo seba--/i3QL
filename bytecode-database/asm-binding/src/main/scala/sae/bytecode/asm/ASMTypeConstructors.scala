@@ -32,15 +32,38 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeConstantValues
+import org.objectweb.asm.Type
+import sae.bytecode.BytecodeTypeConstructors
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMTypeConstructors
+    extends BytecodeTypeConstructors
+    with ASMTypes
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+    def void: VoidType = Type.VOID_TYPE
+
+    def char: PrimitiveType = Type.CHAR_TYPE
+
+    def boolean: PrimitiveType = Type.BOOLEAN_TYPE
+
+    def byte: PrimitiveType = Type.BYTE_TYPE
+
+    def short: PrimitiveType = Type.SHORT_TYPE
+
+    def int: PrimitiveType = Type.INT_TYPE
+
+    def long: PrimitiveType = Type.LONG_TYPE
+
+    def float: PrimitiveType = Type.FLOAT_TYPE
+
+    def double: PrimitiveType = Type.DOUBLE_TYPE
+
+    def ObjectType (desc: String): ObjectType =
+        Type.getObjectType ("L" + desc + ";")
+
+    def ArrayType[T <: Type] (componentType: T, dimensions: Int): ArrayType[T] =
+        Type.getType ("[" * dimensions + componentType.getDescriptor)
 }

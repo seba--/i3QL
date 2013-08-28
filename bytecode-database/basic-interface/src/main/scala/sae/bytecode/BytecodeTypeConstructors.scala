@@ -30,17 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
-
-import sae.bytecode.BytecodeConstantValues
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait BytecodeTypeConstructors
+    extends BytecodeTypes
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    def void: VoidType
+
+    def char: PrimitiveType
+
+    def boolean: PrimitiveType
+
+    def byte: PrimitiveType
+
+    def short: PrimitiveType
+
+    def int: PrimitiveType
+
+    def long: PrimitiveType
+
+    def float: PrimitiveType
+
+    def double: PrimitiveType
+
+    /**
+     * Constructs a new object type, i.e., a type describing a class.
+     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
+     */
+    def ObjectType (desc: String): ObjectType
+
+    def ArrayType[T <: Type] (componentType: T, dimensions: Int): ArrayType[T]
 }

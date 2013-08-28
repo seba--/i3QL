@@ -30,17 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
-
-import sae.bytecode.BytecodeConstantValues
+package sae.bytecode.asm.reader
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstantValues
-    with BATTypes
+trait ASMProcessor
+    extends ASMClassProcessor
+    with ASMMethodProcessor
+    with ASMFieldProcessor
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
 }
