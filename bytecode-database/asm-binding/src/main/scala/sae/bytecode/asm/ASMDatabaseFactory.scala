@@ -30,14 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.asm
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-object BATDatabaseFactory
+object ASMDatabaseFactory
 {
-    def create (): BATDatabase = new BATDatabase ()
+    def create (): ASMDatabase = new ASMDatabase ()
 }

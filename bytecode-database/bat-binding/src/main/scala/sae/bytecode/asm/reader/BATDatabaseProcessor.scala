@@ -30,17 +30,38 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import sae.bytecode.BytecodeConstants
+package sae.bytecode.asm.reader
 
 /**
+ * Abstract trait that allows us to perform arbitrary actions for each element that is created from the bytecode.
  *
  * @author Ralf Mitschke
  */
-trait BATConstants
-    extends BytecodeConstants
-    with BATTypes
+trait BATDatabaseProcessor
 {
-    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    type Class_Info
+
+    type Method_Info
+
+    type Field_Info
+
+    type CodeAttribute
+
+    type InnerClassAttribute
+
+    type EnclosingMethodAttribute
+
+    def processClassInfo (classInfo: Class_Info)
+
+    def processMethodInfo (methodInfo: Method_Info)
+
+    def processFieldInfo (fieldInfo: Field_Info)
+
+    def processCodeAttribute (codeAttribute: CodeAttribute)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+
 }

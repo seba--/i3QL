@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.reader
+package sae.bytecode.util
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}

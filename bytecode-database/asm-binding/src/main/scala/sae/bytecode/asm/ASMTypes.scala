@@ -30,33 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.asm
 
-import sae.bytecode.BytecodeStructure
-import de.tud.cs.st.bat._
+import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATStructureUtils
-    extends BytecodeStructure
+trait ASMTypes
+    extends BytecodeTypes
+    with BytecodeTypesSchema
 {
-    private val classCategoryMask: Int =
-        ACC_INTERFACE.mask | ACC_ANNOTATION.mask | ACC_ENUM.mask
 
-    private val annotationMask: Int =
-        ACC_ANNOTATION.mask | ACC_INTERFACE.mask
+    type Type = org.objectweb.asm.Type
 
-    protected def isAnnotation (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == annotationMask
+    type PrimitiveType = org.objectweb.asm.Type
 
-    protected def isClass (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == 0
+    type ArrayType[+V] = org.objectweb.asm.Type
 
-    protected def isEnum (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_ENUM.mask
+    type VoidType = org.objectweb.asm.Type
 
-    protected def isInterface (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_INTERFACE.mask
+    type FieldType = org.objectweb.asm.Type
+
+    type ReferenceType = org.objectweb.asm.Type
+
+    type ObjectType = org.objectweb.asm.Type
+
+
+
+    implicit def typeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
+
+    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
+
+    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
+
+    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
+
 }

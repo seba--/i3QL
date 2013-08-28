@@ -30,22 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+object BATDatabaseFactory
 {
-
-    val IR = idb.syntax.iql.IR
+    def create (): BATDatabase = new BATDatabase ()
 }

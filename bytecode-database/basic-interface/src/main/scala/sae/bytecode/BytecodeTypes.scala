@@ -41,10 +41,17 @@ trait BytecodeTypes
 
     type Type
 
+    type PrimitiveType <: Type
+
+    type ArrayType[+V] <: Type
+
+    type VoidType <: Type
+
     type FieldType <: Type
 
     type ReferenceType <: Type
 
     type ObjectType <: ReferenceType
 
+    type ExceptionHandler
 }

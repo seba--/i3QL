@@ -30,22 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.reader
 
+import org.objectweb.asm.{FieldVisitor, MethodVisitor, Opcodes}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+trait ASMFieldProcessor
+    extends ASMElementProcessor
 {
 
-    val IR = idb.syntax.iql.IR
+    import database._
+
+    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor =
+        new ASMFieldVisitor (fieldDeclaration)
+
+    class ASMFieldVisitor (
+        val fieldDeclaration: FieldDeclaration
+    )
+        extends FieldVisitor (Opcodes.ASM4)
+    {
+
+
+    }
+
+
 }

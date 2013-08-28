@@ -30,37 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
-
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATTypes
+trait BytecodeConstantValues
     extends BytecodeTypes
-    with BytecodeTypesSchema
 {
 
-    type Type = de.tud.cs.st.bat.resolved.Type
-
-    type VoidType = de.tud.cs.st.bat.resolved.Type
-
-    type FieldType = de.tud.cs.st.bat.resolved.FieldType
-
-    type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType
-
-    type ObjectType = de.tud.cs.st.bat.resolved.ObjectType
-
-
-    implicit def typeManifest: Manifest[Type] = manifest[de.tud.cs.st.bat.resolved.Type]
-
-    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[de.tud.cs.st.bat.resolved.FieldType]
-
-    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[de.tud.cs.st.bat.resolved.ReferenceType]
-
-    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[de.tud.cs.st.bat.resolved.ObjectType]
+    def void : VoidType
 
 }
