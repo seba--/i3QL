@@ -42,5 +42,5 @@ trait BATConstants
     extends BytecodeConstants
     with BATTypes
 {
-    def void: Type = de.tud.cs.st.bat.resolved.VoidType
+    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
 }

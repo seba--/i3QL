@@ -87,18 +87,15 @@ trait BATDatabaseClassFileReader
             accessFlags,
             thisClass,
             if (super_class == 0) None else Some (super_class.asObjectType),
-            Interfaces (thisClass, in, cp)
+            Interfaces (in, cp)
         )
         processClassInfo (classInfo)
         classInfo
     }
 
 
-    def Interface (declaringClass: ObjectType, interface_index: Constant_Pool_Index)
-            (implicit cp: Constant_Pool): Interface = {
-        interface_index.asObjectType
-    }
-
+    protected def Interfaces (in: DataInputStream, cp: Constant_Pool): Interfaces =
+        throw new UnsupportedOperationException // TODO implement this
 
     def Field_Info (declaringClass: Class_Info,
         access_flags: Int,

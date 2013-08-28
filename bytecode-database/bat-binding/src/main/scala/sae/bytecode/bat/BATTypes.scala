@@ -46,6 +46,8 @@ trait BATTypes
 
     type Type = de.tud.cs.st.bat.resolved.Type
 
+    type VoidType = de.tud.cs.st.bat.resolved.Type
+
     type FieldType = de.tud.cs.st.bat.resolved.FieldType
 
     type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType

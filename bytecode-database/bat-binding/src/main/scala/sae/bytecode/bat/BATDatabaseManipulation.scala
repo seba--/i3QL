@@ -81,8 +81,8 @@ trait BATDatabaseManipulation
                 processorFunction (new ZipStreamEntryWrapper (zipStream, zipEntry))
             }
         }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
+        //ObjectType.cache.clear ()
+        //ArrayType.cache.clear ()
     }
 
     def addArchive (stream: InputStream) {
