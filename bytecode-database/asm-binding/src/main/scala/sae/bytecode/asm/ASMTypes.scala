@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.asm
 
 import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
 
@@ -39,26 +39,33 @@ import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
  *
  * @author Ralf Mitschke
  */
-trait BATTypes
+trait ASMTypes
     extends BytecodeTypes
     with BytecodeTypesSchema
 {
 
-    type Type = de.tud.cs.st.bat.resolved.Type
+    type Type = org.objectweb.asm.Type
 
-    type FieldType = de.tud.cs.st.bat.resolved.FieldType
+    type PrimitiveType = org.objectweb.asm.Type
 
-    type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType
+    type ArrayType[+V] = org.objectweb.asm.Type
 
-    type ObjectType = de.tud.cs.st.bat.resolved.ObjectType
+    type VoidType = org.objectweb.asm.Type
+
+    type FieldType = org.objectweb.asm.Type
+
+    type ReferenceType = org.objectweb.asm.Type
+
+    type ObjectType = org.objectweb.asm.Type
 
 
-    implicit def typeManifest: Manifest[Type] = manifest[de.tud.cs.st.bat.resolved.Type]
 
-    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[de.tud.cs.st.bat.resolved.FieldType]
+    implicit def typeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
 
-    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[de.tud.cs.st.bat.resolved.ReferenceType]
+    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
 
-    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[de.tud.cs.st.bat.resolved.ObjectType]
+    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
+
+    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
 
 }

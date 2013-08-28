@@ -30,22 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
+import java.io.FileInputStream
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+class TestASMReader
 {
 
-    val IR = idb.syntax.iql.IR
+    @Test
+    def readJDK () {
+        val database = ASMDatabaseFactory.create ()
+
+        val classes = database.classDeclarations.asMaterialized
+        val methods = database.methodDeclarations.asMaterialized
+        val fields = database.fieldDeclarations.asMaterialized
+        val instructions = database.instructions.asMaterialized
+
+        database.addArchive (
+            new FileInputStream ("D:\\workspace\\sae\\legacy\\test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
+
+        println(classes.size)
+        println(methods.size)
+        println(fields.size)
+        println(instructions.size)
+        //classes.foreach (println)
+        //methods.foreach (println)
+
+    }
+
 }

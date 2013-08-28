@@ -30,13 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.reader
+package sae.bytecode.asm.reader
 
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved._
-import sae.bytecode.bat.BATDatabase
+import sae.bytecode.asm.BATDatabase
 
 
 /**
@@ -81,24 +81,17 @@ trait BATDatabaseClassFileReader
         val accessFlags = in.readUnsignedShort
         val thisClass = in.readUnsignedShort.asObjectType
         val super_class = in.readUnsignedShort
-        val classInfo = ClassDeclaration (
+        val classInfo = ClassDeclaration.apply (
             minor_version,
             major_version,
             accessFlags,
             thisClass,
             if (super_class == 0) None else Some (super_class.asObjectType),
-            Interfaces (thisClass, in, cp)
+            Interfaces (in, cp)
         )
         processClassInfo (classInfo)
         classInfo
     }
-
-
-    def Interface (declaringClass: ObjectType, interface_index: Constant_Pool_Index)
-            (implicit cp: Constant_Pool): Interface = {
-        interface_index.asObjectType
-    }
-
 
     def Field_Info (declaringClass: Class_Info,
         access_flags: Int,
@@ -116,6 +109,8 @@ trait BATDatabaseClassFileReader
         processFieldInfo (fieldInfo)
         fieldInfo
     }
+
+
 
     def Method_Info (declaringClass: Class_Info,
         accessFlags: Int,
@@ -202,5 +197,34 @@ trait BATDatabaseClassFileReader
         classInfo
     }
 
+
+    override protected def ClassFile (minor_version: Int,
+        major_version: Int,
+        access_flags: Int,
+        this_class: Constant_Pool_Index,
+        super_class: Constant_Pool_Index,
+        interfaces: Interfaces,
+        fields: Fields,
+        methods: Methods,
+        attributes: Attributes
+    )(implicit cp: Constant_Pool): ClassFile = throw new UnsupportedOperationException
+
+
+    def Field_Info (access_flags: Int,
+        name_index: Constant_Pool_Index,
+        descriptor_index: Constant_Pool_Index,
+        attributes: Attributes
+    )(
+        implicit cp: Constant_Pool
+    ): Field_Info = throw new UnsupportedOperationException
+
+    def Method_Info (accessFlags: Int,
+        name_index: Constant_Pool_Index,
+        descriptor_index: Constant_Pool_Index,
+        attributes: Attributes
+    )(implicit constant_pool: Constant_Pool): Method_Info = throw new UnsupportedOperationException
+
+    def Interface (interface_index: Constant_Pool_Index)
+            (implicit constant_pool: Constant_Pool): Interface = throw new UnsupportedOperationException
 
 }

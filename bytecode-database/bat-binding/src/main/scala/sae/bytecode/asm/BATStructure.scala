@@ -30,22 +30,75 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
+import sae.bytecode.{BytecodeAccessFlagReader, BytecodeStructure}
+import de.tud.cs.st.bat._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+trait BATStructure
+    extends BytecodeStructure
+    with BytecodeAccessFlagReader
 {
 
-    val IR = idb.syntax.iql.IR
+
+    case class ClassDeclaration (
+        minorVersion: Int,
+        majorVersion: Int,
+        accessFlags: Int,
+        classType: ObjectType,
+        superClass: Option[ObjectType],
+        interfaces: Seq[ObjectType]
+    ) extends super.ClassDeclaration
+
+    case class MethodDeclaration (
+        declaringClass: ClassDeclaration,
+        accessFlags: Int,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    )
+        extends super.MethodDeclaration
+
+
+    case class FieldDeclaration (
+        declaringClass: ClassDeclaration,
+        accessFlags: Int,
+        name: String,
+        fieldType: FieldType
+    )
+        extends super.FieldDeclaration
+
+
+    type ExceptionHandler = de.tud.cs.st.bat.resolved.ExceptionHandler
+
+    case class CodeAttribute (
+        declaringMethod: MethodDeclaration,
+        codeLength: Int,
+        maxStack: Int,
+        maxLocals: Int,
+        exceptionHandlers: Seq[ExceptionHandler]
+    ) extends super.CodeAttribute
+
+
+    case class InnerClassAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        outerClassType: Option[ObjectType],
+        innerName: Option[String],
+        innerClassAccessFlags: Int
+    ) extends super.InnerClassAttribute
+
+
+    case class EnclosingMethodAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        name: Option[String],
+        parameterTypes: Option[Seq[FieldType]],
+        returnType: Option[Type]
+    ) extends super.EnclosingMethodAttribute
+
 }

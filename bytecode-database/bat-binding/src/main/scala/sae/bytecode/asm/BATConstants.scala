@@ -30,16 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
+
+import sae.bytecode.BytecodeConstantValues
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeConstants
-    extends BytecodeTypes
+trait BATConstants
+    extends BytecodeConstantValues
+    with BATTypes
 {
-
-    def void : Type
-
+    def void: VoidType = de.tud.cs.st.bat.resolved.VoidType
 }

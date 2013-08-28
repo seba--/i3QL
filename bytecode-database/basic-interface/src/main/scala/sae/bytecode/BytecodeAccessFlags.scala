@@ -32,20 +32,52 @@
  */
 package sae.bytecode
 
-
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+object BytecodeAccessFlags
 {
+    // class, field, method
+    final val ACC_PUBLIC: Int = 0x0001
+    // class, field, method
+    final val ACC_PRIVATE: Int = 0x0002
+    // class, field, method
+    final val ACC_PROTECTED: Int = 0x0004
+    // field, method
+    final val ACC_STATIC: Int = 0x0008
+    // class, field, method
+    final val ACC_FINAL: Int = 0x0010
+    // class
+    final val ACC_SUPER: Int = 0x0020
+    // method
+    final val ACC_SYNCHRONIZED: Int = 0x0020
+    // field
+    final val ACC_VOLATILE: Int = 0x0040
+    // method
+    final val ACC_BRIDGE: Int = 0x0040
+    // method
+    final val ACC_VARARGS: Int = 0x0080
+    // field
+    final val ACC_TRANSIENT: Int = 0x0080
+    // method
+    final val ACC_NATIVE: Int = 0x0100
+    // class
+    final val ACC_INTERFACE: Int = 0x0200
+    // class, method
+    final val ACC_ABSTRACT: Int = 0x0400
+    // method
+    final val ACC_STRICT: Int = 0x0800
+    // class, field, method
+    final val ACC_SYNTHETIC: Int = 0x1000
+    // class
+    final val ACC_ANNOTATION: Int = 0x2000
+    // class(?) field inner
+    final val ACC_ENUM: Int = 0x4000
 
-    val IR = idb.syntax.iql.IR
+    // class
+    final val ACC_CLASS_EXT: Int = ACC_INTERFACE | ACC_ANNOTATION | ACC_ENUM
+    // class
+    final val ACC_ANNOTATION_EXT: Int = ACC_ANNOTATION | ACC_INTERFACE
+
 }

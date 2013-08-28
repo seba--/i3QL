@@ -30,27 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.util
 
-import sae.bytecode.{BytecodeStructureRelations, BytecodeDatabaseManipulation}
 import java.io.InputStream
-import de.tud.cs.st.bat.reader.ClassFileReader
 import java.util.zip.{ZipEntry, ZipInputStream}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
-import sae.bytecode.bat.reader.ZipStreamEntryWrapper
+import sae.bytecode.{BytecodeStructureRelations, BytecodeDatabaseManipulation}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATDatabaseManipulation
+trait AbstractBytecodeDatabaseManipulation
     extends BytecodeDatabaseManipulation
     with BytecodeStructureRelations
 {
-    protected def additionReader: ClassFileReader
-
-    protected def removalReader: ClassFileReader
-
     private def endTransaction () {
         classDeclarations.endTransaction ()
         methodDeclarations.endTransaction ()
@@ -60,14 +53,9 @@ trait BATDatabaseManipulation
         enclosingMethodAttributes.endTransaction ()
     }
 
-    private def doAddClassFile (stream: InputStream) {
-        additionReader.ClassFile (() => stream)
-    }
+    protected def doAddClassFile (stream: InputStream)
 
-    private def doRemoveClassFile (stream: InputStream) {
-        removalReader.ClassFile (() => stream)
-    }
-
+    protected def doRemoveClassFile (stream: InputStream)
 
     private def processArchive (stream: InputStream, processorFunction: InputStream => Unit) {
         val zipStream: ZipInputStream = new ZipInputStream (stream)
@@ -81,8 +69,6 @@ trait BATDatabaseManipulation
                 processorFunction (new ZipStreamEntryWrapper (zipStream, zipEntry))
             }
         }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
     }
 
     def addArchive (stream: InputStream) {

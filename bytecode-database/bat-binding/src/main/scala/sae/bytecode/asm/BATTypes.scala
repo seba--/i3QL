@@ -30,38 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.reader
+package sae.bytecode.asm
+
+import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
+
 
 /**
- * Abstract trait that allows us to perform arbitrary actions for each element that is created from the bytecode.
  *
  * @author Ralf Mitschke
  */
-trait BATDatabaseProcessor
+trait BATTypes
+    extends BytecodeTypes
+    with BytecodeTypesSchema
 {
 
-    type Class_Info
+    type Type = de.tud.cs.st.bat.resolved.Type
 
-    type Method_Info
+    type VoidType = de.tud.cs.st.bat.resolved.Type
 
-    type Field_Info
+    type FieldType = de.tud.cs.st.bat.resolved.FieldType
 
-    type CodeAttribute
+    type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType
 
-    type InnerClassAttribute
+    type ObjectType = de.tud.cs.st.bat.resolved.ObjectType
 
-    type EnclosingMethodAttribute
 
-    def processClassInfo (classInfo: Class_Info)
+    implicit def typeManifest: Manifest[Type] = manifest[de.tud.cs.st.bat.resolved.Type]
 
-    def processMethodInfo (methodInfo: Method_Info)
+    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[de.tud.cs.st.bat.resolved.FieldType]
 
-    def processFieldInfo (fieldInfo: Field_Info)
+    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[de.tud.cs.st.bat.resolved.ReferenceType]
 
-    def processCodeAttribute (codeAttribute: CodeAttribute)
-
-    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
-
-    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[de.tud.cs.st.bat.resolved.ObjectType]
 
 }

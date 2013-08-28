@@ -30,11 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.asm
 
 import sae.bytecode.{BytecodeStructureRelations, BytecodeDatabase}
 import de.tud.cs.st.bat.reader.ClassFileReader
-import sae.bytecode.bat.reader.BATDatabaseJavaReader
+import sae.bytecode.asm.reader.BATDatabaseJavaReader
 
 /**
  *

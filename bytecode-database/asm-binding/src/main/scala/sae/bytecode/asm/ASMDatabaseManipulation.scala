@@ -30,22 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
+import sae.bytecode.util.AbstractBytecodeDatabaseManipulation
+import java.io.InputStream
+import org.objectweb.asm.ClassReader
+import sae.bytecode.asm.reader.ASMProcessor
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+trait ASMDatabaseManipulation
+    extends AbstractBytecodeDatabaseManipulation
 {
+    def additionProcessor: ASMProcessor
 
-    val IR = idb.syntax.iql.IR
+    def removalProcessor: ASMProcessor
+
+    protected def doAddClassFile (stream: InputStream) {
+        val reader = new ClassReader (stream)
+        reader.accept (additionProcessor.classVisitor, 0)
+    }
+
+    protected def doRemoveClassFile (stream: InputStream) {
+        val reader = new ClassReader (stream)
+        reader.accept (removalProcessor.classVisitor, 0)
+    }
+
+
 }

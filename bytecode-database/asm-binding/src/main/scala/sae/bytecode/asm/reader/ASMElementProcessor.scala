@@ -30,22 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.reader
 
+import sae.bytecode.asm.ASMDatabase
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+trait ASMElementProcessor
 {
+    val database: ASMDatabase
 
-    val IR = idb.syntax.iql.IR
+    import database._
+
+    def processClassDeclaration (classDeclaration: ClassDeclaration)
+
+    def processMethodDeclaration (methodDeclaration: MethodDeclaration)
+
+    def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
+
+    def processCodeAttribute (codeAttribute: CodeAttribute)
+
+    def processInstruction (instruction: Instruction)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+
 }

@@ -30,139 +30,82 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import sae.bytecode.BytecodeStructure
-import de.tud.cs.st.bat._
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BATStructure
+trait BytecodeStructureConstructors
     extends BytecodeStructure
-    with BATStructureUtils
 {
 
-
-    case class ClassDeclaration (
+    def ClassDeclaration (
         minorVersion: Int,
         majorVersion: Int,
         accessFlags: Int,
         classType: ObjectType,
         superClass: Option[ObjectType],
         interfaces: Seq[ObjectType]
-    ) extends super.ClassDeclaration
-    {
+    ): ClassDeclaration
 
-        def isAnnotation = BATStructure.this.isAnnotation (this)
 
-        def isClass = BATStructure.this.isClass (this)
+    def MethodInfo (
+        receiverType: ReferenceType,
+        name: String,
+        returnType: Type,
+        parameterTypes: Seq[FieldType]
+    ): MethodInfo
 
-        def isEnum = BATStructure.this.isEnum (this)
 
-        def isInterface = BATStructure.this.isInterface (this)
-
-        def isPublic = ACC_PUBLIC ∈ accessFlags
-
-        def isDefault = !(ACC_PUBLIC ∈ accessFlags)
-
-        def isFinal = ACC_FINAL ∈ accessFlags
-
-        def isAbstract = ACC_ABSTRACT ∈ accessFlags
-
-        def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
-
-    }
-
-    case class MethodDeclaration (
+    def MethodDeclaration (
         declaringClass: ClassDeclaration,
         accessFlags: Int,
         name: String,
         returnType: Type,
         parameterTypes: Seq[FieldType]
-    )
-        extends super.MethodDeclaration
-    {
-        def isPublic = ACC_PUBLIC ∈ accessFlags
+    ): MethodDeclaration
 
-        def isProtected = ACC_PROTECTED ∈ accessFlags
 
-        def isPrivate = ACC_PRIVATE ∈ accessFlags
+    def FieldInfo (
+        declaringType: ObjectType,
+        name: String,
+        fieldType: FieldType
+    ): FieldInfo
 
-        def isStatic = ACC_STATIC ∈ accessFlags
 
-        def isFinal = ACC_FINAL ∈ accessFlags
-
-        def isSynchronized = ACC_SYNCHRONIZED ∈ accessFlags
-
-        def isBridge = ACC_BRIDGE ∈ accessFlags
-
-        def isVarArgs = ACC_VARARGS ∈ accessFlags
-
-        def isNative = ACC_NATIVE ∈ accessFlags
-
-        def isAbstract = ACC_ABSTRACT ∈ accessFlags
-
-        def isStrict = ACC_STRICT ∈ accessFlags
-
-        def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
-    }
-
-    case class FieldDeclaration (
+    def FieldDeclaration (
         declaringClass: ClassDeclaration,
         accessFlags: Int,
         name: String,
         fieldType: FieldType
-    )
-        extends super.FieldDeclaration
-    {
-        def isPublic = ACC_PUBLIC ∈ accessFlags
-
-        def isProtected = ACC_PROTECTED ∈ accessFlags
-
-        def isPrivate = ACC_PRIVATE ∈ accessFlags
-
-        def isStatic = ACC_STATIC ∈ accessFlags
-
-        def isFinal = ACC_FINAL ∈ accessFlags
-
-        def isTransient = ACC_TRANSIENT ∈ accessFlags
-
-        def isVolatile = ACC_VOLATILE ∈ accessFlags
-
-        def isEnum = ACC_ENUM ∈ accessFlags
-
-        def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
-    }
+    ): FieldDeclaration
 
 
-    type ExceptionHandler = de.tud.cs.st.bat.resolved.ExceptionHandler
-
-    case class CodeAttribute (
+    def CodeAttribute (
         declaringMethod: MethodDeclaration,
         codeLength: Int,
         maxStack: Int,
         maxLocals: Int,
         exceptionHandlers: Seq[ExceptionHandler]
-    ) extends super.CodeAttribute
+    ): CodeAttribute
 
 
-    case class InnerClassAttribute (
-        declaringClass: ClassDeclaration,
-        innerClassType: ObjectType,
-        outerClassType: Option[ObjectType],
-        innerName: Option[String],
-        innerClassAccessFlags: Int
-    ) extends super.InnerClassAttribute
-
-
-    case class EnclosingMethodAttribute (
+    def EnclosingMethodAttribute (
         declaringClass: ClassDeclaration,
         innerClassType: ObjectType,
         name: Option[String],
         parameterTypes: Option[Seq[FieldType]],
         returnType: Option[Type]
-    ) extends super.EnclosingMethodAttribute
+    ): EnclosingMethodAttribute
+
+
+    def InnerClassAttribute (
+        declaringClass: ClassDeclaration,
+        innerClassType: ObjectType,
+        outerClassType: Option[ObjectType],
+        innerName: Option[String],
+        innerClassAccessFlags: Int
+    ): InnerClassAttribute
 
 }

@@ -30,33 +30,38 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import sae.bytecode.BytecodeStructure
-import de.tud.cs.st.bat._
+package sae.bytecode.asm.reader
 
 /**
+ * Abstract trait that allows us to perform arbitrary actions for each element that is created from the bytecode.
  *
  * @author Ralf Mitschke
  */
-trait BATStructureUtils
-    extends BytecodeStructure
+trait BATDatabaseProcessor
 {
-    private val classCategoryMask: Int =
-        ACC_INTERFACE.mask | ACC_ANNOTATION.mask | ACC_ENUM.mask
 
-    private val annotationMask: Int =
-        ACC_ANNOTATION.mask | ACC_INTERFACE.mask
+    type Class_Info
 
-    protected def isAnnotation (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == annotationMask
+    type Method_Info
 
-    protected def isClass (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == 0
+    type Field_Info
 
-    protected def isEnum (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_ENUM.mask
+    type CodeAttribute
 
-    protected def isInterface (classDeclaration: ClassDeclaration) =
-        (classDeclaration.accessFlags & classCategoryMask) == ACC_INTERFACE.mask
+    type InnerClassAttribute
+
+    type EnclosingMethodAttribute
+
+    def processClassInfo (classInfo: Class_Info)
+
+    def processMethodInfo (methodInfo: Method_Info)
+
+    def processFieldInfo (fieldInfo: Field_Info)
+
+    def processCodeAttribute (codeAttribute: CodeAttribute)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+
 }

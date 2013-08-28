@@ -42,15 +42,17 @@ trait BytecodeStructureRelations
     extends BytecodeStructure
 {
 
-    def classDeclarations = SetExtent.empty[ClassDeclaration]()
+    lazy val classDeclarations = SetExtent.empty[ClassDeclaration]()
 
-    def methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    lazy val methodDeclarations = SetExtent.empty[MethodDeclaration]()
 
-    def fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    lazy val fieldDeclarations = SetExtent.empty[FieldDeclaration]()
 
-    def codeAttributes = SetExtent.empty[CodeAttribute]()
+    lazy val codeAttributes = SetExtent.empty[CodeAttribute]()
 
-    def innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+    lazy val instructions = SetExtent.empty[Instruction]()
 
-    def enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    lazy val innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+
+    lazy val enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
 }

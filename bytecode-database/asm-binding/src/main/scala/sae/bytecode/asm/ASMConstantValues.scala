@@ -30,22 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
+import org.objectweb.asm.Type
+import sae.bytecode.BytecodeConstantValues
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    //with BytecodeStructureConstructors
-    with BytecodeInstructions
-    with BytecodeStructureSchemaConstructors
-    with BytecodeStructureSchemaInfixOps
-    with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+trait ASMConstantValues
+    extends BytecodeConstantValues
+    with ASMTypes
 {
-
-    val IR = idb.syntax.iql.IR
+    def void: VoidType = Type.VOID_TYPE
 }
