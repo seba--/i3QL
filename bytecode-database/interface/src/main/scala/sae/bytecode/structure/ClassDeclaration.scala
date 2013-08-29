@@ -30,30 +30,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.structure
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.modifiers.AccessFlags._
+import sae.bytecode.structure.factory.ClassDeclarationFactory
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait ClassDeclaration
 {
+    type ObjectType
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    def minorVersion: Int
 
+    def majorVersion: Int
+
+    def accessFlags: Int
+
+    def classType: ObjectType
+
+    def superClass: Option[ObjectType]
+
+    def interfaces: Seq[ObjectType]
+
+    def isAnnotation: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_ANNOTATION_EXT
+
+    def isClass: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == 0
+
+    def isEnum: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_ENUM
+
+    def isInterface: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_INTERFACE
+
+    def isPublic: Boolean =
+        contains (accessFlags, ACC_PUBLIC)
+
+    def isDefault: Boolean =
+        !contains (accessFlags, ACC_PUBLIC)
+
+    def isFinal: Boolean =
+        contains (accessFlags, ACC_FINAL)
+
+    def isAbstract: Boolean =
+        contains (accessFlags, ACC_ABSTRACT)
+
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

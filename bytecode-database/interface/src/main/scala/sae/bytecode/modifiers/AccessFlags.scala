@@ -30,30 +30,56 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
-
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+package sae.bytecode.modifiers
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+object AccessFlags
 {
+    def contains (access_flags: Int, mask: Int): Boolean = (access_flags & mask) != 0
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    // class, field, method
+    val ACC_PUBLIC: Int = 0x0001
+    // class, field, method
+    val ACC_PRIVATE: Int = 0x0002
+    // class, field, method
+    val ACC_PROTECTED: Int = 0x0004
+    // field, method
+    val ACC_STATIC: Int = 0x0008
+    // class, field, method
+    val ACC_FINAL: Int = 0x0010
+    // class
+    val ACC_SUPER: Int = 0x0020
+    // method
+    val ACC_SYNCHRONIZED: Int = 0x0020
+    // field
+    val ACC_VOLATILE: Int = 0x0040
+    // method
+    val ACC_BRIDGE: Int = 0x0040
+    // method
+    val ACC_VARARGS: Int = 0x0080
+    // field
+    val ACC_TRANSIENT: Int = 0x0080
+    // method
+    val ACC_NATIVE: Int = 0x0100
+    // class
+    val ACC_INTERFACE: Int = 0x0200
+    // class, method
+    val ACC_ABSTRACT: Int = 0x0400
+    // method
+    val ACC_STRICT: Int = 0x0800
+    // class, field, method
+    val ACC_SYNTHETIC: Int = 0x1000
+    // class
+    val ACC_ANNOTATION: Int = 0x2000
+    // class(?) field inner
+    val ACC_ENUM: Int = 0x4000
+
+    // class
+    val ACC_CLASS_EXT: Int = ACC_INTERFACE | ACC_ANNOTATION | ACC_ENUM
+    // class
+    val ACC_ANNOTATION_EXT: Int = ACC_ANNOTATION | ACC_INTERFACE
 
 }

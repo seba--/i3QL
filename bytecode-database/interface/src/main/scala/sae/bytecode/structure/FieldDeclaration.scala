@@ -30,46 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.reader
+package sae.bytecode.structure
 
-import java.io.InputStream
-import java.util.zip.{ZipEntry, ZipInputStream}
+import sae.bytecode.modifiers.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
+trait FieldDeclaration
+    extends DeclaredClassMember
+    with FieldInfo
 {
+    def isTransient: Boolean =
+        contains (accessFlags, ACC_TRANSIENT)
 
-    private var availableCounter =  entry.getCompressedSize.toInt;
+    def isVolatile: Boolean =
+        contains (accessFlags, ACC_VOLATILE)
 
-    override def close() {
-        stream.closeEntry ()
-    }
+    def isEnum: Boolean =
+        contains (accessFlags, ACC_ENUM)
 
-    override def read: Int = {
-        availableCounter -= 1
-        stream.read
-    }
-
-    override def read(b: Array[Byte]) = {
-        availableCounter -= b.size
-        stream.read(b)
-    }
-
-    override def read(b: Array[Byte], off: Int, len: Int) = {
-        val read = stream.read(b, off, len)
-        availableCounter -= read
-        read
-    }
-
-    override def skip(n: Long) = {
-        availableCounter -= n.toInt
-        stream.skip(n)
-    }
-
-    override def available() : Int = {
-        availableCounter
-    }
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

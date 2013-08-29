@@ -30,30 +30,56 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
-
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait BytecodeTypesSchema
+    extends BytecodeTypes
 {
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def typeManifest: Manifest[Type]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def primitiveTypeManifest: Manifest[PrimitiveType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def voidTypeManifest: Manifest[VoidType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def fieldTypeManifest: Manifest[FieldType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def referenceTypeManifest: Manifest[ReferenceType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def objectTypeManifest: Manifest[ObjectType]
+
+    /**
+     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
+     * provided by implementers
+     */
+    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]]
 
 }

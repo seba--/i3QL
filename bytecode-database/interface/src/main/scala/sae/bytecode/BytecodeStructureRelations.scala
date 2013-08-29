@@ -30,30 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+import idb.SetExtent
+import sae.bytecode.structure._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait BytecodeStructureRelations
 {
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    lazy val classDeclarations = SetExtent.empty[ClassDeclaration]()
 
+    lazy val methodDeclarations = SetExtent.empty[MethodDeclaration]()
+
+    lazy val fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+
+    lazy val codeAttributes = SetExtent.empty[CodeAttribute]()
+
+    //lazy val instructions = SetExtent.empty[Instruction]()
+
+    lazy val innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+
+    lazy val enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
 }

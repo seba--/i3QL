@@ -45,12 +45,12 @@
                     </compilerPlugins>
                     <args>
                         <arg>-Yvirtualize</arg>
-                        <arg>-P:continuations:enable</arg>
-                        <arg>-deprecation</arg>
                         <!--
-                        <arg>-explaintypes</arg>
-                        <arg>-Ylinearizer:dump</arg>
-                        -->
+<arg>-P:continuations:enable</arg>
+<arg>-deprecation</arg>
+<arg>-explaintypes</arg>
+<arg>-Ylinearizer:dump</arg>
+-->
                     </args>
                     <displayCmd>true</displayCmd>
                     <dependencies>
@@ -117,12 +117,22 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.sae.db</groupId>
+                <artifactId>interface</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.sae.db</groupId>
                 <artifactId>basic-interface</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.sae.db</groupId>
                 <artifactId>bat-binding</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.sae.db</groupId>
+                <artifactId>asm-binding</artifactId>
                 <version>0.0.1</version>
             </dependency>
         </dependencies>

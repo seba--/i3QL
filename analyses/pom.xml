@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>parent</module>
         <module>metrics</module>
         <module>findbugs</module>
     </modules>
