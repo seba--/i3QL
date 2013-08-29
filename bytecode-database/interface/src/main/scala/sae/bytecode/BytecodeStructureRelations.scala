@@ -30,46 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.reader
+package sae.bytecode
 
-import java.io.InputStream
-import java.util.zip.{ZipEntry, ZipInputStream}
+import idb.SetExtent
+import sae.bytecode.structure._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
+trait BytecodeStructureRelations
 {
 
-    private var availableCounter =  entry.getCompressedSize.toInt;
+    lazy val classDeclarations = SetExtent.empty[ClassDeclaration]()
 
-    override def close() {
-        stream.closeEntry ()
-    }
+    lazy val methodDeclarations = SetExtent.empty[MethodDeclaration]()
 
-    override def read: Int = {
-        availableCounter -= 1
-        stream.read
-    }
+    lazy val fieldDeclarations = SetExtent.empty[FieldDeclaration]()
 
-    override def read(b: Array[Byte]) = {
-        availableCounter -= b.size
-        stream.read(b)
-    }
+    lazy val codeAttributes = SetExtent.empty[CodeAttribute]()
 
-    override def read(b: Array[Byte], off: Int, len: Int) = {
-        val read = stream.read(b, off, len)
-        availableCounter -= read
-        read
-    }
+    //lazy val instructions = SetExtent.empty[Instruction]()
 
-    override def skip(n: Long) = {
-        availableCounter -= n.toInt
-        stream.skip(n)
-    }
+    lazy val innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
 
-    override def available() : Int = {
-        availableCounter
-    }
+    lazy val enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
 }

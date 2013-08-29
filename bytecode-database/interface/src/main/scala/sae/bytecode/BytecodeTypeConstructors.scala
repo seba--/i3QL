@@ -30,30 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
-
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait BytecodeTypeConstructors
+    extends BytecodeTypes
 {
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    def void: VoidType
 
+    def char: PrimitiveType
+
+    def boolean: PrimitiveType
+
+    def byte: PrimitiveType
+
+    def short: PrimitiveType
+
+    def int: PrimitiveType
+
+    def long: PrimitiveType
+
+    def float: PrimitiveType
+
+    def double: PrimitiveType
+
+    /**
+     * Constructs a new object type, i.e., a type describing a class.
+     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
+     */
+    def ObjectType (desc: String): ObjectType
+
+    def ArrayType[T <: Type] (componentType: T, dimensions: Int): ArrayType[T]
 }

@@ -41,7 +41,6 @@ import sae.bytecode.{BytecodeTypesSchema, BytecodeTypes}
  */
 trait ASMTypes
     extends BytecodeTypes
-    with BytecodeTypesSchema
 {
 
     type Type = org.objectweb.asm.Type
@@ -57,15 +56,5 @@ trait ASMTypes
     type ReferenceType = org.objectweb.asm.Type
 
     type ObjectType = org.objectweb.asm.Type
-
-
-
-    implicit def typeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
-
-    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
-
-    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
-
-    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
 
 }

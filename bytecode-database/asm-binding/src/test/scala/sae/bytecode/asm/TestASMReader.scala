@@ -51,8 +51,11 @@ class TestASMReader
         val fields = database.fieldDeclarations.asMaterialized
         val instructions = database.instructions.asMaterialized
 
+        val start = System.nanoTime()
         database.addArchive (
             new FileInputStream ("D:\\workspace\\sae\\legacy\\test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
+
+        val end = System.nanoTime()
 
         println(classes.size)
         println(methods.size)
@@ -60,7 +63,7 @@ class TestASMReader
         println(instructions.size)
         //classes.foreach (println)
         //methods.foreach (println)
-
+        println("took: " + ((end-start).toDouble / 1000000000) + " s" )
     }
 
 }

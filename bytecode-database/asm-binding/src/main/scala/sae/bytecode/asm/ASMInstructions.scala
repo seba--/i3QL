@@ -42,6 +42,7 @@ trait ASMInstructions
     extends BytecodeInstructions
 {
 
+    override protected def inlineWideInstructions = true
 
     case class NOP (
         declaringMethod: MethodDeclaration,
@@ -936,35 +937,17 @@ trait ASMInstructions
         sequenceIndex: Int
     ) extends super.I2B
 
-    case class INT2BYTE (
-        declaringMethod: MethodDeclaration,
-        programCounter: Int,
-        sequenceIndex: Int
-    ) extends super.INT2BYTE
-
     case class I2C (
         declaringMethod: MethodDeclaration,
         programCounter: Int,
         sequenceIndex: Int
     ) extends super.I2C
 
-    case class INT2CHAR (
-        declaringMethod: MethodDeclaration,
-        programCounter: Int,
-        sequenceIndex: Int
-    ) extends super.INT2CHAR
-
     case class I2S (
         declaringMethod: MethodDeclaration,
         programCounter: Int,
         sequenceIndex: Int
     ) extends super.I2S
-
-    case class INT2SHORT (
-        declaringMethod: MethodDeclaration,
-        programCounter: Int,
-        sequenceIndex: Int
-    ) extends super.INT2SHORT
 
     case class LCMP (
         declaringMethod: MethodDeclaration,
@@ -1212,13 +1195,6 @@ trait ASMInstructions
         methodInfo: MethodInfo
     ) extends super.INVOKESPECIAL
 
-    case class INVOKENONVIRTUAL (
-        declaringMethod: MethodDeclaration,
-        programCounter: Int,
-        sequenceIndex: Int,
-        methodInfo: MethodInfo
-    ) extends super.INVOKENONVIRTUAL
-
     case class INVOKESTATIC (
         declaringMethod: MethodDeclaration,
         programCounter: Int,
@@ -1326,13 +1302,15 @@ trait ASMInstructions
     case class GOTO_W (
         declaringMethod: MethodDeclaration,
         programCounter: Int,
-        sequenceIndex: Int
+        sequenceIndex: Int,
+        offset: Int
     ) extends super.GOTO_W
 
     case class JSR_W (
         declaringMethod: MethodDeclaration,
         programCounter: Int,
-        sequenceIndex: Int
+        sequenceIndex: Int,
+        offset: Int
     ) extends super.JSR_W
 
 

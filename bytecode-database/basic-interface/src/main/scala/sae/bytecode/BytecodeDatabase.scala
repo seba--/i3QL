@@ -44,7 +44,8 @@ trait BytecodeDatabase
     with BytecodeStructureSchemaConstructors
     with BytecodeStructureSchemaInfixOps
     with BytecodeDatabaseManipulation
-    with BytecodeConstantValues
+    with BytecodeTypeConstructors
+    with BytecodePredef
 {
 
     val IR = idb.syntax.iql.IR

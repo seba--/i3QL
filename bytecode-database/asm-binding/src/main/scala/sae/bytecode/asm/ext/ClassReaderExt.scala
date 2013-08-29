@@ -30,16 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.ext
+
+import org.objectweb.asm.{Label, ClassReader}
+import java.io.InputStream
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeConstantValues
-    extends BytecodeTypes
+class ClassReaderExt (in: InputStream)
+    extends ClassReader (in)
 {
-
-    def void : VoidType
-
+    override def readLabel (offset: Int, labels: Array[Label]): Label = {
+        if (labels (offset) == null) {
+            labels (offset) = new LabelExt (offset)
+        }
+        labels (offset)
+    }
 }

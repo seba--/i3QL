@@ -34,8 +34,8 @@ package sae.bytecode.asm
 
 import sae.bytecode.util.AbstractBytecodeDatabaseManipulation
 import java.io.InputStream
-import org.objectweb.asm.ClassReader
 import sae.bytecode.asm.reader.ASMProcessor
+import sae.bytecode.asm.ext.ClassReaderExt
 
 /**
  *
@@ -49,12 +49,12 @@ trait ASMDatabaseManipulation
     def removalProcessor: ASMProcessor
 
     protected def doAddClassFile (stream: InputStream) {
-        val reader = new ClassReader (stream)
+        val reader = new ClassReaderExt (stream)
         reader.accept (additionProcessor.classVisitor, 0)
     }
 
     protected def doRemoveClassFile (stream: InputStream) {
-        val reader = new ClassReader (stream)
+        val reader = new ClassReaderExt (stream)
         reader.accept (removalProcessor.classVisitor, 0)
     }
 

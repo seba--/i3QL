@@ -30,30 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.structure
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+//import sae.bytecode.structure.factory.MethodDeclarationFactory
+
+import sae.bytecode.modifiers.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait MethodDeclaration
+    extends DeclaredClassMember
+    with MethodInfo
 {
+    type ObjectType <: ReferenceType
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    def returnType: Type
 
+    def parameterTypes: Seq[FieldType]
+
+    def receiverType = declaringType
+
+    def isSynchronized: Boolean =
+        contains (accessFlags, ACC_SYNCHRONIZED)
+
+    def isBridge: Boolean =
+        contains (accessFlags, ACC_BRIDGE)
+
+    def isVarArgs: Boolean =
+        contains (accessFlags, ACC_VARARGS)
+
+    def isNative: Boolean =
+        contains (accessFlags, ACC_NATIVE)
+
+    def isAbstract: Boolean =
+        contains (accessFlags, ACC_ABSTRACT)
+
+    def isStrict: Boolean =
+        contains (accessFlags, ACC_STRICT)
+
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

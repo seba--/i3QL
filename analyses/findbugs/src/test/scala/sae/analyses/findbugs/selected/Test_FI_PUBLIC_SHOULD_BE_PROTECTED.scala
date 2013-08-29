@@ -34,9 +34,9 @@ package sae.analyses.findbugs.selected
 
 import org.junit.Test
 import org.junit.Assert._
-import sae.bytecode.bat.BATDatabaseFactory
-import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
-import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_PUBLIC}
+import sae.bytecode.asm.ASMDatabaseFactory
+import sae.bytecode.{BytecodeDatabase, BytecodeAccessFlags}
+
 
 /**
  *
@@ -48,13 +48,13 @@ class Test_FI_PUBLIC_SHOULD_BE_PROTECTED
 
     @Test
     def truePositive () {
-        val database = BATDatabaseFactory.create ()
-        import database._
+        val database : BytecodeDatabase = null
+        //import database._
         val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
 
-        val clazz = ClassDeclaration (0, 0, 0, ObjectType ("test/Test"), Some (ObjectType.Object), Nil)
+        val clazz = ClassDeclaration (0, 0, ObjectType ("test/Test"), Some (Object), Nil)
 
-        val method = MethodDeclaration (clazz, ACC_PUBLIC.mask, "finalize", VoidType, Nil)
+        val method = MethodDeclaration (clazz, BytecodeAccessFlags.ACC_PUBLIC, "finalize", void, Nil)
 
         database.methodDeclarations += method
         assertEquals (
@@ -68,13 +68,14 @@ class Test_FI_PUBLIC_SHOULD_BE_PROTECTED
 
     @Test
     def trueNegative () {
-        val database = BATDatabaseFactory.create ()
-        import database._
+        val database : BytecodeDatabase = null
+        //val database = ASMDatabaseFactory.create ()
+        //import database._
         val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
 
-        val clazz = ClassDeclaration (0, 0, 0, ObjectType ("test/Test"), Some (ObjectType.Object), Nil)
+        val clazz = ClassDeclaration (0, 0, ObjectType ("test/Test"), Some (Object), Nil)
 
-        val method = MethodDeclaration (clazz, ACC_PROTECTED.mask, "finalize", VoidType, Nil)
+        val method = MethodDeclaration (clazz, BytecodeAccessFlags.ACC_PROTECTED, "finalize", void, Nil)
 
         database.methodDeclarations += method
         assertEquals (

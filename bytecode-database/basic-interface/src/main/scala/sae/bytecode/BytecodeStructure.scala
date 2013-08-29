@@ -214,9 +214,10 @@ trait BytecodeStructure
 
         def opcode: Short
 
+        def nextProgramCounter: Int
+
         def mnemonic: String = this.getClass.getSimpleName
     }
-
 
 
     def isAnnotation (classDeclaration: ClassDeclaration): Boolean

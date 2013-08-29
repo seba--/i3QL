@@ -30,30 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.structure
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.modifiers.AccessFlags._
+
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait DeclaredClassMember
 {
+    type ObjectType
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    def declaringClass: ClassDeclaration{ type ObjectType = DeclaredClassMember.this.ObjectType }
 
+    def declaringType: ObjectType = declaringClass.classType
+
+    def name: String
+
+    def accessFlags: Int
+
+    def isPublic: Boolean =
+        contains (accessFlags, ACC_PUBLIC)
+
+    def isProtected: Boolean =
+        contains (accessFlags, ACC_PROTECTED)
+
+    def isPrivate: Boolean =
+        contains (accessFlags, ACC_PRIVATE)
+
+    def isStatic: Boolean =
+        contains (accessFlags, ACC_STATIC)
+
+    def isFinal: Boolean =
+        contains (accessFlags, ACC_FINAL)
 }

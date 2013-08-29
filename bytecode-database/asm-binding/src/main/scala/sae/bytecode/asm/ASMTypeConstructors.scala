@@ -30,30 +30,40 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.asm
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-import sae.bytecode.structure.MethodDeclaration
+import org.objectweb.asm.Type
+import sae.bytecode.BytecodeTypeConstructors
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait ASMTypeConstructors
+    extends BytecodeTypeConstructors
+    with ASMTypes
 {
+    def void: VoidType = Type.VOID_TYPE
 
-    def apply (database: BytecodeDatabase): Relation[MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-    }
+    def char: PrimitiveType = Type.CHAR_TYPE
 
+    def boolean: PrimitiveType = Type.BOOLEAN_TYPE
+
+    def byte: PrimitiveType = Type.BYTE_TYPE
+
+    def short: PrimitiveType = Type.SHORT_TYPE
+
+    def int: PrimitiveType = Type.INT_TYPE
+
+    def long: PrimitiveType = Type.LONG_TYPE
+
+    def float: PrimitiveType = Type.FLOAT_TYPE
+
+    def double: PrimitiveType = Type.DOUBLE_TYPE
+
+    def ObjectType (desc: String): ObjectType =
+        Type.getObjectType ("L" + desc + ";")
+
+    def ArrayType[T <: Type] (componentType: T, dimensions: Int): ArrayType[T] =
+        Type.getType ("[" * dimensions + componentType.getDescriptor)
 }

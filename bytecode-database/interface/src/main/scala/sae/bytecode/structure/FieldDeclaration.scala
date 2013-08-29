@@ -30,18 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
+package sae.bytecode.structure
 
-import org.objectweb.asm.Type
-import sae.bytecode.BytecodeConstantValues
+import sae.bytecode.modifiers.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait ASMConstantValues
-    extends BytecodeConstantValues
-    with ASMTypes
+trait FieldDeclaration
+    extends DeclaredClassMember
+    with FieldInfo
 {
-    def void: VoidType = Type.VOID_TYPE
+    def isTransient: Boolean =
+        contains (accessFlags, ACC_TRANSIENT)
+
+    def isVolatile: Boolean =
+        contains (accessFlags, ACC_VOLATILE)
+
+    def isEnum: Boolean =
+        contains (accessFlags, ACC_ENUM)
+
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

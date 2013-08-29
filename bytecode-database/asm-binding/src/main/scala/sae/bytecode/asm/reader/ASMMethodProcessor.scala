@@ -34,6 +34,7 @@ package sae.bytecode.asm.reader
 
 import scala.annotation.switch
 import org.objectweb.asm._
+import sae.bytecode.asm.ext.LabelExt
 
 /**
  *
@@ -61,8 +62,6 @@ trait ASMMethodProcessor
 
         var index = 0
 
-        var previousInstruction: Instruction = null
-
         override def visitMaxs (maxStack: Int, maxLocals: Int) {
             this.maxStack = maxStack
             this.maxLocals = maxLocals
@@ -70,11 +69,12 @@ trait ASMMethodProcessor
 
 
         /**
-         * store the instruction and do computations for pc etc.
+         * store the instruction and do computations for pc .
          */
-        private def storeInstruction (instruction: Instruction) {
+        protected def storeInstruction (instruction: Instruction) {
             processInstruction (instruction)
-            previousInstruction = instruction
+            index += 1
+            pc = instruction.nextProgramCounter
         }
 
         override def visitFieldInsn (opcode: Int, owner: String, name: String, desc: String) {
@@ -98,7 +98,9 @@ trait ASMMethodProcessor
         }
 
         override def visitIincInsn (`var`: Int, increment: Int) {
-            storeInstruction (IINC (methodDeclaration, pc, index, `var`, increment))
+            storeInstruction (
+                IINC (methodDeclaration, pc, index, `var`, increment)
+            )
         }
 
         override def visitInsn (opcode: Int) {
@@ -106,24 +108,24 @@ trait ASMMethodProcessor
                 (opcode: @switch) match {
                     case Opcodes.NOP => NOP (methodDeclaration, pc, index)
                     case Opcodes.ACONST_NULL => ACONST_NULL (methodDeclaration, pc, index)
+
                     case Opcodes.ICONST_M1 => ICONST_M1 (methodDeclaration, pc, index)
                     case Opcodes.ICONST_0 => ICONST_0 (methodDeclaration, pc, index)
                     case Opcodes.ICONST_1 => ICONST_1 (methodDeclaration, pc, index)
-
                     case Opcodes.ICONST_2 => ICONST_2 (methodDeclaration, pc, index)
                     case Opcodes.ICONST_3 => ICONST_3 (methodDeclaration, pc, index)
                     case Opcodes.ICONST_4 => ICONST_4 (methodDeclaration, pc, index)
                     case Opcodes.ICONST_5 => ICONST_5 (methodDeclaration, pc, index)
+
                     case Opcodes.LCONST_0 => LCONST_0 (methodDeclaration, pc, index)
                     case Opcodes.LCONST_1 => LCONST_1 (methodDeclaration, pc, index)
-
                     case Opcodes.FCONST_0 => FCONST_0 (methodDeclaration, pc, index)
                     case Opcodes.FCONST_1 => FCONST_1 (methodDeclaration, pc, index)
                     case Opcodes.FCONST_2 => FCONST_2 (methodDeclaration, pc, index)
                     case Opcodes.DCONST_0 => DCONST_0 (methodDeclaration, pc, index)
                     case Opcodes.DCONST_1 => DCONST_1 (methodDeclaration, pc, index)
-                    case Opcodes.IALOAD => IALOAD (methodDeclaration, pc, index)
 
+                    case Opcodes.IALOAD => IALOAD (methodDeclaration, pc, index)
                     case Opcodes.LALOAD => LALOAD (methodDeclaration, pc, index)
                     case Opcodes.FALOAD => FALOAD (methodDeclaration, pc, index)
                     case Opcodes.DALOAD => DALOAD (methodDeclaration, pc, index)
@@ -139,8 +141,8 @@ trait ASMMethodProcessor
                     case Opcodes.AASTORE => AASTORE (methodDeclaration, pc, index)
                     case Opcodes.BASTORE => BASTORE (methodDeclaration, pc, index)
                     case Opcodes.CASTORE => CASTORE (methodDeclaration, pc, index)
-
                     case Opcodes.SASTORE => SASTORE (methodDeclaration, pc, index)
+
                     case Opcodes.POP => POP (methodDeclaration, pc, index)
                     case Opcodes.POP2 => POP2 (methodDeclaration, pc, index)
                     case Opcodes.DUP => DUP (methodDeclaration, pc, index)
@@ -148,9 +150,9 @@ trait ASMMethodProcessor
                     case Opcodes.DUP_X2 => DUP_X2 (methodDeclaration, pc, index)
                     case Opcodes.DUP2 => DUP2 (methodDeclaration, pc, index)
                     case Opcodes.DUP2_X1 => DUP2_X1 (methodDeclaration, pc, index)
-
                     case Opcodes.DUP2_X2 => DUP2_X2 (methodDeclaration, pc, index)
                     case Opcodes.SWAP => SWAP (methodDeclaration, pc, index)
+
                     case Opcodes.IADD => IADD (methodDeclaration, pc, index)
                     case Opcodes.LADD => LADD (methodDeclaration, pc, index)
                     case Opcodes.FADD => FADD (methodDeclaration, pc, index)
@@ -168,32 +170,34 @@ trait ASMMethodProcessor
                     case Opcodes.LDIV => LDIV (methodDeclaration, pc, index)
                     case Opcodes.FDIV => FDIV (methodDeclaration, pc, index)
                     case Opcodes.DDIV => DDIV (methodDeclaration, pc, index)
+
                     case Opcodes.IREM => IREM (methodDeclaration, pc, index)
                     case Opcodes.LREM => LREM (methodDeclaration, pc, index)
-
                     case Opcodes.FREM => FREM (methodDeclaration, pc, index)
                     case Opcodes.DREM => DREM (methodDeclaration, pc, index)
+
                     case Opcodes.INEG => INEG (methodDeclaration, pc, index)
                     case Opcodes.LNEG => LNEG (methodDeclaration, pc, index)
                     case Opcodes.FNEG => FNEG (methodDeclaration, pc, index)
                     case Opcodes.DNEG => DNEG (methodDeclaration, pc, index)
+
                     case Opcodes.ISHL => ISHL (methodDeclaration, pc, index)
                     case Opcodes.LSHL => LSHL (methodDeclaration, pc, index)
                     case Opcodes.ISHR => ISHR (methodDeclaration, pc, index)
                     case Opcodes.LSHR => LSHR (methodDeclaration, pc, index)
-
                     case Opcodes.IUSHR => IUSHR (methodDeclaration, pc, index)
                     case Opcodes.LUSHR => LUSHR (methodDeclaration, pc, index)
+
                     case Opcodes.IAND => IAND (methodDeclaration, pc, index)
                     case Opcodes.LAND => LAND (methodDeclaration, pc, index)
                     case Opcodes.IOR => IOR (methodDeclaration, pc, index)
                     case Opcodes.LOR => LOR (methodDeclaration, pc, index)
                     case Opcodes.IXOR => IXOR (methodDeclaration, pc, index)
                     case Opcodes.LXOR => LXOR (methodDeclaration, pc, index)
+
                     case Opcodes.I2L => I2L (methodDeclaration, pc, index)
                     case Opcodes.I2F => I2F (methodDeclaration, pc, index)
                     case Opcodes.I2D => I2D (methodDeclaration, pc, index)
-
                     case Opcodes.L2I => L2I (methodDeclaration, pc, index)
                     case Opcodes.L2F => L2F (methodDeclaration, pc, index)
                     case Opcodes.L2D => L2D (methodDeclaration, pc, index)
@@ -235,8 +239,7 @@ trait ASMMethodProcessor
                 (opcode: @switch) match {
                     case Opcodes.BIPUSH => BIPUSH (methodDeclaration, pc, index, operand.toByte)
                     case Opcodes.SIPUSH => SIPUSH (methodDeclaration, pc, index, operand.toShort)
-                    case Opcodes.NEWARRAY =>
-                    {
+                    case Opcodes.NEWARRAY => {
                         val elementType =
                             (operand: @switch) match {
                                 case Opcodes.T_BOOLEAN => Type.BOOLEAN_TYPE
@@ -249,37 +252,138 @@ trait ASMMethodProcessor
                                 case Opcodes.T_LONG => Type.LONG_TYPE
                                 case _ => throw new IllegalArgumentException
                             }
+                        val arrayType = ArrayType (elementType, 1)
 
-                        val arrayType = Type.getType()
-                        NEWARRAY (methodDeclaration, pc, index, elementType)
+                        NEWARRAY (methodDeclaration, pc, index, elementType, arrayType)
                     }
                     case _ => throw new IllegalArgumentException
                 }
 
+            storeInstruction (instruction)
         }
 
-        override def visitJumpInsn (opcode: Int, label: Label) { super.visitJumpInsn (opcode, label) }
+        override def visitJumpInsn (opcode: Int, label: Label) {
+            val offset = label.asInstanceOf[LabelExt].originalOffset
+            val instruction =
+                (opcode: @switch) match {
+                    case Opcodes.IFEQ => IFEQ (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFNE => IFNE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFLT => IFLT (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFGE => IFGE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFGT => IFGT (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFLE => IFLE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPEQ => IF_ICMPEQ (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPNE => IF_ICMPNE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPLT => IF_ICMPLT (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPGE => IF_ICMPGE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPGT => IF_ICMPGT (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ICMPLE => IF_ICMPLE (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ACMPEQ => IF_ACMPEQ (methodDeclaration, pc, index, offset)
+                    case Opcodes.IF_ACMPNE => IF_ACMPNE (methodDeclaration, pc, index, offset)
+                    case Opcodes.GOTO => GOTO (methodDeclaration, pc, index, offset)
+                    case Opcodes.JSR => JSR (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFNULL => IFNULL (methodDeclaration, pc, index, offset)
+                    case Opcodes.IFNONNULL => IFNONNULL (methodDeclaration, pc, index, offset)
+                }
 
-        override def visitLdcInsn (cst: scala.Any) { super.visitLdcInsn (cst) }
+            storeInstruction (instruction)
+        }
+
+        override def visitLdcInsn (cst: scala.Any) {
+            storeInstruction (
+                LDC (methodDeclaration, pc, index, cst)
+            )
+        }
 
         override def visitLookupSwitchInsn (dflt: Label, keys: Array[Int], labels: Array[Label]) {
-            super.visitLookupSwitchInsn (dflt, keys, labels)
+            val defaultOffset = dflt.asInstanceOf[LabelExt].originalOffset
+            val offsets = labels.map (_.asInstanceOf[LabelExt].originalOffset)
+            storeInstruction (
+                LOOKUPSWITCH (methodDeclaration, pc, index, keys, defaultOffset, offsets)
+            )
         }
 
 
         override def visitMethodInsn (opcode: Int, owner: String, name: String, desc: String) {
-            super.visitMethodInsn (opcode, owner, name, desc)
+            val declaringType = Type.getType (owner)
+            val returnType = Type.getReturnType (desc)
+            val parameterTypes = Type.getArgumentTypes (desc)
+            val methodInfo = MethodInfo (
+                declaringType,
+                name,
+                returnType,
+                parameterTypes
+            )
+            val instruction =
+                (opcode: @switch) match {
+                    case Opcodes.INVOKEVIRTUAL => INVOKEVIRTUAL (methodDeclaration, pc, index, methodInfo)
+                    case Opcodes.INVOKESPECIAL => INVOKESPECIAL (methodDeclaration, pc, index, methodInfo)
+                    case Opcodes.INVOKESTATIC => INVOKESTATIC (methodDeclaration, pc, index, methodInfo)
+                    case Opcodes.INVOKEINTERFACE => INVOKEINTERFACE (methodDeclaration, pc, index, methodInfo)
+                    case _ => throw new IllegalArgumentException
+                }
+
+            storeInstruction (instruction)
         }
 
-        override def visitMultiANewArrayInsn (desc: String, dims: Int) { super.visitMultiANewArrayInsn (desc, dims) }
+        override def visitMultiANewArrayInsn (desc: String, dims: Int) {
+            val elementType = Type.getType (desc)
+            val arrayType = ArrayType (elementType, dims)
+            storeInstruction (
+                MULTIANEWARRAY (
+                    methodDeclaration,
+                    pc,
+                    index,
+                    elementType,
+                    arrayType,
+                    dims
+                )
+            )
+        }
 
         override def visitTableSwitchInsn (min: Int, max: Int, dflt: Label, labels: Label*) {
-            super.visitTableSwitchInsn (min, max, dflt, labels: _*)
+            val defaultOffset = dflt.asInstanceOf[LabelExt].originalOffset
+            val offsets = labels.map (_.asInstanceOf[LabelExt].originalOffset)
+            storeInstruction (
+                TABLESWITCH (methodDeclaration, pc, index, max, min, defaultOffset, offsets)
+            )
         }
 
-        override def visitTypeInsn (opcode: Int, `type`: String) { super.visitTypeInsn (opcode, `type`) }
+        override def visitTypeInsn (opcode: Int, `type`: String) {
+            val objectType = Type.getObjectType (`type`)
+            val instruction =
+                (opcode: @switch) match {
+                    case Opcodes.NEW => NEW (methodDeclaration, pc, index, objectType)
+                    case Opcodes.ANEWARRAY => ANEWARRAY (methodDeclaration, pc, index, objectType,
+                        ArrayType (objectType, 1))
+                    case Opcodes.CHECKCAST => CHECKCAST (methodDeclaration, pc, index, objectType)
+                    case Opcodes.INSTANCEOF => INSTANCEOF (methodDeclaration, pc, index, objectType)
+                    case _ => throw new IllegalArgumentException
+                }
 
-        override def visitVarInsn (opcode: Int, `var`: Int) { super.visitVarInsn (opcode, `var`) }
+
+            storeInstruction (instruction)
+        }
+
+        override def visitVarInsn (opcode: Int, `var`: Int) {
+            val instruction =
+                (opcode: @switch) match {
+                    case Opcodes.ILOAD => ILOAD (methodDeclaration, pc, index, `var`)
+                    case Opcodes.LLOAD => LLOAD (methodDeclaration, pc, index, `var`)
+                    case Opcodes.FLOAD => FLOAD (methodDeclaration, pc, index, `var`)
+                    case Opcodes.DLOAD => DLOAD (methodDeclaration, pc, index, `var`)
+                    case Opcodes.ALOAD => ALOAD (methodDeclaration, pc, index, `var`)
+                    case Opcodes.ISTORE => ISTORE (methodDeclaration, pc, index, `var`)
+                    case Opcodes.LSTORE => LSTORE (methodDeclaration, pc, index, `var`)
+                    case Opcodes.FSTORE => FSTORE (methodDeclaration, pc, index, `var`)
+                    case Opcodes.DSTORE => DSTORE (methodDeclaration, pc, index, `var`)
+                    case Opcodes.ASTORE => ASTORE (methodDeclaration, pc, index, `var`)
+                    case Opcodes.RET => RET (methodDeclaration, pc, index, `var`)
+                    case _ => throw new IllegalArgumentException
+                }
+            storeInstruction (instruction)
+
+        }
 
         override def visitTryCatchBlock (start: Label, end: Label, handler: Label, `type`: String) {
             super.visitTryCatchBlock (start, end, handler, `type`)
