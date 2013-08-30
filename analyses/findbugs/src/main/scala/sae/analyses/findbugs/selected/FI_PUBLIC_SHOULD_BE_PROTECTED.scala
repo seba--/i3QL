@@ -47,14 +47,12 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
 
     def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
         import database._
-        compile(
         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
             m.name == "finalize" AND
                 m.isPublic AND
-                //m.returnType == void AND
+                m.returnType == void AND
                 m.parameterTypes == Nil
             )
-        )
     }
 
 }

@@ -40,6 +40,7 @@ trait BytecodePredef
     extends BytecodeTypeConstructors
 {
 
+    /*
     case class Package (name: String)
 
     lazy val java = new Package ("java")
@@ -56,5 +57,5 @@ trait BytecodePredef
     lazy val Object = java.lang.Object
 
     lazy val String = java.lang.String
-
+    */
 }

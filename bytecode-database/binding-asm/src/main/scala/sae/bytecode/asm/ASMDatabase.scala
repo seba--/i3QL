@@ -42,6 +42,7 @@ import sae.bytecode.asm.reader.ASMProcessor
 class ASMDatabase
     extends BytecodeDatabase
     with ASMTypes
+    with ASMTypeConstructors
     with ASMStructure
     with ASMStructureRelations
     with ASMDatabaseManipulation
