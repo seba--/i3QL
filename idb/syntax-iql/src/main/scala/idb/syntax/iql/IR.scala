@@ -55,6 +55,7 @@ object IR
     with RelationalAlgebraGenSAEBinding
     with StructExpAlphaEquivalence
     with TupledFunctionsExpAlphaEquivalence
+    with StaticDataExp
     with LiftAll
 {
 

@@ -30,31 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.compilation
+package idb.lms.extensions.equivalence
 
-import idb.algebra.compiler._
-import scala.virtualization.lms.common._
+import scala.virtualization.lms.common.StaticDataExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-object CompilerBinding
-    extends RelationalAlgebraGenBasicOperatorsAsIncremental
-	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
-	with RelationalAlgebraGenAggregationOperatorsAsIncremental
-	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-    with RelationalAlgebraGenSAEBinding
-    with ScalaGenStaticData
-    with ScalaCodeGenPkg
-    with ScalaGenStruct
-    with ScalaGenTupledFunctions
+
+trait StaticDataExpAlphaEquivalence
+    extends StaticDataExp
+    with BaseExpAlphaEquivalence
 {
-    override val IR = idb.syntax.iql.IR
 
-    override type Block[+T] = IR.Block[T]
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (Def (StaticData (x)), Def (StaticData (y))) => x == y
+            case _ => super.isEquivalent (a, b)
+        }
 
-    override def reset {
-        super.reset // TODO how should this be implemented correctly?
-    }
 }

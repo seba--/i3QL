@@ -87,9 +87,9 @@ object ClauseToAlgebra
                         selection (
                             relation,
                             predicate
-                        ),
+                        )(manifest[GroupRange with Domain]), // TODO this is inferred by the compiler, but why?
                         project
-                    ),
+                    )(manifest[GroupRange with Domain], manifest[Range]),  // TODO this is inferred by the compiler, but why?
                     asDistinct
                 )
 
