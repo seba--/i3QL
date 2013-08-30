@@ -30,31 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.asm
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import sae.bytecode.BytecodeStructure
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait ASMStructure
+    extends BytecodeStructure
 {
+    type ClassDeclaration = structure.ClassDeclaration
 
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
-        import database._
-        compile(
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                //m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-        )
-    }
+    def classDeclarationManifest: Manifest[ClassDeclaration] =
+        manifest[structure.ClassDeclaration]
 
+    type DeclaredClassMember = structure.DeclaredClassMember
+
+    def declaredClassMemberManifest: Manifest[DeclaredClassMember] =
+        manifest[structure.DeclaredClassMember]
+
+    type MethodInfo = structure.MethodInfo
+
+    def methodInfoManifest: Manifest[MethodInfo] =
+        manifest[structure.MethodInfo]
+
+    type FieldInfo = structure.FieldInfo
+
+    def fieldInfoManifest: Manifest[FieldInfo] =
+        manifest[structure.FieldInfo]
+
+    type MethodDeclaration = structure.MethodDeclaration
+
+    def methodDeclarationManifest: Manifest[MethodDeclaration] =
+        manifest[structure.MethodDeclaration]
+
+    type FieldDeclaration = structure.FieldDeclaration
+
+    def fieldDeclarationManifest: Manifest[FieldDeclaration] =
+        manifest[structure.FieldDeclaration]
 }

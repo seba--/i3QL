@@ -30,31 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import scala.language.implicitConversions
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait BytecodeStructure
+    extends BytecodeTypes
 {
 
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
-        import database._
-        compile(
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                //m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-        )
-    }
+    type ClassDeclaration
 
+    def classDeclarationManifest: Manifest[ClassDeclaration]
+
+    type DeclaredClassMember
+
+    def declaredClassMemberManifest: Manifest[DeclaredClassMember]
+
+    type MethodInfo
+
+    def methodInfoManifest: Manifest[MethodInfo]
+
+    type FieldInfo
+
+    def fieldInfoManifest: Manifest[FieldInfo]
+
+    type MethodDeclaration <: DeclaredClassMember with MethodInfo
+
+    def methodDeclarationManifest: Manifest[MethodDeclaration]
+
+    type FieldDeclaration <: DeclaredClassMember with FieldInfo
+
+    def fieldDeclarationManifest: Manifest[FieldDeclaration]
 }

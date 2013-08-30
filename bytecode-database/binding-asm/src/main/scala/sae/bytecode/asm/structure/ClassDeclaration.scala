@@ -30,25 +30,52 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode.asm.structure
+
+import org.objectweb.asm.Type
+import sae.bytecode.constants.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait MethodInfo
+case class ClassDeclaration (
+    version: Int,
+    accessFlags: Int,
+    classType: Type,
+    superClass: Option[Type],
+    interfaces: Seq[Type]
+)
 {
-    type Type
+    def majorVersion: Int = version
 
-    type FieldType <: Type
+    def minorVersion: Int = throw new UnsupportedOperationException ("Minor version is not supported by ASM")
 
-    type ReferenceType <: Type
+    def isAnnotation: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_ANNOTATION_EXT
 
-    def receiverType: ReferenceType
+    def isClass: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == 0
 
-    def name: String
+    def isEnum: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_ENUM
 
-    def returnType: Type
+    def isInterface: Boolean =
+        (accessFlags & ACC_CLASS_EXT) == ACC_INTERFACE
 
-    def parameterTypes: Seq[FieldType]
+    def isPublic: Boolean =
+        contains (accessFlags, ACC_PUBLIC)
+
+    def isDefault: Boolean =
+        !contains (accessFlags, ACC_PUBLIC)
+
+    def isFinal: Boolean =
+        contains (accessFlags, ACC_FINAL)
+
+    def isAbstract: Boolean =
+        contains (accessFlags, ACC_ABSTRACT)
+
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

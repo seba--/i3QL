@@ -30,55 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.analyses.findbugs
 
-import sae.bytecode.modifiers.AccessFlags._
-import sae.bytecode.structure.factory.ClassDeclarationFactory
+import org.junit.Test
+import org.junit.Assert._
+import sae.bytecode.ASMDatabaseFactory
+import sae.analyses.findbugs.selected._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ClassDeclaration
+
+class TestAnalysesOnJDK
 {
-    type ObjectType
+    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
-    def minorVersion: Int
+    def getDatabase = ASMDatabaseFactory.create ()
 
-    def majorVersion: Int
-
-    def accessFlags: Int
-
-    def classType: ObjectType
-
-    def superClass: Option[ObjectType]
-
-    def interfaces: Seq[ObjectType]
-
-    def isAnnotation: Boolean =
-        (accessFlags & ACC_CLASS_EXT) == ACC_ANNOTATION_EXT
-
-    def isClass: Boolean =
-        (accessFlags & ACC_CLASS_EXT) == 0
-
-    def isEnum: Boolean =
-        (accessFlags & ACC_CLASS_EXT) == ACC_ENUM
-
-    def isInterface: Boolean =
-        (accessFlags & ACC_CLASS_EXT) == ACC_INTERFACE
-
-    def isPublic: Boolean =
-        contains (accessFlags, ACC_PUBLIC)
-
-    def isDefault: Boolean =
-        !contains (accessFlags, ACC_PUBLIC)
-
-    def isFinal: Boolean =
-        contains (accessFlags, ACC_FINAL)
-
-    def isAbstract: Boolean =
-        contains (accessFlags, ACC_ABSTRACT)
-
-    def isSynthetic: Boolean =
-        contains (accessFlags, ACC_SYNTHETIC)
+    @Test
+    def test_FI_PUBLIC_SHOULD_BE_PROTECTED() {
+        val database = getDatabase
+        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (20, analysis.size)
+    }
 }

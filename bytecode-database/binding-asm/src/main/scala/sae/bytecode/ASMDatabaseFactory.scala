@@ -30,46 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode
 
-//import sae.bytecode.structure.factory.MethodDeclarationFactory
+import sae.bytecode.asm.ASMDatabase
 
-import sae.bytecode.modifiers.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait MethodDeclaration
-    extends DeclaredClassMember
-    with MethodInfo
+object ASMDatabaseFactory
 {
-    type ObjectType <: ReferenceType
-
-    def returnType: Type
-
-    def parameterTypes: Seq[FieldType]
-
-    def receiverType = declaringType
-
-    def isSynchronized: Boolean =
-        contains (accessFlags, ACC_SYNCHRONIZED)
-
-    def isBridge: Boolean =
-        contains (accessFlags, ACC_BRIDGE)
-
-    def isVarArgs: Boolean =
-        contains (accessFlags, ACC_VARARGS)
-
-    def isNative: Boolean =
-        contains (accessFlags, ACC_NATIVE)
-
-    def isAbstract: Boolean =
-        contains (accessFlags, ACC_ABSTRACT)
-
-    def isStrict: Boolean =
-        contains (accessFlags, ACC_STRICT)
-
-    def isSynthetic: Boolean =
-        contains (accessFlags, ACC_SYNTHETIC)
+    def create (): BytecodeDatabase = new ASMDatabase ()
 }

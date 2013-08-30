@@ -43,18 +43,7 @@ trait ASMStructure
     with BytecodeAccessFlagReader
 {
 
-    case class ClassDeclaration (
-        version: Int,
-        accessFlags: Int,
-        classType: ObjectType,
-        superClass: Option[ObjectType],
-        interfaces: Seq[ObjectType]
-    ) extends super.ClassDeclaration
-    {
-        def majorVersion: Int = version
 
-        def minorVersion: Int = throw new UnsupportedOperationException("Minor version is not supported by ASM")
-    }
 
 
     case class MethodInfo (

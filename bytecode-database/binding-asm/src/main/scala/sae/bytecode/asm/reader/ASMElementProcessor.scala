@@ -30,56 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.reader
+
+import sae.bytecode.asm.ASMDatabase
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeTypesSchema
-    extends BytecodeTypes
+trait ASMElementProcessor
 {
+    val database: ASMDatabase
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def typeManifest: Manifest[Type]
+    import database._
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def primitiveTypeManifest: Manifest[PrimitiveType]
+    def processClassDeclaration (classDeclaration: ClassDeclaration)
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def voidTypeManifest: Manifest[VoidType]
+    def processMethodDeclaration (methodDeclaration: MethodDeclaration)
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def fieldTypeManifest: Manifest[FieldType]
+    def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def referenceTypeManifest: Manifest[ReferenceType]
+    /*
+    def processCodeAttribute (codeAttribute: CodeAttribute)
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def objectTypeManifest: Manifest[ObjectType]
+    def processInstruction (instruction: Instruction)
 
-    /**
-     * Since types are abstract there are no manifests in the interface, hence they must be explicitly
-     * provided by implementers
-     */
-    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]]
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
 
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
+    */
 }

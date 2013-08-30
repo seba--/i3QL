@@ -34,19 +34,22 @@ package sae.bytecode
 
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
-import sae.bytecode.structure.{MethodDeclaration, DeclaredClassMember, ClassDeclaration}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureSchemaInfixOps
-    extends BytecodeTypesSchema
+trait BytecodeStructureOps
+    extends BytecodeStructure
 {
 
     val IR: StructExp
 
     import IR._
+
+    implicit val mc = classDeclarationManifest
+
+    implicit val mm = methodDeclarationManifest
 
     implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]) =
         ClassDeclarationInfixOps (c)

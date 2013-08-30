@@ -30,23 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode.asm.structure
+
+import org.objectweb.asm.Type
+import sae.bytecode.constants.AccessFlags._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait InnerClassAttribute
+case class FieldDeclaration (
+    declaringClass: ClassDeclaration,
+    accessFlags: Int,
+    name: String,
+    fieldType: Type
+) extends DeclaredClassMember with FieldInfo
 {
-    type ObjectType
 
-    def declaringClass: ClassDeclaration
+    def isTransient: Boolean =
+        contains (accessFlags, ACC_TRANSIENT)
 
-    def innerClassType: ObjectType
+    def isVolatile: Boolean =
+        contains (accessFlags, ACC_VOLATILE)
 
-    def outerClassType: Option[ObjectType]
+    def isEnum: Boolean =
+        contains (accessFlags, ACC_ENUM)
 
-    def innerName: Option[String]
-
-    def innerClassAccessFlags: Int
+    def isSynthetic: Boolean =
+        contains (accessFlags, ACC_SYNTHETIC)
 }

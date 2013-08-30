@@ -30,39 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
-
-import sae.bytecode.modifiers.AccessFlags._
-
+package sae.bytecode.asm.reader
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait DeclaredClassMember
+trait ASMProcessor
+    extends ASMClassProcessor
 {
-    type ObjectType
 
-    def declaringClass: ClassDeclaration{ type ObjectType = DeclaredClassMember.this.ObjectType }
-
-    def declaringType: ObjectType = declaringClass.classType
-
-    def name: String
-
-    def accessFlags: Int
-
-    def isPublic: Boolean =
-        contains (accessFlags, ACC_PUBLIC)
-
-    def isProtected: Boolean =
-        contains (accessFlags, ACC_PROTECTED)
-
-    def isPrivate: Boolean =
-        contains (accessFlags, ACC_PRIVATE)
-
-    def isStatic: Boolean =
-        contains (accessFlags, ACC_STATIC)
-
-    def isFinal: Boolean =
-        contains (accessFlags, ACC_FINAL)
 }

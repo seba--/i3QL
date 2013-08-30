@@ -22,12 +22,17 @@
         </dependency>
         <dependency>
             <groupId>de.tud.cs.st.sae.db</groupId>
-            <artifactId>asm-binding</artifactId>
+            <artifactId>binding-asm</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.sae.analyses</groupId>
+            <artifactId>test-data</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

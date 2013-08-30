@@ -30,27 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode.asm
+
+import java.io.FileInputStream
+import org.junit.Test
+import sae.bytecode.ASMDatabaseFactory
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait EnclosingMethodAttribute
+class TestASMReader
 {
-    type Type
 
-    type FieldType <: Type
+    @Test
+    def readJDK () {
+        val database = ASMDatabaseFactory.create ()
 
-    type ObjectType <: Type
+        val classes = database.classDeclarations.asMaterialized
+        val methods = database.methodDeclarations.asMaterialized
+        val fields = database.fieldDeclarations.asMaterialized
+        //val instructions = database.instructions.asMaterialized
 
-    def declaringClass: ClassDeclaration
+        val start = System.nanoTime()
+        /*
+        database.addArchive (
+            new FileInputStream ("D:\\workspace\\sae\\legacy\\test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
+    */
+        val end = System.nanoTime()
 
-    def name: Option[String]
+        println(classes.size)
+        println(methods.size)
+        println(fields.size)
+        //println(instructions.size)
+        //classes.foreach (println)
+        //methods.foreach (println)
+        println("took: " + ((end-start).toDouble / 1000000000) + " s" )
+    }
 
-    def parameterTypes: Option[Seq[FieldType]]
-
-    def returnType: Option[Type]
-
-    def innerClassType: ObjectType
 }

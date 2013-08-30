@@ -30,35 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.ext
 
-import sae.bytecode.structure.{MethodDeclaration, ClassDeclaration}
-
+import org.objectweb.asm.{Label, ClassReader}
+import java.io.InputStream
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureConstructors
-    extends BytecodeTypes
+class ClassReaderExt (in: InputStream)
+    extends ClassReader (in)
 {
-
-    def ClassDeclaration (
-        majorVersion: Int,
-        minorVersion: Int,
-        accessFlags: Int,
-        classType: ObjectType,
-        superClass: Option[ObjectType],
-        interfaces: Seq[ObjectType]
-    ): ClassDeclaration
-
-
-    def MethodDeclaration (
-        declaringClass: ClassDeclaration,
-        accessFlags: Int,
-        name: String,
-        returnType: Type,
-        parameterTypes: Seq[FieldType]
-    ): MethodDeclaration
-
+    override def readLabel (offset: Int, labels: Array[Label]): Label = {
+        if (labels (offset) == null) {
+            labels (offset) = new LabelExt (offset)
+        }
+        labels (offset)
+    }
 }

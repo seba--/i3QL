@@ -30,31 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.asm.ext
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import org.objectweb.asm.Label
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+class LabelExt (val originalOffset: Int)
+    extends Label
 {
-
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
-        import database._
-        compile(
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.name == "finalize" AND
-                m.isPublic AND
-                //m.returnType == void AND
-                m.parameterTypes == Nil
-            )
-        )
-    }
 
 }

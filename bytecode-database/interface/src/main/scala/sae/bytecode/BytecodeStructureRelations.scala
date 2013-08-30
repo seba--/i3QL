@@ -33,26 +33,26 @@
 package sae.bytecode
 
 import idb.SetExtent
-import sae.bytecode.structure._
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait BytecodeStructureRelations
+    extends BytecodeStructure
 {
 
-    lazy val classDeclarations = SetExtent.empty[ClassDeclaration]()
+    def classDeclarations: SetExtent[ClassDeclaration]
 
-    lazy val methodDeclarations = SetExtent.empty[MethodDeclaration]()
+    def methodDeclarations: SetExtent[MethodDeclaration]
 
-    lazy val fieldDeclarations = SetExtent.empty[FieldDeclaration]()
+    def fieldDeclarations: SetExtent[FieldDeclaration]
 
-    lazy val codeAttributes = SetExtent.empty[CodeAttribute]()
+    //def codeAttributes: SetExtent[CodeAttribute]
 
-    //lazy val instructions = SetExtent.empty[Instruction]()
+    //def instructions : SetExtent[Instruction]
 
-    lazy val innerClassAttributes = SetExtent.empty[InnerClassAttribute]()
+    //def innerClassAttributes: SetExtent[InnerClassAttribute]
 
-    lazy val enclosingMethodAttributes = SetExtent.empty[EnclosingMethodAttribute]()
+    //def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
 }

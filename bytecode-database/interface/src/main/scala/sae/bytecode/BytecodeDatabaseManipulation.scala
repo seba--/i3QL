@@ -30,58 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
-
-import org.junit.Test
-import org.junit.Assert._
-import sae.bytecode.asm.ASMDatabaseFactory
-import sae.bytecode.{BytecodeDatabase, BytecodeAccessFlags}
-
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-class Test_FI_PUBLIC_SHOULD_BE_PROTECTED
+
+trait BytecodeDatabaseManipulation
 {
+    def addClassFile (stream: java.io.InputStream)
 
-    @Test
-    def truePositive () {
-        val database : BytecodeDatabase = null
-        //import database._
-        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
+    def removeClassFile (stream: java.io.InputStream)
 
-        val clazz = ClassDeclaration (0, 0, ObjectType ("test/Test"), Some (Object), Nil)
+    def updateClassFile (oldStream: java.io.InputStream, newStream: java.io.InputStream)
 
-        val method = MethodDeclaration (clazz, BytecodeAccessFlags.ACC_PUBLIC, "finalize", void, Nil)
+    def addArchive (stream: java.io.InputStream)
 
-        database.methodDeclarations += method
-        assertEquals (
-            List (
-                method
-            ),
-            analysis.asList
-        )
-    }
-
-
-    @Test
-    def trueNegative () {
-        val database : BytecodeDatabase = null
-        //val database = ASMDatabaseFactory.create ()
-        //import database._
-        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
-
-        val clazz = ClassDeclaration (0, 0, ObjectType ("test/Test"), Some (Object), Nil)
-
-        val method = MethodDeclaration (clazz, BytecodeAccessFlags.ACC_PROTECTED, "finalize", void, Nil)
-
-        database.methodDeclarations += method
-        assertEquals (
-            Nil,
-            analysis.asList
-        )
-    }
+    def removeArchive (stream: java.io.InputStream)
 
 }

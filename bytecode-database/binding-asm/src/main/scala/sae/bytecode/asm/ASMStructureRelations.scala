@@ -30,25 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode.asm
+
+import idb.SetExtent
 
 /**
  *
  * @author Ralf Mitschke
  */
-
-
-trait CodeAttribute
+trait ASMStructureRelations
+    extends ASMStructure
 {
-    //def declaringMethod: MethodDeclaration
 
-    type ExceptionHandler
+    lazy val classDeclarations: SetExtent[ClassDeclaration] =
+        SetExtent.empty[ClassDeclaration]()
 
-    def codeLength: Int
+    lazy val methodDeclarations: SetExtent[MethodDeclaration]=
+        SetExtent.empty[MethodDeclaration]()
 
-    def maxStack: Int
+    lazy val fieldDeclarations: SetExtent[FieldDeclaration]=
+        SetExtent.empty[FieldDeclaration]()
 
-    def maxLocals: Int
-
-    def exceptionHandlers: Seq[ExceptionHandler]
 }
