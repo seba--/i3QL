@@ -32,13 +32,14 @@
  */
 package idb.algebra.opt
 
-import org.junit.{Ignore, Test}
-import org.junit.Assert._
-import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, LiftAll}
 import idb.algebra.TestUtils
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
-import idb.algebra.print.{RelationalAlgebraPrintPlanBasicOperators, RelationalAlgebraPrintPlan}
+import idb.lms.extensions.operations.OptionOpsExp
+import org.junit.Assert._
+import org.junit.{Ignore, Test}
+import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, LiftAll}
 
 /**
  *
@@ -51,13 +52,16 @@ class TestIROptPushSelection
     with RelationalAlgebraPrintPlanBasicOperators
     with ScalaOpsPkgExpAlphaEquivalence
     with StructExp
+    with StaticDataExp
+    with OptionOpsExp
     with TupledFunctionsExp
     with LiftAll
     with TestUtils
 {
 
     // needs binding for printing relation
-    override val IR : this.type = this
+    override val IR: this.type = this
+
     override def reset { super.reset }
 
     @Test
@@ -77,12 +81,12 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionOverProjectionConditionalInt () {
-        val f1 = fun((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
-        val f2 = fun((x: Rep[Boolean]) => x)
+        val f1 = fun ((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
+        val f2 = fun ((x: Rep[Boolean]) => x)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) =>  f2 (f1 (x)) // if (x > 0) unit (true) else unit (false) // x > 0
+        val f3 = (x: Rep[Int]) => f2 (f1 (x)) // if (x > 0) unit (true) else unit (false) // x > 0
 
         val expB = projection (selection (emptyRelation[Int](), f3), f1)
 
@@ -93,9 +97,9 @@ class TestIROptPushSelection
     @Ignore // needs tupled functions
     @Test
     def testSelectionOverProjectionSimpleTuple () {
-        val f1 = fun((x: Rep[Int]) => (x, x > 0))
+        val f1 = fun ((x: Rep[Int]) => (x, x > 0))
 
-        val f2 = fun((x: Rep[(Int, Boolean)]) => x._2)
+        val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 
@@ -110,8 +114,8 @@ class TestIROptPushSelection
     @Ignore // needs tupled functions
     @Test
     def testSelectionOverProjectionConditionalTuple () {
-        val f1 = fun((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
-        val f2 = fun((x: Rep[(Int, Boolean)]) => x._2)
+        val f1 = fun ((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
+        val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
 

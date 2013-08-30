@@ -32,9 +32,10 @@
  */
 package idb.lms.extensions
 
+import idb.lms.extensions.operations.OptionOpsExp
 import idb.lms.extensions.print.QuoteFunction
-import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 import junit.framework.Assert
+import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 
 /**
  *
@@ -43,6 +44,8 @@ import junit.framework.Assert
 trait LMSTestUtils
     extends ScalaOpsPkgExp
     with StructExp
+    with StaticDataExp
+    with OptionOpsExp
     with TupledFunctionsExp
     with FunctionUtils
 {
@@ -52,7 +55,7 @@ trait LMSTestUtils
         val IR: LMSTestUtils.this.type = LMSTestUtils.this
     }
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
+    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
         val expectedString = printer.quoteFunction (a)
         val actualString = printer.quoteFunction (b)
         val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
@@ -62,11 +65,11 @@ trait LMSTestUtils
     }
 
 
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1=>B1], b: Rep[A2 => B2]) {
+    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
         val expectedString = printer.quoteFunction (a)
         val actualString = printer.quoteFunction (b)
         val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals(b)) {
+        if (a.equals (b)) {
             Assert.fail (message)
         }
     }

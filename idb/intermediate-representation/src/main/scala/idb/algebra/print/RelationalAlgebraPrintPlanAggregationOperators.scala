@@ -32,10 +32,11 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
-import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
-import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
+import idb.algebra.ir.RelationalAlgebraIRAggregationOperators
 import idb.lms.extensions.FunctionUtils
+import idb.lms.extensions.operations.OptionOpsExp
+import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
+import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 
 /**
  *
@@ -47,26 +48,25 @@ trait RelationalAlgebraPrintPlanAggregationOperators
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRAggregationOperators
+    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with TupledFunctionsExp with
+        FunctionUtils with RelationalAlgebraIRAggregationOperators
 
 
-
-    import IR.Exp
-    import IR.Def
-    import IR.Grouping
     import IR.AggregationSelfMaintainedWithoutGrouping
-
+    import IR.Def
+    import IR.Exp
+    import IR.Grouping
 
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def(Grouping(relation, grouping)) =>
+            case Def (Grouping (relation, grouping)) =>
                 withIndent ("grouping(" + "\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (grouping) + "\n") +
                     withIndent (")")
 
-            case Def(AggregationSelfMaintainedWithoutGrouping(relation, start, added, removed, updated)) =>
+            case Def (AggregationSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)) =>
                 withIndent ("aggregation(" + "\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (start + "\n") +
@@ -75,15 +75,15 @@ trait RelationalAlgebraPrintPlanAggregationOperators
                     withMoreIndent (quoteFunction (updated) + "\n") +
                     withIndent (")")
 
-         /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
-                withIndent ("aggregation(" + "\n") +
-                    withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (quoteFunction (grouping) + ",\n") +
-                    withMoreIndent (quoteFunction (added) + ",\n") +
-                    withMoreIndent (quoteFunction (removed) + ",\n") +
-                    withMoreIndent (quoteFunction (updated) + ",\n") +
-                    withMoreIndent (quoteFunction (convert) + "\n") +
-                    withIndent (")")*/
+            /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
+                   withIndent ("aggregation(" + "\n") +
+                       withMoreIndent (quoteRelation (relation) + ",\n") +
+                       withMoreIndent (quoteFunction (grouping) + ",\n") +
+                       withMoreIndent (quoteFunction (added) + ",\n") +
+                       withMoreIndent (quoteFunction (removed) + ",\n") +
+                       withMoreIndent (quoteFunction (updated) + ",\n") +
+                       withMoreIndent (quoteFunction (convert) + "\n") +
+                       withIndent (")")*/
 
             case _ => super.quoteRelation (x)
         }

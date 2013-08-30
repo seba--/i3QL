@@ -30,33 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.compilation
+package idb.lms.extensions.equivalence
 
-import idb.algebra.compiler._
-import scala.virtualization.lms.common._
-import idb.lms.extensions.operations.ScalaGenOptionOps
+import idb.lms.extensions.operations.OptionOpsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-object CompilerBinding
-    extends RelationalAlgebraGenBasicOperatorsAsIncremental
-	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
-	with RelationalAlgebraGenAggregationOperatorsAsIncremental
-	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-    with RelationalAlgebraGenSAEBinding
-    with ScalaGenStaticData
-    with ScalaGenOptionOps
-    with ScalaCodeGenPkg
-    with ScalaGenStruct
-    with ScalaGenTupledFunctions
+
+trait OptionOpsExpAlphaEquivalence
+    extends OptionOpsExp
+    with BaseExpAlphaEquivalence
 {
-    override val IR = idb.syntax.iql.IR
 
-    override type Block[+T] = IR.Block[T]
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (Def(SomeNew (x)), Def(SomeNew (y))) =>
+                    isEquivalent(x,y)
+            case (Def(OptionIsEmpty (x)), Def(OptionIsEmpty (y))) =>
+                isEquivalent(x,y)
+            case (Def(OptionIsDefined (x)), Def(OptionIsDefined (y))) =>
+                isEquivalent(x,y)
+            case (Def(OptionGet (x)), Def(OptionGet (y))) =>
+                isEquivalent(x,y)
 
-    override def reset {
-        super.reset // TODO how should this be implemented correctly?
-    }
+            case (Def(OptionGetOrElse (x,dx)), Def(OptionGetOrElse (y, dy))) =>
+                isEquivalent(x,y) && isEquivalent(dx,dy)
+
+            case _ => super.isEquivalent (a, b)
+        }
+
+
 }
