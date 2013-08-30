@@ -41,15 +41,13 @@ import scala.virtualization.lms.common.StructExp
  */
 trait BytecodeStructureOps
     extends BytecodeStructure
+    with BytecodeStructureManifests
+    with BytecodeTypeManifests
 {
 
     val IR: StructExp
 
     import IR._
-
-    implicit val mc = classDeclarationManifest
-
-    implicit val mm = methodDeclarationManifest
 
     implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]) =
         ClassDeclarationInfixOps (c)

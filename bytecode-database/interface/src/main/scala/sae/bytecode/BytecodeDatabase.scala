@@ -38,9 +38,13 @@ package sae.bytecode
  * @author Ralf Mitschke
  */
 trait BytecodeDatabase
-    extends BytecodeStructureRelations
-    with BytecodeStructureOps
+    extends BytecodeTypes
+    with BytecodeTypeManifests
     with BytecodeTypeConstructors
+    with BytecodeStructure
+    with BytecodeStructureManifests
+    with BytecodeStructureOps
+    with BytecodeStructureRelations
     with BytecodeDatabaseManipulation
 {
 

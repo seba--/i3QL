@@ -41,30 +41,30 @@ trait BytecodeTypes
 
     type Type
 
-    implicit def typeManifest: Manifest[Type]
+    def getTypeManifest: Manifest[Type]
 
     type PrimitiveType <: Type
 
-    implicit def primitiveTypeManifest: Manifest[PrimitiveType]
+    def getPrimitiveTypeManifest: Manifest[PrimitiveType]
 
     type VoidType <: Type
 
-    implicit def voidTypeManifest: Manifest[VoidType]
+    def getVoidTypeManifest: Manifest[VoidType]
 
     type FieldType <: Type
 
-    implicit def fieldTypeManifest: Manifest[FieldType]
+    def getFieldTypeManifest: Manifest[FieldType]
 
     type ReferenceType <: Type
 
-    implicit def referenceTypeManifest: Manifest[ReferenceType]
+    def getReferenceTypeManifest: Manifest[ReferenceType]
 
     type ObjectType <: ReferenceType
 
-    implicit def objectTypeManifest: Manifest[ObjectType]
+    def getObjectTypeManifest: Manifest[ObjectType]
 
     type ArrayType[+V] <: ReferenceType
 
-    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]]
+    def getArrayTypeManifest[V]: Manifest[ArrayType[V]]
 
 }

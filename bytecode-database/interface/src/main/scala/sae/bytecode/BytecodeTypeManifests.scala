@@ -30,58 +30,28 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
-
-import scala.virtualization.lms.common.{FunctionsExp, StaticDataExp}
-import org.objectweb.asm.Type
-import sae.bytecode.BytecodeTypeConstructors
+package sae.bytecode
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait ASMTypeConstructors
-    extends BytecodeTypeConstructors
-    with ASMTypes
+trait BytecodeTypeManifests
+    extends BytecodeTypes
 {
-    override val IR: StaticDataExp with FunctionsExp
 
-    import IR._
+    implicit val typeManifest: Manifest[Type] = getTypeManifest
 
-    override def void: Rep[VoidType] = staticData (Type.VOID_TYPE)
+    implicit val primitiveTypeManifest: Manifest[PrimitiveType] = getPrimitiveTypeManifest
 
-    override def char: Rep[PrimitiveType] = staticData (Type.CHAR_TYPE)
+    implicit val voidTypeManifest: Manifest[VoidType] = getVoidTypeManifest
 
-    override def boolean: Rep[PrimitiveType] = staticData (Type.BOOLEAN_TYPE)
+    implicit val fieldTypeManifest: Manifest[FieldType] = getFieldTypeManifest
 
-    override def byte: Rep[PrimitiveType] = staticData (Type.BYTE_TYPE)
+    implicit val referenceTypeManifest: Manifest[ReferenceType] = getReferenceTypeManifest
 
-    override def short: Rep[PrimitiveType] = staticData (Type.SHORT_TYPE)
+    implicit val objectTypeManifest: Manifest[ObjectType] = getObjectTypeManifest
 
-    override def int: Rep[PrimitiveType] = staticData (Type.INT_TYPE)
+    //implicit val arrayTypeManifest: Manifest[ArrayType[Any]] = getArrayTypeManifest[Any]
 
-    override def long: Rep[PrimitiveType] = staticData (Type.LONG_TYPE)
-
-    override def float: Rep[PrimitiveType] = staticData (Type.FLOAT_TYPE)
-
-    override def double: Rep[PrimitiveType] = staticData (Type.DOUBLE_TYPE)
-
-
-    private val objectType: Rep[String => ObjectType] = staticData (
-        (s: String) => Type.getObjectType (s)
-    )
-
-    override def ObjectType (desc: Rep[String]): Rep[ObjectType] = objectType (desc)
-
-
-    /*
-    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
-    */
-    /*
-    case class ASMTypeInfixOps(t:Rep[Type]) {
-
-        def getObjectType(desc: Rep[String]) =
-
-    }
-    */
 }

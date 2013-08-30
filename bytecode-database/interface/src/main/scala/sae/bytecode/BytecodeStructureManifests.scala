@@ -30,58 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm
+package sae.bytecode
 
-import scala.virtualization.lms.common.{FunctionsExp, StaticDataExp}
-import org.objectweb.asm.Type
-import sae.bytecode.BytecodeTypeConstructors
+import scala.language.implicitConversions
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait ASMTypeConstructors
-    extends BytecodeTypeConstructors
-    with ASMTypes
+trait BytecodeStructureManifests
+    extends BytecodeStructure
 {
-    override val IR: StaticDataExp with FunctionsExp
 
-    import IR._
+    implicit val classDeclarationManifest: Manifest[ClassDeclaration] = getClassDeclarationManifest
 
-    override def void: Rep[VoidType] = staticData (Type.VOID_TYPE)
+    implicit val declaredClassMemberManifest: Manifest[DeclaredClassMember] = getDeclaredClassMemberManifest
 
-    override def char: Rep[PrimitiveType] = staticData (Type.CHAR_TYPE)
+    implicit val methodInfoManifest: Manifest[MethodInfo] = getMethodInfoManifest
 
-    override def boolean: Rep[PrimitiveType] = staticData (Type.BOOLEAN_TYPE)
+    implicit val fieldInfoManifest: Manifest[FieldInfo] = getFieldInfoManifest
 
-    override def byte: Rep[PrimitiveType] = staticData (Type.BYTE_TYPE)
+    implicit val methodDeclarationManifest: Manifest[MethodDeclaration] = getMethodDeclarationManifest
 
-    override def short: Rep[PrimitiveType] = staticData (Type.SHORT_TYPE)
-
-    override def int: Rep[PrimitiveType] = staticData (Type.INT_TYPE)
-
-    override def long: Rep[PrimitiveType] = staticData (Type.LONG_TYPE)
-
-    override def float: Rep[PrimitiveType] = staticData (Type.FLOAT_TYPE)
-
-    override def double: Rep[PrimitiveType] = staticData (Type.DOUBLE_TYPE)
-
-
-    private val objectType: Rep[String => ObjectType] = staticData (
-        (s: String) => Type.getObjectType (s)
-    )
-
-    override def ObjectType (desc: Rep[String]): Rep[ObjectType] = objectType (desc)
-
-
-    /*
-    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
-    */
-    /*
-    case class ASMTypeInfixOps(t:Rep[Type]) {
-
-        def getObjectType(desc: Rep[String]) =
-
-    }
-    */
+    implicit val fieldDeclarationManifest: Manifest[FieldDeclaration] = getFieldDeclarationManifest
 }

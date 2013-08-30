@@ -44,25 +44,25 @@ trait BytecodeStructure
 
     type ClassDeclaration
 
-    def classDeclarationManifest: Manifest[ClassDeclaration]
+    def getClassDeclarationManifest: Manifest[ClassDeclaration]
 
     type DeclaredClassMember
 
-    def declaredClassMemberManifest: Manifest[DeclaredClassMember]
+    def getDeclaredClassMemberManifest: Manifest[DeclaredClassMember]
 
     type MethodInfo
 
-    def methodInfoManifest: Manifest[MethodInfo]
+    def getMethodInfoManifest: Manifest[MethodInfo]
 
     type FieldInfo
 
-    def fieldInfoManifest: Manifest[FieldInfo]
+    def getFieldInfoManifest: Manifest[FieldInfo]
 
     type MethodDeclaration <: DeclaredClassMember with MethodInfo
 
-    def methodDeclarationManifest: Manifest[MethodDeclaration]
+    def getMethodDeclarationManifest: Manifest[MethodDeclaration]
 
     type FieldDeclaration <: DeclaredClassMember with FieldInfo
 
-    def fieldDeclarationManifest: Manifest[FieldDeclaration]
+    def getFieldDeclarationManifest: Manifest[FieldDeclaration]
 }

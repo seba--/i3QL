@@ -43,31 +43,31 @@ trait ASMStructure
 {
     type ClassDeclaration = structure.ClassDeclaration
 
-    def classDeclarationManifest: Manifest[ClassDeclaration] =
+    override def getClassDeclarationManifest: Manifest[ClassDeclaration] =
         manifest[structure.ClassDeclaration]
 
     type DeclaredClassMember = structure.DeclaredClassMember
 
-    def declaredClassMemberManifest: Manifest[DeclaredClassMember] =
+    override def getDeclaredClassMemberManifest: Manifest[DeclaredClassMember] =
         manifest[structure.DeclaredClassMember]
 
     type MethodInfo = structure.MethodInfo
 
-    def methodInfoManifest: Manifest[MethodInfo] =
+    override def getMethodInfoManifest: Manifest[MethodInfo] =
         manifest[structure.MethodInfo]
 
     type FieldInfo = structure.FieldInfo
 
-    def fieldInfoManifest: Manifest[FieldInfo] =
+    override def getFieldInfoManifest: Manifest[FieldInfo] =
         manifest[structure.FieldInfo]
 
     type MethodDeclaration = structure.MethodDeclaration
 
-    def methodDeclarationManifest: Manifest[MethodDeclaration] =
+    override def getMethodDeclarationManifest: Manifest[MethodDeclaration] =
         manifest[structure.MethodDeclaration]
 
     type FieldDeclaration = structure.FieldDeclaration
 
-    def fieldDeclarationManifest: Manifest[FieldDeclaration] =
+    override def getFieldDeclarationManifest: Manifest[FieldDeclaration] =
         manifest[structure.FieldDeclaration]
 }

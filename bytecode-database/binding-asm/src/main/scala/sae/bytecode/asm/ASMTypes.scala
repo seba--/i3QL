@@ -45,30 +45,30 @@ trait ASMTypes
 
     type Type = org.objectweb.asm.Type
 
-    implicit def typeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
+    override def getTypeManifest: Manifest[Type] = manifest[org.objectweb.asm.Type]
 
     type PrimitiveType = org.objectweb.asm.Type
 
-    implicit def primitiveTypeManifest: Manifest[PrimitiveType] = manifest[org.objectweb.asm.Type]
+    override def getPrimitiveTypeManifest: Manifest[PrimitiveType] = manifest[org.objectweb.asm.Type]
 
     type VoidType = org.objectweb.asm.Type
 
-    implicit def voidTypeManifest: Manifest[VoidType] = manifest[org.objectweb.asm.Type]
+    override def getVoidTypeManifest: Manifest[VoidType] = manifest[org.objectweb.asm.Type]
 
     type FieldType = org.objectweb.asm.Type
 
-    implicit def fieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
+    override def getFieldTypeManifest: Manifest[FieldType] = manifest[org.objectweb.asm.Type]
 
     type ReferenceType = org.objectweb.asm.Type
 
-    implicit def referenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
+    override def getReferenceTypeManifest: Manifest[ReferenceType] = manifest[org.objectweb.asm.Type]
 
     type ObjectType = org.objectweb.asm.Type
 
-    implicit def objectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
+    override def getObjectTypeManifest: Manifest[ObjectType] = manifest[org.objectweb.asm.Type]
 
     type ArrayType[+V] = org.objectweb.asm.Type
 
-    implicit def arrayTypeManifest[V]: Manifest[ArrayType[V]] = manifest[org.objectweb.asm.Type]
+    override def getArrayTypeManifest[V]: Manifest[ArrayType[V]] = manifest[org.objectweb.asm.Type]
 
 }
