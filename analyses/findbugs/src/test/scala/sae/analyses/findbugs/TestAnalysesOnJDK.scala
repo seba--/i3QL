@@ -32,7 +32,7 @@
  */
 package sae.analyses.findbugs
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
@@ -49,8 +49,36 @@ class TestAnalysesOnJDK
 
     def getDatabase = ASMDatabaseFactory.create ()
 
+    @Ignore
     @Test
-    def test_FI_PUBLIC_SHOULD_BE_PROTECTED() {
+    def test_CI_CONFUSED_INHERITANCE () {
+        val database = getDatabase
+        val analysis = CI_CONFUSED_INHERITANCE (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (123, analysis.size)
+    }
+
+    @Test
+    def test_CN_IDIOM_NO_SUPER_CALL () {
+        val database = getDatabase
+        val analysis = CN_IDIOM_NO_SUPER_CALL (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (136, analysis.size)
+    }
+
+
+    @Ignore
+    @Test
+    def test_EQ_ABSTRACT_SELF () {
+        val database = getDatabase
+        val analysis = EQ_ABSTRACT_SELF (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (4, analysis.size)
+    }
+
+    @Ignore
+    @Test
+    def test_FI_PUBLIC_SHOULD_BE_PROTECTED () {
         val database = getDatabase
         val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
         database.addArchive (getStream)

@@ -42,17 +42,19 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+
+object CN_IDIOM_NO_SUPER_CALL
 {
 
     def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
         import database._
+
         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.isPublic AND
-                m.name == "finalize" AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
+            NOT (m.isAbstract) AND
+                m.name == "clone" AND
+                m.parameterTypes == Nil AND
+                m.returnType == ObjectType ("java/lang/Object") AND
+                m.declaringClass.superClass.isDefined
             )
     }
-
 }

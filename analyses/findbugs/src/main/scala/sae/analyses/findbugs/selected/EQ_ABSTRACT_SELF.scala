@@ -42,17 +42,15 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+object EQ_ABSTRACT_SELF
 {
-
     def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
         import database._
         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.isPublic AND
-                m.name == "finalize" AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
+            m.isAbstract AND
+                m.name == "equals" AND
+                m.parameterTypes == Seq (m.declaringType) AND
+                m.returnType == boolean
             )
     }
-
 }

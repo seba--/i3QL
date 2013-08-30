@@ -42,17 +42,14 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
-{
 
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
+object CI_CONFUSED_INHERITANCE
+{
+    def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
         import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.isPublic AND
-                m.name == "finalize" AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
+        SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
+            f.isProtected AND
+                f.declaringClass.isFinal
             )
     }
-
 }
