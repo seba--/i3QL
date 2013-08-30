@@ -59,6 +59,15 @@ trait RelationalAlgebraAggregationOperators
 		updated: Rep[( (Domain, Domain, Result) ) => Result]
 	): Rep[Query[Result]]
 
+	def aggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
+		relation: Rep[Query[Domain]],
+		grouping: Rep[Domain => Key],
+		start : Range,
+		added : Rep[((Domain, Range)) => Range],
+		removed : Rep[((Domain, Range)) => Range],
+		updated: Rep[((Domain, Domain, Range)) => Range]
+	): Rep[Query[Range]]
+
 	def grouping[Domain : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Result]

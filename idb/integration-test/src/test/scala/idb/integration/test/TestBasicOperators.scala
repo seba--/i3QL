@@ -172,15 +172,13 @@ class TestBasicOperators
 		assertTrue(query.contains("Student: Jane"))
 	}
 
-	//TODO fix test.
-	@Ignore
 	@Test
 	def testCountStudents() {
 		val query = compile (
 			SELECT (
-	/*			COUNT (
+				COUNT (
 					(s : Rep[Student]) => s
-				) */ *
+				)
 			) FROM
 				students
 		).asMaterialized
@@ -197,7 +195,6 @@ class TestBasicOperators
 
 	}
 
-	//TODO fix test
 	@Test
 	def testSumCreditPoints() {
 		val query = compile (
