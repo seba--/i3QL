@@ -52,63 +52,78 @@ object ClauseToAlgebra
 
     import IR._
 
+	private def applySelectClause1[Select : Manifest, Domain <: Select : Manifest, Range: Manifest](
+		relation : Rep[Query[Domain]],
+		select : SelectClause1[Select, Range]
+	) : Rep[Query[Range]] = {
+		select match {
+			case SelectClause1 (aggregation : AggregateFunction1[Select@unchecked, Range@unchecked], asDistinct) =>
+				distinct (
+					aggregationSelfMaintainedWithoutGrouping (
+						relation,
+						aggregation.start,
+						aggregation.added,
+						aggregation.removed,
+						aggregation.updated
+					),
+					asDistinct
+				)
+			case SelectClause1 (project, asDistinct) =>
+				distinct (
+					projection (
+						relation,
+						project
+					),
+					asDistinct
+				)
+		}
+	}
+
     def apply[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause1 (relation, SelectClause1 (
-            aggregation : AggregateFunction1[Select@unchecked, Range@unchecked],
-            asDistinct)
-            ) =>
-                distinct (
-                    aggregationSelfMaintainedWithoutGrouping (
-                        relation,
-                        aggregation.start,
-                        aggregation.added,
-                        aggregation.removed,
-                        aggregation.updated
-                    ),
-                    asDistinct
+            case FromClause1 (relation, select) =>
+                applySelectClause1 (
+                    relation,
+					select
                 )
 
-            case FromClause1 (relation, SelectClause1 (project, asDistinct)) =>
-                distinct (
-                    projection (
-                        relation,
-                        project
-                    ),
-                    asDistinct
-                )
 
-            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, asDistinct))) =>
-                distinct (
-                    projection (
-                        selection (
-                            relation,
-                            predicate
-                        )(manifest[GroupRange with Domain]), // TODO this is inferred by the compiler, but why?
-                        project
-                    )(manifest[GroupRange with Domain], manifest[Range]),  // TODO this is inferred by the compiler, but why?
-                    asDistinct
-                )
+			case WhereClause1 (predicate, FromClause1 (relation, select)) =>
+				applySelectClause1 (
+					selection (
+						relation,
+						predicate
+					),
+					select
+				)
 
-            case GroupByClause1 (group, FromClause1 (relation, SelectClause1 (project, asDistinct))) =>
-                distinct (projection (grouping (relation, group), project), asDistinct)
+			case GroupByClause1 (group, FromClause1 (relation, select)) =>
+				applySelectClause1 (
+					//TODO Better use aggregation with grouping here
+					grouping (
+						relation,
+						group
+					),
+					select
+				)
 
-            case GroupByClause1 (group,
-            WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, asDistinct)))) =>
-                distinct (projection (grouping (selection (relation, predicate), group), project), asDistinct)
 
-            /*	case GroupByClause1 (group, FromSelect2Clause1 (relation, SelectClause2 (ProjectionFunction2 (project)
-            , asDistinct))) =>
-                    distinct (
-                        projection (
-                            grouping (
-                                relation,
-                                group),
-                            project),
-                        asDistinct)  */
+            case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, select))) =>
+                applySelectClause1 (
+					grouping (
+						selection (
+							relation,
+							predicate
+						),
+						group
+					),
+					select
+				)
+
+
 
         }
 

@@ -308,6 +308,27 @@ object AggregationForSelfMaintainableFunctions {
 		)
 	}
 
+	def apply[Domain, Key, Range] (
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		start : Range,
+		added : ((Domain, Range)) => Range,
+		removed : ((Domain, Range)) => Range,
+		updated: ((Domain, Domain, Range)) => Range,
+		isSet : Boolean
+	): Relation[Range] = {
+		apply (
+			source,
+			grouping,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Key, y : Range) => y),
+			isSet
+		)
+	}
+
 	def apply[Domain, Result](
 		source : Relation[Domain],
      	start : Result,

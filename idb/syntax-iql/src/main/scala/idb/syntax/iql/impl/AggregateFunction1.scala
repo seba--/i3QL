@@ -11,12 +11,12 @@ import idb.syntax.iql._
  * Time: 14:59
  * To change this template use File | Settings | File Templates.
  */
-case class AggregateFunction1[Domain : Manifest, Range : Manifest](
+case class AggregateFunction1[Select : Manifest, Range : Manifest](
 	start : Range,
-	added : Rep[((Domain, Range)) => Range],
-	removed : Rep[((Domain, Range)) => Range],
-	updated : Rep[((Domain, Domain, Range)) => Range]
-) extends AGGREGATE_FUNCTION_1[Domain, Range]
+	added : Rep[((Select, Range)) => Range],
+	removed : Rep[((Select, Range)) => Range],
+	updated : Rep[((Select, Select, Range)) => Range]
+) extends AGGREGATE_FUNCTION_1[Select, Range]
 {
 
 }

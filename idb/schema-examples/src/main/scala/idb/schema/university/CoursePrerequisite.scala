@@ -30,10 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.schema.university
 
+/**
+ *
+ * @author Ralf Mitschke
+ *
+ */
 
-trait FUNCTION_2[-DomainA, -DomainB, Range]
+class CoursePrerequisite
 {
 
 }

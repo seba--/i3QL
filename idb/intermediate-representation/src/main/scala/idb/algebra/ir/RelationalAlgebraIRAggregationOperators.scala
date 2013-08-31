@@ -70,6 +70,19 @@ trait RelationalAlgebraIRAggregationOperators
 		def isIncrementLocal = false
 	}
 
+	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
+		relation: Rep[Query[Domain]],
+		grouping: Rep[Domain => Key],
+		start : Range,
+		added : Rep[((Domain, Range)) => Range],
+		removed : Rep[((Domain, Range)) => Range],
+		updated: Rep[((Domain, Domain, Range)) => Range]
+	) extends  Def[Query[Range]] with QueryBaseOps {
+		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
+		def isSet = false
+		def isIncrementLocal = false
+	}
+
 	case class Grouping[Domain : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Result]
@@ -90,19 +103,29 @@ trait RelationalAlgebraIRAggregationOperators
     ): Rep[Query[Result]] =
         AggregationSelfMaintained (relation, grouping, start, added, removed, updated, convert)
 
-	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
+	def aggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
+		 relation: Rep[Query[Domain]],
+		 grouping: Rep[Domain => Key],
+		 start : Range,
+		 added : Rep[((Domain, Range)) => Range],
+		 removed : Rep[((Domain, Range)) => Range],
+		 updated: Rep[((Domain, Domain, Range)) => Range]
+	): Rep[Query[Range]] =
+		AggregationSelfMaintainedWithoutConvert (relation, grouping, start, added, removed, updated)
+
+	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
-		start : Result,
-		added : Rep[((Domain, Result)) => Result],
-		removed : Rep[((Domain, Result)) => Result],
-		updated: Rep[( (Domain, Domain, Result) ) => Result]
-	): Rep[Query[Result]] =
+		start : Range,
+		added : Rep[((Domain, Range)) => Range],
+		removed : Rep[((Domain, Range)) => Range],
+		updated: Rep[( (Domain, Domain, Range) ) => Range]
+	): Rep[Query[Range]] =
 		AggregationSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)
 
-	def grouping[Domain : Manifest, Result : Manifest] (
+	def grouping[Domain : Manifest, Range : Manifest] (
 		relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Result]
-	): Rep[Query[Result]] =
+		grouping : Rep[Domain => Range]
+	): Rep[Query[Range]] =
 		Grouping (relation,grouping)
 }
 
