@@ -30,12 +30,12 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs
+package sae.analyses.findbugs.selected
 
-import org.junit.{Ignore, Test}
-import org.junit.Assert._
-import sae.bytecode.ASMDatabaseFactory
-import sae.analyses.findbugs.selected._
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -43,46 +43,17 @@ import sae.analyses.findbugs.selected._
  *
  */
 
-class TestAnalysesOnJDK
+object CN_IDIOM
 {
-    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
+    def apply(database: BytecodeDatabase): Relation[database.ObjectType] = {
+        import database._
+        val cloneable = ObjectType("java/lang/Cloneable")
 
-    def getDatabase = ASMDatabaseFactory.create ()
-
-    @Ignore
-    @Test
-    def test_CI_CONFUSED_INHERITANCE () {
-        val database = getDatabase
-        val analysis = CI_CONFUSED_INHERITANCE (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (123, analysis.size)
+        SELECT (*) FROM (subTypes) WHERE NOT (
+            EXISTS (
+                SELECT (*) FROM (implementersOfCloneAsType) WHERE (thisClass === thisClass)
+            )
+        )
     }
 
-    @Ignore // TODO note correct yet
-    @Test
-    def test_CN_IDIOM_NO_SUPER_CALL () {
-        val database = getDatabase
-        val analysis = CN_IDIOM_NO_SUPER_CALL (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (136, analysis.size)
-    }
-
-
-    @Ignore
-    @Test
-    def test_EQ_ABSTRACT_SELF () {
-        val database = getDatabase
-        val analysis = EQ_ABSTRACT_SELF (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (4, analysis.size)
-    }
-
-    @Ignore
-    @Test
-    def test_FI_PUBLIC_SHOULD_BE_PROTECTED () {
-        val database = getDatabase
-        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (20, analysis.size)
-    }
 }

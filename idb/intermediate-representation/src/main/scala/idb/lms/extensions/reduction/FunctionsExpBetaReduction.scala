@@ -32,8 +32,8 @@
  */
 package idb.lms.extensions.reduction
 
-import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
 import scala.reflect.SourceContext
+import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
 
 /**
  *
@@ -65,4 +65,10 @@ trait FunctionsExpBetaReduction
         case _ => super.doApply (f, x)
     }
 
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
+        e match {
+            case Apply (s, a) => Apply (f (s), f (a))
+            case Reflect(Apply (s, a), sum, deps) => reflectEffect(Apply (f (s), f (a)))
+            case _ => super.mirror (e, f)
+        }
 }
