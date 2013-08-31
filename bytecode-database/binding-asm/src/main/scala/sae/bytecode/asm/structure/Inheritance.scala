@@ -30,31 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.structure
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
+
+trait Inheritance
+    extends TypeRelation
+{
+    def declaringClass: ClassDeclaration
+
+    def superType: Type
+
+    def subType: Type = declaringClass.classType
+}
+
+
+object Inheritance
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    def apply (theDeclaringClass: ClassDeclaration, theSuperType: Type): Inheritance = new Inheritance
+    {
+        def declaringClass = theDeclaringClass
+
+        def superType = theSuperType
+    }
+
 }

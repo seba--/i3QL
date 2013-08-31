@@ -30,10 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.base
 
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
+import sae.bytecode.types.BytecodeTypeManifests
 
 /**
  *
@@ -72,7 +73,7 @@ trait BytecodeStructureOps
 
         def classType: Rep[ObjectType] = field[ObjectType](c, "classType")
 
-        def superClass: Rep[Option[ObjectType]] = field[Option[ObjectType]](c, "superClass")
+        def superType: Rep[Option[ObjectType]] = field[Option[ObjectType]](c, "superType")
 
         def interfaces: Rep[Seq[ObjectType]] = field[Seq[ObjectType]](c, "interfaces")
 

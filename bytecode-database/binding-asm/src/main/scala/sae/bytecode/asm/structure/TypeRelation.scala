@@ -30,46 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.structure
 
-import scala.virtualization.lms.common.Base
+import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeTypeConstructors
-    extends BytecodeTypes
+
+trait TypeRelation
 {
-    val IR: Base
+    def subType: Type
 
-    import IR._
+    def superType: Type
+}
 
-    def void: Rep[VoidType]
 
-    def char: Rep[PrimitiveType]
+object TypeRelation
+{
 
-    def boolean: Rep[PrimitiveType]
+    def apply (theSubType: Type, theSuperType: Type): TypeRelation = new TypeRelation
+    {
+        def subType: Type = theSubType
 
-    def byte: Rep[PrimitiveType]
+        def superType: Type = theSuperType
+    }
 
-    def short: Rep[PrimitiveType]
-
-    def int: Rep[PrimitiveType]
-
-    def long: Rep[PrimitiveType]
-
-    def float: Rep[PrimitiveType]
-
-    def double: Rep[PrimitiveType]
-
-    /**
-     * Constructs a new object type, i.e., a type describing a class.
-     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
-     */
-    def ObjectType (desc: Rep[String]): Rep[ObjectType]
-
-    /*
-    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
-     */
 }

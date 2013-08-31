@@ -30,31 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.derived
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.Base
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
+trait BytecodeStructureDerivedConstructors
+    extends BytecodeStructureDerived
     with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
 {
+    val IR: Base
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    import IR._
+
+    def Inheritance (declaringClass: Rep[ClassDeclaration], superType: Rep[ObjectType]): Rep[Inheritance]
+
+    def TypeRelation (supType: Rep[ObjectType], superType: Rep[ObjectType]): Rep[TypeRelation]
+
 }

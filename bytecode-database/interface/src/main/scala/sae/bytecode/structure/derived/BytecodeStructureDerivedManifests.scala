@@ -30,31 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+package sae.bytecode.structure.derived
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
+
+trait BytecodeStructureDerivedManifests
+    extends BytecodeStructureDerived
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    implicit val inheritanceManifest: Manifest[Inheritance] = getInheritanceManifest
+
+    implicit val typeRelationManifest: Manifest[TypeRelation] = getTypeRelationManifest
 }

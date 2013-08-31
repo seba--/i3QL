@@ -30,9 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.base
 
 import scala.language.implicitConversions
+import sae.bytecode.types.BytecodeTypes
 
 /**
  *

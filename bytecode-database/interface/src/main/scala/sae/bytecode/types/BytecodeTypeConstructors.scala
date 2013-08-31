@@ -30,41 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.types
+
+import scala.virtualization.lms.common.Base
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeTypes
+trait BytecodeTypeConstructors
+    extends BytecodeTypes
 {
+    val IR: Base
 
-    type Type
+    import IR._
 
-    def getTypeManifest: Manifest[Type]
+    def void: Rep[VoidType]
 
-    type PrimitiveType <: Type
+    def char: Rep[PrimitiveType]
 
-    def getPrimitiveTypeManifest: Manifest[PrimitiveType]
+    def boolean: Rep[PrimitiveType]
 
-    type VoidType <: Type
+    def byte: Rep[PrimitiveType]
 
-    def getVoidTypeManifest: Manifest[VoidType]
+    def short: Rep[PrimitiveType]
 
-    type FieldType <: Type
+    def int: Rep[PrimitiveType]
 
-    def getFieldTypeManifest: Manifest[FieldType]
+    def long: Rep[PrimitiveType]
 
-    type ReferenceType <: Type
+    def float: Rep[PrimitiveType]
 
-    def getReferenceTypeManifest: Manifest[ReferenceType]
+    def double: Rep[PrimitiveType]
 
-    type ObjectType <: ReferenceType
+    /**
+     * Constructs a new object type, i.e., a type describing a class.
+     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
+     */
+    def ObjectType (desc: Rep[String]): Rep[ObjectType]
 
-    def getObjectTypeManifest: Manifest[ObjectType]
-
-    type ArrayType[+V] <: ReferenceType
-
-    def getArrayTypeManifest[V]: Manifest[ArrayType[V]]
-
+    /*
+    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
+     */
 }

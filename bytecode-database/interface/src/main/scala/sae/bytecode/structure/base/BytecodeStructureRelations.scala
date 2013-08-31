@@ -30,31 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.base
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+import idb.SetExtent
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
+trait BytecodeStructureRelations
+    extends BytecodeStructure
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    def classDeclarations: SetExtent[ClassDeclaration]
+
+    def methodDeclarations: SetExtent[MethodDeclaration]
+
+    def fieldDeclarations: SetExtent[FieldDeclaration]
+
+    //def codeAttributes: SetExtent[CodeAttribute]
+
+    //def instructions : SetExtent[Instruction]
+
+    //def innerClassAttributes: SetExtent[InnerClassAttribute]
+
+    //def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
 }

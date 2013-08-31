@@ -32,7 +32,7 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.BytecodeTypes
+import sae.bytecode.types.BytecodeTypes
 
 
 /**

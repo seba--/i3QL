@@ -44,7 +44,7 @@ case class ClassDeclaration (
     version: Int,
     accessFlags: Int,
     classType: Type,
-    superClass: Option[Type],
+    superType: Option[Type],
     interfaces: Seq[Type]
 )
 {

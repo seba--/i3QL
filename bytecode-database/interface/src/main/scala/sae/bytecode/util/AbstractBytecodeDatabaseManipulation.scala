@@ -34,7 +34,8 @@ package sae.bytecode.util
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.bytecode.{BytecodeStructureRelations, BytecodeDatabaseManipulation}
+import sae.bytecode.{BytecodeDatabaseManipulation}
+import sae.bytecode.structure.base.BytecodeStructureRelations
 
 /**
  *

@@ -30,31 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.derived
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.StructExp
+import sae.bytecode.structure.base.BytecodeStructureManifests
+import sae.bytecode.types.BytecodeTypeManifests
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
+trait BytecodeStructureDerivedOps
+    extends BytecodeStructureDerived
     with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
+    with BytecodeStructureManifests
+    with BytecodeTypeManifests
 {
+    val IR: StructExp
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    import IR._
+
+
+    implicit def inheritanceToInfixOps (t: Rep[Inheritance]) =
+        InheritanceInfixOps (t)
+
+    case class InheritanceInfixOps (t: Rep[Inheritance])
+    {
+        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](t, "declaringClass")
+
+        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+    }
+
+    implicit def typeRelationToInfixOps (t: Rep[TypeRelation]) =
+        TypeRelationInfixOps (t)
+
+    case class TypeRelationInfixOps (t: Rep[TypeRelation])
+    {
+        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+
+        def subType: Rep[ObjectType] = field[ObjectType](t, "subType")
+    }
+
 }

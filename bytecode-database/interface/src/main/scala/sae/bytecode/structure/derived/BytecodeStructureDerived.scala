@@ -30,28 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.derived
+
+import scala.language.implicitConversions
+import sae.bytecode.structure.base.BytecodeStructure
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeTypeManifests
-    extends BytecodeTypes
+trait BytecodeStructureDerived
+    extends BytecodeStructure
 {
+    type TypeRelation
 
-    implicit val typeManifest: Manifest[Type] = getTypeManifest
+    def getTypeRelationManifest: Manifest[TypeRelation]
 
-    implicit val primitiveTypeManifest: Manifest[PrimitiveType] = getPrimitiveTypeManifest
+    type Inheritance <: TypeRelation
 
-    implicit val voidTypeManifest: Manifest[VoidType] = getVoidTypeManifest
-
-    implicit val fieldTypeManifest: Manifest[FieldType] = getFieldTypeManifest
-
-    implicit val referenceTypeManifest: Manifest[ReferenceType] = getReferenceTypeManifest
-
-    implicit val objectTypeManifest: Manifest[ObjectType] = getObjectTypeManifest
-
-    //implicit val arrayTypeManifest: Manifest[ArrayType[Any]] = getArrayTypeManifest[Any]
+    def getInheritanceManifest: Manifest[Inheritance]
 
 }

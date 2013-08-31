@@ -30,29 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure.base
 
-import idb.SetExtent
+import scala.language.implicitConversions
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureRelations
+trait BytecodeStructureManifests
     extends BytecodeStructure
 {
 
-    def classDeclarations: SetExtent[ClassDeclaration]
+    implicit val classDeclarationManifest: Manifest[ClassDeclaration] = getClassDeclarationManifest
 
-    def methodDeclarations: SetExtent[MethodDeclaration]
+    implicit val declaredClassMemberManifest: Manifest[DeclaredClassMember] = getDeclaredClassMemberManifest
 
-    def fieldDeclarations: SetExtent[FieldDeclaration]
+    implicit val methodInfoManifest: Manifest[MethodInfo] = getMethodInfoManifest
 
-    //def codeAttributes: SetExtent[CodeAttribute]
+    implicit val fieldInfoManifest: Manifest[FieldInfo] = getFieldInfoManifest
 
-    //def instructions : SetExtent[Instruction]
+    implicit val methodDeclarationManifest: Manifest[MethodDeclaration] = getMethodDeclarationManifest
 
-    //def innerClassAttributes: SetExtent[InnerClassAttribute]
-
-    //def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
+    implicit val fieldDeclarationManifest: Manifest[FieldDeclaration] = getFieldDeclarationManifest
 }

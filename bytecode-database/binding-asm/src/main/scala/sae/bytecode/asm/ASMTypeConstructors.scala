@@ -34,7 +34,7 @@ package sae.bytecode.asm
 
 import scala.virtualization.lms.common.{FunctionsExp, StaticDataExp}
 import org.objectweb.asm.Type
-import sae.bytecode.BytecodeTypeConstructors
+import sae.bytecode.types.BytecodeTypeConstructors
 
 /**
  *

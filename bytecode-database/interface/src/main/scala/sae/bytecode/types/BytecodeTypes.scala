@@ -30,27 +30,41 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import scala.language.implicitConversions
+package sae.bytecode.types
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructureManifests
-    extends BytecodeStructure
+trait BytecodeTypes
 {
 
-    implicit val classDeclarationManifest: Manifest[ClassDeclaration] = getClassDeclarationManifest
+    type Type
 
-    implicit val declaredClassMemberManifest: Manifest[DeclaredClassMember] = getDeclaredClassMemberManifest
+    def getTypeManifest: Manifest[Type]
 
-    implicit val methodInfoManifest: Manifest[MethodInfo] = getMethodInfoManifest
+    type PrimitiveType <: Type
 
-    implicit val fieldInfoManifest: Manifest[FieldInfo] = getFieldInfoManifest
+    def getPrimitiveTypeManifest: Manifest[PrimitiveType]
 
-    implicit val methodDeclarationManifest: Manifest[MethodDeclaration] = getMethodDeclarationManifest
+    type VoidType <: Type
 
-    implicit val fieldDeclarationManifest: Manifest[FieldDeclaration] = getFieldDeclarationManifest
+    def getVoidTypeManifest: Manifest[VoidType]
+
+    type FieldType <: Type
+
+    def getFieldTypeManifest: Manifest[FieldType]
+
+    type ReferenceType <: Type
+
+    def getReferenceTypeManifest: Manifest[ReferenceType]
+
+    type ObjectType <: ReferenceType
+
+    def getObjectTypeManifest: Manifest[ObjectType]
+
+    type ArrayType[+V] <: ReferenceType
+
+    def getArrayTypeManifest[V]: Manifest[ArrayType[V]]
+
 }

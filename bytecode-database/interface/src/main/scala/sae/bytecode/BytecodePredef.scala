@@ -32,6 +32,8 @@
  */
 package sae.bytecode
 
+import sae.bytecode.types.BytecodeTypeConstructors
+
 /**
  *
  * @author Ralf Mitschke

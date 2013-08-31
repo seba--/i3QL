@@ -30,31 +30,28 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-
+package sae.bytecode.types
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
+trait BytecodeTypeManifests
     extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeDatabaseManipulation
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    implicit val typeManifest: Manifest[Type] = getTypeManifest
+
+    implicit val primitiveTypeManifest: Manifest[PrimitiveType] = getPrimitiveTypeManifest
+
+    implicit val voidTypeManifest: Manifest[VoidType] = getVoidTypeManifest
+
+    implicit val fieldTypeManifest: Manifest[FieldType] = getFieldTypeManifest
+
+    implicit val referenceTypeManifest: Manifest[ReferenceType] = getReferenceTypeManifest
+
+    implicit val objectTypeManifest: Manifest[ObjectType] = getObjectTypeManifest
+
+    //implicit val arrayTypeManifest: Manifest[ArrayType[Any]] = getArrayTypeManifest[Any]
+
 }
