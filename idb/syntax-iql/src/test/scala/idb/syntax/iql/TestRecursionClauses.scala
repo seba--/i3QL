@@ -32,10 +32,12 @@
  */
 package idb.syntax.iql
 
-import org.junit.Test
+import TestUtil.assertEqualStructure
 import UniversityDatabase._
 import idb.schema.university._
-
+import idb.syntax.iql.IR._
+import org.junit.{Ignore, Test}
+import scala.language.implicitConversions
 
 /**
  *
@@ -46,12 +48,38 @@ import idb.schema.university._
 class TestRecursionClauses
 {
 
+
+    @Ignore
     @Test
-    def testSimpleRecursion() {
-        WITH RECURSIVE(
+    def testTransitiveClosureAsRecursion () {
+        // TODO actually works, but due to the replacement of syms in recursion,
+        // the subexpressions are not deemd the same
+        val query =
+            WITH RECURSIVE (
+                (temp: Rep[Query[CoursePrerequisite]]) =>
+                    SELECT (*) FROM prerequisites
+                        UNION ALL (
+                        SELECT (
+                            (p1: Rep[CoursePrerequisite], p2: Rep[CoursePrerequisite]) =>
+                                UniversityDatabase.CoursePrerequisite (p1.course, p2.prerequisite)
+                        ) FROM(temp, temp) WHERE (_.prerequisite == _.course)
+                    )
+                )
 
-            )
+        val base = plan (SELECT (*) FROM prerequisites)
+        val rec = plan (SELECT (
+            (p1: Rep[CoursePrerequisite], p2: Rep[CoursePrerequisite]) =>
+                UniversityDatabase.CoursePrerequisite (p1.course, p2.prerequisite)
+        ) FROM(base, base) WHERE (_.prerequisite == _.course)
+        )
 
+        assertEqualStructure (
+            recursion (
+                base,
+                rec
+            ),
+            query
+        )
     }
 
 }

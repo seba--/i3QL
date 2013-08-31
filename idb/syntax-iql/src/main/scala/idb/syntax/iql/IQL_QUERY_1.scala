@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -40,7 +41,5 @@ package idb.syntax.iql
 trait IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     extends IQL_SUB_QUERY[Range]
 {
-
-
 
 }

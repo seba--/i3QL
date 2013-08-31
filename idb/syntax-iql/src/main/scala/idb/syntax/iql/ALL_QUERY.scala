@@ -30,30 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.syntax.iql
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRAggregationOperators,
-RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.OptionOpsExp
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.syntax.iql.IR._
 
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraPrintPlan
-    extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
+trait ALL_QUERY[Range]
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators
+    def query : Rep[Query[Range]]
 
 }

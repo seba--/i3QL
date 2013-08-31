@@ -32,28 +32,43 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRAggregationOperators,
-RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
 import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.OptionOpsExp
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
-
+import idb.lms.extensions.print.CodeGenIndent
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlan
+trait RelationalAlgebraPrintPlanRecursiveOperators
     extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
+    with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators
+    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with
+        RelationalAlgebraIRRecursiveOperators
+
+
+    import IR.Def
+    import IR.Exp
+    import IR.Recursion
+
+
+    override def quoteRelation (x: Exp[Any]): String =
+        x match {
+            case Def (Recursion (base, recursion)) =>
+                withIndent ("Recursion(" + "\n") +
+                    withMoreIndent (quoteRelation (base) + ",\n") +
+                    withMoreIndent (withIndent(recursion.toString) + "\n") +
+                    withIndent (")")
+
+            case _ => {
+                // TODO would be nice to decorate all relations with they syms, so we can see the target ref in
+                // recursion
+                super.quoteRelation (x) + "[ref=" + x + "]"
+            }
+        }
+
 
 }

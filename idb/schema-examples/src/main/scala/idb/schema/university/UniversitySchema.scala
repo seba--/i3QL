@@ -48,5 +48,6 @@ trait UniversitySchema
     with LectureSchema
     with StudentSchema
     with RegistrationSchema
+    with CoursePrerequisiteSchema
 {
 }

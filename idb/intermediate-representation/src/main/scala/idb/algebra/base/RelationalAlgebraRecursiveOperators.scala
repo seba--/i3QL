@@ -52,4 +52,9 @@ trait RelationalAlgebraRecursiveOperators
 	    base : Rep[Query[Domain]],
 		result : Rep[Query[Domain]]
 	): Rep[Query[Domain]]
+
+    def recursionNode[Domain : Manifest] (
+        base : Rep[Query[Domain]],
+        result : Rep[Query[Domain]]
+        ): Rep[Query[Domain]]
 }

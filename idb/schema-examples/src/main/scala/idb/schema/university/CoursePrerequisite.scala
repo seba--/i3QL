@@ -32,13 +32,42 @@
  */
 package idb.schema.university
 
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-class CoursePrerequisite
-{
+case class CoursePrerequisite (
+    course: Course,
+    prerequisite: Course
+)
 
+trait CoursePrerequisiteSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def CoursePrerequisite (
+        course: Rep[Course],
+        prerequisite: Rep[Course]
+    ) =
+        struct[CoursePrerequisite](
+            ClassTag[CoursePrerequisite]("CoursePrerequisite"),
+            Map ("course" -> course,
+                "prerequisite" -> prerequisite)
+        )
+
+    case class CoursePrerequisiteInfixOps (c: Rep[CoursePrerequisite])
+    {
+        def course: Rep[Course] = field[Course](c, "course")
+
+        def prerequisite: Rep[Course] = field[Course](c, "prerequisite")
+    }
+
+    implicit def coursePrerequisiteToInfixOps (c: Rep[CoursePrerequisite]) =
+        CoursePrerequisiteInfixOps (c)
 }

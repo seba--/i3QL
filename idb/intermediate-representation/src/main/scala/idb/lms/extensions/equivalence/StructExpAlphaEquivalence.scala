@@ -51,6 +51,21 @@ trait StructExpAlphaEquivalence
             case (Def (Field (s1, i1, t1)), Def (Field (s2, i2, t2))) =>
                 i1 == i2 && t1 == t2 && isEquivalent (s1, s2)
 
+            case (Def (SimpleStruct (tag1, map1)), Def (SimpleStruct (tag2, map2))) => {
+                if (tag1 != tag2)
+                {
+                    return false
+                }
+                map1.zip (map2).foreach (
+                    pair => {
+                        if (pair._1._1 != pair._2._1 ||
+                            !isEquivalent (pair._1._2, pair._2._2)
+                        ) return false
+                    }
+                )
+                true
+            }
+
             case _ => super.isEquivalent (a, b)
         }
 

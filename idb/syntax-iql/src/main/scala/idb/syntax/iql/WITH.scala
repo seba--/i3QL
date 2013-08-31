@@ -43,7 +43,29 @@ import idb.syntax.iql.IR._
 object WITH
 {
 
-    def RECURSIVE[Domain: Manifest](base : Rep[Query[Domain]], recursion : Rep[Query[Domain]) =
-        null
-
+    def RECURSIVE[Domain: Manifest] (
+        recursionFactory: Rep[Query[Domain]] => Rep[Query[Domain]]
+    ): Rep[Query[Domain]] = {
+        val recursionSym: Rep[Query[Domain]] = recursionNode (null, null)
+        val recursionDef =
+            recursionSym match {
+                case Def (n@Recursion (_, _)) => n
+            }
+        val query = recursionFactory (recursionSym)
+        query match {
+            case Def (UnionAdd (base, result)) => {
+                if (!findSyms (base)(Predef.Set (recursionSym)).isEmpty) {
+                    throw new
+                            IllegalArgumentException (
+                                "Found recursive references in base query. WITH RECURSIVE expects a query in the form" +
+                                    " 'base UNION ALL recursive', where base is non-recursive")
+                }
+                recursionDef.base = base
+                recursionDef.result = result
+            }
+            case _ => throw new
+                    IllegalArgumentException ("WITH RECURSIVE expects a query in the form 'base UNION ALL recursive'")
+        }
+        recursionDef.result
+    }
 }

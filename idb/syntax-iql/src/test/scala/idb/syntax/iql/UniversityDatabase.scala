@@ -60,5 +60,5 @@ object UniversityDatabase
 
     val students: Extent[Student] = BagExtent.empty
 
-
+    val prerequisites: Extent[CoursePrerequisite] = BagExtent.empty
 }
