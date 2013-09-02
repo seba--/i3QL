@@ -48,6 +48,19 @@ trait BaseAlphaEquivalence
 
     def isEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming): Boolean
 
+
+    def isEquivalentSeq[A, B] (
+        xsa: Seq[Rep[A]], xsb: Seq[Rep[B]]
+    )(
+        implicit renamings: VariableRenamings = emptyRenaming
+    ): Boolean = {
+        xsa.zip (xsb).foreach (p =>
+            if (!isEquivalent (p._1, p._2))
+                return false
+        )
+        true
+    }
+
     /**
      * Captures a set of possible reanmings for variables
      * Variable renamings are always commutative, i.e., adding a renaming (a, b) is equivalent to adding (b, a) and

@@ -59,6 +59,7 @@ trait RelationalAlgebraPrintPlanBasicOperators
     import IR.Exp
     import IR.Projection
     import IR.Selection
+    import IR.Unnest
 
 
     override def quoteRelation (x: Exp[Any]): String =
@@ -102,6 +103,12 @@ trait RelationalAlgebraPrintPlanBasicOperators
             case Def (DuplicateElimination (relation)) =>
                 withIndent ("duplicateElimination(" + "\n") +
                     withMoreIndent (quoteRelation (relation) + "\n") +
+                    withIndent (")")
+
+           case Def (Unnest (relation, function)) =>
+                withIndent ("unnest(" + "\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
+                    withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>

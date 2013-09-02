@@ -45,6 +45,8 @@ import idb.lms.extensions.simplification.BooleanOpsExpSimplification
 trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
     with ScalaOpsPkgExpAlphaEquivalence
+    with StructExpAlphaEquivalence
+    with TupledFunctionsExpAlphaEquivalence
     with StaticDataExpAlphaEquivalence
     with OptionOpsExpAlphaEquivalence
     with FunctionsExpDynamicLambdaAlphaEquivalence

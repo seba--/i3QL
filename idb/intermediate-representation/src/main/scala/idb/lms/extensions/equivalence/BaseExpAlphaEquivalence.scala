@@ -35,6 +35,7 @@ package idb.lms.extensions.equivalence
 import scala.virtualization.lms.common.BaseExp
 import scala.collection.mutable
 import scala.reflect.SourceContext
+import scala.virtualization.lms.internal.Effects
 
 /**
  *
@@ -45,6 +46,7 @@ import scala.reflect.SourceContext
 trait BaseExpAlphaEquivalence
     extends BaseExp
     with BaseAlphaEquivalence
+    with Effects
 {
 
     type VarExp[+T] = Sym[T]
@@ -53,6 +55,13 @@ trait BaseExpAlphaEquivalence
         (a, b) match {
             case (Const (x), Const (y)) => x == y
             //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
+
+                // TODO this is not true, we need an equivalence on defs, and not on exp here
+            case (Def (Reflect (x1, summary1, deps1)), Def (Reflect (x2, summary2, deps2))) =>
+                x1 == x2 && isEquivalentSeq (deps1, deps2)
+
+            case (Def (Reify (x1, summary1, effects1)), Def (Reify (x2, summary2, effects2))) =>
+                isEquivalent (x1, x2) && isEquivalentSeq (effects1, effects2)
 
             case (Def (x), Def (y)) if x.getClass.isAssignableFrom (y.getClass) || y.getClass
                 .isAssignableFrom (x.getClass) =>

@@ -74,6 +74,13 @@ trait TupledFunctionsExpBetaReduction
         case _ => super.doApply (f, x)
     }
 
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
+        e match {
+            case Apply (s, UnboxedTuple(xs)) => Apply (f (s), UnboxedTuple(f(xs)))
+            case Reflect(Apply (s, UnboxedTuple(xs)), sum, deps) => reflectEffect(Apply (f (s), UnboxedTuple(f(xs))))
+            case _ => super.mirror (e, f)
+        }
+
 
     override def tuple2_get1[A] (t: Exp[Tuple2[A, _]])
             (implicit evidence$85: Manifest[A], pos: SourceContext): Rep[A] =

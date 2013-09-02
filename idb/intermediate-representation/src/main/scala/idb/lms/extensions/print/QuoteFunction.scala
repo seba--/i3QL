@@ -74,7 +74,6 @@ trait QuoteFunction
                         stream.print ("(" + quote (x) + ": " + x.tp + ")")
                     }
                 }
-            }
                 stream.print (": " + returnType(f))
                 stream.println (" => {")
                 addIndent ()
@@ -84,7 +83,13 @@ trait QuoteFunction
                 removeIndent ()
                 stream.print (indent)
                 stream.print ("}")
+            }
+
+            case _ => "f(x: " + f.tp.typeArguments(0) + "): " + f.tp.typeArguments(1)
+
         }
+
+
         stream.close ()
         writer.toString
     }
