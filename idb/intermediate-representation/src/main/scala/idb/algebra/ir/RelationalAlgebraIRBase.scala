@@ -64,7 +64,7 @@ trait RelationalAlgebraIRBase
         def isMaterialized: Boolean
     }
 
-    abstract class QueryBase[Domain: Manifest] extends QueryBaseOps
+    abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
 
     def domainOf[T] (relation: Rep[Query[T]]): Manifest[Any] =
         relation.tp.typeArguments (0).asInstanceOf[Manifest[Any]]

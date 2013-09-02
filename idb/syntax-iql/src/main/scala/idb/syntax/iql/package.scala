@@ -57,6 +57,10 @@ package object iql
     implicit def queryToInfixOps[Range: Manifest] (query: Rep[Query[Range]]) =
         QueryInfixOps (query)
 
+    implicit def relationToInfixOps[Range: Manifest] (query: Relation[Range]) =
+        QueryInfixOps (relation(query))
+
+
     implicit def clause1ToInfixOps[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]

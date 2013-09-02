@@ -30,7 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.syntax.iql
+
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -38,40 +40,13 @@ package idb.algebra.base
  *
  */
 
-trait RelationalAlgebraBasicOperators
-    extends RelationalAlgebraBase
+object UNNEST
 {
-    def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]]
 
-
-    def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]]
-
-
-    def crossProduct[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]]
-
-
-    def equiJoin[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): Rep[Query[(DomainA, DomainB)]]
-
-	def duplicateElimination[Domain : Manifest] (
-		relation: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
-
-	def unnest[Domain: Manifest, Range: Manifest] (
-		relation: Rep[Query[Domain]],
-		unnesting: Rep[Domain => Traversable[Range]]
-	): Rep[Query[(Domain,Range)]]
+    def apply[Domain: Manifest, Range: Manifest] (
+        query: Rep[Query[Domain]],
+        unnesting: Rep[Domain] => Rep[Traversable[Range]]
+    ) =
+        unnest (query, unnesting)
 
 }

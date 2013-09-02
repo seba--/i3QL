@@ -35,14 +35,12 @@ package idb.operators
 import idb.Relation
 
 
-trait UnNest[Range, UnNestRange, Domain <: Range]
-    extends Relation[Range]
+trait UnNest[Domain, Range]
+    extends Relation[(Domain,Range)]
 {
     def relation: Relation[Domain]
 
-    def unNestFunction: Domain => Traversable[UnNestRange]
-
-    def projection: (Domain, UnNestRange) => Range
+    def unNestFunction: Domain => Traversable[Range]
 
     override protected def children = List (relation)
 

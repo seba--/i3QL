@@ -99,8 +99,8 @@ trait RelationalAlgebraIRBasicOperators
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
         var relation: Rep[Query[Domain]],
-        unnesting: Rep[Domain => Seq[Range]]
-    ) extends Def[Query[Range]] with QueryBaseOps {
+        unnesting: Rep[Domain => Traversable[Range]]
+    ) extends Def[Query[(Domain,Range)]] with QueryBaseOps {
 
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
@@ -140,8 +140,8 @@ trait RelationalAlgebraIRBasicOperators
 
    def unnest[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
-        unnesting: Rep[Domain => Seq[Range]]
-    ): Rep[Query[Range]] =
+        unnesting: Rep[Domain => Traversable[Range]]
+    ): Rep[Query[(Domain, Range)]] =
         Unnest (relation, unnesting)
 
 }

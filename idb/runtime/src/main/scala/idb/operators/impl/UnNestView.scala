@@ -33,30 +33,31 @@
 package idb.operators.impl
 
 import idb.Relation
-import idb.operators.UnNest
 import idb.observer.{Observable, NotifyObservers, Observer}
+import idb.operators.UnNest
 
 
-class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
-                                                      val unNestFunction: Domain => Seq[UnNestRange],
-                                                      val projection: (Domain, UnNestRange) => Range,
-													  override val isSet : Boolean)
-    extends UnNest[Range, UnNestRange, Domain]
+class UnNestView[Domain, Range] (
+    val relation: Relation[Domain],
+    val unNestFunction: Domain => Traversable[Range],
+    override val isSet: Boolean
+)
+    extends UnNest[Domain, Range]
     with Observer[Domain]
-	with NotifyObservers[Range]
+    with NotifyObservers[(Domain, Range)]
 {
 
     relation.addObserver (this)
 
-	override def lazyInitialize() {
+    override def lazyInitialize () {
 
-	}
+    }
 
-    override def endTransaction() {
+    override def endTransaction () {
         notify_endTransaction ()
     }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)
         }
@@ -66,36 +67,41 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: (Range) => T) {
+    def foreach[T] (f: ((Domain, Range)) => T) {
         relation.foreach ((v: Domain) =>
-            unNestFunction (v).foreach ((u: UnNestRange) =>
-                f (projection (v, u))
+            unNestFunction (v).foreach ((u: Range) =>
+                f ((v, u))
             )
         )
     }
 
 
-    // TODO we could try and see whether the returned un-nesting are equal, but it is not
-    def updated(oldV: Domain, newV: Domain) {
+    def updated (oldV: Domain, newV: Domain) {
         removed (oldV)
         added (newV)
     }
 
-    def removed(v: Domain) {
-        unNestFunction (v).foreach ((u: UnNestRange) =>
-            notify_removed (projection (v, u))
+    def removed (v: Domain) {
+        unNestFunction (v).foreach ((u: Range) =>
+            notify_removed ((v, u))
         )
     }
 
-    def added(v: Domain) {
-        unNestFunction (v).foreach ((u: UnNestRange) =>
-			notify_added (projection (v, u))
+    def added (v: Domain) {
+        unNestFunction (v).foreach ((u: Range) =>
+            notify_added ((v, u))
         )
     }
 }
 
-object UnNestView {
-	def apply[Domain <: Range, Range](relation : Relation[Domain], unNestFunction : Domain => Seq[Range], isSet : Boolean) : UnNestView[Range,Range,Domain] = {
-		return new UnNestView[Range,Range,Domain](relation,unNestFunction,(d, r) => r, isSet)
-	}
+object UnNestView
+{
+    def apply[Domain, Range] (
+        relation: Relation[Domain],
+        unNestFunction: Domain => Traversable[Range],
+        isSet: Boolean
+    ): UnNestView[Domain, Range] = {
+        new UnNestView[Domain, Range](relation, unNestFunction, isSet)
+    }
+
 }
