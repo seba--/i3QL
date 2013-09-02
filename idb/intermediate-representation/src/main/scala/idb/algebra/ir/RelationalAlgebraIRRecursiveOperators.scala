@@ -76,6 +76,18 @@ trait RelationalAlgebraIRRecursiveOperators
         def isIncrementLocal = false
     }
 
+    case class RecursionResult[Domain: Manifest] (
+        var result: Rep[Query[Domain]],
+        var source: Rep[Query[Domain]]
+    ) extends Def[Query[Domain]] with QueryBaseOps
+    {
+        def isMaterialized: Boolean = result.isMaterialized
+
+        def isSet = result.isSet
+
+        def isIncrementLocal = result.isIncrementLocal
+    }
+
 
     def transitiveClosure[Edge: Manifest, Vertex: Manifest] (
         relation: Rep[Query[Edge]],
@@ -89,7 +101,7 @@ trait RelationalAlgebraIRRecursiveOperators
         result: Rep[Query[Domain]]
     ): Rep[Query[Domain]] = {
         insertRecursionAtBase (result, base, result, (x: Rep[Query[Domain]]) => {})
-        return result
+        recursionResult(result, base)
     }
 
     def recursionNode[Domain: Manifest] (
@@ -97,6 +109,12 @@ trait RelationalAlgebraIRRecursiveOperators
         result: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
         Recursion (base, result)
+
+    def recursionResult[Domain: Manifest] (
+        result: Rep[Query[Domain]],
+        source: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        RecursionResult(result,source)
 
     /**
      * Searches the recursion base in a operator tree and inserts a recursion node next-to-last to the recursion base.

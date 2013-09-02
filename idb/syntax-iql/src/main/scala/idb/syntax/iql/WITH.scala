@@ -61,7 +61,7 @@ object WITH
                                     " 'base UNION ALL recursive', where base is non-recursive")
                 }
                 recursionDef.base = base
-                recursionDef.result = result
+                recursionDef.result = recursionResult( result, recursionSym)
             }
             case _ => throw new
                     IllegalArgumentException ("WITH RECURSIVE expects a query in the form 'base UNION ALL recursive'")

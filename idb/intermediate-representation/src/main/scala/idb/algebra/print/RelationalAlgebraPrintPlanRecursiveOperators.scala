@@ -53,6 +53,7 @@ trait RelationalAlgebraPrintPlanRecursiveOperators
     import IR.Def
     import IR.Exp
     import IR.Recursion
+    import IR.RecursionResult
 
 
     override def quoteRelation (x: Exp[Any]): String =
@@ -63,9 +64,13 @@ trait RelationalAlgebraPrintPlanRecursiveOperators
                     withMoreIndent (withIndent(recursion.toString) + "\n") +
                     withIndent (")")
 
+            case Def (RecursionResult (result, _)) =>
+                withIndent ("RecursionResult(" + "\n") +
+                    withMoreIndent (quoteRelation (result) + "\n") +
+                    withIndent (")")
+
+
             case _ => {
-                // TODO would be nice to decorate all relations with they syms, so we can see the target ref in
-                // recursion
                 super.quoteRelation (x) + "[ref=" + x + "]"
             }
         }

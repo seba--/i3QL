@@ -67,8 +67,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 	import IR.AggregationSelfMaintainedWithoutConvert
     import IR.Grouping
 
-    // TODO incorporate set semantics into ir
-    override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
             case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvert)) => {
                 if (e.isIncrementLocal)

@@ -32,60 +32,27 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
-import idb.lms.extensions.CompileScalaExt
-import idb.operators.impl._
-import idb.operators.impl.opt._
-import scala.virtualization.lms.common.ScalaGenEffect
-import scala.virtualization.lms.common.FunctionsExp
-import idb.MaterializedView
+import idb.algebra.ir.RelationalAlgebraIRBase
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
+trait RelationalAlgebraGenCacheAll
     extends RelationalAlgebraGenBaseAsIncremental
-    with CompileScalaExt
-    with ScalaGenEffect
+    with RelationalAlgebraGenQueryCache
 {
 
-    val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraGenSAEBinding
-		with FunctionsExp
+    val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
 
     import IR._
 
+
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
-        query match {
-
-			case Def (e@UnionAdd (a, b)) => {
-				new UnionViewAdd (compile (a), compile (b), false)
-			}
-			case Def (e@UnionMax (a, b)) => {
-				if(e.isIncrementLocal)
-					new TransactionalUnionMaxView(compile (a) , compile (b) , false)
-				else
-					new UnionViewMax (compile (a) .asInstanceOf[MaterializedView[Domain]], compile (b) .asInstanceOf[MaterializedView[Domain]], false)
-			}
-			case Def (e@Intersection (a, b)) => {
-				if (e.isIncrementLocal)
-					new TransactionalIntersectionView (compile (a), compile (b), false)
-				else
-					new IntersectionView (compile (a).asInstanceOf[MaterializedView[Domain]], compile (b).asInstanceOf[MaterializedView[Domain]], false)
-			}
-			case Def (e@Difference (a, b)) => {
-				if (e.isIncrementLocal)
-					new TransactionalDifferenceView (compile (a), compile (b), false)
-				else
-					new DifferenceView (compile (a), compile (b), false)
-			}
-
-            case _ => super.compile (query)
-        }
+        val result = super.compile(query)
+        queryCache += (query -> result)
+        result
     }
 
 }

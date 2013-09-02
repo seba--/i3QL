@@ -53,8 +53,23 @@ trait RelationalAlgebraRecursiveOperators
 		result : Rep[Query[Domain]]
 	): Rep[Query[Domain]]
 
+    /**
+     * A recursion node is an ast node that denotes that elements from result will enter the computation recursively.
+     * New results are added until a fix point is reached.
+     */
     def recursionNode[Domain : Manifest] (
         base : Rep[Query[Domain]],
         result : Rep[Query[Domain]]
         ): Rep[Query[Domain]]
+
+    /**
+     * A recursion result is a special ast node.
+     * It denotes that the query will enter a recursion and thus we are not allowed to make general optimizations.
+     * For example, fusing projections would be illegal, since the type of the fused projection is not anymore
+     * the type required for entering the recursion again.
+     */
+    def recursionResult[Domain: Manifest] (
+        query: Rep[Query[Domain]],
+        source: Rep[Query[Domain]]
+    ): Rep[Query[Domain]]
 }

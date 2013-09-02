@@ -61,7 +61,7 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     import IR._
 
     // TODO incorporate set semantics into ir
-    override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
             case Def (Selection (r, f)) => {
                 new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)

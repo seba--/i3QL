@@ -46,6 +46,7 @@ object CompilerBinding
 	with RelationalAlgebraGenAggregationOperatorsAsIncremental
 	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
     with RelationalAlgebraGenSAEBinding
+    with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
     with ScalaCodeGenPkg

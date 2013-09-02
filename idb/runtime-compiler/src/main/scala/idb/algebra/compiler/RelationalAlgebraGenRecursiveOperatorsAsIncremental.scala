@@ -32,13 +32,11 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
-import idb.operators.impl.opt._
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
-import idb.MaterializedView
 
 /**
  *
@@ -46,33 +44,49 @@ import idb.MaterializedView
  */
 trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
+    with RelationalAlgebraGenQueryCache
     with CompileScalaExt
     with ScalaGenEffect
 {
 
     val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraGenSAEBinding
-		with FunctionsExp
+        with RelationalAlgebraIRRecursiveOperators
+        with RelationalAlgebraGenSAEBinding
+        with FunctionsExp
 
-    import IR._
+    import IR.Rep
+    import IR.Def
+    import IR.Query
+    import IR.Relation
+    import IR.Recursion
+    import IR.RecursionResult
 
-    // TODO incorporate set semantics into ir
-    override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
+
+    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
+            /*
+        case Def (e@TransitiveClosure (r, h, t)) => {
+            if(e.isIncrementLocal)
+                new TransactionalCyclicTransitiveClosureView(
+                    compile (r) (e.mEdge),
+                    compileFunctionWithDynamicManifests(h),
+                    compileFunctionWithDynamicManifests(t),
+                    false).asInstanceOf[Relation[Domain]]
+            else
+                new AcyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h),
+                compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
+        }*/
 
-			case Def (e@TransitiveClosure (r, h, t)) => {
-				if(e.isIncrementLocal)
-					new TransactionalCyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
-				else
-					new AcyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
-			}
-			case Def (Recursion (b, r)) => {
-                // TODO this will recursively call compile on the query in endless loop
-				RecursiveDRed(compile (b), compile (r), isSet = false)
-			}
+            case Def (Recursion (b, Def (RecursionResult (r, _)))) => {
+                compile (b)
+
+            }
+
+            case Def (RecursionResult (r, Def(s : Recursion[_]))) => {
+                val result = compile (r)
+                val base = getRelation (s.base)
+                RecursiveDRed (base, result, isSet = false)
+            }
 
             case _ => super.compile (query)
         }
