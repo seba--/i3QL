@@ -30,18 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
+import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
- *
+ * @author Ralf Mitschke, Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_1[Domain, Range]
-    extends Rep[Domain => Range]
+case class SelectClause[Select: Manifest, Range: Manifest] (
+    function: Rep[Select => Range],
+    asDistinct: Boolean = false
+)
+    extends SELECT_CLAUSE[Select, Range]
 {
+
+    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
+        FromClause1 (relation, this)
+
+
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ) = FromClause2 (relationA,relationB,this)
 
 }

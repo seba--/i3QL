@@ -35,8 +35,7 @@ package idb.syntax.iql.planning
 import idb.syntax.iql.impl._
 import idb.syntax.iql.impl.SelectClause3
 import idb.syntax.iql.impl.SelectClause4
-import idb.syntax.iql.impl.SelectClause1
-import idb.syntax.iql.impl.SelectClause2
+import idb.syntax.iql.impl.SelectClause
 
 /**
  *

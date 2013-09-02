@@ -58,7 +58,7 @@ trait PlanWhereClause
 
 
     def transform[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        clause: WhereClause2[_, _, DomainA, DomainB, Range],
+        clause: WhereClause2[ _, DomainA, DomainB, Range],
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =

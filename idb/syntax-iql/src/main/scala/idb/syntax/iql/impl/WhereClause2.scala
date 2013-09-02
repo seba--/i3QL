@@ -41,16 +41,16 @@ import idb.syntax.iql._
  *
  * @author Ralf Mitschke
  */
-case class WhereClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+case class WhereClause2[Select : Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
     predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
-    fromClause: FromClause2[SelectA, SelectB, DomainA, DomainB, Range]
+    fromClause: FromClause2[Select, DomainA, DomainB, Range]
 )
-    extends WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
-//	with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
+    extends WHERE_CLAUSE_2[Select, DomainA, DomainB, Range]
+	with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
 {
-	def GROUP (
-		grouping: (Rep[DomainA], Rep[DomainB]) => Rep[(SelectA, SelectB)]
-	): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
-		GroupByClause2[(SelectA,SelectB), DomainA, DomainB, Range](grouping, this)
+	def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupRange : Manifest] (
+		grouping: (Rep[GroupDomainA], Rep[GroupDomainB]) => Rep[GroupRange]
+   	): GROUP_BY_CLAUSE_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range] =
+		GroupByClause2 (grouping, this)
 
 }

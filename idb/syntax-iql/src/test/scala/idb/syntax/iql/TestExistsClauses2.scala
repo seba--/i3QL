@@ -36,7 +36,7 @@ import TestUtil.assertEqualStructure
 import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import scala.language.implicitConversions
 
 
@@ -47,7 +47,7 @@ import scala.language.implicitConversions
 class TestExistsClauses2
 {
 
-
+	@Ignore
     @Test
     def testExists () {
         val query = plan (
@@ -76,7 +76,8 @@ class TestExistsClauses2
 
     }
 
-    @Test
+	@Ignore
+	@Test
     def testExistsWithOneOuterConjunction () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
@@ -105,7 +106,7 @@ class TestExistsClauses2
 
     }
 
-
+	@Ignore
     @Test
     def testExistsWithMultipleOuterConjunctions () {
         val query = plan (
@@ -137,7 +138,7 @@ class TestExistsClauses2
 
     }
 
-
+	@Ignore
     @Test
     def testExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (
@@ -169,7 +170,7 @@ class TestExistsClauses2
 
     }
 
-
+	@Ignore
     @Test
     def testNotExists () {
         val query = plan (
@@ -200,6 +201,7 @@ class TestExistsClauses2
 
     }
 
+	@Ignore
     @Test
     def testNotExistsWithOneOuterConjunction () {
         val query = plan (
@@ -231,7 +233,7 @@ class TestExistsClauses2
 
     }
 
-
+	@Ignore
     @Test
     def testNotExistsWithMultipleOuterConjunctions () {
         val query = plan (
@@ -265,7 +267,7 @@ class TestExistsClauses2
 
     }
 
-
+	@Ignore
     @Test
     def testNotExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (

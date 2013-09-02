@@ -1,8 +1,8 @@
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.{CAN_GROUP_CLAUSE_1, GROUPED_FROM_CLAUSE_1, IR, GROUP_BY_CLAUSE_1}
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql.{GROUP_BY_CLAUSE_1, CAN_GROUP_CLAUSE_1}
 
 /**
  * Created with IntelliJ IDEA.

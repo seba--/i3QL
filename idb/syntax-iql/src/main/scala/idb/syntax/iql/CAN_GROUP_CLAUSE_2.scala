@@ -36,11 +36,11 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-trait CAN_GROUP_CLAUSE_2[Group, DomainA, DomainB, Range]
+trait CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
 {
-    def GROUP (
-        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Group]
-    ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range]
+    def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupRange : Manifest] (
+        grouping: (Rep[GroupDomainA], Rep[GroupDomainB]) => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
 }

@@ -38,21 +38,21 @@ import idb.syntax.iql.impl._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object SELECT
 {
 
-    def apply[Domain: Manifest, Range: Manifest] (
-        projection: Rep[Domain] => Rep[Range]
-    ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (projection)
+    def apply[Select : Manifest, Range : Manifest] (
+        projection: Rep[Select] => Rep[Range]
+    ): SELECT_CLAUSE[Select, Range] =
+        SelectClause (projection)
 
 
-    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
-    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
-        SelectClause2 (projection)
+    def apply[SelectA : Manifest, SelectB : Manifest, Range: Manifest] (
+        projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
+    ): SELECT_CLAUSE[(SelectA, SelectB), Range] =
+        SelectClause ( (v : Rep[(SelectA, SelectB)]) => projection(v._1,v._2) )
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
@@ -78,14 +78,14 @@ object SELECT
 
     def DISTINCT[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
-    ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (projection, asDistinct = true)
+    ): SELECT_CLAUSE[Domain, Range] =
+        SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
-    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
-        SelectClause2 (projection, asDistinct = true)
+    ): SELECT_CLAUSE[(DomainA, DomainB), Range] =
+        SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
@@ -112,28 +112,28 @@ object SELECT
 
 
     def apply[Domain: Manifest, Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
-    ): SELECT_CLAUSE_1[Domain, Range] =
-        SelectClause1 (aggregation, asDistinct = false)
+        aggregation: AGGREGATE_FUNCTION[Domain, Range]
+    ): SELECT_CLAUSE[Domain, Range] =
+        SelectClause (aggregation, asDistinct = false)
 
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, Domain: Manifest, Range: Manifest] (
         groupColumns: Rep[GroupKey] => Rep[GroupRange],
-        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
-    ): SELECT_CLAUSE_1[Domain, (GroupRange, Range)] =
+        aggregation: AGGREGATE_FUNCTION[Domain, Range]
+    ): SELECT_CLAUSE[Domain, (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
 
 
-    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+  /*  def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
-    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+    ): SELECT_CLAUSE[(DomainA, DomainB), Range] =
         throw new UnsupportedOperationException ()
 
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         groupColumns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
-    ): SELECT_CLAUSE_2[DomainA, DomainB, (GroupRange, Range)] =
+    ): SELECT_CLAUSE[(DomainA, DomainB), (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
 
 
@@ -178,7 +178,7 @@ object SELECT
         groupColumns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
     ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, (GroupRange, Range)] =
-        throw new UnsupportedOperationException ()
+        throw new UnsupportedOperationException ()   */
 
 
     def apply[Range: Manifest] (

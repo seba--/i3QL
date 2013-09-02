@@ -35,14 +35,13 @@ package idb.syntax.iql
 import idb.syntax.iql.IR._
 
 /**
- * A SELECT clause is a grouped SELECT clause if there is an aggregation and a projection function.
- * @author Ralf Mitschke
+ *
+ * @author Mirko Köhler
+ *
  */
-trait GROUPED_SELECT_CLAUSE_1[Select, Group, Range]
-{
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): GROUPED_FROM_CLAUSE_1[Group, Domain, Range]
+trait AGGREGATE_FUNCTION[Domain, Range]
+    extends Rep[Domain => Range]
+{
 
 }
