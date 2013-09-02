@@ -45,20 +45,19 @@ trait SeqOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (SeqNew (xs)), Def (SeqNew (ys))) => {
-                xs.zip (ys).foreach (pair => if(!isEquivalent (pair._1, pair._2)) return false)
-                true
+            case (SeqNew (xs), SeqNew (ys)) => {
+                isEquivalentSeq (xs, ys)
             }
 
-            case (Def (SeqLength (x)), Def (SeqLength (y))) =>
+            case (SeqLength (x), SeqLength (y)) =>
                 isEquivalent (x, y)
 
-            case (Def (SeqApply (x, n)), Def (SeqApply (y, m))) =>
+            case (SeqApply (x, n), SeqApply (y, m)) =>
                 isEquivalent (x, y) && isEquivalent (n, m)
 
-            case _ => super.isEquivalent (a, b)
+            case _ => super.isEquivalentDef (a, b)
         }
 
 

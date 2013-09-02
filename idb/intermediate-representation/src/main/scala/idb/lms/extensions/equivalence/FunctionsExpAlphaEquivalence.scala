@@ -48,21 +48,21 @@ trait FunctionsExpAlphaEquivalence
     with FunctionUtils
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (fa@Lambda (_, xa: Sym[_], ba)), Def (fb@Lambda (_, xb: Sym[_], bb))) =>
+            case (fa@Lambda (_, xa: Sym[_], ba), fb@Lambda (_, xb: Sym[_], bb)) =>
                 // functions need to have the same return type
                 // while there is such a thing as allowing covariance in inheritance,
                 // we can not generate the same function with a covariant type in a totally different place
-                returnType(fa) == returnType(fb)  && xa.tp == xb.tp && (
+                returnType (fa) == returnType (fb) && xa.tp == xb.tp && (
                     // either same variable is used, or we add a renaming
                     (xa == xb && isEquivalent (ba.res, bb.res)) || isEquivalent (ba.res, bb.res)(renamings.add (xa, xb))
                     )
 
-            case (Def (Apply (fa, xa)), Def (Apply (fb, xb))) =>
+            case (Apply (fa, xa), Apply (fb, xb)) =>
                 isEquivalent (xa, xb) && isEquivalent (fa, fb)
 
-            case _ => super.isEquivalent (a, b)
+            case _ => super.isEquivalentDef (a, b)
         }
 
 

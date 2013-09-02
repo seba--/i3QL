@@ -45,7 +45,7 @@ trait MiscOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+        super.isEquivalentDef (a, b) // TODO implement this
 
 }

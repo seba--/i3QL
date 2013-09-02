@@ -45,9 +45,9 @@ trait TupledFunctionsExpAlphaEquivalence
     with FunctionsExpAlphaEquivalence
     with FunctionUtils
 {
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (fa@Lambda (_, UnboxedTuple (varsA), ba)), Def (fb@Lambda (_, UnboxedTuple (varsB), bb))) =>
+            case (fa@Lambda (_, UnboxedTuple (varsA), ba), fb@Lambda (_, UnboxedTuple (varsB), bb)) =>
                 returnType(fa) == returnType(fb) && (varsA.map(_.tp) == varsB.map(_.tp)) && (
                     (varsA == varsB && isEquivalent (ba.res, bb.res)) ||
                         varsA.size == varsB.size &&
@@ -60,19 +60,18 @@ trait TupledFunctionsExpAlphaEquivalence
                             )
                     )
 
-            case (Def (Lambda (_, _: UnboxedTuple[_], _)), Def (Lambda (_, _: Sym[_], _))) => false
+            case (Lambda (_, _: UnboxedTuple[_], _), Lambda (_, _: Sym[_], _)) => false
 
-            case (Def (Lambda (_, _: Sym[_], _)), Def (Lambda (_, _: UnboxedTuple[_], _))) => false
+            case (Lambda (_, _: Sym[_], _), Lambda (_, _: UnboxedTuple[_], _)) => false
 
-            case (UnboxedTuple(varsA), UnboxedTuple(varsB)) => {
-                varsA.zip(varsB).foreach( pair =>
-                    if(!renamings.canRename(pair._1.asInstanceOf[Sym[_]], pair._2.asInstanceOf[Sym[_]]))
-                        return false
-                )
-                true
-            }
-
-            case _ => super.isEquivalent (a, b)
+            case _ => super.isEquivalentDef (a, b)
         }
 
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (UnboxedTuple(varsA), UnboxedTuple(varsB)) =>
+                isEquivalentSeq(varsA, varsB)
+
+            case _ => super.isEquivalent(a, b)
+        }
 }

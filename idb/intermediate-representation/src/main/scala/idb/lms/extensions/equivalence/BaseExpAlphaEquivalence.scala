@@ -56,26 +56,28 @@ trait BaseExpAlphaEquivalence
             case (Const (x), Const (y)) => x == y
             //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
 
-                // TODO this is not true, we need an equivalence on defs, and not on exp here
             case (Def (Reflect (x1, summary1, deps1)), Def (Reflect (x2, summary2, deps2))) =>
-                x1 == x2 && isEquivalentSeq (deps1, deps2)
+                isEquivalentDef (x1, x2) && isEquivalentSeq (deps1, deps2)
 
             case (Def (Reify (x1, summary1, effects1)), Def (Reify (x2, summary2, effects2))) =>
                 isEquivalent (x1, x2) && isEquivalentSeq (effects1, effects2)
 
-            case (Def (x), Def (y)) if x.getClass.isAssignableFrom (y.getClass) || y.getClass
-                .isAssignableFrom (x.getClass) =>
-                throw new IllegalArgumentException (
-                    "Expression types are unknown to alpha equivalence: " + x + " =?= " + y)
+            case (Def (x), Def (y)) => isEquivalentDef (x, y)
 
             case (x: Sym[_], y: Sym[_]) => x == y || renamings.canRename (x, y)
 
-            case (x: Sym[_], y: Const[_]) => false
-
-            case (x: Const[_], y: Sym[_]) => false
-
             case _ => false
         }
+
+    def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+        if (a.getClass.isAssignableFrom (b.getClass) || b.getClass.isAssignableFrom (a.getClass)) {
+            throw new IllegalArgumentException ("Expression types are unknown to alpha equivalence: " + a + " =?= " + b)
+        }
+        else
+        {
+            false
+        }
+
 
     class MultiMapVariableRenamings ()
         extends VariableRenamings

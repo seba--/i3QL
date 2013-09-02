@@ -45,10 +45,11 @@ trait StaticDataExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (StaticData (x)), Def (StaticData (y))) => x == y
-            case _ => super.isEquivalent (a, b)
+            case (StaticData (x), StaticData (y)) => x == y
+
+            case _ => super.isEquivalentDef (a, b)
         }
 
 }

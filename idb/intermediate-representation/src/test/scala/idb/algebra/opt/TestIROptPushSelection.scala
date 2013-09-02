@@ -130,7 +130,6 @@ class TestIROptPushSelection
     }
 
 
-    @Ignore // equivalence for external function calls not working yet
     @Test
     def testSelectionWithStaticDataFunction() {
         val f1 = staticData( (x:Int) => x > 0)
@@ -147,7 +146,7 @@ class TestIROptPushSelection
         assertEquals (expB, expA)
     }
 
-    @Ignore // equivalence for external function calls not working yet
+
     @Test
     def testSelectionWithTupledStaticDataFunction() {
         val f1 = staticData( (x:(Int,Int)) => x._1 > 0)

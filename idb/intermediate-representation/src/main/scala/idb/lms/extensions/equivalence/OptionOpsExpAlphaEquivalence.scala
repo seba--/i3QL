@@ -45,21 +45,20 @@ trait OptionOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def(SomeNew (x)), Def(SomeNew (y))) =>
-                    isEquivalent(x,y)
-            case (Def(OptionIsEmpty (x)), Def(OptionIsEmpty (y))) =>
-                isEquivalent(x,y)
-            case (Def(OptionIsDefined (x)), Def(OptionIsDefined (y))) =>
-                isEquivalent(x,y)
-            case (Def(OptionGet (x)), Def(OptionGet (y))) =>
-                isEquivalent(x,y)
+            case (SomeNew (x), SomeNew (y)) =>
+                isEquivalent (x, y)
+            case (OptionIsEmpty (x), OptionIsEmpty (y)) =>
+                isEquivalent (x, y)
+            case (OptionIsDefined (x), OptionIsDefined (y)) =>
+                isEquivalent (x, y)
+            case (OptionGet (x), OptionGet (y)) =>
+                isEquivalent (x, y)
+            case (OptionGetOrElse (x, dx), OptionGetOrElse (y, dy)) =>
+                isEquivalent (x, y) && isEquivalent (dx, dy)
 
-            case (Def(OptionGetOrElse (x,dx)), Def(OptionGetOrElse (y, dy))) =>
-                isEquivalent(x,y) && isEquivalent(dx,dy)
-
-            case _ => super.isEquivalent (a, b)
+            case _ => super.isEquivalentDef (a, b)
         }
 
 

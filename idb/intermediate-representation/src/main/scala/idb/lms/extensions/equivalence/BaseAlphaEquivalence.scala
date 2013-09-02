@@ -48,7 +48,6 @@ trait BaseAlphaEquivalence
 
     def isEquivalent[A, B] (a: Rep[A], b: Rep[B])(implicit renamings: VariableRenamings = emptyRenaming): Boolean
 
-
     def isEquivalentSeq[A, B] (
         xsa: Seq[Rep[A]], xsb: Seq[Rep[B]]
     )(

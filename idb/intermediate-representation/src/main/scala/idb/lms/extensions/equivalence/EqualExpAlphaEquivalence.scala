@@ -45,17 +45,17 @@ trait EqualExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (Def (Equal (x1, y1)), Def (Equal (x2, y2))) =>
+            case (Equal (x1, y1), Equal (x2, y2)) =>
                 isEquivalent (x1, x2) &&
                     isEquivalent (y1, y2)
 
-            case (Def (NotEqual (x1, y1)), Def (NotEqual (x2, y2))) =>
+            case (NotEqual (x1, y1), NotEqual (x2, y2)) =>
                 isEquivalent (x1, x2) &&
                     isEquivalent (y1, y2)
 
-            case _ => super.isEquivalent (a, b)
+            case _ => super.isEquivalentDef (a, b)
         }
 
 }
