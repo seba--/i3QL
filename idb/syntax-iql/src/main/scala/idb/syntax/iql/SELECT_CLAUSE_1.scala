@@ -51,6 +51,8 @@ trait SELECT_CLAUSE_1[Select, Range]
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
+	//	with GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
 
 }

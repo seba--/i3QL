@@ -203,7 +203,7 @@ class TestBasicClauses2
     @Test
     def testJoin2SelectionBoth () {
         val query = plan (
-            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+            SELECT (*) FROM (students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
                     s.firstName == "Sally" &&
                     r.courseNumber == 12345

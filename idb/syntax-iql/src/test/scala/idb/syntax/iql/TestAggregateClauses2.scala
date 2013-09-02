@@ -68,7 +68,7 @@ class TestAggregateClauses2
     }
 
 
-    @Ignore
+/*    @Ignore
     @Test
     def testJoin2CountStar () {
         val query = plan (
@@ -76,7 +76,7 @@ class TestAggregateClauses2
                 s.matriculationNumber == r.studentMatriculationNumber
             })
         )
-    }
+    } */
 
     @Test
     def testJoin2AggregateGroup1 () {

@@ -50,10 +50,10 @@ trait AGGREGATE_SELECT_CLAUSE_STAR[Range]
 
 
     // TODO fix this
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
+/*    def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB,DomainA, DomainB, Range]
+    ): FROM_CLAUSE_2[DomainA, DomainB,DomainA, DomainB, Range]*/
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (

@@ -37,9 +37,9 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-case class SelectClause1[Select: Manifest, Range: Manifest] (
+case class SelectClause[Select: Manifest, Range: Manifest] (
     function: Rep[Select => Range],
     asDistinct: Boolean = false
 )
@@ -53,6 +53,6 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ) = FromSelect1Clause2(relationA,relationB,this)
+    ) = FromClause2 (relationA,relationB,this)
 
 }

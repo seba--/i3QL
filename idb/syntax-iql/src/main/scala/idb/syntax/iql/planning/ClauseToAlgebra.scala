@@ -54,10 +54,10 @@ object ClauseToAlgebra
 
 	private def applySelectClause1[Select : Manifest, Domain <: Select : Manifest, Range: Manifest](
 		relation : Rep[Query[Domain]],
-		select : SelectClause1[Select, Range]
+		select : SelectClause[Select, Range]
 	) : Rep[Query[Range]] = {
 		select match {
-			case SelectClause1 (aggregation : AggregateFunction1[Select@unchecked, Range@unchecked], asDistinct) =>
+			case SelectClause (aggregation : AggregateFunction1[Select@unchecked, Range@unchecked], asDistinct) =>
 				distinct (
 					aggregationSelfMaintainedWithoutGrouping (
 						relation,
@@ -68,7 +68,7 @@ object ClauseToAlgebra
 					),
 					asDistinct
 				)
-			case SelectClause1 (project, asDistinct) =>
+			case SelectClause (project, asDistinct) =>
 				distinct (
 					projection (
 						relation,
@@ -127,36 +127,60 @@ object ClauseToAlgebra
 
         }
 
-    def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest,
-    Range: Manifest] (
-        query: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
+    def apply[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest, GroupDomainA : Manifest, GroupDomainB : Manifest,
+	GroupRange <: Select : Manifest, Range: Manifest] (
+        query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause2 (relationA, relationB, SelectClause2 (project, asDistinct)) =>
-                distinct (projection (crossProduct (relationA, relationB), project), asDistinct)
+            case FromClause2 (relationA, relationB, select) =>
+                applySelectClause1 (
+					crossProduct (
+						relationA,
+						relationB
+					),
+					select
+				)
 
-            case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project, asDistinct))) =>
-                distinct (
-                    projection (
+
+            case WhereClause2 (predicate, FromClause2 (relationA, relationB, select)) =>
+                applySelectClause1 (
                         selection (
                             crossProduct (
                                 relationA,
-                                relationB),
-                            predicate),
-                        project),
-                    asDistinct)
-
-            case GroupByClause2 (group,
-            FromSelect1Clause2 (relationA, relationB, SelectClause1 (project, asDistinct))) =>
-                distinct (projection (grouping (crossProduct (relationA, relationB), group), project), asDistinct)
-
-            case GroupByClause2 (group, GroupedWhereClause2 (predicate,
-            FromSelect1Clause2 (relationA, relationB, SelectClause1 (project, asDistinct)))) =>
-                distinct (
-                    projection (grouping (selection (crossProduct (relationA, relationB), predicate), group), project),
-                    asDistinct)
+                                relationB
+							),
+                            predicate
+						),
+					select
+				)
 
 
+            case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
+                applySelectClause1 (
+					grouping (
+						crossProduct (
+							relationA,
+							relationB
+						),
+						group
+					),
+					select
+				)
+
+            case GroupByClause2 (group, WhereClause2 (predicate, FromClause2 (relationA, relationB, select))) =>
+                applySelectClause1 (
+					grouping (
+						selection (
+							crossProduct (
+								relationA,
+								relationB
+							),
+							predicate
+						),
+						group
+					),
+					select
+				)
         }
 
 
