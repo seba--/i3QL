@@ -4,7 +4,7 @@
     <groupId>de.tud.cs.st.sae.analyses</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0</version>
-    <name>parent</name>
+    <name>analyses-parent</name>
     <packaging>pom</packaging>
 
     <url>http://opal-project.org</url>

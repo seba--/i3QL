@@ -10,6 +10,7 @@
     <modules>
         <module>idb</module>
         <module>bytecode-database</module>
+        <module>analyses</module>
     </modules>
 
 </project>

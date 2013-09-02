@@ -4,7 +4,7 @@
     <groupId>de.tud.cs.st.sae.db</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0</version>
-    <name>parent</name>
+    <name>bytecode-database-parent</name>
     <packaging>pom</packaging>
 
     <url>http://opal-project.org</url>

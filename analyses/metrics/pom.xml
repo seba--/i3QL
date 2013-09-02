@@ -11,7 +11,7 @@
 
     <artifactId>metrics</artifactId>
     <version>0.0.1</version>
-    <name>metrics</name>
+    <name>analyses-metrics</name>
     <packaging>jar</packaging>
 
     <dependencies>

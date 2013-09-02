@@ -11,7 +11,7 @@
 
     <artifactId>findbugs</artifactId>
     <version>0.0.1</version>
-    <name>findbugs</name>
+    <name>analyses-findbugs</name>
     <packaging>jar</packaging>
 
     <dependencies>

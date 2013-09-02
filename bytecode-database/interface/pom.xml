@@ -12,7 +12,7 @@
     <version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>interface</name>
+	<name>bytecode-database-interface</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
 	

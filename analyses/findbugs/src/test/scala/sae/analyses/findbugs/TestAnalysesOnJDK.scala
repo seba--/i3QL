@@ -36,6 +36,7 @@ import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
+import idb.algebra.print.RelationalAlgebraPrintPlan
 
 /**
  *
@@ -44,7 +45,10 @@ import sae.analyses.findbugs.selected._
  */
 
 class TestAnalysesOnJDK
+extends RelationalAlgebraPrintPlan
 {
+    val IR = idb.syntax.iql.IR
+
     def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
     def getDatabase = ASMDatabaseFactory.create ()
@@ -56,6 +60,19 @@ class TestAnalysesOnJDK
         val analysis = CI_CONFUSED_INHERITANCE (database).asMaterialized
         database.addArchive (getStream)
         assertEquals (123, analysis.size)
+    }
+
+    // TODO note correct yet
+    @Test
+    def test_CN_IDIOM() {
+        val database = getDatabase
+        val query = CN_IDIOM (database)
+        Predef.println(quoteRelation( query ))
+
+        import database._
+        val analysis = idb.syntax.iql.compilation.CompilerBinding.compile (query).asMaterialized // CN_IDIOM (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (835, analysis.size)
     }
 
     @Ignore // TODO note correct yet

@@ -13,7 +13,7 @@
     <version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>binding-asm</name>
+	<name>bytecode-database-binding-asm</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
 	
