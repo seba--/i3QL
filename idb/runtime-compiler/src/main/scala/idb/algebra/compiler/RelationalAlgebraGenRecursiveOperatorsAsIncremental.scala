@@ -70,7 +70,8 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
 					new AcyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
 			}
 			case Def (Recursion (b, r)) => {
-				RecursiveDRed(compile (b), compile (r), false)
+                // TODO this will recursively call compile on the query in endless loop
+				RecursiveDRed(compile (b), compile (r), isSet = false)
 			}
 
             case _ => super.compile (query)
