@@ -45,15 +45,30 @@ import idb.syntax.iql.IR._
 
 object CN_IDIOM
 {
-    def apply(database: BytecodeDatabase): Relation[database.ObjectType] = {
+    def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
         import database._
-        val cloneable = ObjectType("java/lang/Cloneable")
+        //val Cloneable = ObjectType ("java/lang/Cloneable")
+        //val Object = ObjectType ("java/lang/Object")
 
-        SELECT (*) FROM (subTypes) WHERE NOT (
-            EXISTS (
-                SELECT (*) FROM (implementersOfCloneAsType) WHERE (thisClass === thisClass)
+        //val subTyping1 = BagExtent.empty[TypeRelation]
+        //SELECT ((_: Rep[TypeRelation]).subType) FROM subTyping
+
+
+        SELECT ((_: Rep[TypeRelation]).subType) FROM subTyping WHERE ((t: Rep[TypeRelation]) =>
+            t.superType == ObjectType ("java/lang/Cloneable") AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
+                            m.name == "clone" AND
+                                m.returnType == ObjectType ("java/lang/Object") AND
+                                m.parameterTypes == Nil AND
+                                m.receiverType == t.subType
+                            )
+                    )
+                )
             )
-        )
+
+
     }
 
 }

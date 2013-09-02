@@ -66,11 +66,10 @@ extends RelationalAlgebraPrintPlan
     @Test
     def test_CN_IDIOM() {
         val database = getDatabase
-        val query = CN_IDIOM (database)
-        Predef.println(quoteRelation( query ))
-
-        import database._
-        val analysis = idb.syntax.iql.compilation.CompilerBinding.compile (query).asMaterialized // CN_IDIOM (database).asMaterialized
+        //val query = CN_IDIOM (database)
+        //import database._
+        //val analysis = idb.syntax.iql.compilation.CompilerBinding.compile (query).asMaterialized // CN_IDIOM (database).asMaterialized
+        val analysis = CN_IDIOM (database).asMaterialized
         database.addArchive (getStream)
         assertEquals (835, analysis.size)
     }

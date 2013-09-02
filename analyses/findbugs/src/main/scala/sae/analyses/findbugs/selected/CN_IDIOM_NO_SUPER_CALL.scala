@@ -54,7 +54,7 @@ object CN_IDIOM_NO_SUPER_CALL
                 m.name == "clone" AND
                 m.parameterTypes == Nil AND
                 m.returnType == ObjectType ("java/lang/Object") AND
-                m.declaringClass.superClass.isDefined
+                m.declaringClass.superType.isDefined
             )
     }
 }
