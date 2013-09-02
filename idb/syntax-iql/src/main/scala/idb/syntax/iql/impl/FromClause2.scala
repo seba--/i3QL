@@ -19,7 +19,6 @@ case class FromClause2[Select : Manifest, DomainA: Manifest, DomainB : Manifest,
 )
     extends FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
     with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
-	with GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
 {
 	def WHERE (
 		 predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]

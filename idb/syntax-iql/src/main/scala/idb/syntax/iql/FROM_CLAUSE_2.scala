@@ -36,7 +36,7 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 trait FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
     extends IQL_QUERY_2[Select, DomainA, DomainB, DomainA, DomainB, (DomainA, DomainB), Range]

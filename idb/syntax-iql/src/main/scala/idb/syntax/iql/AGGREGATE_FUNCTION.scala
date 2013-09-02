@@ -36,11 +36,11 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  *
  */
 
-trait AGGREGATE_FUNCTION_1[Domain, Range]
+trait AGGREGATE_FUNCTION[Domain, Range]
     extends Rep[Domain => Range]
 {
 

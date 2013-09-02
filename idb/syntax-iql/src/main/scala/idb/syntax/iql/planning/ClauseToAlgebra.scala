@@ -52,32 +52,7 @@ object ClauseToAlgebra
 
     import IR._
 
-	private def applySelectClause1[Select : Manifest, Domain <: Select : Manifest, Range: Manifest](
-		relation : Rep[Query[Domain]],
-		select : SelectClause[Select, Range]
-	) : Rep[Query[Range]] = {
-		select match {
-			case SelectClause (aggregation : AggregateFunction1[Select@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationSelfMaintainedWithoutGrouping (
-						relation,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
-					),
-					asDistinct
-				)
-			case SelectClause (project, asDistinct) =>
-				distinct (
-					projection (
-						relation,
-						project
-					),
-					asDistinct
-				)
-		}
-	}
+
 
     def apply[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
@@ -85,14 +60,14 @@ object ClauseToAlgebra
     ): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation, select) =>
-                applySelectClause1 (
+                applySelectClause (
                     relation,
 					select
                 )
 
 
 			case WhereClause1 (predicate, FromClause1 (relation, select)) =>
-				applySelectClause1 (
+				applySelectClause (
 					selection (
 						relation,
 						predicate
@@ -101,7 +76,7 @@ object ClauseToAlgebra
 				)
 
 			case GroupByClause1 (group, FromClause1 (relation, select)) =>
-				applySelectClause1 (
+				applySelectClause (
 					//TODO Better use aggregation with grouping here
 					grouping (
 						relation,
@@ -112,7 +87,7 @@ object ClauseToAlgebra
 
 
             case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, select))) =>
-                applySelectClause1 (
+                applySelectClause (
 					grouping (
 						selection (
 							relation,
@@ -133,7 +108,7 @@ object ClauseToAlgebra
     ): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA, relationB, select) =>
-                applySelectClause1 (
+                applySelectClause (
 					crossProduct (
 						relationA,
 						relationB
@@ -143,20 +118,20 @@ object ClauseToAlgebra
 
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, select)) =>
-                applySelectClause1 (
-                        selection (
-                            crossProduct (
-                                relationA,
-                                relationB
-							),
-                            predicate
+                applySelectClause (
+					selection (
+						crossProduct (
+							relationA,
+							relationB
 						),
+						predicate
+					),
 					select
 				)
 
 
             case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
-                applySelectClause1 (
+                applySelectClause (
 					grouping (
 						crossProduct (
 							relationA,
@@ -168,7 +143,7 @@ object ClauseToAlgebra
 				)
 
             case GroupByClause2 (group, WhereClause2 (predicate, FromClause2 (relationA, relationB, select))) =>
-                applySelectClause1 (
+                applySelectClause (
 					grouping (
 						selection (
 							crossProduct (
@@ -228,6 +203,33 @@ object ClauseToAlgebra
             case false => query
         }
     }
+
+	private def applySelectClause[Select : Manifest, Domain <: Select : Manifest, Range: Manifest](
+		relation : Rep[Query[Domain]],
+		select : SelectClause[Select, Range]
+	) : Rep[Query[Range]] = {
+		select match {
+			case SelectClause (aggregation : AggregateFunction[Select@unchecked, Range@unchecked], asDistinct) =>
+				distinct (
+					aggregationSelfMaintainedWithoutGrouping (
+						relation,
+						aggregation.start,
+						aggregation.added,
+						aggregation.removed,
+						aggregation.updated
+					),
+					asDistinct
+				)
+			case SelectClause (project, asDistinct) =>
+				distinct (
+					projection (
+						relation,
+						project
+					),
+					asDistinct
+				)
+		}
+	}
 
 
 }

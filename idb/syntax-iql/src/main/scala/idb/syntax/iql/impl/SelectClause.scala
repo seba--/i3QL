@@ -43,7 +43,7 @@ case class SelectClause[Select: Manifest, Range: Manifest] (
     function: Rep[Select => Range],
     asDistinct: Boolean = false
 )
-    extends SELECT_CLAUSE_1[Select, Range]
+    extends SELECT_CLAUSE[Select, Range]
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =

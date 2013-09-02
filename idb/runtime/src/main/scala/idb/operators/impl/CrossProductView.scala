@@ -1,7 +1,7 @@
 package idb.operators.impl
 
 import idb.operators.CrossProduct
-import idb.{Extent, Relation}
+import idb.{MaterializedView, Extent, Relation}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
 /**
@@ -123,6 +123,10 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 object CrossProductView {
 	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
+
+		val l = if (left.isInstanceOf[MaterializedView[_]]) left else left.asMaterialized
+		val r = if (right.isInstanceOf[MaterializedView[_]]) right else right.asMaterialized
+
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](l,r,(l : DomainA, r : DomainB) => (l,r),isSet)
 	}
 }

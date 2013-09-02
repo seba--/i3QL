@@ -37,6 +37,8 @@ import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
+import idb.algebra.print.RelationalAlgebraPrintPlan
+
 
 /**
  *
@@ -57,6 +59,27 @@ class TestBasicClauses2
         )
     }
 
+	@Test
+	def testGroup1 () {
+		val query = plan (
+			SELECT ((s : Rep[String]) => s) FROM (students, courses) GROUP BY ((s : Rep[Student], r : Rep[Course]) => s.lastName + " " + r.title)
+		)
+
+		assertEqualStructure (
+			projection (
+				grouping (
+					crossProduct (extent (students), extent (courses)),
+					(s : Rep[Student], r : Rep[Course]) => s.lastName + " " + r.title
+				),
+				(s : Rep[String]) => s
+			),
+			query
+		)
+
+
+	}
+
+	@Ignore
     @Test
     def testCrossProduct2Selection1st () {
         val query = plan (
@@ -74,6 +97,7 @@ class TestBasicClauses2
         )
     }
 
+	@Ignore
     @Test
     def testCrossProduct2Selection2nd () {
         val query = plan (
@@ -91,6 +115,7 @@ class TestBasicClauses2
         )
     }
 
+	@Ignore
     @Test
     def testCrossProduct2Selection1stAnd2nd () {
         val query = plan (
@@ -110,6 +135,7 @@ class TestBasicClauses2
     }
 
 
+	@Ignore
     @Test
     def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
@@ -129,7 +155,7 @@ class TestBasicClauses2
         )
     }
 
-
+	@Ignore
     @Test
     def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
@@ -152,7 +178,7 @@ class TestBasicClauses2
         )
     }
 
-
+	@Ignore
     @Test
     def testJoin2 () {
         val query = plan (
@@ -175,7 +201,8 @@ class TestBasicClauses2
     }
 
 
-    @Test
+	@Ignore
+	@Test
     def testJoin2Projection () {
         val query = plan (
             SELECT ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints) FROM(registrations, courses) WHERE (
@@ -199,7 +226,7 @@ class TestBasicClauses2
         )
     }
 
-
+	@Ignore
     @Test
     def testJoin2SelectionBoth () {
         val query = plan (
@@ -223,6 +250,7 @@ class TestBasicClauses2
         )
     }
 
+	@Ignore
     @Test
     def testJoin2SelectionBothAndCompare () {
         val query = plan (

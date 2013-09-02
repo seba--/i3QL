@@ -38,7 +38,7 @@ package idb.syntax.iql
  * The grouping function is checked on construction to conform to the types in the select clause.
  * Hence, the query as a whole can be seen as having type Domain in the select clause.
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 trait GROUP_BY_CLAUSE_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     extends IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]

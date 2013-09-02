@@ -39,13 +39,13 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[Select, Range]
+trait SELECT_CLAUSE[Select, Range]
 {
 
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Select, Domain, Range] with
-        CAN_GROUP_CLAUSE_1[Select, Domain, Range]
+    ): FROM_CLAUSE_1[Select, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
@@ -53,6 +53,5 @@ trait SELECT_CLAUSE_1[Select, Range]
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
 		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
-	//	with GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
 
 }
