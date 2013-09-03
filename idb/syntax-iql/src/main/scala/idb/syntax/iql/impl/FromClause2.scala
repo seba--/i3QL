@@ -24,7 +24,7 @@ case class FromClause2[Select : Manifest, DomainA: Manifest, DomainB : Manifest,
 		 predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]
 	): WHERE_CLAUSE_2[Select, DomainA ,DomainB, Range]
 		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range] =
-		WhereClause2 (predicate, this)
+		WhereClause2 (fun(predicate), this)
 
 	def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupRange : Manifest] (
 		grouping: (Rep[GroupDomainA], Rep[GroupDomainB]) => Rep[GroupRange]

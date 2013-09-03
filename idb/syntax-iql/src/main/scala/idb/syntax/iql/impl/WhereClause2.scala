@@ -42,7 +42,7 @@ import idb.syntax.iql._
  * @author Ralf Mitschke
  */
 case class WhereClause2[Select : Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-    predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
+    predicate: (Rep[((DomainA, DomainB)) => Boolean]),
     fromClause: FromClause2[Select, DomainA, DomainB, Range]
 )
     extends WHERE_CLAUSE_2[Select, DomainA, DomainB, Range]

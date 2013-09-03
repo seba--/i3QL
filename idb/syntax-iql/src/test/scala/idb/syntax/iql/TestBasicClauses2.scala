@@ -37,7 +37,6 @@ import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
-import idb.algebra.print.RelationalAlgebraPrintPlan
 
 
 /**
@@ -59,27 +58,43 @@ class TestBasicClauses2
         )
     }
 
-	@Test
-	def testGroup1 () {
-		val query = plan (
-			SELECT ((s : Rep[String]) => s) FROM (students, courses) GROUP BY ((s : Rep[Student], r : Rep[Course]) => s.lastName + " " + r.title)
-		)
+    @Test
+    def testCrossProduct2WithProjection () {
+        val query = plan (
+            SELECT ((s: Rep[Student], c: Rep[Course]) => s.lastName + c.title) FROM(students, courses)
+        )
 
-		assertEqualStructure (
-			projection (
-				grouping (
-					crossProduct (extent (students), extent (courses)),
-					(s : Rep[Student], r : Rep[Course]) => s.lastName + " " + r.title
-				),
-				(s : Rep[String]) => s
-			),
-			query
-		)
+        assertEqualStructure (
+            projection (
+                crossProduct (extent (students), extent (courses)),
+                (s: Rep[Student], c: Rep[Course]) => s.lastName + c.title
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testGroup1 () {
+        val query = plan (
+            SELECT ((s: Rep[String]) => s) FROM(students, courses) GROUP BY (
+                (s: Rep[Student], r: Rep[Course]) => s.lastName + " " + r.title)
+        )
+
+        assertEqualStructure (
+            projection (
+                grouping (
+                    crossProduct (extent (students), extent (courses)),
+                    (s: Rep[Student], r: Rep[Course]) => s.lastName + " " + r.title
+                ),
+                (s: Rep[String]) => s
+            ),
+            query
+        )
 
 
-	}
+    }
 
-	@Ignore
+
     @Test
     def testCrossProduct2Selection1st () {
         val query = plan (
@@ -97,7 +112,7 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
+
     @Test
     def testCrossProduct2Selection2nd () {
         val query = plan (
@@ -115,7 +130,6 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
     @Test
     def testCrossProduct2Selection1stAnd2nd () {
         val query = plan (
@@ -135,7 +149,6 @@ class TestBasicClauses2
     }
 
 
-	@Ignore
     @Test
     def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
@@ -155,7 +168,6 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
     @Test
     def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
@@ -178,7 +190,7 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
+
     @Test
     def testJoin2 () {
         val query = plan (
@@ -201,8 +213,7 @@ class TestBasicClauses2
     }
 
 
-	@Ignore
-	@Test
+    @Test
     def testJoin2Projection () {
         val query = plan (
             SELECT ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints) FROM(registrations, courses) WHERE (
@@ -226,11 +237,11 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
+
     @Test
     def testJoin2SelectionBoth () {
         val query = plan (
-            SELECT (*) FROM (students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
                     s.firstName == "Sally" &&
                     r.courseNumber == 12345
@@ -250,7 +261,7 @@ class TestBasicClauses2
         )
     }
 
-	@Ignore
+
     @Test
     def testJoin2SelectionBothAndCompare () {
         val query = plan (

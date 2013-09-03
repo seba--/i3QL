@@ -52,7 +52,10 @@ object SELECT
     def apply[SelectA : Manifest, SelectB : Manifest, Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
     ): SELECT_CLAUSE[(SelectA, SelectB), Range] =
-        SelectClause ( (v : Rep[(SelectA, SelectB)]) => projection(v._1,v._2) )
+        SelectClause (
+            fun(projection)
+            //(v : Rep[(SelectA, SelectB)]) => projection(v._1,v._2)
+        )
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (

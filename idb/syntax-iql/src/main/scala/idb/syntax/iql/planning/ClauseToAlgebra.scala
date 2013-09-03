@@ -53,7 +53,6 @@ object ClauseToAlgebra
     import IR._
 
 
-
     def apply[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
@@ -62,100 +61,100 @@ object ClauseToAlgebra
             case FromClause1 (relation, select) =>
                 applySelectClause (
                     relation,
-					select
+                    select
                 )
 
 
-			case WhereClause1 (predicate, FromClause1 (relation, select)) =>
-				applySelectClause (
-					selection (
-						relation,
-						predicate
-					),
-					select
-				)
+            case WhereClause1 (predicate, FromClause1 (relation, select)) =>
+                applySelectClause (
+                    selection (
+                        relation,
+                        predicate
+                    ),
+                    select
+                )
 
-			case GroupByClause1 (group, FromClause1 (relation, select)) =>
-				applySelectClause (
-					//TODO Better use aggregation with grouping here
-					grouping (
-						relation,
-						group
-					),
-					select
-				)
+            case GroupByClause1 (group, FromClause1 (relation, select)) =>
+                applySelectClause (
+                    //TODO Better use aggregation with grouping here
+                    grouping (
+                        relation,
+                        group
+                    ),
+                    select
+                )
 
 
             case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, select))) =>
                 applySelectClause (
-					grouping (
-						selection (
-							relation,
-							predicate
-						),
-						group
-					),
-					select
-				)
-
+                    grouping (
+                        selection (
+                            relation,
+                            predicate
+                        ),
+                        group
+                    ),
+                    select
+                )
 
 
         }
 
-    def apply[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest, GroupDomainA : Manifest, GroupDomainB : Manifest,
-	GroupRange <: Select : Manifest, Range: Manifest] (
+    def apply[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest,
+    GroupDomainA: Manifest, GroupDomainB: Manifest,
+    GroupRange <: Select : Manifest, Range: Manifest] (
         query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA, relationB, select) =>
                 applySelectClause (
-					crossProduct (
-						relationA,
-						relationB
-					),
-					select
-				)
+                    crossProduct (
+                        relationA,
+                        relationB
+                    ),
+                    select
+                )
 
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, select)) =>
                 applySelectClause (
-					selection (
-						crossProduct (
-							relationA,
-							relationB
-						),
-						predicate
-					),
-					select
-				)
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB
+                        ),
+                        predicate
+                    ),
+                    select
+                )
 
 
             case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
                 applySelectClause (
-					grouping (
-						crossProduct (
-							relationA,
-							relationB
-						),
-						group
-					),
-					select
-				)
+                    grouping (
+                        crossProduct (
+                            relationA,
+                            relationB
+                        ),
+                        group
+                    ),
+                    select
+                )
 
             case GroupByClause2 (group, WhereClause2 (predicate, FromClause2 (relationA, relationB, select))) =>
                 applySelectClause (
-					grouping (
-						selection (
-							crossProduct (
-								relationA,
-								relationB
-							),
-							predicate
-						),
-						group
-					),
-					select
-				)
+                    grouping (
+                        selection (
+                            crossProduct (
+                                relationA,
+                                relationB
+                            ),
+                            predicate
+                        ),
+                        group
+                    ),
+                    select
+                )
         }
 
 
@@ -204,32 +203,32 @@ object ClauseToAlgebra
         }
     }
 
-	private def applySelectClause[Select : Manifest, Domain <: Select : Manifest, Range: Manifest](
-		relation : Rep[Query[Domain]],
-		select : SelectClause[Select, Range]
-	) : Rep[Query[Range]] = {
-		select match {
-			case SelectClause (aggregation : AggregateFunction[Select@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationSelfMaintainedWithoutGrouping (
-						relation,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
-					),
-					asDistinct
-				)
-			case SelectClause (project, asDistinct) =>
-				distinct (
-					projection (
-						relation,
-						project
-					),
-					asDistinct
-				)
-		}
-	}
+    private def applySelectClause[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
+        relation: Rep[Query[Domain]],
+        select: SelectClause[Select, Range]
+    ): Rep[Query[Range]] = {
+        select match {
+            case SelectClause (aggregation: AggregateFunction[Select@unchecked, Range@unchecked], asDistinct) =>
+                distinct (
+                    aggregationSelfMaintainedWithoutGrouping (
+                        relation,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated
+                    ),
+                    asDistinct
+                )
+            case SelectClause (project, asDistinct) =>
+                distinct (
+                    projection (
+                        relation,
+                        project
+                    ),
+                    asDistinct
+                )
+        }
+    }
 
 
 }
