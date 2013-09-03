@@ -68,7 +68,7 @@ trait FunctionsExpBetaReduction
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {
             case Apply (s, a) => Apply (f (s), f (a))
-            case Reflect(Apply (s, a), sum, deps) => reflectEffect(Apply (f (s), f (a)))
+            case Reflect(Apply (s, a), summary, _) => reflectEffect(Apply (f (s), f (a)), summary)
             case _ => super.mirror (e, f)
         }
 }

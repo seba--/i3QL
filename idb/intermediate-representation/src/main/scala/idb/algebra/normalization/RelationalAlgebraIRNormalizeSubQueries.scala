@@ -70,6 +70,14 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                 )
                             )
 
+                        case Def (Reify (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]), _, _)) =>
+                            naturalJoin (
+                                relation,
+                                duplicateElimination (
+                                    exists.createSubQueryWithContext (relation, parameter (function))
+                                )
+                            )
+
                         // de-correlation of NOT EXISTS( SELECT .... )
                         case Def (BooleanNegate (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]))) =>
                             difference (
@@ -82,6 +90,16 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                 )
                             )
 
+                        case Def (Reify (Def (BooleanNegate (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]))), _,_)) =>
+                            difference (
+                                relation,
+                                naturalJoin (
+                                    relation,
+                                    duplicateElimination (
+                                        exists.createSubQueryWithContext (relation, parameter (function))
+                                    )
+                                )
+                            )
 
                         case _ => super.selection (relation, function)
                     }

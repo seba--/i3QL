@@ -52,9 +52,11 @@ trait BooleanOpsExpAlphaEquivalence
 
             case (BooleanAnd (x, y), BooleanAnd (u, v)) =>
                 isEquivalent (x, u) && isEquivalent (y, v)
+                //(isEquivalent (x, u) && isEquivalent (y, v)) || (isEquivalent (x, v) && isEquivalent (y, u))
 
             case (BooleanOr (x, y), BooleanOr (u, v)) =>
                 isEquivalent (x, u) && isEquivalent (y, v)
+                //(isEquivalent (x, u) && isEquivalent (y, v)) || (isEquivalent (x, v) && isEquivalent (y, u))
 
             case _ => super.isEquivalentDef (a, b)
         }

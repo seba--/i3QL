@@ -37,7 +37,8 @@ import org.junit.Assert._
 import scala.virtualization.lms.common.LiftAll
 import idb.algebra.TestUtils
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
-import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
+import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 
 /**
  *
@@ -46,10 +47,16 @@ import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
  */
 class TestIROptFusion
     extends RelationalAlgebraIRFuseBasicOperators
-    with ScalaOpsPkgExpAlphaEquivalence
+    with RelationalAlgebraPrintPlanBasicOperators
+    with ScalaOpsExpOptExtensions
     with LiftAll
     with TestUtils
 {
+
+    // needs binding for printing relation
+    override val IR: this.type = this
+
+    override def reset { super.reset }
 
     @Test
     def testSelectionFusion () {
@@ -158,4 +165,81 @@ class TestIROptFusion
 
         assertEquals (expB, expA)
     }
+
+    @Test
+    def testSelectionFusionWithStaticDataFunction() {
+        val f1 = staticData( (x:Int) => x != 0)
+
+        val f2 = fun((x:Rep[Int]) => x == 100)
+
+        val expA = selection (selection (emptyRelation[Int](), f1), f2)
+
+        val f3 = fun((x: Rep[Int]) => f1 (x) && f2 (x))
+
+        val expB = selection (emptyRelation[Int](), f3)
+
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
+        assertEquals (expB, expA)
+    }
+
+    @Test
+    def testSelectionFusionWithIndirectStaticDataFunction() {
+        val f1 = staticData( (x:Int) => x != 0)
+
+        val f2 = fun((x:Rep[Int]) => x == 100)
+
+        val f1Ind = fun((x:Rep[Int]) => f1(x))
+
+        val expA = selection (selection (emptyRelation[Int](), f1Ind), f2)
+
+        val f3 = fun((x: Rep[Int]) => f1Ind (x) && f2 (x))
+
+        val expB = selection (emptyRelation[Int](), f3)
+
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
+        assertEquals (expB, expA)
+    }
+
+
+
+    @Test
+    def testSelectionFusionWithStaticDataAndDynamicFunction() {
+        val f1 = staticData( (x:Int) => x != 0)
+        val f2 = fun((x:Rep[Int]) => x == 100)
+        val f1Ind = fun((x:Rep[Int]) => f1(x))
+
+        val dynF1 = dynamicLambda(parameter(f1Ind), body(f1Ind))
+        val dynF2 = dynamicLambda(parameter(f2), body(f2))
+
+        val expA = selection (selection (emptyRelation[Int](), dynF1), dynF2)
+
+        val f3 = fun((x: Rep[Int]) => dynF1 (x) && dynF2 (x))
+
+        val expB = selection (emptyRelation[Int](), f3)
+
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
+        assertEquals (expB, expA)
+    }
+
+
+    @Test
+    def testSelectionFusionWithStaticDataAndDynamicFunctions2() {
+        val fStatic = staticData( (x:String) => x.hashCode)
+
+        val f1 = fun((x:Rep[Int]) => x > fStatic("hello"))
+        val f2 = fun((x:Rep[Int]) => x > fStatic("world"))
+
+        val dynF1 = dynamicLambda(parameter(f1), body(f1))
+        val dynF2 = dynamicLambda(parameter(f2), body(f2))
+
+        val expA = selection (selection (emptyRelation[Int](), dynF1), dynF2)
+
+        val f3 = fun((x: Rep[Int]) =>  x > fStatic("hello") && x > fStatic("world"))
+
+        val expB = selection (emptyRelation[Int](), f3)
+
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
+        assertEquals (expB, expA)
+    }
+
 }

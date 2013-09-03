@@ -73,6 +73,14 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                                 selection (relation, dynamicLambda (x, rhs))
                             )
 
+                        // same as above with external dependencies.
+                        // Note that reifyEffects is called by dynamicLambda, thus the body is reified again if needed
+                        case Def (Reify (Def (BooleanOr (lhs, rhs)), summary, deps)) =>
+                            unionMax (
+                                selection (relation, dynamicLambda (x, Reify (lhs, summary, deps))),
+                                selection (relation, dynamicLambda (x, Reify (rhs, summary, deps)))
+                            )
+
                         // σ{x ∧ ¬y}(a) = σ{x}(a) - σ{y}(a)
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
                             difference (
@@ -80,15 +88,29 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                                 selection (relation, dynamicLambda (x, rhs))
                             )
 
+                        // same as above with external dependencies.
+                        // Note that reifyEffects is called by dynamicLambda, thus the body is reified again if needed
+                        case Def (Reify (Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))), summary, deps)) =>
+                            difference (
+                                selection (relation, dynamicLambda (x, Reify (lhs, summary, deps))),
+                                selection (relation, dynamicLambda (x, Reify (rhs, summary, deps)))
+                            )
+
+
                         // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
-                        case Def (BooleanAnd (lhs, rhs)) => {
-                            val mD = manifest[Domain]
-                            val inner = selection (relation, dynamicLambda (x, lhs))
+                        case Def (BooleanAnd (lhs, rhs)) =>
                             selection (
-                                inner,
+                                selection (relation, dynamicLambda (x, lhs)),
                                 dynamicLambda (x, rhs)
                             )
-                        }
+
+                        // same as above with external dependencies.
+                        // Note that reifyEffects is called by dynamicLambda, thus the body is reified again if needed
+                        case Def (Reify (Def (BooleanAnd (lhs, rhs)), summary, deps)) =>
+                            selection (
+                                selection (relation, dynamicLambda (x, Reify (lhs, summary, deps))),
+                                dynamicLambda (x, Reify (rhs, summary, deps))
+                            )
 
                         case _ => super.selection (relation, function)
                     }

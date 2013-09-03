@@ -287,7 +287,8 @@ trait FunctionUtils
         val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
         val fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
 
-        fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
+        val result = fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
+        result
     }
 
 
