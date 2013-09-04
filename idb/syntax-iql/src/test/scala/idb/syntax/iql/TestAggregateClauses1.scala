@@ -157,9 +157,12 @@ class TestAggregateClauses1
     @Ignore
     @Test
     def testAggregateSumMatriulationNumberWithGroup () {
+        // TODO does not compile
+        /*
         val query = plan (
             SELECT ((s: Rep[String]) => s, SUM ( (s:Rep[Student]) => s.matriculationNumber)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
+        */
     }
 
     @Test
