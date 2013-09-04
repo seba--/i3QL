@@ -59,17 +59,17 @@ trait FunctionsExpBetaReduction
     )(
         implicit pos: SourceContext
     ): Exp[B] = f match {
-        case Def (Lambda (_, oldX, Block (Def (Reify (body, summary, effects))))) => {
+        case Def (Lambda (_, oldX: Rep[A@unchecked], Block (Def (Reify (body, summary, effects))))) => {
             val block = reifyEffects (body)
-            val result = transformBlock (substitutions (oldX, x), block)
+            val result = transformBlock (substitutions (oldX, x)(manifest[A]), block)
             // adds all effectful statements that are still referenced to the context, thus a correct Reify node will
             // be created again
             context :::= findSyms(result)(effects.toSet).toList
             result
         }
 
-        case Def (Lambda (_, oldX, block)) => {
-            transformBlock (substitutions (oldX, x), block)
+        case Def (Lambda (_, oldX : Rep[A@unchecked], block)) => {
+            transformBlock (substitutions (oldX, x)(manifest[A]), block)
         }
 
         case _ => super.doApply (f, x)
