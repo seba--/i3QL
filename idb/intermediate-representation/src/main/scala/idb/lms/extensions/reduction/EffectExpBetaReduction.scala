@@ -50,10 +50,10 @@ trait EffectExpBetaReduction
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {
-            case _: Reflect[A] =>
+            case _: Reflect[A@unchecked] =>
                 createOrFindEquivalent ({ super.mirrorDef (e, f) })
 
-            case _: Reify[A] =>
+            case _: Reify[A@unchecked] =>
                 throw new IllegalArgumentException ("Reify should not be reflected during beta reduction")
 
             case _ => super.mirror (e, f)
