@@ -30,34 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.reduction
 
-import idb.lms.extensions.equivalence._
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
-import idb.lms.extensions.normalization._
-import idb.lms.extensions.reduction._
-import idb.lms.extensions.simplification.BooleanOpsExpSimplification
+import scala.reflect.SourceContext
+import scala.virtualization.lms.common.EffectExp
+import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
-    with StructExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
-    with StaticDataExpAlphaEquivalence
-    with OptionOpsExpAlphaEquivalence
-    with FunctionsExpDynamicLambdaAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with NumericOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
-    with EffectExpBetaReduction
-    with BooleanOpsExpSimplification
-    with BooleanOpsExpOrdering
-    with BooleanOpsExpDNFNormalization
+
+trait EffectExpBetaReduction
+    extends EffectExp
+    with BaseExpAlphaEquivalence
 {
 
+
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
+        e match {
+            case _: Reflect[A] =>
+                createOrFindEquivalent ({ super.mirrorDef (e, f) })
+
+            case _: Reify[A] =>
+                throw new IllegalArgumentException ("Reify should not be reflected during beta reduction")
+
+            case _ => super.mirror (e, f)
+        }
 }

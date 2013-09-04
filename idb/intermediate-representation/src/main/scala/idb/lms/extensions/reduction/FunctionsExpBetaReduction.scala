@@ -34,16 +34,19 @@ package idb.lms.extensions.reduction
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
+import scala.collection.immutable.Map
+import idb.lms.extensions.ExpressionUtils
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
 trait FunctionsExpBetaReduction
     extends FunctionsExp
     with BaseFatExp // required to use the forward transformer
+    with EffectExpBetaReduction
+    with ExpressionUtils
 {
 
     protected val transformer = new ForwardTransformer
@@ -56,19 +59,45 @@ trait FunctionsExpBetaReduction
     )(
         implicit pos: SourceContext
     ): Exp[B] = f match {
-        case Def (Lambda (_, oldX, block)) => {
-            transformer.subst = Map (oldX -> x)
-            val result = transformer.transformBlock (block).res
-            transformer.subst = Map ()
+        case Def (Lambda (_, oldX, Block (Def (Reify (body, summary, effects))))) => {
+            val block = reifyEffects (body)
+            val result = transformBlock (substitutions (oldX, x), block)
+            // adds all effectful statements that are still referenced to the context, thus a correct Reify node will
+            // be created again
+            context :::= findSyms(result)(effects.toSet).toList
             result
         }
+
+        case Def (Lambda (_, oldX, block)) => {
+            transformBlock (substitutions (oldX, x), block)
+        }
+
         case _ => super.doApply (f, x)
     }
+
+    protected def transformBlock[B: Manifest] (subsitutions: Map[Exp[Any], Exp[Any]], block: Block[B]): Exp[B] = {
+        transformer.subst = subsitutions.asInstanceOf[Map[transformer.IR.Exp[Any], transformer.IR.Exp[Any]]]
+        val result = transformer.transformBlock (block).res
+        transformer.subst = Map ()
+        result
+    }
+
+
+    protected def substitutions[A: Manifest] (oldX: Exp[A], x: Exp[A]): Map[Exp[Any], Exp[Any]] = {
+        Map (oldX -> x)
+    }
+
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {
             case Apply (s, a) => Apply (f (s), f (a))
-            case Reflect(Apply (s, a), summary, _) => reflectEffect(Apply (f (s), f (a)), summary)
             case _ => super.mirror (e, f)
+        }
+
+
+    override def mirrorDef[A:Manifest](e: Def[A], f: Transformer)(implicit pos: SourceContext) =
+        e match {
+            case Apply (s, a) => Apply (f (s), f (a))
+            case _ => super.mirrorDef (e, f)
         }
 }

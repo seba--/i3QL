@@ -57,10 +57,23 @@ trait BaseExpAlphaEquivalence
             //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
 
             case (Def (Reflect (x1, summary1, deps1)), Def (Reflect (x2, summary2, deps2))) =>
-                isEquivalentDef (x1, x2) && isEquivalentSeq (deps1, deps2)
+                isEquivalentDef (x1, x2) //&& isEquivalentSeq (deps1, deps2)
+                // For now we ignore the dependencies, since due to beta reduction we can create functions
+                // that do not resolve the dependencies as they would be resolved during standard creation.
+                // This happens in function that computes two reflected effects, e.g., a and b in
+                // f(x){
+                //   a(x) && b(x)
+                // }
+                // Original LMS wil determine List(a) as dependencies of b.
+                // When we create this as a composition of functions the dependency is not there, e.g.,
+                // g(x) = { a(x) }
+                // h(x) = { b(x) }
+                // f(x) = { g(x) && h(x) }
 
             case (Def (Reify (x1, summary1, effects1)), Def (Reify (x2, summary2, effects2))) =>
-                isEquivalent (x1, x2) && isEquivalentSeq (effects1, effects2)
+                isEquivalent (x1, x2) //&& isEquivalentSeq (effects1, effects2)
+                // For now we ignore the effects.
+                // They should be traversed anyway, when their reflected expressions are met in the AST
 
             case (Def (x), Def (y)) => isEquivalentDef (x, y)
 
