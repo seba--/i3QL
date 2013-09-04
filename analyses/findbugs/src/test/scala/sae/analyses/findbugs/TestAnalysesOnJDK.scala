@@ -45,15 +45,13 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
  */
 
 class TestAnalysesOnJDK
-extends RelationalAlgebraPrintPlan
 {
-    val IR = idb.syntax.iql.IR
 
     def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
     def getDatabase = ASMDatabaseFactory.create ()
 
-    @Ignore
+    //@Ignore
     @Test
     def test_CI_CONFUSED_INHERITANCE () {
         val database = getDatabase
@@ -62,13 +60,10 @@ extends RelationalAlgebraPrintPlan
         assertEquals (123, analysis.size)
     }
 
-    // TODO note correct yet
+    @Ignore // TODO note correct yet
     @Test
     def test_CN_IDIOM() {
         val database = getDatabase
-        //val query = CN_IDIOM (database)
-        //import database._
-        //val analysis = idb.syntax.iql.compilation.CompilerBinding.compile (query).asMaterialized // CN_IDIOM (database).asMaterialized
         val analysis = CN_IDIOM (database).asMaterialized
         database.addArchive (getStream)
         assertEquals (835, analysis.size)
