@@ -18,7 +18,6 @@ class BagIndex[K, V](val relation: Relation[V],
 
 	val isSet : Boolean = false
 
-
 	private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
 	lazyInitialize ()

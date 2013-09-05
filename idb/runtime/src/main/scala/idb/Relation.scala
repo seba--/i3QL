@@ -53,8 +53,6 @@ import idb.collections.impl.{MaterializedBag, MaterializedSet}
 trait Relation[+V]
     extends Observable[V]
 {
-    lazyInitialize ()
-
     /**
      * Runtime information whether a compiled query is a set or a bag
      */
