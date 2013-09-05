@@ -51,7 +51,7 @@ class TestAnalysesOnJDK
 
     def getDatabase = ASMDatabaseFactory.create ()
 
-    //@Ignore
+    @Ignore
     @Test
     def test_CI_CONFUSED_INHERITANCE () {
         val database = getDatabase
@@ -60,7 +60,7 @@ class TestAnalysesOnJDK
         assertEquals (123, analysis.size)
     }
 
-    @Ignore // TODO note correct yet
+    @Ignore // TODO not correct yet
     @Test
     def test_CN_IDIOM() {
         val database = getDatabase
@@ -69,13 +69,23 @@ class TestAnalysesOnJDK
         assertEquals (835, analysis.size)
     }
 
-    @Ignore // TODO note correct yet
+    @Ignore // TODO not correct yet
     @Test
     def test_CN_IDIOM_NO_SUPER_CALL () {
         val database = getDatabase
         val analysis = CN_IDIOM_NO_SUPER_CALL (database).asMaterialized
         database.addArchive (getStream)
         assertEquals (136, analysis.size)
+    }
+
+    //@Ignore // TODO not correct yet
+    @Test
+    def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
+        val database = getDatabase
+        val analysis = CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database).asMaterialized
+        database.addArchive (getStream)
+        //assertEquals (38, analysis.size)
+        analysis.foreach(println)
     }
 
 
