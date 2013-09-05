@@ -52,7 +52,7 @@ trait UniversityTestData
 
     val ics1 = Course (1, "Introduction to Computer Science I", 9)
 
-    val ics2 = Course (2, "Introduction to Computer Science I", 9)
+    val ics2 = Course (2, "Introduction to Computer Science II", 9)
 
     val eise = Course (3, "Introduction to Software Engineering", 5)
 

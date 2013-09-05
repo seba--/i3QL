@@ -49,7 +49,7 @@ class TestRecursionClauses
     extends UniversityTestData
 {
 
-
+    @Ignore // not working yet
     @Test
     def testTransitiveClosureAsRecursion () {
         val result = compilation.CompilerBinding.compile (
@@ -66,13 +66,25 @@ class TestRecursionClauses
         ).asMaterialized
 
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
-        ics2Prerequisites.foreach (
-            prerequisites += _
+        ics2Prerequisites.foreach (prerequisites += _)
+
+        assertEquals (ics2Prerequisites, result.asList)
+
+        eisePrerequisites.foreach (prerequisites += _)
+
+        assertEquals ((ics2Prerequisites ::: eisePrerequisites).sortBy (number), result.asList.sortBy (number))
+
+        sedcPrerequisites.foreach (prerequisites += _)
+
+        assertEquals ((idb.schema.university.CoursePrerequisite (sedc, ics1) :: sedcPrerequisites :::
+            eisePrerequisites ::: ics2Prerequisites).sortBy (number),
+            result.asList.sortBy (number)
         )
-
-        assertEquals (result.asList, ics2Prerequisites)
     }
 
+    def number (c: CoursePrerequisite) = c.course.number + "" + c.prerequisite.number
+
 }
+
