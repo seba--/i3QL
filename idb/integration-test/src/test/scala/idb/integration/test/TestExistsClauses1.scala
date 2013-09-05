@@ -62,37 +62,23 @@ class TestExistsClauses1
                 )
         ).asMaterialized
 
-        assertEquals (
-            result.asList,
-            Nil
-        )
+        assertEquals (result.asList, Nil)
+
         students += sallyFields
 
-        assertEquals (
-            result.asList,
-            Nil
-        )
+        assertEquals (result.asList, Nil)
 
         registrations += sallyTakesIcs1
 
-        assertEquals (
-            result.asList,
-            scala.List (sallyFields)
-        )
+        assertEquals (result.asList, scala.List (sallyFields))
 
         students -= sallyFields
 
-        assertEquals (
-            result.asList,
-            Nil
-        )
+        assertEquals (result.asList, Nil)
 
         students += sallyFields
 
-        assertEquals (
-            result.asList,
-            scala.List (sallyFields)
-        )
+        assertEquals (result.asList, scala.List (sallyFields))
     }
 
 }

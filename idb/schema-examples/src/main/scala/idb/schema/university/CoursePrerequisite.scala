@@ -32,7 +32,7 @@
  */
 package idb.schema.university
 
-import scala.virtualization.lms.common.StructExp
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -47,19 +47,23 @@ case class CoursePrerequisite (
 
 trait CoursePrerequisiteSchema
 {
-    val IR: StructExp
+    val IR: StructExp with StaticDataExp with FunctionsExp with TupleOpsExp
 
     import IR._
+
+    implicit val mCoursePrerequisite = manifest[idb.schema.university.CoursePrerequisite]
+
+    implicit val mCourse = manifest[idb.schema.university.Course]
+
+    lazy val coursePrerequisiteFactoy = staticData (
+        (data: (Course, Course)) => idb.schema.university.CoursePrerequisite (data._1, data._2)
+    )
 
     def CoursePrerequisite (
         course: Rep[Course],
         prerequisite: Rep[Course]
-    ) =
-        struct[CoursePrerequisite](
-            ClassTag[CoursePrerequisite]("CoursePrerequisite"),
-            Map ("course" -> course,
-                "prerequisite" -> prerequisite)
-        )
+    ) = doApply(coursePrerequisiteFactoy, (course, prerequisite))
+
 
     case class CoursePrerequisiteInfixOps (c: Rep[CoursePrerequisite])
     {

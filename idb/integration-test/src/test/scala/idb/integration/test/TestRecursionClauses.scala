@@ -32,48 +32,47 @@
  */
 package idb.integration.test
 
-import idb.schema.university.{CoursePrerequisite, Registration, Course, Student}
+import UniversityDatabase._
+import idb.schema.university._
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
+import org.junit.{Ignore, Test}
+import org.junit.Assert._
+import scala.language.implicitConversions
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait UniversityTestData
+class TestRecursionClauses
+    extends UniversityTestData
 {
-    val sallyFields = Student (1, "Sally", "Fields")
 
-    val johnDoe = Student (2, "John", "Doe")
 
-    val johnCarter = Student (3, "John", "Carter")
+    @Test
+    def testTransitiveClosureAsRecursion () {
+        val result = compilation.CompilerBinding.compile (
+            WITH RECURSIVE (
+                (temp: Rep[Query[CoursePrerequisite]]) =>
+                    SELECT (*) FROM prerequisites
+                        UNION ALL (
+                        SELECT (
+                            (p1: Rep[CoursePrerequisite], p2: Rep[CoursePrerequisite]) =>
+                                UniversityDatabase.CoursePrerequisite (p1.course, p2.prerequisite)
+                        ) FROM(temp, temp) WHERE (_.prerequisite == _.course)
+                    )
+                )
+        ).asMaterialized
 
-    val judyCarter = Student (4, "Judy", "Carter")
 
-    val janeDoe = Student (5, "Jane", "Doe")
+        assertEquals (result.asList, Nil)
 
-    val ics1 = Course (1, "Introduction to Computer Science I", 9)
+        ics2Prerequisites.foreach (
+            prerequisites += _
+        )
 
-    val ics2 = Course (2, "Introduction to Computer Science I", 9)
+        assertEquals (result.asList, ics2Prerequisites)
+    }
 
-    val eise = Course (3, "Introduction to Software Engineering", 5)
-
-    val sedc = Course (4, "Softare Design and Construction", 6)
-
-    val introProgLang = Course (5, "Introdcution to Progamming Langauges", 6)
-
-    val advancedProgLang = Course (6, "Advanced Concepts in Progamming Langauges", 6)
-
-    val sallyTakesIcs1 = Registration (1, 1, "Sally takes ICS1")
-
-    val ics2Prerequisites = List (CoursePrerequisite (ics2, ics1))
-
-    val eisePrerequisites = List (CoursePrerequisite (eise, ics1))
-
-    val sedcPrerequisites = List (CoursePrerequisite (sedc, eise))
-
-    val introProgLangPrereqisites = List (
-        CoursePrerequisite (introProgLang, ics1),
-        CoursePrerequisite (introProgLang, ics2)
-    )
-
-    val advancedProgLangPrereqisites = List (CoursePrerequisite (advancedProgLang, introProgLang))
 }
