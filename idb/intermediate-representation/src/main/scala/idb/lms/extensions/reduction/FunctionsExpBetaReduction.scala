@@ -62,10 +62,17 @@ trait FunctionsExpBetaReduction
         case Def (Lambda (_, oldX: Rep[A@unchecked], Block (Def (Reify (body, summary, effects))))) => {
             val block = reifyEffects (body)
             val result = transformBlock (substitutions (oldX, x)(manifest[A]), block)
-            // adds all effectful statements that are still referenced to the context, thus a correct Reify node will
+            // adds all old effectful statements that are still referenced to the context, thus a correct Reify node will
             // be created again
             context :::= findSyms(result)(effects.toSet).toList
-            result
+            // adds all new effectful statements to the context and returns a non-reified version of the sym
+            result match {
+                case Def (Reify (inner, _, newEffects)) => {
+                    context :::= newEffects
+                    inner
+                }
+                case _ => result
+            }
         }
 
         case Def (Lambda (_, oldX : Rep[A@unchecked], block)) => {

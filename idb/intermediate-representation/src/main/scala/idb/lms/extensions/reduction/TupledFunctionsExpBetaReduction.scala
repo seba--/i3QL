@@ -49,14 +49,14 @@ trait TupledFunctionsExpBetaReduction
 {
 
     override protected def substitutions[A: Manifest] (oldX: Exp[A], x: Exp[A]): Map[Exp[Any], Exp[Any]] = {
-        var result : Map[Exp[Any], Exp[Any]] = Map (oldX -> x)
+        var result: Map[Exp[Any], Exp[Any]] = Map (oldX -> x)
         // we can replace any variable in an unboxed tuple, e.g., x in Unboxed(List(x,y)) by
         // a tuple access to the new boxed variable, e.g., x -> tuple2_get1(UnboxedTuple(List(newX,newY)))
         val oldParameters = parametersAsList (oldX)
         val appliedParameters = parametersAsList (unbox (x))
         if (oldParameters.size == appliedParameters.size) {
             result ++=
-            oldParameters.zip (appliedParameters).foldLeft (
+                oldParameters.zip (appliedParameters).foldLeft (
                     Map.empty[Exp[Any], Exp[Any]]
                 )((map: Map[Exp[Any], Exp[Any]], params: (Exp[Any], Exp[Any])) => map + (params._1 -> params._2))
         }
@@ -68,6 +68,12 @@ trait TupledFunctionsExpBetaReduction
         e match {
             case Apply (s, UnboxedTuple (xs)) => Apply (f (s), UnboxedTuple (f (xs)))
             case _ => super.mirror (e, f)
+        }
+
+    override def mirrorDef[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
+        e match {
+            case Apply (s, UnboxedTuple (xs)) => Apply (f (s), UnboxedTuple (f (xs)))
+            case _ => super.mirrorDef (e, f)
         }
 
 

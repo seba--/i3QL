@@ -32,7 +32,6 @@
  */
 package idb.lms.extensions.reduction
 
-import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
 import org.junit.Test
 import idb.lms.extensions.equivalence._
 import idb.lms.extensions.LMSTestUtils
@@ -42,10 +41,10 @@ import idb.lms.extensions.LMSTestUtils
  * @author Ralf Mitschke
  *
  */
-
 class TestTupledFunctionsExpBetaReduction
     extends TupledFunctionsExpBetaReduction
     with TupledFunctionsExpAlphaEquivalence
+    with StaticDataExpAlphaEquivalence
     with StructExpAlphaEquivalence
     with ScalaOpsPkgExpAlphaEquivalence
     with LMSTestUtils
@@ -283,6 +282,21 @@ class TestTupledFunctionsExpBetaReduction
         assertNotEqualFunctions (f2, f1)
 
         val f3 = fun ((x: Rep[Int], y: Rep[(Int, Int)]) => (x, y._1))
+
+        assertEqualFunctions (f3, f2)
+    }
+
+
+    @Test
+    def testApplOnStaticFunctionWithEquivalence () {
+        val fStatic = staticData ((x: (Int, Int)) => x._1 + x._2)
+
+        val f2 = fun ((x: Rep[Int], y: Rep[Int]) => fStatic (x, y))
+
+        val f3 = fun ((x: Rep[(Int, Int)]) => fStatic (x._1, x._2))
+
+        assertNotEqualFunctions (f2, fStatic)
+        assertNotEqualFunctions (f3, fStatic)
 
         assertEqualFunctions (f3, f2)
     }

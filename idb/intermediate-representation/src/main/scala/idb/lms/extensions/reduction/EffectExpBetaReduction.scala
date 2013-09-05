@@ -41,7 +41,7 @@ import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
  * @author Ralf Mitschke
  *
  */
-
+ // TODO remove this trait
 trait EffectExpBetaReduction
     extends EffectExp
     with BaseExpAlphaEquivalence
@@ -50,11 +50,10 @@ trait EffectExpBetaReduction
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {
-            case _: Reflect[A@unchecked] =>
-                createOrFindEquivalent ({ super.mirrorDef (e, f) })
-
-            case _: Reify[A@unchecked] =>
-                throw new IllegalArgumentException ("Reify should not be reflected during beta reduction")
+            case _: Reflect[A@unchecked] => {
+                val result = super.mirror (e, f)
+                result
+            }
 
             case _ => super.mirror (e, f)
         }
