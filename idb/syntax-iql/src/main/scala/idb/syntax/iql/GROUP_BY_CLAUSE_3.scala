@@ -32,19 +32,16 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
  *
- * @author Ralf Mitschke
+ * The representation of a group by clause.
+ * The grouping function is checked on construction to conform to the types in the select clause.
+ * Hence, the query as a whole can be seen as having type Domain in the select clause.
+ *
+ * @author Mirko Köhler
  */
-trait SELECT_CLAUSE_3[-SelectA, -SelectB, -SelectC, Range]
+trait GROUP_BY_CLAUSE_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
+    extends IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
 {
-
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
 
 }

@@ -53,6 +53,13 @@ case class SelectClause[Select: Manifest, Range: Manifest] (
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ) = FromClause2 (relationA,relationB,this)
+    ) = FromClause2 (relationA, relationB, this)
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]]
+	) = FromClause3 (relationA, relationB, relationC, this)
+
 
 }

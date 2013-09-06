@@ -38,8 +38,8 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
-    extends IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
+trait WHERE_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
+    extends IQL_QUERY_3[Select, DomainA, DomainB, DomainC, DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC), Range]
 {
 
     //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]

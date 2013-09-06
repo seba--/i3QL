@@ -122,8 +122,18 @@ package object iql
 		ClauseToAlgebra (clause)
 
 
-    implicit def plan[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
-        clause: IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
+    implicit def plan[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		DomainC <: GroupDomainC : Manifest,
+		GroupDomainA : Manifest,
+		GroupDomainB : Manifest,
+		GroupDomainC : Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+        clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -150,6 +160,21 @@ package object iql
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Relation[Range] =
         CompilerBinding.compile (plan (clause))
+
+	implicit def compile[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		DomainC <: GroupDomainC : Manifest,
+		GroupDomainA : Manifest,
+		GroupDomainB : Manifest,
+		GroupDomainC : Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+		  clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
+	  ): Relation[Range] =
+		CompilerBinding.compile (plan (clause))
 
 
 }

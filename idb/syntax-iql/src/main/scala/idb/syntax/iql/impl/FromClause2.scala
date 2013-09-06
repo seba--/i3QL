@@ -5,11 +5,9 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:08
- *
  * The syntax representation of a from clause for one relation.
+ *
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 case class FromClause2[Select : Manifest, DomainA: Manifest, DomainB : Manifest, Range: Manifest] (

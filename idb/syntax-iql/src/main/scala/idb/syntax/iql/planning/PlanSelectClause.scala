@@ -33,9 +33,8 @@
 package idb.syntax.iql.planning
 
 import idb.syntax.iql.impl._
-import idb.syntax.iql.impl.SelectClause3
 import idb.syntax.iql.impl.SelectClause4
-import idb.syntax.iql.impl.SelectClause
+
 
 /**
  *
@@ -79,7 +78,7 @@ trait PlanSelectClause
             duplicateElimination (projection (relation, clause.projection))
         }   */
 
-
+	/*
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
         clause: SelectClause3[DomainA, DomainB, DomainC, Range],
         relation: Rep[Query[(DomainA, DomainB, DomainC)]]
@@ -91,7 +90,7 @@ trait PlanSelectClause
         {
             duplicateElimination (projection (relation, clause.projection))
         }
-
+     */
 
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
         clause: SelectClause4[DomainA, DomainB, DomainC, DomainD, Range],

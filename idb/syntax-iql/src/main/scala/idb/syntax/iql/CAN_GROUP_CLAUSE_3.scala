@@ -30,31 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-case class SelectClause3[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range],
-    asDistinct: Boolean = false
-)
-    extends SELECT_CLAUSE_3[SelectA, SelectB, SelectC, Range]
+trait CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 {
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ) =
-        FromClause3[DomainA, DomainB, DomainC, Range](
-            relationA,
-            relationB,
-            relationC,
-            this
-        )
-
+    def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupRange : Manifest] (
+        grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC]) => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
 }

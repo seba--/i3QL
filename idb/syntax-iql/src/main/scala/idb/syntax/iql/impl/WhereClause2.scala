@@ -39,7 +39,7 @@ import idb.syntax.iql._
  *
  * The top level where clause has its own type since we can compile this to a query of type Range
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 case class WhereClause2[Select : Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
     predicate: (Rep[((DomainA, DomainB)) => Boolean]),

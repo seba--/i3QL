@@ -56,7 +56,7 @@ trait SELECT_CLAUSE_STAR
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    ): FROM_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (

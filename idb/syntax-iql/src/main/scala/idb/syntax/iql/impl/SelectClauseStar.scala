@@ -62,7 +62,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationA,
             relationB,
             SelectClause (
-                (v : Rep[(DomainA, DomainB)]) => v,
+                (x : Rep[(DomainA, DomainB)]) => x,
                 asDistinct
             )
         )
@@ -72,13 +72,13 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)] =
+    ): FROM_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)] =
         FromClause3 (
             relationA,
             relationB,
             relationC,
-            SelectClause3 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c),
+            SelectClause (
+				(x : Rep[(DomainA, DomainB, DomainC)]) => x,
                 asDistinct
             )
         )

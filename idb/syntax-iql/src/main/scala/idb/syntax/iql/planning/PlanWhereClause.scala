@@ -48,7 +48,7 @@ trait PlanWhereClause
     val IR = idb.syntax.iql.IR
 
     import IR._
-
+	 /*
 
     def transform[Domain: Manifest, Range: Manifest] (
         clause: WhereClause1[_, Domain, Range],
@@ -76,7 +76,7 @@ trait PlanWhereClause
         selection (crossProduct (relationA, relationB, relationC), clause.predicate)
 
     //buildPredicateOperators(clause.predicate, relationA, relationB, relationC)
-
+     */
 
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
         clause: WhereClause4[DomainA, DomainB, DomainC, DomainD, Range],

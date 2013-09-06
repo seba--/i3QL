@@ -39,14 +39,18 @@ import idb.syntax.iql._
  *
  * The top level where clause has its own type since we can compile this to a query of type Range
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-case class WhereClause3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
-    predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean],
-    fromClause: FromClause3[DomainA, DomainB, DomainC, Range]
+case class WhereClause3[Select : Manifest , DomainA: Manifest, DomainB: Manifest , DomainC : Manifest, Range: Manifest] (
+    predicate: (Rep[((DomainA, DomainB, DomainC)) => Boolean]),
+    fromClause: FromClause3[Select, DomainA, DomainB, DomainC, Range]
 )
-    extends WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+    extends WHERE_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
+	with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 {
-
+	def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupRange : Manifest] (
+		grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC]) => Rep[GroupRange]
+   	): GROUP_BY_CLAUSE_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range] =
+		GroupByClause3 (grouping, this)
 
 }

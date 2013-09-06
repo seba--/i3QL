@@ -36,7 +36,7 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
+trait IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
 {
 
 

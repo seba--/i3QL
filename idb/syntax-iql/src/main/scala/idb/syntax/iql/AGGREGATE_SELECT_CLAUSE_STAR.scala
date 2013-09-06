@@ -55,12 +55,13 @@ trait AGGREGATE_SELECT_CLAUSE_STAR[Range]
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[DomainA, DomainB,DomainA, DomainB, Range]*/
 
-
+	/*
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
     ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+    */
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (

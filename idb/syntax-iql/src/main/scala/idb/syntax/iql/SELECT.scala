@@ -52,16 +52,13 @@ object SELECT
     def apply[SelectA : Manifest, SelectB : Manifest, Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
     ): SELECT_CLAUSE[(SelectA, SelectB), Range] =
-        SelectClause (
-            fun(projection)
-            //(v : Rep[(SelectA, SelectB)]) => projection(v._1,v._2)
-        )
+        SelectClause (fun (projection))
 
 
-    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Range]
-    ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
-        SelectClause3 (projection)
+    def apply[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, Range: Manifest] (
+        projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range]
+    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC), Range] =
+        SelectClause (fun (projection))
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
@@ -93,8 +90,8 @@ object SELECT
 
     def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
         projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Range]
-    ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
-        SelectClause3 (projection, asDistinct = true)
+    ): SELECT_CLAUSE [(DomainA, DomainB, DomainC), Range] =
+        SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (

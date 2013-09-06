@@ -37,7 +37,7 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 
