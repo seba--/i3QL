@@ -30,36 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
-
-import idb.syntax.iql.IR._
-import idb.syntax.iql._
+package idb.syntax.iql
 
 /**
  *
- * @author Ralf Mitschke
+ * The representation of a group by clause.
+ * The grouping function is checked on construction to conform to the types in the select clause.
+ * Hence, the query as a whole can be seen as having type Domain in the select clause.
+ *
+ * @author Mirko Köhler
  */
-case class SelectClause4[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, -SelectD: Manifest,
-Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD]) => Rep[Range],
-    asDistinct: Boolean = false
-)
-    extends SELECT_CLAUSE_4[SelectA, SelectB, SelectC, SelectD, Range]
+trait GROUP_BY_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupRange, Range]
+    extends IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupRange, Range]
 {
-
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest,
-    DomainD <: SelectD : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]],
-        relationD: Rep[Query[DomainD]]
-    ) =
-        FromClause4[DomainA, DomainB, DomainC, DomainD, Range](
-            relationA,
-            relationB,
-            relationC,
-            relationD,
-            this
-        )
 
 }

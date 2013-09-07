@@ -1,59 +1,36 @@
-/* License (BSD Style License):
- *  Copyright (c) 2009, 2011
- *  Software Technology Group
- *  Department of Computer Science
- *  Technische Universität Darmstadt
- *  All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *
- *  - Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
- *  - Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische
- *    Universität Darmstadt nor the names of its contributors may be used to
- *    endorse or promote products derived from this software without specific
- *    prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
- *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- *  POSSIBILITY OF SUCH DAMAGE.
- */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.IR._
 import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:08
+ * The syntax representation of a from clause for one relation.
+ *
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
-case class FromClause5[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
-Range: Manifest] (
-    relationA: Rep[Query[DomainA]],
-    relationB: Rep[Query[DomainB]],
-    relationC: Rep[Query[DomainC]],
-    relationD: Rep[Query[DomainD]],
-    relationE: Rep[Query[DomainE]],
-    selectClause: SelectClause5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+case class FromClause5[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest,
+	DomainD : Manifest, DomainE : Manifest, Range : Manifest]
+(
+    relationA : Rep[Query[DomainA]],
+	relationB : Rep[Query[DomainB]],
+	relationC : Rep[Query[DomainC]],
+	relationD : Rep[Query[DomainD]],
+	relationE : Rep[Query[DomainE]],
+    selectClause : SelectClause[Select, Range]
 )
-    extends FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    extends FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 {
+	def WHERE (
+		 predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean]
+	): WHERE_CLAUSE_5[Select, DomainA ,DomainB, DomainC, DomainD, DomainE, Range]
+		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+		WhereClause5 (fun(predicate), this)
 
-    def WHERE (predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean]) =
-        WhereClause5 (predicate, this)
+	def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupDomainD : Manifest, GroupDomainE : Manifest, GroupRange : Manifest] (
+		grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC], Rep[GroupDomainD], Rep[GroupDomainE]) => Rep[GroupRange]
+	): GROUP_BY_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range] =
+        GroupByClause5 (grouping, this)
 }

@@ -36,18 +36,11 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  */
-trait SELECT_CLAUSE_5[-SelectA, -SelectB, -SelectC, -SelectD, -SelectE, Range]
+trait CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 {
-
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest,
-    DomainD <: SelectD : Manifest, DomainE <: SelectE : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]],
-        relationD: Rep[Query[DomainD]],
-        relationE: Rep[Query[DomainE]]
-    ): FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-
+    def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupDomainD : Manifest, GroupDomainE : Manifest, GroupRange : Manifest] (
+        grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC], Rep[GroupDomainD], Rep[GroupDomainE]) => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
 }

@@ -88,14 +88,14 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]]
-    ): FROM_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)] =
+    ): FROM_CLAUSE_4[(DomainA, DomainB, DomainC, DomainD) ,DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)] =
         FromClause4 (
             relationA,
             relationB,
             relationC,
             relationD,
-            SelectClause4 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD]) => (a, b, c, d),
+            SelectClause (
+                (x : Rep[(DomainA, DomainB, DomainC, DomainD)]) => x,//(x : Rep[(DomainA, DomainB, DomainC, DomainD)]) => x,
                 asDistinct
             )
         )
@@ -106,20 +106,15 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]],
         relationE: Rep[Query[DomainE]]
-    ): FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)] =
+    ): FROM_CLAUSE_5[(DomainA, DomainB, DomainC, DomainD, DomainE), DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)] =
         FromClause5 (
             relationA,
             relationB,
             relationC,
             relationD,
             relationE,
-            SelectClause5 (
-                (a: Rep[DomainA],
-                b: Rep[DomainB],
-                c: Rep[DomainC],
-                d: Rep[DomainD],
-                e: Rep[DomainE]
-                ) => (a, b, c, d, e),
+            SelectClause (
+				(x : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => x,
                 asDistinct
             )
         )

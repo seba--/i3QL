@@ -36,7 +36,7 @@ package idb.syntax.iql
  *
  * The top level where clause has its own type since we can compile this to a query of type Range
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 trait WHERE_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
     extends IQL_QUERY_3[Select, DomainA, DomainB, DomainC, DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC), Range]

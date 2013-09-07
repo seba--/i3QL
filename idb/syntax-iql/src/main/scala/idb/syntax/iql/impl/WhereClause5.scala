@@ -39,15 +39,20 @@ import idb.syntax.iql._
  *
  * The top level where clause has its own type since we can compile this to a query of type Range
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-case class WhereClause5[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest,
-DomainE: Manifest, Range: Manifest] (
-    predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean],
-    fromClause: FromClause5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+case class WhereClause5[Select : Manifest , DomainA: Manifest, DomainB: Manifest , DomainC : Manifest,
+	DomainD : Manifest, DomainE : Manifest, Range: Manifest]
+(
+    predicate: (Rep[((DomainA, DomainB, DomainC, DomainD, DomainE)) => Boolean]),
+    fromClause: FromClause5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 )
-    extends WHERE_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    extends WHERE_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+	with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 {
-
+	def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupDomainD : Manifest, GroupDomainE : Manifest, GroupRange : Manifest] (
+		grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC], Rep[GroupDomainD], Rep[GroupDomainE]) => Rep[GroupRange]
+   	): GROUP_BY_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range] =
+		GroupByClause5 (grouping, this)
 
 }

@@ -36,12 +36,13 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-trait FROM_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range]
-    extends IQL_QUERY_4[DomainA, DomainB, DomainC, DomainD, Range]
+trait FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+    extends IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD), Range]
 {
     def WHERE (
         predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Boolean]
-    ): WHERE_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range]
+    ): WHERE_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 }

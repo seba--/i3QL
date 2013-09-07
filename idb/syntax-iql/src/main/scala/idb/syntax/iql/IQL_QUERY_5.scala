@@ -34,10 +34,13 @@ package idb.syntax.iql
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
-trait IQL_QUERY_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-{
+trait IQL_QUERY_5[Select,
+	DomainA, DomainB, DomainC, DomainD, DomainE,
+	GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE,
+	GroupRange, Range
+] {
 
 
 }

@@ -36,7 +36,7 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke, Mirko Köhler
+ * @author Mirko Köhler
  */
 trait CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 {

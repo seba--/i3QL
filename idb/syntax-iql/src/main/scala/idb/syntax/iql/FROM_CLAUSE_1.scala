@@ -44,5 +44,6 @@ trait FROM_CLAUSE_1[Select, Domain, Range]
     def WHERE (
         predicate: Rep[Domain] => Rep[Boolean]
     ): WHERE_CLAUSE_1[Select, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 
 }

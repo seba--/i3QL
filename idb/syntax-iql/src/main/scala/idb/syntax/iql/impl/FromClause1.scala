@@ -21,7 +21,8 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
 {
     def WHERE (
         predicate: Rep[Domain] => Rep[Boolean]
-    ): WHERE_CLAUSE_1[Select, Domain, Range] =
+    ): WHERE_CLAUSE_1[Select, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, Range] =
         WhereClause1 (predicate, this)
 
     def GROUP[GroupDomain : Manifest, GroupRange : Manifest] (

@@ -30,38 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  */
-case class SelectClause5[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, -SelectD: Manifest,
--SelectE: Manifest, Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD], Rep[SelectE]) => Rep[Range],
-    asDistinct: Boolean = false
-)
-    extends SELECT_CLAUSE_5[SelectA, SelectB, SelectC, SelectD, SelectE, Range]
+trait CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 {
-
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest,
-    DomainD <: SelectD : Manifest, DomainE <: SelectE : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]],
-        relationD: Rep[Query[DomainD]],
-        relationE: Rep[Query[DomainE]]
-    ) =
-        FromClause5[DomainA, DomainB, DomainC, DomainD, DomainE, Range](
-            relationA,
-            relationB,
-            relationC,
-            relationD,
-            relationE,
-            this
-        )
-
+    def GROUP[GroupDomainA : Manifest, GroupDomainB : Manifest, GroupDomainC : Manifest, GroupDomainD : Manifest, GroupRange : Manifest] (
+        grouping: (Rep[GroupDomainA], Rep[GroupDomainB], Rep[GroupDomainC], Rep[GroupDomainD]) => Rep[GroupRange]
+    ): GROUP_BY_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupRange, Range]
 }
