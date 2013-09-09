@@ -47,6 +47,8 @@ class ASMDatabase
     with ASMStructureRelations
     with ASMStructureDerived
     with ASMStructureDerivedConstructors
+    with ASMInstructions
+    with ASMInstructionsRelations
     with ASMDatabaseManipulation
 {
 
