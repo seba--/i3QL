@@ -33,7 +33,8 @@
 package sae.bytecode.asm
 
 import idb.SetExtent
-import sae.bytecode.structure.instructions.BytecodeInstructionsRelations
+import sae.bytecode.structure.instructions.{BytecodeInstructionsManifest, BytecodeInstructionsRelations}
+import idb.syntax.iql._
 
 /**
  *
@@ -41,10 +42,30 @@ import sae.bytecode.structure.instructions.BytecodeInstructionsRelations
  */
 trait ASMInstructionsRelations
     extends ASMInstructions
+    with BytecodeInstructionsManifest
     with BytecodeInstructionsRelations
 {
 
-    lazy val instructions: SetExtent[Instruction] =
+    lazy val instructions =
         SetExtent.empty[Instruction]()
 
+    lazy val jumpInstructions = compile(
+        conditionalJumpInstructions UNION ALL (unconditionalJumpInstructions)
+    )
+
+    lazy val conditionalJumpInstructions =
+        SetExtent.empty[JumpInstruction]()
+
+    lazy val unconditionalJumpInstructions =
+        SetExtent.empty[JumpInstruction]()
+
+    lazy val localVariableAccessInstructions = compile(
+        localVariableLoadInstructions UNION ALL (localVariableStoreInstructions)
+    )
+
+    lazy val localVariableLoadInstructions =
+        SetExtent.empty[LocalVariableAccessInstruction]()
+
+    lazy val localVariableStoreInstructions =
+        SetExtent.empty[LocalVariableAccessInstruction]()
 }

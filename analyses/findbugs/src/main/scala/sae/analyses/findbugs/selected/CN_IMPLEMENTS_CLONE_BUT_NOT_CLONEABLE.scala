@@ -79,470 +79,440 @@ object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
 
 /*
 
-
+// TODO need some optimizations
 difference(
     difference(
         selection(
-            extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-            (x317: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
-                val x0 = px0 // static data: <function1>
-                val x319 = x0("java/lang/Object")
-                val x324 = x317.parameterTypes
-                val x325 = x324 == List()
-                val x321 = x317.declaringClass
-                val x322 = x321.superType
-                val x323 = x322.isDefined
-                val x318 = x317.returnType
-                val x320 = x318 == x319
-                val x330 = x317.name
-                val x331 = x330 == "clone"
-                val x333 = x320 && x331
-                val x335 = x323 && x333
-                val x336 = x325 && x335
-                x336
+            extent2078117529: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@7bdd8e99,true,false,false)],
+            (x987: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
+                val x668 = px668 // static data: <function1>
+                val x684 = x668("java/lang/Object")
+                val x993 = x987.parameterTypes
+                val x994 = x993 == List()
+                val x990 = x987.declaringClass
+                val x991 = x990.superType
+                val x992 = x991.isDefined
+                val x988 = x987.returnType
+                val x989 = x988 == x684
+                val x998 = x987.name
+                val x999 = x998 == "clone"
+                val x1001 = x989 && x999
+                val x1003 = x992 && x1001
+                val x1004 = x994 && x1003
+                x1004
             }
-        )[ref=Sym(339)],
+        )[ref=Sym(1007)],
         projection(
             equiJoin(
                 selection(
-                    extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-                    (x401: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
-                        val x0 = px0 // static data: <function1>
-                        val x403 = x0("java/lang/Object")
-                        val x410 = x0("java/lang/Object")
-                        val x429 = x0("java/lang/Object")
-                        val x402 = x401.returnType
-                        val x430 = x402 == x429
-                        val x412 = x401.name
-                        val x413 = x412 == "clone"
-                        val x411 = x402 == x410
-                        val x408 = x401.parameterTypes
-                        val x409 = x408 == List()
-                        val x405 = x401.declaringClass
-                        val x406 = x405.superType
-                        val x407 = x406.isDefined
-                        val x404 = x402 == x403
-                        val x423 = x404 && x413
-                        val x424 = x407 && x423
-                        val x425 = x407 && x424
-                        val x440 = x407 && x425
-                        val x441 = x409 && x440
-                        val x444 = x409 && x441
-                        val x447 = x411 && x444
-                        val x448 = x413 && x447
-                        val x449 = x430 && x448
-                        x449
+                    extent2078117529: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@7bdd8e99,true,false,false)],
+                    (x1062: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
+                        val x668 = px668 // static data: <function1>
+                        val x684 = x668("java/lang/Object")
+                        val x1070 = x1062.name
+                        val x1071 = x1070 == "clone"
+                        val x1068 = x1062.parameterTypes
+                        val x1069 = x1068 == List()
+                        val x1065 = x1062.declaringClass
+                        val x1066 = x1065.superType
+                        val x1067 = x1066.isDefined
+                        val x1063 = x1062.returnType
+                        val x1064 = x1063 == x684
+                        val x1077 = x1064 && x1071
+                        val x1081 = x1064 && x1077
+                        val x1089 = x1064 && x1081
+                        val x1090 = x1067 && x1089
+                        val x1093 = x1067 && x1090
+                        val x1096 = x1067 && x1093
+                        val x1097 = x1069 && x1096
+                        val x1099 = x1069 && x1097
+                        val x1100 = x1071 && x1099
+                        x1100
                     }
-                )[ref=Sym(452)],
+                )[ref=Sym(1103)],
                 duplicateElimination(
                     projection(
                         selection(
-                            crossProduct(
-                                extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-                                selection(
-                                    duplicateElimination(
-                                        RecursionResult(
-                                            unionAdd(
-                                                unionAdd(
-                                                    projection(
-                                                        selection(
-                                                            extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                            (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                val x39 = x38.superType
-                                                                val x40 = x39.isDefined
-                                                                x40
-                                                            }
-                                                        )[ref=Sym(42)],
-                                                        (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                            val x2 = px2 // static data: <function1>
-                                                            val x32 = x31.superType
-                                                            val x33 = x32.get
-                                                            val x35 = x2(x31,x33)
-                                                            x35
-                                                        }
-                                                    )[ref=Sym(43)],
-                                                    projection(
-                                                        unnest(
-                                                            extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                            (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                val x51 = x50.interfaces
-                                                                x51
-                                                            }
-                                                        )[ref=Sym(53)],
-                                                        ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                            val x2 = px2 // static data: <function1>
-                                                            val x47 = x2(x44,x45)
-                                                            x47
-                                                        }
-                                                    )[ref=Sym(54)]
-                                                )[ref=Sym(55)],
-                                                projection(
-                                                    equiJoin(
-                                                        Recursion(
-                                                            unionAdd(
-                                                                projection(
-                                                                    selection(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                            val x39 = x38.superType
-                                                                            val x40 = x39.isDefined
-                                                                            x40
-                                                                        }
-                                                                    )[ref=Sym(42)],
-                                                                    (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x32 = x31.superType
-                                                                        val x33 = x32.get
-                                                                        val x35 = x2(x31,x33)
-                                                                        x35
-                                                                    }
-                                                                )[ref=Sym(43)],
-                                                                projection(
-                                                                    unnest(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                            val x51 = x50.interfaces
-                                                                            x51
-                                                                        }
-                                                                    )[ref=Sym(53)],
-                                                                    ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x47 = x2(x44,x45)
-                                                                        x47
-                                                                    }
-                                                                )[ref=Sym(54)]
-                                                            )[ref=Sym(55)],
-                                                            Sym(76)
-                                                        ),
-                                                        Recursion(
-                                                            unionAdd(
-                                                                projection(
-                                                                    selection(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                            val x39 = x38.superType
-                                                                            val x40 = x39.isDefined
-                                                                            x40
-                                                                        }
-                                                                    )[ref=Sym(42)],
-                                                                    (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x32 = x31.superType
-                                                                        val x33 = x32.get
-                                                                        val x35 = x2(x31,x33)
-                                                                        x35
-                                                                    }
-                                                                )[ref=Sym(43)],
-                                                                projection(
-                                                                    unnest(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                            val x51 = x50.interfaces
-                                                                            x51
-                                                                        }
-                                                                    )[ref=Sym(53)],
-                                                                    ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x47 = x2(x44,x45)
-                                                                        x47
-                                                                    }
-                                                                )[ref=Sym(54)]
-                                                            )[ref=Sym(55)],
-                                                            Sym(76)
-                                                        ),
-                                                        Seq(
-                                                            (
-                                                            (x64: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
-                                                                val x66 = x64.superType
-                                                                x66
-                                                            },
-                                                            (x65: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
-                                                                val x67 = x65.subType
-                                                                x67
-                                                            }
-                                                            )
-                                                        )
-                                                    )[ref=Sym(73)],
-                                                    ((x56:sae.bytecode.asm.structure.TypeRelation,x57:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.TypeRelation => {
-                                                        val x1 = px1 // static data: <function1>
-                                                        val x58 = x56.subType
-                                                        val x59 = x57.superType
-                                                        val x61 = x1(x58,x59)
-                                                        x61
+                            duplicateElimination(
+                                RecursionResult(
+                                    unionAdd(
+                                        unionAdd(
+                                            projection(
+                                                selection(
+                                                    extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                    (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                        val x43 = x42.superType
+                                                        val x44 = x43.isDefined
+                                                        x44
                                                     }
-                                                )[ref=Sym(74)]
-                                            )[ref=Sym(75)]
-                                        )
-                                    )[ref=Sym(79)],
-                                    (x107: sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
-                                        val x0 = px0 // static data: <function1>
-                                        val x116 = x0("java/lang/Cloneable")
-                                        val x115 = x107.superType
-                                        val x117 = x115 == x116
-                                        x117
-                                    }
-                                )[ref=Sym(126)]
-                            )[ref=Sym(127)],
-                            ((x106:sae.bytecode.asm.structure.MethodDeclaration,x107:sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
-                                val x0 = px0 // static data: <function1>
-                                val x116 = x0("java/lang/Cloneable")
-                                val x108 = x106.declaringType
-                                val x118 = x107.subType
-                                val x119 = x118 == x108
-                                x119
+                                                )[ref=Sym(710)],
+                                                (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                    val x670 = px670 // static data: <function1>
+                                                    val x700 = x699.superType
+                                                    val x701 = x700.get
+                                                    val x703 = x670(x699,x701)
+                                                    x703
+                                                }
+                                            )[ref=Sym(711)],
+                                            projection(
+                                                unnest(
+                                                    extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                    (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                        val x55 = x54.interfaces
+                                                        x55
+                                                    }
+                                                )[ref=Sym(721)],
+                                                ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                    val x670 = px670 // static data: <function1>
+                                                    val x715 = x670(x712,x713)
+                                                    x715
+                                                }
+                                            )[ref=Sym(722)]
+                                        )[ref=Sym(723)],
+                                        projection(
+                                            equiJoin(
+                                                Recursion(
+                                                    unionAdd(
+                                                        projection(
+                                                            selection(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                                    val x43 = x42.superType
+                                                                    val x44 = x43.isDefined
+                                                                    x44
+                                                                }
+                                                            )[ref=Sym(710)],
+                                                            (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x700 = x699.superType
+                                                                val x701 = x700.get
+                                                                val x703 = x670(x699,x701)
+                                                                x703
+                                                            }
+                                                        )[ref=Sym(711)],
+                                                        projection(
+                                                            unnest(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                                    val x55 = x54.interfaces
+                                                                    x55
+                                                                }
+                                                            )[ref=Sym(721)],
+                                                            ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x715 = x670(x712,x713)
+                                                                x715
+                                                            }
+                                                        )[ref=Sym(722)]
+                                                    )[ref=Sym(723)],
+                                                    Sym(743)
+                                                ),
+                                                Recursion(
+                                                    unionAdd(
+                                                        projection(
+                                                            selection(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                                    val x43 = x42.superType
+                                                                    val x44 = x43.isDefined
+                                                                    x44
+                                                                }
+                                                            )[ref=Sym(710)],
+                                                            (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x700 = x699.superType
+                                                                val x701 = x700.get
+                                                                val x703 = x670(x699,x701)
+                                                                x703
+                                                            }
+                                                        )[ref=Sym(711)],
+                                                        projection(
+                                                            unnest(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                                    val x55 = x54.interfaces
+                                                                    x55
+                                                                }
+                                                            )[ref=Sym(721)],
+                                                            ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x715 = x670(x712,x713)
+                                                                x715
+                                                            }
+                                                        )[ref=Sym(722)]
+                                                    )[ref=Sym(723)],
+                                                    Sym(743)
+                                                ),
+                                                Seq(
+                                                    (
+                                                    (x68: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                                                        val x70 = x68.superType
+                                                        x70
+                                                    },
+                                                    (x29: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                                                        val x30 = x29.subType
+                                                        x30
+                                                    }
+                                                    )
+                                                )
+                                            )[ref=Sym(740)],
+                                            ((x724:sae.bytecode.asm.structure.TypeRelation,x725:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.TypeRelation => {
+                                                val x669 = px669 // static data: <function1>
+                                                val x726 = x724.subType
+                                                val x727 = x725.superType
+                                                val x729 = x669(x726,x727)
+                                                x729
+                                            }
+                                        )[ref=Sym(741)]
+                                    )[ref=Sym(742)]
+                                )
+                            )[ref=Sym(746)],
+                            (x774: sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
+                                val x668 = px668 // static data: <function1>
+                                val x751 = x668("java/lang/Cloneable")
+                                val x780 = x774.superType
+                                val x781 = x780 == x751
+                                x781
                             }
-                        )[ref=Sym(130)],
-                        ((x131:sae.bytecode.asm.structure.MethodDeclaration,x132:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.MethodDeclaration => {
-                            x131
+                        )[ref=Sym(788)],
+                        (x29: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                            val x30 = x29.subType
+                            x30
                         }
-                    )[ref=Sym(134)]
-                )[ref=Sym(135)],
+                    )[ref=Sym(799)]
+                )[ref=Sym(800)],
                 Seq(
                     (
-                    (x3: sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration => {
-                        x3
+                    (x123: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): org.objectweb.asm.Type => {
+                        val x133 = x123.declaringType
+                        x133
                     },
-                    (x3: sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration => {
-                        x3
+                    (x192: Any): Any => {
+                        x192
                     }
                     )
                 )
-            )[ref=Sym(453)],
-            ((x144:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration,x145:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration => {
-                x144
+            )[ref=Sym(1104)],
+            ((x804:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration,x805:Any): sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration => {
+                x804
             }
-        )[ref=Sym(454)]
-    )[ref=Sym(455)],
+        )[ref=Sym(1105)]
+    )[ref=Sym(1106)],
     difference(
         selection(
-            extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-            (x458: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
-                val x0 = px0 // static data: <function1>
-                val x460 = x0("java/lang/Object")
-                val x465 = x458.parameterTypes
-                val x466 = x465 == List()
-                val x462 = x458.declaringClass
-                val x463 = x462.superType
-                val x464 = x463.isDefined
-                val x459 = x458.returnType
-                val x461 = x459 == x460
-                val x471 = x458.isAbstract
-                val x473 = x461 && x471
-                val x475 = x464 && x473
-                val x476 = x466 && x475
-                x476
+            extent2078117529: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@7bdd8e99,true,false,false)],
+            (x1107: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
+                val x668 = px668 // static data: <function1>
+                val x684 = x668("java/lang/Object")
+                val x1113 = x1107.parameterTypes
+                val x1114 = x1113 == List()
+                val x1110 = x1107.declaringClass
+                val x1111 = x1110.superType
+                val x1112 = x1111.isDefined
+                val x1108 = x1107.returnType
+                val x1109 = x1108 == x684
+                val x1118 = x1107.isAbstract
+                val x1120 = x1109 && x1118
+                val x1122 = x1112 && x1120
+                val x1123 = x1114 && x1122
+                x1123
             }
-        )[ref=Sym(479)],
+        )[ref=Sym(1126)],
         projection(
             equiJoin(
                 selection(
-                    extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-                    (x538: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
-                        val x0 = px0 // static data: <function1>
-                        val x540 = x0("java/lang/Object")
-                        val x547 = x0("java/lang/Object")
-                        val x565 = x0("java/lang/Object")
-                        val x539 = x538.returnType
-                        val x566 = x539 == x565
-                        val x549 = x538.isAbstract
-                        val x548 = x539 == x547
-                        val x545 = x538.parameterTypes
-                        val x546 = x545 == List()
-                        val x542 = x538.declaringClass
-                        val x543 = x542.superType
-                        val x544 = x543.isDefined
-                        val x541 = x539 == x540
-                        val x559 = x541 && x549
-                        val x560 = x544 && x559
-                        val x561 = x544 && x560
-                        val x576 = x544 && x561
-                        val x577 = x546 && x576
-                        val x580 = x546 && x577
-                        val x583 = x548 && x580
-                        val x584 = x549 && x583
-                        val x585 = x566 && x584
-                        x585
+                    extent2078117529: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@7bdd8e99,true,false,false)],
+                    (x1178: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): Boolean => {
+                        val x668 = px668 // static data: <function1>
+                        val x684 = x668("java/lang/Object")
+                        val x1186 = x1178.isAbstract
+                        val x1184 = x1178.parameterTypes
+                        val x1185 = x1184 == List()
+                        val x1181 = x1178.declaringClass
+                        val x1182 = x1181.superType
+                        val x1183 = x1182.isDefined
+                        val x1179 = x1178.returnType
+                        val x1180 = x1179 == x684
+                        val x1192 = x1180 && x1186
+                        val x1196 = x1180 && x1192
+                        val x1204 = x1180 && x1196
+                        val x1205 = x1183 && x1204
+                        val x1208 = x1183 && x1205
+                        val x1211 = x1183 && x1208
+                        val x1212 = x1185 && x1211
+                        val x1214 = x1185 && x1212
+                        val x1215 = x1186 && x1214
+                        x1215
                     }
-                )[ref=Sym(588)],
+                )[ref=Sym(1218)],
                 duplicateElimination(
                     projection(
                         selection(
-                            crossProduct(
-                                extent23304757: Extent[sae.bytecode.asm.structure.MethodDeclaration][ref=QueryExtent(idb.SetExtent@1639a35,true,false,false)],
-                                selection(
-                                    duplicateElimination(
-                                        RecursionResult(
-                                            unionAdd(
-                                                unionAdd(
-                                                    projection(
-                                                        selection(
-                                                            extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                            (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                val x39 = x38.superType
-                                                                val x40 = x39.isDefined
-                                                                x40
-                                                            }
-                                                        )[ref=Sym(42)],
-                                                        (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                            val x2 = px2 // static data: <function1>
-                                                            val x32 = x31.superType
-                                                            val x33 = x32.get
-                                                            val x35 = x2(x31,x33)
-                                                            x35
-                                                        }
-                                                    )[ref=Sym(43)],
-                                                    projection(
-                                                        unnest(
-                                                            extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                            (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                val x51 = x50.interfaces
-                                                                x51
-                                                            }
-                                                        )[ref=Sym(53)],
-                                                        ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                            val x2 = px2 // static data: <function1>
-                                                            val x47 = x2(x44,x45)
-                                                            x47
-                                                        }
-                                                    )[ref=Sym(54)]
-                                                )[ref=Sym(55)],
-                                                projection(
-                                                    equiJoin(
-                                                        Recursion(
-                                                            unionAdd(
-                                                                projection(
-                                                                    selection(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                            val x39 = x38.superType
-                                                                            val x40 = x39.isDefined
-                                                                            x40
-                                                                        }
-                                                                    )[ref=Sym(42)],
-                                                                    (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x32 = x31.superType
-                                                                        val x33 = x32.get
-                                                                        val x35 = x2(x31,x33)
-                                                                        x35
-                                                                    }
-                                                                )[ref=Sym(43)],
-                                                                projection(
-                                                                    unnest(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                            val x51 = x50.interfaces
-                                                                            x51
-                                                                        }
-                                                                    )[ref=Sym(53)],
-                                                                    ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x47 = x2(x44,x45)
-                                                                        x47
-                                                                    }
-                                                                )[ref=Sym(54)]
-                                                            )[ref=Sym(55)],
-                                                            Sym(76)
-                                                        ),
-                                                        Recursion(
-                                                            unionAdd(
-                                                                projection(
-                                                                    selection(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x38: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
-                                                                            val x39 = x38.superType
-                                                                            val x40 = x39.isDefined
-                                                                            x40
-                                                                        }
-                                                                    )[ref=Sym(42)],
-                                                                    (x31: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x32 = x31.superType
-                                                                        val x33 = x32.get
-                                                                        val x35 = x2(x31,x33)
-                                                                        x35
-                                                                    }
-                                                                )[ref=Sym(43)],
-                                                                projection(
-                                                                    unnest(
-                                                                        extent3515826: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@35a5b2,true,false,false)],
-                                                                        (x50: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
-                                                                            val x51 = x50.interfaces
-                                                                            x51
-                                                                        }
-                                                                    )[ref=Sym(53)],
-                                                                    ((x44:sae.bytecode.asm.structure.ClassDeclaration,x45:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
-                                                                        val x2 = px2 // static data: <function1>
-                                                                        val x47 = x2(x44,x45)
-                                                                        x47
-                                                                    }
-                                                                )[ref=Sym(54)]
-                                                            )[ref=Sym(55)],
-                                                            Sym(76)
-                                                        ),
-                                                        Seq(
-                                                            (
-                                                            (x64: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
-                                                                val x66 = x64.superType
-                                                                x66
-                                                            },
-                                                            (x65: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
-                                                                val x67 = x65.subType
-                                                                x67
-                                                            }
-                                                            )
-                                                        )
-                                                    )[ref=Sym(73)],
-                                                    ((x56:sae.bytecode.asm.structure.TypeRelation,x57:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.TypeRelation => {
-                                                        val x1 = px1 // static data: <function1>
-                                                        val x58 = x56.subType
-                                                        val x59 = x57.superType
-                                                        val x61 = x1(x58,x59)
-                                                        x61
+                            duplicateElimination(
+                                RecursionResult(
+                                    unionAdd(
+                                        unionAdd(
+                                            projection(
+                                                selection(
+                                                    extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                    (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                        val x43 = x42.superType
+                                                        val x44 = x43.isDefined
+                                                        x44
                                                     }
-                                                )[ref=Sym(74)]
-                                            )[ref=Sym(75)]
-                                        )
-                                    )[ref=Sym(79)],
-                                    (x107: sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
-                                        val x0 = px0 // static data: <function1>
-                                        val x116 = x0("java/lang/Cloneable")
-                                        val x115 = x107.superType
-                                        val x117 = x115 == x116
-                                        x117
-                                    }
-                                )[ref=Sym(126)]
-                            )[ref=Sym(127)],
-                            ((x106:sae.bytecode.asm.structure.MethodDeclaration,x107:sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
-                                val x0 = px0 // static data: <function1>
-                                val x116 = x0("java/lang/Cloneable")
-                                val x108 = x106.declaringType
-                                val x118 = x107.subType
-                                val x119 = x118 == x108
-                                x119
+                                                )[ref=Sym(710)],
+                                                (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                    val x670 = px670 // static data: <function1>
+                                                    val x700 = x699.superType
+                                                    val x701 = x700.get
+                                                    val x703 = x670(x699,x701)
+                                                    x703
+                                                }
+                                            )[ref=Sym(711)],
+                                            projection(
+                                                unnest(
+                                                    extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                    (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                        val x55 = x54.interfaces
+                                                        x55
+                                                    }
+                                                )[ref=Sym(721)],
+                                                ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                    val x670 = px670 // static data: <function1>
+                                                    val x715 = x670(x712,x713)
+                                                    x715
+                                                }
+                                            )[ref=Sym(722)]
+                                        )[ref=Sym(723)],
+                                        projection(
+                                            equiJoin(
+                                                Recursion(
+                                                    unionAdd(
+                                                        projection(
+                                                            selection(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                                    val x43 = x42.superType
+                                                                    val x44 = x43.isDefined
+                                                                    x44
+                                                                }
+                                                            )[ref=Sym(710)],
+                                                            (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x700 = x699.superType
+                                                                val x701 = x700.get
+                                                                val x703 = x670(x699,x701)
+                                                                x703
+                                                            }
+                                                        )[ref=Sym(711)],
+                                                        projection(
+                                                            unnest(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                                    val x55 = x54.interfaces
+                                                                    x55
+                                                                }
+                                                            )[ref=Sym(721)],
+                                                            ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x715 = x670(x712,x713)
+                                                                x715
+                                                            }
+                                                        )[ref=Sym(722)]
+                                                    )[ref=Sym(723)],
+                                                    Sym(743)
+                                                ),
+                                                Recursion(
+                                                    unionAdd(
+                                                        projection(
+                                                            selection(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x42: sae.bytecode.asm.structure.ClassDeclaration): Boolean => {
+                                                                    val x43 = x42.superType
+                                                                    val x44 = x43.isDefined
+                                                                    x44
+                                                                }
+                                                            )[ref=Sym(710)],
+                                                            (x699: sae.bytecode.asm.structure.ClassDeclaration): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x700 = x699.superType
+                                                                val x701 = x700.get
+                                                                val x703 = x670(x699,x701)
+                                                                x703
+                                                            }
+                                                        )[ref=Sym(711)],
+                                                        projection(
+                                                            unnest(
+                                                                extent1452787595: Extent[sae.bytecode.asm.structure.ClassDeclaration][ref=QueryExtent(idb.SetExtent@5697c78b,true,false,false)],
+                                                                (x54: sae.bytecode.asm.structure.ClassDeclaration): scala.collection.Traversable[org.objectweb.asm.Type] => {
+                                                                    val x55 = x54.interfaces
+                                                                    x55
+                                                                }
+                                                            )[ref=Sym(721)],
+                                                            ((x712:sae.bytecode.asm.structure.ClassDeclaration,x713:org.objectweb.asm.Type): sae.bytecode.asm.structure.Inheritance => {
+                                                                val x670 = px670 // static data: <function1>
+                                                                val x715 = x670(x712,x713)
+                                                                x715
+                                                            }
+                                                        )[ref=Sym(722)]
+                                                    )[ref=Sym(723)],
+                                                    Sym(743)
+                                                ),
+                                                Seq(
+                                                    (
+                                                    (x68: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                                                        val x70 = x68.superType
+                                                        x70
+                                                    },
+                                                    (x29: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                                                        val x30 = x29.subType
+                                                        x30
+                                                    }
+                                                    )
+                                                )
+                                            )[ref=Sym(740)],
+                                            ((x724:sae.bytecode.asm.structure.TypeRelation,x725:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.TypeRelation => {
+                                                val x669 = px669 // static data: <function1>
+                                                val x726 = x724.subType
+                                                val x727 = x725.superType
+                                                val x729 = x669(x726,x727)
+                                                x729
+                                            }
+                                        )[ref=Sym(741)]
+                                    )[ref=Sym(742)]
+                                )
+                            )[ref=Sym(746)],
+                            (x774: sae.bytecode.asm.structure.TypeRelation with sae.bytecode.asm.structure.TypeRelation): Boolean => {
+                                val x668 = px668 // static data: <function1>
+                                val x751 = x668("java/lang/Cloneable")
+                                val x780 = x774.superType
+                                val x781 = x780 == x751
+                                x781
                             }
-                        )[ref=Sym(130)],
-                        ((x131:sae.bytecode.asm.structure.MethodDeclaration,x132:sae.bytecode.asm.structure.TypeRelation): sae.bytecode.asm.structure.MethodDeclaration => {
-                            x131
+                        )[ref=Sym(788)],
+                        (x29: sae.bytecode.asm.structure.TypeRelation): org.objectweb.asm.Type => {
+                            val x30 = x29.subType
+                            x30
                         }
-                    )[ref=Sym(134)]
-                )[ref=Sym(135)],
+                    )[ref=Sym(799)]
+                )[ref=Sym(800)],
                 Seq(
                     (
-                    (x3: sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration => {
-                        x3
+                    (x123: sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): org.objectweb.asm.Type => {
+                        val x133 = x123.declaringType
+                        x133
                     },
-                    (x3: sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration => {
-                        x3
+                    (x192: Any): Any => {
+                        x192
                     }
                     )
                 )
-            )[ref=Sym(589)],
-            ((x144:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration,x145:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration): sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration => {
-                x144
+            )[ref=Sym(1219)],
+            ((x804:sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration,x805:Any): sae.bytecode.asm.structure.MethodDeclaration with sae.bytecode.asm.structure.MethodDeclaration => {
+                x804
             }
-        )[ref=Sym(590)]
-    )[ref=Sym(591)]
-)[ref=Sym(592)]
+        )[ref=Sym(1220)]
+    )[ref=Sym(1221)]
+)[ref=Sym(1222)]
 
 */

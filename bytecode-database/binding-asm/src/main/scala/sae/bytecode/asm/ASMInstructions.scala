@@ -45,6 +45,33 @@ trait ASMInstructions
 
     def getManifestInstruction: Manifest[Instruction] =
         manifest[instructions.Instruction]
+
+    type JumpInstruction = instructions.JumpInstruction
+
+    def getManifestJumpInstruction: Manifest[JumpInstruction] =
+        manifest[instructions.JumpInstruction]
+
+    /*
+    type ConditionalJumpInstruction = instructions.ConditionalJumpInstruction
+
+    def getManifestConditionalJumpInstruction: Manifest[ConditionalJumpInstruction] =
+        manifest[instructions.ConditionalJumpInstruction]
+
+    type UnconditionalJumpInstruction = instructions.UnconditionalJumpInstruction
+
+    def getManifestUnconditionalJumpInstruction: Manifest[UnconditionalJumpInstruction] =
+        manifest[instructions.UnconditionalJumpInstruction]
+    */
+
+    type ConstantValueInstruction[+V] = instructions.ConstantValueInstruction[V]
+
+    def getManifestConstantValueInstruction[V:Manifest]: Manifest[ConstantValueInstruction[V]] =
+        manifest[instructions.ConstantValueInstruction[V]]
+
+    type LocalVariableAccessInstruction = instructions.LocalVariableAccessInstruction
+
+    def getManifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction]=
+        manifest[instructions.LocalVariableAccessInstruction]
 }
 
 

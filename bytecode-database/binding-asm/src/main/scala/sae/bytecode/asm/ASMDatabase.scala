@@ -113,4 +113,8 @@ class ASMDatabase
           */
     }
 
+    protected def doEndTransaction () {
+        throw new UnsupportedOperationException("Implement endTransaction")
+        //classDeclarations.endTransaction()
+    }
 }

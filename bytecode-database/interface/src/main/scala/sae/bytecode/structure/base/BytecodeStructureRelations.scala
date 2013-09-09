@@ -32,7 +32,7 @@
  */
 package sae.bytecode.structure.base
 
-import idb.SetExtent
+import idb.Relation
 
 /**
  *
@@ -42,15 +42,15 @@ trait BytecodeStructureRelations
     extends BytecodeStructure
 {
 
-    def classDeclarations: SetExtent[ClassDeclaration]
+    def classDeclarations: Relation[ClassDeclaration]
 
-    def methodDeclarations: SetExtent[MethodDeclaration]
+    def methodDeclarations: Relation[MethodDeclaration]
 
-    def fieldDeclarations: SetExtent[FieldDeclaration]
+    def fieldDeclarations: Relation[FieldDeclaration]
 
-    def codeAttributes: SetExtent[CodeAttribute]
+    def codeAttributes: Relation[CodeAttribute]
 
-    def innerClassAttributes: SetExtent[InnerClassAttribute]
+    def innerClassAttributes: Relation[InnerClassAttribute]
 
-    def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
+    def enclosingMethodAttributes: Relation[EnclosingMethodAttribute]
 }

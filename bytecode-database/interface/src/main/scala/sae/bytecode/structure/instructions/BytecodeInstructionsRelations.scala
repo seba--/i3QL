@@ -33,7 +33,7 @@
 package sae.bytecode.structure.instructions
 
 import scala.language.implicitConversions
-import idb.SetExtent
+import idb.Relation
 
 /**
  *
@@ -42,5 +42,17 @@ import idb.SetExtent
 trait BytecodeInstructionsRelations
     extends BytecodeInstructions
 {
-    def instructions: SetExtent[Instruction]
+    def instructions: Relation[Instruction]
+
+    def jumpInstructions: Relation[JumpInstruction]
+
+    def conditionalJumpInstructions: Relation[JumpInstruction]
+
+    def unconditionalJumpInstructions: Relation[JumpInstruction]
+
+    def localVariableAccessInstructions: Relation[LocalVariableAccessInstruction]
+
+    def localVariableLoadInstructions: Relation[LocalVariableAccessInstruction]
+
+    def localVariableStoreInstructions: Relation[LocalVariableAccessInstruction]
 }

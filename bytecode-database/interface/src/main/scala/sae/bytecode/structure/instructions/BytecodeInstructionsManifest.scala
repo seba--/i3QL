@@ -44,4 +44,19 @@ trait BytecodeInstructionsManifest
 
     implicit val manifestInstruction: Manifest[Instruction] =
         getManifestInstruction
+
+    implicit val manifestJumpInstruction: Manifest[JumpInstruction] =
+        getManifestJumpInstruction
+/*
+    implicit val manifestConditionalJumpInstruction: Manifest[ConditionalJumpInstruction] =
+        getManifestConditionalJumpInstruction
+
+    implicit val manifestUnconditionalJumpInstruction: Manifest[UnconditionalJumpInstruction] =
+        getManifestUnconditionalJumpInstruction
+*/
+    implicit val manifestConstantValueInstructionAny: Manifest[ConstantValueInstruction[Any]] =
+        getManifestConstantValueInstruction[Any]
+
+    implicit val manifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction] =
+        getManifestLocalVariableAccessInstruction
 }

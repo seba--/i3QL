@@ -66,4 +66,22 @@ trait BytecodeInstructionsOps
         def mnemonic: Rep[String] = field[String](i, "mnemonic")
     }
 
+
+    case class JumpInstructionInfixOps (i: Rep[JumpInstruction])
+    {
+        def offset: Rep[Int] = field[Int](i, "offset")
+    }
+
+
+    case class ConstantValueInstructionInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]])
+    {
+        def value: Rep[V] = field[V](i, "value")
+    }
+
+
+    case class LocalVariableAccessInstructionInfixOps (i: Rep[LocalVariableAccessInstruction])
+    {
+        def lvIndex: Rep[Int] = field[Int](i, "lvIndex")
+    }
+
 }

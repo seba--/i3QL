@@ -33,7 +33,6 @@
 package sae.bytecode.structure.instructions
 
 import scala.language.implicitConversions
-import sae.bytecode.types.BytecodeTypes
 import sae.bytecode.structure.base.BytecodeStructure
 
 /**
@@ -48,5 +47,23 @@ trait BytecodeInstructions
 
     def getManifestInstruction: Manifest[Instruction]
 
+    type JumpInstruction <: Instruction
 
+    def getManifestJumpInstruction: Manifest[JumpInstruction]
+/*
+    type ConditionalJumpInstruction <: JumpInstruction
+
+    def getManifestConditionalJumpInstruction: Manifest[ConditionalJumpInstruction]
+
+    type UnconditionalJumpInstruction <: JumpInstruction
+
+    def getManifestUnconditionalJumpInstruction: Manifest[UnconditionalJumpInstruction]
+*/
+    type ConstantValueInstruction[+V] <: Instruction
+
+    def getManifestConstantValueInstruction[V:Manifest]: Manifest[ConstantValueInstruction[V]]
+
+    type LocalVariableAccessInstruction <: Instruction
+
+    def getManifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction]
 }

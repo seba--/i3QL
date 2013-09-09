@@ -34,7 +34,7 @@ package sae.bytecode.util
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.bytecode.{BytecodeDatabaseManipulation}
+import sae.bytecode.BytecodeDatabaseManipulation
 import sae.bytecode.structure.base.BytecodeStructureRelations
 
 /**
@@ -45,14 +45,7 @@ trait AbstractBytecodeDatabaseManipulation
     extends BytecodeDatabaseManipulation
     with BytecodeStructureRelations
 {
-    private def endTransaction () {
-        classDeclarations.endTransaction ()
-        methodDeclarations.endTransaction ()
-        fieldDeclarations.endTransaction ()
-        //codeAttributes.endTransaction ()
-        //innerClassAttributes.endTransaction ()
-        //enclosingMethodAttributes.endTransaction ()
-    }
+    protected def doEndTransaction ()
 
     protected def doAddClassFile (stream: InputStream)
 
@@ -78,7 +71,7 @@ trait AbstractBytecodeDatabaseManipulation
 
     def addClassFile (stream: InputStream) {
         doAddClassFile (stream)
-        endTransaction ()
+        doEndTransaction ()
     }
 
     def removeArchive (stream: InputStream) {
@@ -87,12 +80,12 @@ trait AbstractBytecodeDatabaseManipulation
 
     def removeClassFile (stream: InputStream) {
         doRemoveClassFile (stream)
-        endTransaction ()
+        doEndTransaction ()
     }
 
     def updateClassFile (oldStream: InputStream, newStream: InputStream) {
         doAddClassFile (newStream)
         doRemoveClassFile (newStream)
-        endTransaction ()
+        doEndTransaction ()
     }
 }
