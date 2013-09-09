@@ -42,15 +42,34 @@ trait BytecodeStructureManifests
     extends BytecodeStructure
 {
 
-    implicit val classDeclarationManifest: Manifest[ClassDeclaration] = getClassDeclarationManifest
+    implicit val classDeclarationManifest: Manifest[ClassDeclaration] =
+        getClassDeclarationManifest
 
-    implicit val declaredClassMemberManifest: Manifest[DeclaredClassMember] = getDeclaredClassMemberManifest
+    implicit val declaredClassMemberManifest: Manifest[DeclaredClassMember] =
+        getDeclaredClassMemberManifest
 
-    implicit val methodInfoManifest: Manifest[MethodInfo] = getMethodInfoManifest
+    implicit val methodInfoManifest: Manifest[MethodInfo] =
+        getMethodInfoManifest
 
-    implicit val fieldInfoManifest: Manifest[FieldInfo] = getFieldInfoManifest
+    implicit val fieldInfoManifest: Manifest[FieldInfo] =
+        getFieldInfoManifest
 
-    implicit val methodDeclarationManifest: Manifest[MethodDeclaration] = getMethodDeclarationManifest
+    implicit val methodDeclarationManifest: Manifest[MethodDeclaration] =
+        getMethodDeclarationManifest
 
-    implicit val fieldDeclarationManifest: Manifest[FieldDeclaration] = getFieldDeclarationManifest
+    implicit val fieldDeclarationManifest: Manifest[FieldDeclaration] =
+        getFieldDeclarationManifest
+
+    implicit val codeAttributeManifest: Manifest[CodeAttribute] =
+        getCodeAttributeManifest
+
+    implicit val exceptionHandlerManifest: Manifest[ExceptionHandler] =
+        getExceptionHandlerManifest
+
+    implicit val innerClassAttributeManifest: Manifest[InnerClassAttribute] =
+        getInnerClassAttributeManifest
+
+    implicit val enclosingMethodAttributeManifest: Manifest[EnclosingMethodAttribute] =
+        getEnclosingMethodAttributeManifest
+
 }

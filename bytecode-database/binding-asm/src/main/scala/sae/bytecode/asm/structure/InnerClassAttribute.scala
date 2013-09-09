@@ -30,56 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure.base
+package sae.bytecode.asm.structure
 
-import scala.language.implicitConversions
-import sae.bytecode.types.BytecodeTypes
+import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeStructure
-    extends BytecodeTypes
-{
-
-    type ClassDeclaration
-
-    def getClassDeclarationManifest: Manifest[ClassDeclaration]
-
-    type DeclaredClassMember
-
-    def getDeclaredClassMemberManifest: Manifest[DeclaredClassMember]
-
-    type MethodInfo
-
-    def getMethodInfoManifest: Manifest[MethodInfo]
-
-    type FieldInfo
-
-    def getFieldInfoManifest: Manifest[FieldInfo]
-
-    type MethodDeclaration <: DeclaredClassMember with MethodInfo
-
-    def getMethodDeclarationManifest: Manifest[MethodDeclaration]
-
-    type FieldDeclaration <: DeclaredClassMember with FieldInfo
-
-    def getFieldDeclarationManifest: Manifest[FieldDeclaration]
-
-    type CodeAttribute
-
-    def getCodeAttributeManifest: Manifest[CodeAttribute]
-
-    type InnerClassAttribute
-
-    def getInnerClassAttributeManifest: Manifest[InnerClassAttribute]
-
-    type EnclosingMethodAttribute
-
-    def getEnclosingMethodAttributeManifest: Manifest[EnclosingMethodAttribute]
-
-    type ExceptionHandler
-
-    def getExceptionHandlerManifest: Manifest[ExceptionHandler]
-}
+case class InnerClassAttribute (
+    declaringClass: ClassDeclaration,
+    innerClassType: Type,
+    outerClassType: Option[Type],
+    innerName: Option[String],
+    innerClassAccessFlags: Int
+)

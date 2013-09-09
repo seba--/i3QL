@@ -70,4 +70,27 @@ trait ASMStructure
 
     override def getFieldDeclarationManifest: Manifest[FieldDeclaration] =
         manifest[structure.FieldDeclaration]
+
+    type CodeAttribute = structure.CodeAttribute
+
+    override def getCodeAttributeManifest: Manifest[CodeAttribute] =
+        manifest[structure.CodeAttribute]
+
+    type ExceptionHandler = structure.ExceptionHandler
+
+    def getExceptionHandlerManifest: Manifest[ExceptionHandler] =
+        manifest[structure.ExceptionHandler]
+
+    type InnerClassAttribute = structure.InnerClassAttribute
+
+    def getInnerClassAttributeManifest: Manifest[InnerClassAttribute] =
+        manifest[structure.InnerClassAttribute]
+
+    type EnclosingMethodAttribute = structure.EnclosingMethodAttribute
+
+    def getEnclosingMethodAttributeManifest: Manifest[EnclosingMethodAttribute] =
+        manifest[structure.EnclosingMethodAttribute]
+
 }
+
+

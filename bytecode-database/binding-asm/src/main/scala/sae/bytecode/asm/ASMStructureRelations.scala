@@ -33,6 +33,7 @@
 package sae.bytecode.asm
 
 import idb.SetExtent
+import sae.bytecode.structure.base.BytecodeStructureRelations
 
 /**
  *
@@ -40,15 +41,25 @@ import idb.SetExtent
  */
 trait ASMStructureRelations
     extends ASMStructure
+    with BytecodeStructureRelations
 {
 
     lazy val classDeclarations: SetExtent[ClassDeclaration] =
         SetExtent.empty[ClassDeclaration]()
 
-    lazy val methodDeclarations: SetExtent[MethodDeclaration]=
+    lazy val methodDeclarations: SetExtent[MethodDeclaration] =
         SetExtent.empty[MethodDeclaration]()
 
-    lazy val fieldDeclarations: SetExtent[FieldDeclaration]=
+    lazy val fieldDeclarations: SetExtent[FieldDeclaration] =
         SetExtent.empty[FieldDeclaration]()
+
+    lazy val codeAttributes: SetExtent[CodeAttribute] =
+        SetExtent.empty[CodeAttribute]()
+
+    lazy val innerClassAttributes: SetExtent[InnerClassAttribute] =
+        SetExtent.empty[InnerClassAttribute]()
+
+    lazy val enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute] =
+        SetExtent.empty[EnclosingMethodAttribute]()
 
 }

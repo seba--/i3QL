@@ -62,6 +62,19 @@ trait BytecodeStructureOps
     implicit def methodDeclarationToInfixOps (m: Rep[MethodDeclaration]) =
         MethodDeclarationInfixOps (m)
 
+    implicit def codeAttributeToInfixOps (c: Rep[CodeAttribute]) =
+        CodeAttributeInfixOps (c)
+
+    implicit def exceptionHandlerToInfixOps (e: Rep[ExceptionHandler]) =
+        ExceptionHandlerInfixOps (e)
+
+    implicit def innerClassAttributeToInfixOps (i: Rep[InnerClassAttribute]) =
+        InnerClassAttributeInfixOps (i)
+
+    implicit def enclosingMethodAttributeToInfixOps (e: Rep[EnclosingMethodAttribute]) =
+        EnclosingMethodAttributeInfixOps (e)
+
+
     case class ClassDeclarationInfixOps (c: Rep[ClassDeclaration])
     {
 
@@ -145,6 +158,61 @@ trait BytecodeStructureOps
 
         def isSynthetic: Rep[Boolean] = field[Boolean](m, "isSynthetic")
 
+    }
+
+
+    case class CodeAttributeInfixOps (c: Rep[CodeAttribute])
+    {
+        def declaringMethod: Rep[MethodDeclaration] = field[MethodDeclaration](c, "declaringMethod")
+
+        def codeLength: Rep[Int] = field[Int](c, "codeLength")
+
+        def maxStack: Rep[Int] = field[Int](c, "maxStack")
+
+        def maxLocals: Rep[Int] = field[Int](c, "maxLocals")
+
+        def exceptionHandlers: Rep[Seq[ExceptionHandler]] = field[Seq[ExceptionHandler]](c, "exceptionHandlers")
+    }
+
+    case class ExceptionHandlerInfixOps (e: Rep[ExceptionHandler])
+    {
+        def declaringMethod: Rep[MethodDeclaration] = field[MethodDeclaration](e, "declaringMethod")
+
+        def catchType: Rep[Option[Type]] = field[Option[Type]](e, "catchType")
+
+        def startPC: Rep[Int] = field[Int](e, "startPC")
+
+        def endPC: Rep[Int] = field[Int](e, "endPC")
+
+        def handlerPC: Rep[Int] = field[Int](e, "handlerPC")
+    }
+
+
+    case class InnerClassAttributeInfixOps (i: Rep[InnerClassAttribute])
+    {
+        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](i, "declaringClass")
+
+        def innerClassType: Rep[Type] = field[Type](i, "innerClassType")
+
+        def outerClassType: Rep[Option[Type]] = field[Option[Type]](i, "outerClassType")
+
+        def innerName: Rep[Option[String]] = field[Option[String]](i, "innerName")
+
+        def innerClassAccessFlags: Rep[Int] = field[Int](i, "innerClassAccessFlags")
+    }
+
+
+    case class EnclosingMethodAttributeInfixOps (e: Rep[EnclosingMethodAttribute])
+    {
+        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](e, "declaringClass")
+
+        def name: Rep[Option[String]] = field[Option[String]](e, "name")
+
+        def parameterTypes: Rep[Option[Seq[FieldType]]] = field[Option[Seq[FieldType]]](e, "parameterTypes")
+
+        def returnType: Rep[Option[Type]] = field[Option[Type]](e, "returnType")
+
+        def innerClassType: Rep[ObjectType] = field[ObjectType](e, "innerClassType")
     }
 
 

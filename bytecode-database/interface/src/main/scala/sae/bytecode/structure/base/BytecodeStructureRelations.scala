@@ -48,11 +48,9 @@ trait BytecodeStructureRelations
 
     def fieldDeclarations: SetExtent[FieldDeclaration]
 
-    //def codeAttributes: SetExtent[CodeAttribute]
+    def codeAttributes: SetExtent[CodeAttribute]
 
-    //def instructions : SetExtent[Instruction]
+    def innerClassAttributes: SetExtent[InnerClassAttribute]
 
-    //def innerClassAttributes: SetExtent[InnerClassAttribute]
-
-    //def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
+    def enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute]
 }
