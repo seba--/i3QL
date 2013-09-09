@@ -30,17 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.instructions.Instruction
+import sae.bytecode.constants.OpCodes
+import sae.bytecode.asm.structure.MethodDeclaration
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait NewArrayInstruction[V] extends Instruction
-{
-    def elementType: V
 
-    def arrayType: Type = throw new UnsupportedOperationException
+case class TABLESWITCH (
+    declaringMethod: MethodDeclaration,
+    pc: Int,
+    defaultOffset: Int,
+    low: Int,
+    high: Int,
+    offsets: Seq[Int]
+)
+    extends Instruction
+{
+    override def opcode = OpCodes.TABLESWITCH
+
+    override def nextPC = pc +
+        1 + (3 - (pc % 4)) + 12 + offsets.size * 4
+
+
 }

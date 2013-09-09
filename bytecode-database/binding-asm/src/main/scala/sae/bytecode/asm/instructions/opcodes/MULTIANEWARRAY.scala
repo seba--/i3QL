@@ -30,17 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.instructions.NewArrayInstruction
+import sae.bytecode.constants.OpCodes
 import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class MULTIANEWARRAY (declaringMethod: MethodDeclaration, pc: Int, elementType: Type, dimensions: Int)
+    extends NewArrayInstruction[Type]
 {
-    def elementType: V
+    override def opcode = OpCodes.MULTIANEWARRAY
 
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def nextPC = pc + 4
+
 }

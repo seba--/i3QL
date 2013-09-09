@@ -30,17 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.instructions.ConditionalJumpInstruction
+import sae.bytecode.constants.OpCodes
+import sae.bytecode.asm.structure.MethodDeclaration
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class IF_ICMPGE (declaringMethod: MethodDeclaration, pc: Int, offset: Int)
+    extends ConditionalJumpInstruction
 {
-    def elementType: V
-
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def opcode = OpCodes.IF_ICMPGE
 }

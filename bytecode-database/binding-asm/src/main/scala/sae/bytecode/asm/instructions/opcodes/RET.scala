@@ -30,17 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.instructions.LocalVariableAccessInstruction
+import sae.bytecode.constants.OpCodes
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class RET (declaringMethod: MethodDeclaration, pc: Int, lvIndex: Int)
+    extends LocalVariableAccessInstruction
 {
-    def elementType: V
+    override def opcode = OpCodes.RET
 
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def nextPC = pc + 2
 }

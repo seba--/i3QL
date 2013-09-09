@@ -30,17 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.instructions.ObjectTypeInstruction
+import sae.bytecode.constants.OpCodes
 import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class CHECKCAST (declaringMethod: MethodDeclaration, pc: Int, objectType: Type)
+    extends ObjectTypeInstruction
 {
-    def elementType: V
-
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def opcode = OpCodes.CHECKCAST
 }

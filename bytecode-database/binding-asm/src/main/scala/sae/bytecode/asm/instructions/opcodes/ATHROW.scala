@@ -30,17 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.instructions.BasicInstruction
+import sae.bytecode.constants.OpCodes
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class ATHROW (declaringMethod: MethodDeclaration, pc: Int)
+    extends BasicInstruction
 {
-    def elementType: V
-
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def opcode = OpCodes.ATHROW
 }

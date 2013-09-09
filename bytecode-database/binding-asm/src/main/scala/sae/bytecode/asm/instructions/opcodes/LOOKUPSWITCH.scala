@@ -30,17 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.instructions.Instruction
+import sae.bytecode.constants.OpCodes
+import sae.bytecode.asm.structure.MethodDeclaration
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait NewArrayInstruction[V] extends Instruction
-{
-    def elementType: V
 
-    def arrayType: Type = throw new UnsupportedOperationException
+case class LOOKUPSWITCH (
+    declaringMethod: MethodDeclaration,
+    pc: Int,
+    defaultOffset: Int,
+    keys: Seq[Int],
+    offsets: Seq[Int]
+)
+    extends Instruction
+{
+    override def opcode = OpCodes.LOOKUPSWITCH
+
+    override def nextPC = pc +
+        1 + (3 - (pc % 4)) + 8 + keys.size * 8
+
 }

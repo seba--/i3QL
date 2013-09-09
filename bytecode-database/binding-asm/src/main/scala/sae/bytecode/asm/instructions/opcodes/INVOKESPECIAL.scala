@@ -30,17 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions
+package sae.bytecode.asm.instructions.opcodes
 
-import org.objectweb.asm.Type
+import sae.bytecode.asm.instructions.MethodInvocationInstruction
+import sae.bytecode.constants.OpCodes
+import sae.bytecode.asm.structure.{MethodInfo, MethodDeclaration}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+case class INVOKESPECIAL (declaringMethod: MethodDeclaration, pc: Int, methodInfo: MethodInfo)
+    extends MethodInvocationInstruction
 {
-    def elementType: V
+    override def opcode = OpCodes.INVOKESPECIAL
 
-    def arrayType: Type = throw new UnsupportedOperationException
+    override def nextPC = pc + 3
 }
