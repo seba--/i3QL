@@ -117,26 +117,27 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 
 			case Def (e@AggregationSelfMaintainedWithoutConvert (r, fGroup, start, fAdd, fRemove, fUpdate)) => {
 				if (e.isIncrementLocal)
-			/*		TransactionalAggregation (
+					TransactionalAggregation (
 						compile (r),
+						compileFunctionWithDynamicManifests (fGroup),
 						start,
 						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
 						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
 						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
 						false
-					).asInstanceOf[Relation[Domain]]*/
-					throw new UnsupportedOperationException("Not implemented yet.")
+					).asInstanceOf[Relation[Domain]]
+
 				else
-			/*		AggregationForSelfMaintainableFunctions (
+					AggregationForSelfMaintainableFunctions (
 						compile (r),
-						compileFunctionWithDynamicManifests (fGroup)
+						compileFunctionWithDynamicManifests (fGroup),
 						start,
 						compileFunctionWithDynamicManifests (fAdd),
 						compileFunctionWithDynamicManifests (fRemove),
 						compileFunctionWithDynamicManifests (fUpdate),
 						false
-					).asInstanceOf[Relation[Domain]]        */
-				throw new UnsupportedOperationException("Not implemented yet.")
+					).asInstanceOf[Relation[Domain]]
+
 			}
 
 

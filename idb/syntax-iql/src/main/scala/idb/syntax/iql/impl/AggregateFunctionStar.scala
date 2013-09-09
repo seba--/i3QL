@@ -33,15 +33,24 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql.{AGGREGATE_FUNCTION_2, AGGREGATE_FUNCTION_FACTORY, AGGREGATE_FUNCTION_STAR}
 
 /**
   *
-  * @author Ralf Mitschke
+  * @author Ralf Mitschke, Mirko Köhler
   *
   */
 
-object AggregateFunctionStar
+case class AggregateFunctionStar[Column : Manifest, Range : Manifest](factory : AGGREGATE_FUNCTION_FACTORY[Column, Range])
+	extends AGGREGATE_FUNCTION_STAR[Range]
 {
+
+	def getAggregateFunction1[Domain : Manifest] =
+		factory ( (a : Rep[Domain]) => a.asInstanceOf[Column] )
+
+	def getAggregateFunction2[DomainA : Manifest, DomainB : Manifest] =
+		factory ( (a : Rep[DomainA], b : Rep[DomainB]) => (a,b).asInstanceOf[Column])
+
 
 
 }

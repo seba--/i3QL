@@ -37,11 +37,15 @@ import idb.syntax.iql.IR._
 /**
  *
  * @author Mirko Köhler
- *
  */
-
-trait AGGREGATE_FUNCTION[Domain, Range]
-    extends Rep[Domain => Range]
+trait SELECT_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, Range] extends SELECT_CLAUSE[Select, Range]
 {
+
+    def FROM (
+        relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
+
 
 }

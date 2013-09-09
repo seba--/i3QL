@@ -45,10 +45,10 @@ case class SelectClauseStar (asDistinct: Boolean = false)
 {
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain, Domain] =
+    ) =
         FromClause1 (
             relation,
-            SelectClause[Domain,Domain](
+            SelectClause (
 				(x: Rep[Domain]) => x,
 				asDistinct
             )
@@ -57,7 +57,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[(DomainA, DomainB), DomainA, DomainB, (DomainA, DomainB)] =
+    ) =
         FromClause2 (
             relationA,
             relationB,
@@ -72,7 +72,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)] =
+    ) =
         FromClause3 (
             relationA,
             relationB,
@@ -88,7 +88,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]]
-    ): FROM_CLAUSE_4[(DomainA, DomainB, DomainC, DomainD) ,DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)] =
+    ) =
         FromClause4 (
             relationA,
             relationB,
@@ -106,7 +106,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]],
         relationE: Rep[Query[DomainE]]
-    ): FROM_CLAUSE_5[(DomainA, DomainB, DomainC, DomainD, DomainE), DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)] =
+    ) =
         FromClause5 (
             relationA,
             relationB,

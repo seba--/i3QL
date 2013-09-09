@@ -46,25 +46,19 @@ import scala.language.implicitConversions
  */
 class TestAggregateClauses1
 {
-    @Ignore
-    @Test
+	@Test
+	def testAggregateCountStudents () {
+		val query = plan (
+			SELECT (COUNT ((s : Rep[Student]) => s.lastName)) FROM students
+		)
+	}
+
+	@Test
     def testAggregateCountStar () {
         val query = plan (
             SELECT (COUNT (*)) FROM students
         )
 
-
-        /*   assertEqualStructure (
-               aggregationSelfMaintainedWithoutGrouping (
-                   students,
-                   start,
-                   COUNT.start,
-                   COUNT.added _,
-                   COUNT.removed _,
-                   COUNT.updated _
-               ),
-               query
-           )*/
 
     }
 
@@ -128,16 +122,14 @@ class TestAggregateClauses1
 
         val query = plan (
             SELECT (
-                //(firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName
-                //TODO Re-enable
-                // in later version
-                (pair: Rep[(String, String)]) => pair._1 + " " + pair._2
+                (firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName
+
+            //    (pair: Rep[(String, String)]) => pair._1 + " " + pair._2
             ) FROM students GROUP BY ((s: Rep[Student]) => (s.firstName, s.lastName)) // returns Rep[(String,String)]
         )
 
     }
 
-    @Ignore
     @Test
     def testAggregateGroupCountStar () {
         val query = plan (
@@ -145,7 +137,7 @@ class TestAggregateClauses1
         )
     }
 
-    @Ignore
+	@Ignore
     @Test
     def testAggregateGroupCountStarWithGroup () {
         val query = plan (
@@ -153,16 +145,14 @@ class TestAggregateClauses1
         )
     }
 
-
-    @Ignore
+	@Ignore
     @Test
     def testAggregateSumMatriulationNumberWithGroup () {
-        // TODO does not compile
-        /*
-        val query = plan (
+		//TODO reenable in later version
+    /*    val query = plan (
             SELECT ((s: Rep[String]) => s, SUM ( (s:Rep[Student]) => s.matriculationNumber)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
-        )
-        */
+        )     */
+
     }
 
     @Test
@@ -175,7 +165,6 @@ class TestAggregateClauses1
 
     }
 
-    @Ignore
     @Test
     def testAggregateGroupCountStarWithWhere () {
         val query = plan (
@@ -184,7 +173,7 @@ class TestAggregateClauses1
         )
     }
 
-    @Ignore
+	@Ignore
     @Test
     def testAggregateGroupCountStarWithGroupWithWhere () {
         val query = plan (

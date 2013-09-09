@@ -34,7 +34,7 @@ package idb.syntax.iql
 
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.AggregateFunction
+import idb.syntax.iql.impl.{AggregateFunctionStar, AggregateFunction2, AggregateFunction1}
 
 /**
  *
@@ -66,25 +66,23 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[Domain, Range] =
-        AggregateFunction[Domain, Range](
+	): AGGREGATE_FUNCTION_1[Domain, Range] =
+        AggregateFunction1[Domain, Range](
 			start,
-			(p : Rep[(Domain, Range)]) => added(p._1,p._2,column),
-			(p : Rep[(Domain, Range)]) => removed(p._1,p._2,column),
+			(p : Rep[(Domain, Range)]) => added(p._1,p._2, column),
+			(p : Rep[(Domain, Range)]) => removed(p._1,p._2, column),
 			(p : Rep[(Domain, Domain, Range)]) => updated(p._1, p._2, p._3, column)
 		)
-
-
 
     def apply[DomainA, DomainB] (
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB), Range] = {
+	): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] = {
 
 		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
 
-		AggregateFunction[(DomainA, DomainB), Range](
+		AggregateFunction2[DomainA, DomainB, Range](
 			start,
 			(p : Rep[((DomainA, DomainB), Range)]) => added(p._1, p._2, c),
 			(p : Rep[((DomainA, DomainB), Range)]) => removed(p._1, p._2, c),
@@ -114,16 +112,8 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
     def apply (
 		star: STAR_KEYWORD
 	)(
-		implicit mRan : Manifest[Range]
-	) : AGGREGATE_FUNCTION[Any, Range] = {
+		implicit mDom : Manifest[Column], mRan : Manifest[Range]
+	) : AGGREGATE_FUNCTION_STAR[Range] =
+        AggregateFunctionStar (this)
 
-		val c = (v : Rep[Any]) => v.asInstanceOf[Rep[Column]]
-
-		AggregateFunction[Any, Range](
-			start,
-				(p : Rep[(Any, Range)]) => added(p._1, p._2, c),
-				(p : Rep[(Any, Range)]) => removed(p._1, p._2, c),
-				(p : Rep[(Any, Any, Range)]) => updated(p._1, p._2, p._3, c)
-		)
-	}
 }

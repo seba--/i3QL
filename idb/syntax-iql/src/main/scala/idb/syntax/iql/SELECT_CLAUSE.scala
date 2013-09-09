@@ -42,31 +42,5 @@ import idb.syntax.iql.IR._
 trait SELECT_CLAUSE[Select, Range]
 {
 
-    def FROM[Domain: Manifest] (
-        relation : Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Select, Domain, Range]
-		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
-
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA : Rep[Query[DomainA]],
-        relationB : Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
-		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
-
-	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
-		relationA : Rep[Query[DomainA]],
-		relationB : Rep[Query[DomainB]],
-		relationC : Rep[Query[DomainC]]
-	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
-		with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
-
-	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
-		relationA : Rep[Query[DomainA]],
-		relationB : Rep[Query[DomainB]],
-		relationC : Rep[Query[DomainC]],
-		relationD : Rep[Query[DomainD]]
-	): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
-		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 
 }

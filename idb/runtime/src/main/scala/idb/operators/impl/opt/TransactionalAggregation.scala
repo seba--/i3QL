@@ -274,6 +274,27 @@ object TransactionalAggregation {
 			isSet)
 	}
 
+	def apply[Domain, Key, Range] (
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		start : Range,
+		added : ((Domain, Range)) => Range,
+		removed : ((Domain, Range)) => Range,
+		updated: ((Domain, Domain, Range)) => Range,
+		isSet : Boolean
+	): Relation[Range] = {
+		apply (
+			source,
+			grouping,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Key, y : Range) => y),
+			isSet
+		)
+	}
+
 	def apply[Domain, Key, Result](
 		source: Relation[Domain],
 		grouping: Domain => Key,

@@ -14,7 +14,7 @@ import idb.syntax.iql.IR._
  */
 case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     relation: Rep[Query[Domain]],
-    selectClause: SelectClause[Select, Range]
+    selectClause: SELECT_CLAUSE[Select, Range]
 )
     extends FROM_CLAUSE_1[Select, Domain, Range]
     with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
