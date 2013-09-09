@@ -18,7 +18,7 @@ case class FromClause5[Select : Manifest, DomainA : Manifest, DomainB : Manifest
 	relationC : Rep[Query[DomainC]],
 	relationD : Rep[Query[DomainD]],
 	relationE : Rep[Query[DomainE]],
-    selectClause : SelectClause[Select, Range]
+    selectClause : SELECT_CLAUSE[Select, Range]
 )
     extends FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
     with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
