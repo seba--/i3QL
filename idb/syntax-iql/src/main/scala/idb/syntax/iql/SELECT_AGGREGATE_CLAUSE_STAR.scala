@@ -32,15 +32,27 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
+ * The aggregate select clause with a star, e.g., COUNT(*) has a return type (Range) determined by the aggregation
+ * function. Thus this clause is slightly different than a SELECT (*) which has a return type determined by the
+ * supplied relations.
  *
- * @author Ralf Mitschke
- *
+ * @author Ralf Mitschke, Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_STAR[Range]
+trait SELECT_AGGREGATE_CLAUSE_STAR[Range]
 {
-	def getAggregateFunction1[Domain : Manifest] : AGGREGATE_FUNCTION_1[Domain, Range]
-	def getAggregateFunction2[DomainA : Manifest, DomainB : Manifest] : AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+
+    def FROM[Domain : Manifest] (
+        relation: Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Any, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Any, Domain, Range]
+
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Any, DomainA, DomainB, Range]
+		with CAN_GROUP_CLAUSE_2[Any, DomainA, DomainB, Range]
+
 }

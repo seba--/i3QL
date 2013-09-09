@@ -32,15 +32,20 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
- *
+ * @author Ralf Mitschke, Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_STAR[Range]
+trait SELECT_CLAUSE_N[Select, Range]
+	extends SELECT_CLAUSE[Select, Range]
+	with SELECT_CLAUSE_1[Select, Range]
+	with SELECT_CLAUSE_2[Select, Range]
+	with SELECT_CLAUSE_3[Select, Range]
+	with SELECT_CLAUSE_4[Select, Range]
+	with SELECT_CLAUSE_5[Select, Range]
 {
-	def getAggregateFunction1[Domain : Manifest] : AGGREGATE_FUNCTION_1[Domain, Range]
-	def getAggregateFunction2[DomainA : Manifest, DomainB : Manifest] : AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+
+
 }

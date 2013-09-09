@@ -45,32 +45,32 @@ object SELECT
 
     def apply[Select : Manifest, Range : Manifest] (
         projection: Rep[Select] => Rep[Range]
-    ): SELECT_CLAUSE[Select, Range] =
+    ): SELECT_CLAUSE_N[Select, Range]  =
         SelectClause (projection)
 
 
     def apply[SelectA : Manifest, SelectB : Manifest, Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB), Range] =
         SelectClause (fun (projection))
 
 
     def apply[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB, SelectC), Range] =
         SelectClause (fun (projection))
 
 
     def apply[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, SelectD : Manifest, Range : Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC, SelectD), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB, SelectC, SelectD), Range] =
         SelectClause (fun (projection))
 
 
     def apply[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, SelectD : Manifest, SelectE : Manifest,
     Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD], Rep[SelectE]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC, SelectD, SelectE), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB, SelectC, SelectD, SelectE), Range] =
         SelectClause (fun (projection))
 
     def apply (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
@@ -78,32 +78,32 @@ object SELECT
 
     def DISTINCT[Select : Manifest, Range : Manifest] (
         projection: Rep[Select] => Rep[Range]
-    ): SELECT_CLAUSE[Select, Range] =
+    ): SELECT_CLAUSE_N[Select, Range] =
         SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[SelectA : Manifest, SelectB : Manifest, Range : Manifest] (
         projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB), Range] =
         SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, Range : Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range]
-    ): SELECT_CLAUSE [(SelectA, SelectB, SelectC), Range] =
+    ): SELECT_CLAUSE_N [(SelectA, SelectB, SelectC), Range] =
         SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, SelectD : Manifest, Range : Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC, SelectD), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB, SelectC, SelectD), Range] =
         SelectClause (projection, asDistinct = true)
 
 
     def DISTINCT[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, SelectD : Manifest, SelectE : Manifest,
     Range: Manifest] (
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD], Rep[SelectE]) => Rep[Range]
-    ): SELECT_CLAUSE[(SelectA, SelectB, SelectC, SelectD, SelectE), Range] =
+    ): SELECT_CLAUSE_N[(SelectA, SelectB, SelectC, SelectD, SelectE), Range] =
         SelectClause (projection, asDistinct = true)
 
 
@@ -112,24 +112,24 @@ object SELECT
 
 
     def apply[Domain: Manifest, Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION[Domain, Range]
-    ): SELECT_CLAUSE[Domain, Range] =
-        SelectClause (aggregation, asDistinct = false)
+        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
+    ): SELECT_AGGREGATE_CLAUSE_1[Any, Domain, Range] =
+        SelectAggregateClause1 (aggregation, asDistinct = false)
 
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, Domain: Manifest, Range: Manifest] (
         groupColumns: Rep[GroupKey] => Rep[GroupRange],
-        aggregation: AGGREGATE_FUNCTION[Domain, Range]
-    ): SELECT_CLAUSE[Domain, (GroupRange, Range)] =
-        throw new UnsupportedOperationException ()
+        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
+    ): SELECT_CLAUSE_N[Domain, (GroupRange, Range)] =
+        	throw new UnsupportedOperationException ()
 
 
-  /*  def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
-    ): SELECT_CLAUSE[(DomainA, DomainB), Range] =
-        throw new UnsupportedOperationException ()
+    ): SELECT_AGGREGATE_CLAUSE_2[Any, DomainA, DomainB, Range] =
+        SelectAggregateClause2 (aggregation, asDistinct = false)
 
-
+	/*
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         groupColumns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
@@ -183,11 +183,11 @@ object SELECT
 
     def apply[Range: Manifest] (
         function: AGGREGATE_FUNCTION_STAR[Range]
-    ): AGGREGATE_SELECT_CLAUSE_STAR[Range] =
-        throw new UnsupportedOperationException ()
+    ): SELECT_AGGREGATE_CLAUSE_STAR[Range] =
+        SelectAggregateClauseStar (function)
 
 
-    def apply[Group: Manifest, GroupRange: Manifest, Range: Manifest] (
+   def apply[Group: Manifest, GroupRange: Manifest, Range: Manifest] (
         groupColumns: Rep[Group] => Rep[GroupRange],
         function: AGGREGATE_FUNCTION_STAR[Range]
     ): AGGREGATE_GROUPED_SELECT_CLAUSE_STAR[Group, (GroupRange, Range)] =

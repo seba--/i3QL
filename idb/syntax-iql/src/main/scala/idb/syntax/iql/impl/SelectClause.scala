@@ -44,6 +44,12 @@ case class SelectClause[Select: Manifest, Range: Manifest] (
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE[Select, Range]
+	with SELECT_CLAUSE_N[Select, Range]
+	with SELECT_CLAUSE_1[Select, Range]
+	with SELECT_CLAUSE_2[Select, Range]
+	with SELECT_CLAUSE_3[Select, Range]
+	with SELECT_CLAUSE_4[Select, Range]
+	with SELECT_CLAUSE_5[Select, Range]
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =

@@ -32,15 +32,23 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  *
  */
 
-trait AGGREGATE_FUNCTION_STAR[Range]
+trait AGGREGATE_FUNCTION_1[Domain, AggregateRange]
 {
-	def getAggregateFunction1[Domain : Manifest] : AGGREGATE_FUNCTION_1[Domain, Range]
-	def getAggregateFunction2[DomainA : Manifest, DomainB : Manifest] : AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+
+	def start : AggregateRange
+
+	def added : Rep[((Domain, AggregateRange)) => AggregateRange]
+
+	def removed : Rep[((Domain, AggregateRange)) => AggregateRange]
+
+	def updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
+
 }

@@ -7,12 +7,12 @@ import idb.syntax.iql._
 /**
  * @author Mirko Köhler
  */
-case class AggregateFunction[Domain : Manifest, AggregateRange : Manifest](
+case class AggregateFunction1[Domain : Manifest, AggregateRange : Manifest](
 	start : AggregateRange,
 	added : Rep[((Domain, AggregateRange)) => AggregateRange],
 	removed : Rep[((Domain, AggregateRange)) => AggregateRange],
 	updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
-) extends AGGREGATE_FUNCTION[Domain, AggregateRange]
+) extends AGGREGATE_FUNCTION_1[Domain, AggregateRange]
 {
 
 }
