@@ -66,4 +66,20 @@ trait BytecodeStructure
     type FieldDeclaration <: DeclaredClassMember with FieldInfo
 
     def getFieldDeclarationManifest: Manifest[FieldDeclaration]
+
+    type CodeAttribute
+
+    def getCodeAttributeManifest: Manifest[CodeAttribute]
+
+    type InnerClassAttribute
+
+    def getInnerClassAttributeManifest: Manifest[InnerClassAttribute]
+
+    type EnclosingMethodAttribute
+
+    def getEnclosingMethodAttributeManifest: Manifest[EnclosingMethodAttribute]
+
+    type ExceptionHandler
+
+    def getExceptionHandlerManifest: Manifest[ExceptionHandler]
 }

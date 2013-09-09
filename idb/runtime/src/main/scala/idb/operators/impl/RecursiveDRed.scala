@@ -269,10 +269,3 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
     }
 }
 
-object RecursiveDRed {
-	def apply[Domain](base : Relation[Domain], result : Relation[Domain], isSet : Boolean) : Relation[Domain] = {
-		val recursive = new RecursiveDRed[Domain](result,isSet)
-		base.addObserver(recursive)
-		return base
-	}
-}

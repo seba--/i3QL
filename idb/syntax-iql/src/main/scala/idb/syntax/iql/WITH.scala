@@ -53,7 +53,7 @@ object WITH
             }
         val query = recursionFactory (recursionSym)
         query match {
-            case Def (UnionAdd (base, result)) => {
+            case Def (UnionAdd (base, _)) => {
                 if (!findSyms (base)(Predef.Set (recursionSym)).isEmpty) {
                     throw new
                             IllegalArgumentException (
@@ -61,7 +61,7 @@ object WITH
                                     " 'base UNION ALL recursive', where base is non-recursive")
                 }
                 recursionDef.base = base
-                recursionDef.result = recursionResult( result, recursionSym)
+                recursionDef.result = recursionResult( query, recursionSym)
             }
             case _ => throw new
                     IllegalArgumentException ("WITH RECURSIVE expects a query in the form 'base UNION ALL recursive'")

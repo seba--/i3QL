@@ -65,10 +65,11 @@ class TestIROptFusion
         val f2 = fun ((x: Rep[Int]) => x < 1000)
         val expA = selection (selection (emptyRelation[Int](), f1), f2)
 
-        val f3 = (x: Rep[Int]) => f1 (x) && f2 (x) //(x > 0) && (x < 1000)
+        val f3 = fun((x: Rep[Int]) => f1 (x) && f2 (x)) //(x > 0) && (x < 1000)
 
         val expB = selection (emptyRelation[Int](), f3)
 
+        assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
     }
 

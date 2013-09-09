@@ -35,6 +35,7 @@ package sae.bytecode
 import sae.bytecode.types._
 import sae.bytecode.structure.base._
 import sae.bytecode.structure.derived._
+import sae.bytecode.structure.instructions._
 
 
 /**
@@ -53,6 +54,10 @@ trait BytecodeDatabase
     with BytecodeStructureDerivedManifests
     with BytecodeStructureDerivedOps
     with BytecodeStructureDerivedRelations
+    with BytecodeInstructions
+    with BytecodeInstructionsManifest
+    with BytecodeInstructionsOps
+    with BytecodeInstructionsRelations
     with BytecodeDatabaseManipulation
 {
 

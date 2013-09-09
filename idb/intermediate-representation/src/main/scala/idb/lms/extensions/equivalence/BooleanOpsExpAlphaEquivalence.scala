@@ -51,13 +51,62 @@ trait BooleanOpsExpAlphaEquivalence
                 isEquivalent (x, y)
 
             case (BooleanAnd (x, y), BooleanAnd (u, v)) =>
-                isEquivalent (x, u) && isEquivalent (y, v)
-                //(isEquivalent (x, u) && isEquivalent (y, v)) || (isEquivalent (x, v) && isEquivalent (y, u))
+                symmetricEquivalent (x, y, u, v) || associativeEquivalentAnd (x, y, u, v)
 
             case (BooleanOr (x, y), BooleanOr (u, v)) =>
-                isEquivalent (x, u) && isEquivalent (y, v)
-                //(isEquivalent (x, u) && isEquivalent (y, v)) || (isEquivalent (x, v) && isEquivalent (y, u))
+                symmetricEquivalent (x, y, u, v) || associativeEquivalentOr (x, y, u, v)
 
             case _ => super.isEquivalentDef (a, b)
         }
+
+    private def symmetricEquivalent (aLeft: Exp[Any], aRight: Exp[Any], bLeft: Exp[Any], bRight: Exp[Any])(implicit renamings: VariableRenamings): Boolean =
+        (isEquivalent (aLeft, bLeft) && isEquivalent (aRight, bRight)) || (
+            isEquivalent (aLeft, bRight) && isEquivalent (aRight, bLeft))
+
+    private def associativeEquivalentAnd (
+        aLeft: Exp[Any],
+        aRight: Exp[Any],
+        bLeft: Exp[Any],
+        bRight: Exp[Any]
+    )(implicit renamings: VariableRenamings): Boolean = {
+        (aLeft, aRight, bLeft, bRight) match {
+            case (Def (BooleanAnd (x, y)), r1, Def (BooleanAnd (u, v)), r2) if isEquivalent (r1, r2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (Def (BooleanAnd (x, y)), r1, l2, Def (BooleanAnd (u, v))) if isEquivalent (r1, l2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (l1, Def (BooleanAnd (x, y)), Def (BooleanAnd (u, v)), r2) if isEquivalent (l1, r2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (l1, Def (BooleanAnd (x, y)), l2, Def (BooleanAnd (u, v))) if isEquivalent (l1, l2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case _ => false
+        }
+    }
+
+    private def associativeEquivalentOr (
+        aLeft: Exp[Any],
+        aRight: Exp[Any],
+        bLeft: Exp[Any],
+        bRight: Exp[Any]
+    )(implicit renamings: VariableRenamings): Boolean = {
+        (aLeft, aRight, bLeft, bRight) match {
+            case (Def (BooleanOr (x, y)), r1, Def (BooleanOr (u, v)), r2) if isEquivalent (r1, r2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (Def (BooleanOr (x, y)), r1, l2, Def (BooleanOr (u, v))) if isEquivalent (r1, l2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (l1, Def (BooleanOr (x, y)), Def (BooleanOr (u, v)), r2) if isEquivalent (l1, r2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case (l1, Def (BooleanOr (x, y)), l2, Def (BooleanOr (u, v))) if isEquivalent (l1, l2) =>
+                symmetricEquivalent (x, y, u, v)
+
+            case _ => false
+        }
+    }
+
 }

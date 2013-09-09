@@ -35,8 +35,8 @@ package idb.algebra.compiler
 import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
-import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
+import scala.virtualization.lms.common.ScalaGenEffect
 
 /**
  *
@@ -54,12 +54,12 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
         with RelationalAlgebraGenSAEBinding
         with FunctionsExp
 
-    import IR.Rep
     import IR.Def
     import IR.Query
-    import IR.Relation
     import IR.Recursion
     import IR.RecursionResult
+    import IR.Relation
+    import IR.Rep
 
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
@@ -77,15 +77,19 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
                 compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
         }*/
 
-            case Def (Recursion (b, Def (RecursionResult (r, _)))) => {
-                compile (b)
-
+            case Def (Recursion (b, _)) => {
+                new RecursiveDRed[Domain](compile (b), isSet = false)
             }
 
-            case Def (RecursionResult (r, Def(s : Recursion[_]))) => {
+            case Def (RecursionResult (r, base)) => {
                 val result = compile (r)
-                val base = getRelation (s.base)
-                RecursiveDRed (base, result, isSet = false)
+                val baseRelation = getRelation (base)
+                baseRelation match {
+                    case rec: RecursiveDRed[Domain@unchecked] => result.addObserver (rec)
+                    case _ => throw new IllegalStateException (
+                        "Compilation of recursion requires wrapping a base node in a delete and re-derive node")
+                }
+                result
             }
 
             case _ => super.compile (query)

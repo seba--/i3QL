@@ -49,7 +49,6 @@ class TestRecursionClauses
     extends UniversityTestData
 {
 
-    @Ignore // not working yet
     @Test
     def testTransitiveClosureAsRecursion () {
         val result = compilation.CompilerBinding.compile (

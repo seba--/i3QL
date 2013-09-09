@@ -47,6 +47,8 @@ class ASMDatabase
     with ASMStructureRelations
     with ASMStructureDerived
     with ASMStructureDerivedConstructors
+    with ASMInstructions
+    with ASMInstructionsRelations
     with ASMDatabaseManipulation
 {
 
@@ -111,4 +113,8 @@ class ASMDatabase
           */
     }
 
+    protected def doEndTransaction () {
+        throw new UnsupportedOperationException("Implement endTransaction")
+        //classDeclarations.endTransaction()
+    }
 }
