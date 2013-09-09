@@ -50,9 +50,12 @@ trait RelationalAlgebraGenCacheAll
 
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
-        val result = super.compile(query)
-        queryCache += (query -> result)
-        result
+        queryCache.getOrElse (query, {
+            val result = super.compile (query)
+            queryCache += (query -> result)
+            result
+        }
+        ).asInstanceOf[Relation[Domain]]
     }
 
 }
