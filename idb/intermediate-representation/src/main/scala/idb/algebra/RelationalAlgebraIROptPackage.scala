@@ -64,7 +64,7 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIROptSelectionInSetTheoryOps
     with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptPushDuplicateElimination
-    with RelationalAlgebraIROptOrderSelections
+    //with RelationalAlgebraIROptOrderSelections
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIROptLiftProjection

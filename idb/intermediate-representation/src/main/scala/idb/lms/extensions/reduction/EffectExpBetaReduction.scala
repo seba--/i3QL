@@ -41,7 +41,7 @@ import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
  * @author Ralf Mitschke
  *
  */
- // TODO remove this trait
+ // TODO move this trait, it is associated to alpha equivalence rather then beta-reduction
 trait EffectExpBetaReduction
     extends EffectExp
     with BaseExpAlphaEquivalence
@@ -50,8 +50,8 @@ trait EffectExpBetaReduction
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {
-            case _: Reflect[A@unchecked] => {
-                val result = super.mirror (e, f)
+            case r: Reflect[A@unchecked] => {
+                val result = createOrFindEquivalent(super.mirrorDef (r, f))
                 result
             }
 
