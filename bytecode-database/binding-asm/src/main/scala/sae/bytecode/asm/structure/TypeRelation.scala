@@ -47,15 +47,13 @@ trait TypeRelation
     def superType: Type
 }
 
+case class TypeRelationImpl (subType: Type, superType: Type) extends TypeRelation
+
 
 object TypeRelation
 {
 
-    def apply (theSubType: Type, theSuperType: Type): TypeRelation = new TypeRelation
-    {
-        def subType: Type = theSubType
-
-        def superType: Type = theSuperType
-    }
+    def apply (subType: Type, superType: Type): TypeRelation =
+        TypeRelationImpl (subType, superType)
 
 }

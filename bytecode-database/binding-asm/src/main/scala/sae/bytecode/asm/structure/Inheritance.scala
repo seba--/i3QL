@@ -50,15 +50,13 @@ trait Inheritance
     def subType: Type = declaringClass.classType
 }
 
+case class InheritanceImpl (declaringClass: ClassDeclaration, superType: Type) extends Inheritance
+
 
 object Inheritance
 {
 
-    def apply (theDeclaringClass: ClassDeclaration, theSuperType: Type): Inheritance = new Inheritance
-    {
-        def declaringClass = theDeclaringClass
-
-        def superType = theSuperType
-    }
+    def apply (declaringClass: ClassDeclaration, superType: Type): Inheritance =
+        InheritanceImpl (declaringClass, superType)
 
 }

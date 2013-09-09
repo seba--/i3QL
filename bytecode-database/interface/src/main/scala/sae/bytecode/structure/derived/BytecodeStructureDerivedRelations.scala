@@ -77,17 +77,19 @@ trait BytecodeStructureDerivedRelations
     // in Query[T]. It works for compiled relation, but actually in the interface we do not need to compile
     // all relations
     lazy val subTyping: Rep[Query[TypeRelation]] =
-        WITH RECURSIVE (
-            (rec: Rep[Query[TypeRelation]]) =>
-                SELECT ((_: Rep[Inheritance]).asInstanceOf[Rep[TypeRelation]]) FROM inheritance
-                    UNION ALL (
-                    SELECT (
-                        (t1: Rep[TypeRelation], t2: Rep[TypeRelation]) => TypeRelation (
-                            t1.subType, t2.superType
-                        )
-                    ) FROM(rec, rec) WHERE (
-                        _.superType == _.subType
-                        )
+        SELECT DISTINCT * FROM (
+            WITH RECURSIVE (
+                (rec: Rep[Query[TypeRelation]]) =>
+                    SELECT ((_: Rep[Inheritance]).asInstanceOf[Rep[TypeRelation]]) FROM inheritance
+                        UNION ALL (
+                        SELECT (
+                            (t1: Rep[TypeRelation], t2: Rep[TypeRelation]) => TypeRelation (
+                                t1.subType, t2.superType
+                            )
+                        ) FROM(rec, rec) WHERE (
+                            _.superType == _.subType
+                            )
+                    )
                 )
             )
 
