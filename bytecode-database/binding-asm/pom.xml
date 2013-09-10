@@ -33,5 +33,10 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.sae</groupId>
+            <artifactId>test-data</artifactId>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 </project>

@@ -82,31 +82,31 @@ class ASMDatabase
         def processBasicInstruction (i: Instruction) =
             database.basicInstructions += i
 
-        def processFieldReadInstruction (i: FieldAccessInstruction)=
+        def processFieldReadInstruction (i: FieldAccessInstruction) =
             database.fieldReadInstructions += i
 
-        def processFieldWriteInstruction (i: FieldAccessInstruction)=
+        def processFieldWriteInstruction (i: FieldAccessInstruction) =
             database.fieldWriteInstructions += i
 
-        def processUnconditionalJumpInstruction (i: JumpInstruction)=
+        def processUnconditionalJumpInstruction (i: JumpInstruction) =
             database.unconditionalJumpInstructions += i
 
-        def processConditionalJumpInstruction (i: JumpInstruction)=
+        def processConditionalJumpInstruction (i: JumpInstruction) =
             database.conditionalJumpInstructions += i
 
-        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V])=
+        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V]) =
             database.constantValueInstructions += i
 
-        def processNewArrayInstruction[V] (i: NewArrayInstruction[V])=
+        def processNewArrayInstruction[V] (i: NewArrayInstruction[V]) =
             database.newArrayInstructions += i
 
-        def processLookupSwitchInstruction (i: LOOKUPSWITCH)=
+        def processLookupSwitchInstruction (i: LOOKUPSWITCH) =
             database.lookupSwitchInstructions += i
 
-        def processTableSwitchInstruction (i: TABLESWITCH)=
+        def processTableSwitchInstruction (i: TABLESWITCH) =
             database.tableSwitchInstructions += i
 
-        def processMethodInvocationInstruction (i: MethodInvocationInstruction)=
+        def processMethodInvocationInstruction (i: MethodInvocationInstruction) =
             database.methodInvocationInstructions += i
 
         def processObjectTypeInstruction (i: ObjectTypeInstruction) =
@@ -151,31 +151,31 @@ class ASMDatabase
         def processBasicInstruction (i: Instruction) =
             database.basicInstructions -= i
 
-        def processFieldReadInstruction (i: FieldAccessInstruction)=
+        def processFieldReadInstruction (i: FieldAccessInstruction) =
             database.fieldReadInstructions -= i
 
-        def processFieldWriteInstruction (i: FieldAccessInstruction)=
+        def processFieldWriteInstruction (i: FieldAccessInstruction) =
             database.fieldWriteInstructions -= i
 
-        def processUnconditionalJumpInstruction (i: JumpInstruction)=
+        def processUnconditionalJumpInstruction (i: JumpInstruction) =
             database.unconditionalJumpInstructions -= i
 
-        def processConditionalJumpInstruction (i: JumpInstruction)=
+        def processConditionalJumpInstruction (i: JumpInstruction) =
             database.conditionalJumpInstructions -= i
 
-        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V])=
+        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V]) =
             database.constantValueInstructions -= i
 
-        def processNewArrayInstruction[V] (i: NewArrayInstruction[V])=
+        def processNewArrayInstruction[V] (i: NewArrayInstruction[V]) =
             database.newArrayInstructions -= i
 
-        def processLookupSwitchInstruction (i: LOOKUPSWITCH)=
+        def processLookupSwitchInstruction (i: LOOKUPSWITCH) =
             database.lookupSwitchInstructions -= i
 
-        def processTableSwitchInstruction (i: TABLESWITCH)=
+        def processTableSwitchInstruction (i: TABLESWITCH) =
             database.tableSwitchInstructions -= i
 
-        def processMethodInvocationInstruction (i: MethodInvocationInstruction)=
+        def processMethodInvocationInstruction (i: MethodInvocationInstruction) =
             database.methodInvocationInstructions -= i
 
         def processObjectTypeInstruction (i: ObjectTypeInstruction) =
@@ -195,7 +195,26 @@ class ASMDatabase
     }
 
     protected def doEndTransaction () {
-        throw new UnsupportedOperationException("Implement endTransaction")
-        //classDeclarations.endTransaction()
+        classDeclarations.endTransaction ()
+        methodDeclarations.endTransaction ()
+        fieldDeclarations.endTransaction ()
+        codeAttributes.endTransaction ()
+        innerClassAttributes.endTransaction ()
+        enclosingMethodAttributes.endTransaction ()
+        basicInstructions.endTransaction ()
+        fieldReadInstructions.endTransaction ()
+        fieldWriteInstructions.endTransaction ()
+        unconditionalJumpInstructions.endTransaction ()
+        conditionalJumpInstructions.endTransaction ()
+        constantValueInstructions.endTransaction ()
+        newArrayInstructions.endTransaction ()
+        lookupSwitchInstructions.endTransaction ()
+        tableSwitchInstructions.endTransaction ()
+        methodInvocationInstructions.endTransaction ()
+        objectTypeInstructions.endTransaction ()
+        localVariableLoadInstructions.endTransaction ()
+        localVariableStoreInstructions.endTransaction ()
+        integerIncrementInstructions.endTransaction ()
+        retInstructions.endTransaction ()
     }
 }

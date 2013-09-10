@@ -140,6 +140,12 @@
                 <artifactId>interface</artifactId>
                 <version>0.0.1</version>
             </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.sae</groupId>
+                <artifactId>test-data</artifactId>
+                <version>0.0.1</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

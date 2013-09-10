@@ -55,9 +55,9 @@ trait ASMClassProcessor
     def classVisitor: ClassVisitor =
         new ASMClassVisitor
 
-    def methodVisitor (methodDeclaration: MethodDeclaration): MethodVisitor = null
+    def methodVisitor (methodDeclaration: MethodDeclaration): MethodVisitor
 
-    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor = null
+    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor
 
     class ASMClassVisitor
         extends ClassVisitor (Opcodes.ASM4)
