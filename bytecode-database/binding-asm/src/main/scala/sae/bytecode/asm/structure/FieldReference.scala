@@ -30,21 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions.opcodes
+package sae.bytecode.asm.structure
 
-import sae.bytecode.asm.structure.MethodDeclaration
-import sae.bytecode.asm.instructions.NewArrayInstruction
-import sae.bytecode.constants.OpCodes
 import org.objectweb.asm.Type
+
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-case class ANEWAARRY (declaringMethod: MethodDeclaration, pc: Int, elementType: Type)
-    extends NewArrayInstruction[Type]
-{
-    override def opcode = OpCodes.ANEWARRAY
-
-    override def nextPC = pc + 3
-}
+case class FieldReference (declaringType: Type, name: String, fieldType: Type)
+    extends FieldInfo

@@ -30,33 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.reader
+package sae.bytecode.asm.structure
 
-import sae.bytecode.asm.ASMDatabase
+import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ASMElementProcessor
-{
-    val database: ASMDatabase
-
-    import database._
-
-    def processClassDeclaration (classDeclaration: ClassDeclaration)
-
-    def processMethodDeclaration (methodDeclaration: MethodDeclaration)
-
-    def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
-
-    /*
-    def processCodeAttribute (codeAttribute: CodeAttribute)
-
-    def processInstruction (instruction: Instruction)
-
-    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
-
-    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
-    */
-}
+case class MethodReference (
+    receiverType: Type,
+    name: String,
+    returnType: Type,
+    parameterTypes: Seq[Type]
+) extends MethodInfo

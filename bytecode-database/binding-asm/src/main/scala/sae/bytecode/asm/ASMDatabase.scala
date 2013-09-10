@@ -34,6 +34,7 @@ package sae.bytecode.asm
 
 import sae.bytecode.BytecodeDatabase
 import sae.bytecode.asm.reader.ASMProcessor
+import sae.bytecode.asm.instructions.opcodes.{IINC, LOOKUPSWITCH, RET, TABLESWITCH}
 
 /**
  *
@@ -69,7 +70,6 @@ class ASMDatabase
         def processFieldDeclaration (fieldDeclaration: FieldDeclaration) =
             database.fieldDeclarations += fieldDeclaration
 
-        /*
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes += codeAttribute
 
@@ -81,7 +81,51 @@ class ASMDatabase
 
         def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute) =
             database.enclosingMethodAttributes += enclosingMethodAttribute
-          */
+
+        def processBasicInstruction (i: Instruction) =
+            database.basicInstructions += i
+
+        def processFieldReadInstruction (i: FieldAccessInstruction)=
+            database.fieldReadInstructions += i
+
+        def processFieldWriteInstruction (i: FieldAccessInstruction)=
+            database.fieldWriteInstructions += i
+
+        def processUnconditionalJumpInstruction (i: JumpInstruction)=
+            database.unconditionalJumpInstructions += i
+
+        def processConditionalJumpInstruction (i: JumpInstruction)=
+            database.conditionalJumpInstructions += i
+
+        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V])=
+            database.constantValueInstructions += i
+
+        def processNewArrayInstruction[V] (i: NewArrayInstruction[V])=
+            database.newArrayInstructions += i
+
+        def processLookupSwitchInstruction (i: LOOKUPSWITCH)=
+            database.lookupSwitchInstructions += i
+
+        def processTableSwitchInstruction (i: TABLESWITCH)=
+            database.tableSwitchInstructions += i
+
+        def processMethodInvocationInstruction (i: MethodInvocationInstruction)=
+            database.methodInvocationInstructions += i
+
+        def processObjectTypeInstruction (i: ObjectTypeInstruction) =
+            database.objectTypeInstructions += i
+
+        def processLocalVariableLoadInstructions (i: LocalVariableAccessInstruction) =
+            database.localVariableLoadInstructions += i
+
+        def processLocalVariableStoreInstructions (i: LocalVariableAccessInstruction) =
+            database.localVariableStoreInstructions += i
+
+        def processIINCInstruction (i: IINC) =
+            database.integerIncrementInstructions += i
+
+        def processRetInstructions (i: RET) =
+            database.retInstructions += i
     }
 
 
@@ -98,7 +142,6 @@ class ASMDatabase
         def processFieldDeclaration (fieldDeclaration: FieldDeclaration) =
             database.fieldDeclarations -= fieldDeclaration
 
-        /*
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes -= codeAttribute
 
@@ -110,7 +153,51 @@ class ASMDatabase
 
         def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute) =
             database.enclosingMethodAttributes -= enclosingMethodAttribute
-          */
+
+        def processBasicInstruction (i: Instruction) =
+            database.basicInstructions -= i
+
+        def processFieldReadInstruction (i: FieldAccessInstruction)=
+            database.fieldReadInstructions -= i
+
+        def processFieldWriteInstruction (i: FieldAccessInstruction)=
+            database.fieldWriteInstructions -= i
+
+        def processUnconditionalJumpInstruction (i: JumpInstruction)=
+            database.unconditionalJumpInstructions -= i
+
+        def processConditionalJumpInstruction (i: JumpInstruction)=
+            database.conditionalJumpInstructions -= i
+
+        def processConstantValueInstruction[V] (i: ConstantValueInstruction[V])=
+            database.constantValueInstructions -= i
+
+        def processNewArrayInstruction[V] (i: NewArrayInstruction[V])=
+            database.newArrayInstructions -= i
+
+        def processLookupSwitchInstruction (i: LOOKUPSWITCH)=
+            database.lookupSwitchInstructions -= i
+
+        def processTableSwitchInstruction (i: TABLESWITCH)=
+            database.tableSwitchInstructions -= i
+
+        def processMethodInvocationInstruction (i: MethodInvocationInstruction)=
+            database.methodInvocationInstructions -= i
+
+        def processObjectTypeInstruction (i: ObjectTypeInstruction) =
+            database.objectTypeInstructions -= i
+
+        def processLocalVariableLoadInstructions (i: LocalVariableAccessInstruction) =
+            database.localVariableLoadInstructions -= i
+
+        def processLocalVariableStoreInstructions (i: LocalVariableAccessInstruction) =
+            database.localVariableStoreInstructions -= i
+
+        def processIINCInstruction (i: IINC) =
+            database.integerIncrementInstructions -= i
+
+        def processRetInstructions (i: RET) =
+            database.retInstructions -= i
     }
 
     protected def doEndTransaction () {

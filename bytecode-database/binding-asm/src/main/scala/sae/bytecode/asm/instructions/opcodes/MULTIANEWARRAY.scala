@@ -36,6 +36,7 @@ import sae.bytecode.asm.structure.MethodDeclaration
 import sae.bytecode.asm.instructions.NewArrayInstruction
 import sae.bytecode.constants.OpCodes
 import org.objectweb.asm.Type
+import sae.bytecode.asm.util.ASMTypeUtils
 
 /**
  *
@@ -43,9 +44,12 @@ import org.objectweb.asm.Type
  */
 case class MULTIANEWARRAY (declaringMethod: MethodDeclaration, pc: Int, elementType: Type, dimensions: Int)
     extends NewArrayInstruction[Type]
+    with ASMTypeUtils
 {
     override def opcode = OpCodes.MULTIANEWARRAY
 
     override def nextPC = pc + 4
+
+    override def arrayType: Type = ArrayType (elementType, dimensions)
 
 }

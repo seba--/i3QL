@@ -30,21 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.instructions.opcodes
+package sae.bytecode.asm.reader
 
-import sae.bytecode.asm.structure.MethodDeclaration
-import sae.bytecode.asm.instructions.NewArrayInstruction
-import sae.bytecode.constants.OpCodes
-import org.objectweb.asm.Type
+import org.objectweb.asm.{FieldVisitor, Opcodes}
+import sae.bytecode.asm.ASMDatabase
 
 /**
  *
  * @author Ralf Mitschke
  */
-case class NEWAARRY (declaringMethod: MethodDeclaration, pc: Int, elementType: Type)
-    extends NewArrayInstruction[Type]
+trait ASMFieldProcessor
 {
-    override def opcode = OpCodes.NEWARRAY
+    val database: ASMDatabase
 
-    override def nextPC = pc + 2
+    import database._
+
+    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor =
+        new ASMFieldVisitor (fieldDeclaration)
+
+    class ASMFieldVisitor (
+        val fieldDeclaration: FieldDeclaration
+    )
+        extends FieldVisitor (Opcodes.ASM4)
+    {
+
+
+    }
+
+
 }

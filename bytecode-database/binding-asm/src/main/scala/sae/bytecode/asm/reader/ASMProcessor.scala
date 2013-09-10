@@ -38,6 +38,8 @@ package sae.bytecode.asm.reader
  */
 trait ASMProcessor
     extends ASMClassProcessor
+    with ASMFieldProcessor
+    with ASMMethodProcessor
 {
 
 }

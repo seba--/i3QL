@@ -42,5 +42,5 @@ trait NewArrayInstruction[+V] extends Instruction
 {
     def elementType: V
 
-    def arrayType: Type = throw new UnsupportedOperationException
+    def arrayType: Type
 }

@@ -30,19 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package sae.bytecode.asm.instructions.opcodes
 
-import idb.syntax.iql.IR._
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.instructions.NewArrayInstruction
+import sae.bytecode.constants.OpCodes
+import org.objectweb.asm.Type
+import sae.bytecode.asm.util.ASMTypeUtils
 
 /**
  *
  * @author Ralf Mitschke
  */
-object ALL
+case class ANEWARRAY (declaringMethod: MethodDeclaration, pc: Int, elementType: Type)
+    extends NewArrayInstruction[Type]
+    with ASMTypeUtils
 {
-    def apply[Range: Manifest] (other: Rep[Query[Range]]): ALL_QUERY[Range] = new ALL_QUERY[Range]
-    {
-        def query = other
-    }
+    override def opcode = OpCodes.ANEWARRAY
 
+    override def nextPC = pc + 3
+
+    override def arrayType: Type = ArrayType (elementType, 1)
 }

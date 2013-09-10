@@ -55,4 +55,24 @@ trait BytecodeInstructionsRelations
     def localVariableLoadInstructions: Relation[LocalVariableAccessInstruction]
 
     def localVariableStoreInstructions: Relation[LocalVariableAccessInstruction]
+
+    def fieldAccessInstructions: Relation[FieldAccessInstruction]
+
+    def fieldReadInstructions: Relation[FieldAccessInstruction]
+
+    def fieldWriteInstructions: Relation[FieldAccessInstruction]
+
+    def methodInvocationInstructions: Relation[MethodInvocationInstruction]
+
+    def lookupSwitchInstructions: Relation[Instruction] // TODO define type
+
+    def tableSwitchInstructions: Relation[Instruction] // TODO define type
+
+    def objectTypeInstructions: Relation[ObjectTypeInstruction]
+
+    def newArrayInstructions: Relation[NewArrayInstruction[Any]]
+
+    def retInstructions : Relation[LocalVariableAccessInstruction]
+
+    def integerIncrementInstructions : Relation[LocalVariableAccessInstruction with ConstantValueInstruction[Int]]
 }

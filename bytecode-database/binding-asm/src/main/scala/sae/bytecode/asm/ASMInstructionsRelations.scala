@@ -35,6 +35,8 @@ package sae.bytecode.asm
 import idb.SetExtent
 import sae.bytecode.structure.instructions.{BytecodeInstructionsManifest, BytecodeInstructionsRelations}
 import idb.syntax.iql._
+import idb.syntax.iql.IR._
+import sae.bytecode.asm.instructions.opcodes.{TABLESWITCH, LOOKUPSWITCH, RET, IINC}
 
 /**
  *
@@ -46,26 +48,74 @@ trait ASMInstructionsRelations
     with BytecodeInstructionsRelations
 {
 
-    lazy val instructions =
+    val basicInstructions =
         SetExtent.empty[Instruction]()
 
-    lazy val jumpInstructions = compile(
+    val fieldReadInstructions =
+        SetExtent.empty[FieldAccessInstruction]()
+
+    val fieldWriteInstructions =
+        SetExtent.empty[FieldAccessInstruction]()
+
+    val constantValueInstructions =
+        SetExtent.empty[ConstantValueInstruction[Any]]()
+
+    val lookupSwitchInstructions =
+        SetExtent.empty[LOOKUPSWITCH]()
+
+    val tableSwitchInstructions =
+        SetExtent.empty[TABLESWITCH]()
+
+    val methodInvocationInstructions =
+        SetExtent.empty[MethodInvocationInstruction]()
+
+    val objectTypeInstructions =
+        SetExtent.empty[ObjectTypeInstruction]()
+
+    val newArrayInstructions =
+        SetExtent.empty[NewArrayInstruction[Any]]()
+
+    val localVariableLoadInstructions =
+        SetExtent.empty[LocalVariableAccessInstruction]()
+
+    val localVariableStoreInstructions =
+        SetExtent.empty[LocalVariableAccessInstruction]()
+
+    val retInstructions =
+        SetExtent.empty[RET]()
+
+    val integerIncrementInstructions =
+        SetExtent.empty[IINC]()
+
+    val conditionalJumpInstructions =
+        SetExtent.empty[JumpInstruction]()
+
+    val unconditionalJumpInstructions =
+        SetExtent.empty[JumpInstruction]()
+
+
+    lazy val jumpInstructions = compile (
         conditionalJumpInstructions UNION ALL (unconditionalJumpInstructions)
     )
 
-    lazy val conditionalJumpInstructions =
-        SetExtent.empty[JumpInstruction]()
 
-    lazy val unconditionalJumpInstructions =
-        SetExtent.empty[JumpInstruction]()
-
-    lazy val localVariableAccessInstructions = compile(
-        localVariableLoadInstructions UNION ALL (localVariableStoreInstructions)
+    lazy val fieldAccessInstructions = compile(
+        fieldReadInstructions UNION ALL (fieldWriteInstructions)
     )
 
-    lazy val localVariableLoadInstructions =
-        SetExtent.empty[LocalVariableAccessInstruction]()
 
-    lazy val localVariableStoreInstructions =
-        SetExtent.empty[LocalVariableAccessInstruction]()
+    lazy val localVariableAccessInstructions = compile (
+        localVariableLoadInstructions UNION ALL
+            (localVariableStoreInstructions) UNION ALL
+            (extent (integerIncrementInstructions).asInstanceOf[Rep[Query[LocalVariableAccessInstruction]]]) UNION ALL
+            (extent (retInstructions).asInstanceOf[Rep[Query[LocalVariableAccessInstruction]]])
+    )
+
+
+    lazy val instructions =
+        basicInstructions UNION ALL
+        (fieldAccessInstructions)UNION ALL
+        (fieldAccessInstructions)
+
+
 }

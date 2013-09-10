@@ -53,10 +53,10 @@ package object iql
 
     case class QueryInfixOps[Range: Manifest] (query: Rep[Query[Range]])
     {
-        def UNION (other: Rep[Query[Range]]): Rep[Query[Range]] =
+        def UNION[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]]): Rep[Query[Range]] =
             unionMax (query, other)
 
-        def UNION (all: ALL_QUERY[Range]): Rep[Query[Range]] =
+        def UNION[OtherRange <: Range : Manifest]  (all: ALL_QUERY[OtherRange]): Rep[Query[Range]] =
             unionAdd (query, all.query)
     }
 

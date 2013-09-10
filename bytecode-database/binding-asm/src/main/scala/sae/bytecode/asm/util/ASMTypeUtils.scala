@@ -30,19 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package sae.bytecode.asm.util
 
-import idb.syntax.iql.IR._
+import org.objectweb.asm.Type
 
 /**
  *
  * @author Ralf Mitschke
  */
-object ALL
+trait ASMTypeUtils
 {
-    def apply[Range: Manifest] (other: Rep[Query[Range]]): ALL_QUERY[Range] = new ALL_QUERY[Range]
-    {
-        def query = other
-    }
-
+    def ArrayType (componentType: Type, dimensions: Int): Type =
+        Type.getType ("[" * dimensions + componentType.getDescriptor)
 }

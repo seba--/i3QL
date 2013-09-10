@@ -34,16 +34,23 @@ package sae.bytecode.asm.reader
 
 import org.objectweb.asm._
 import sae.bytecode.asm.structure._
+import sae.bytecode.asm.ASMDatabase
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait ASMClassProcessor
-    extends ASMElementProcessor
 {
+    val database: ASMDatabase
 
     import database._
+
+    def processClassDeclaration (classDeclaration: ClassDeclaration)
+
+    def processMethodDeclaration (methodDeclaration: MethodDeclaration)
+
+    def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
 
     def classVisitor: ClassVisitor =
         new ASMClassVisitor
