@@ -31,7 +31,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>de.tud.cs.st.sae.analyses</groupId>
+            <groupId>de.tud.cs.st.sae</groupId>
             <artifactId>test-data</artifactId>
             <scope>test</scope>
         </dependency>

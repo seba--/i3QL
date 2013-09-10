@@ -142,7 +142,7 @@
             </dependency>
 
             <dependency>
-                <groupId>de.tud.cs.st.sae.analyses</groupId>
+                <groupId>de.tud.cs.st.sae</groupId>
                 <artifactId>test-data</artifactId>
                 <version>0.0.1</version>
             </dependency>
