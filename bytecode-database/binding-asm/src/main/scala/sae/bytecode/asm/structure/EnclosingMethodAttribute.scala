@@ -40,7 +40,7 @@ import org.objectweb.asm.Type
  */
 case class EnclosingMethodAttribute (
     declaringClass: ClassDeclaration,
-    innerClassType: Type,
+    outerClassType: Type,
     name: Option[String],
     parameterTypes: Option[Seq[Type]],
     returnType: Option[Type]

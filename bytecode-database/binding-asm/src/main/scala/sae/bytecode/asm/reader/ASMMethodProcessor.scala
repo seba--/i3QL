@@ -33,7 +33,7 @@
 package sae.bytecode.asm.reader
 
 import org.objectweb.asm.{Label, Type, Opcodes, MethodVisitor}
-import sae.bytecode.asm.ASMDatabase
+import sae.bytecode.asm.{structure, ASMDatabase}
 import scala.annotation.switch
 import sae.bytecode.asm.instructions.opcodes._
 import sae.bytecode.asm.structure._
@@ -49,6 +49,10 @@ trait ASMMethodProcessor
     val database: ASMDatabase
 
     import database._
+
+    def processExceptionHandler(h: ExceptionHandler)
+
+    def processCodeAttribute (a: CodeAttribute)
 
     def processBasicInstruction (i: Instruction)
 
@@ -500,12 +504,16 @@ trait ASMMethodProcessor
             val startPC = start.asInstanceOf[LabelExt].originalOffset
             val endPC = end.asInstanceOf[LabelExt].originalOffset
             val handlerPC = handler.asInstanceOf[LabelExt].originalOffset
-            //val catchType = if
-            //super.visitTryCatchBlock (start, end, handler, `type`)
+            val catchType = if (catchTypeName == null) None else Some (Type.getObjectType (catchTypeName))
+            val exceptionHandler = ExceptionHandler (methodDeclaration, catchType, startPC, endPC, handlerPC)
+            processExceptionHandler(exceptionHandler)
         }
 
+
+
         override def visitEnd () {
-            //val codeAttribute = CodeAttribute(methodDeclaration, pc, maxStack, maxLocals)
+            val codeAttribute = CodeAttribute(methodDeclaration, pc, maxStack, maxLocals)
+            processCodeAttribute(codeAttribute)
         }
     }
 

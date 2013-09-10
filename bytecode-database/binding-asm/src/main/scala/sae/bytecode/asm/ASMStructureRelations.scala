@@ -56,6 +56,9 @@ trait ASMStructureRelations
     lazy val codeAttributes: SetExtent[CodeAttribute] =
         SetExtent.empty[CodeAttribute]()
 
+    lazy val exceptionHandlers: SetExtent[ExceptionHandler] =
+        SetExtent.empty[ExceptionHandler]()
+
     lazy val innerClassAttributes: SetExtent[InnerClassAttribute] =
         SetExtent.empty[InnerClassAttribute]()
 

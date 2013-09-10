@@ -212,7 +212,7 @@ trait BytecodeStructureOps
 
         def returnType: Rep[Option[Type]] = field[Option[Type]](e, "returnType")
 
-        def innerClassType: Rep[ObjectType] = field[ObjectType](e, "innerClassType")
+        def outerClassType: Rep[ObjectType] = field[ObjectType](e, "outerClassType")
     }
 
 

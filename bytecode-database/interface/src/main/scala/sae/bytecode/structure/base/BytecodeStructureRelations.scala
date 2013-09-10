@@ -50,6 +50,8 @@ trait BytecodeStructureRelations
 
     def codeAttributes: Relation[CodeAttribute]
 
+    def exceptionHandlers: Relation[ExceptionHandler]
+
     def innerClassAttributes: Relation[InnerClassAttribute]
 
     def enclosingMethodAttributes: Relation[EnclosingMethodAttribute]

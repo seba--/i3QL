@@ -33,8 +33,13 @@
 package sae.bytecode.asm.reader
 
 import org.objectweb.asm._
-import sae.bytecode.asm.structure._
 import sae.bytecode.asm.ASMDatabase
+import sae.bytecode.asm.structure.MethodDeclaration
+import sae.bytecode.asm.structure.EnclosingMethodAttribute
+import sae.bytecode.asm.structure.ClassDeclaration
+import sae.bytecode.asm.structure.InnerClassAttribute
+import sae.bytecode.asm.structure.FieldDeclaration
+import scala.Some
 
 /**
  *
@@ -51,6 +56,10 @@ trait ASMClassProcessor
     def processMethodDeclaration (methodDeclaration: MethodDeclaration)
 
     def processFieldDeclaration (fieldDeclaration: FieldDeclaration)
+
+    def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute)
+
+    def processEnclosingMethodAttribute (enclosingMethodAttribute: EnclosingMethodAttribute)
 
     def classVisitor: ClassVisitor =
         new ASMClassVisitor
@@ -130,6 +139,26 @@ trait ASMClassProcessor
 
             fieldVisitor (fieldDeclaration)
         }
+
+        override def visitInnerClass (name: String, outerName: String, innerNameInternal: String, access: Int) {
+            val innerClassType = Type.getObjectType (name)
+            val outerClassType = if (outerName == null) None else Some (Type.getObjectType (outerName))
+            val innerName = if (innerNameInternal == null) None else Some (innerNameInternal)
+            val innerClassAttribute =
+                InnerClassAttribute (classDeclaration, innerClassType, outerClassType, innerName, access)
+            processInnerClassAttribute (innerClassAttribute)
+        }
+
+        override def visitOuterClass (owner: String, nameInternal: String, desc: String) {
+            val outerClassType = Type.getObjectType (owner)
+            val name = if (nameInternal == null) None else Some (nameInternal)
+            val parameterTypes: Option[Seq[Type]] = if (desc == null) None else Some (Type.getArgumentTypes (desc))
+            val returnType = if (desc == null) None else Some (Type.getReturnType (desc))
+            val enclosingMethodAttribute =
+                EnclosingMethodAttribute (classDeclaration, outerClassType, name, parameterTypes, returnType)
+            processEnclosingMethodAttribute(enclosingMethodAttribute)
+        }
+
     }
 
 }

@@ -73,6 +73,9 @@ class ASMDatabase
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes += codeAttribute
 
+        def processExceptionHandler(h: ExceptionHandler) =
+            database.exceptionHandlers += h
+
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =
             database.innerClassAttributes += innerClassAttribute
 
@@ -141,6 +144,9 @@ class ASMDatabase
 
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes -= codeAttribute
+
+        def processExceptionHandler(h: ExceptionHandler) =
+            database.exceptionHandlers -= h
 
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =
             database.innerClassAttributes -= innerClassAttribute

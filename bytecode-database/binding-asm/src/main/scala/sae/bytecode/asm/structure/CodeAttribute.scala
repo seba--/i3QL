@@ -40,6 +40,9 @@ case class CodeAttribute (
     declaringMethod: MethodDeclaration,
     codeLength: Int,
     maxStack: Int,
-    maxLocals: Int,
-    exceptionHandlers: Seq[ExceptionHandler]
+    maxLocals: Int
 )
+{
+    def exceptionHandlers: Seq[ExceptionHandler] = throw new UnsupportedOperationException (
+        "CodeAttribute.exceptionHandlers is currently not implemented. Use the relation exceptionHandlers")
+}
