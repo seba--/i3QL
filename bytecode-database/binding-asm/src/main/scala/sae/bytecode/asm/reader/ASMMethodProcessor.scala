@@ -36,7 +36,7 @@ import org.objectweb.asm.{Label, Type, Opcodes, MethodVisitor}
 import sae.bytecode.asm.ASMDatabase
 import scala.annotation.switch
 import sae.bytecode.asm.instructions.opcodes._
-import sae.bytecode.asm.structure.{MethodReference, FieldReference}
+import sae.bytecode.asm.structure._
 import sae.bytecode.asm.instructions.{UnconditionalJumpInstruction, BasicInstruction}
 import sae.bytecode.asm.ext.LabelExt
 
@@ -94,7 +94,7 @@ trait ASMMethodProcessor
 
         var pc = 0
 
-        var index = 0
+        var counter = 0
 
         override def visitMaxs (maxStack: Int, maxLocals: Int) {
             this.maxStack = maxStack
@@ -106,7 +106,7 @@ trait ASMMethodProcessor
          * do computations for pc or other global accumulations.
          */
         protected def accumulate (instruction: Instruction) {
-            index += 1
+            counter += 1
             pc = instruction.nextPC
         }
 
@@ -496,8 +496,16 @@ trait ASMMethodProcessor
             }
         }
 
-        override def visitTryCatchBlock (start: Label, end: Label, handler: Label, `type`: String) {
-            super.visitTryCatchBlock (start, end, handler, `type`)
+        override def visitTryCatchBlock (start: Label, end: Label, handler: Label, catchTypeName: String) {
+            val startPC = start.asInstanceOf[LabelExt].originalOffset
+            val endPC = end.asInstanceOf[LabelExt].originalOffset
+            val handlerPC = handler.asInstanceOf[LabelExt].originalOffset
+            //val catchType = if
+            //super.visitTryCatchBlock (start, end, handler, `type`)
+        }
+
+        override def visitEnd () {
+            //val codeAttribute = CodeAttribute(methodDeclaration, pc, maxStack, maxLocals)
         }
     }
 

@@ -71,7 +71,6 @@ object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
 
         Predef.println(printer.quoteRelation(query))
 
-        //SELECT (*) FROM subTyping WHERE (_.subType == ObjectType("javax/swing/text/StyledEditorKit"))
         query
     }
 }

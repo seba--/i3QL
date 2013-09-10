@@ -49,7 +49,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         FromClause1 (
             relation,
             SelectClause (
-				(x: Rep[Any]) => x,
+				(x: Rep[Domain]) => x,
 				asDistinct
             )
         )
@@ -62,7 +62,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationA,
             relationB,
             SelectClause (
-                (x : Rep[(Any, Any)]) => x,
+                (x : Rep[(DomainA, DomainB)]) => x,
                 asDistinct
             )
         )

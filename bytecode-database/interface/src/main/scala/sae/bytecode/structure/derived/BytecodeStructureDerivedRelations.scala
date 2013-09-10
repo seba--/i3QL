@@ -54,7 +54,7 @@ trait BytecodeStructureDerivedRelations
     lazy val classInheritance: Rep[Query[Inheritance]] =
         SELECT (
             (c: Rep[ClassDeclaration]) => Inheritance (c, c.superType.get)
-        ) FROM classDeclarations WHERE (_.superType.isDefined)
+        ) FROM (classDeclarations) WHERE (_.superType.isDefined)
 
 
     // TODO why is the type annotation needed in UNNEST(classDeclarations,_.interfaces)
@@ -76,9 +76,7 @@ trait BytecodeStructureDerivedRelations
     // TODO get rid of casts. This is hard because pattern matching does not work well if T is is covariant
     // in Query[T]. It works for compiled relation, but actually in the interface we do not need to compile
     // all relations
-    lazy val subTyping: Rep[Query[TypeRelation]] = null
-    // TODO FIX This
-    /*
+    lazy val subTyping: Rep[Query[TypeRelation]] =
         SELECT DISTINCT * FROM (
             WITH RECURSIVE (
                 (rec: Rep[Query[TypeRelation]]) =>
@@ -94,5 +92,5 @@ trait BytecodeStructureDerivedRelations
                     )
                 )
             )
-    */
+
 }

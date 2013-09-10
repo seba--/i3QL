@@ -130,7 +130,8 @@ class TestBasicOperators
 		assertFalse(query.contains("Student: Jane"))
 	}
 
-
+    /*
+    @Ignore
 	@Test
 	def testStudentNames4() {
 
@@ -151,6 +152,7 @@ class TestBasicOperators
 		assertTrue(query.contains("Judy"))
 		assertTrue(query.contains("Jane"))
 	}
+	*/
 
 	@Test
 	def testGroup2() {
