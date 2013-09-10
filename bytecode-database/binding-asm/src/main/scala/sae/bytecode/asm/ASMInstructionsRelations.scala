@@ -35,7 +35,6 @@ package sae.bytecode.asm
 import idb.SetExtent
 import sae.bytecode.structure.instructions.{BytecodeInstructionsManifest, BytecodeInstructionsRelations}
 import idb.syntax.iql._
-import idb.syntax.iql.IR._
 import sae.bytecode.asm.instructions.opcodes.{TABLESWITCH, LOOKUPSWITCH, RET, IINC}
 
 /**
@@ -95,27 +94,29 @@ trait ASMInstructionsRelations
 
 
     lazy val jumpInstructions = compile (
-        conditionalJumpInstructions UNION ALL (unconditionalJumpInstructions)
+        conditionalJumpInstructions
+            UNION ALL (unconditionalJumpInstructions)
     )
 
 
-    lazy val fieldAccessInstructions = compile(
-        fieldReadInstructions UNION ALL (fieldWriteInstructions)
+    lazy val fieldAccessInstructions = compile (
+        fieldReadInstructions
+            UNION ALL (fieldWriteInstructions)
     )
 
 
     lazy val localVariableAccessInstructions = compile (
-        localVariableLoadInstructions UNION ALL
-            (localVariableStoreInstructions) UNION ALL
-            (extent (integerIncrementInstructions).asInstanceOf[Rep[Query[LocalVariableAccessInstruction]]]) UNION ALL
-            (extent (retInstructions).asInstanceOf[Rep[Query[LocalVariableAccessInstruction]]])
+        localVariableLoadInstructions
+            UNION ALL (localVariableStoreInstructions)
+            UNION ALL (integerIncrementInstructions)
+            UNION ALL (retInstructions)
     )
 
 
-    lazy val instructions =
-        basicInstructions UNION ALL
-        (fieldAccessInstructions)UNION ALL
-        (fieldAccessInstructions)
-
+    lazy val instructions = compile (
+        basicInstructions
+            UNION ALL (fieldAccessInstructions)
+            UNION ALL (fieldAccessInstructions)
+    )
 
 }

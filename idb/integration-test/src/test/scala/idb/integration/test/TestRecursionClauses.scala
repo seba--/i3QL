@@ -48,7 +48,7 @@ import scala.language.implicitConversions
 class TestRecursionClauses
     extends UniversityTestData
 {
-
+/*	@Ignore
     @Test
     def testTransitiveClosureAsRecursion () {
         val result = compilation.CompilerBinding.compile (
@@ -84,6 +84,6 @@ class TestRecursionClauses
     }
 
     def number (c: CoursePrerequisite) = c.course.number + "" + c.prerequisite.number
-
+    */
 }
 

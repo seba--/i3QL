@@ -76,7 +76,9 @@ trait BytecodeStructureDerivedRelations
     // TODO get rid of casts. This is hard because pattern matching does not work well if T is is covariant
     // in Query[T]. It works for compiled relation, but actually in the interface we do not need to compile
     // all relations
-    lazy val subTyping: Rep[Query[TypeRelation]] =
+    lazy val subTyping: Rep[Query[TypeRelation]] = null
+    // TODO FIX This
+    /*
         SELECT DISTINCT * FROM (
             WITH RECURSIVE (
                 (rec: Rep[Query[TypeRelation]]) =>
@@ -92,5 +94,5 @@ trait BytecodeStructureDerivedRelations
                     )
                 )
             )
-
+    */
 }

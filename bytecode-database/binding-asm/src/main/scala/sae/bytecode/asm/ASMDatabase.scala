@@ -73,9 +73,6 @@ class ASMDatabase
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes += codeAttribute
 
-        def processInstruction (instruction: Instruction) =
-            database.instructions += instruction
-
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =
             database.innerClassAttributes += innerClassAttribute
 
@@ -144,9 +141,6 @@ class ASMDatabase
 
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes -= codeAttribute
-
-        def processInstruction (instruction: Instruction) =
-            database.instructions -= instruction
 
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =
             database.innerClassAttributes -= innerClassAttribute

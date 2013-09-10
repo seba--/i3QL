@@ -48,8 +48,8 @@ import scala.language.implicitConversions
 class TestRecursionClauses
 {
 
-
-    @Ignore
+	//TODO Fix compile error
+  /*  @Ignore
     @Test
     def testTransitiveClosureAsRecursion () {
         // TODO actually works, but due to the replacement of syms in recursion,
@@ -80,6 +80,6 @@ class TestRecursionClauses
             ),
             query
         )
-    }
+    }  */
 
 }

@@ -50,7 +50,7 @@ case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FU
         FromClause1 (
             relation,
 			SelectAggregateClause1(
-				aggregate.getAggregateFunction1[Domain],
+				aggregate.getAggregateFunction1,
 				asDistinct
 			)
         )
@@ -64,7 +64,7 @@ case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FU
 			relationA,
 			relationB,
 			SelectAggregateClause2(
-				aggregate.getAggregateFunction2[DomainA, DomainB],
+				aggregate.getAggregateFunction2,
 				asDistinct
 			)
 		)
