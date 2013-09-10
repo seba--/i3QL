@@ -38,7 +38,7 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 case class SelectClauseStar (asDistinct: Boolean = false)
     extends SELECT_CLAUSE_STAR
@@ -49,7 +49,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         FromClause1 (
             relation,
             SelectClause (
-				(x: Rep[Domain]) => x,
+				(x: Rep[Any]) => x,
 				asDistinct
             )
         )
@@ -62,7 +62,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationA,
             relationB,
             SelectClause (
-                (x : Rep[(DomainA, DomainB)]) => x,
+                (x : Rep[(Any, Any)]) => x,
                 asDistinct
             )
         )
@@ -78,7 +78,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationB,
             relationC,
             SelectClause (
-				(x : Rep[(DomainA, DomainB, DomainC)]) => x,
+				(x : Rep[(Any, Any, Any)]) => x,
                 asDistinct
             )
         )
@@ -95,7 +95,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationC,
             relationD,
             SelectClause (
-                (x : Rep[(DomainA, DomainB, DomainC, DomainD)]) => x,//(x : Rep[(DomainA, DomainB, DomainC, DomainD)]) => x,
+                (x : Rep[(Any, Any, Any, Any)]) => x,
                 asDistinct
             )
         )
@@ -114,7 +114,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationD,
             relationE,
             SelectClause (
-				(x : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => x,
+				(x : Rep[(Any, Any, Any, Any, Any)]) => x,
                 asDistinct
             )
         )

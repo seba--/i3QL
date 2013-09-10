@@ -45,11 +45,11 @@ case class AggregateFunctionStar[Column : Manifest, Range : Manifest](factory : 
 	extends AGGREGATE_FUNCTION_STAR[Range]
 {
 
-	def getAggregateFunction1[Domain : Manifest] =
-		factory ( (a : Rep[Domain]) => a.asInstanceOf[Column] )
+	def getAggregateFunction1 =
+		factory ( (a : Rep[Any]) => a.asInstanceOf[Column] )
 
-	def getAggregateFunction2[DomainA : Manifest, DomainB : Manifest] =
-		factory ( (a : Rep[DomainA], b : Rep[DomainB]) => (a,b).asInstanceOf[Column])
+	def getAggregateFunction2 =
+		factory ( (a : Rep[Any], b : Rep[Any]) => (a,b).asInstanceOf[Column])
 
 
 
