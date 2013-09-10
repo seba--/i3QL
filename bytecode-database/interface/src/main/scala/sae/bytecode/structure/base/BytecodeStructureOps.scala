@@ -60,7 +60,10 @@ trait BytecodeStructureOps
         DeclaredClassMemberInfixOps (m)
 
     implicit def methodDeclarationToInfixOps (m: Rep[MethodDeclaration]) =
-        MethodDeclarationInfixOps (m)
+        new MethodDeclarationInfixOps (m)
+
+    implicit def methodInfoToInfixOps (m: Rep[MethodInfo]) =
+        MethodInfoInfixOps (m)
 
     implicit def codeAttributeToInfixOps (c: Rep[CodeAttribute]) =
         CodeAttributeInfixOps (c)
@@ -135,14 +138,25 @@ trait BytecodeStructureOps
     }
 
 
-    case class MethodDeclarationInfixOps (m: Rep[MethodDeclaration])
+    case class MethodInfoInfixOps (m: Rep[MethodInfo])
     {
+        def receiverType: Rep[ReferenceType] = field[ReferenceType](m, "receiverType")
+
+        def name: Rep[String] = field[String](m, "name")
 
         def returnType: Rep[Type] = field[Type](m, "returnType")
 
         def parameterTypes: Rep[Seq[FieldType]] = field[Seq[FieldType]](m, "parameterTypes")
+    }
+
+    case class MethodDeclarationInfixOps (m: Rep[MethodDeclaration])
+    {
 
         def receiverType: Rep[ReferenceType] = field[ReferenceType](m, "receiverType")
+
+        def returnType: Rep[Type] = field[Type](m, "returnType")
+
+        def parameterTypes: Rep[Seq[FieldType]] = field[Seq[FieldType]](m, "parameterTypes")
 
         def isSynchronized: Rep[Boolean] = field[Boolean](m, "isSynchronized")
 

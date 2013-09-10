@@ -36,6 +36,7 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import sae.bytecode.constants.OpCodes
 
 /**
  *
@@ -54,7 +55,19 @@ object CN_IDIOM_NO_SUPER_CALL
                 m.name == "clone" AND
                 m.parameterTypes == Nil AND
                 m.returnType == ObjectType ("java/lang/Object") AND
-                m.declaringClass.superType.isDefined
+                m.declaringClass.superType.isDefined AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM methodInvocationInstructions WHERE ((i: Rep[MethodInvocationInstruction]) =>
+                            i.opcode == OpCodes.INVOKESPECIAL AND
+                                i.declaringMethod == m AND
+                                i.methodInfo.receiverType == m.declaringClass.superType.get AND
+                                i.methodInfo.name == "clone" AND
+                                i.methodInfo.parameterTypes == Nil AND
+                                i.methodInfo.returnType == ObjectType ("java/lang/Object")
+                            )
+                    )
+                )
             )
     }
 }
