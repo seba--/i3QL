@@ -33,6 +33,7 @@
 package sae.bytecode.asm
 
 import org.junit.Test
+import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 
 /**
@@ -58,12 +59,11 @@ class TestASMReader
 
         val end = System.nanoTime ()
 
-        println (classes.size)
-        println (methods.size)
-        println (fields.size)
-        println (instructions.size)
-        //classes.foreach (println)
-        //methods.foreach (println)
+        assertEquals(18663, classes.size)
+        assertEquals(76399, fields.size)
+        assertEquals(165512, methods.size)
+        //assertEquals(4505310, instructions.size)
+        assertEquals(4505268, instructions.size) // TODO check that the number of WIDE modifiers is 42
         println ("took: " + ((end - start).toDouble / 1000000000) + " s")
     }
 

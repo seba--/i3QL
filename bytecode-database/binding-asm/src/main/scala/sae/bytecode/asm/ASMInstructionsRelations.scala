@@ -116,7 +116,14 @@ trait ASMInstructionsRelations
     lazy val instructions = compile (
         basicInstructions
             UNION ALL (fieldAccessInstructions)
-            UNION ALL (fieldAccessInstructions)
+            UNION ALL (constantValueInstructions)
+            UNION ALL (lookupSwitchInstructions)
+            UNION ALL (tableSwitchInstructions)
+            UNION ALL (methodInvocationInstructions)
+            UNION ALL (objectTypeInstructions)
+            UNION ALL (newArrayInstructions)
+            UNION ALL (localVariableAccessInstructions)
+            UNION ALL (jumpInstructions)
     )
 
 }
