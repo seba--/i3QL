@@ -35,6 +35,7 @@ package sae.bytecode.structure.instructions
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
 import sae.bytecode.structure.base.BytecodeStructureManifests
+import sae.bytecode.types.BytecodeTypeManifests
 
 /**
  *
@@ -43,6 +44,7 @@ import sae.bytecode.structure.base.BytecodeStructureManifests
 trait BytecodeInstructionsOps
     extends BytecodeInstructions
     with BytecodeStructureManifests
+    with BytecodeTypeManifests
     with BytecodeInstructionsManifest
 {
 
@@ -52,6 +54,29 @@ trait BytecodeInstructionsOps
 
     implicit def instructionToInfixOps (i: Rep[Instruction]) =
         InstructionInfixOps (i)
+
+    implicit def constantValueInstructionToInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]]) =
+        ConstantValueInstructionInfixOps[V] (i)
+
+    implicit def fieldAccessInstructionToInfixOps (i: Rep[FieldAccessInstruction]) =
+        FieldAccessInstructionInfixOps (i)
+
+    implicit def jumpInstructionToInfixOps (i: Rep[JumpInstruction]) =
+        JumpInstructionInfixOps (i)
+
+    implicit def localVariableAccessInstructionToInfixOps (i: Rep[LocalVariableAccessInstruction]) =
+        LocalVariableAccessInstructionInfixOps (i)
+
+    implicit def methodInvocationInstructionToInfixOps (i: Rep[MethodInvocationInstruction]) =
+        MethodInvocationInstructionInfixOps (i)
+
+    implicit def newArrayInstructionToInfixOps[V:Manifest] (i: Rep[NewArrayInstruction[V]]) =
+        NewArrayInstructionInfixOps[V] (i)
+
+    implicit def objectTypeInstructionToInfixOps (i: Rep[ObjectTypeInstruction]) =
+        ObjectTypeInstructionInfixOps (i)
+
+
 
     case class InstructionInfixOps (i: Rep[Instruction])
     {
@@ -67,21 +92,47 @@ trait BytecodeInstructionsOps
     }
 
 
-    case class JumpInstructionInfixOps (i: Rep[JumpInstruction])
-    {
-        def offset: Rep[Int] = field[Int](i, "offset")
-    }
-
-
     case class ConstantValueInstructionInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]])
     {
         def value: Rep[V] = field[V](i, "value")
     }
 
 
+    case class FieldAccessInstructionInfixOps (i: Rep[FieldAccessInstruction])
+    {
+        def fieldInfo: Rep[FieldInfo] = field[FieldInfo](i, "fieldInfo")
+    }
+
+
+    case class JumpInstructionInfixOps (i: Rep[JumpInstruction])
+    {
+        def offset: Rep[Int] = field[Int](i, "offset")
+    }
+
+
     case class LocalVariableAccessInstructionInfixOps (i: Rep[LocalVariableAccessInstruction])
     {
         def lvIndex: Rep[Int] = field[Int](i, "lvIndex")
+    }
+
+
+    case class MethodInvocationInstructionInfixOps (i: Rep[MethodInvocationInstruction])
+    {
+        def methodInfo: Rep[MethodInfo] = field[MethodInfo](i, "methodInfo")
+    }
+
+
+    case class NewArrayInstructionInfixOps[+V:Manifest] (i: Rep[NewArrayInstruction[V]])
+    {
+        def elementType: Rep[V] = field[V](i, "elementType")
+
+        def arrayType: Rep[ArrayType[V]] = field[ArrayType[V]](i, "arrayType")
+    }
+
+
+    case class ObjectTypeInstructionInfixOps (i: Rep[ObjectTypeInstruction])
+    {
+        def objectType: Rep[Type] = field[Type](i, "objectType")
     }
 
 }

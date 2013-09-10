@@ -47,23 +47,32 @@ trait BytecodeInstructions
 
     def getManifestInstruction: Manifest[Instruction]
 
+    type ConstantValueInstruction[+V] <: Instruction
+
+    def getManifestConstantValueInstruction[V: Manifest]: Manifest[ConstantValueInstruction[V]]
+
+    type FieldAccessInstruction <: Instruction
+
+    def getManifestFieldAccessInstruction: Manifest[FieldAccessInstruction]
+
     type JumpInstruction <: Instruction
 
     def getManifestJumpInstruction: Manifest[JumpInstruction]
-/*
-    type ConditionalJumpInstruction <: JumpInstruction
-
-    def getManifestConditionalJumpInstruction: Manifest[ConditionalJumpInstruction]
-
-    type UnconditionalJumpInstruction <: JumpInstruction
-
-    def getManifestUnconditionalJumpInstruction: Manifest[UnconditionalJumpInstruction]
-*/
-    type ConstantValueInstruction[+V] <: Instruction
-
-    def getManifestConstantValueInstruction[V:Manifest]: Manifest[ConstantValueInstruction[V]]
 
     type LocalVariableAccessInstruction <: Instruction
 
     def getManifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction]
+
+    type MethodInvocationInstruction <: Instruction
+
+    def getManifestMethodInvocationInstruction: Manifest[MethodInvocationInstruction]
+
+    type NewArrayInstruction[+V] <: Instruction
+
+    def getManifestNewArrayInstruction[V:Manifest]: Manifest[NewArrayInstruction[V]]
+
+    type ObjectTypeInstruction <: Instruction
+
+    def getManifestObjectTypeInstruction: Manifest[ObjectTypeInstruction]
+
 }

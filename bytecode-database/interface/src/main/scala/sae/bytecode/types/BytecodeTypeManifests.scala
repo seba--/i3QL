@@ -52,6 +52,6 @@ trait BytecodeTypeManifests
 
     implicit val objectTypeManifest: Manifest[ObjectType] = getObjectTypeManifest
 
-    //implicit val arrayTypeManifest: Manifest[ArrayType[Any]] = getArrayTypeManifest[Any]
+    implicit def arrayTypeManifest[V:Manifest]: Manifest[ArrayType[V]] = getArrayTypeManifest[V]
 
 }

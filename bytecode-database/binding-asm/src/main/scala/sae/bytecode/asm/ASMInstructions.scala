@@ -46,32 +46,40 @@ trait ASMInstructions
     def getManifestInstruction: Manifest[Instruction] =
         manifest[instructions.Instruction]
 
+    type ConstantValueInstruction[+V] = instructions.ConstantValueInstruction[V]
+
+    def getManifestConstantValueInstruction[V: Manifest]: Manifest[ConstantValueInstruction[V]] =
+        manifest[instructions.ConstantValueInstruction[V]]
+
+    type FieldAccessInstruction = instructions.FieldAccessInstruction
+
+    def getManifestFieldAccessInstruction: Manifest[FieldAccessInstruction] =
+        manifest[instructions.FieldAccessInstruction]
+
     type JumpInstruction = instructions.JumpInstruction
 
     def getManifestJumpInstruction: Manifest[JumpInstruction] =
         manifest[instructions.JumpInstruction]
 
-    /*
-    type ConditionalJumpInstruction = instructions.ConditionalJumpInstruction
-
-    def getManifestConditionalJumpInstruction: Manifest[ConditionalJumpInstruction] =
-        manifest[instructions.ConditionalJumpInstruction]
-
-    type UnconditionalJumpInstruction = instructions.UnconditionalJumpInstruction
-
-    def getManifestUnconditionalJumpInstruction: Manifest[UnconditionalJumpInstruction] =
-        manifest[instructions.UnconditionalJumpInstruction]
-    */
-
-    type ConstantValueInstruction[+V] = instructions.ConstantValueInstruction[V]
-
-    def getManifestConstantValueInstruction[V:Manifest]: Manifest[ConstantValueInstruction[V]] =
-        manifest[instructions.ConstantValueInstruction[V]]
-
     type LocalVariableAccessInstruction = instructions.LocalVariableAccessInstruction
 
-    def getManifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction]=
+    def getManifestLocalVariableAccessInstruction: Manifest[LocalVariableAccessInstruction] =
         manifest[instructions.LocalVariableAccessInstruction]
+
+    type MethodInvocationInstruction = instructions.MethodInvocationInstruction
+
+    def getManifestMethodInvocationInstruction: Manifest[MethodInvocationInstruction] =
+        manifest[instructions.MethodInvocationInstruction]
+
+    type NewArrayInstruction[+V] = instructions.NewArrayInstruction[V]
+
+    def getManifestNewArrayInstruction[V:Manifest]: Manifest[NewArrayInstruction[V]] =
+        manifest[instructions.NewArrayInstruction[V]]
+
+    type ObjectTypeInstruction = instructions.ObjectTypeInstruction
+
+    def getManifestObjectTypeInstruction: Manifest[ObjectTypeInstruction] =
+        manifest[instructions.ObjectTypeInstruction]
 }
 
 

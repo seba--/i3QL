@@ -38,7 +38,7 @@ import org.objectweb.asm.Type
  *
  * @author Ralf Mitschke
  */
-trait NewArrayInstruction[V] extends Instruction
+trait NewArrayInstruction[+V] extends Instruction
 {
     def elementType: V
 
