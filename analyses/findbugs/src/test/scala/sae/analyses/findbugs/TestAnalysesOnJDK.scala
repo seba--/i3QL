@@ -51,7 +51,7 @@ class TestAnalysesOnJDK
 
     def getDatabase = ASMDatabaseFactory.create ()
 
-    //@Ignore
+
     @Test
     def test_CI_CONFUSED_INHERITANCE () {
         val database = getDatabase
@@ -60,41 +60,70 @@ class TestAnalysesOnJDK
         assertEquals (123, analysis.size)
     }
 
-    //@Ignore
+
     @Test
     def test_CN_IDIOM() {
         val database = getDatabase
         val analysis = CN_IDIOM (database).asMaterialized
         database.addArchive (getStream)
-        // TODO not correct yet, should be 835
-        //assertEquals (835, analysis.size)
-        assertEquals (842, analysis.size)
+        assertEquals (835, analysis.size)
     }
 
-    //@Ignore
+
     @Test
     def test_CN_IDIOM_NO_SUPER_CALL () {
         val database = getDatabase
         val analysis = CN_IDIOM_NO_SUPER_CALL (database).asMaterialized
         database.addArchive (getStream)
-        // TODO not correct yet, should be 136
-        //assertEquals (136, analysis.size)
-        assertEquals (273, analysis.size)
+        assertEquals (136, analysis.size)
     }
 
-    //@Ignore
+
     @Test
     def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
         val database = getDatabase
         val analysis = CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database).asMaterialized
         database.addArchive (getStream)
-        // TODO not correct yet
-        //assertEquals (38, analysis.size)
-        assertEquals (34, analysis.size)
+        assertEquals (38, analysis.size)
     }
 
 
-    //@Ignore
+    @Test
+    def test_CO_ABSTRACT_SELF() {
+        val database = getDatabase
+        val analysis = CO_ABSTRACT_SELF (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (16, analysis.size)
+    }
+
+
+    @Test
+    def test_CO_SELF_NO_OBJECT() {
+        val database = getDatabase
+        val analysis = CO_SELF_NO_OBJECT (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (55, analysis.size)
+    }
+
+
+    @Test
+    def test_DM_GC() {
+        val database = getDatabase
+        val analysis = DM_GC (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+
+    @Test
+    def test_DM_RUN_FINALIZERS_ON_EXIT() {
+        val database = getDatabase
+        val analysis = DM_RUN_FINALIZERS_ON_EXIT (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (1, analysis.size)
+    }
+
+
     @Test
     def test_EQ_ABSTRACT_SELF () {
         val database = getDatabase
@@ -104,12 +133,38 @@ class TestAnalysesOnJDK
     }
 
 
-    //@Ignore
     @Test
     def test_FI_PUBLIC_SHOULD_BE_PROTECTED () {
         val database = getDatabase
         val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
         database.addArchive (getStream)
         assertEquals (20, analysis.size)
+    }
+
+
+    @Test
+    def test_IMSE_DONT_CATCH_IMSE() {
+        val database = getDatabase
+        val analysis = IMSE_DONT_CATCH_IMSE (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+
+    @Test
+    def test_SE_NO_SUITABLE_CONSTRUCTOR() {
+        val database = getDatabase
+        val analysis = SE_NO_SUITABLE_CONSTRUCTOR (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (19, analysis.size)
+    }
+
+
+    @Test
+    def test_UUF_UNUSED_FIELD() {
+        val database = getDatabase
+        val analysis = UUF_UNUSED_FIELD (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
     }
 }

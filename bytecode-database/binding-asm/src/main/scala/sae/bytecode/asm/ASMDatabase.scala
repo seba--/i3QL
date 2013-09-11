@@ -43,6 +43,7 @@ import sae.bytecode.asm.instructions.opcodes.{IINC, LOOKUPSWITCH, RET, TABLESWIT
 class ASMDatabase
     extends BytecodeDatabase
     with ASMTypes
+    with ASMTypesOps
     with ASMTypeConstructors
     with ASMStructure
     with ASMStructureRelations

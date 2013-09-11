@@ -30,37 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm.util
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
-
+import org.objectweb.asm.Type
+import org.junit.Test
+import org.junit.Assert._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypesOps
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+class TestASMTypeUtils
+    extends ASMTypeUtils
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    @Test
+    def testCreateObjectTypeFromString () {
+        val t1 = Type.getType (classOf[java.lang.Object])
+        val t2 = ObjectType ("java/lang/Object")
+        assertEquals (t1, t2)
+    }
+
+    @Test
+    def testGetObjectTypeName () {
+        val t = Type.getType (classOf[java.lang.Object])
+        val s1 = "java/lang/Object"
+        val s2 = ObjectType_Name (t)
+        assertEquals (s1, s2)
+    }
+
 }

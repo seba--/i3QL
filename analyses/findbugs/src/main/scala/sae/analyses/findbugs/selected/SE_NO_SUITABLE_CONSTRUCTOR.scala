@@ -30,37 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.analyses.findbugs.selected
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
-
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypesOps
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+object SE_NO_SUITABLE_CONSTRUCTOR
 {
+    def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
+        import database._
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+        SELECT ((_: Rep[ClassDeclaration]).superType.get) FROM classDeclarations WHERE ((c: Rep[ClassDeclaration]) =>
+            NOT (c.isInterface) AND
+                c.superType.isDefined AND
+                EXISTS (
+                    SELECT (*) FROM classDeclarations WHERE ((c1: Rep[ClassDeclaration]) =>
+                        NOT (c1.isInterface) AND
+                            c1.classType == c.superType.get
+                        )
+                ) AND
+                EXISTS (
+                    SELECT (*) FROM interfaceInheritance WHERE ((in: Rep[Inheritance]) =>
+                        in.superType == ObjectType ("java/io/Serializable") AND
+                            in.declaringClass == c
+                        )
+                ) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM constructors WHERE ((m: Rep[MethodDeclaration]) =>
+                            m.parameterTypes == Nil AND
+                                m.declaringType == c.superType.get
+                            )
+                    )
+                )
+            )
+
+    }
 }

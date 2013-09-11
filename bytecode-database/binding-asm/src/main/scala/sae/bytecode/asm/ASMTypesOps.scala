@@ -30,37 +30,36 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.asm
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
+import sae.bytecode.types.BytecodeTypesOps
+import scala.virtualization.lms.common.{FunctionsExp, StructExp, StaticDataExp}
+import sae.bytecode.asm.util.ASMTypeUtils
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypesOps
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+trait ASMTypesOps
+    extends BytecodeTypesOps
+    with ASMTypes
+    with ASMTypeUtils
 {
+    override val IR: StructExp with StaticDataExp with FunctionsExp
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    import IR._
+
+    private val objectTypeName: Rep[ObjectType => String] = staticData (
+        (t: ObjectType) => ObjectType_Name (t)
+    )
+
+    override implicit def objectTypeToInfixOps (i: Rep[ObjectType]) =
+        ASMObjectTypeInfixOps (i)
+
+    case class ASMObjectTypeInfixOps (i: Rep[ObjectType]) extends ObjectTypeInfixOps
+    {
+        def name: Rep[String] = objectTypeName (i)
+    }
+
 }

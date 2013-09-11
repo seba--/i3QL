@@ -39,7 +39,6 @@ import sae.bytecode.asm.structure.EnclosingMethodAttribute
 import sae.bytecode.asm.structure.ClassDeclaration
 import sae.bytecode.asm.structure.InnerClassAttribute
 import sae.bytecode.asm.structure.FieldDeclaration
-import scala.Some
 
 /**
  *

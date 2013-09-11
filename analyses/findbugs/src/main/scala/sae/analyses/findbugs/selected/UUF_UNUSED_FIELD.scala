@@ -30,37 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.analyses.findbugs.selected
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
-
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypesOps
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+object UUF_UNUSED_FIELD
 {
-
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+    def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
+        import database._
+        SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
+            f.isPrivate AND NOT (
+                EXISTS (
+                    SELECT (*) FROM fieldReadInstructions WHERE ((i: Rep[FieldAccessInstruction]) =>
+                        i.declaringMethod.declaringType == i.fieldInfo.receiverType AND
+                            i.fieldInfo.name == f.name AND
+                            i.fieldInfo.fieldType == f.fieldType AND
+                            i.fieldInfo.receiverType == f.declaringType
+                        )
+                )
+            )
+            )
+    }
 }

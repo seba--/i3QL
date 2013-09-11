@@ -53,8 +53,19 @@ trait BytecodeStructureOps
     implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]) =
         ClassDeclarationInfixOps (c)
 
+    /*
     implicit def declaredClassMemberToInfixOps (m: Rep[DeclaredClassMember]) =
         DeclaredClassMemberInfixOps (m)
+    */
+
+    implicit def fieldInfoToInfixOps (f: Rep[FieldInfo]) =
+        FieldInfoInfixOps (f)
+
+    implicit def fieldDeclarationToInfixOps (f: Rep[FieldDeclaration]) =
+        FieldDeclarationInfixOps (f)
+
+    implicit def fieldDeclarationToDeclaredClassMemberInfixOps (f: Rep[FieldDeclaration]) =
+        DeclaredClassMemberInfixOps (f)
 
     implicit def methodDeclarationToDeclaredClassMemberInfixOps (m: Rep[MethodDeclaration]) =
         DeclaredClassMemberInfixOps (m)
@@ -137,6 +148,28 @@ trait BytecodeStructureOps
         def isFinal: Rep[Boolean] = field[Boolean](m, "isFinal")
     }
 
+
+    case class FieldInfoInfixOps (f: Rep[FieldInfo])
+    {
+        def receiverType: Rep[ReferenceType] = field[ReferenceType](f, "receiverType")
+
+        def name: Rep[String] = field[String](f, "name")
+
+        def fieldType: Rep[Type] = field[Type](f, "fieldType")
+    }
+
+    case class FieldDeclarationInfixOps  (f: Rep[FieldDeclaration])
+    {
+        def fieldType: Rep[Type] = field[Type](f, "fieldType")
+
+        def isTransient: Rep[Boolean] = field[Boolean](f, "isTransient")
+
+        def isVolatile: Rep[Boolean] = field[Boolean](f, "isVolatile")
+
+        def isEnum: Rep[Boolean] = field[Boolean](f, "isEnum")
+
+        def isSynthetic: Rep[Boolean] = field[Boolean](f, "isSynthetic")
+    }
 
     case class MethodInfoInfixOps (m: Rep[MethodInfo])
     {

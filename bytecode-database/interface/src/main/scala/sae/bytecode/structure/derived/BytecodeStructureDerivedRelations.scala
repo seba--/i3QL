@@ -93,4 +93,7 @@ trait BytecodeStructureDerivedRelations
                 )
             )
 
+
+    lazy val constructors: Rep[Query[MethodDeclaration]] =
+        SELECT (*) FROM methodDeclarations WHERE (_.name == "<init>")
 }

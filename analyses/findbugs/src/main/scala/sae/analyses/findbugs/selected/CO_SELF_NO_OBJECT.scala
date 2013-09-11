@@ -30,37 +30,36 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.analyses.findbugs.selected
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypesOps
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+object CO_SELF_NO_OBJECT
 {
+    def apply (database: BytecodeDatabase): Relation[database.ClassDeclaration] = {
+        import database._
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+
+        SELECT ((_: Rep[MethodDeclaration]).declaringClass) FROM methodDeclarations WHERE (
+            (m: Rep[MethodDeclaration]) =>
+                    m.name == "compareTo" AND
+                    NOT (m.parameterTypes == Seq (ObjectType ("java/lang/Object"))) AND
+                    m.returnType == int AND
+                    EXISTS (
+                        SELECT (*) FROM subTyping WHERE ((t: Rep[TypeRelation]) =>
+                            t.superType == ObjectType ("java/lang/Comparable") AND
+                                t.subType == m.declaringType
+                            )
+                    )
+            )
+
+    }
 }

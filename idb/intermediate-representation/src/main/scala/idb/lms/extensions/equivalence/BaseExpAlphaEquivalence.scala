@@ -57,7 +57,7 @@ trait BaseExpAlphaEquivalence
             //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
 
             case (Def (Reflect (x1, summary1, deps1)), Def (Reflect (x2, summary2, deps2))) =>
-                isEquivalentDef (x1, x2) //&& isEquivalentSeq (deps1, deps2)
+                isEquivalentDef (x1, x2) && isEquivalentSeq (deps1, deps2)
                 // For now we ignore the dependencies, since due to beta reduction we can create functions
                 // that do not resolve the dependencies as they would be resolved during standard creation.
                 // This happens in function that computes two reflected effects, e.g., a and b in

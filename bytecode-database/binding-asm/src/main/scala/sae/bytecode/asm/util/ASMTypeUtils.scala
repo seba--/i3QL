@@ -40,6 +40,12 @@ import org.objectweb.asm.Type
  */
 trait ASMTypeUtils
 {
-    def ArrayType (componentType: Type, dimensions: Int): Type =
+    protected def ArrayType (componentType: Type, dimensions: Int): Type =
         Type.getType ("[" * dimensions + componentType.getDescriptor)
+
+    protected def ObjectType (s: String): Type = Type.getObjectType(s)
+
+    protected def ObjectType_Name (t: Type): String = t.getClassName.replaceAll ("\\.", "/")
+
+
 }

@@ -35,6 +35,7 @@ package sae.bytecode.asm
 import scala.virtualization.lms.common.{FunctionsExp, StaticDataExp}
 import org.objectweb.asm.Type
 import sae.bytecode.types.BytecodeTypeConstructors
+import sae.bytecode.asm.util.ASMTypeUtils
 
 /**
  *
@@ -43,6 +44,7 @@ import sae.bytecode.types.BytecodeTypeConstructors
 trait ASMTypeConstructors
     extends BytecodeTypeConstructors
     with ASMTypes
+    with ASMTypeUtils
 {
     override val IR: StaticDataExp with FunctionsExp
 
