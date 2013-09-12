@@ -115,7 +115,7 @@ trait ASMMethodProcessor
         }
 
         override def visitFieldInsn (opcode: Int, owner: String, name: String, desc: String) {
-            val declaringType = Type.getType (owner)
+            val declaringType = Type.getObjectType (owner)
             val fieldType = Type.getType (desc)
             val fieldInfo = FieldReference (
                 declaringType,
@@ -370,7 +370,7 @@ trait ASMMethodProcessor
 
 
         override def visitMethodInsn (opcode: Int, owner: String, name: String, desc: String) {
-            val declaringType = Type.getType (owner)
+            val declaringType = Type.getObjectType (owner)
             val returnType = Type.getReturnType (desc)
             val parameterTypes = Type.getArgumentTypes (desc)
             val methodInfo = MethodReference (

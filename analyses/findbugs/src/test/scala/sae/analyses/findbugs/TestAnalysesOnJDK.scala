@@ -66,7 +66,7 @@ class TestAnalysesOnJDK
         val database = getDatabase
         val analysis = CN_IDIOM (database).asMaterialized
         database.addArchive (getStream)
-        assertEquals (835, analysis.size)
+        assertEquals (18, analysis.size)
     }
 
 
@@ -161,10 +161,19 @@ class TestAnalysesOnJDK
 
 
     @Test
+    def test_SS_SHOULD_BE_STATIC() {
+        val database = getDatabase
+        val analysis = SS_SHOULD_BE_STATIC (database).asMaterialized
+        database.addArchive (getStream)
+        assertEquals (92, analysis.size)
+    }
+
+
+    @Test
     def test_UUF_UNUSED_FIELD() {
         val database = getDatabase
         val analysis = UUF_UNUSED_FIELD (database).asMaterialized
         database.addArchive (getStream)
-        assertEquals (0, analysis.size)
+        assertEquals (53, analysis.size)
     }
 }

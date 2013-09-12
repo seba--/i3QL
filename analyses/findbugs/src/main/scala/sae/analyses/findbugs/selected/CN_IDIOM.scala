@@ -48,15 +48,32 @@ object CN_IDIOM
     def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
         import database._
 
-        SELECT ((_: Rep[TypeRelation]).subType) FROM subTyping WHERE ((t: Rep[TypeRelation]) =>
-            t.superType == ObjectType ("java/lang/Cloneable") AND
+        SELECT ((_: Rep[Inheritance]).subType) FROM interfaceInheritance WHERE ((t: Rep[Inheritance]) =>
+            NOT (t.declaringClass.isInterface) AND
+                NOT (t.declaringClass.isAbstract) AND
+                t.superType == ObjectType ("java/lang/Cloneable") AND
                 NOT (
                     EXISTS (
                         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-                            m.declaringType == t.subType AND
+                            NOT (m.isAbstract) AND
+                                NOT (m.isSynthetic) AND
+                                m.isPublic AND
                                 m.name == "clone" AND
-                                m.returnType == ObjectType ("java/lang/Object") AND
-                                m.parameterTypes == Nil
+                                // This is actually never checked by FB
+                                //m.returnType == ObjectType ("java/lang/Object") AND
+                                m.parameterTypes == Nil AND
+                                t.subType == m.declaringType
+                            )
+                    )
+                ) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM methodInvocationInstructions WHERE ((m: Rep[MethodInvocationInstruction]) =>
+                            m.methodInfo.name == "clone" AND
+                                // This is actually never checked by FB
+                                //m.returnType == ObjectType ("java/lang/Object") AND
+                                m.methodInfo.parameterTypes == Nil AND
+                                t.subType == m.declaringMethod.declaringType
                             )
                     )
                 )

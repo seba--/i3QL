@@ -58,7 +58,8 @@ trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
 		with FunctionsExp
 
     import IR._
-
+    // TODO for unionMax, intersection and set difference, there is a choice to materialize the underlying relations,
+    // or to materialize data in an internal representation, as currently done by difference
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
 
@@ -69,13 +70,13 @@ trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
 				if(e.isIncrementLocal)
 					new TransactionalUnionMaxView(compile (a) , compile (b) , false)
 				else
-					new UnionViewMax (compile (a) .asInstanceOf[MaterializedView[Domain]], compile (b) .asInstanceOf[MaterializedView[Domain]], false)
+					new UnionViewMax (compile (a).asMaterialized, compile (b).asMaterialized, false)
 			}
 			case Def (e@Intersection (a, b)) => {
 				if (e.isIncrementLocal)
 					new TransactionalIntersectionView (compile (a), compile (b), false)
 				else
-					new IntersectionView (compile (a).asInstanceOf[MaterializedView[Domain]], compile (b).asInstanceOf[MaterializedView[Domain]], false)
+					new IntersectionView (compile (a).asMaterialized, compile (b).asMaterialized, false)
 			}
 			case Def (e@Difference (a, b)) => {
 				if (e.isIncrementLocal)

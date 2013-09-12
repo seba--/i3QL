@@ -53,11 +53,6 @@ trait BytecodeStructureOps
     implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]) =
         ClassDeclarationInfixOps (c)
 
-    /*
-    implicit def declaredClassMemberToInfixOps (m: Rep[DeclaredClassMember]) =
-        DeclaredClassMemberInfixOps (m)
-    */
-
     implicit def fieldInfoToInfixOps (f: Rep[FieldInfo]) =
         FieldInfoInfixOps (f)
 
@@ -151,16 +146,20 @@ trait BytecodeStructureOps
 
     case class FieldInfoInfixOps (f: Rep[FieldInfo])
     {
-        def receiverType: Rep[ReferenceType] = field[ReferenceType](f, "receiverType")
+        def declaringType: Rep[ReferenceType] = field[ReferenceType](f, "declaringType")
 
         def name: Rep[String] = field[String](f, "name")
 
         def fieldType: Rep[Type] = field[Type](f, "fieldType")
     }
 
-    case class FieldDeclarationInfixOps  (f: Rep[FieldDeclaration])
+    case class FieldDeclarationInfixOps (f: Rep[FieldDeclaration])
     {
         def fieldType: Rep[Type] = field[Type](f, "fieldType")
+
+        def value: Rep[Option[Any]] = field[Option[Any]](f, "value")
+
+        def valueType: Rep[Option[FieldType]] = field[Option[FieldType]](f, "valueType")
 
         def isTransient: Rep[Boolean] = field[Boolean](f, "isTransient")
 
