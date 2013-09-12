@@ -34,7 +34,7 @@ package idb.syntax.iql.compilation
 
 import idb.algebra.compiler._
 import scala.virtualization.lms.common._
-import idb.lms.extensions.operations.ScalaGenOptionOps
+import idb.lms.extensions.operations.{ScalaGenStringOpsExt, ScalaGenOptionOps}
 
 /**
  *
@@ -49,6 +49,7 @@ object CompilerBinding
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
+    with ScalaGenStringOpsExt
     with ScalaCodeGenPkg
     with ScalaGenStruct
     with ScalaGenTupledFunctions

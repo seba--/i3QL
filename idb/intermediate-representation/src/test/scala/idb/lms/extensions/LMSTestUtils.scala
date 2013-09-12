@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions
 
-import idb.lms.extensions.operations.OptionOpsExp
+import idb.lms.extensions.operations.{StringOpsExpExt, OptionOpsExp}
 import idb.lms.extensions.print.QuoteFunction
 import junit.framework.Assert
 import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
@@ -46,6 +46,7 @@ trait LMSTestUtils
     with StructExp
     with StaticDataExp
     with OptionOpsExp
+    with StringOpsExpExt
     with TupledFunctionsExp
     with FunctionUtils
 {

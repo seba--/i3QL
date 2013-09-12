@@ -30,30 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.lms.extensions.operations
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRAggregationOperators,
-RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
-
+import scala.virtualization.lms.common.{ScalaGenStringOps, StringOpsExp}
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlan
-    extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
+trait StringOpsExpExt
+    extends StringOpsExp
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators
+    def infix_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
+        string_lastIndexOf (s, c)
 
+    def string_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
+        StringLastIndexOf (s, c)
+
+    case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
+
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
+        case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
+        case _ => super.mirror (e, f)
+    }).asInstanceOf[Exp[A]]
+}
+
+
+trait ScalaGenStringOpsExt extends ScalaGenStringOps
+{
+    val IR: StringOpsExpExt
+
+    import IR._
+
+    override def emitNode (sym: Sym[Any], rhs: Def[Any]) = rhs match {
+        case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
+        case _ => super.emitNode (sym, rhs)
+    }
 }

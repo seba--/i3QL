@@ -82,8 +82,28 @@ trait FunctionUtils
         */
     }
 
-    def tupledManifest[A, B] (implicit ma: Manifest[A], mb: Manifest[B]): Manifest[(A, B)] = {
+    def tupledManifest[A, B] (
+        implicit ma: Manifest[A], mb: Manifest[B]
+    ): Manifest[(A, B)] = {
         manifest[(A, B)]
+    }
+
+    def tupledManifest[A, B, C] (
+        implicit ma: Manifest[A], mb: Manifest[B], mc: Manifest[C]
+    ): Manifest[(A, B, C)] = {
+        manifest[(A, B, C)]
+    }
+
+    def tupledManifest[A, B, C, D] (
+        implicit ma: Manifest[A], mb: Manifest[B], mc: Manifest[C], md: Manifest[D]
+    ): Manifest[(A, B, C, D)] = {
+        manifest[(A, B, C, D)]
+    }
+
+    def tupledManifest[A, B, C, D, E] (
+        implicit ma: Manifest[A], mb: Manifest[B], mc: Manifest[C], md: Manifest[D], me: Manifest[E]
+    ): Manifest[(A, B, C, D, E)] = {
+        manifest[(A, B, C, D, E)]
     }
 
 
