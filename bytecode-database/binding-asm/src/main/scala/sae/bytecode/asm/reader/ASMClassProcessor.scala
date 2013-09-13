@@ -131,7 +131,9 @@ trait ASMClassProcessor
                 classDeclaration,
                 access,
                 name,
-                fieldType
+                fieldType,
+                if (value == null) None else Some (value),
+                if (value == null) None else Some (Type.getType(value.getClass)) // TODO correct for primitives
             )
 
             processFieldDeclaration (fieldDeclaration)
@@ -155,7 +157,7 @@ trait ASMClassProcessor
             val returnType = if (desc == null) None else Some (Type.getReturnType (desc))
             val enclosingMethodAttribute =
                 EnclosingMethodAttribute (classDeclaration, outerClassType, name, parameterTypes, returnType)
-            processEnclosingMethodAttribute(enclosingMethodAttribute)
+            processEnclosingMethodAttribute (enclosingMethodAttribute)
         }
 
     }

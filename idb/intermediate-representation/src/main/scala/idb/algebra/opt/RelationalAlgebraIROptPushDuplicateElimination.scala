@@ -161,13 +161,25 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x)))(mA, tupledManifest (returnType (f1), returnType (f2)))
-            /*
-        case List (f1, f2, f3) =>
-            dynamicLambda(parameter(f1), make_tuple3(body(f1), body(f2), body(f3)))
-        case List (f1, f2, f3, f4) =>
-            dynamicLambda(parameter(f1), make_tuple4(body(f1), body(f2), body(f3), body(f4)))
-            */
+                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x)))(mA,
+                    tupledManifest (returnType (f1), returnType (f2))
+                )
+
+            case List (f1, f2, f3) =>
+                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x)))(mA,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3))
+                )
+
+            case List (f1, f2, f3, f4) =>
+                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x), f4 (x)))(mA,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4))
+                )
+
+            case List (f1, f2, f3, f4, f5) =>
+                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x), f4 (x), f5 (x)))(mA,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4), returnType (f5))
+                )
+
             case _ => throw new UnsupportedOperationException
         }
     }
@@ -182,13 +194,25 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x)))(mB, tupledManifest (returnType (f1), returnType (f2)))
-            /*
-        case List (f1, f2, f3) =>
-            dynamicLambda(parameter(f1), make_tuple3(body(f1), body(f2), body(f3)))
-        case List (f1, f2, f3, f4) =>
-            dynamicLambda(parameter(f1), make_tuple4(body(f1), body(f2), body(f3), body(f4)))
-            */
+                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x)))(mB,
+                    tupledManifest (returnType (f1), returnType (f2))
+                )
+
+            case List (f1, f2, f3) =>
+                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x)))(mB,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3))
+                )
+
+            case List (f1, f2, f3, f4) =>
+                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x), f4 (x)))(mB,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4))
+                )
+
+            case List (f1, f2, f3, f4, f5) =>
+                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x), f4 (x), f5 (x)))(mB,
+                    tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4), returnType (f5))
+                )
+
             case _ => throw new UnsupportedOperationException
         }
     }

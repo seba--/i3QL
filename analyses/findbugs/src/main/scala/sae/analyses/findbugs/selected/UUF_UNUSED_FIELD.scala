@@ -47,16 +47,41 @@ object UUF_UNUSED_FIELD
     def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
         import database._
         SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
-            f.isPrivate AND NOT (
-                EXISTS (
-                    SELECT (*) FROM fieldReadInstructions WHERE ((i: Rep[FieldAccessInstruction]) =>
-                        i.declaringMethod.declaringType == i.fieldInfo.receiverType AND
-                            i.fieldInfo.name == f.name AND
-                            i.fieldInfo.fieldType == f.fieldType AND
-                            i.fieldInfo.receiverType == f.declaringType
-                        )
+            NOT (f.isPublic) AND
+                NOT (f.isProtected) AND
+                NOT (f.name == "serialVersionUID") AND
+                NOT (f.name.startsWith ("this$") OR f.name.startsWith ("this+")) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM interfaceInheritance WHERE ((in: Rep[Inheritance]) =>
+                            f.declaringType == in.subType AND
+                                (
+                                    in.superType == ObjectType ("java/io/Serializable") OR
+                                        in.superType == ObjectType ("java/io/Externalizable")
+                                    )
+                            )
+                    )
+                ) AND
+                NOT (f.value.isDefined) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
+                            m.isNative AND
+                                f.declaringClass == m.declaringClass
+                            )
+                    )
+                ) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM fieldWriteInstructions WHERE ((i: Rep[FieldAccessInstruction]) =>
+                            i.declaringMethod.declaringType == i.fieldInfo.declaringType AND
+                                i.fieldInfo.name == f.name AND
+                                i.fieldInfo.fieldType == f.fieldType AND
+                                i.fieldInfo.declaringType == f.declaringType
+                            )
+                    )
                 )
-            )
+
             )
     }
 }

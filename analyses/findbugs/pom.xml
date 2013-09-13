@@ -23,7 +23,7 @@
         <dependency>
             <groupId>de.tud.cs.st.sae.db</groupId>
             <artifactId>binding-asm</artifactId>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

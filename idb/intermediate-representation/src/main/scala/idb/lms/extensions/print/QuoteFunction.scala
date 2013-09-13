@@ -35,7 +35,7 @@ package idb.lms.extensions.print
 import scala.virtualization.lms.common._
 import java.io.{PrintWriter, StringWriter}
 import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{OptionOpsExp, ScalaGenOptionOps}
+import idb.lms.extensions.operations.{StringOpsExpExt, ScalaGenStringOpsExt, OptionOpsExp, ScalaGenOptionOps}
 
 /**
  *
@@ -46,11 +46,12 @@ trait QuoteFunction
     with ScalaGenStruct
     with ScalaGenStaticData
     with ScalaGenOptionOps
+    with ScalaGenStringOpsExt
     with ScalaGenTupledFunctions
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with TupledFunctionsExp  with FunctionUtils
+    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with TupledFunctionsExp  with FunctionUtils
 
     import IR.Exp
     import IR.Sym

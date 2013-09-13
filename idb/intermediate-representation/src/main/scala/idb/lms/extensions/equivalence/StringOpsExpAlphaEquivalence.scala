@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.StringOpsExp
+import idb.lms.extensions.operations.StringOpsExpExt
 
 /**
  *
@@ -41,7 +41,7 @@ import scala.virtualization.lms.common.StringOpsExp
  */
 
 trait StringOpsExpAlphaEquivalence
-    extends StringOpsExp
+    extends StringOpsExpExt
     with BaseExpAlphaEquivalence
 {
 
@@ -73,6 +73,9 @@ trait StringOpsExpAlphaEquivalence
 
             case (StringToInt (s1), StringToInt (s2)) =>
                 isEquivalent (s1, s2)
+
+            case (StringLastIndexOf (s1, c1), StringLastIndexOf (s2, c2)) =>
+                isEquivalent (s1, s2) && isEquivalent (c1, c2)
 
             case _ => super.isEquivalentDef (a, b)
         }

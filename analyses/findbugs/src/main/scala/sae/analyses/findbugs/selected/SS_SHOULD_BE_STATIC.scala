@@ -30,35 +30,38 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.structure
+package sae.analyses.findbugs.selected
 
-import org.objectweb.asm.Type
-import sae.bytecode.constants.AccessFlags._
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
+
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-case class FieldDeclaration (
-    declaringClass: ClassDeclaration,
-    accessFlags: Int,
-    name: String,
-    fieldType: Type,
-    value: Option[Any],
-    valueType: Option[Type]
-) extends DeclaredClassMember with FieldInfo
+object SS_SHOULD_BE_STATIC
 {
-
-    def isTransient: Boolean =
-        contains (accessFlags, ACC_TRANSIENT)
-
-    def isVolatile: Boolean =
-        contains (accessFlags, ACC_VOLATILE)
-
-    def isEnum: Boolean =
-        contains (accessFlags, ACC_ENUM)
-
-    def isSynthetic: Boolean =
-        contains (accessFlags, ACC_SYNTHETIC)
+    def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
+        import database._
+        SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
+            NOT (f.isStatic) AND
+                f.value.isDefined AND
+                NOT(
+                    (f.declaringType.name.lastIndexOf ('$') >= 0 OR f.declaringType.name.lastIndexOf ('+') >= 0) AND
+                        (f.name.startsWith ("this$") OR f.name.startsWith ("this+"))
+                ) AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM fieldReadInstructions WHERE ((fr: Rep[FieldAccessInstruction]) =>
+                            f.declaringType == fr.fieldInfo.declaringType AND
+                                f.name == fr.fieldInfo.name AND
+                                f.fieldType == fr.fieldInfo.fieldType
+                            )
+                    )
+                )
+            )
+    }
 }

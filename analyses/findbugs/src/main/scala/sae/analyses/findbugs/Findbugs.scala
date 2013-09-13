@@ -30,35 +30,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.structure
+package sae.analyses.findbugs
 
-import org.objectweb.asm.Type
-import sae.bytecode.constants.AccessFlags._
+import java.io.FileInputStream
+import idb.Relation
+import sae.bytecode.asm.ASMDatabase
+import sae.bytecode.asm.util.ASMTypeUtils
+import sae.analyses.findbugs.selected._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-case class FieldDeclaration (
-    declaringClass: ClassDeclaration,
-    accessFlags: Int,
-    name: String,
-    fieldType: Type,
-    value: Option[Any],
-    valueType: Option[Type]
-) extends DeclaredClassMember with FieldInfo
+object Findbugs
+    extends ASMTypeUtils
 {
+    def main (args: Array[String]) {
 
-    def isTransient: Boolean =
-        contains (accessFlags, ACC_TRANSIENT)
+        val input = args (0)
+        val stream = new FileInputStream (input)
+        val database = new ASMDatabase ()
 
-    def isVolatile: Boolean =
-        contains (accessFlags, ACC_VOLATILE)
 
-    def isEnum: Boolean =
-        contains (accessFlags, ACC_ENUM)
+        val analysis = SS_SHOULD_BE_STATIC (database).asMaterialized
 
-    def isSynthetic: Boolean =
-        contains (accessFlags, ACC_SYNTHETIC)
+        database.addArchive (stream)
+
+        analysis.foreach (println)
+
+
+        /*
+        analysis.foreach( i => {
+            assert(!ObjectType_Name(i.declaringMethod.declaringType).startsWith ("java/lang"))
+            assert(i.methodInfo.name == "gc" )
+            assert(i.methodInfo.parameterTypes == Nil)
+            assert(i.methodInfo.returnType == Type.VOID_TYPE)
+            assert(i.opcode == OpCodes.INVOKESTATIC)
+            assert(i.methodInfo.receiverType == ObjectType ("java/lang/System"))
+        })
+        */
+    }
+
+    def createAnalysis (database: ASMDatabase): Relation[_] = {
+        import idb.syntax.iql._
+        import idb.syntax.iql.IR._
+        import database._
+
+        SELECT (*) FROM subTyping WHERE ((t: Rep[TypeRelation]) =>
+            t.superType == database.ObjectType ("java/lang/Cloneable")
+            )
+
+    }
 }

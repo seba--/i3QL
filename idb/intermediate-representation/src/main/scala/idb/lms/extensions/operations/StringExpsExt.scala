@@ -30,35 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.structure
+package idb.lms.extensions.operations
 
-import org.objectweb.asm.Type
-import sae.bytecode.constants.AccessFlags._
+import scala.virtualization.lms.common.{ScalaGenStringOps, StringOpsExp}
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-case class FieldDeclaration (
-    declaringClass: ClassDeclaration,
-    accessFlags: Int,
-    name: String,
-    fieldType: Type,
-    value: Option[Any],
-    valueType: Option[Type]
-) extends DeclaredClassMember with FieldInfo
+trait StringOpsExpExt
+    extends StringOpsExp
 {
 
-    def isTransient: Boolean =
-        contains (accessFlags, ACC_TRANSIENT)
+    def infix_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
+        string_lastIndexOf (s, c)
 
-    def isVolatile: Boolean =
-        contains (accessFlags, ACC_VOLATILE)
+    def string_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
+        StringLastIndexOf (s, c)
 
-    def isEnum: Boolean =
-        contains (accessFlags, ACC_ENUM)
+    case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
 
-    def isSynthetic: Boolean =
-        contains (accessFlags, ACC_SYNTHETIC)
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
+        case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
+        case _ => super.mirror (e, f)
+    }).asInstanceOf[Exp[A]]
+}
+
+
+trait ScalaGenStringOpsExt extends ScalaGenStringOps
+{
+    val IR: StringOpsExpExt
+
+    import IR._
+
+    override def emitNode (sym: Sym[Any], rhs: Def[Any]) = rhs match {
+        case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
+        case _ => super.emitNode (sym, rhs)
+    }
 }
