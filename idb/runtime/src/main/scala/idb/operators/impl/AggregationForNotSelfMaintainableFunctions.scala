@@ -2,9 +2,10 @@ package idb.operators.impl
 
 
 import collection.mutable
-import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction, Aggregation}
+import idb.operators._
 import idb.observer.{Observable, NotifyObservers, Observer}
 import idb.{MaterializedView, Relation}
+import scala.Some
 
 /**
  * An implementation of Aggregation that saves for all groups the corresponding domain entries.
@@ -227,4 +228,116 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 
 object AggregationForNotSelfMaintainableFunctions {
 
+	def apply[Domain, Key, AggregateValue, Range](
+		source : Relation[Domain],
+		grouping : Domain => Key,
+		start : AggregateValue,
+		added : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
+		removed : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
+		updated : ( (Domain, Domain, AggregateValue, Iterable[Domain]) ) => AggregateValue,
+		convert : ((Key,AggregateValue)) => Range,
+		isSet : Boolean
+	): Relation[Range] = {
+		val factory : NotSelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] =
+			new NotSelfMaintainableAggregateFunctionFactory[Domain,AggregateValue]
+			{
+				override def apply() : NotSelfMaintainableAggregateFunction[Domain,AggregateValue] = {
+					new NotSelfMaintainableAggregateFunction[Domain,AggregateValue] {
+						private var aggregate : AggregateValue = start
+
+						def add(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+							val a = added( (newD, aggregate, data) )
+							aggregate = a
+							a
+						}
+
+						def remove(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+							val a = removed( (newD, aggregate, data) )
+							aggregate = a
+							a
+						}
+
+						def update(oldD: Domain, newD: Domain, data : Iterable[Domain]): AggregateValue = {
+							val a = updated( (oldD, newD, aggregate, data) )
+							aggregate = a
+							a
+						}
+
+						def get : AggregateValue =
+							aggregate
+					}
+				}
+			}
+
+		return new AggregationForNotSelfMaintainableFunctions[Domain,Key,AggregateValue,Range](
+			source,
+			grouping,
+			factory,
+			(x,y) => convert((x,y)),
+			isSet
+		)
+	}
+
+	def apply[Domain, Key, Range] (
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		start : Range,
+		added : ((Domain, Range, Iterable[Domain])) => Range,
+		removed : ((Domain, Range, Iterable[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		isSet : Boolean
+	): Relation[Range] = {
+		apply (
+			source,
+			grouping,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Key, y : Range) => y),
+			isSet
+		)
+	}
+
+	def applyTupled[Domain, Key, RangeA, RangeB] (
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		start : RangeB,
+		added : ((Domain, RangeB, Iterable[Domain])) => RangeB,
+		removed : ((Domain, RangeB, Iterable[Domain])) => RangeB,
+		updated : ( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB,
+		convertKey : Key => RangeA,
+		isSet : Boolean
+	): Relation[(RangeA, RangeB)] = {
+		apply[Domain, Key, RangeB, (RangeA, RangeB)] (
+			source,
+			grouping,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Key, y : RangeB) => (convertKey (x), y)),
+			isSet
+		)
+	}
+
+
+
+	def apply[Domain, Range](
+		source : Relation[Domain],
+		start : Range,
+		added : ((Domain, Range, Iterable[Domain])) => Range,
+		removed : ((Domain, Range, Iterable[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		isSet : Boolean
+	): Relation[Range] = {
+		apply(source,
+			(x : Domain) => true,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Boolean, y : Range) => y),
+			isSet)
+	}
 }

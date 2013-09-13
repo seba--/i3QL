@@ -60,7 +60,7 @@ object ClauseToAlgebra {
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause1 (relation, SelectClause (project, asDistinct)) =>
+            case FromClause1 (relation, SelectProjectionClause (project, asDistinct)) =>
 				distinct (
 					projection (
 						relation,
@@ -72,7 +72,7 @@ object ClauseToAlgebra {
 			case FromClause1 (
 				relation,
 				SelectAggregateClause1 (
-					aggregate : AggregateFunction1[Domain@unchecked, Range@unchecked],
+					aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
 					asDistinct
 				)
 			) =>
@@ -87,7 +87,25 @@ object ClauseToAlgebra {
 					asDistinct
 				)
 
-            case WhereClause1 (predicate, FromClause1 (relation, SelectClause (project, asDistinct))) =>
+			case FromClause1 (
+				relation,
+				SelectAggregateClause1 (
+					aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+					asDistinct
+				)
+			) =>
+				distinct (
+					aggregationNotSelfMaintainedWithoutGrouping(
+						relation,
+						aggregate.start,
+						aggregate.added,
+						aggregate.removed,
+						aggregate.updated
+					),
+					asDistinct
+				)
+
+            case WhereClause1 (predicate, FromClause1 (relation, SelectProjectionClause (project, asDistinct))) =>
 				distinct (
 					projection (
 						selection (
@@ -99,7 +117,7 @@ object ClauseToAlgebra {
 					asDistinct
 				)
 
-            case GroupByClause1 (group, FromClause1 (relation, SelectClause (project, asDistinct))) =>
+            case GroupByClause1 (group, FromClause1 (relation, SelectProjectionClause (project, asDistinct))) =>
                 distinct (
 					projection(
                     	grouping (
@@ -116,13 +134,35 @@ object ClauseToAlgebra {
 				FromClause1 (
 					relation,
 					SelectAggregateClause1 (
-						aggregate : AggregateFunction1[Domain@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
 						asDistinct
 					)
 				)
 			) =>
 				distinct (
 					aggregationSelfMaintainedWithoutConvert(
+						relation,
+						group,
+						aggregate.start,
+						aggregate.added,
+						aggregate.removed,
+						aggregate.updated
+					),
+					asDistinct
+				)
+
+			case GroupByClause1 (
+				group,
+				FromClause1 (
+					relation,
+					SelectAggregateClause1 (
+						aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+						asDistinct
+					)
+				)
+			) =>
+				distinct (
+					aggregationNotSelfMaintainedWithoutConvert (
 						relation,
 						group,
 						aggregate.start,
@@ -165,7 +205,7 @@ object ClauseToAlgebra {
 					predicate,
 					FromClause1 (
 						relation,
-						SelectClause (
+						SelectProjectionClause (
 							project,
 							asDistinct
 						)
@@ -193,7 +233,7 @@ object ClauseToAlgebra {
 					FromClause1 (
 						relation,
 						SelectAggregateClause1 (
-							aggregate : AggregateFunction1[Domain@unchecked, Range@unchecked],
+							aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
 							asDistinct
 						)
 					)
@@ -201,6 +241,34 @@ object ClauseToAlgebra {
 			) =>
 				distinct (
 					aggregationSelfMaintainedWithoutConvert(
+						selection (
+							relation,
+							predicate
+						),
+						group,
+						aggregate.start,
+						aggregate.added,
+						aggregate.removed,
+						aggregate.updated
+					),
+					asDistinct
+				)
+
+			case GroupByClause1 (
+				group,
+				WhereClause1 (
+					predicate,
+					FromClause1 (
+						relation,
+						SelectAggregateClause1 (
+							aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+							asDistinct
+						)
+					)
+				)
+			) =>
+				distinct (
+					aggregationNotSelfMaintainedWithoutConvert(
 						selection (
 							relation,
 							predicate
@@ -239,7 +307,7 @@ object ClauseToAlgebra {
 			case FromClause2 (
 			relationA,
 			relationB,
-			SelectClause (
+			SelectProjectionClause (
 			project,
 			asDistinct
 			)
@@ -259,7 +327,7 @@ object ClauseToAlgebra {
 				relationA,
 				relationB,
 				SelectAggregateClause2 (
-					aggregate : AggregateFunction2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+					aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
 					asDistinct
 				)
 			) =>
@@ -287,7 +355,7 @@ object ClauseToAlgebra {
 				FromClause2 (
 					relationA,
 					relationB,
-					SelectClause (
+					SelectProjectionClause (
 						project,
 						asDistinct
 					)
@@ -313,7 +381,7 @@ object ClauseToAlgebra {
 					relationA,
 					relationB,
 					SelectAggregateClause2 (
-						aggregate : AggregateFunction2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
 						asDistinct
 					)
 				)
@@ -345,7 +413,7 @@ object ClauseToAlgebra {
 				FromClause2 (
 					relationA,
 					relationB,
-					SelectClause (
+					SelectProjectionClause (
 						project,
 						asDistinct
 					)
@@ -371,7 +439,7 @@ object ClauseToAlgebra {
 					relationA,
 					relationB,
 					SelectAggregateClause2 (
-						aggregate : AggregateFunction2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
 						asDistinct
 					)
 				)
@@ -427,7 +495,7 @@ object ClauseToAlgebra {
 					FromClause2 (
 						relationA,
 						relationB,
-						SelectClause (
+						SelectProjectionClause (
 							project,
 							asDistinct
 						)
@@ -460,7 +528,7 @@ object ClauseToAlgebra {
 						relationA,
 						relationB,
 						SelectAggregateClause2 (
-							aggregate : AggregateFunction2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+							aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
 							asDistinct
 						)
 					)
@@ -806,7 +874,7 @@ object ClauseToAlgebra {
         select: SELECT_CLAUSE[Select, Range]
     ): Rep[Query[Range]] = {
         select match {
-     /*       case SelectAggregateClause1 (aggregation : AggregateFunction1[Domain@unchecked, Range@unchecked], asDistinct) =>
+            case SelectAggregateClause1 (aggregation : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked], asDistinct) =>
                 distinct (
                     aggregationSelfMaintainedWithoutGrouping (
                         relation,
@@ -816,8 +884,21 @@ object ClauseToAlgebra {
                         aggregation.updated
                     ),
                     asDistinct
-                ) */
-            case SelectClause (project, asDistinct) =>
+                )
+
+			case SelectAggregateClause1 (aggregation : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked], asDistinct) =>
+				distinct (
+					aggregationNotSelfMaintainedWithoutGrouping (
+						relation,
+						aggregation.start,
+						aggregation.added,
+						aggregation.removed,
+						aggregation.updated
+					),
+					asDistinct
+				)
+
+			case SelectProjectionClause (project, asDistinct) =>
                 distinct (
                     projection (
                         relation,

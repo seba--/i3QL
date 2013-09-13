@@ -32,9 +32,8 @@
  */
 package idb.syntax.iql
 
-
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.{AggregateFunctionStar, AggregateFunctionSelfMaintained2, AggregateFunctionSelfMaintained1}
+import idb.syntax.iql.impl.{AggregateFunctionNotSelfMaintained2, AggregateFunctionNotSelfMaintained1, AggregateFunctionSelfMaintained2, AggregateFunctionSelfMaintained1}
 
 /**
  *
@@ -42,46 +41,55 @@ import idb.syntax.iql.impl.{AggregateFunctionStar, AggregateFunctionSelfMaintain
  *
  */
 
-trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
+trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
+	extends AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
+	def start : Range
+
+	def added[Domain] (v : Rep[Domain],
+		previousResult : Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
+	def removed[Domain] (v: Rep[Domain],
+		previousResult: Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
+	def updated[Domain] (oldV: Rep[Domain],
+		newV : Rep[Domain],
+		previousResult: Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
 
     def apply[Domain] (
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_1[Domain, Range]
+	): AGGREGATE_FUNCTION_1[Domain, Range] =
+        AggregateFunctionNotSelfMaintained1[Domain, Range](
+			start,
+			(p : Rep[(Domain, Range, Iterable[Domain])]) => added (p._1, p._2, p._3,column),
+			(p : Rep[(Domain, Range, Iterable[Domain])]) => removed (p._1, p._2, p._3, column),
+			(p : Rep[(Domain, Domain, Range, Iterable[Domain])]) => updated (p._1, p._2, p._3, p._4, column)
+		)
 
     def apply[DomainA, DomainB] (
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+	): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] = {
 
+		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
 
-
- /*   def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
-    ): AGGREGATE_FUNCTION_3[DomainA, DomainB, DomainC, Range] =
-        null
-
-
-    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
-        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
-    ): AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range] =
-        null
-
-
-    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
-        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
-    ): AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
-        null   */
-
-
-    def apply (
-		star: STAR_KEYWORD
-	)(
-		implicit mDom : Manifest[Column], mRan : Manifest[Range]
-	) : AGGREGATE_FUNCTION_STAR[Range] =
-        AggregateFunctionStar (this)
-
+		AggregateFunctionNotSelfMaintained2[DomainA, DomainB, Range](
+			start,
+			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => updated (p._1, p._2, p._3, p._4, c)
+		)
+	}
 }

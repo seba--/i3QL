@@ -36,18 +36,20 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke, Mirko Köhler
+ * @author Mirko Köhler
+ *
  */
-trait SELECT_CLAUSE_4[Select, Range] extends SELECT_CLAUSE[Select, Range]
+
+trait AGGREGATE_FUNCTION_1_SELF_MAINTAINED[Domain, AggregateRange]
+	extends AGGREGATE_FUNCTION_1[Domain, AggregateRange]
 {
 
-	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
-		relationA : Rep[Query[DomainA]],
-		relationB : Rep[Query[DomainB]],
-		relationC : Rep[Query[DomainC]],
-		relationD : Rep[Query[DomainD]]
-	): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
-		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+	def start : AggregateRange
 
+	def added : Rep[((Domain, AggregateRange)) => AggregateRange]
+
+	def removed : Rep[((Domain, AggregateRange)) => AggregateRange]
+
+	def updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
 
 }

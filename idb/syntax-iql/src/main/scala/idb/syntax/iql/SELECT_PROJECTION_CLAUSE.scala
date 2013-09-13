@@ -30,49 +30,43 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke, Mirko Köhler
  */
-case class SelectClause[Select: Manifest, Range: Manifest] (
-    function: Rep[Select => Range],
-    asDistinct: Boolean = false
-)
-    extends SELECT_CLAUSE[Select, Range]
-	with SELECT_CLAUSE_N[Select, Range]
-	with SELECT_CLAUSE_1[Select, Range]
-	with SELECT_CLAUSE_2[Select, Range]
-	with SELECT_CLAUSE_3[Select, Range]
-	with SELECT_CLAUSE_4[Select, Range]
-	with SELECT_CLAUSE_5[Select, Range]
+trait SELECT_PROJECTION_CLAUSE[Select, Range]
+	extends SELECT_CLAUSE[Select, Range]
 {
 
-    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
-        FromClause1 (relation, this)
+	def FROM[Domain: Manifest] (
+		relation : Rep[Query[Domain]]
+	): FROM_CLAUSE_1[Select, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ) = FromClause2 (relationA, relationB, this)
+	def FROM[DomainA: Manifest, DomainB: Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]]
+	): FROM_CLAUSE_2[Select, DomainA, DomainB, Range]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, Range]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]]
-	) = FromClause3 (relationA, relationB, relationC, this)
+ 	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
+		with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]]
-	) = FromClause4 (relationA, relationB, relationC, relationD, this)
+ 	): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
 		relationA : Rep[Query[DomainA]],
@@ -80,7 +74,6 @@ case class SelectClause[Select: Manifest, Range: Manifest] (
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]],
 		relationE : Rep[Query[DomainE]]
-	) = FromClause5 (relationA, relationB, relationC, relationD, relationE, this)
-
-
+ 	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 }

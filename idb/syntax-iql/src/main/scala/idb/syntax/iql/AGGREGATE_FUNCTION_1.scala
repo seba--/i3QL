@@ -43,12 +43,4 @@ import idb.syntax.iql.IR._
 trait AGGREGATE_FUNCTION_1[Domain, AggregateRange]
 {
 
-	def start : AggregateRange
-
-	def added : Rep[((Domain, AggregateRange)) => AggregateRange]
-
-	def removed : Rep[((Domain, AggregateRange)) => AggregateRange]
-
-	def updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
-
 }
