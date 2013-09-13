@@ -33,7 +33,7 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.{AGGREGATE_FUNCTION_2, AGGREGATE_FUNCTION_FACTORY, AGGREGATE_FUNCTION_STAR}
+import idb.syntax.iql.{AGGREGATE_FUNCTION_FACTORY, AGGREGATE_FUNCTION_STAR}
 
 /**
   *

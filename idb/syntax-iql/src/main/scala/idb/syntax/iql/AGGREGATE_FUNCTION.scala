@@ -40,6 +40,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_2[DomainA, DomainB, AggregateRange]
+trait AGGREGATE_FUNCTION[Domain, AggregateRange]
 {
+
 }

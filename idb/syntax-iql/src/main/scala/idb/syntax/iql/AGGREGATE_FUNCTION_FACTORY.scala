@@ -34,7 +34,7 @@ package idb.syntax.iql
 
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.{AggregateFunctionStar, AggregateFunctionSelfMaintained2, AggregateFunctionSelfMaintained1}
+import idb.syntax.iql.impl.AggregateFunctionStar
 
 /**
  *
@@ -49,13 +49,13 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_1[Domain, Range]
+	): AGGREGATE_FUNCTION[Domain, Range]
 
     def apply[DomainA, DomainB] (
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+	): AGGREGATE_FUNCTION[(DomainA, DomainB), Range]
 
 
 

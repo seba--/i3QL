@@ -72,7 +72,7 @@ object ClauseToAlgebra {
 			case FromClause1 (
 				relation,
 				SelectAggregateClause1 (
-					aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
+					aggregate : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked],
 					asDistinct
 				)
 			) =>
@@ -90,7 +90,7 @@ object ClauseToAlgebra {
 			case FromClause1 (
 				relation,
 				SelectAggregateClause1 (
-					aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+					aggregate : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked],
 					asDistinct
 				)
 			) =>
@@ -134,7 +134,7 @@ object ClauseToAlgebra {
 				FromClause1 (
 					relation,
 					SelectAggregateClause1 (
-						aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked],
 						asDistinct
 					)
 				)
@@ -156,7 +156,7 @@ object ClauseToAlgebra {
 				FromClause1 (
 					relation,
 					SelectAggregateClause1 (
-						aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked],
 						asDistinct
 					)
 				)
@@ -233,7 +233,7 @@ object ClauseToAlgebra {
 					FromClause1 (
 						relation,
 						SelectAggregateClause1 (
-							aggregate : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked],
+							aggregate : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked],
 							asDistinct
 						)
 					)
@@ -261,7 +261,7 @@ object ClauseToAlgebra {
 					FromClause1 (
 						relation,
 						SelectAggregateClause1 (
-							aggregate : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked],
+							aggregate : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked],
 							asDistinct
 						)
 					)
@@ -327,7 +327,7 @@ object ClauseToAlgebra {
 				relationA,
 				relationB,
 				SelectAggregateClause2 (
-					aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+					aggregate : AggregateFunctionSelfMaintained[(DomainA@unchecked, DomainB@unchecked), Range@unchecked],
 					asDistinct
 				)
 			) =>
@@ -381,7 +381,7 @@ object ClauseToAlgebra {
 					relationA,
 					relationB,
 					SelectAggregateClause2 (
-						aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained[(DomainA@unchecked, DomainB@unchecked), Range@unchecked],
 						asDistinct
 					)
 				)
@@ -439,7 +439,7 @@ object ClauseToAlgebra {
 					relationA,
 					relationB,
 					SelectAggregateClause2 (
-						aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+						aggregate : AggregateFunctionSelfMaintained[(DomainA@unchecked, DomainB@unchecked), Range@unchecked],
 						asDistinct
 					)
 				)
@@ -528,7 +528,7 @@ object ClauseToAlgebra {
 						relationA,
 						relationB,
 						SelectAggregateClause2 (
-							aggregate : AggregateFunctionSelfMaintained2[DomainA@unchecked, DomainB@unchecked, Range@unchecked],
+							aggregate : AggregateFunctionSelfMaintained[(DomainA@unchecked, DomainB@unchecked), Range@unchecked],
 							asDistinct
 						)
 					)
@@ -874,7 +874,7 @@ object ClauseToAlgebra {
         select: SELECT_CLAUSE[Select, Range]
     ): Rep[Query[Range]] = {
         select match {
-            case SelectAggregateClause1 (aggregation : AggregateFunctionSelfMaintained1[Domain@unchecked, Range@unchecked], asDistinct) =>
+            case SelectAggregateClause1 (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
                 distinct (
                     aggregationSelfMaintainedWithoutGrouping (
                         relation,
@@ -886,7 +886,7 @@ object ClauseToAlgebra {
                     asDistinct
                 )
 
-			case SelectAggregateClause1 (aggregation : AggregateFunctionNotSelfMaintained1[Domain@unchecked, Range@unchecked], asDistinct) =>
+			case SelectAggregateClause1 (aggregation : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
 				distinct (
 					aggregationNotSelfMaintainedWithoutGrouping (
 						relation,

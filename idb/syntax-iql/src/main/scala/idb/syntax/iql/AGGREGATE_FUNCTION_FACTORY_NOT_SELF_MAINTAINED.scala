@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.{AggregateFunctionNotSelfMaintained2, AggregateFunctionNotSelfMaintained1, AggregateFunctionSelfMaintained2, AggregateFunctionSelfMaintained1}
+import idb.syntax.iql.impl.AggregateFunctionNotSelfMaintained
 
 /**
  *
@@ -69,8 +69,8 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_1[Domain, Range] =
-        AggregateFunctionNotSelfMaintained1[Domain, Range](
+	) =
+        AggregateFunctionNotSelfMaintained[Domain, Range](
 			start,
 			(p : Rep[(Domain, Range, Iterable[Domain])]) => added (p._1, p._2, p._3,column),
 			(p : Rep[(Domain, Range, Iterable[Domain])]) => removed (p._1, p._2, p._3, column),
@@ -81,11 +81,11 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] = {
+	) = {
 
 		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
 
-		AggregateFunctionNotSelfMaintained2[DomainA, DomainB, Range](
+		AggregateFunctionNotSelfMaintained[(DomainA, DomainB), Range](
 			start,
 			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
 			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),

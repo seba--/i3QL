@@ -8,7 +8,7 @@ import idb.syntax.iql.IR._
  */
 case class SelectTupledAggregateClause2[Select : Manifest, DomainA : Manifest, DomainB : Manifest, RangeA : Manifest, RangeB : Manifest](
 	columns : Rep[Select => RangeA],
-	aggregation : AGGREGATE_FUNCTION_2[DomainA, DomainB, RangeB],
+	aggregation : AGGREGATE_FUNCTION[(DomainA, DomainB), RangeB],
 	asDistinct: Boolean = false
 ) extends SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] {
 

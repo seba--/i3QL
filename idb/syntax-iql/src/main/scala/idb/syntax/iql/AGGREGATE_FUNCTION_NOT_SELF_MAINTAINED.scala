@@ -40,16 +40,16 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_2_NOT_SELF_MAINTAINED[DomainA, DomainB, AggregateRange]
-	extends AGGREGATE_FUNCTION_2[DomainA, DomainB, AggregateRange]
+trait AGGREGATE_FUNCTION_NOT_SELF_MAINTAINED[Domain, AggregateRange]
+	extends AGGREGATE_FUNCTION[Domain, AggregateRange]
 {
 
 	def start : AggregateRange
 
-	def added : Rep[( ((DomainA, DomainB), AggregateRange, Iterable[(DomainA,DomainB)]) ) => AggregateRange]
+	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
 
-	def removed : Rep[( ((DomainA ,DomainB), AggregateRange, Iterable[(DomainA,DomainB)]) ) => AggregateRange]
+	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
 
-	def updated : Rep[( ((DomainA ,DomainB), (DomainA ,DomainB), AggregateRange, Iterable[(DomainA,DomainB)]) ) => AggregateRange]
+	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
 
 }

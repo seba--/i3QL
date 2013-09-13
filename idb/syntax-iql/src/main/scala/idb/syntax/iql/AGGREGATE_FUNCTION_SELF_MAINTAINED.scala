@@ -36,34 +36,20 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  *
  */
 
-trait AGGREGATE_FUNCTION_DEFINITION[Column, Result]
+trait AGGREGATE_FUNCTION_SELF_MAINTAINED[Domain, AggregateRange]
+	extends AGGREGATE_FUNCTION[Domain, AggregateRange]
 {
-    def added[Domain] (
-        v: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
 
+	def start : AggregateRange
 
-    def removed[Domain] (
-        v: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
+	def added : Rep[((Domain, AggregateRange)) => AggregateRange]
 
+	def removed : Rep[((Domain, AggregateRange)) => AggregateRange]
 
-    def updated[Domain] (
-        oldV: Rep[Domain],
-        newV: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
+	def updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
 
 }
