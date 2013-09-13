@@ -30,47 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.syntax.iql
+
+import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
- *
+ * @author Mirko Köhler
  */
-
-trait RelationalAlgebraAggregationOperators
-    extends RelationalAlgebraBase
+trait SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] 	extends SELECT_CLAUSE[Select, (RangeA, RangeB)]
 {
-	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest](
-		relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Key],
-		start : RangeB,
-		added : Rep[( (Domain, RangeB) ) => RangeB],
-		removed : Rep[( (Domain, RangeB) ) => RangeB],
-		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
-		convertKey : Rep[Key => RangeA]
-	): Rep[Query[(RangeA, RangeB)]]
 
-	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
-		relation : Rep[Query[Domain]],
-		start : Result,
-		added : Rep[( (Domain, Result) ) => Result],
-		removed : Rep[( (Domain, Result) ) => Result],
-		updated: Rep[( (Domain, Domain, Result) ) => Result]
-	): Rep[Query[Result]]
+    def FROM (
+        relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB,  (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
 
-	def aggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		relation: Rep[Query[Domain]],
-		grouping: Rep[Domain => Key],
-		start : Range,
-		added : Rep[((Domain, Range)) => Range],
-		removed : Rep[((Domain, Range)) => Range],
-		updated: Rep[((Domain, Domain, Range)) => Range]
-	): Rep[Query[Range]]
-
-	def grouping[Domain : Manifest, Result : Manifest] (
-		relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Result]
-	): Rep[Query[Result]]
 
 }

@@ -117,11 +117,11 @@ object SELECT
         SelectAggregateClause1 (aggregation, asDistinct = false)
 
 
-    def apply[GroupKey: Manifest, GroupRange: Manifest, Domain: Manifest, Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
-        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
-    ): SELECT_CLAUSE_N[Domain, (GroupRange, Range)] =
-        	throw new UnsupportedOperationException ()
+    def apply[Select : Manifest, Domain : Manifest, RangeA : Manifest, RangeB : Manifest] (
+        columns : Rep[Select] => Rep[RangeA],
+        aggregation : AGGREGATE_FUNCTION_1[Domain, RangeB]
+    ): SELECT_TUPLED_AGGREGATE_CLAUSE_1[Select, Domain, RangeA, RangeB] =
+        	SelectTupledAggregateClause1 (columns, aggregation, asDistinct = false)
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
@@ -129,9 +129,15 @@ object SELECT
     ): SELECT_AGGREGATE_CLAUSE_2[Any, DomainA, DomainB, Range] =
         SelectAggregateClause2 (aggregation, asDistinct = false)
 
+
+	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		columns : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_2[DomainA, DomainB, RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] =
+		SelectTupledAggregateClause2 (columns, aggregation, asDistinct = false)
 	/*
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
+        columns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
     ): SELECT_CLAUSE[(DomainA, DomainB), (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
@@ -145,7 +151,7 @@ object SELECT
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, DomainC: Manifest,
     Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
+        columns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_3[DomainA, DomainB, DomainC, Range]
     ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
@@ -159,7 +165,7 @@ object SELECT
 
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, DomainC: Manifest,
     DomainD: Manifest, Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
+        columns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range]
     ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
@@ -175,7 +181,7 @@ object SELECT
     def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, DomainC: Manifest,
     DomainD: Manifest, DomainE: Manifest,
     Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
+        columns: Rep[GroupKey] => Rep[GroupRange],
         aggregation: AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
     ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, (GroupRange, Range)] =
         throw new UnsupportedOperationException ()   */

@@ -127,7 +127,7 @@ class TestCompileScalaExt
             silent = false
         }
 
-        val isSally = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.isSally))
+        val isSally = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.isSally _))
 
         assertTrue (isSally (Student (1, "Sally", "Fields")))
         assertTrue (isSally (Student (2, "Sally", "Moore")))
@@ -185,7 +185,7 @@ class TestCompileScalaExt
             silent = false
         }
 
-        val getNumberAsString = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.getNumberAsString))
+        val getNumberAsString = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.getNumberAsString _))
 
         assertEquals ("1", getNumberAsString (Student (1, "Sally", "Fields")))
         assertEquals ("2", getNumberAsString (Student (2, "Sally", "Moore")))

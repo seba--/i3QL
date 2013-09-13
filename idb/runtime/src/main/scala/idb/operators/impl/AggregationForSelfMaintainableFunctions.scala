@@ -202,56 +202,6 @@ object AggregationForSelfMaintainableFunctions {
 	def apply[Domain, Key, AggregateValue, Result](
 		source : Relation[Domain],
 		grouping : Domain => Key,
-		added : Domain => AggregateValue,
-		removed : Domain => AggregateValue,
-		updated : ((Domain, Domain)) => AggregateValue,
-		convert : ((Key,AggregateValue)) => Result,
-		isSet : Boolean
-	): Relation[Result] = {
-		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
-			 override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
-				 new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
-					 private var aggregate : Option[AggregateValue] = None
-
-					 def add(newD: Domain): AggregateValue = {
-						 val a = added(newD)
-						 aggregate = Some(a)
-						 a
-					 }
-
-
-					 def remove(newD: Domain): AggregateValue = {
-						 val a = removed(newD)
-						 aggregate = Some(a)
-						 a
-					 }
-
-
-					 def update(oldD: Domain, newD: Domain): AggregateValue = {
-						 val a = updated( (oldD, newD) )
-						 aggregate = Some(a)
-						 a
-					 }
-
-					 def get : AggregateValue = {
-						 aggregate match {
-							 case Some(a) => a
-							 //TODO Make this better.
-							 case None => throw new IllegalArgumentException("Aggregation value is not initialized.")
-						 }
-					 }
-				 }
-			 }
-		}
-
-		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
-
-	}
-
-
-	def apply[Domain, Key, AggregateValue, Result](
-		source : Relation[Domain],
-		grouping : Domain => Key,
 		start : AggregateValue,
 		added : ((Domain, AggregateValue)) => AggregateValue,
 		removed : ((Domain, AggregateValue)) => AggregateValue,
@@ -291,23 +241,6 @@ object AggregationForSelfMaintainableFunctions {
 		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
 	}
 
-	def apply[Domain, Result](
-		source: Relation[Domain],
-		added: Domain => Result,
-		removed: Domain => Result,
-		updated: ((Domain, Domain)) => Result,
-		isSet: Boolean
-	): Relation[Result] = {
-		apply(source,
-			(x : Domain) => true,
-			added,
-			removed,
-			updated,
-			Function.tupled((x : Boolean, y : Result) => y),
-			isSet
-		)
-	}
-
 	def apply[Domain, Key, Range] (
 		source: Relation[Domain],
 		grouping: Domain => Key,
@@ -329,6 +262,30 @@ object AggregationForSelfMaintainableFunctions {
 		)
 	}
 
+	def applyTupled[Domain, Key, RangeA, RangeB] (
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		start : RangeB,
+		added : ((Domain, RangeB)) => RangeB,
+		removed : ((Domain, RangeB)) => RangeB,
+		updated: ((Domain, Domain, RangeB)) => RangeB,
+		convertKey : Key => RangeA,
+		isSet : Boolean
+	): Relation[(RangeA, RangeB)] = {
+		apply[Domain, Key, RangeB, (RangeA, RangeB)] (
+			source,
+			grouping,
+			start,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Key, y : RangeB) => (convertKey (x), y)),
+			isSet
+		)
+	}
+
+
+
 	def apply[Domain, Result](
 		source : Relation[Domain],
      	start : Result,
@@ -347,32 +304,18 @@ object AggregationForSelfMaintainableFunctions {
 		isSet)
 	}
 
-	def apply[Domain, Key, Result](
-		source: Relation[Domain],
-		grouping: Domain => Key,
-		convert: Key => Result,
-		isSet: Boolean
-  	): Relation[Result] = {
-		apply(source,
-			grouping,
-			(x :Domain) => true,
-			(x :Domain) => true,
-			Function.tupled((x : Domain, y : Domain) => true),
-			Function.tupled((x : Key, y : Boolean) => convert(x)),
-			isSet
-		)
-	}
-
 	def apply[Domain, Result](
 		source: Relation[Domain],
 		grouping: Domain => Result,
 		isSet: Boolean
 	): Relation[Result] = {
-		apply(source,
+		apply(
+			source,
 			grouping,
-			(x :Domain) => true,
-			(x :Domain) => true,
-			Function.tupled((x : Domain, y : Domain) => true),
+			true,
+			Function.tupled((x : Domain, y : Boolean) => true),
+			Function.tupled((x : Domain, y : Boolean) => true),
+			Function.tupled((x : Domain, y : Domain, z : Boolean) => true),
 			Function.tupled((x : Result, y : Boolean) => x),
 			isSet
 		)

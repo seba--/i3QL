@@ -35,7 +35,7 @@ package idb.syntax.iql
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 
