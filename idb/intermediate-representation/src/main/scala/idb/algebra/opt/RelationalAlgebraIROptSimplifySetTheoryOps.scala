@@ -32,7 +32,6 @@
  */
 package idb.algebra.opt
 
-import scala.virtualization.lms.common._
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 
 /**
@@ -44,7 +43,7 @@ import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraI
  */
 trait RelationalAlgebraIROptSimplifySetTheoryOps
     extends RelationalAlgebraIRSetTheoryOperators
-	with RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRBasicOperators
 {
 
     override def intersection[Domain: Manifest] (
@@ -82,6 +81,22 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
             case (a, b) if a == b =>
                 a
 
+            // (a ∪ b) ∪ a = (a ∪ b)
+            case (Def (UnionMax (a, b)), x) if x == a =>
+                unionMax (a, b)
+
+            // (a ∪ b) ∪ b = (a ∪ b)
+            case (Def (UnionMax (a, b)), x) if x == b =>
+                unionMax (a, b)
+
+            // a ∪ (a ∪ b) = (a ∪ b)
+            case (x, Def (UnionMax (a, b))) if x == a =>
+                unionMax (a, b)
+
+            // b ∪ (a ∪ b) = (a ∪ b)
+            case (x, Def (UnionMax (a, b))) if x == b =>
+                unionMax (a, b)
+
             // σ(a) ∪ a = σ(a)
             case (Def (Selection (a, f)), b) if a == b =>
                 selection (a, f)
@@ -93,6 +108,26 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
             case _ => super.unionMax (relationA, relationB)
 
         }).asInstanceOf[Rep[Query[Range]]]
+
+
+    override def difference[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+
+            // (a - b) - (c - d) = a - ((b ∪ c) - d)
+            case (Def (Difference (a, b)), Def (Difference (c, d))) =>
+                difference (
+                    a,
+                    difference (
+                        unionMax (b, c),
+                        d
+                    )
+                )
+
+            case _ => super.difference (relationA, relationB)
+        }
 }
 
 

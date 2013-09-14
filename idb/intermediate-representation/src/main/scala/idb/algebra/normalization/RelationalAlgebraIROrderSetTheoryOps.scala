@@ -30,48 +30,45 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.algebra.normalization
 
-import idb.algebra.base.RelationalAlgebraDerivedOperators
-import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
-import idb.algebra.ir._
-import idb.algebra.normalization.{RelationalAlgebraIROrderSetTheoryOps, RelationalAlgebraIRNormalizeSubQueries,
-RelationalAlgebraIRNormalizeBasicOperators}
-import idb.algebra.opt._
-
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
+ * Simplification rules remove operators that reduce to trivial meanings.
+ * For example: a ∩ a = a
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRSetTheoryOperators
-    with RelationalAlgebraIRRecursiveOperators
-    with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRSubQueries
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraDerivedOperators
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIRFuseSetTheoryOperators
-    with RelationalAlgebraIROptSimplifyBasicOps
-    with RelationalAlgebraIROptSimplifySetTheoryOps
-    with RelationalAlgebraIROrderSetTheoryOps
-    with RelationalAlgebraIROptSelectionInSetTheoryOps
-    with RelationalAlgebraIROptPushSelection
-    with RelationalAlgebraIROptPushDuplicateElimination
-    //with RelationalAlgebraIROptOrderSelections
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIROptLiftProjection
-    with RelationalAlgebraIRNormalizeBasicOperators
-    with RelationalAlgebraIRNormalizeSubQueries
+trait RelationalAlgebraIROrderSetTheoryOps
+    extends RelationalAlgebraIRSetTheoryOperators
+    with RelationalAlgebraIRBasicOperators
 {
 
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[Range]] =
+        ((relationA, relationB) match {
+
+            case (Def (UnionMax (leftLeft, leftRight)), right) =>
+                unionMax (leftLeft, unionMax (leftRight, right))
+
+            // order such that selections are lowest
+            case (Def (s1: Selection[DomainA@unchecked]), Def (UnionMax (rightLeft@Def(rightLeftDef), rightRight)))
+                if !rightLeftDef.isInstanceOf[Selection[_]] =>
+                unionMax (rightLeft, unionMax (s1, rightRight))
+
+            /*
+                    case (Sym (lhsId), Def (UnionMax (left@Sym (leftId), right))) if leftId < lhsId =>
+                        unionMax (left, unionMax (relationA, right))
+            */
+            case _ => super.unionMax (relationA, relationB)
+
+
+        }).asInstanceOf[Rep[Query[Range]]]
 }
+
+

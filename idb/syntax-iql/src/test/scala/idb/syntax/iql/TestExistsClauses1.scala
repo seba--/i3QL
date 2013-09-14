@@ -130,6 +130,8 @@ class TestExistsClauses1
 
     }
 
+
+    @Ignore
     @Test
     def testExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (
@@ -275,6 +277,7 @@ class TestExistsClauses1
         )
     }
 
+    @Ignore
     @Test
     def testNotExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (

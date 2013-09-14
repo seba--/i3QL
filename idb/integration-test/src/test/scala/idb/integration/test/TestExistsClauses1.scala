@@ -34,10 +34,10 @@ package idb.integration.test
 
 import UniversityDatabase._
 import idb.schema.university._
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import org.junit.Test
+import idb.syntax.iql._
 import org.junit.Assert._
+import org.junit.Test
 import scala.language.implicitConversions
 
 
@@ -79,6 +79,46 @@ class TestExistsClauses1
         students += sallyFields
 
         assertEquals (result.asList, scala.List (sallyFields))
+
+        registrations -= sallyTakesIcs1
+
+        assertEquals (result.asList, Nil)
     }
 
+    @Test
+    def testNotExists () {
+        val result = compile (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    )
+                )
+                )
+        ).asMaterialized
+
+        assertEquals (result.asList, Nil)
+
+        students += sallyFields
+
+        assertEquals (result.asList, scala.List (sallyFields))
+
+        registrations += sallyTakesIcs1
+
+        assertEquals (result.asList, Nil)
+
+        students -= sallyFields
+
+        assertEquals (result.asList, Nil)
+
+        students += sallyFields
+
+        assertEquals (result.asList, Nil)
+
+        registrations -= sallyTakesIcs1
+
+        assertEquals (result.asList, scala.List (sallyFields))
+    }
 }
