@@ -36,34 +36,16 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke
- *
+ * @author Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_DEFINITION[Column, Result]
+trait SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] 	extends SELECT_CLAUSE[Select, (RangeA, RangeB)]
 {
-    def added[Domain] (
-        v: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
 
+    def FROM (
+        relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB,  (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
 
-    def removed[Domain] (
-        v: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
-
-
-    def updated[Domain] (
-        oldV: Rep[Domain],
-        newV: Rep[Domain]
-    )(
-        aggregateColumn: Rep[Domain] => Rep[Column],
-        previousResult: Rep[Result]
-    ): Rep[Result]
 
 }

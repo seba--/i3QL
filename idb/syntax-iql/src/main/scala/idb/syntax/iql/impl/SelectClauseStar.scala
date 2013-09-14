@@ -48,7 +48,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
     ) =
         FromClause1 (
             relation,
-            SelectClause (
+            SelectProjectionClause (
 				(x: Rep[Domain]) => x,
 				asDistinct
             )
@@ -61,7 +61,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
         FromClause2 (
             relationA,
             relationB,
-            SelectClause (
+            SelectProjectionClause (
                 (x : Rep[(DomainA, DomainB)]) => x,
                 asDistinct
             )
@@ -77,7 +77,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationA,
             relationB,
             relationC,
-            SelectClause (
+            SelectProjectionClause (
 				(x : Rep[(Any, Any, Any)]) => x,
                 asDistinct
             )
@@ -94,7 +94,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationB,
             relationC,
             relationD,
-            SelectClause (
+            SelectProjectionClause (
                 (x : Rep[(Any, Any, Any, Any)]) => x,
                 asDistinct
             )
@@ -113,7 +113,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationC,
             relationD,
             relationE,
-            SelectClause (
+            SelectProjectionClause (
 				(x : Rep[(Any, Any, Any, Any, Any)]) => x,
                 asDistinct
             )

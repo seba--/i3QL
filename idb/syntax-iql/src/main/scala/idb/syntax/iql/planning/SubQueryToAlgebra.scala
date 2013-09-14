@@ -67,7 +67,7 @@ object SubQueryToAlgebra
     ): Rep[Query[ContextDomain]] =
         subQuery match {
             // This clause is definitely not correlated to the context
-            case FromClause1 (relation, SelectClause (_, asDistinct)) =>
+            case FromClause1 (relation, SelectProjectionClause (_, asDistinct)) =>
                 applyDistinct (
                     projection (
                         crossProduct (context, relation),
@@ -79,7 +79,7 @@ object SubQueryToAlgebra
 
             // This clause might be correlated.
             // But, the clause could also just filter some elements without referring to the context
-            case WhereClause1 (predicate, FromClause1 (relation, SelectClause (_, asDistinct))) =>
+            case WhereClause1 (predicate, FromClause1 (relation, SelectProjectionClause (_, asDistinct))) =>
                 applyDistinct (
                     projection (
                         selection (

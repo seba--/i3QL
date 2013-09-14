@@ -62,62 +62,66 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     import IR.Def
     import IR.Query
     import IR.Relation
-    import IR.AggregationSelfMaintained
+    import IR.AggregationSelfMaintainedTupled
     import IR.AggregationSelfMaintainedWithoutGrouping
 	import IR.AggregationSelfMaintainedWithoutConvert
+	import IR.AggregationNotSelfMaintainedTupled
+	import IR.AggregationNotSelfMaintainedWithoutGrouping
+	import IR.AggregationNotSelfMaintainedWithoutConvert
     import IR.Grouping
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvert)) => {
+            case Def (e@AggregationSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey)) => {
                 if (e.isIncrementLocal)
-                    TransactionalAggregation (
+                /*    TransactionalAggregation (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
 						start,
                         compileFunctionWithDynamicManifests (fAdd),
                         compileFunctionWithDynamicManifests (fRemove),
                         compileFunctionWithDynamicManifests (fUpdate),
-                        compileFunctionWithDynamicManifests (fConvert),
                         false
-                    )
+                    ) */
+					throw new UnsupportedOperationException()
                 else
-                    AggregationForSelfMaintainableFunctions (
+                    AggregationForSelfMaintainableFunctions.applyTupled (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
 						start,
                         compileFunctionWithDynamicManifests (fAdd),
                         compileFunctionWithDynamicManifests (fRemove),
                         compileFunctionWithDynamicManifests (fUpdate),
-                        compileFunctionWithDynamicManifests (fConvert),
+						compileFunctionWithDynamicManifests (fConvertKey),
                         false
-                    )
+                    ).asInstanceOf[Relation[Domain]]
             }
 
             case Def (e@AggregationSelfMaintainedWithoutGrouping (r, start, fAdd, fRemove, fUpdate)) => {
                 if (e.isIncrementLocal)
-                    TransactionalAggregation (
+                /*    TransactionalAggregation (
                         compile (r),
 						start,
 						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
 						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
 						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
                         false
-                    ).asInstanceOf[Relation[Domain]]
+                    ).asInstanceOf[Relation[Domain]]   */
+					throw new UnsupportedOperationException()
                 else
                     AggregationForSelfMaintainableFunctions (
                         compile (r),
 						start,
-						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
-						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
-						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fAdd),
+						compileFunctionWithDynamicManifests (fRemove),
+						compileFunctionWithDynamicManifests (fUpdate),
                         false
                     ).asInstanceOf[Relation[Domain]]
             }
 
 			case Def (e@AggregationSelfMaintainedWithoutConvert (r, fGroup, start, fAdd, fRemove, fUpdate)) => {
 				if (e.isIncrementLocal)
-					TransactionalAggregation (
+				/*	TransactionalAggregation (
 						compile (r),
 						compileFunctionWithDynamicManifests (fGroup),
 						start,
@@ -125,10 +129,82 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
 						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
 						false
-					).asInstanceOf[Relation[Domain]]
-
+					).asInstanceOf[Relation[Domain]]    */
+					throw new UnsupportedOperationException()
 				else
 					AggregationForSelfMaintainableFunctions (
+						compile (r),
+						compileFunctionWithDynamicManifests (fGroup),
+						start,
+						compileFunctionWithDynamicManifests (fAdd),
+						compileFunctionWithDynamicManifests (fRemove),
+						compileFunctionWithDynamicManifests (fUpdate),
+						false
+					).asInstanceOf[Relation[Domain]]
+
+			}
+
+			case Def (e@AggregationNotSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey)) => {
+				if (e.isIncrementLocal)
+				/*    TransactionalAggregation (
+						compile (r),
+						compileFunctionWithDynamicManifests (fGroup),
+						start,
+						compileFunctionWithDynamicManifests (fAdd),
+						compileFunctionWithDynamicManifests (fRemove),
+						compileFunctionWithDynamicManifests (fUpdate),
+						false
+					) */
+					throw new UnsupportedOperationException()
+				else
+					AggregationForNotSelfMaintainableFunctions.applyTupled (
+						compile (r),
+						compileFunctionWithDynamicManifests (fGroup),
+						start,
+						compileFunctionWithDynamicManifests (fAdd),
+						compileFunctionWithDynamicManifests (fRemove),
+						compileFunctionWithDynamicManifests (fUpdate),
+						compileFunctionWithDynamicManifests (fConvertKey),
+						false
+					).asInstanceOf[Relation[Domain]]
+			}
+
+			case Def (e@AggregationNotSelfMaintainedWithoutGrouping (r, start, fAdd, fRemove, fUpdate)) => {
+				if (e.isIncrementLocal)
+				/*    TransactionalAggregation (
+						compile (r),
+						start,
+						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
+						false
+					).asInstanceOf[Relation[Domain]]   */
+					throw new UnsupportedOperationException()
+				else
+					AggregationForNotSelfMaintainableFunctions (
+						compile (r),
+						start,
+						compileFunctionWithDynamicManifests (fAdd),
+						compileFunctionWithDynamicManifests (fRemove),
+						compileFunctionWithDynamicManifests (fUpdate),
+						false
+					).asInstanceOf[Relation[Domain]]
+			}
+
+			case Def (e@AggregationNotSelfMaintainedWithoutConvert (r, fGroup, start, fAdd, fRemove, fUpdate)) => {
+				if (e.isIncrementLocal)
+				/*	TransactionalAggregation (
+						compile (r),
+						compileFunctionWithDynamicManifests (fGroup),
+						start,
+						compileFunctionWithDynamicManifests (fAdd).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fRemove).asInstanceOf[((Any, Any)) => Any],
+						compileFunctionWithDynamicManifests (fUpdate).asInstanceOf[((Any, Any, Any)) => Any],
+						false
+					).asInstanceOf[Relation[Domain]]    */
+					throw new UnsupportedOperationException()
+				else
+					AggregationForNotSelfMaintainableFunctions (
 						compile (r),
 						compileFunctionWithDynamicManifests (fGroup),
 						start,
@@ -144,11 +220,12 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 
             case Def (e@Grouping (r, fGroup)) => {
                 if (e.isIncrementLocal)
-                    TransactionalAggregation (
+                  /*  TransactionalAggregation (
                         compile (r),
                         compileFunctionWithDynamicManifests (fGroup),
                         false
-                    )
+                    ) */
+					throw new UnsupportedOperationException()
                 else
                     AggregationForSelfMaintainableFunctions (
                         compile (r),

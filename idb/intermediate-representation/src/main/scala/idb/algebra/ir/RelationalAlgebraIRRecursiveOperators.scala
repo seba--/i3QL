@@ -36,7 +36,7 @@ import idb.algebra.base.RelationalAlgebraRecursiveOperators
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 trait RelationalAlgebraIRRecursiveOperators
@@ -140,7 +140,8 @@ trait RelationalAlgebraIRRecursiveOperators
             case QueryExtent (e, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
-            // TODO why is sometimes the matched r used and sometimes e.relation?
+            //why is sometimes the matched r used and sometimes e.relation?
+            //because e.relation is a var and the matched r is a val
             case Def (e@Projection (r, _)) =>
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
@@ -191,17 +192,13 @@ trait RelationalAlgebraIRRecursiveOperators
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
             }
-            case Def (e@AggregationSelfMaintained (r, _, _, _, _, _, _)) =>
+            case Def (e@AggregationSelfMaintainedTupled (r, _, _, _, _, _, _)) =>
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
             }
             case Def (e@Recursion (r, _)) =>
             {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.base = x)
-            }
-            case e =>
-            {
-                throw new IllegalArgumentException ("Could not traverse through " + e)
             }
         }
     }

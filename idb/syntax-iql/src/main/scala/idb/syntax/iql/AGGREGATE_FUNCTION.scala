@@ -36,16 +36,11 @@ import idb.syntax.iql.IR._
 
 /**
  *
- * @author Ralf Mitschke, Mirko Köhler
+ * @author Mirko Köhler
+ *
  */
-trait SELECT_CLAUSE_N[Select, Range]
-	extends SELECT_CLAUSE[Select, Range]
-	with SELECT_CLAUSE_1[Select, Range]
-	with SELECT_CLAUSE_2[Select, Range]
-	with SELECT_CLAUSE_3[Select, Range]
-	with SELECT_CLAUSE_4[Select, Range]
-	with SELECT_CLAUSE_5[Select, Range]
-{
 
+trait AGGREGATE_FUNCTION[Domain, AggregateRange]
+{
 
 }

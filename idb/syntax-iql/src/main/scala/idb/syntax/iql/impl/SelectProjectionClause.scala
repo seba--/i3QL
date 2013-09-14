@@ -30,16 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
+import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke, Mirko Köhler
  */
-trait SELECT_CLAUSE_5[Select, Range] extends SELECT_CLAUSE[Select, Range]
+case class SelectProjectionClause[Select: Manifest, Range: Manifest] (
+    function: Rep[Select => Range],
+    asDistinct: Boolean = false
+)
+    extends SELECT_CLAUSE[Select, Range]
+	with SELECT_PROJECTION_CLAUSE[Select, Range]
 {
+
+    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
+        FromClause1 (relation, this)
+
+
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ) = FromClause2 (relationA, relationB, this)
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]]
+	) = FromClause3 (relationA, relationB, relationC, this)
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]]
+	) = FromClause4 (relationA, relationB, relationC, relationD, this)
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
 		relationA : Rep[Query[DomainA]],
@@ -47,7 +75,7 @@ trait SELECT_CLAUSE_5[Select, Range] extends SELECT_CLAUSE[Select, Range]
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]],
 		relationE : Rep[Query[DomainE]]
-	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+	) = FromClause5 (relationA, relationB, relationC, relationD, relationE, this)
+
 
 }

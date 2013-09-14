@@ -41,23 +41,23 @@ package idb.algebra.base
 trait RelationalAlgebraAggregationOperators
     extends RelationalAlgebraBase
 {
-  	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, AggregateValue : Manifest, Result : Manifest](
+	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
-		start : Rep[AggregateValue],
-		added : Rep[( (Domain, AggregateValue) ) => AggregateValue],
-		removed : Rep[( (Domain, AggregateValue) ) => AggregateValue],
-        updated: Rep[( (Domain, Domain, AggregateValue) ) => AggregateValue],
-        convert: Rep[( (Key, AggregateValue) ) => Result]
-	): Rep[Query[Result]]
+		start : RangeB,
+		added : Rep[( (Domain, RangeB) ) => RangeB],
+		removed : Rep[( (Domain, RangeB) ) => RangeB],
+		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
+		convertKey : Rep[Key => RangeA]
+	): Rep[Query[(RangeA, RangeB)]]
 
-	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
+	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
-		start : Result,
-		added : Rep[( (Domain, Result) ) => Result],
-		removed : Rep[( (Domain, Result) ) => Result],
-		updated: Rep[( (Domain, Domain, Result) ) => Result]
-	): Rep[Query[Result]]
+		start : Range,
+		added : Rep[( (Domain, Range) ) => Range],
+		removed : Rep[( (Domain, Range) ) => Range],
+		updated: Rep[( (Domain, Domain, Range) ) => Range]
+	): Rep[Query[Range]]
 
 	def aggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
 		relation: Rep[Query[Domain]],
@@ -66,6 +66,33 @@ trait RelationalAlgebraAggregationOperators
 		added : Rep[((Domain, Range)) => Range],
 		removed : Rep[((Domain, Range)) => Range],
 		updated: Rep[((Domain, Domain, Range)) => Range]
+	): Rep[Query[Range]]
+
+	def aggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest](
+		relation : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		start : RangeB,
+		added : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
+		removed : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
+		updated: Rep[( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB],
+		convertKey : Rep[Key => RangeA]
+	): Rep[Query[(RangeA, RangeB)]]
+
+	def aggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
+		relation : Rep[Query[Domain]],
+		start : Range,
+		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
+	): Rep[Query[Range]]
+
+	def aggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
+		relation: Rep[Query[Domain]],
+		grouping: Rep[Domain => Key],
+		start : Range,
+		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
 	): Rep[Query[Range]]
 
 	def grouping[Domain : Manifest, Result : Manifest] (

@@ -33,18 +33,63 @@
 package idb.syntax.iql
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql.impl.AggregateFunctionNotSelfMaintained
 
 /**
  *
  * @author Ralf Mitschke, Mirko Köhler
+ *
  */
-trait SELECT_CLAUSE_1[Select, Range] extends SELECT_CLAUSE[Select, Range]
+
+trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
+	extends AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
+	def start : Range
 
-    def FROM[Domain: Manifest] (
-        relation : Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Select, Domain, Range]
-		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
+	def added[Domain] (v : Rep[Domain],
+		previousResult : Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
 
+	def removed[Domain] (v: Rep[Domain],
+		previousResult: Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
 
+	def updated[Domain] (oldV: Rep[Domain],
+		newV : Rep[Domain],
+		previousResult: Rep[Range],
+		data : Rep[Iterable[Domain]],
+		column: Rep[Domain] => Rep[Column]
+	) : Rep[Range]
+
+    def apply[Domain] (
+        column: Rep[Domain] => Rep[Column]
+    )(
+		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
+	) =
+        AggregateFunctionNotSelfMaintained[Domain, Range](
+			start,
+			(p : Rep[(Domain, Range, Iterable[Domain])]) => added (p._1, p._2, p._3,column),
+			(p : Rep[(Domain, Range, Iterable[Domain])]) => removed (p._1, p._2, p._3, column),
+			(p : Rep[(Domain, Domain, Range, Iterable[Domain])]) => updated (p._1, p._2, p._3, p._4, column)
+		)
+
+    def apply[DomainA, DomainB] (
+        column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
+    )(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
+	) = {
+
+		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
+
+		AggregateFunctionNotSelfMaintained[(DomainA, DomainB), Range](
+			start,
+			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => updated (p._1, p._2, p._3, p._4, c)
+		)
+	}
 }
