@@ -32,25 +32,14 @@
  */
 package sae.bytecode.types
 
-import scala.virtualization.lms.common.{Base, StructExp}
-
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeTypesOps
+
+trait BytecodeTypeOrdering
     extends BytecodeTypes
 {
-    val IR: Base
-
-    import IR._
-
-
-    implicit def objectTypeToInfixOps (i: Rep[ObjectType]) : ObjectTypeInfixOps
-
-    trait ObjectTypeInfixOps
-    {
-        def name: Rep[String]
-    }
-
+    implicit def typeOrdering (): Ordering[Type]
 }

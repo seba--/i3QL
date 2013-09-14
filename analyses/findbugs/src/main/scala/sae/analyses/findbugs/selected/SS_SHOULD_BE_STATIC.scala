@@ -37,7 +37,6 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
-
 /**
  *
  * @author Ralf Mitschke
@@ -46,10 +45,12 @@ object SS_SHOULD_BE_STATIC
 {
     def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
         import database._
+
+
         SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
             NOT (f.isStatic) AND
                 f.value.isDefined AND
-                NOT(
+                NOT (
                     (f.declaringType.name.lastIndexOf ('$') >= 0 OR f.declaringType.name.lastIndexOf ('+') >= 0) AND
                         (f.name.startsWith ("this$") OR f.name.startsWith ("this+"))
                 ) AND

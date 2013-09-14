@@ -34,9 +34,8 @@ package sae.analyses.findbugs
 
 import java.io.FileInputStream
 import idb.Relation
-import sae.bytecode.asm.ASMDatabase
 import sae.bytecode.asm.util.ASMTypeUtils
-import sae.analyses.findbugs.selected._
+import sae.bytecode.asm._
 
 /**
  *
@@ -52,10 +51,12 @@ object Findbugs
         val database = new ASMDatabase ()
 
 
-        val analysis = SS_SHOULD_BE_STATIC (database).asMaterialized
+        //val analysis = SS_SHOULD_BE_STATIC (database).asMaterialized
+        val analysis = createAnalysis (database).asMaterialized
 
         database.addArchive (stream)
 
+        //analysis.asList.sorted(database.fieldDeclarationOrdering()).foreach (println)
         analysis.foreach (println)
 
 
@@ -76,9 +77,24 @@ object Findbugs
         import idb.syntax.iql.IR._
         import database._
 
-        SELECT (*) FROM subTyping WHERE ((t: Rep[TypeRelation]) =>
-            t.superType == database.ObjectType ("java/lang/Cloneable")
+        SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
+            f.name == "MAX_THUMB_HEIGHT" AND
+                NOT (
+                    EXISTS (
+                        SELECT (*) FROM fieldReadInstructions WHERE ((fr: Rep[FieldAccessInstruction]) =>
+                            f.declaringType == fr.fieldInfo.declaringType AND
+                                f.name == fr.fieldInfo.name AND
+                                f.fieldType == fr.fieldInfo.fieldType
+                            )
+                    )
+                )
             )
-
+        /*
+                SELECT (*) FROM fieldReadInstructions WHERE ((x: Rep[FieldAccessInstruction]) =>
+                        x.fieldInfo.name == "MAX_THUMB_HEIGHT"
+                    )
+        */
     }
 }
+
+

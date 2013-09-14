@@ -32,7 +32,7 @@
  */
 package sae.bytecode.asm
 
-import sae.bytecode.types.BytecodeTypesOps
+import sae.bytecode.types.BytecodeTypeOps
 import scala.virtualization.lms.common.{FunctionsExp, StructExp, StaticDataExp}
 import sae.bytecode.asm.util.ASMTypeUtils
 
@@ -41,8 +41,8 @@ import sae.bytecode.asm.util.ASMTypeUtils
  *
  * @author Ralf Mitschke
  */
-trait ASMTypesOps
-    extends BytecodeTypesOps
+trait ASMTypeOps
+    extends BytecodeTypeOps
     with ASMTypes
     with ASMTypeUtils
 {
