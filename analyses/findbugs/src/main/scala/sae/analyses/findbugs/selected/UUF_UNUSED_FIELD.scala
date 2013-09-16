@@ -50,7 +50,10 @@ object UUF_UNUSED_FIELD
             NOT (f.isPublic) AND
                 NOT (f.isProtected) AND
                 NOT (f.name == "serialVersionUID") AND
-                NOT (f.name.startsWith ("this$") OR f.name.startsWith ("this+")) AND
+                NOT (
+                    (f.declaringType.name.lastIndexOf ('$') >= 0 OR f.declaringType.name.lastIndexOf ('+') >= 0) AND
+                        (f.name.startsWith ("this$") OR f.name.startsWith ("this+"))
+                ) AND
                 NOT (
                     EXISTS (
                         SELECT (*) FROM interfaceInheritance WHERE ((in: Rep[Inheritance]) =>
@@ -73,8 +76,7 @@ object UUF_UNUSED_FIELD
                 ) AND
                 NOT (
                     EXISTS (
-                        SELECT (*) FROM fieldWriteInstructions WHERE ((i: Rep[FieldAccessInstruction]) =>
-                            i.declaringMethod.declaringType == i.fieldInfo.declaringType AND
+                        SELECT (*) FROM fieldAccessInstructions WHERE ((i: Rep[FieldAccessInstruction]) =>
                                 i.fieldInfo.name == f.name AND
                                 i.fieldInfo.fieldType == f.fieldType AND
                                 i.fieldInfo.declaringType == f.declaringType

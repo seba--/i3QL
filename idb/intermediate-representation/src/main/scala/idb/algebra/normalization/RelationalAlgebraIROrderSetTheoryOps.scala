@@ -30,39 +30,45 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package idb.algebra.normalization
 
-import sae.bytecode.types._
-import sae.bytecode.structure.base._
-import sae.bytecode.structure.derived._
-import sae.bytecode.structure.instructions._
-
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
 
 /**
+ * Simplification rules remove operators that reduce to trivial meanings.
+ * For example: a ∩ a = a
  *
  * @author Ralf Mitschke
+ *
  */
-trait BytecodeDatabase
-    extends BytecodeTypes
-    with BytecodeTypeManifests
-    with BytecodeTypeConstructors
-    with BytecodeTypeOps
-    with BytecodeTypeOrdering
-    with BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeStructureOps
-    with BytecodeStructureOrdering
-    with BytecodeStructureRelations
-    with BytecodeStructureDerived
-    with BytecodeStructureDerivedManifests
-    with BytecodeStructureDerivedOps
-    with BytecodeStructureDerivedRelations
-    with BytecodeInstructions
-    with BytecodeInstructionsManifest
-    with BytecodeInstructionsOps
-    with BytecodeInstructionsRelations
-    with BytecodeDatabaseManipulation
+trait RelationalAlgebraIROrderSetTheoryOps
+    extends RelationalAlgebraIRSetTheoryOperators
+    with RelationalAlgebraIRBasicOperators
 {
 
-    //override val IR = idb.syntax.iql.IR // already defined due to derived relations
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[Range]] =
+        ((relationA, relationB) match {
+
+            case (Def (UnionMax (leftLeft, leftRight)), right) =>
+                unionMax (leftLeft, unionMax (leftRight, right))
+
+            // order such that selections are lowest
+            case (Def (s1: Selection[DomainA@unchecked]), Def (UnionMax (rightLeft@Def(rightLeftDef), rightRight)))
+                if !rightLeftDef.isInstanceOf[Selection[_]] =>
+                unionMax (rightLeft, unionMax (s1, rightRight))
+
+            /*
+                    case (Sym (lhsId), Def (UnionMax (left@Sym (leftId), right))) if leftId < lhsId =>
+                        unionMax (left, unionMax (relationA, right))
+            */
+            case _ => super.unionMax (relationA, relationB)
+
+
+        }).asInstanceOf[Rep[Query[Range]]]
 }
+
+

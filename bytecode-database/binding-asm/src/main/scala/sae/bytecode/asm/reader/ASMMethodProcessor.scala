@@ -33,7 +33,7 @@
 package sae.bytecode.asm.reader
 
 import org.objectweb.asm.{Label, Type, Opcodes, MethodVisitor}
-import sae.bytecode.asm.{structure, ASMDatabase}
+import sae.bytecode.asm.ASMDatabase
 import scala.annotation.switch
 import sae.bytecode.asm.instructions.opcodes._
 import sae.bytecode.asm.structure._

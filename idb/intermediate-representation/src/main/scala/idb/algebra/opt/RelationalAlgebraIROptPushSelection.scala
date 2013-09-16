@@ -138,6 +138,12 @@ trait RelationalAlgebraIROptPushSelection
                     selection (b, function)
                 )
 
+            case Def (UnionMax (a, b)) =>
+                unionMax (
+                    selection (a, function),
+                    selection (b, function)
+                )
+
             case _ =>
                 super.selection (relation, function)
 

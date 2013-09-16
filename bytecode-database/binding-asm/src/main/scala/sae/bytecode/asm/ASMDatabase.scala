@@ -43,10 +43,12 @@ import sae.bytecode.asm.instructions.opcodes.{IINC, LOOKUPSWITCH, RET, TABLESWIT
 class ASMDatabase
     extends BytecodeDatabase
     with ASMTypes
-    with ASMTypesOps
+    with ASMTypeOps
     with ASMTypeConstructors
+    with ASMTypeOrdering
     with ASMStructure
     with ASMStructureRelations
+    with ASMStructureOrdering
     with ASMStructureDerived
     with ASMStructureDerivedConstructors
     with ASMInstructions
@@ -74,7 +76,7 @@ class ASMDatabase
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes += codeAttribute
 
-        def processExceptionHandler(h: ExceptionHandler) =
+        def processExceptionHandler (h: ExceptionHandler) =
             database.exceptionHandlers += h
 
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =
@@ -146,7 +148,7 @@ class ASMDatabase
         def processCodeAttribute (codeAttribute: CodeAttribute) =
             database.codeAttributes -= codeAttribute
 
-        def processExceptionHandler(h: ExceptionHandler) =
+        def processExceptionHandler (h: ExceptionHandler) =
             database.exceptionHandlers -= h
 
         def processInnerClassAttribute (innerClassAttribute: InnerClassAttribute) =

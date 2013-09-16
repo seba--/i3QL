@@ -98,7 +98,7 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
         }
 
         def removed(v: DomainA) {
-            val oldCount = left.count (v)
+            val oldCount = left.count (v) +1
             val rightCount = right.count (v)
             if (rightCount < oldCount - 1) {
 				notify_removed (v)
@@ -106,7 +106,7 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
         }
 
         def added(v: DomainA) {
-            val oldCount = left.count (v)
+            val oldCount = left.count (v) - 1
             val rightCount = right.count (v)
             if (rightCount < oldCount + 1) {
 				notify_added (v)
@@ -131,7 +131,7 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
 
         def removed(v: DomainB) {
             val leftCount = left.count (v)
-            val oldCount = right.count (v)
+            val oldCount = right.count (v) + 1
             if (leftCount < oldCount - 1) {
 				notify_removed (v)
             }
@@ -139,7 +139,7 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
 
         def added(v: DomainB) {
             val leftCount = left.count (v)
-            val oldCount = right.count (v)
+            val oldCount = right.count (v) -1
             if (leftCount < oldCount + 1) {
 				notify_added (v)
             }

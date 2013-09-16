@@ -93,6 +93,8 @@ class TestBasicClauses1
         )
     }
 
+
+    @Ignore
     @Test
     def testSelection1Negate () {
         val query = plan (
@@ -111,6 +113,8 @@ class TestBasicClauses1
         )
     }
 
+
+    @Ignore
     @Test
     def testSelection1NegateMultiplePositive () {
         val query = plan (

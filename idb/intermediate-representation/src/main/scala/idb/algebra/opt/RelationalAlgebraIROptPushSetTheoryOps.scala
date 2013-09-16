@@ -41,7 +41,7 @@ import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraI
  */
 trait RelationalAlgebraIROptPushSetTheoryOps
     extends RelationalAlgebraIRBasicOperators
-	with RelationalAlgebraIRSetTheoryOperators
+    with RelationalAlgebraIRSetTheoryOperators
 {
 
     override def intersection[Domain: Manifest] (
@@ -95,12 +95,15 @@ trait RelationalAlgebraIROptPushSetTheoryOps
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[Range]] =
         ((relationA, relationB) match {
+            /*
             // Π_f(a) ∪ Π_f(b) => Π_f(a ∪ b)
             case (Def (Projection (a, fa)), Def (Projection (b, fb))) if fa == fb =>
                 projection (unionMax (a, b)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
                     fa)
+             */
 
-           //  (a × b) ∪ (c × d) => (a ∪ c) × (b ∪ d)
+
+            //  (a × b) ∪ (c × d) => (a ∪ c) × (b ∪ d)
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
                 crossProduct (
                     unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
@@ -130,6 +133,73 @@ trait RelationalAlgebraIROptPushSetTheoryOps
                     unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
                     l1 ::: l2
                 )
+
+
+
+            //  (a - b) ∪ (c - d) => (a ∪ c) - (b ∪ d)
+            case (Def (Difference (a, b)), Def (Difference (c, d))) =>
+                difference (
+                    unionMax (a, b),
+                    unionMax (c, d)
+                )
+
+            //  a ∪ (b - c) => (a ∪ b) - (c - a)
+            case (a, Def (Difference (b, c))) =>
+                difference (
+                    unionMax (a, b),
+                    difference (c, a)
+                )
+
+
+            //  (b - c) ∪ a => (b ∪ a) - (c - a)
+            case (Def (Difference (b, c)), a)=>
+                difference (
+                    unionMax (b, a),
+                    difference (c, a)
+                )
+
+
+            /*
+            //  (a - b) ∪ ((c - d) ∪ e) => ((a ∪ c) - (b ∪ d)) ∪ e
+            case (Def (Difference (a, b)), Def (UnionMax (Def (Difference (c, d)), e))) =>
+                unionMax (
+                    difference (
+                        unionMax (a, b),
+                        unionMax (c, d)
+                    ),
+                    e
+                )
+            */
+
+/*
+            //   Π_f(a) ∪ Π_f(b) => Π_f(a ∪ b)
+            case (Def (Projection (ra, fa)), Def (Projection (rb, fb))) if fa == fb =>
+                projection (
+                    unionMax (ra, rb),
+                    fa
+                )
+
+
+            //   Π_f(a) ∪ (Π_f(b) ∪ c) => Π_f(a ∪ b) ∪ c
+            case (Def (Projection (ra, fa)), Def (UnionMax (Def (Projection (rb, fb)), rc))) if fa == fb =>
+                unionMax (
+                    projection (
+                        unionMax (ra, rb),
+                        fa
+                    ),
+                    rc
+                )
+
+            //   Π_f(a) ∪ (b ∪ Π_f(c)) => Π_f(a ∪ c) ∪ b
+            case (Def (Projection (ra, fa)), Def (UnionMax (rb, Def (Projection (rc, fb))))) if fa == fb =>
+                unionMax (
+                    projection (
+                        unionMax (ra, rc),
+                        fa
+                    ),
+                    rb
+                )
+*/
 
             case _ => super.unionMax (relationA, relationB)
 

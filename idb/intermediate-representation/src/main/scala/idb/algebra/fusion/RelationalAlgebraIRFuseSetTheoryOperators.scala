@@ -62,6 +62,19 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
                         createDisjunction (fa, fb)(parameterType (fa))
                     )
                 )
+
+
+            case (Def (Selection (ra, fa)), Def (UnionMax (Def (Selection (rb, fb)), rx))) if ra == rb =>
+                unionMax (
+                    withoutNormalization (
+                        selection (
+                            ra.asInstanceOf[Rep[Query[Range]]],
+                            createDisjunction (fa, fb)(parameterType (fa))
+                        )
+                    ),
+                    rx
+                )
+
             case _ =>
                 super.unionMax (relationA, relationB)
         }

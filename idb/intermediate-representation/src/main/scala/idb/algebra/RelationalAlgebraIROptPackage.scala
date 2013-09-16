@@ -35,7 +35,8 @@ package idb.algebra
 import idb.algebra.base.RelationalAlgebraDerivedOperators
 import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
 import idb.algebra.ir._
-import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
+import idb.algebra.normalization.{RelationalAlgebraIROrderSetTheoryOps, RelationalAlgebraIRNormalizeSubQueries,
+RelationalAlgebraIRNormalizeBasicOperators}
 import idb.algebra.opt._
 
 
@@ -61,6 +62,7 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIRFuseSetTheoryOperators
     with RelationalAlgebraIROptSimplifyBasicOps
     with RelationalAlgebraIROptSimplifySetTheoryOps
+    with RelationalAlgebraIROrderSetTheoryOps
     with RelationalAlgebraIROptSelectionInSetTheoryOps
     with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptPushDuplicateElimination

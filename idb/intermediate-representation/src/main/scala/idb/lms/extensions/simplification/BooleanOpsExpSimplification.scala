@@ -81,7 +81,11 @@ trait BooleanOpsExpSimplification
             case (_, Const (false)) =>
                 Const (false)
 
+            case (_, Def(BooleanAnd (`lhs`, r))) =>
+                boolean_and(lhs, r)
+
             case _ if lhs == rhs => lhs
+
 
             case _ => super.boolean_and (lhs, rhs)
         }
@@ -109,6 +113,9 @@ trait BooleanOpsExpSimplification
 
             case (_, Const (false)) =>
                 lhs
+
+            case (_, Def(BooleanOr (`lhs`, r))) =>
+                boolean_or(lhs, r)
 
             case _ if lhs == rhs => lhs
 
