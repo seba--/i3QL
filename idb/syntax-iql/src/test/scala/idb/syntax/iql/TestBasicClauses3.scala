@@ -51,7 +51,7 @@ class TestBasicClauses3
     @Test
     def testCrossProduct3 () {
         val query = plan (
-            SELECT (*) FROM(students, registrations, courses)
+            SELECT ((s : Rep[Student], r : Rep[Registration], c : Rep[Course]) => (s,r,c)) FROM (students, registrations, courses)
         )
 
         assertEqualStructure (

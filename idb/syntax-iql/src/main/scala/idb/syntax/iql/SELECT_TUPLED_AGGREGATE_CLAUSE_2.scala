@@ -38,7 +38,7 @@ import idb.syntax.iql.IR._
  *
  * @author Mirko Köhler
  */
-trait SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] 	extends SELECT_CLAUSE[Select, (RangeA, RangeB)]
+trait SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB]
 {
 
     def FROM (

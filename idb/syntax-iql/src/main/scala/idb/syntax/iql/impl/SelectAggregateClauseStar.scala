@@ -49,8 +49,8 @@ case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FU
 		with CAN_GROUP_CLAUSE_1[Any, Domain, Range] =
         FromClause1 (
             relation,
-			SelectAggregateClause1(
-				aggregate.getAggregateFunction1,
+			SelectAggregateClause(
+				aggregate.getAggregateFunction,
 				asDistinct
 			)
         )
@@ -63,8 +63,63 @@ case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FU
 		FromClause2 (
 			relationA,
 			relationB,
-			SelectAggregateClause2(
-				aggregate.getAggregateFunction2,
+			SelectAggregateClause(
+				aggregate.getAggregateFunction,
+				asDistinct
+			)
+		)
+
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]]
+	): FROM_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range]
+		with CAN_GROUP_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range] =
+		FromClause3 (
+			relationA,
+			relationB,
+			relationC,
+			SelectAggregateClause(
+				aggregate.getAggregateFunction,
+				asDistinct
+			)
+		)
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]]
+	): FROM_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range]
+		with CAN_GROUP_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range] =
+		FromClause4 (
+			relationA,
+			relationB,
+			relationC,
+			relationD,
+			SelectAggregateClause(
+				aggregate.getAggregateFunction,
+				asDistinct
+			)
+		)
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]],
+		relationE : Rep[Query[DomainE]]
+ 	): FROM_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+		with CAN_GROUP_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+		FromClause5 (
+			relationA,
+			relationB,
+			relationC,
+			relationD,
+			relationE,
+			SelectAggregateClause(
+				aggregate.getAggregateFunction,
 				asDistinct
 			)
 		)

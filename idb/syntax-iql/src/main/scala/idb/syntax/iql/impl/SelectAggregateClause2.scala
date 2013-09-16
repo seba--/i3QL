@@ -14,7 +14,14 @@ case class SelectAggregateClause2[Select : Manifest, DomainA : Manifest, DomainB
 	def FROM (
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]]
-	) =	FromClause2 (relationA, relationB, this)
+	) =	FromClause2 (
+			relationA,
+			relationB,
+			SelectAggregateClause (
+				aggregation,
+			    asDistinct
+			)
+		)
 
 
 

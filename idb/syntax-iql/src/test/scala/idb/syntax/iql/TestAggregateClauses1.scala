@@ -137,6 +137,14 @@ class TestAggregateClauses1
         )
     }
 
+
+	@Test
+	def testAggregateGroupCountWithGroup () {
+		val query = plan (
+			SELECT ((s: Rep[String]) => s, COUNT ((s : Rep[Student]) => s) ) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
+		)
+	}
+
 	@Ignore
     @Test
     def testAggregateGroupCountStarWithGroup () {

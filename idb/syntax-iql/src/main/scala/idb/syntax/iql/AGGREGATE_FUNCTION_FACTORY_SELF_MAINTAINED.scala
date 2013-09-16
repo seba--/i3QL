@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.AggregateFunctionSelfMaintained
+import idb.syntax.iql.impl.{AggregateTupledFunctionSelfMaintained, AggregateFunctionSelfMaintained}
 
 /**
  *
@@ -86,6 +86,51 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
 			(p : Rep[((DomainA, DomainB), Range)]) => added(p._1, p._2, c),
 			(p : Rep[((DomainA, DomainB), Range)]) => removed(p._1, p._2, c),
 			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range)]) => updated(p._1, p._2, p._3, c)
+		)
+	}
+
+	def apply[DomainA, DomainB, DomainC] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC)]) => column(v._1, v._2, v._3)
+
+		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC), Range)]) => added(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC), Range)]) => removed(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), Range)]) => updated(p._1, p._2, p._3, c)
+		)
+	}
+
+	def apply[DomainA, DomainB, DomainC, DomainD] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD)]) => column(v._1, v._2, v._3, v._4)
+
+		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC, DomainD), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range)]) => added(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range)]) => removed(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), Range)]) => updated(p._1, p._2, p._3, c)
+		)
+	}
+
+	def apply[DomainA, DomainB, DomainC, DomainD, DomainE] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mDomE : Manifest[DomainE], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => column(v._1, v._2, v._3, v._4, v._5)
+
+		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC, DomainD, DomainE), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range)]) => added(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range)]) => removed(p._1, p._2, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), Range)]) => updated(p._1, p._2, p._3, c)
 		)
 	}
 }

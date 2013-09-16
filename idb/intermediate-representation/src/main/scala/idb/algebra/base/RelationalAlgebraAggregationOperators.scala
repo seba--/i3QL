@@ -41,15 +41,16 @@ package idb.algebra.base
 trait RelationalAlgebraAggregationOperators
     extends RelationalAlgebraBase
 {
-	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest](
+	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
 		added : Rep[( (Domain, RangeB) ) => RangeB],
 		removed : Rep[( (Domain, RangeB) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
-		convertKey : Rep[Key => RangeA]
-	): Rep[Query[(RangeA, RangeB)]]
+		convertKey : Rep[Key => RangeA],
+		convert : Rep[((RangeA, RangeB)) => Range]
+	): Rep[Query[Range]]
 
 	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
@@ -68,15 +69,16 @@ trait RelationalAlgebraAggregationOperators
 		updated: Rep[((Domain, Domain, Range)) => Range]
 	): Rep[Query[Range]]
 
-	def aggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest](
+	def aggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
 		added : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
 		removed : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB],
-		convertKey : Rep[Key => RangeA]
-	): Rep[Query[(RangeA, RangeB)]]
+		convertKey : Rep[Key => RangeA],
+		convert : Rep[((RangeA, RangeB)) => Range]
+	): Rep[Query[Range]]
 
 	def aggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
