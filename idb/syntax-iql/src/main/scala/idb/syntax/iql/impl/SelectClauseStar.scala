@@ -78,7 +78,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationB,
             relationC,
             SelectProjectionClause (
-				(x : Rep[(Any, Any, Any)]) => x,
+				(x : Rep[(DomainA, DomainB, DomainC)]) => x,
                 asDistinct
             )
         )
@@ -95,7 +95,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationC,
             relationD,
             SelectProjectionClause (
-                (x : Rep[(Any, Any, Any, Any)]) => x,
+                (x : Rep[(DomainA, DomainB, DomainC, DomainD)]) => x,
                 asDistinct
             )
         )
@@ -114,7 +114,7 @@ case class SelectClauseStar (asDistinct: Boolean = false)
             relationD,
             relationE,
             SelectProjectionClause (
-				(x : Rep[(Any, Any, Any, Any, Any)]) => x,
+				(x : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => x,
                 asDistinct
             )
         )

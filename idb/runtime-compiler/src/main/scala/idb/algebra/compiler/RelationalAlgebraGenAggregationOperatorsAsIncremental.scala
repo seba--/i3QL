@@ -72,7 +72,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (e@AggregationSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey)) => {
+            case Def (e@AggregationSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
                 if (e.isIncrementLocal)
                 /*    TransactionalAggregation (
                         compile (r),
@@ -93,6 +93,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
                         compileFunctionWithDynamicManifests (fRemove),
                         compileFunctionWithDynamicManifests (fUpdate),
 						compileFunctionWithDynamicManifests (fConvertKey),
+						compileFunctionWithDynamicManifests (fConvert),
                         false
                     ).asInstanceOf[Relation[Domain]]
             }
@@ -144,7 +145,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 
 			}
 
-			case Def (e@AggregationNotSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey)) => {
+			case Def (e@AggregationNotSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
 				if (e.isIncrementLocal)
 				/*    TransactionalAggregation (
 						compile (r),
@@ -165,6 +166,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 						compileFunctionWithDynamicManifests (fRemove),
 						compileFunctionWithDynamicManifests (fUpdate),
 						compileFunctionWithDynamicManifests (fConvertKey),
+						compileFunctionWithDynamicManifests (fConvert),
 						false
 					).asInstanceOf[Relation[Domain]]
 			}

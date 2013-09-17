@@ -299,24 +299,25 @@ object AggregationForNotSelfMaintainableFunctions {
 		)
 	}
 
-	def applyTupled[Domain, Key, RangeA, RangeB] (
+	def applyTupled[Domain, Key, RangeA, RangeB, Range] (
 		source: Relation[Domain],
 		grouping: Domain => Key,
 		start : RangeB,
 		added : ((Domain, RangeB, Iterable[Domain])) => RangeB,
 		removed : ((Domain, RangeB, Iterable[Domain])) => RangeB,
-		updated : ( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB,
+		updated: ((Domain, Domain, RangeB, Iterable[Domain])) => RangeB,
 		convertKey : Key => RangeA,
+		convert : ((RangeA, RangeB)) => Range,
 		isSet : Boolean
-	): Relation[(RangeA, RangeB)] = {
-		apply[Domain, Key, RangeB, (RangeA, RangeB)] (
+	): Relation[Range] = {
+		apply[Domain, Key, RangeB, Range] (
 			source,
 			grouping,
 			start,
 			added,
 			removed,
 			updated,
-			Function.tupled((x : Key, y : RangeB) => (convertKey (x), y)),
+			Function.tupled((x : Key, y : RangeB) => convert ((convertKey (x), y)) ),
 			isSet
 		)
 	}

@@ -32,59 +32,22 @@
  */
 package idb.syntax.iql
 
-
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.AggregateFunctionStar
 
 /**
  *
- * @author Ralf Mitschke, Mirko Köhler
- *
+ * @author Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
+trait SELECT_AGGREGATE_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 {
 
-    def apply[Domain] (
-        column: Rep[Domain] => Rep[Column]
-    )(
-		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[Domain, Range]
+    def FROM (
+        relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]]
+    ): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 
-
-    def apply[DomainA, DomainB] (
-        column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
-    )(
-		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB), Range]
-
-
-	def apply[DomainA, DomainB, DomainC] (
-		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
-	)(
-		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC), Range]
-
-
-	def apply[DomainA, DomainB, DomainC, DomainD] (
-		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
-	)(
-		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC, DomainD), Range]
-
-
-	def apply[DomainA, DomainB, DomainC, DomainD, DomainE] (
-		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
-	)(
-		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mDomE : Manifest[DomainE], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC, DomainD, DomainE), Range]
-
-
-    def apply (
-		star: STAR_KEYWORD
-	)(
-		implicit mDom : Manifest[Column], mRan : Manifest[Range]
-	) : AGGREGATE_FUNCTION_STAR[Range] =
-        AggregateFunctionStar (this)
 
 }

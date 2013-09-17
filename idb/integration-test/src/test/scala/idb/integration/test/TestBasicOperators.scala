@@ -47,7 +47,7 @@ import idb.syntax.iql.IR._
  */
 class TestBasicOperators
 {
-	@Ignore
+
 	@Test
 	def testStudentNames() {
 
@@ -73,7 +73,6 @@ class TestBasicOperators
 		assertTrue(query.contains("Student: Judy"))
 		assertTrue(query.contains("Student: Jane"))
 	}
-
 
 	@Test
 	def testStudentNames2() {
@@ -186,53 +185,6 @@ class TestBasicOperators
 		assertTrue(query.contains("Student: Judy"))
 		assertTrue(query.contains("Student: Jane"))
 	}
-
-	@Test
-	def testCountStudents() {
-		val query = compile (
-			SELECT (COUNT (*)) FROM students GROUP BY ((s : Rep[Student]) => s.lastName)
-		).asMaterialized
-
-		val john = Student(11111, "John", "Doe")
-		val john2 = Student(11111, "John", "Carter")
-		val judy = Student(22222, "Judy", "Carter")
-		val jane = Student(33333, "Jane", "Doe")
-		val moe = Student(33333, "Moe", "Doe")
-
-		students += john += judy += jane += john2 += moe
-		students.endTransaction()
-
-		Predef.println("**********************************")
-		query.foreach(Predef.println)
-		Predef.println("**********************************")
-
-  		//TODO Fix this
-//		assertTrue(query.contains(2))
-		assertTrue(query.contains(3))
-
-	}
-
-	@Test
-	def testSumCreditPoints() {
-		val query = compile (
-			SELECT (
-				SUM (
-					(c : Rep[Course]) => c.creditPoints
-				)
-			) FROM
-				courses
-		).asMaterialized
-
-		val se = Course(1, "Software Engineering", 6)
-		val math = Course(2, "Mathematics", 9)
-		val ics = Course(1, "Introduction to Computer Science", 10)
-
-		courses += se += math += ics
-		courses.endTransaction()
-
-		assertTrue(query.contains(25))
-	}
-
 
 	@Test
     def testSelectFirstNameFromStudents () {
@@ -483,13 +435,5 @@ class TestBasicOperators
 
 
 	}
-
-
-
-
-
-
-
-
 
 }

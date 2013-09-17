@@ -82,7 +82,6 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
 	) = {
-
 		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
 
 		AggregateFunctionNotSelfMaintained[(DomainA, DomainB), Range](
@@ -90,6 +89,53 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
 			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),
 			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => updated (p._1, p._2, p._3, p._4, c)
+		)
+	}
+
+
+
+	def apply[DomainA, DomainB, DomainC] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC)]) => column(v._1, v._2, v._3)
+
+		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => updated (p._1, p._2, p._3, p._4, c)
+		)
+	}
+
+	def apply[DomainA, DomainB, DomainC, DomainD] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD)]) => column(v._1, v._2, v._3, v._4)
+
+		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC, DomainD), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => updated (p._1, p._2, p._3, p._4, c)
+		)
+	}
+
+	def apply[DomainA, DomainB, DomainC, DomainD, DomainE] (
+		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
+	)(
+		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mDomE : Manifest[DomainE], mRan : Manifest[Range]
+	) = {
+		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => column(v._1, v._2, v._3, v._4, v._5)
+
+		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC, DomainD, DomainE), Range](
+			start,
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => updated (p._1, p._2, p._3, p._4, c)
 		)
 	}
 }
