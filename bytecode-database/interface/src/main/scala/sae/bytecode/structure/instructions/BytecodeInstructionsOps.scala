@@ -132,7 +132,7 @@ trait BytecodeInstructionsOps
 
     case class ObjectTypeInstructionInfixOps (i: Rep[ObjectTypeInstruction])
     {
-        def objectType: Rep[Type] = field[Type](i, "objectType")
+        def objectType: Rep[ObjectType] = field[ObjectType](i, "objectType")
     }
 
 }

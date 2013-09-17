@@ -50,6 +50,7 @@ object UUF_UNUSED_FIELD
             NOT (f.isPublic) AND
                 NOT (f.isProtected) AND
                 NOT (f.name == "serialVersionUID") AND
+                NOT (f.value.isDefined) AND
                 NOT (
                     (f.declaringType.name.lastIndexOf ('$') >= 0 OR f.declaringType.name.lastIndexOf ('+') >= 0) AND
                         (f.name.startsWith ("this$") OR f.name.startsWith ("this+"))
@@ -65,7 +66,6 @@ object UUF_UNUSED_FIELD
                             )
                     )
                 ) AND
-                NOT (f.value.isDefined) AND
                 NOT (
                     EXISTS (
                         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>

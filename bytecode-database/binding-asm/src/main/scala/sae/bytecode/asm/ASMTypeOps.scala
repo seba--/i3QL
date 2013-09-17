@@ -54,12 +54,25 @@ trait ASMTypeOps
         (t: ObjectType) => ObjectType_Name (t)
     )
 
+    private val objectTypeClassName: Rep[ObjectType => String] = staticData (
+        (t: ObjectType) => ObjectType_ClassName (t)
+    )
+
+    private val objectTypePackageName: Rep[ObjectType => String] = staticData (
+        (t: ObjectType) => ObjectType_PackageName (t)
+    )
+
+
     override implicit def objectTypeToInfixOps (i: Rep[ObjectType]) =
         ASMObjectTypeInfixOps (i)
 
     case class ASMObjectTypeInfixOps (i: Rep[ObjectType]) extends ObjectTypeInfixOps
     {
         def name: Rep[String] = objectTypeName (i)
+
+        def packageName: Rep[String] = objectTypePackageName (i)
+
+        def className: Rep[String] = objectTypeClassName (i)
     }
 
 }

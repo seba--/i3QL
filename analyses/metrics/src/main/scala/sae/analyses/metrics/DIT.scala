@@ -34,6 +34,9 @@ package sae.analyses.metrics
 
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
+
 
 /**
  *
@@ -43,9 +46,11 @@ import idb.Relation
  *
  */
 object DIT
-    extends (BytecodeDatabase => Relation[Int])
 {
-    def apply (database: BytecodeDatabase): Relation[Int] = {
+    def apply (database: BytecodeDatabase): Relation[(database.ObjectType, Int)] = {
+        import database._
+        // needs more aggregation syntax
+        //SELECT (_: ObjectType, COUNT(*)) FROM subTyping GROUP BY (_.subType)
         null
     }
 }

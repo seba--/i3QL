@@ -30,54 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.analyses.metrics
 
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.algebra.print.RelationalAlgebraPrintPlan
+
 
 /**
+ * Computes the efferent coupling of packages, defined as:
+ *  "The number of classes inside a package that depend on classes outside the package."
+ *  (cf. Robert C. Martin - Agile Software Development)
  *
  * @author Ralf Mitschke
- *
  */
-
-object CN_IDIOM
+object CE
+    extends ClassDependencies
 {
-    def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
+    def apply (database: BytecodeDatabase): Relation[Any /*(String, Int)*/ ] = {
         import database._
+        val query =
+            SELECT /* DISTINCT */ (COUNT (*)) FROM classDependencies (database) WHERE (
+                (d: Rep[Dependency[ObjectType]]) => d.source.packageName != d.target.packageName
+                ) // GROUP BY (_.source.packageName)
 
-        SELECT ((_: Rep[Inheritance]).subType) FROM interfaceInheritance WHERE ((t: Rep[Inheritance]) =>
-            NOT (t.declaringClass.isInterface) AND
-                NOT (t.declaringClass.isAbstract) AND
-                t.superType == ObjectType ("java/lang/Cloneable") AND
-                NOT (
-                    EXISTS (
-                        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-                            NOT (m.isAbstract) AND
-                                NOT (m.isSynthetic) AND
-                                m.isPublic AND
-                                m.name == "clone" AND
-                                // This is actually never checked by FindBugs
-                                //m.returnType == ObjectType ("java/lang/Object") AND
-                                m.parameterTypes == Nil AND
-                                t.subType == m.declaringType
-                            )
-                    )
-                ) AND
-                NOT (
-                    EXISTS (
-                        SELECT (*) FROM methodInvocationInstructions WHERE ((m: Rep[MethodInvocationInstruction]) =>
-                            m.methodInfo.name == "clone" AND
-                                // This is actually never checked by FindBugs
-                                //m.returnType == ObjectType ("java/lang/Object") AND
-                                m.methodInfo.parameterTypes == Nil AND
-                                t.subType == m.declaringMethod.declaringType
-                            )
-                    )
-                )
-            )
+        val printer = new RelationalAlgebraPrintPlan
+        {
+            val IR = idb.syntax.iql.IR
+        }
+
+        Predef.println (printer.quoteRelation (query))
+
+        query
     }
-
 }

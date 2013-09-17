@@ -30,36 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.operations
 
-import idb.lms.extensions.equivalence._
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
-import idb.lms.extensions.normalization._
-import idb.lms.extensions.reduction._
-import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.operations.CastingOpsExpExt
+import scala.virtualization.lms.common.CastingOpsExp
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
-    with StructExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
-    with StaticDataExpAlphaEquivalence
-    with OptionOpsExpAlphaEquivalence
-    with CastingOpsExpExt
-    with FunctionsExpDynamicLambdaAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with NumericOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
-    with EffectExpBetaReduction
-    with BooleanOpsExpSimplification
-    //with BooleanOpsExpOrdering
-    //with BooleanOpsExpDNFNormalization
+trait CastingOpsExpExt
+    extends CastingOpsExp
 {
+
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
+        case RepIsInstanceOf (lhs, mA, mB) => rep_isinstanceof (f (lhs), mA, mB)
+        case _ => super.mirror (e, f)
+    }).asInstanceOf[Exp[A]]
 
 }

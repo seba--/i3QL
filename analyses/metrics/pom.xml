@@ -17,8 +17,23 @@
     <dependencies>
         <dependency>
             <groupId>de.tud.cs.st.sae.db</groupId>
-            <artifactId>basic-interface</artifactId>
+            <artifactId>interface</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.sae.db</groupId>
+            <artifactId>binding-asm</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.sae</groupId>
+            <artifactId>test-data</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

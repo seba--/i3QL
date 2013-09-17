@@ -59,4 +59,25 @@ class TestASMTypeUtils
         assertEquals (s1, s2)
     }
 
+    @Test
+    def testGetObjectTypeClassName () {
+        val t = Type.getType (classOf[java.lang.Object])
+        val s = ObjectType_ClassName (t)
+        assertEquals ("Object", s)
+    }
+
+
+    @Test
+    def testGetObjectTypePackageName () {
+        val t = Type.getType (classOf[java.lang.Object])
+        val s = ObjectType_PackageName (t)
+        assertEquals ("java/lang", s)
+    }
+
+    @Test
+    def testGetObjectTypeDefaultPackageName () {
+        val t = Type.getObjectType ("LTest;")
+        val s = ObjectType_PackageName (t)
+        assertEquals ("", s)
+    }
 }

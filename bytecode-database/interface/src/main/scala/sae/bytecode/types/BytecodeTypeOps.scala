@@ -32,7 +32,7 @@
  */
 package sae.bytecode.types
 
-import scala.virtualization.lms.common.{Base, StructExp}
+import scala.virtualization.lms.common.Base
 
 /**
  *
@@ -46,11 +46,15 @@ trait BytecodeTypeOps
     import IR._
 
 
-    implicit def objectTypeToInfixOps (i: Rep[ObjectType]) : ObjectTypeInfixOps
+    implicit def objectTypeToInfixOps (i: Rep[ObjectType]): ObjectTypeInfixOps
 
     trait ObjectTypeInfixOps
     {
         def name: Rep[String]
+
+        def packageName: Rep[String]
+
+        def className: Rep[String]
     }
 
 }

@@ -43,9 +43,23 @@ trait ASMTypeUtils
     protected def ArrayType (componentType: Type, dimensions: Int): Type =
         Type.getType ("[" * dimensions + componentType.getDescriptor)
 
-    protected def ObjectType (s: String): Type = Type.getObjectType(s)
+    protected def ObjectType (s: String): Type = Type.getObjectType (s)
 
     protected def ObjectType_Name (t: Type): String = t.getClassName.replaceAll ("\\.", "/")
+
+    protected def ObjectType_ClassName (t: Type): String = {
+        val className = t.getClassName
+        val lastDot = className.lastIndexOf ('.')
+        className.substring (lastDot + 1)
+    }
+
+    protected def ObjectType_PackageName (t: Type): String = {
+        val className = t.getClassName
+        val lastDot = className.lastIndexOf ('.')
+        if (lastDot == -1)
+            return ""
+        className.substring (0, lastDot).replaceAll ("\\.", "/")
+    }
 
 
 }

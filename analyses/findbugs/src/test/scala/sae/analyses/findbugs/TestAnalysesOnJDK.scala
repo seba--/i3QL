@@ -173,32 +173,32 @@ class TestAnalysesOnJDK
         // Findbugs says 92, but it is not clear why the last 10 entries are filtered
         // the respective entries are:
         /*
-FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
-Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,MAX_THUMB_HEIGHT,I,Some(255),
-Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
-Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,MAX_THUMB_WIDTH,I,Some(255),
-Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
-Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,debug,Z,Some(0),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,33,
-Lcom/sun/org/apache/xml/internal/dtm/ref/dom2dtm/DOM2DTMdefaultNamespaceDeclarationNode;,Some(Ljava/lang/Object;),
-WrappedArray(Lorg/w3c/dom/Attr;, Lorg/w3c/dom/TypeInfo;)),16,NOT_SUPPORTED_ERR,Ljava/lang/String;,
-Some(Unsupported operation on pseudonode),Some(Ljava/lang/String;))
-FieldDeclaration(ClassDeclaration(51,33,Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$PrecedingIterator;,
-Some(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase;),WrappedArray()),18,
-_maxAncestors,I,Some(8),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
-Some(Ljava/lang/Object;),WrappedArray()),18,domSource,I,Some(1),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
-Some(Ljava/lang/Object;),WrappedArray()),18,saxSource,I,Some(4),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
-Some(Ljava/lang/Object;),WrappedArray()),18,streamSource,I,Some(2),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,48,Lsun/nio/ch/WindowsSelectorImpl;,Some(Lsun/nio/ch/SelectorImpl;),
-WrappedArray()),18,INIT_CAP,I,Some(8),Some(Ljava/lang/Integer;))
-FieldDeclaration(ClassDeclaration(51,32,Lsun/tracing/dtrace/DTraceProvider;,Some(Lsun/tracing/ProviderSkeleton;),
-WrappedArray()),18,proxyClassNamePrefix,Ljava/lang/String;,Some($DTraceTracingProxy),Some(Ljava/lang/String;))
- */
+        FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
+        Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,MAX_THUMB_HEIGHT,I,Some(255),
+        Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
+        Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,MAX_THUMB_WIDTH,I,Some(255),
+        Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
+        Some(Lcom/sun/imageio/plugins/jpeg/MarkerSegment;),WrappedArray()),18,debug,Z,Some(0),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,33,
+        Lcom/sun/org/apache/xml/internal/dtm/ref/dom2dtm/DOM2DTMdefaultNamespaceDeclarationNode;,Some(Ljava/lang/Object;),
+        WrappedArray(Lorg/w3c/dom/Attr;, Lorg/w3c/dom/TypeInfo;)),16,NOT_SUPPORTED_ERR,Ljava/lang/String;,
+        Some(Unsupported operation on pseudonode),Some(Ljava/lang/String;))
+        FieldDeclaration(ClassDeclaration(51,33,Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$PrecedingIterator;,
+        Some(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase;),WrappedArray()),18,
+        _maxAncestors,I,Some(8),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
+        Some(Ljava/lang/Object;),WrappedArray()),18,domSource,I,Some(1),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
+        Some(Ljava/lang/Object;),WrappedArray()),18,saxSource,I,Some(4),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,48,Lcom/sun/xml/internal/ws/message/source/SourceUtils;,
+        Some(Ljava/lang/Object;),WrappedArray()),18,streamSource,I,Some(2),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,48,Lsun/nio/ch/WindowsSelectorImpl;,Some(Lsun/nio/ch/SelectorImpl;),
+        WrappedArray()),18,INIT_CAP,I,Some(8),Some(Ljava/lang/Integer;))
+        FieldDeclaration(ClassDeclaration(51,32,Lsun/tracing/dtrace/DTraceProvider;,Some(Lsun/tracing/ProviderSkeleton;),
+        WrappedArray()),18,proxyClassNamePrefix,Ljava/lang/String;,Some($DTraceTracingProxy),Some(Ljava/lang/String;))
+        */
     }
 
 
