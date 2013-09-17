@@ -32,7 +32,7 @@
  */
 package sae.analyses.findbugs
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
@@ -163,6 +163,7 @@ class TestAnalysesOnJDK
     }
 
 
+    @Ignore
     @Test
     def test_SS_SHOULD_BE_STATIC () {
         val database = getDatabase

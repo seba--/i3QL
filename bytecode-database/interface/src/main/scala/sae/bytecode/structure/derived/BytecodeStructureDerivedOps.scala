@@ -33,7 +33,7 @@
 package sae.bytecode.structure.derived
 
 import scala.language.implicitConversions
-import scala.virtualization.lms.common.StructExp
+import scala.virtualization.lms.common.Base
 import sae.bytecode.structure.base.BytecodeStructureManifests
 import sae.bytecode.types.BytecodeTypeManifests
 
@@ -47,29 +47,27 @@ trait BytecodeStructureDerivedOps
     with BytecodeStructureManifests
     with BytecodeTypeManifests
 {
-    val IR: StructExp
+    val IR: Base
 
     import IR._
 
 
-    implicit def inheritanceToInfixOps (t: Rep[Inheritance]) =
-        InheritanceInfixOps (t)
+    implicit def inheritanceToInfixOps (t: Rep[Inheritance]): InheritanceInfixOps
 
-    case class InheritanceInfixOps (t: Rep[Inheritance])
+    trait InheritanceInfixOps
     {
-        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](t, "declaringClass")
+        def declaringClass: Rep[ClassDeclaration]
 
-        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+        def superType: Rep[ObjectType]
     }
 
-    implicit def typeRelationToInfixOps (t: Rep[TypeRelation]) =
-        TypeRelationInfixOps (t)
+    implicit def typeRelationToInfixOps (t: Rep[TypeRelation]): TypeRelationInfixOps
 
-    case class TypeRelationInfixOps (t: Rep[TypeRelation])
+    trait TypeRelationInfixOps
     {
-        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+        def superType: Rep[ObjectType]
 
-        def subType: Rep[ObjectType] = field[ObjectType](t, "subType")
+        def subType: Rep[ObjectType]
     }
 
 }

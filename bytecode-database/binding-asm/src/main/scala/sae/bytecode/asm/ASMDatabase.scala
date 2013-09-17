@@ -48,11 +48,14 @@ class ASMDatabase
     with ASMTypeOrdering
     with ASMStructure
     with ASMStructureRelations
+    with ASMStructureOps
     with ASMStructureOrdering
     with ASMStructureDerived
     with ASMStructureDerivedConstructors
+    with ASMStructureDerivedOps
     with ASMInstructions
     with ASMInstructionsRelations
+    with ASMInstructionOps
     with ASMDatabaseManipulation
 {
 

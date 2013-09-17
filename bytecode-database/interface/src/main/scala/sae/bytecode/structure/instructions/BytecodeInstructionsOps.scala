@@ -52,87 +52,82 @@ trait BytecodeInstructionsOps
 
     import IR._
 
-    implicit def instructionToInfixOps (i: Rep[Instruction]) =
-        InstructionInfixOps (i)
+    implicit def instructionToInfixOps (i: Rep[Instruction]): InstructionInfixOps
 
-    implicit def constantValueInstructionToInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]]) =
-        ConstantValueInstructionInfixOps[V] (i)
+    implicit def constantValueInstructionToInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]]):
+    ConstantValueInstructionInfixOps[V]
 
-    implicit def fieldAccessInstructionToInfixOps (i: Rep[FieldAccessInstruction]) =
-        FieldAccessInstructionInfixOps (i)
+    implicit def fieldAccessInstructionToInfixOps (i: Rep[FieldAccessInstruction]): FieldAccessInstructionInfixOps
 
-    implicit def jumpInstructionToInfixOps (i: Rep[JumpInstruction]) =
-        JumpInstructionInfixOps (i)
+    implicit def jumpInstructionToInfixOps (i: Rep[JumpInstruction]): JumpInstructionInfixOps
 
-    implicit def localVariableAccessInstructionToInfixOps (i: Rep[LocalVariableAccessInstruction]) =
-        LocalVariableAccessInstructionInfixOps (i)
+    implicit def localVariableAccessInstructionToInfixOps (i: Rep[LocalVariableAccessInstruction]):
+    LocalVariableAccessInstructionInfixOps
 
-    implicit def methodInvocationInstructionToInfixOps (i: Rep[MethodInvocationInstruction]) =
-        MethodInvocationInstructionInfixOps (i)
+    implicit def methodInvocationInstructionToInfixOps (i: Rep[MethodInvocationInstruction]):
+    MethodInvocationInstructionInfixOps
 
-    implicit def newArrayInstructionToInfixOps[V:Manifest] (i: Rep[NewArrayInstruction[V]]) =
-        NewArrayInstructionInfixOps[V] (i)
+    implicit def newArrayInstructionToInfixOps[V: Manifest] (i: Rep[NewArrayInstruction[V]]):
+    NewArrayInstructionInfixOps[V]
 
-    implicit def objectTypeInstructionToInfixOps (i: Rep[ObjectTypeInstruction]) =
-        ObjectTypeInstructionInfixOps (i)
+    implicit def objectTypeInstructionToInfixOps (i: Rep[ObjectTypeInstruction]): ObjectTypeInstructionInfixOps
 
 
-
-    case class InstructionInfixOps (i: Rep[Instruction])
+    trait InstructionInfixOps
     {
-        def declaringMethod: Rep[MethodDeclaration] = field[MethodDeclaration](i, "declaringMethod")
+        def declaringMethod: Rep[MethodDeclaration]
 
-        def pc: Rep[Int] = field[Int](i, "pc")
+        def pc: Rep[Int]
 
-        def opcode: Rep[Short] = field[Short](i, "opcode")
+        def opcode: Rep[Short]
 
-        def nextPC: Rep[Int] = field[Int](i, "nextPC")
+        def nextPC: Rep[Int]
 
-        def mnemonic: Rep[String] = field[String](i, "mnemonic")
+        def mnemonic: Rep[String]
     }
 
 
-    case class ConstantValueInstructionInfixOps[V: Manifest] (i: Rep[ConstantValueInstruction[V]])
+    trait ConstantValueInstructionInfixOps[V]
     {
-        def value: Rep[V] = field[V](i, "value")
+        def value: Rep[V]
     }
 
 
-    case class FieldAccessInstructionInfixOps (i: Rep[FieldAccessInstruction])
+    trait FieldAccessInstructionInfixOps
     {
-        def fieldInfo: Rep[FieldInfo] = field[FieldInfo](i, "fieldInfo")
+        def fieldInfo: Rep[FieldInfo]
     }
 
 
-    case class JumpInstructionInfixOps (i: Rep[JumpInstruction])
+    trait JumpInstructionInfixOps
     {
-        def offset: Rep[Int] = field[Int](i, "offset")
+        def offset: Rep[Int]
     }
 
 
-    case class LocalVariableAccessInstructionInfixOps (i: Rep[LocalVariableAccessInstruction])
+    trait LocalVariableAccessInstructionInfixOps
     {
-        def lvIndex: Rep[Int] = field[Int](i, "lvIndex")
+        def lvIndex: Rep[Int]
     }
 
 
-    case class MethodInvocationInstructionInfixOps (i: Rep[MethodInvocationInstruction])
+    trait MethodInvocationInstructionInfixOps
     {
-        def methodInfo: Rep[MethodInfo] = field[MethodInfo](i, "methodInfo")
+        def methodInfo: Rep[MethodInfo]
     }
 
 
-    case class NewArrayInstructionInfixOps[+V:Manifest] (i: Rep[NewArrayInstruction[V]])
+    trait NewArrayInstructionInfixOps[+V]
     {
-        def elementType: Rep[V] = field[V](i, "elementType")
+        def elementType: Rep[V]
 
-        def arrayType: Rep[ArrayType[V]] = field[ArrayType[V]](i, "arrayType")
+        def arrayType: Rep[ArrayType[V]]
     }
 
 
-    case class ObjectTypeInstructionInfixOps (i: Rep[ObjectTypeInstruction])
+    trait ObjectTypeInstructionInfixOps
     {
-        def objectType: Rep[ObjectType] = field[ObjectType](i, "objectType")
+        def objectType: Rep[ObjectType]
     }
 
 }

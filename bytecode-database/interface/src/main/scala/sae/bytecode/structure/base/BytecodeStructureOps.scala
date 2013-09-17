@@ -33,7 +33,7 @@
 package sae.bytecode.structure.base
 
 import scala.language.implicitConversions
-import scala.virtualization.lms.common.StructExp
+import scala.virtualization.lms.common.{Base, StructExp}
 import sae.bytecode.types.BytecodeTypeManifests
 
 /**
@@ -42,223 +42,210 @@ import sae.bytecode.types.BytecodeTypeManifests
  */
 trait BytecodeStructureOps
     extends BytecodeStructure
-    with BytecodeStructureManifests
-    with BytecodeTypeManifests
 {
 
-    val IR: StructExp
+    val IR: Base
 
-    import IR._
+    import IR.Rep
 
-    implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]) =
-        ClassDeclarationInfixOps (c)
+    implicit def classDeclarationToInfixOps (c: Rep[ClassDeclaration]): ClassDeclarationInfixOps
 
-    implicit def fieldInfoToInfixOps (f: Rep[FieldInfo]) =
-        FieldInfoInfixOps (f)
+    implicit def fieldInfoToInfixOps (f: Rep[FieldInfo]) : FieldInfoInfixOps
 
-    implicit def fieldDeclarationToInfixOps (f: Rep[FieldDeclaration]) =
-        FieldDeclarationInfixOps (f)
+    implicit def fieldDeclarationToInfixOps (f: Rep[FieldDeclaration]) : FieldDeclarationInfixOps
 
-    implicit def fieldDeclarationToDeclaredClassMemberInfixOps (f: Rep[FieldDeclaration]) =
-        DeclaredClassMemberInfixOps (f)
+    implicit def fieldDeclarationToDeclaredClassMemberInfixOps (f: Rep[FieldDeclaration]): DeclaredClassMemberInfixOps
 
-    implicit def methodDeclarationToDeclaredClassMemberInfixOps (m: Rep[MethodDeclaration]) =
-        DeclaredClassMemberInfixOps (m)
+    implicit def methodDeclarationToDeclaredClassMemberInfixOps (m: Rep[MethodDeclaration]): DeclaredClassMemberInfixOps
 
-    implicit def methodDeclarationToInfixOps (m: Rep[MethodDeclaration]) =
-        new MethodDeclarationInfixOps (m)
+    implicit def methodDeclarationToInfixOps (m: Rep[MethodDeclaration]) : MethodDeclarationInfixOps
 
-    implicit def methodInfoToInfixOps (m: Rep[MethodInfo]) =
-        MethodInfoInfixOps (m)
+    implicit def methodInfoToInfixOps (m: Rep[MethodInfo]): MethodInfoInfixOps
 
-    implicit def codeAttributeToInfixOps (c: Rep[CodeAttribute]) =
-        CodeAttributeInfixOps (c)
+    implicit def codeAttributeToInfixOps (c: Rep[CodeAttribute]) : CodeAttributeInfixOps
 
-    implicit def exceptionHandlerToInfixOps (e: Rep[ExceptionHandler]) =
-        ExceptionHandlerInfixOps (e)
+    implicit def exceptionHandlerToInfixOps (e: Rep[ExceptionHandler]) : ExceptionHandlerInfixOps
 
-    implicit def innerClassAttributeToInfixOps (i: Rep[InnerClassAttribute]) =
-        InnerClassAttributeInfixOps (i)
+    implicit def innerClassAttributeToInfixOps (i: Rep[InnerClassAttribute]) : InnerClassAttributeInfixOps
 
-    implicit def enclosingMethodAttributeToInfixOps (e: Rep[EnclosingMethodAttribute]) =
-        EnclosingMethodAttributeInfixOps (e)
+    implicit def enclosingMethodAttributeToInfixOps (e: Rep[EnclosingMethodAttribute]) : EnclosingMethodAttributeInfixOps
 
 
-    case class ClassDeclarationInfixOps (c: Rep[ClassDeclaration])
+    trait ClassDeclarationInfixOps
     {
 
-        def minorVersion: Rep[Int] = field[Int](c, "minorVersion")
+        def minorVersion: Rep[Int]
 
-        def majorVersion: Rep[Int] = field[Int](c, "majorVersion")
+        def majorVersion: Rep[Int]
 
-        def accessFlags: Rep[Int] = field[Int](c, "accessFlags")
+        def accessFlags: Rep[Int]
 
-        def classType: Rep[ObjectType] = field[ObjectType](c, "classType")
+        def classType: Rep[ObjectType]
 
-        def superType: Rep[Option[ObjectType]] = field[Option[ObjectType]](c, "superType")
+        def superType: Rep[Option[ObjectType]]
 
-        def interfaces: Rep[Seq[ObjectType]] = field[Seq[ObjectType]](c, "interfaces")
+        def interfaces: Rep[Seq[ObjectType]]
 
         // Note that the following are rather derived values and not technically fields
         // But the code generation will just make them o.fieldName calls, which are valid
-        def isAnnotation: Rep[Boolean] = field[Boolean](c, "isAnnotation")
+        def isAnnotation: Rep[Boolean]
 
-        def isClass: Rep[Boolean] = field[Boolean](c, "isClass")
+        def isClass: Rep[Boolean]
 
-        def isEnum: Rep[Boolean] = field[Boolean](c, "isEnum")
+        def isEnum: Rep[Boolean]
 
-        def isInterface: Rep[Boolean] = field[Boolean](c, "isInterface")
+        def isInterface: Rep[Boolean]
 
-        def isPublic: Rep[Boolean] = field[Boolean](c, "isPublic")
+        def isPublic: Rep[Boolean]
 
-        def isDefault: Rep[Boolean] = field[Boolean](c, "isDefault")
+        def isDefault: Rep[Boolean]
 
-        def isFinal: Rep[Boolean] = field[Boolean](c, "isFinal")
+        def isFinal: Rep[Boolean]
 
-        def isAbstract: Rep[Boolean] = field[Boolean](c, "isAbstract")
+        def isAbstract: Rep[Boolean]
 
-        def isSynthetic: Rep[Boolean] = field[Boolean](c, "isSynthetic")
-
-    }
-
-    case class DeclaredClassMemberInfixOps (m: Rep[DeclaredClassMember])
-    {
-
-        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](m, "declaringClass")
-
-        def declaringType: Rep[ObjectType] = field[ObjectType](m, "declaringType")
-
-        def accessFlags: Rep[Int] = field[Int](m, "accessFlags")
-
-        def name: Rep[String] = field[String](m, "name")
-
-        def isPublic: Rep[Boolean] = field[Boolean](m, "isPublic")
-
-        def isProtected: Rep[Boolean] = field[Boolean](m, "isProtected")
-
-        def isPrivate: Rep[Boolean] = field[Boolean](m, "isPrivate")
-
-        def isStatic: Rep[Boolean] = field[Boolean](m, "isStatic")
-
-        def isFinal: Rep[Boolean] = field[Boolean](m, "isFinal")
-    }
-
-
-    case class FieldInfoInfixOps (f: Rep[FieldInfo])
-    {
-        def declaringType: Rep[ReferenceType] = field[ReferenceType](f, "declaringType")
-
-        def name: Rep[String] = field[String](f, "name")
-
-        def fieldType: Rep[Type] = field[Type](f, "fieldType")
-    }
-
-    case class FieldDeclarationInfixOps (f: Rep[FieldDeclaration])
-    {
-        def fieldType: Rep[Type] = field[Type](f, "fieldType")
-
-        def value: Rep[Option[Any]] = field[Option[Any]](f, "value")
-
-        def valueType: Rep[Option[FieldType]] = field[Option[FieldType]](f, "valueType")
-
-        def isTransient: Rep[Boolean] = field[Boolean](f, "isTransient")
-
-        def isVolatile: Rep[Boolean] = field[Boolean](f, "isVolatile")
-
-        def isEnum: Rep[Boolean] = field[Boolean](f, "isEnum")
-
-        def isSynthetic: Rep[Boolean] = field[Boolean](f, "isSynthetic")
-    }
-
-    case class MethodInfoInfixOps (m: Rep[MethodInfo])
-    {
-        def receiverType: Rep[ReferenceType] = field[ReferenceType](m, "receiverType")
-
-        def name: Rep[String] = field[String](m, "name")
-
-        def returnType: Rep[Type] = field[Type](m, "returnType")
-
-        def parameterTypes: Rep[Seq[FieldType]] = field[Seq[FieldType]](m, "parameterTypes")
-    }
-
-    case class MethodDeclarationInfixOps (m: Rep[MethodDeclaration])
-    {
-
-        def receiverType: Rep[ReferenceType] = field[ReferenceType](m, "receiverType")
-
-        def returnType: Rep[Type] = field[Type](m, "returnType")
-
-        def parameterTypes: Rep[Seq[FieldType]] = field[Seq[FieldType]](m, "parameterTypes")
-
-        def isSynchronized: Rep[Boolean] = field[Boolean](m, "isSynchronized")
-
-        def isBridge: Rep[Boolean] = field[Boolean](m, "isBridge")
-
-        def isVarArgs: Rep[Boolean] = field[Boolean](m, "isVarArgs")
-
-        def isNative: Rep[Boolean] = field[Boolean](m, "isNative")
-
-        def isAbstract: Rep[Boolean] = field[Boolean](m, "isAbstract")
-
-        def isStrict: Rep[Boolean] = field[Boolean](m, "isStrict")
-
-        def isSynthetic: Rep[Boolean] = field[Boolean](m, "isSynthetic")
+        def isSynthetic: Rep[Boolean]
 
     }
 
-
-    case class CodeAttributeInfixOps (c: Rep[CodeAttribute])
+    trait DeclaredClassMemberInfixOps
     {
-        def declaringMethod: Rep[MethodDeclaration] = field[MethodDeclaration](c, "declaringMethod")
 
-        def codeLength: Rep[Int] = field[Int](c, "codeLength")
+        def declaringClass: Rep[ClassDeclaration]
 
-        def maxStack: Rep[Int] = field[Int](c, "maxStack")
+        def declaringType: Rep[ObjectType]
 
-        def maxLocals: Rep[Int] = field[Int](c, "maxLocals")
+        def accessFlags: Rep[Int]
 
-        def exceptionHandlers: Rep[Seq[ExceptionHandler]] = field[Seq[ExceptionHandler]](c, "exceptionHandlers")
-    }
+        def name: Rep[String]
 
-    case class ExceptionHandlerInfixOps (e: Rep[ExceptionHandler])
-    {
-        def declaringMethod: Rep[MethodDeclaration] = field[MethodDeclaration](e, "declaringMethod")
+        def isPublic: Rep[Boolean]
 
-        def catchType: Rep[Option[Type]] = field[Option[Type]](e, "catchType")
+        def isProtected: Rep[Boolean]
 
-        def startPC: Rep[Int] = field[Int](e, "startPC")
+        def isPrivate: Rep[Boolean]
 
-        def endPC: Rep[Int] = field[Int](e, "endPC")
+        def isStatic: Rep[Boolean]
 
-        def handlerPC: Rep[Int] = field[Int](e, "handlerPC")
+        def isFinal: Rep[Boolean]
     }
 
 
-    case class InnerClassAttributeInfixOps (i: Rep[InnerClassAttribute])
+    trait FieldInfoInfixOps
     {
-        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](i, "declaringClass")
+        def declaringType: Rep[ReferenceType]
 
-        def innerClassType: Rep[Type] = field[Type](i, "innerClassType")
+        def name: Rep[String]
 
-        def outerClassType: Rep[Option[Type]] = field[Option[Type]](i, "outerClassType")
+        def fieldType: Rep[Type]
+    }
 
-        def innerName: Rep[Option[String]] = field[Option[String]](i, "innerName")
+    trait FieldDeclarationInfixOps
+    {
+        def fieldType: Rep[Type] 
 
-        def innerClassAccessFlags: Rep[Int] = field[Int](i, "innerClassAccessFlags")
+        def value: Rep[Option[Any]] 
+
+        def valueType: Rep[Option[FieldType]] 
+
+        def isTransient: Rep[Boolean] 
+
+        def isVolatile: Rep[Boolean] 
+
+        def isEnum: Rep[Boolean] 
+
+        def isSynthetic: Rep[Boolean] 
+    }
+
+    trait MethodInfoInfixOps
+    {
+        def receiverType: Rep[ReferenceType] 
+
+        def name: Rep[String] 
+
+        def returnType: Rep[Type] 
+
+        def parameterTypes: Rep[Seq[FieldType]] 
+    }
+
+    trait MethodDeclarationInfixOps
+    {
+
+        def receiverType: Rep[ReferenceType] 
+
+        def returnType: Rep[Type] 
+
+        def parameterTypes: Rep[Seq[FieldType]] 
+
+        def isSynchronized: Rep[Boolean] 
+
+        def isBridge: Rep[Boolean] 
+
+        def isVarArgs: Rep[Boolean] 
+
+        def isNative: Rep[Boolean] 
+
+        def isAbstract: Rep[Boolean] 
+
+        def isStrict: Rep[Boolean] 
+
+        def isSynthetic: Rep[Boolean] 
+
     }
 
 
-    case class EnclosingMethodAttributeInfixOps (e: Rep[EnclosingMethodAttribute])
+    trait CodeAttributeInfixOps
     {
-        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](e, "declaringClass")
+        def declaringMethod: Rep[MethodDeclaration] 
 
-        def name: Rep[Option[String]] = field[Option[String]](e, "name")
+        def codeLength: Rep[Int] 
 
-        def parameterTypes: Rep[Option[Seq[FieldType]]] = field[Option[Seq[FieldType]]](e, "parameterTypes")
+        def maxStack: Rep[Int] 
 
-        def returnType: Rep[Option[Type]] = field[Option[Type]](e, "returnType")
+        def maxLocals: Rep[Int] 
 
-        def outerClassType: Rep[ObjectType] = field[ObjectType](e, "outerClassType")
+        def exceptionHandlers: Rep[Seq[ExceptionHandler]] 
+    }
+
+    trait ExceptionHandlerInfixOps
+    {
+        def declaringMethod: Rep[MethodDeclaration] 
+
+        def catchType: Rep[Option[Type]] 
+
+        def startPC: Rep[Int] 
+
+        def endPC: Rep[Int] 
+
+        def handlerPC: Rep[Int] 
+    }
+
+
+    trait InnerClassAttributeInfixOps
+    {
+        def declaringClass: Rep[ClassDeclaration] 
+
+        def innerClassType: Rep[Type] 
+
+        def outerClassType: Rep[Option[Type]] 
+
+        def innerName: Rep[Option[String]] 
+
+        def innerClassAccessFlags: Rep[Int] 
+    }
+
+
+    trait EnclosingMethodAttributeInfixOps
+    {
+        def declaringClass: Rep[ClassDeclaration] 
+
+        def name: Rep[Option[String]] 
+
+        def parameterTypes: Rep[Option[Seq[FieldType]]] 
+
+        def returnType: Rep[Option[Type]] 
+
+        def outerClassType: Rep[ObjectType] 
     }
 
 

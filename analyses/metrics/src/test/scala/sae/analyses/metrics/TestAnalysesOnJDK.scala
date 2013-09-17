@@ -50,12 +50,21 @@ class TestAnalysesOnJDK
     def getDatabase = ASMDatabaseFactory.create ()
 
 
-    @Ignore
+
     @Test
     def test_CA () {
         val database = getDatabase
         val analysis = CA (database).asMaterialized
         database.addArchive (getStream)
+    }
+
+    @Ignore
+    @Test
+    def test_CE () {
+        val database = getDatabase
+        val analysis = CE (database).asMaterialized
+        database.addArchive (getStream)
+        println(analysis.size)
     }
 
 

@@ -49,12 +49,16 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 object CE
     extends ClassDependencies
 {
-    def apply (database: BytecodeDatabase): Relation[Any /*(String, Int)*/ ] = {
+    def apply (database: BytecodeDatabase): Relation[Any /*(String, Int)*/] = {
         import database._
         val query =
-            SELECT /* DISTINCT */ (COUNT (*)) FROM classDependencies (database) WHERE (
+            SELECT /*DISTINCT*/ (
+                //(s:Rep[String]) => s,
+                ///COUNT((d: Rep[Dependency[ObjectType]]) => d)
+                *
+            ) FROM classDependencies (database) WHERE (
                 (d: Rep[Dependency[ObjectType]]) => d.source.packageName != d.target.packageName
-                ) // GROUP BY (_.source.packageName)
+                ) //GROUP BY ( (d: Rep[Dependency[ObjectType]]) => d.source.packageName)
 
         val printer = new RelationalAlgebraPrintPlan
         {

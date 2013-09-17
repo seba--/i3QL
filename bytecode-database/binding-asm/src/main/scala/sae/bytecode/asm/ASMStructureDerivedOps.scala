@@ -30,29 +30,49 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected
+package sae.bytecode.asm
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import scala.virtualization.lms.common.StructExp
+import sae.bytecode.structure.derived.{BytecodeStructureDerivedOps, BytecodeStructureDerivedManifests}
+import sae.bytecode.structure.base.BytecodeStructureManifests
+import sae.bytecode.types.BytecodeTypeManifests
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-object FI_PUBLIC_SHOULD_BE_PROTECTED
+trait ASMStructureDerivedOps
+    extends ASMStructureDerived
+    with BytecodeStructureDerivedOps
+    with BytecodeStructureDerivedManifests
+    with BytecodeStructureManifests
+    with BytecodeTypeManifests
 {
+    val IR: StructExp
 
-    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodDeclaration] = {
-        import database._
-        SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
-            m.isPublic AND
-                m.name == "finalize" AND
-                m.returnType == void AND
-                m.parameterTypes == Nil
-            )
+    import IR._
+
+
+    override implicit def inheritanceToInfixOps (t: Rep[Inheritance]) =
+        InheritanceInfixOps (t)
+
+    case class InheritanceInfixOps (t: Rep[Inheritance])
+        extends super.InheritanceInfixOps
+    {
+        def declaringClass: Rep[ClassDeclaration] = field[ClassDeclaration](t, "declaringClass")
+
+        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+    }
+
+    override implicit def typeRelationToInfixOps (t: Rep[TypeRelation]) =
+        TypeRelationInfixOps (t)
+
+    case class TypeRelationInfixOps (t: Rep[TypeRelation])
+        extends super.TypeRelationInfixOps
+    {
+        def superType: Rep[ObjectType] = field[ObjectType](t, "superType")
+
+        def subType: Rep[ObjectType] = field[ObjectType](t, "subType")
     }
 
 }
