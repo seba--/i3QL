@@ -18,7 +18,7 @@ case class SelectTupledAggregateClause1[Select : Manifest, Domain : Manifest, Ra
 		relation : Rep[Query[Domain]]
 	) =
 		aggregation match {
-			case selfMaintained : AggregateFunctionSelfMaintained[Domain, RangeB] => {
+			case selfMaintained : AggregateFunctionSelfMaintained[_, _] => {
 				FromClause1[Select, Domain, (RangeA, RangeB)] (
 					relation,
 					SelectAggregateClause (

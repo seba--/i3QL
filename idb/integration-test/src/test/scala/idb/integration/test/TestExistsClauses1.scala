@@ -37,7 +37,7 @@ import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.syntax.iql._
 import org.junit.Assert._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import scala.language.implicitConversions
 
 
@@ -49,7 +49,7 @@ class TestExistsClauses1
     extends UniversityTestData
 {
 
-
+	@Ignore
     @Test
     def testExists () {
         val result = compile (
