@@ -30,49 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.demo.chartparser.kilbury
 
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.lms.extensions.print.QuoteFunction
-import junit.framework.Assert
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
+import idb.SetExtent
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with StaticDataExp
-    with OptionOpsExp
-    with StringOpsExpExt
-    with SeqOpsExpExt
-    with TupledFunctionsExp
-    with FunctionUtils
+trait Parser
+    extends Scanner
 {
 
-    val printer = new QuoteFunction
-    {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
-    }
+    val productions = SetExtent.empty[Production]()
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
-        }
-    }
+    def topLevelCategory: Category
 
+    val activeEdges: Rep[Query[Edge]] =
+        SELECT (
+            (p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail)
+        ) FROM(productions.asMaterialized, passiveEdges) WHERE (
+            (p: Rep[Production], e: Rep[Edge]) => p.body.head == e.category
+            )
 
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals (b)) {
-            Assert.fail (message)
-        }
-    }
+    val initialEdges: Rep[Query[Edge]] = passiveEdges UNION ALL (activeEdges)
+
+    val combinedEdges: Rep[Query[Edge]] =
+        WITH RECURSIVE (
+            (edges: Rep[Query[Edge]]) =>
+                initialEdges UNION ALL (
+                    SELECT ((active: Rep[Edge], passive: Rep[Edge]) =>
+                        ActiveEdge (active.start, passive.end, active.category, active.next.tail)
+
+                    ) FROM(edges, edges) WHERE ((active: Rep[Edge], other: Rep[Edge]) =>
+                        other.isPassive AND
+                            active.end == other.start AND
+                            active.next.head == other.category
+                        )
+                )
+            )
+
+    val success: Rep[Query[Edge]] =
+        SELECT (*) FROM combinedEdges WHERE (_.category == topLevelCategory)
 }

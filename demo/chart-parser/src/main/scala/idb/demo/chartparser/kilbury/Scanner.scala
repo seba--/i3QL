@@ -30,49 +30,28 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.demo.chartparser.kilbury
 
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.lms.extensions.print.QuoteFunction
-import junit.framework.Assert
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.SetExtent
+import idb.demo.chartparser.schema.ParserSchema
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with StaticDataExp
-    with OptionOpsExp
-    with StringOpsExpExt
-    with SeqOpsExpExt
-    with TupledFunctionsExp
-    with FunctionUtils
+trait Scanner
+    extends ParserSchema
 {
+    val terminals = SetExtent.empty[Terminal]()
 
-    val printer = new QuoteFunction
-    {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
-    }
+    val input = SetExtent.empty[InputToken]()
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
-        }
-    }
-
-
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals (b)) {
-            Assert.fail (message)
-        }
-    }
+    val passiveEdges: Rep[Query[Edge]] =
+        SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
+            PassiveEdge (in.position, in.position + 1, t.category)
+        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
+            t.tokenValue == in.value
+            )
 }

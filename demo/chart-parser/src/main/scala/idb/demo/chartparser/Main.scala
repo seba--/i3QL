@@ -30,49 +30,62 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.demo.chartparser
 
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.lms.extensions.print.QuoteFunction
-import junit.framework.Assert
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.algebra.print.RelationalAlgebraPrintPlan
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with StaticDataExp
-    with OptionOpsExp
-    with StringOpsExpExt
-    with SeqOpsExpExt
-    with TupledFunctionsExp
-    with FunctionUtils
+object Main
 {
 
-    val printer = new QuoteFunction
+    val printer = new RelationalAlgebraPrintPlan
     {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
+        val IR = idb.syntax.iql.IR
     }
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
-        }
+    def main (args: Array[String]) {
+
+        val words = List ("time", "flies", "like", "an", "arrow")
+
+        val parser = KilburySentenceParser
+
+        println(printer.quoteRelation(parser.passiveEdges))
+
+
+        println(printer.quoteRelation(parser.activeEdges))
+
+
+
+        val result = parser.combinedEdges.asMaterialized
+
+        words.zipWithIndex.foreach (parser.input += _)
+
+        result.foreach(println)
     }
 
 
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals (b)) {
-            Assert.fail (message)
-        }
+    object KilburySentenceParser
+        extends kilbury.Parser
+    {
+        def topLevelCategory = "Sentence"
+
+        productions +=("Sentence", Seq ("Noun Phrase", "Verb Phrase"))
+        productions +=("Verb Phrase", Seq ("Verb"))
+        productions +=("Verb Phrase", Seq ("Verb", "Noun Phrase"))
+        productions +=("Noun Phrase", Seq ("Noun"))
+        productions +=("Noun Phrase", Seq ("Noun Phrase", "Preposition Phrase"))
+        productions +=("Preposition Phrase", Seq ("Preposition", "Noun Phrase"))
+
+        terminals +=("an", "Determiner")
+        terminals +=("arrow", "Noun")
+        terminals +=("flies", "Noun")
+        terminals +=("flies", "Verb")
+        terminals +=("like", "Preposition")
+        terminals +=("like", "Verb")
+        terminals +=("time", "Noun")
     }
+
 }

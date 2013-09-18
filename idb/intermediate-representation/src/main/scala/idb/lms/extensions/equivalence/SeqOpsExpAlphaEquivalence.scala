@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.SeqOpsExp
+import idb.lms.extensions.operations.SeqOpsExpExt
 
 /**
  *
@@ -41,15 +41,20 @@ import scala.virtualization.lms.common.SeqOpsExp
  */
 
 trait SeqOpsExpAlphaEquivalence
-    extends SeqOpsExp
+    extends SeqOpsExpExt
     with BaseExpAlphaEquivalence
 {
 
     override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
-            case (SeqNew (xs), SeqNew (ys)) => {
+            case (SeqNew (xs), SeqNew (ys)) =>
                 isEquivalentSeq (xs, ys)
-            }
+
+            case (SeqHead (x), SeqHead (y)) =>
+                isEquivalent (x, y)
+
+            case (SeqTail (x), SeqTail (y)) =>
+                isEquivalent (x, y)
 
             case (SeqLength (x), SeqLength (y)) =>
                 isEquivalent (x, y)

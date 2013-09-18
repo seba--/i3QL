@@ -30,49 +30,81 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.demo.chartparser.schema
 
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.lms.extensions.print.QuoteFunction
-import junit.framework.Assert
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with StaticDataExp
-    with OptionOpsExp
-    with StringOpsExpExt
-    with SeqOpsExpExt
-    with TupledFunctionsExp
-    with FunctionUtils
+trait ParserSchema
 {
 
-    val printer = new QuoteFunction
+
+    type Edge = (Int, Int, Category, Seq[Category])
+
+    type Category = String
+
+    type Terminal = (String, Category)
+
+    type InputToken = (String, Int)
+
+    type Production = (Category, Seq[Category])
+
+    def PassiveEdge (i: Rep[Int], j: Rep[Int], A: Rep[Category]): Rep[Edge] = (i, j, A, List ())
+
+    def ActiveEdge (i: Rep[Int], j: Rep[Int], A: Rep[Category], next: Rep[Seq[Category]]): Rep[Edge] = (i, j, A, next)
+
+    implicit def edgeToInfixOps (t: Rep[Edge]) =
+        EdgeInfixOps (t)
+
+    implicit def tokenToInfixOps (t: Rep[InputToken]) =
+        TokenInfixOps (t)
+
+    implicit def terminalToInfixOps (t: Rep[Terminal]) =
+        TerminalInfixOps (t)
+
+    implicit def productionToInfixOps (t: Rep[Production]) =
+        ProductionInfixOps (t)
+
+
+    case class EdgeInfixOps (c: Rep[Edge])
     {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
+
+        def start: Rep[Int] = c._1
+
+        def end: Rep[Int] = c._2
+
+        def category: Rep[Category] = c._3
+
+        def next: Rep[Seq[Category]] = c._4
+
+        def isPassive: Rep[Boolean] = next == Nil
     }
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
-        }
+    case class TokenInfixOps (t: Rep[InputToken])
+    {
+        def value: Rep[String] = t._1
+
+        def position: Rep[Int] = t._2
     }
 
+    case class TerminalInfixOps (t: Rep[Terminal])
+    {
 
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals (b)) {
-            Assert.fail (message)
-        }
+        def tokenValue: Rep[String] = t._1
+
+        def category: Rep[Category] = t._2
     }
+
+    case class ProductionInfixOps (t: Rep[Production])
+    {
+
+        def head: Rep[Category] = t._1
+
+        def body: Rep[Seq[Category]] = t._2
+    }
+
 }

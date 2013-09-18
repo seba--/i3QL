@@ -129,11 +129,11 @@ object ClauseToAlgebra {
 						crossProduct(
 							relationA,
 							relationB
-						),
+						)(mDomA.asInstanceOf[Manifest[Any]], mDomB.asInstanceOf[Manifest[Any]]),
 						predicate
-					),
+					)(mSel.asInstanceOf[Manifest[(Any,Any)]]),
 					select
-				)
+				)(mSel, manifest[(DomainA, DomainB)].asInstanceOf[Manifest[(Any,Any)]], mRan)
 
 			case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
 				applyGroupedSelectClause(

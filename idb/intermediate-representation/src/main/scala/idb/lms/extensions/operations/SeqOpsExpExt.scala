@@ -30,49 +30,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.operations
 
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.lms.extensions.print.QuoteFunction
-import junit.framework.Assert
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import scala.virtualization.lms.common.{ScalaGenSeqOps, SeqOpsExp, CastingOpsExp}
+import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils
-    extends ScalaOpsPkgExp
-    with StructExp
-    with StaticDataExp
-    with OptionOpsExp
-    with StringOpsExpExt
-    with SeqOpsExpExt
-    with TupledFunctionsExp
-    with FunctionUtils
+trait SeqOpsExpExt
+    extends SeqOpsExp
 {
 
-    val printer = new QuoteFunction
-    {
-        val IR: LMSTestUtils.this.type = LMSTestUtils.this
+    override implicit def varToSeqOps[A:Manifest](x: Var[Seq[A]]) = new SeqOpsClsExt(readVar(x))
+    override implicit def repSeqToSeqOps[T:Manifest](a: Rep[Seq[T]]) = new SeqOpsClsExt(a)
+    override implicit def seqToSeqOps[T:Manifest](a: Seq[T]) = new SeqOpsClsExt(unit(a))
+
+    class SeqOpsClsExt[T:Manifest](a: Rep[Seq[T]]) extends SeqOpsCls[T](a) {
+        def head(implicit pos: SourceContext) = seq_head(a)
+        def tail(implicit pos: SourceContext) = seq_tail(a)
     }
 
-    def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
-        if (a != b) {
-            Assert.fail (message)
-        }
-    }
+    case class SeqHead[T:Manifest](xs: Exp[Seq[T]]) extends Def[T]
+    case class SeqTail[T:Manifest](xs: Exp[Seq[T]]) extends Def[Seq[T]]
 
 
-    def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
-        val expectedString = printer.quoteFunction (a)
-        val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
-        if (a.equals (b)) {
-            Assert.fail (message)
-        }
+    def seq_head[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[T] = SeqHead(xs)
+    def seq_tail[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[Seq[T]] = SeqTail(xs)
+
+
+
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
+        case SeqHead (xs) => seq_head (f (xs))
+        case SeqTail (xs) => seq_tail (f (xs))
+        case _ => super.mirror (e, f)
+    }).asInstanceOf[Exp[A]]
+
+}
+
+
+trait ScalaGenSeqOpsExt
+extends ScalaGenSeqOps
+{
+    val IR: SeqOpsExpExt
+    import IR._
+
+    override def emitNode(sym: Sym[Any], rhs: Def[Any]) = rhs match {
+        case SeqHead(xs) => emitValDef(sym, quote(xs) + ".head")
+        case SeqTail(xs) => emitValDef(sym, quote(xs) + ".tail")
+        case _ => super.emitNode(sym, rhs)
     }
 }
