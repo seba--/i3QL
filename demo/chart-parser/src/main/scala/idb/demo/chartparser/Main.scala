@@ -52,18 +52,15 @@ object Main
 
         val parser = KilburySentenceParser
 
-        println(printer.quoteRelation(parser.passiveEdges))
-
-
-        println(printer.quoteRelation(parser.activeEdges))
-
-
-
-        val result = parser.combinedEdges.asMaterialized
+        val result = parser.parseTrees.asMaterialized
 
         words.zipWithIndex.foreach (parser.input += _)
 
-        result.foreach(println)
+        implicit val ord = parser.edgeOrdering
+
+        result.asList.sorted.foreach(println)
+
+
     }
 
 
@@ -75,7 +72,9 @@ object Main
         productions +=("Sentence", Seq ("Noun Phrase", "Verb Phrase"))
         productions +=("Verb Phrase", Seq ("Verb"))
         productions +=("Verb Phrase", Seq ("Verb", "Noun Phrase"))
+        productions +=("Verb Phrase", Seq ("Verb Phrase", "Preposition Phrase"))
         productions +=("Noun Phrase", Seq ("Noun"))
+        productions +=("Noun Phrase", Seq ("Determiner", "Noun"))
         productions +=("Noun Phrase", Seq ("Noun Phrase", "Preposition Phrase"))
         productions +=("Preposition Phrase", Seq ("Preposition", "Noun Phrase"))
 

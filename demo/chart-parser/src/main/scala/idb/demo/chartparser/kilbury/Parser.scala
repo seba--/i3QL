@@ -48,6 +48,7 @@ trait Parser
 
     def topLevelCategory: Category
 
+    /*
     val activeEdges: Rep[Query[Edge]] =
         SELECT (
             (p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail)
@@ -56,22 +57,31 @@ trait Parser
             )
 
     val initialEdges: Rep[Query[Edge]] = passiveEdges UNION ALL (activeEdges)
+    */
 
-    val combinedEdges: Rep[Query[Edge]] =
+    val parseTrees: Rep[Query[Edge]] =
         WITH RECURSIVE (
             (edges: Rep[Query[Edge]]) =>
-                initialEdges UNION ALL (
-                    SELECT ((active: Rep[Edge], passive: Rep[Edge]) =>
-                        ActiveEdge (active.start, passive.end, active.category, active.next.tail)
-
-                    ) FROM(edges, edges) WHERE ((active: Rep[Edge], other: Rep[Edge]) =>
-                        other.isPassive AND
-                            active.end == other.start AND
-                            active.next.head == other.category
+                passiveEdges UNION ALL (
+                        // derive edges from productions
+                        SELECT ((p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail))
+                        FROM(productions.asMaterialized, edges) WHERE (
+                            (p: Rep[Production], e: Rep[Edge]) => e.isPassive AND p.body.head == e.category
                         )
+                        UNION ALL (
+                        // combine edges
+                        SELECT ((active: Rep[Edge], passive: Rep[Edge]) =>
+                            ActiveEdge (active.start, passive.end, active.category, active.next.tail))
+                        FROM(edges, edges) WHERE ((left: Rep[Edge], right: Rep[Edge]) =>
+                            left.isActive AND
+                            right.isPassive AND
+                            left.end == right.start AND
+                            left.next.head == right.category
+                        )
+                    )
                 )
             )
 
     val success: Rep[Query[Edge]] =
-        SELECT (*) FROM combinedEdges WHERE (_.category == topLevelCategory)
+        SELECT (*) FROM parseTrees WHERE (_.category == topLevelCategory)
 }

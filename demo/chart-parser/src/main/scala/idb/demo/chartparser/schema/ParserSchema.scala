@@ -45,6 +45,23 @@ trait ParserSchema
 
     type Edge = (Int, Int, Category, Seq[Category])
 
+    implicit def edgeOrdering (): Ordering[Edge] = new Ordering[Edge]
+    {
+        def compare (x: Edge, y: Edge): Int = {
+            val comp1 = x._1.compareTo (y._1)
+            if (comp1 != 0)
+                return comp1
+            val comp2 = x._2.compareTo (y._2)
+            if (comp2 != 0)
+                return comp2
+            val comp3 = x._3.compareTo (y._3)
+            if (comp3 != 0)
+                return comp3
+            val comp4 = if(x._4 == y._4) 0 else 1
+            return comp4
+        }
+    }
+
     type Category = String
 
     type Terminal = (String, Category)
@@ -82,6 +99,8 @@ trait ParserSchema
         def next: Rep[Seq[Category]] = c._4
 
         def isPassive: Rep[Boolean] = next == Nil
+
+        def isActive: Rep[Boolean] = next != Nil
     }
 
     case class TokenInfixOps (t: Rep[InputToken])
