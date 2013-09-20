@@ -6,19 +6,15 @@ import idb.syntax.iql._
 /**
  * @author Mirko Köhler
  */
-case class AggregateTupledFunctionNotSelfMaintained[Select : Manifest, Domain : Manifest, Range : Manifest](
-	start : Any,
-	added : Rep[((Domain, Any, Iterable[Domain])) => Any],
-	removed : Rep[((Domain, Any, Iterable[Domain])) => Any],
-	updated : Rep[((Domain, Domain, Any, Iterable[Domain])) => Any],
-	project : Rep[Select => Any]
-) extends AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, Any, Any, Range]
+case class AggregateTupledFunctionNotSelfMaintained[Select : Manifest, Domain : Manifest, RangeA, RangeB, Range : Manifest](
+	start : RangeB,
+	added : Rep[((Domain, RangeB, Iterable[Domain])) => RangeB],
+	removed : Rep[((Domain, RangeB, Iterable[Domain])) => RangeB],
+	updated : Rep[((Domain, Domain, RangeB, Iterable[Domain])) => RangeB],
+	project : Rep[Select => RangeA],
+	convert : Rep[((RangeA, RangeB)) => Range]
+) extends AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, RangeA, RangeB, Range]
 {
-
-	def convert : Rep[((Any, Any)) => Range] =
-		(x : Rep[(Any, Any)]) => x.asInstanceOf[Rep[Range]]
-
-
 
 
 }

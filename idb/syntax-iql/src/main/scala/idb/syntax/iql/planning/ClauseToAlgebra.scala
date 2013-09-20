@@ -129,11 +129,11 @@ object ClauseToAlgebra {
 						crossProduct(
 							relationA,
 							relationB
-						)(mDomA.asInstanceOf[Manifest[Any]], mDomB.asInstanceOf[Manifest[Any]]),
+						),
 						predicate
-					)(mSel.asInstanceOf[Manifest[(Any,Any)]]),
+					),
 					select
-				)(mSel, manifest[(DomainA, DomainB)].asInstanceOf[Manifest[(Any,Any)]], mRan)
+				)
 
 			case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
 				applyGroupedSelectClause(
@@ -531,9 +531,9 @@ object ClauseToAlgebra {
 					asDistinct
 				)
 
-			case SelectAggregateClause (aggregation : AggregateTupledFunctionSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked], asDistinct) =>
+			case SelectAggregateClause (aggregation : AggregateTupledFunctionSelfMaintained[Select@unchecked, Domain@unchecked, _, _, Range@unchecked], asDistinct) =>
 				distinct (
-					aggregationSelfMaintainedTupled(
+					aggregationSelfMaintained (
 						relation,
 						group,
 						aggregation.start,
@@ -559,9 +559,9 @@ object ClauseToAlgebra {
 					asDistinct
 				)
 
-			case SelectAggregateClause (aggregation : AggregateTupledFunctionNotSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked], asDistinct) =>
+			case SelectAggregateClause (aggregation : AggregateTupledFunctionNotSelfMaintained[Select@unchecked, Domain@unchecked, _, _, Range@unchecked], asDistinct) =>
 				distinct (
-					aggregationNotSelfMaintainedTupled (
+					aggregationNotSelfMaintained (
 						relation,
 						group,
 						aggregation.start,

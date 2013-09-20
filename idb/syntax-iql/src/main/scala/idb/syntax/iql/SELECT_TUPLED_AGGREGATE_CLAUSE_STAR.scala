@@ -30,79 +30,43 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
-
 /**
+ * The tupled aggregate clause with a star in the aggregate function.
  *
  * @author Ralf Mitschke, Mirko Köhler
  */
-case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FUNCTION_STAR[Range], asDistinct: Boolean = false)
-    extends SELECT_AGGREGATE_CLAUSE_STAR[Range]
+trait SELECT_TUPLED_AGGREGATE_CLAUSE_STAR[Select, RangeA, RangeB]
 {
+
     def FROM[Domain : Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Any, Domain, Range]
-		with CAN_GROUP_CLAUSE_1[Any, Domain, Range] =
-        FromClause1 (
-            relation,
-			SelectAggregateClause(
-				aggregate.getAggregateFunction[Domain],
-				asDistinct
-			)
-        )
+        relation : Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Select, Domain, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, (RangeA, RangeB)]
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[Any, DomainA, DomainB, Range]
-		with CAN_GROUP_CLAUSE_2[Any, DomainA, DomainB, Range] =
-		FromClause2 (
-			relationA,
-			relationB,
-			SelectAggregateClause(
-				aggregate.getAggregateFunction[(DomainA, DomainB)],
-				asDistinct
-			)
-		)
-
+        relationA : Rep[Query[DomainA]],
+        relationB : Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]]
-	): FROM_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range]
-		with CAN_GROUP_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range] =
-		FromClause3 (
-			relationA,
-			relationB,
-			relationC,
-			SelectAggregateClause(
-				aggregate.getAggregateFunction[(DomainA, DomainB, DomainC)],
-				asDistinct
-			)
-		)
+	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, (RangeA, RangeB)]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]]
-	): FROM_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range]
-		with CAN_GROUP_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range] =
-		FromClause4 (
-			relationA,
-			relationB,
-			relationC,
-			relationD,
-			SelectAggregateClause(
-				aggregate.getAggregateFunction[(DomainA, DomainB, DomainC, DomainD)],
-				asDistinct
-			)
-		)
+	 ): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, (RangeA, RangeB)]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
 		relationA : Rep[Query[DomainA]],
@@ -110,18 +74,7 @@ case class SelectAggregateClauseStar[Range : Manifest] (aggregate : AGGREGATE_FU
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]],
 		relationE : Rep[Query[DomainE]]
- 	): FROM_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-		with CAN_GROUP_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
-		FromClause5 (
-			relationA,
-			relationB,
-			relationC,
-			relationD,
-			relationE,
-			SelectAggregateClause(
-				aggregate.getAggregateFunction[(DomainA, DomainB, DomainC, DomainD, DomainE)],
-				asDistinct
-			)
-		)
+	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, (RangeA, RangeB)]
 
 }

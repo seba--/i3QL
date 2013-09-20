@@ -41,7 +41,7 @@ package idb.algebra.base
 trait RelationalAlgebraAggregationOperators
     extends RelationalAlgebraBase
 {
-	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
+	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
@@ -69,7 +69,7 @@ trait RelationalAlgebraAggregationOperators
 		updated: Rep[((Domain, Domain, Range)) => Range]
 	): Rep[Query[Range]]
 
-	def aggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
+	def aggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,

@@ -186,10 +186,10 @@ object SELECT
         SelectAggregateClauseStar (function)
 
 
-   def apply[Group: Manifest, GroupRange: Manifest, Range: Manifest] (
-        groupColumns: Rep[Group] => Rep[GroupRange],
-        function: AGGREGATE_FUNCTION_STAR[Range]
-    ): AGGREGATE_GROUPED_SELECT_CLAUSE_STAR[Group, (GroupRange, Range)] =
-        throw new UnsupportedOperationException ()
+   def apply[Select : Manifest, RangeA : Manifest, RangeB: Manifest] (
+        project : Rep[Select] => Rep[RangeA],
+        function: AGGREGATE_FUNCTION_STAR[RangeB]
+    ): AGGREGATE_GROUPED_SELECT_CLAUSE_STAR[Select, (RangeA, RangeB)] =
+        SelectTupledAggregateClauseStar (project, function, asDistinct = false)
 
 }

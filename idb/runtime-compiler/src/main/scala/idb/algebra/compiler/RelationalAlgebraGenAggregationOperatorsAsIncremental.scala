@@ -62,17 +62,17 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     import IR.Def
     import IR.Query
     import IR.Relation
-    import IR.AggregationSelfMaintainedTupled
+    import IR.AggregationSelfMaintained
     import IR.AggregationSelfMaintainedWithoutGrouping
 	import IR.AggregationSelfMaintainedWithoutConvert
-	import IR.AggregationNotSelfMaintainedTupled
+	import IR.AggregationNotSelfMaintained
 	import IR.AggregationNotSelfMaintainedWithoutGrouping
 	import IR.AggregationNotSelfMaintainedWithoutConvert
     import IR.Grouping
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (e@AggregationSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
+            case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
                 if (e.isIncrementLocal)
                 /*    TransactionalAggregation (
                         compile (r),
@@ -145,7 +145,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 
 			}
 
-			case Def (e@AggregationNotSelfMaintainedTupled (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
+			case Def (e@AggregationNotSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
 				if (e.isIncrementLocal)
 				/*    TransactionalAggregation (
 						compile (r),
