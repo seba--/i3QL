@@ -41,7 +41,7 @@ import idb.syntax.iql.IR._
  */
 
 trait AGGREGATE_TUPLED_FUNCTION_SELF_MAINTAINED[Select, Domain, ProjectRange, AggregateRange, Range]
-	extends AGGREGATE_FUNCTION[Domain, Range]
+	extends AGGREGATE_FUNCTION_1[Domain, Range]
 {
 
 	def start : AggregateRange

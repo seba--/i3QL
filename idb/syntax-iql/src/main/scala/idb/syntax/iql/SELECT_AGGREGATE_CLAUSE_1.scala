@@ -37,23 +37,14 @@ import idb.syntax.iql.IR._
 /**
  *
  * @author Mirko Köhler
- *
  */
-
-trait AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, ProjectRange, AggregateRange, Range]
-	extends AGGREGATE_FUNCTION_1[Domain, Range]
+trait SELECT_AGGREGATE_CLAUSE_1[Select, Domain, Range]
 {
 
-	def start : AggregateRange
+    def FROM (
+        relation : Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Select, Domain, Range]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 
-	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def project : Rep[Select => ProjectRange]
-
-	def convert : Rep[((ProjectRange, AggregateRange)) => Range]
 
 }

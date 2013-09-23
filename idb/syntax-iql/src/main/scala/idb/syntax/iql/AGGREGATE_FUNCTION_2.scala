@@ -32,7 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
 
 /**
  *
@@ -40,20 +39,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, ProjectRange, AggregateRange, Range]
-	extends AGGREGATE_FUNCTION_1[Domain, Range]
+trait AGGREGATE_FUNCTION_2[Domain, AggregateRange] extends AGGREGATE_FUNCTION[Domain, AggregateRange]
 {
-
-	def start : AggregateRange
-
-	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
-
-	def project : Rep[Select => ProjectRange]
-
-	def convert : Rep[((ProjectRange, AggregateRange)) => Range]
 
 }

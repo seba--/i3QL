@@ -42,6 +42,11 @@ import idb.syntax.iql.IR._
 
 trait AGGREGATE_FUNCTION_NOT_SELF_MAINTAINED[Domain, AggregateRange]
 	extends AGGREGATE_FUNCTION[Domain, AggregateRange]
+	with AGGREGATE_FUNCTION_1[Domain, AggregateRange]
+	with AGGREGATE_FUNCTION_2[Domain, AggregateRange]
+	with AGGREGATE_FUNCTION_3[Domain, AggregateRange]
+	with AGGREGATE_FUNCTION_4[Domain, AggregateRange]
+	with AGGREGATE_FUNCTION_5[Domain, AggregateRange]
 {
 
 	def start : AggregateRange

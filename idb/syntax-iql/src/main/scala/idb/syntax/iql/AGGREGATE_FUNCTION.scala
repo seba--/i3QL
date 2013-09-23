@@ -32,7 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
 
 /**
  *

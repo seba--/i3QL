@@ -43,6 +43,9 @@ import idb.syntax.iql.impl._
 object SELECT
 {
 
+	/*
+		Select with Projection
+	 */
     def apply[Select : Manifest, Range : Manifest] (
         projection: Rep[Select] => Rep[Range]
     ): SELECT_PROJECTION_CLAUSE[Select, Range]  =
@@ -65,7 +68,6 @@ object SELECT
         projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD]) => Rep[Range]
     ): SELECT_PROJECTION_CLAUSE[(SelectA, SelectB, SelectC, SelectD), Range] =
         SelectProjectionClause (fun (projection))
-
 
     def apply[SelectA : Manifest, SelectB : Manifest, SelectC : Manifest, SelectD : Manifest, SelectE : Manifest,
     Range: Manifest] (
@@ -110,86 +112,142 @@ object SELECT
     def DISTINCT (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
         SelectClauseStar (asDistinct = true)
 
-
+	/*
+		Select with Aggregation
+	 */
     def apply[Domain: Manifest, Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION[Domain, Range]
-    ): SELECT_AGGREGATE_CLAUSE[Any, Domain, Range] =
-        SelectAggregateClause (aggregation, asDistinct = false)
-
-
-    def apply[Select : Manifest, Domain : Manifest, RangeA : Manifest, RangeB : Manifest] (
-        project : Rep[Select] => Rep[RangeA],
-        aggregation : AGGREGATE_FUNCTION[Domain, RangeB]
-    ): SELECT_TUPLED_AGGREGATE_CLAUSE_1[Select, Domain, RangeA, RangeB] =
-        	SelectTupledAggregateClause1 (project, aggregation, asDistinct = false)
-
+        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
+    ): SELECT_AGGREGATE_CLAUSE_1[Any, Domain, Range] =
+        SelectAggregateClause1 (aggregation, asDistinct = false)
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION[(DomainA, DomainB), Range]
+        aggregation: AGGREGATE_FUNCTION_2[(DomainA, DomainB), Range]
     ): SELECT_AGGREGATE_CLAUSE_2[Any, DomainA, DomainB, Range] =
         SelectAggregateClause2 (aggregation, asDistinct = false)
 
-
-	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, RangeA : Manifest, RangeB : Manifest] (
-		project : Rep[Select] => Rep[RangeA],
-		aggregation : AGGREGATE_FUNCTION[(DomainA, DomainB), RangeB]
-	): SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] =
-		SelectTupledAggregateClause2 (project, aggregation, asDistinct = false)
-
 	def apply[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, Range: Manifest] (
-		aggregation: AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC), Range]
+		aggregation: AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), Range]
 	): SELECT_AGGREGATE_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range] =
 		SelectAggregateClause3 (aggregation, asDistinct = false)
 
+	def apply[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, DomainD : Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), Range]
+	): SELECT_AGGREGATE_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range] =
+		SelectAggregateClause4 (aggregation, asDistinct = false)
 
-	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, RangeA : Manifest, RangeB : Manifest] (
-		project : Rep[Select] => Rep[RangeA],
-		aggregation : AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC), RangeB]
-  	): SELECT_TUPLED_AGGREGATE_CLAUSE_3[Select, DomainA, DomainB, DomainC, RangeA, RangeB] =
-		SelectTupledAggregateClause3 (project, aggregation, asDistinct = false)
-
-	/*
-
-    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range]
-    ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range] =
-        throw new UnsupportedOperationException ()
-
-
-    def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, DomainC: Manifest,
-    DomainD: Manifest, Range: Manifest] (
-        project: Rep[GroupKey] => Rep[GroupRange],
-        aggregation: AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range]
-    ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, (GroupRange, Range)] =
-        throw new UnsupportedOperationException ()
-
-
-    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
-    Range: Manifest] (
-        aggregation: AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-    ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
-        throw new UnsupportedOperationException ()
-
-
-    def apply[GroupKey: Manifest, GroupRange: Manifest, DomainA: Manifest, DomainB: Manifest, DomainC: Manifest,
-    DomainD: Manifest, DomainE: Manifest,
-    Range: Manifest] (
-        project: Rep[GroupKey] => Rep[GroupRange],
-        aggregation: AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
-    ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, (GroupRange, Range)] =
-        throw new UnsupportedOperationException ()   */
-
+	def apply[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), Range]
+ 	): SELECT_AGGREGATE_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+		SelectAggregateClause5 (aggregation, asDistinct = false)
 
     def apply[Range: Manifest] (
         function: AGGREGATE_FUNCTION_STAR[Range]
     ): SELECT_AGGREGATE_CLAUSE_STAR[Range] =
         SelectAggregateClauseStar (function)
 
+	def DISTINCT[Domain: Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
+	): SELECT_AGGREGATE_CLAUSE_1[Any, Domain, Range] =
+		SelectAggregateClause1 (aggregation, asDistinct = true)
 
-   def apply[Select : Manifest, RangeA : Manifest, RangeB: Manifest] (
+	def DISTINCT[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_2[(DomainA, DomainB), Range]
+	): SELECT_AGGREGATE_CLAUSE_2[Any, DomainA, DomainB, Range] =
+		SelectAggregateClause2 (aggregation, asDistinct = true)
+
+	def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), Range]
+ 	): SELECT_AGGREGATE_CLAUSE_3[Any, DomainA, DomainB, DomainC, Range] =
+		SelectAggregateClause3 (aggregation, asDistinct = true)
+
+	def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, DomainD : Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), Range]
+	): SELECT_AGGREGATE_CLAUSE_4[Any, DomainA, DomainB, DomainC, DomainD, Range] =
+		SelectAggregateClause4 (aggregation, asDistinct = true)
+
+	def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest, Range: Manifest] (
+		aggregation: AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), Range]
+	): SELECT_AGGREGATE_CLAUSE_5[Any, DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+		SelectAggregateClause5 (aggregation, asDistinct = true)
+
+	def DISTINCT[Range: Manifest] (
+		function: AGGREGATE_FUNCTION_STAR[Range]
+	): SELECT_AGGREGATE_CLAUSE_STAR[Range] =
+		SelectAggregateClauseStar (function, asDistinct = true)
+
+	/*
+		Select with tupled Aggregation
+	 */
+	def apply[Select : Manifest, Domain : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_1[Domain, RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_1[Select, Domain, RangeA, RangeB] =
+		SelectTupledAggregateClause1 (project, aggregation, asDistinct = false)
+
+	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_2[(DomainA, DomainB), RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] =
+		SelectTupledAggregateClause2 (project, aggregation, asDistinct = false)
+
+	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), RangeB]
+   	): SELECT_TUPLED_AGGREGATE_CLAUSE_3[Select, DomainA, DomainB, DomainC, RangeA, RangeB] =
+		SelectTupledAggregateClause3 (project, aggregation, asDistinct = false)
+
+	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), RangeB]
+   	): SELECT_TUPLED_AGGREGATE_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, RangeA, RangeB] =
+		SelectTupledAggregateClause4 (project, aggregation, asDistinct = false)
+
+	def apply[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), RangeB]
+   	): SELECT_TUPLED_AGGREGATE_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, RangeA, RangeB] =
+		SelectTupledAggregateClause5 (project, aggregation, asDistinct = false)
+
+  	def apply[Select : Manifest, RangeA : Manifest, RangeB: Manifest] (
         project : Rep[Select] => Rep[RangeA],
         function: AGGREGATE_FUNCTION_STAR[RangeB]
-    ): AGGREGATE_GROUPED_SELECT_CLAUSE_STAR[Select, (RangeA, RangeB)] =
+   	): SELECT_TUPLED_AGGREGATE_CLAUSE_STAR[Select, RangeA, RangeB] =
         SelectTupledAggregateClauseStar (project, function, asDistinct = false)
+
+	def DISTINCT[Select : Manifest, Domain : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_1[Domain, RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_1[Select, Domain, RangeA, RangeB] =
+		SelectTupledAggregateClause1 (project, aggregation, asDistinct = true)
+
+	def DISTINCT[Select : Manifest, DomainA : Manifest, DomainB : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_2[(DomainA, DomainB), RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_2[Select, DomainA, DomainB, RangeA, RangeB] =
+		SelectTupledAggregateClause2 (project, aggregation, asDistinct = true)
+
+	def DISTINCT[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), RangeB]
+   	): SELECT_TUPLED_AGGREGATE_CLAUSE_3[Select, DomainA, DomainB, DomainC, RangeA, RangeB] =
+		SelectTupledAggregateClause3 (project, aggregation, asDistinct = true)
+
+	def DISTINCT[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), RangeB]
+  	): SELECT_TUPLED_AGGREGATE_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, RangeA, RangeB] =
+		SelectTupledAggregateClause4 (project, aggregation, asDistinct = true)
+
+	def DISTINCT[Select : Manifest, DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest, RangeA : Manifest, RangeB : Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		aggregation : AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), RangeB]
+	): SELECT_TUPLED_AGGREGATE_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, RangeA, RangeB] =
+		SelectTupledAggregateClause5 (project, aggregation, asDistinct = true)
+
+	def DISTINCT[Select : Manifest, RangeA : Manifest, RangeB: Manifest] (
+		project : Rep[Select] => Rep[RangeA],
+		function: AGGREGATE_FUNCTION_STAR[RangeB]
+  	): SELECT_TUPLED_AGGREGATE_CLAUSE_STAR[Select, RangeA, RangeB] =
+		SelectTupledAggregateClauseStar (project, function, asDistinct = true)
 
 }

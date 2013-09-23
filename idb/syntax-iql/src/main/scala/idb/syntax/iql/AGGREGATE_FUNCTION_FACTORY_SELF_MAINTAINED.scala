@@ -66,7 +66,7 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[Domain, Range] =
+	): AGGREGATE_FUNCTION_1[Domain, Range] =
         AggregateFunctionSelfMaintained[Domain, Range](
 			start,
 			(p : Rep[(Domain, Range)]) => added(p._1,p._2, column),
@@ -78,7 +78,7 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	) = {
+	): AGGREGATE_FUNCTION_2[(DomainA, DomainB), Range] = {
 		val c = (v : Rep[(DomainA, DomainB)]) => column(v._1, v._2)
 
 		AggregateFunctionSelfMaintained[(DomainA, DomainB), Range](
@@ -93,7 +93,7 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mRan : Manifest[Range]
-	) = {
+	): AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), Range] = {
 		val c = (v : Rep[(DomainA, DomainB, DomainC)]) => column(v._1, v._2, v._3)
 
 		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC), Range](
@@ -108,7 +108,7 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mRan : Manifest[Range]
-	) = {
+	): AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), Range] = {
 		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD)]) => column(v._1, v._2, v._3, v._4)
 
 		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC, DomainD), Range](
@@ -123,7 +123,7 @@ trait AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Column, Range]
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mDomE : Manifest[DomainE], mRan : Manifest[Range]
-	) = {
+	): AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), Range] = {
 		val c = (v : Rep[(DomainA, DomainB, DomainC, DomainD, DomainE)]) => column(v._1, v._2, v._3, v._4, v._5)
 
 		AggregateFunctionSelfMaintained[(DomainA, DomainB, DomainC, DomainD, DomainE), Range](
