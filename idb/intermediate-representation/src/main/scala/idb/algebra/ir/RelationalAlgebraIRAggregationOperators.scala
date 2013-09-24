@@ -46,7 +46,7 @@ trait RelationalAlgebraIRAggregationOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with ScalaOpsExpOptExtensions
 {
 
-    case class AggregationSelfMaintainedTupled[Domain: Manifest, Key: Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest] (
+    case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, RangeA, RangeB, Range : Manifest] (
 		var relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
@@ -86,7 +86,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isIncrementLocal = false
 	}
 
-	case class AggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
+	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
@@ -135,7 +135,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isIncrementLocal = false
 	}
 
-	def aggregationSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
+	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
@@ -145,7 +145,7 @@ trait RelationalAlgebraIRAggregationOperators
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
 	): Rep[Query[Range]] =
-		AggregationSelfMaintainedTupled[Domain, Key, RangeA, RangeB, Range] (
+		AggregationSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,
 			grouping,
 			start,
@@ -188,7 +188,7 @@ trait RelationalAlgebraIRAggregationOperators
 			updated
 		)
 
-	def aggregationNotSelfMaintainedTupled[Domain : Manifest, Key : Manifest, RangeA : Manifest, RangeB : Manifest, Range : Manifest](
+	def aggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
@@ -198,7 +198,7 @@ trait RelationalAlgebraIRAggregationOperators
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
   	): Rep[Query[Range]] =
-		AggregationNotSelfMaintainedTupled[Domain, Key, RangeA, RangeB, Range] (
+		AggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,
 			grouping,
 			start,

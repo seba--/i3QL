@@ -41,5 +41,5 @@ package idb.syntax.iql
 
 trait AGGREGATE_FUNCTION_STAR[Range]
 {
-	def getAggregateFunction : AGGREGATE_FUNCTION[Any, Range]
+	def getAggregateFunction[Domain : Manifest] : AGGREGATE_FUNCTION_1[Domain, Range]
 }

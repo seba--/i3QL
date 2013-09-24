@@ -49,35 +49,35 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
         column: Rep[Domain] => Rep[Column]
     )(
 		implicit mDom : Manifest[Domain], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[Domain, Range]
+	): AGGREGATE_FUNCTION_1[Domain, Range]
 
 
     def apply[DomainA, DomainB] (
         column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     )(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB), Range]
+	): AGGREGATE_FUNCTION_2[(DomainA, DomainB), Range]
 
 
 	def apply[DomainA, DomainB, DomainC] (
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC), Range]
+	): AGGREGATE_FUNCTION_3[(DomainA, DomainB, DomainC), Range]
 
 
 	def apply[DomainA, DomainB, DomainC, DomainD] (
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC, DomainD), Range]
+	): AGGREGATE_FUNCTION_4[(DomainA, DomainB, DomainC, DomainD), Range]
 
 
 	def apply[DomainA, DomainB, DomainC, DomainD, DomainE] (
 		column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
 	)(
 		implicit mDomA : Manifest[DomainA], mDomB : Manifest[DomainB], mDomC : Manifest[DomainC], mDomD : Manifest[DomainD], mDomE : Manifest[DomainE], mRan : Manifest[Range]
-	): AGGREGATE_FUNCTION[(DomainA, DomainB, DomainC, DomainD, DomainE), Range]
+	): AGGREGATE_FUNCTION_5[(DomainA, DomainB, DomainC, DomainD, DomainE), Range]
 
 
     def apply (

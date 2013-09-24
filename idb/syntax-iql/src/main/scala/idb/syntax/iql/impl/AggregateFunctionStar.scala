@@ -45,8 +45,8 @@ case class AggregateFunctionStar[Column : Manifest, Range : Manifest](factory : 
 	extends AGGREGATE_FUNCTION_STAR[Range]
 {
 
-	def getAggregateFunction =
-		factory ( (a : Rep[Any]) => a.asInstanceOf[Column] )
+	def getAggregateFunction[Domain : Manifest] =
+		factory ( (a : Rep[Domain]) => a.AsInstanceOf[Column] )
 
 
 }

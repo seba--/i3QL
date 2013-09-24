@@ -92,7 +92,6 @@ class TestAggregationOperators
 		assertTrue(query.contains(25))
 	}
 
-	@Ignore
 	@Test
 	def testAggregateGroupCountWithGroup () {
 		val query = compile (
@@ -104,9 +103,17 @@ class TestAggregationOperators
 				((s: Rep[Student]) => s.lastName)
 		).asMaterialized
 
-		Predef.println("###################################################")
-		query.foreach(Predef.println)
-		Predef.println("###################################################")
+		val john = Student(11111, "John", "Doe")
+		val john2 = Student(11111, "John", "Carter")
+		val judy = Student(22222, "Judy", "Carter")
+		val jane = Student(33333, "Jane", "Doe")
+		val moe = Student(33333, "Moe", "Doe")
+
+		students += john += judy += jane += john2 += moe
+		students.endTransaction()
+
+		assertTrue (query.contains( ("Doe", 3) ))
+		assertTrue (query.contains( ("Carter", 2) ))
 	}
 
 

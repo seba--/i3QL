@@ -35,26 +35,46 @@ package idb.syntax.iql
 import idb.syntax.iql.IR._
 
 /**
+ * The tupled aggregate clause with a star in the aggregate function.
  *
- * @author Mirko Köhler
- *
+ * @author Ralf Mitschke, Mirko Köhler
  */
-
-trait AGGREGATE_FUNCTION_NOT_SELF_MAINTAINED[Domain, AggregateRange]
-	extends AGGREGATE_FUNCTION[Domain, AggregateRange]
-	with AGGREGATE_FUNCTION_1[Domain, AggregateRange]
-	with AGGREGATE_FUNCTION_2[Domain, AggregateRange]
-	with AGGREGATE_FUNCTION_3[Domain, AggregateRange]
-	with AGGREGATE_FUNCTION_4[Domain, AggregateRange]
-	with AGGREGATE_FUNCTION_5[Domain, AggregateRange]
+trait SELECT_TUPLED_AGGREGATE_CLAUSE_STAR[Select, RangeA, RangeB]
 {
 
-	def start : AggregateRange
+    def FROM[Domain : Manifest] (
+        relation : Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Select, Domain, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_1[Select, Domain, (RangeA, RangeB)]
 
-	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA : Rep[Query[DomainA]],
+        relationB : Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_2[Select, DomainA, DomainB, (RangeA, RangeB)]
 
-	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]]
+	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, (RangeA, RangeB)]
 
-	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]]
+	 ): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, (RangeA, RangeB)]
+
+	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		relationC : Rep[Query[DomainC]],
+		relationD : Rep[Query[DomainD]],
+		relationE : Rep[Query[DomainE]]
+	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, (RangeA, RangeB)]
+		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, (RangeA, RangeB)]
 
 }

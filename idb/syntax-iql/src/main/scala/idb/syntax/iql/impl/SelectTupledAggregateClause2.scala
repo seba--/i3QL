@@ -24,13 +24,18 @@ case class SelectTupledAggregateClause2[Select : Manifest, DomainA : Manifest, D
 					relationA,
 					relationB,
 					SelectAggregateClause (
-						AggregateTupledFunctionSelfMaintained[Select, (DomainA, DomainB), (RangeA, RangeB)] (
+						AggregateTupledFunctionSelfMaintained[Select, (DomainA, DomainB), RangeA, RangeB, (RangeA, RangeB)] (
 							selfMaintained.start,
-							(x : Rep[((DomainA, DomainB), Any)]) => selfMaintained.added ((x._1, x._2.asInstanceOf[Rep[RangeB]])),
-							(x : Rep[((DomainA, DomainB), Any)]) => selfMaintained.removed ((x._1, x._2.asInstanceOf[Rep[RangeB]])),
-							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), Any)]) => selfMaintained.updated ((x._1, x._2, x._3.asInstanceOf[Rep[RangeB]])),
-							project
-						)
+							(x : Rep[((DomainA, DomainB), RangeB)]) =>
+								selfMaintained.added ((x._1, x._2)),
+							(x : Rep[((DomainA, DomainB), RangeB)]) =>
+								selfMaintained.removed ((x._1, x._2)),
+							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB)]) =>
+								selfMaintained.updated ((x._1, x._2, x._3)),
+							project,
+							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+						),
+						asDistinct
 					)
 				)
 			}
@@ -40,13 +45,18 @@ case class SelectTupledAggregateClause2[Select : Manifest, DomainA : Manifest, D
 					relationA,
 					relationB,
 					SelectAggregateClause (
-						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB), (RangeA, RangeB)] (
+						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB), Any, Iterable[(DomainA, DomainB)])]) => notSelfMaintained.added ((x._1, x._2.asInstanceOf[Rep[RangeB]], x._3)),
-							(x : Rep[((DomainA, DomainB), Any, Iterable[(DomainA, DomainB)])]) => notSelfMaintained.removed ((x._1, x._2.asInstanceOf[Rep[RangeB]], x._3)),
-							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), Any, Iterable[(DomainA, DomainB)])]) => notSelfMaintained.updated ((x._1, x._2, x._3.asInstanceOf[Rep[RangeB]], x._4)),
-							project
-						)
+							(x : Rep[((DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+								notSelfMaintained.added ((x._1, x._2, x._3)),
+							(x : Rep[((DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+								notSelfMaintained.removed ((x._1, x._2, x._3)),
+							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
+							project,
+							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+						),
+						asDistinct
 					)
 				)
 			}
