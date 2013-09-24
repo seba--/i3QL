@@ -36,7 +36,8 @@ import UniversityDatabase._
 import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.{Ignore, Test}
+import org.junit.Test
+import org.junit.Assert._
 
 
 /**
@@ -55,6 +56,11 @@ class TestBasicClauses2
         assertEqualStructure (
             crossProduct (extent (students), extent (courses)),
             query
+        )
+
+        assertEquals (
+            manifest[(Student, Course)],
+            domainOf (query)
         )
     }
 
