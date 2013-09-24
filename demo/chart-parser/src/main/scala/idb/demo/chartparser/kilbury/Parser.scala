@@ -63,25 +63,26 @@ trait Parser
         WITH RECURSIVE (
             (edges: Rep[Query[Edge]]) =>
                 passiveEdges UNION ALL (
-                        // derive edges from productions
-                        SELECT ((p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail))
+                    // derive edges from productions
+                    SELECT ((p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail))
                         FROM(productions.asMaterialized, edges) WHERE (
-                            (p: Rep[Production], e: Rep[Edge]) => e.isPassive AND p.body.head == e.category
+                        (p: Rep[Production], e: Rep[Edge]) => e.isPassive AND p.body.head == e.category
                         )
                         UNION ALL (
                         // combine edges
                         SELECT ((active: Rep[Edge], passive: Rep[Edge]) =>
                             ActiveEdge (active.start, passive.end, active.category, active.next.tail))
-                        FROM(edges, edges) WHERE ((left: Rep[Edge], right: Rep[Edge]) =>
+                            FROM(edges, edges) WHERE ((left: Rep[Edge], right: Rep[Edge]) =>
                             left.isActive AND
-                            right.isPassive AND
-                            left.end == right.start AND
-                            left.next.head == right.category
-                        )
+                                right.isPassive AND
+                                left.end == right.start AND
+                                left.next.head == right.category
+                            )
                     )
                 )
             )
 
     val success: Rep[Query[Edge]] =
-        SELECT (*) FROM parseTrees WHERE (_.category == topLevelCategory)
+        SELECT (*) FROM parseTrees WHERE ((e: Rep[Edge]) => e.next == Nil AND e.category == topLevelCategory)
+    //SELECT (*) FROM (SELECT (*)  FROM parseTrees WHERE (_.next == Nil)) WHERE (_.category == topLevelCategory)
 }

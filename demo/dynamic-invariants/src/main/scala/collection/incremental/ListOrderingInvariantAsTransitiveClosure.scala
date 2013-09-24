@@ -30,42 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.demo.chartparser.kilbury
+package collection.incremental
 
-import idb.SetExtent
-import idb.demo.chartparser.schema.ParserSchema
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.{MaterializedView, SetExtent}
+import idb.operators.impl.CyclicTransitiveClosureView
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait Scanner
-    extends ParserSchema
+class ListOrderingInvariantAsTransitiveClosure
 {
-    val terminals = SetExtent.empty[Terminal]()
 
-    val input = SetExtent.empty[InputToken]()
+    private implicit def intListElemToOps (e: Rep[IntListElem]) =
+        IntListElemOps (e)
 
-    val passiveEdges: Rep[Query[Edge]] =
-        SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            t.tokenValue == in.value
+    private case class IntListElemOps (e: Rep[IntListElem])
+    {
+        def value: Rep[Int] = field[Int](e, "value")
+
+        def next: Rep[IntListElem] = field[IntListElem](e, "next")
+    }
+
+
+    val elements = SetExtent.empty[IntListElem]()
+
+
+    val closure: MaterializedView[(IntListElem, IntListElem)] = new
+            CyclicTransitiveClosureView[IntListElem, IntListElem](
+                elements,
+                new IntListElementAdjacencyList (),
+                identity[IntListElem],
+                (_: IntListElem).next,
+                true
             )
 
+    val chainedElements: Relation[(IntListElem, IntListElem)] =
+        SELECT (*) FROM closure WHERE ((e: Rep[(IntListElem, IntListElem)]) => e._2 != nullToRepNull (null) AND e
+            ._1 != nullToRepNull (null))
 
-    val unknownEdges: Rep[Query[Edge]] =
-        SELECT ((in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, "Unknown")
-        ) FROM (input) WHERE ((in: Rep[InputToken]) =>
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM terminals.asMaterialized WHERE ((t: Rep[Terminal]) =>
-                        t.tokenValue == in.value
-                        )
-                )
-            )
-            )
+    val unorderedElements: MaterializedView[(IntListElem, IntListElem)] =
+        (SELECT (*) FROM chainedElements WHERE ((e: Rep[(IntListElem, IntListElem)]) => e._1.value > e._2.value))
+            .asMaterialized
 }

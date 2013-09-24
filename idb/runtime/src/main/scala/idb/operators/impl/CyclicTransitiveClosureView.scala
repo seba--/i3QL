@@ -233,6 +233,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	private def computeAdditions(edge: Edge)(implicit notify: Boolean = true) {
 		val edgeStart = getTail(edge)
 		val edgeEnd = getHead(edge)
+        if(edgeEnd == null || edgeStart == null && notify) {
+            notify_added(edgeStart, edgeEnd)
+            return
+        }
+
 
 		val descendantsOfEnd = descendants(edgeEnd)
 
@@ -349,7 +354,13 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 		val edgeStart = getTail(edge)
 		val edgeEnd = getHead(edge)
 
-		//set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
+        if(edgeEnd == null || edgeStart == null) {
+            notify_removed(edgeStart, edgeEnd)
+            return
+        }
+
+
+        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
 		var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
 
 		val pathsOfEdgeEnd = descendants(edgeEnd)

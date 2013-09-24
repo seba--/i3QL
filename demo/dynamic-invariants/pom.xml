@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-		<groupId>de.tud.cs.st.idb.demo</groupId>
-	<artifactId>chart-parser</artifactId>
+    <groupId>de.tud.cs.st.idb.demo</groupId>
+    <artifactId>dynamic-invariants</artifactId>
     <version>0.0.1</version>
-	<packaging>jar</packaging>
+    <packaging>jar</packaging>
 
-	<name>chart-parser</name>
+    <name>dynamic-invariants</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
 	

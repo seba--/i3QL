@@ -30,42 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.demo.chartparser.kilbury
+package collection.incremental
 
-import idb.SetExtent
-import idb.demo.chartparser.schema.ParserSchema
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.{MaterializedView, SetExtent}
+import idb.algebra.print.RelationalAlgebraPrintPlan
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait Scanner
-    extends ParserSchema
+class ListOrderingInvariantAsRecursive
 {
-    val terminals = SetExtent.empty[Terminal]()
 
-    val input = SetExtent.empty[InputToken]()
+    val printer = new RelationalAlgebraPrintPlan {
+        override val IR = idb.syntax.iql.IR
+    }
 
-    val passiveEdges: Rep[Query[Edge]] =
-        SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            t.tokenValue == in.value
-            )
+    private implicit def intListElemToOps (e: Rep[IntListElem]) =
+        IntListElemOps (e)
+
+    private case class IntListElemOps (e: Rep[IntListElem])
+    {
+        def value: Rep[Int] = field[Int](e, "value")
+
+        def next: Rep[IntListElem] = field[IntListElem](e, "next")
+    }
 
 
-    val unknownEdges: Rep[Query[Edge]] =
-        SELECT ((in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, "Unknown")
-        ) FROM (input) WHERE ((in: Rep[InputToken]) =>
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM terminals.asMaterialized WHERE ((t: Rep[Terminal]) =>
-                        t.tokenValue == in.value
+    val elements = SetExtent.empty[IntListElem]()
+
+
+    val chainedElements: Relation[IntListElem] =
+        SELECT (*) FROM elements WHERE ((e: Rep[IntListElem]) => e.next != nullToRepNull (null))
+
+    val unorderedChainedElements: Rep[Query[IntListElem]] =
+        SELECT (*) FROM chainedElements WHERE ((e: Rep[IntListElem]) => e.value > e.next.value)
+
+    val closure: Rep[Query[(IntListElem, IntListElem)]] =
+        WITH RECURSIVE (
+            (t: Rep[Query[(IntListElem, IntListElem)]]) =>
+                SELECT ((e: Rep[IntListElem]) => (e, e.next)) FROM unorderedChainedElements
+                    UNION ALL (
+                    SELECT (
+                        (head: Rep[IntListElem], edge: Rep[(IntListElem, IntListElem)]) => (head, edge._2)
+                    ) FROM(chainedElements, t) WHERE (
+                        (head: Rep[IntListElem], edge: Rep[(IntListElem, IntListElem)]) =>
+                            head.next == edge._1
                         )
                 )
             )
-            )
+
+    Predef.println(printer.quoteRelation(closure))
+
+    val unorderedElements: MaterializedView[(IntListElem, IntListElem)] = closure.asMaterialized
 }

@@ -33,6 +33,8 @@
 package idb.lms.extensions
 
 import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp}
+import scala.collection.mutable
+import scala.reflect.ManifestFactory
 
 /**
  *
@@ -298,6 +300,7 @@ trait FunctionUtils
         fb: Rep[B => Boolean]
     ): Rep[Domain => Boolean] = {
         val mDomain = implicitly[Manifest[Domain]]
+
         if (!(fa.tp.typeArguments (0) >:> mDomain)) {
             throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
         } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {

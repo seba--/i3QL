@@ -1,0 +1,21 @@
+Do invariants is true
+n is 50000
+Performing ordered list tests
+Inserting 50000 elements into list...
+performing gc
+Starting real test
+5034 adds of 10000 total 50068
+Used memory (kb): -631.609375
+Total time: 6007 ms
+Done with all operations.
+
+
+
+Inserting 50000 elements into list...
+performing gc
+Used memory (kb): 4158.8125
+Starting real test
+5034 adds of 10000 total 50068
+Used memory (kb): 4697.25
+Total time: 911 ms
+Done with all operations.

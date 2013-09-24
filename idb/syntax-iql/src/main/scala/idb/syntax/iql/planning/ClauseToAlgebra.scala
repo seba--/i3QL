@@ -43,7 +43,8 @@ import idb.syntax.iql.impl._
  *
  */
 
-object ClauseToAlgebra {
+object ClauseToAlgebra
+{
 
     val IR = idb.syntax.iql.IR
 
@@ -51,412 +52,429 @@ object ClauseToAlgebra {
 
 
     def apply[
-		Select : Manifest,
-		Domain <: GroupDomain : Manifest,
-		GroupDomain: Manifest,
-    	GroupRange <: Select : Manifest,
-		Range : Manifest
-	] (
+    Select,
+    Domain <: GroupDomain,
+    GroupDomain,
+    GroupRange <: Select,
+    Range
+    ] (
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
+    )(
+        implicit mSel: Manifest[Select],
+        mDom: Manifest[Domain],
+        mGrDom: Manifest[GroupDomain],
+        mGrRan: Manifest[GroupRange],
+        mRan: Manifest[Range]
     ): Rep[Query[Range]] =
         query match {
-			case FromClause1 (relation, select) =>
-				applySelectClause (
-					relation,
-					select
-				)
+            case FromClause1 (relation, select) =>
+                applySelectClause (
+                    relation,
+                    select
+                )
 
-			case WhereClause1 (predicate, FromClause1 (relation, select)) =>
-				applySelectClause (
-					selection (
-						relation,
-						predicate
-					),
-					select
-				)
+            case WhereClause1 (predicate, FromClause1 (relation, select)) =>
+                applySelectClause (
+                    selection (
+                        relation,
+                        predicate
+                    )(mSel.asInstanceOf[Manifest[GroupRange with Domain]]),
+                    select
+                )
 
-			case GroupByClause1 (group, FromClause1 (relation, select)) =>
-				applyGroupedSelectClause(
-				 	relation,
-					group,
-					select
-				)
+            case GroupByClause1 (group, FromClause1 (relation, select)) =>
+                applyGroupedSelectClause (
+                    relation,
+                    group,
+                    select
+                )
 
-			case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, select))) =>
-				applyGroupedSelectClause(
-					selection (
-						relation,
-						predicate
-					),
-					group,
-					select
-				)
-		}
-
-
-	def apply[
-		Select,
-		DomainA <: GroupDomainA,
-		DomainB <: GroupDomainB,
-		GroupDomainA,
-		GroupDomainB,
-		GroupRange <: Select,
-		Range
-	] (
-		  query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
-	)(
-		implicit mSel : Manifest[Select],
-		mDomA : Manifest[DomainA],
-		mDomB : Manifest[DomainB],
-		mGrDomA : Manifest[GroupDomainA],
-		mGrDomB : Manifest[GroupDomainB],
-		mGrRan : Manifest[GroupRange],
-		mRan : Manifest[Range]
-	): Rep[Query[Range]] =
-		query match {
-			case FromClause2 (relationA, relationB, select) =>
-				applySelectClause (
-					crossProduct(
-						relationA,
-						relationB
-					),
-					select
-				)
-
-			case WhereClause2 (predicate, FromClause2 (relationA, relationB, select)) =>
-				applySelectClause (
-					selection (
-						crossProduct(
-							relationA,
-							relationB
-						)(mDomA.asInstanceOf[Manifest[Any]], mDomB.asInstanceOf[Manifest[Any]]),
-						predicate
-					)(mSel.asInstanceOf[Manifest[(Any,Any)]]),
-					select
-				)(mSel, manifest[(DomainA, DomainB)].asInstanceOf[Manifest[(Any,Any)]], mRan)
-
-			case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
-				applyGroupedSelectClause(
-					crossProduct(
-						relationA,
-						relationB
-					),
-					group,
-					select
-				)
-
-			case GroupByClause2 (group, WhereClause2 (predicate,FromClause2 (relationA, relationB, select))) =>
-				applyGroupedSelectClause(
-					selection (
-						crossProduct(
-							relationA,
-							relationB
-						),
-						predicate
-					),
-					group,
-					select
-				)
-		}
+            case GroupByClause1 (group, WhereClause1 (predicate, FromClause1 (relation, select))) =>
+                applyGroupedSelectClause (
+                    selection (
+                        relation,
+                        predicate
+                    ),
+                    group,
+                    select
+                )
+        }
 
 
+    def apply[
+    Select,
+    DomainA <: GroupDomainA,
+    DomainB <: GroupDomainB,
+    GroupDomainA,
+    GroupDomainB,
+    GroupRange <: Select,
+    Range
+    ] (
+        query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
+    )(
+        implicit mSel: Manifest[Select],
+        mDomA: Manifest[DomainA],
+        mDomB: Manifest[DomainB],
+        mGrDomA: Manifest[GroupDomainA],
+        mGrDomB: Manifest[GroupDomainB],
+        mGrRan: Manifest[GroupRange],
+        mRan: Manifest[Range]
+    ): Rep[Query[Range]] =
+        query match {
+            case FromClause2 (relationA, relationB, select) =>
+                applySelectClause (
+                    crossProduct (
+                        relationA,
+                        relationB
+                    ),
+                    select
+                )
 
-	def apply[
-		Select: Manifest,
-		DomainA <: GroupDomainA : Manifest,
-		DomainB <: GroupDomainB : Manifest,
-		DomainC <: GroupDomainC : Manifest,
-		GroupDomainA : Manifest,
-		GroupDomainB : Manifest,
-		GroupDomainC : Manifest,
-		GroupRange <: Select : Manifest,
-		Range: Manifest
-	] (
-		query: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange, Range]
-	): Rep[Query[Range]] =
-		query match {
-			case FromClause3 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], select) =>
-				applySelectClause (
-					crossProduct (
-						relationA,
-						relationB,
-						relationC
-					),
-					select
-				)
+            case WhereClause2 (predicate, FromClause2 (relationA, relationB, select)) =>
+                applySelectClause (
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB
+                        )(mDomA.asInstanceOf[Manifest[Any]], mDomB.asInstanceOf[Manifest[Any]]),
+                        predicate
+                    )(mSel.asInstanceOf[Manifest[(Any, Any)]]),
+                    select
+                )(mSel, manifest[(DomainA, DomainB)].asInstanceOf[Manifest[(Any, Any)]], mRan)
 
-			case WhereClause3 (predicate, FromClause3 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], select)) =>
-				applySelectClause (
-					selection (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC
-						),
-						predicate
-					),
-					select
-				)
+            case GroupByClause2 (group, FromClause2 (relationA, relationB, select)) =>
+                applyGroupedSelectClause (
+                    crossProduct (
+                        relationA,
+                        relationB
+                    ),
+                    group,
+                    select
+                )
 
-			case GroupByClause3 (group, FromClause3 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], select)) =>
-				applyGroupedSelectClause(
-					crossProduct (
-						relationA,
-						relationB,
-						relationC
-					),
-					group,
-					select
-				)
-
-			case GroupByClause3 (group, WhereClause3 (predicate, FromClause3 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], select))) =>
-				applyGroupedSelectClause(
-					selection (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC
-						),
-						predicate
-					),
-					group,
-					select
-				)
-		}
-
-	def apply[
-		Select: Manifest,
-		DomainA <: GroupDomainA : Manifest,
-		DomainB <: GroupDomainB : Manifest,
-		DomainC <: GroupDomainC : Manifest,
-		DomainD <: GroupDomainD : Manifest,
-		GroupDomainA : Manifest,
-		GroupDomainB : Manifest,
-		GroupDomainC : Manifest,
-		GroupDomainD : Manifest,
-		GroupRange <: Select : Manifest,
-		Range: Manifest
-	] (
-		  query: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupRange, Range]
-	  ): Rep[Query[Range]] =
-		throw new UnsupportedOperationException()
-     /*   query match {
-			case FromClause4 (
-				relationA : Rep[Query[DomainA]@unchecked],
-				relationB : Rep[Query[DomainB]@unchecked],
-				relationC : Rep[Query[DomainC]@unchecked],
-				relationD : Rep[Query[DomainD]@unchecked],
-				select
-			) =>
-				applySelectClause1 (
-					crossProduct (
-						relationA,
-						relationB,
-						relationC,
-						relationD
-					),
-					select
-				)
+            case GroupByClause2 (group, WhereClause2 (predicate, FromClause2 (relationA, relationB, select))) =>
+                applyGroupedSelectClause (
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB
+                        ),
+                        predicate
+                    ),
+                    group,
+                    select
+                )
+        }
 
 
-			case WhereClause4 (
-				predicate,
-				FromClause4 (
-					relationA : Rep[Query[DomainA]@unchecked],
-					relationB : Rep[Query[DomainB]@unchecked],
-					relationC : Rep[Query[DomainC]@unchecked],
-					relationD : Rep[Query[DomainD]@unchecked],
-					select
-				)
-			) =>
-				applySelectClause1 (
-					selection (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC,
-							relationD
-						),
-						predicate
-					),
-					select
-				)
+    def apply[
+    Select: Manifest,
+    DomainA <: GroupDomainA : Manifest,
+    DomainB <: GroupDomainB : Manifest,
+    DomainC <: GroupDomainC : Manifest,
+    GroupDomainA: Manifest,
+    GroupDomainB: Manifest,
+    GroupDomainC: Manifest,
+    GroupRange <: Select : Manifest,
+    Range: Manifest
+    ] (
+        query: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
+            Range]
+    ): Rep[Query[Range]] =
+        query match {
+            case FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
+            relationC: Rep[Query[DomainC]@unchecked], select) =>
+                applySelectClause (
+                    crossProduct (
+                        relationA,
+                        relationB,
+                        relationC
+                    ),
+                    select
+                )
+
+            case WhereClause3 (predicate,
+            FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
+            relationC: Rep[Query[DomainC]@unchecked], select)) =>
+                applySelectClause (
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB,
+                            relationC
+                        ),
+                        predicate
+                    ),
+                    select
+                )
+
+            case GroupByClause3 (group,
+            FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
+            relationC: Rep[Query[DomainC]@unchecked], select)) =>
+                applyGroupedSelectClause (
+                    crossProduct (
+                        relationA,
+                        relationB,
+                        relationC
+                    ),
+                    group,
+                    select
+                )
+
+            case GroupByClause3 (group, WhereClause3 (predicate,
+            FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
+            relationC: Rep[Query[DomainC]@unchecked], select))) =>
+                applyGroupedSelectClause (
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB,
+                            relationC
+                        ),
+                        predicate
+                    ),
+                    group,
+                    select
+                )
+        }
+
+    def apply[
+    Select: Manifest,
+    DomainA <: GroupDomainA : Manifest,
+    DomainB <: GroupDomainB : Manifest,
+    DomainC <: GroupDomainC : Manifest,
+    DomainD <: GroupDomainD : Manifest,
+    GroupDomainA: Manifest,
+    GroupDomainB: Manifest,
+    GroupDomainC: Manifest,
+    GroupDomainD: Manifest,
+    GroupRange <: Select : Manifest,
+    Range: Manifest
+    ] (
+        query: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
+            GroupDomainD, GroupRange, Range]
+    ): Rep[Query[Range]] =
+        throw new UnsupportedOperationException ()
+
+    /*   query match {
+           case FromClause4 (
+               relationA : Rep[Query[DomainA]@unchecked],
+               relationB : Rep[Query[DomainB]@unchecked],
+               relationC : Rep[Query[DomainC]@unchecked],
+               relationD : Rep[Query[DomainD]@unchecked],
+               select
+           ) =>
+               applySelectClause1 (
+                   crossProduct (
+                       relationA,
+                       relationB,
+                       relationC,
+                       relationD
+                   ),
+                   select
+               )
 
 
-			case GroupByClause4 (
-				group,
-				FromClause4 (
-					relationA : Rep[Query[DomainA]@unchecked],
-					relationB : Rep[Query[DomainB]@unchecked],
-					relationC : Rep[Query[DomainC]@unchecked],
-					relationD : Rep[Query[DomainD]@unchecked],
-					select
-				)
-			) =>
-				applySelectClause1 (
-					grouping (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC,
-							relationD
-						),
-						group
-					),
-					select
-				)
-
-			case GroupByClause4 (
-				group,
-				WhereClause4 (
-					predicate,
-					FromClause4 (
-						relationA : Rep[Query[DomainA]@unchecked],
-						relationB : Rep[Query[DomainB]@unchecked],
-						relationC : Rep[Query[DomainC]@unchecked],
-						relationD : Rep[Query[DomainD]@unchecked],
-						select
-					)
-				)
-			) =>
-				applySelectClause1 (
-					grouping (
-						selection (
-							crossProduct (
-								relationA,
-								relationB,
-								relationC,
-								relationD
-							),
-							predicate
-						),
-						group
-					),
-					select
-				)
-        }   */
-
-	def apply[
-		Select: Manifest,
-		DomainA <: GroupDomainA : Manifest,
-		DomainB <: GroupDomainB : Manifest,
-		DomainC <: GroupDomainC : Manifest,
-		DomainD <: GroupDomainD : Manifest,
-		DomainE <: GroupDomainE : Manifest,
-		GroupDomainA : Manifest,
-		GroupDomainB : Manifest,
-		GroupDomainC : Manifest,
-		GroupDomainD : Manifest,
-		GroupDomainE : Manifest,
-		GroupRange <: Select : Manifest,
-		Range: Manifest
-	] (
-		query: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
-	): Rep[Query[Range]] =
-		throw new UnsupportedOperationException()
-		/*query match {
-			case FromClause5 (
-				relationA : Rep[Query[DomainA]@unchecked],
-				relationB : Rep[Query[DomainB]@unchecked],
-				relationC : Rep[Query[DomainC]@unchecked],
-				relationD : Rep[Query[DomainD]@unchecked],
-				relationE : Rep[Query[DomainE]@unchecked],
-				select
-			) =>
-				applySelectClause1 (
-					crossProduct (
-						relationA,
-						relationB,
-						relationC,
-						relationD,
-						relationE
-					),
-					select
-				)
+           case WhereClause4 (
+               predicate,
+               FromClause4 (
+                   relationA : Rep[Query[DomainA]@unchecked],
+                   relationB : Rep[Query[DomainB]@unchecked],
+                   relationC : Rep[Query[DomainC]@unchecked],
+                   relationD : Rep[Query[DomainD]@unchecked],
+                   select
+               )
+           ) =>
+               applySelectClause1 (
+                   selection (
+                       crossProduct (
+                           relationA,
+                           relationB,
+                           relationC,
+                           relationD
+                       ),
+                       predicate
+                   ),
+                   select
+               )
 
 
-			case WhereClause5 (
-				predicate,
-				FromClause5 (
-					relationA : Rep[Query[DomainA]@unchecked],
-					relationB : Rep[Query[DomainB]@unchecked],
-					relationC : Rep[Query[DomainC]@unchecked],
-					relationD : Rep[Query[DomainD]@unchecked],
-					relationE : Rep[Query[DomainE]@unchecked],
-					select
-				)
-			) =>
-				applySelectClause1 (
-					selection (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC,
-							relationD,
-							relationE
-						),
-						predicate
-					),
-					select
-				)
+           case GroupByClause4 (
+               group,
+               FromClause4 (
+                   relationA : Rep[Query[DomainA]@unchecked],
+                   relationB : Rep[Query[DomainB]@unchecked],
+                   relationC : Rep[Query[DomainC]@unchecked],
+                   relationD : Rep[Query[DomainD]@unchecked],
+                   select
+               )
+           ) =>
+               applySelectClause1 (
+                   grouping (
+                       crossProduct (
+                           relationA,
+                           relationB,
+                           relationC,
+                           relationD
+                       ),
+                       group
+                   ),
+                   select
+               )
+
+           case GroupByClause4 (
+               group,
+               WhereClause4 (
+                   predicate,
+                   FromClause4 (
+                       relationA : Rep[Query[DomainA]@unchecked],
+                       relationB : Rep[Query[DomainB]@unchecked],
+                       relationC : Rep[Query[DomainC]@unchecked],
+                       relationD : Rep[Query[DomainD]@unchecked],
+                       select
+                   )
+               )
+           ) =>
+               applySelectClause1 (
+                   grouping (
+                       selection (
+                           crossProduct (
+                               relationA,
+                               relationB,
+                               relationC,
+                               relationD
+                           ),
+                           predicate
+                       ),
+                       group
+                   ),
+                   select
+               )
+       }   */
+
+    def apply[
+    Select: Manifest,
+    DomainA <: GroupDomainA : Manifest,
+    DomainB <: GroupDomainB : Manifest,
+    DomainC <: GroupDomainC : Manifest,
+    DomainD <: GroupDomainD : Manifest,
+    DomainE <: GroupDomainE : Manifest,
+    GroupDomainA: Manifest,
+    GroupDomainB: Manifest,
+    GroupDomainC: Manifest,
+    GroupDomainD: Manifest,
+    GroupDomainE: Manifest,
+    GroupRange <: Select : Manifest,
+    Range: Manifest
+    ] (
+        query: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
+            GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
+    ): Rep[Query[Range]] =
+        throw new UnsupportedOperationException ()
+
+    /*query match {
+        case FromClause5 (
+            relationA : Rep[Query[DomainA]@unchecked],
+            relationB : Rep[Query[DomainB]@unchecked],
+            relationC : Rep[Query[DomainC]@unchecked],
+            relationD : Rep[Query[DomainD]@unchecked],
+            relationE : Rep[Query[DomainE]@unchecked],
+            select
+        ) =>
+            applySelectClause1 (
+                crossProduct (
+                    relationA,
+                    relationB,
+                    relationC,
+                    relationD,
+                    relationE
+                ),
+                select
+            )
 
 
-			case GroupByClause5 (
-				group,
-				FromClause5 (
-					relationA : Rep[Query[DomainA]@unchecked],
-					relationB : Rep[Query[DomainB]@unchecked],
-					relationC : Rep[Query[DomainC]@unchecked],
-					relationD : Rep[Query[DomainD]@unchecked],
-					relationE : Rep[Query[DomainE]@unchecked],
-					select
-				)
-			) =>
-				applySelectClause1 (
-					grouping (
-						crossProduct (
-							relationA,
-							relationB,
-							relationC,
-							relationD,
-							relationE
-						),
-						group
-					),
-					select
-				)
+        case WhereClause5 (
+            predicate,
+            FromClause5 (
+                relationA : Rep[Query[DomainA]@unchecked],
+                relationB : Rep[Query[DomainB]@unchecked],
+                relationC : Rep[Query[DomainC]@unchecked],
+                relationD : Rep[Query[DomainD]@unchecked],
+                relationE : Rep[Query[DomainE]@unchecked],
+                select
+            )
+        ) =>
+            applySelectClause1 (
+                selection (
+                    crossProduct (
+                        relationA,
+                        relationB,
+                        relationC,
+                        relationD,
+                        relationE
+                    ),
+                    predicate
+                ),
+                select
+            )
 
-			case GroupByClause5 (
-				group,
-				WhereClause5 (
-					predicate,
-					FromClause5 (
-						relationA : Rep[Query[DomainA]@unchecked],
-						relationB : Rep[Query[DomainB]@unchecked],
-						relationC : Rep[Query[DomainC]@unchecked],
-						relationD : Rep[Query[DomainD]@unchecked],
-						relationE : Rep[Query[DomainE]@unchecked],
-						select
-					)
-				)
-			) =>
-				applySelectClause1 (
-					grouping (
-						selection (
-							crossProduct (
-								relationA,
-								relationB,
-								relationC,
-								relationD,
-								relationE
-							),
-							predicate
-						),
-						group
-					),
-					select
-				)
-		}  */
+
+        case GroupByClause5 (
+            group,
+            FromClause5 (
+                relationA : Rep[Query[DomainA]@unchecked],
+                relationB : Rep[Query[DomainB]@unchecked],
+                relationC : Rep[Query[DomainC]@unchecked],
+                relationD : Rep[Query[DomainD]@unchecked],
+                relationE : Rep[Query[DomainE]@unchecked],
+                select
+            )
+        ) =>
+            applySelectClause1 (
+                grouping (
+                    crossProduct (
+                        relationA,
+                        relationB,
+                        relationC,
+                        relationD,
+                        relationE
+                    ),
+                    group
+                ),
+                select
+            )
+
+        case GroupByClause5 (
+            group,
+            WhereClause5 (
+                predicate,
+                FromClause5 (
+                    relationA : Rep[Query[DomainA]@unchecked],
+                    relationB : Rep[Query[DomainB]@unchecked],
+                    relationC : Rep[Query[DomainC]@unchecked],
+                    relationD : Rep[Query[DomainD]@unchecked],
+                    relationE : Rep[Query[DomainE]@unchecked],
+                    select
+                )
+            )
+        ) =>
+            applySelectClause1 (
+                grouping (
+                    selection (
+                        crossProduct (
+                            relationA,
+                            relationB,
+                            relationC,
+                            relationD,
+                            relationE
+                        ),
+                        predicate
+                    ),
+                    group
+                ),
+                select
+            )
+    }  */
 
     private def distinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean): Rep[Query[Domain]] = {
         asDistinct match {
@@ -471,7 +489,8 @@ object ClauseToAlgebra {
         select: SELECT_CLAUSE[Select, Range]
     ): Rep[Query[Range]] = {
         select match {
-            case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
+            case SelectAggregateClause (aggregation: AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked],
+            asDistinct) =>
                 distinct (
                     aggregationSelfMaintainedWithoutGrouping (
                         relation,
@@ -483,19 +502,20 @@ object ClauseToAlgebra {
                     asDistinct
                 )
 
-			case SelectAggregateClause (aggregation : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationNotSelfMaintainedWithoutGrouping (
-						relation,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
-					),
-					asDistinct
-				)
+            case SelectAggregateClause (
+            aggregation: AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
+                distinct (
+                    aggregationNotSelfMaintainedWithoutGrouping (
+                        relation,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated
+                    ),
+                    asDistinct
+                )
 
-			case SelectProjectionClause (project, asDistinct) =>
+            case SelectProjectionClause (project, asDistinct) =>
                 distinct (
                     projection (
                         relation,
@@ -506,88 +526,93 @@ object ClauseToAlgebra {
         }
     }
 
-	private def applyGroupedSelectClause[
-		Select : Manifest,
-		Domain <: GroupDomain : Manifest,
-		GroupDomain: Manifest,
-		GroupRange <: Select : Manifest,
-		Range : Manifest
-	] (
-		relation: Rep[Query[Domain]],
-		group : Rep[GroupDomain => GroupRange],
-		select: SELECT_CLAUSE[Select, Range]
-	): Rep[Query[Range]] = {
-		select match {
-			case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationSelfMaintainedWithoutConvert(
-						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
-					),
-					asDistinct
-				)
+    private def applyGroupedSelectClause[
+    Select: Manifest,
+    Domain <: GroupDomain : Manifest,
+    GroupDomain: Manifest,
+    GroupRange <: Select : Manifest,
+    Range: Manifest
+    ] (
+        relation: Rep[Query[Domain]],
+        group: Rep[GroupDomain => GroupRange],
+        select: SELECT_CLAUSE[Select, Range]
+    ): Rep[Query[Range]] = {
+        select match {
+            case SelectAggregateClause (aggregation: AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked],
+            asDistinct) =>
+                distinct (
+                    aggregationSelfMaintainedWithoutConvert (
+                        relation,
+                        group,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated
+                    ),
+                    asDistinct
+                )
 
-			case SelectAggregateClause (aggregation : AggregateTupledFunctionSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationSelfMaintainedTupled(
-						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated,
-						aggregation.project,
-						aggregation.convert
-					),
-					asDistinct
-				)
+            case SelectAggregateClause (
+            aggregation: AggregateTupledFunctionSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked],
+            asDistinct) =>
+                distinct (
+                    aggregationSelfMaintainedTupled (
+                        relation,
+                        group,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated,
+                        aggregation.project,
+                        aggregation.convert
+                    ),
+                    asDistinct
+                )
 
-			case SelectAggregateClause (aggregation : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationNotSelfMaintainedWithoutConvert (
-						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
-					),
-					asDistinct
-				)
+            case SelectAggregateClause (
+            aggregation: AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
+                distinct (
+                    aggregationNotSelfMaintainedWithoutConvert (
+                        relation,
+                        group,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated
+                    ),
+                    asDistinct
+                )
 
-			case SelectAggregateClause (aggregation : AggregateTupledFunctionNotSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked], asDistinct) =>
-				distinct (
-					aggregationNotSelfMaintainedTupled (
-						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated,
-						aggregation.project,
-						aggregation.convert
-					),
-					asDistinct
-				)
+            case SelectAggregateClause (
+            aggregation: AggregateTupledFunctionNotSelfMaintained[Select@unchecked, Domain@unchecked, Range@unchecked],
+            asDistinct) =>
+                distinct (
+                    aggregationNotSelfMaintainedTupled (
+                        relation,
+                        group,
+                        aggregation.start,
+                        aggregation.added,
+                        aggregation.removed,
+                        aggregation.updated,
+                        aggregation.project,
+                        aggregation.convert
+                    ),
+                    asDistinct
+                )
 
-			case SelectProjectionClause (project, asDistinct) =>
-				distinct (
-					projection (
-						grouping (
-							relation,
-							group
-						),
-						project
-					),
-					asDistinct
-				)
-		}
-	}
-
+            case SelectProjectionClause (project, asDistinct) =>
+                distinct (
+                    projection (
+                        grouping (
+                            relation,
+                            group
+                        ),
+                        project
+                    ),
+                    asDistinct
+                )
+        }
+    }
 
 
 }

@@ -52,15 +52,22 @@ object Main
 
         val parser = KilburySentenceParser
 
-        val result = parser.parseTrees.asMaterialized
+        println(printer.quoteRelation(parser.success))
+
+        val result = parser.success.asMaterialized
+
 
         words.zipWithIndex.foreach (parser.input += _)
 
         implicit val ord = parser.edgeOrdering
 
-        result.asList.sorted.foreach(println)
+        result.asList.sorted.foreach (println)
 
+        parser.input -=("like", 2)
 
+        parser.input +=("with", 2)
+
+        result.asList.sorted.foreach (println)
     }
 
 
@@ -84,6 +91,7 @@ object Main
         terminals +=("flies", "Verb")
         terminals +=("like", "Preposition")
         terminals +=("like", "Verb")
+        terminals +=("with", "Preposition")
         terminals +=("time", "Noun")
     }
 

@@ -82,6 +82,7 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
     }
 
     private def transitiveClosureRecurseBackward[U](end: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
+        println("transitiveClosureRecurseBackward(" + end + ", " + current + ", f)")
         graphIncomingEdges.getOrElse ((current), return).foreach (
             edge => {
                 val tail = getTail (edge)

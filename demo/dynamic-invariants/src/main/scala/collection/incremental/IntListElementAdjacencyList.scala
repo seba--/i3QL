@@ -30,42 +30,47 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.demo.chartparser.kilbury
+package collection.incremental
 
-import idb.SetExtent
-import idb.demo.chartparser.schema.ParserSchema
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import idb.Index
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait Scanner
-    extends ParserSchema
+class IntListElementAdjacencyList
+    extends Index[IntListElem, IntListElem]
 {
-    val terminals = SetExtent.empty[Terminal]()
+    def add_element (key: IntListElem, value: IntListElem) = throw new UnsupportedOperationException ()
 
-    val input = SetExtent.empty[InputToken]()
+    def contains (key: IntListElem): Boolean = key.next != null
 
-    val passiveEdges: Rep[Query[Edge]] =
-        SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
-            t.tokenValue == in.value
-            )
+    def count (key: IntListElem): Int = 1
 
+    def foreachKey[U] (f: (IntListElem) => U) = throw new UnsupportedOperationException ()
 
-    val unknownEdges: Rep[Query[Edge]] =
-        SELECT ((in: Rep[InputToken]) =>
-            PassiveEdge (in.position, in.position + 1, "Unknown")
-        ) FROM (input) WHERE ((in: Rep[InputToken]) =>
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM terminals.asMaterialized WHERE ((t: Rep[Terminal]) =>
-                        t.tokenValue == in.value
-                        )
-                )
-            )
-            )
+    def get (key: IntListElem): Option[Traversable[IntListElem]] =
+        if (contains (key)) {
+            Some (List (key.next))
+        } else
+        {
+            None
+        }
+
+    def keyFunction: (IntListElem) => IntListElem = throw new UnsupportedOperationException ()
+
+    def put (key: IntListElem, value: IntListElem) = throw new UnsupportedOperationException ()
+
+    def relation: idb.Relation[IntListElem] = throw new UnsupportedOperationException ()
+
+    def remove_element (key: IntListElem, value: IntListElem) = throw new UnsupportedOperationException ()
+
+    def size: Int = throw new UnsupportedOperationException ()
+
+    def update_element (oldKey: IntListElem, oldV: IntListElem, newKey: IntListElem, newV: IntListElem) = throw new
+            UnsupportedOperationException ()
+
+    def foreach[T] (f: ((IntListElem, IntListElem)) => T) = throw new UnsupportedOperationException ()
+
+    def isSet: Boolean = throw new UnsupportedOperationException ()
 }
