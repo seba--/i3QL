@@ -237,23 +237,6 @@ object ClauseToAlgebra {
                 )
         }
 
-    def apply[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    DomainD <: GroupDomainD : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupDomainD: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
-    ] (
-        query: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
-            GroupDomainD, GroupRange, Range]
-    ): Rep[Query[Range]] =
-        throw new UnsupportedOperationException ()
 
 	def apply[
 		Select: Manifest,
