@@ -1,7 +1,16 @@
 name := "idb"
 
-scalaVersion := "2.10.2"
+scalaVersion in ThisBuild := "2.10.2-RC1"
 
-libraryDependencies += "junit" % "junit" % "latest.integration" % "test"
+organization in ThisBuild := "de.tud.cs.st"
 
-maxErrors := 1
+scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
+
+scalacOptions in ThisBuild ++= Seq(
+    "-feature"
+)
+
+libraryDependencies in ThisBuild ++= Seq(
+    "junit" % "junit" % "latest.integration" % "test"
+)
+

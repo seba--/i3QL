@@ -23,4 +23,6 @@ object idb extends Build {
 
 	lazy val integrationTest = Project(id = "idb-integration-test", base = file("integration-test"))
 		.dependsOn (schemaExamples, syntax)
+
+
 }
