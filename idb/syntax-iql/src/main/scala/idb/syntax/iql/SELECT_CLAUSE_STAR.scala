@@ -44,14 +44,14 @@ trait SELECT_CLAUSE_STAR
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
     ): FROM_CLAUSE_1[Domain, Domain, Domain]
-		with CAN_GROUP_CLAUSE_1[Domain, Domain, Domain]
+	//	with CAN_GROUP_CLAUSE_1[Domain, Domain, Domain]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[(DomainA, DomainB), DomainA, DomainB, (DomainA, DomainB)]
-		with CAN_GROUP_CLAUSE_2[(DomainA, DomainB), DomainA, DomainB, (DomainA, DomainB)]
+	//	with CAN_GROUP_CLAUSE_2[(DomainA, DomainB), DomainA, DomainB, (DomainA, DomainB)]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
@@ -59,7 +59,7 @@ trait SELECT_CLAUSE_STAR
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
     ): FROM_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
-		with CAN_GROUP_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+	//	with CAN_GROUP_CLAUSE_3[(DomainA, DomainB, DomainC), DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
@@ -68,7 +68,7 @@ trait SELECT_CLAUSE_STAR
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]]
     ): FROM_CLAUSE_4[(DomainA, DomainB, DomainC, DomainD), DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)]
-		with CAN_GROUP_CLAUSE_4[(DomainA, DomainB, DomainC, DomainD), DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)]
+	//	with CAN_GROUP_CLAUSE_4[(DomainA, DomainB, DomainC, DomainD), DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)]
 
 
 	def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
@@ -78,6 +78,6 @@ trait SELECT_CLAUSE_STAR
         relationD: Rep[Query[DomainD]],
         relationE: Rep[Query[DomainE]]
     ): FROM_CLAUSE_5[(DomainA, DomainB, DomainC, DomainD, DomainE), DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)]
-		with CAN_GROUP_CLAUSE_5[(DomainA, DomainB, DomainC, DomainD, DomainE), DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)]
+	//	with CAN_GROUP_CLAUSE_5[(DomainA, DomainB, DomainC, DomainD, DomainE), DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)]
 
 }

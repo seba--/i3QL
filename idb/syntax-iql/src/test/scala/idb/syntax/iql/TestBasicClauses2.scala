@@ -37,6 +37,7 @@ import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
+import org.junit.Assert._
 
 
 /**
@@ -56,6 +57,13 @@ class TestBasicClauses2
             crossProduct (extent (students), extent (courses)),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
+
+
     }
 
     @Test
@@ -71,6 +79,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[String]
+		)
     }
 
     @Test
@@ -91,6 +104,11 @@ class TestBasicClauses2
             query
         )
 
+		assertEquals (
+			exactDomainOf(query),
+			manifest[String]
+		)
+
 
     }
 
@@ -110,6 +128,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
     }
 
 
@@ -128,6 +151,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
     }
 
     @Test
@@ -146,6 +174,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
     }
 
 
@@ -166,6 +199,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
     }
 
     @Test
@@ -188,13 +226,18 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Course)]
+		)
     }
 
 
     @Test
     def testJoin2 () {
         val query = plan (
-            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+            SELECT (*) FROM (students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber
             })
         )
@@ -209,6 +252,12 @@ class TestBasicClauses2
                     ))
             ),
             query
+		)
+
+
+        assertEquals (
+          exactDomainOf(query),
+          manifest[(Student, Registration)]
         )
     }
 
@@ -235,6 +284,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[Int]
+		)
     }
 
 
@@ -259,6 +313,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Registration)]
+		)
     }
 
 
@@ -289,6 +348,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Registration)]
+		)
     }
 
     @Test
@@ -306,6 +370,11 @@ class TestBasicClauses2
             ),
             query
         )
+
+		assertEquals (
+			exactDomainOf(query),
+			manifest[(Student, Registration)]
+		)
     }
 
 }
