@@ -11,6 +11,6 @@ scalacOptions in ThisBuild ++= Seq(
 )
 
 libraryDependencies in ThisBuild ++= Seq(
-    "junit" % "junit" % "latest.integration" % "test"
+    "com.novocode" % "junit-interface" % "latest.integration" % "test"
 )
 

@@ -7,6 +7,5 @@ organization := "de.tud.cs.st"
 
 libraryDependencies ++= Seq(
     "EPFL" %% "lms" % "latest.integration",
-    "com.google.guava" % "guava" % "latest.integration",
-    "junit" % "junit" % "latest.integration" % "test"
+    "com.google.guava" % "guava" % "latest.integration"
 )

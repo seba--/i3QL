@@ -233,7 +233,7 @@ class TestBasicClauses2
 		)
     }
 
-
+	@Ignore
     @Test
     def testJoin2 () {
         val query = plan (
