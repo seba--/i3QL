@@ -40,7 +40,7 @@ import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, Struc
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 trait RelationalAlgebraPrintPlanAggregationOperators
     extends RelationalAlgebraPrintPlanBase
@@ -52,7 +52,12 @@ trait RelationalAlgebraPrintPlanAggregationOperators
         FunctionUtils with RelationalAlgebraIRAggregationOperators
 
 
-    import IR.AggregationSelfMaintainedWithoutGrouping
+	import IR.AggregationSelfMaintained
+	import IR.AggregationSelfMaintainedWithoutConvert
+	import IR.AggregationSelfMaintainedWithoutGrouping
+	import IR.AggregationNotSelfMaintained
+	import IR.AggregationNotSelfMaintainedWithoutConvert
+	import IR.AggregationNotSelfMaintainedWithoutGrouping
     import IR.Def
     import IR.Exp
     import IR.Grouping
@@ -66,8 +71,30 @@ trait RelationalAlgebraPrintPlanAggregationOperators
                     withMoreIndent (quoteFunction (grouping) + "\n") +
                     withIndent (")")
 
+			case Def (AggregationSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
+				withIndent ("aggregationSelfMaintained(" + "\n") +
+					withMoreIndent (quoteRelation (relation) + ",\n") +
+					withMoreIndent (quoteFunction (grouping) + ",\n") +
+					withMoreIndent (start + ",\n") +
+					withMoreIndent (quoteFunction (added) + ",\n") +
+					withMoreIndent (quoteFunction (removed) + ",\n") +
+					withMoreIndent (quoteFunction (updated) + ",\n") +
+					withMoreIndent (quoteFunction (convertKey) + ",\n") +
+					withMoreIndent (quoteFunction (convert) + "\n") +
+					withIndent (")")
+
+			case Def (AggregationSelfMaintainedWithoutConvert (relation, grouping, start, added, removed, updated)) =>
+				withIndent ("aggregationSelfMaintained(" + "\n") +
+					withMoreIndent (quoteRelation (relation) + ",\n") +
+					withMoreIndent (quoteFunction (grouping) + ",\n") +
+					withMoreIndent (start + ",\n") +
+					withMoreIndent (quoteFunction (added) + ",\n") +
+					withMoreIndent (quoteFunction (removed) + ",\n") +
+					withMoreIndent (quoteFunction (updated) + ",\n") +
+					withIndent (")")
+
             case Def (AggregationSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)) =>
-                withIndent ("aggregation(" + "\n") +
+                withIndent ("aggregationSelfMaintained(" + "\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (start + "\n") +
                     withMoreIndent (quoteFunction (added) + "\n") +
@@ -75,15 +102,36 @@ trait RelationalAlgebraPrintPlanAggregationOperators
                     withMoreIndent (quoteFunction (updated) + "\n") +
                     withIndent (")")
 
-            /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
-                   withIndent ("aggregation(" + "\n") +
-                       withMoreIndent (quoteRelation (relation) + ",\n") +
-                       withMoreIndent (quoteFunction (grouping) + ",\n") +
-                       withMoreIndent (quoteFunction (added) + ",\n") +
-                       withMoreIndent (quoteFunction (removed) + ",\n") +
-                       withMoreIndent (quoteFunction (updated) + ",\n") +
-                       withMoreIndent (quoteFunction (convert) + "\n") +
-                       withIndent (")")*/
+			case Def (AggregationNotSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
+				withIndent ("aggregationNotSelfMaintained(" + "\n") +
+					withMoreIndent (quoteRelation (relation) + ",\n") +
+					withMoreIndent (quoteFunction (grouping) + ",\n") +
+					withMoreIndent (start + ",\n") +
+					withMoreIndent (quoteFunction (added) + ",\n") +
+					withMoreIndent (quoteFunction (removed) + ",\n") +
+					withMoreIndent (quoteFunction (updated) + ",\n") +
+					withMoreIndent (quoteFunction (convertKey) + ",\n") +
+					withMoreIndent (quoteFunction (convert) + "\n") +
+					withIndent (")")
+
+			case Def (AggregationNotSelfMaintainedWithoutConvert (relation, grouping, start, added, removed, updated)) =>
+				withIndent ("aggregationNotSelfMaintained(" + "\n") +
+					withMoreIndent (quoteRelation (relation) + ",\n") +
+					withMoreIndent (quoteFunction (grouping) + ",\n") +
+					withMoreIndent (start + ",\n") +
+					withMoreIndent (quoteFunction (added) + ",\n") +
+					withMoreIndent (quoteFunction (removed) + ",\n") +
+					withMoreIndent (quoteFunction (updated) + ",\n") +
+					withIndent (")")
+
+			case Def (AggregationNotSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)) =>
+				withIndent ("aggregationNotSelfMaintained(" + "\n") +
+					withMoreIndent (quoteRelation (relation) + ",\n") +
+					withMoreIndent (start + "\n") +
+					withMoreIndent (quoteFunction (added) + "\n") +
+					withMoreIndent (quoteFunction (removed) + "\n") +
+					withMoreIndent (quoteFunction (updated) + "\n") +
+					withIndent (")")
 
             case _ => super.quoteRelation (x)
         }
