@@ -39,6 +39,7 @@ import scala.virtualization.lms.common._
 import idb.schema.university.{Student, University}
 import idb.SetExtent
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+import idb.lms.extensions.lifiting.LiftEverything
 
 /**
  *
@@ -61,7 +62,7 @@ class TestIRGenBasicOperatorsAsIncremental
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
-            with LiftAll
+            with LiftEverything
         {
             val query = selection (extent (base), (s: Rep[Student]) => s.firstName == "Sally")
         }

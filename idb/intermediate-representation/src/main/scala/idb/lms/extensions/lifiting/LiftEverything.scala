@@ -30,36 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.lms.extensions.lifiting
 
-import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import scala.virtualization.lms.common.Base
 import scala.language.implicitConversions
-import scala.virtualization.lms.common._
-import idb.algebra.RelationalAlgebraIROptPackage
-import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
-import idb.lms.extensions.lifiting.LiftEverything
-
 
 /**
  *
- *
- * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the object automatically brings Rep and Exp into Scope.
- *
  * @author Ralf Mitschke
  */
-object IR
-    extends ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROptPackage
-    with RelationalAlgebraGenSAEBinding
-    with StructExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
-    with StaticDataExp
-    with LiftEverything
-{
-
-    type SubQuery[+T] = IQL_SUB_QUERY[T]
-
+trait LiftEverything extends Base {
+  implicit def __anythingAsUnit[T:Manifest](x: T) = unit(x)
 }

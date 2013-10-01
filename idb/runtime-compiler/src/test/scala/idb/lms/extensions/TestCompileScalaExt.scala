@@ -39,6 +39,7 @@ import scala.virtualization.lms.common._
 import idb.schema.university.{StudentSchema, Student, University}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.compiler.{RelationalAlgebraGenBasicOperatorsAsIncremental, RelationalAlgebraGenSAEBinding}
+import idb.lms.extensions.lifiting.LiftEverything
 
 /**
  *
@@ -56,7 +57,7 @@ class TestCompileScalaExt
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
-            with LiftAll
+            with LiftEverything
         {
             def isSally (s: Rep[Student]) = s.firstName == "Sally"
         }
