@@ -11,6 +11,9 @@ scalacOptions in ThisBuild ++= Seq(
 )
 
 libraryDependencies in ThisBuild ++= Seq(
-    "com.novocode" % "junit-interface" % "latest.integration" % "test"
+    "com.novocode" % "junit-interface" % "latest.integration" % "test" ,
+    "org.scala-lang.virtualized" % "scala-library" % "2.10.2-RC1",
+    "org.scala-lang.virtualized" % "scala-compiler" % "2.10.2-RC1",
+    "org.scala-lang" % "scala-actors" % "2.10.2-RC1"
 )
 
