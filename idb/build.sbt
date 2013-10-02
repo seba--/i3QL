@@ -17,3 +17,7 @@ libraryDependencies in ThisBuild ++= Seq(
     "org.scala-lang" % "scala-actors" % "2.10.2-RC1"
 )
 
+
+// tests are not thread safe
+parallelExecution in Test := false
+
