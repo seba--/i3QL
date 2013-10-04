@@ -32,6 +32,8 @@
  */
 package idb.algebra.base
 
+import scala.language.implicitConversions
+import scala.language.higherKinds
 
 /**
  *

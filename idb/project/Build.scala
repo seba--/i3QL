@@ -16,13 +16,15 @@ object idb extends Build {
 		.dependsOn (annotations)
 
 	lazy val runtimeCompiler = Project(id = "idb-runtime-compiler", base = file("runtime-compiler"))
-		.dependsOn (schemaExamples, runtime, intermediateRepresentation)
+		.dependsOn (schemaExamples % "test->compile;compile->compile", runtime, intermediateRepresentation)
 
 	lazy val syntax = Project(id = "idb-syntax-iql", base = file("syntax-iql"))
-		.dependsOn (runtimeCompiler, schemaExamples)
+		.dependsOn (runtimeCompiler, schemaExamples % "test->compile;compile->compile")
 
 	lazy val integrationTest = Project(id = "idb-integration-test", base = file("integration-test"))
-		.dependsOn (schemaExamples, syntax)
+		.dependsOn (schemaExamples % "test->compile;compile->compile", syntax)
+
+  val virtScala = "2.10.2-RC1"
 
 
 }

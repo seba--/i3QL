@@ -1,6 +1,8 @@
 package idb.schema.university
 
 
+import scala.language.implicitConversions
+
 /**
  *
  * @author Ralf Mitschke

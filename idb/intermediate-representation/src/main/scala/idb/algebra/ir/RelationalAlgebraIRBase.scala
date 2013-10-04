@@ -36,6 +36,7 @@ import idb.algebra.base.RelationalAlgebraBase
 import idb.annotations.LocalIncrement
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
+import scala.language.implicitConversions
 
 
 /**

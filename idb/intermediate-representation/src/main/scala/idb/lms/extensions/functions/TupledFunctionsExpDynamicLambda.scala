@@ -34,6 +34,7 @@ package idb.lms.extensions.functions
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.TupledFunctionsExp
+import scala.language.implicitConversions
 
 /**
  *

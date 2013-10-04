@@ -34,6 +34,7 @@ package idb.lms.extensions.reduction
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{TupledFunctionsExp, IfThenElseExp, TupleOpsExp}
+import scala.language.implicitConversions
 
 /**
  *

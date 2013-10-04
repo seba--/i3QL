@@ -34,6 +34,7 @@ package idb.lms.extensions.operations
 
 import scala.virtualization.lms.common.{ScalaGenSeqOps, SeqOpsExp, CastingOpsExp}
 import scala.reflect.SourceContext
+import scala.language.implicitConversions
 
 /**
  *

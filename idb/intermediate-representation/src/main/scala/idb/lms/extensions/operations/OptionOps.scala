@@ -34,6 +34,7 @@ package idb.lms.extensions.operations
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common._
+import scala.language.implicitConversions
 
 
 /**

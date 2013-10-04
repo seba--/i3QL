@@ -33,6 +33,8 @@
 package idb.lms.extensions.equivalence
 
 import scala.virtualization.lms.common.Base
+import scala.language.implicitConversions
+import scala.language.higherKinds
 
 /**
  *

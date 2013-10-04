@@ -33,6 +33,7 @@
 package idb.schema.university
 
 import scala.virtualization.lms.common.StructExp
+import scala.language.implicitConversions
 
 /**
  *
