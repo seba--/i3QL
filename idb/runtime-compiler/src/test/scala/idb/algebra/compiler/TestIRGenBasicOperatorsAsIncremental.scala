@@ -53,12 +53,13 @@ class TestIRGenBasicOperatorsAsIncremental
 
     @Test
     def testConstructSelection () {
+
         val base = new SetExtent[Student]
 
         val prog = new RelationalAlgebraIRBasicOperators
-			with RelationalAlgebraIRSetTheoryOperators
-			with RelationalAlgebraIRRecursiveOperators
-			with RelationalAlgebraIRAggregationOperators
+            with RelationalAlgebraIRSetTheoryOperators
+            with RelationalAlgebraIRRecursiveOperators
+            with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University

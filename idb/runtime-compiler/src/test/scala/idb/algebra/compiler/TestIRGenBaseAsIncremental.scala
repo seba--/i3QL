@@ -51,6 +51,9 @@ class TestIRGenBaseAsIncremental
 
     @Test
     def testConstructBaseRelation () {
+
+
+
         import IR._
         val base = new SetExtent[Int]
         val query = extent (base)

@@ -14,9 +14,7 @@ scalacOptions in ThisBuild ++= Seq(
 libraryDependencies in ThisBuild ++= Seq(
     "com.novocode" % "junit-interface" % "latest.integration" % "test" ,
     "org.scala-lang.virtualized" % "scala-library" % virtScala,
-    "org.scala-lang.virtualized" % "scala-compiler" % virtScala,
-    "org.scala-lang" % "scala-actors" % virtScala,
-    "org.scalatest" % "scalatest_2.10" % "2.0.M5b" % "test"
+    "org.scala-lang.virtualized" % "scala-compiler" % virtScala
 )
 
 

@@ -48,6 +48,9 @@ class TestBasicClauses1
 {
     @Test
     def testExtent () {
+
+
+
         val query = plan (
             SELECT (*) FROM students
         )
