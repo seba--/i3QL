@@ -32,6 +32,7 @@
  */
 package sae.bytecode.types
 
+import scala.language.implicitConversions
 import scala.virtualization.lms.common.Base
 
 /**

@@ -32,6 +32,7 @@
  */
 package sae.bytecode.structure.instructions
 
+import scala.language.higherKinds
 import scala.language.implicitConversions
 import sae.bytecode.structure.base.BytecodeStructure
 

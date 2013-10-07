@@ -32,6 +32,8 @@
  */
 package sae.bytecode.types
 
+import scala.language.higherKinds
+
 /**
  *
  * @author Ralf Mitschke

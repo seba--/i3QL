@@ -32,6 +32,7 @@
  */
 package sae.bytecode.asm
 
+import scala.language.implicitConversions
 import sae.bytecode.structure.instructions.{BytecodeInstructionsOps, BytecodeInstructionsManifest}
 import sae.bytecode.structure.base.BytecodeStructureManifests
 import sae.bytecode.types.BytecodeTypeManifests

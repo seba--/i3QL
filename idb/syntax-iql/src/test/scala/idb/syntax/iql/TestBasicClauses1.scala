@@ -37,6 +37,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
+import org.junit.Assert._
 import scala.language.implicitConversions
 
 
@@ -48,8 +49,6 @@ class TestBasicClauses1
 {
     @Test
     def testExtent () {
-
-
 
         val query = plan (
             SELECT (*) FROM students

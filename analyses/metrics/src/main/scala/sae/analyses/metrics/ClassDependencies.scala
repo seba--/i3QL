@@ -32,6 +32,7 @@
  */
 package sae.analyses.metrics
 
+import scala.language.implicitConversions
 import sae.bytecode.BytecodeDatabase
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
