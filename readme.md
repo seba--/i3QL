@@ -5,9 +5,9 @@ Projects:
 /analyses - Demo static analyses of Findbugs, Metrics
 
 
-How to build (SBT)
+How to build me (SBT)
 
-1.  To build this project you need to install SBT and GIT first.
+1.  To build this project you need to have SBT and GIT installed
     Download (SBT): http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
     Download (GIT): https://github.com
 
