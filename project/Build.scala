@@ -13,19 +13,19 @@ object sae extends Build {
 	lazy val annotations = Project(id = "idb-annotations", base = file("idb/annotations"))
 
 	lazy val intermediateRepresentation = Project(id = "idb-intermediate-representation", base = file("idb/intermediate-representation"))
-		.dependsOn (annotations % "compile")
+		.dependsOn (annotations % "compile;test->compile")
 
 	lazy val schemaExamples = Project(id = "idb-schema-examples", base = file("idb/schema-examples"))
-		.dependsOn (annotations % "compile")
+		.dependsOn (annotations % "compile;test->compile")
 
 	lazy val runtimeCompiler = Project(id = "idb-runtime-compiler", base = file("idb/runtime-compiler"))
-		.dependsOn (schemaExamples % "compile;test->compile", runtime % "compile", intermediateRepresentation % "compile")
+		.dependsOn (schemaExamples % "compile;test->compile", runtime % "compile;test->compile", intermediateRepresentation % "compile;test->compile")
 
 	lazy val syntax = Project(id = "idb-syntax-iql", base = file("idb/syntax-iql"))
-		.dependsOn (runtimeCompiler % "compile", schemaExamples % "compile;test->compile")
+		.dependsOn (runtimeCompiler % "compile;test->compile", schemaExamples % "compile;test->compile")
 
 	lazy val integrationTest = Project(id = "idb-integration-test", base = file("idb/integration-test"))
-		.dependsOn (schemaExamples % "compile;test->compile", syntax % "compile")
+		.dependsOn (schemaExamples % "compile;test->compile", syntax % "compile;test->compile")
 		
 	/*
     Project Bytecode Database
