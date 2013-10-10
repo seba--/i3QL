@@ -8,3 +8,7 @@ organization := "de.tud.cs.st"
 libraryDependencies ++= Seq(
     "EPFL" %% "lms" % "latest.integration"
 )
+
+parallelExecution in Test := false
+
+logBuffered in Test := false

@@ -129,6 +129,7 @@ class TestBasicClauses3
         )
     }
 
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rd () {
         val query = plan (
@@ -167,6 +168,7 @@ class TestBasicClauses3
         )
     }
 
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rdInterleaved () {
         val query =

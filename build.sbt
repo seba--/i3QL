@@ -14,9 +14,13 @@ scalacOptions in ThisBuild ++= Seq(
 libraryDependencies in ThisBuild ++= Seq(
     "com.novocode" % "junit-interface" % "latest.integration" % "test->default" ,
     "org.scala-lang.virtualized" % "scala-library" % virtScala,
-    "org.scala-lang.virtualized" % "scala-compiler" % virtScala,
-    "junit" % "junit" % "4.8.1" % "test"
+    "org.scala-lang.virtualized" % "scala-compiler" % virtScala
 )
+
+//Test settings
+parallelExecution in Test := false
+
+logBuffered in Test := false
 
 //SHow additional test info
 testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-v", "-a")

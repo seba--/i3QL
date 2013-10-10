@@ -10,3 +10,7 @@ resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/
 libraryDependencies ++= Seq(
     "EPFL" %% "lms" % "latest.integration"
 )
+
+parallelExecution in Test := false
+
+logBuffered in Test := false

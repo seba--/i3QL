@@ -24,8 +24,14 @@ trait CompileScalaExt
     def setupCompiler () {
         val settings = new Settings ()
 
+        val pathSeparator = System.getProperty("path.separator")
+
         // we use the environment rather than the current class loader to work with maven surefire
-        settings.classpath.value = System.getProperty ("java.class.path")
+        settings.classpath.value = this.getClass.getClassLoader match {
+          case ctx: java.net.URLClassLoader => ctx.getURLs.map(_.getPath).mkString(pathSeparator)
+          case _ => System.getProperty("java.class.path")
+        }
+
         settings.bootclasspath.value = Predef.getClass.getClassLoader match {
             case ctx: java.net.URLClassLoader => ctx.getURLs.map (_.getPath).mkString (File.pathSeparator)
             case _ => System.getProperty ("sun.boot.class.path")

@@ -9,3 +9,7 @@ libraryDependencies ++= Seq(
     "EPFL" %% "lms" % "latest.integration",
     "com.google.guava" % "guava" % "latest.integration"
 )
+
+parallelExecution in Test := false
+
+logBuffered in Test := false
