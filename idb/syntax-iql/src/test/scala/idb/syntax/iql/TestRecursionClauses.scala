@@ -48,12 +48,11 @@ import scala.language.implicitConversions
 class TestRecursionClauses
 {
 
-	//TODO Fix compile error
-  /*  @Ignore
+
+	@Ignore
     @Test
     def testTransitiveClosureAsRecursion () {
-        // TODO actually works, but due to the replacement of syms in recursion,
-        // the subexpressions are not deemd the same
+       	//Union is not recognized as recursion step
         val query =
             WITH RECURSIVE (
                 (temp: Rep[Query[CoursePrerequisite]]) =>
@@ -80,6 +79,6 @@ class TestRecursionClauses
             ),
             query
         )
-    }  */
+    }
 
 }

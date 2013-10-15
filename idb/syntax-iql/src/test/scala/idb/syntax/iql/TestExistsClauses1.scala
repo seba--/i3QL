@@ -131,7 +131,7 @@ class TestExistsClauses1
     }
 
 
-    @Ignore
+    @Ignore //Not optimized
     @Test
     def testExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (
@@ -161,8 +161,8 @@ class TestExistsClauses1
 
     }
 
-    // works but is not optimized
-    @Ignore
+
+    @Ignore // works but is not optimized
     @Test
     def testMultipleExists () {
         val query = plan (
@@ -249,8 +249,6 @@ class TestExistsClauses1
         )
     }
 
-	//TODO Why is this wrong?
-	@Ignore
     @Test
     def testNotExistsWithMultipleOuterConjunctions () {
         val query = plan (
@@ -279,7 +277,7 @@ class TestExistsClauses1
         )
     }
 
-    @Ignore
+   	@Ignore //Not optimized
     @Test
     def testNotExistsWithMultipleInterleavedOuterConjunctions () {
         val query = plan (

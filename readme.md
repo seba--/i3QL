@@ -1,6 +1,13 @@
 Projects:
 
 /idb - Incremental Database (engine using LMS as intermediate representation)
+    /runtime - Runtime classes/engine (e.g. operators) for relations
+    /syntax-iql - Syntax of the query language and transforming of queries into intermediate representation
+    /intermediate-representation - Representation and optimization of queries as syntax trees. Uses LMS.
+    /runtime-compiler - Transforms syntax trees to runnable "code".
+    /integration-test - End-to-end user tests of queries.
+    /schema-examples - University database example that is used for testing.
+    /annotations - Implements custom annotations.
 /bytecode-database - Concrete database for Java Bytecode
 /analyses - Demo static analyses of Findbugs, Metrics
 

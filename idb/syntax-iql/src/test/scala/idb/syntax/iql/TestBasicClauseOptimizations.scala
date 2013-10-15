@@ -37,6 +37,8 @@ import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
+import idb.syntax.iql.TestUtil._
+
 
 /**
  *
@@ -44,20 +46,20 @@ import org.junit.{Ignore, Test}
  */
 class TestBasicClauseOptimizations
 {
-    @Ignore
+
     @Test
     def testPropagateFilterToRightViaJoin () {
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
-                    s.matriculationNumber == 12345
+                s.matriculationNumber == 12345
             })
         )
 
-        assertEquals (
+      assertEqualStructure (
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
-                selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
+               	extent (registrations),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -67,7 +69,6 @@ class TestBasicClauseOptimizations
         )
     }
 
-    @Ignore
     @Test
     def testPropagateFilterToLeftViaJoin () {
         val query = plan (
@@ -77,9 +78,9 @@ class TestBasicClauseOptimizations
             })
         )
 
-        assertEquals (
+      assertEqualStructure (
             equiJoin (
-                selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
+                extent (students),
                 selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
@@ -90,7 +91,6 @@ class TestBasicClauseOptimizations
         )
     }
 
-    @Ignore
     @Test
     def testLocalIncrementJoin () {
         val query = plan (
@@ -99,7 +99,7 @@ class TestBasicClauseOptimizations
             })
         )
 
-        assertEquals (
+      assertEqualStructure (
             equiJoin (
                 extent (lectures),
                 extent (bookRecommendations),

@@ -129,29 +129,7 @@ class TestBasicOperators
 		assertFalse(query.contains("Student: Jane"))
 	}
 
-    /*
-    @Ignore
-	@Test
-	def testStudentNames4() {
 
-		val query = compile (
-			SELECT (*) FROM	students GROUP BY ((s: Rep[Student]) => s.firstName)
-		).asMaterialized
-
-
-
-		val john = Student(11111, "John", "Doe")
-		val judy = Student(22222, "Judy", "Carter")
-		val jane = Student(33333, "Jane", "Doe")
-
-		students += john += judy += jane
-		students.endTransaction()
-
-		assertTrue(query.contains("John"))
-		assertTrue(query.contains("Judy"))
-		assertTrue(query.contains("Jane"))
-	}
-	*/
 
 	@Test
 	def testGroup2() {
@@ -392,8 +370,8 @@ class TestBasicOperators
 		assertTrue(query.contains((jane,reg4)))
 	}
 
-	//TODO Fix this test
-    @Ignore
+	//TODO Fails but no error message?!
+	@Ignore
 	@Test
 	def testGetStudentsAndTheirRegistrations () {
 		val query = compile (

@@ -70,24 +70,53 @@ class TestAggregateClauses2
     @Test
     def testJoin2CountStar () {
         val query = plan (
-            SELECT (COUNT (*)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+            SELECT (COUNT (*)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) =>
                 s.matriculationNumber == r.studentMatriculationNumber
-            })
+            )
         )
+
+		assertEqualStructure (
+			aggregationSelfMaintainedWithoutGrouping (
+				selection (
+					crossProduct (
+						extent (students),
+						extent (registrations)
+					),
+					fun ((s: Rep[Student], r: Rep[Registration]) => s.matriculationNumber == r.studentMatriculationNumber)
+				),
+				0,
+				fun ((s: Rep[(Student, Registration)], i: Rep[Int]) => i + 1),
+				fun ((s: Rep[(Student, Registration)], i: Rep[Int]) => i - 1),
+				fun ((s1: Rep[(Student, Registration)], s2: Rep[(Student, Registration)], i: Rep[Int]) => i)
+			),
+			query
+		)
     }
 
     @Test
     def testJoin2AggregateGroup1 () {
 
         val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM(students, registrations) WHERE ((
+            SELECT ((s: Rep[String]) => s) FROM (students, registrations) WHERE ((
             s: Rep[Student],
             r: Rep[Registration]
-            ) =>
-            {
-                s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
+            ) => s.matriculationNumber == r.studentMatriculationNumber
+            ) GROUP BY ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
         )
+
+		assertEqualStructure (
+			grouping (
+				selection (
+					crossProduct (
+						extent (students),
+						extent (registrations)
+					),
+					fun ((s: Rep[Student], r: Rep[Registration]) => s.matriculationNumber == r.studentMatriculationNumber)
+				),
+				fun ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
+			),
+			query
+		)
 
     }
 
@@ -98,6 +127,23 @@ class TestAggregateClauses2
                 (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number
                 )
         )
+
+		assertEqualStructure (
+			aggregationSelfMaintainedWithoutGrouping (
+				selection (
+					crossProduct (
+						extent (registrations),
+						extent (courses)
+					),
+					fun ((r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number)
+				),
+				0,
+				fun ((s: Rep[(Registration, Course)], i: Rep[Int]) => i + s._2.creditPoints),
+				fun ((s: Rep[(Registration, Course)], i: Rep[Int]) => i - s._2.creditPoints),
+				fun ((s1: Rep[(Registration, Course)], s2: Rep[(Registration, Course)], i: Rep[Int]) => i - s1._2.creditPoints + s2._2.creditPoints)
+			),
+			query
+		)
     }
 
 

@@ -96,7 +96,7 @@ class TestBasicClauses1
     }
 
 
-    @Ignore
+    @Ignore //The structure of the expected result is in another order (but not a wrong order).
     @Test
     def testSelection1Negate () {
         val query = plan (
@@ -116,7 +116,7 @@ class TestBasicClauses1
     }
 
 
-    @Ignore
+    @Ignore //The structure of the expected result is in another order (but not a wrong order).
     @Test
     def testSelection1NegateMultiplePositive () {
         val query = plan (
