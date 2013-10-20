@@ -54,7 +54,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
     }
 
     case class UnionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
@@ -67,7 +67,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
     }
 
     case class Intersection[Domain: Manifest] (
@@ -77,7 +77,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 	}
 
     case class Difference[Domain: Manifest] (
@@ -87,7 +87,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 
 		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 	}
 
 

@@ -52,7 +52,7 @@ trait RelationalAlgebraIRBasicOperators
 
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
     }
 
     case class Selection[Domain: Manifest] (
@@ -61,7 +61,7 @@ trait RelationalAlgebraIRBasicOperators
     ) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -74,7 +74,7 @@ trait RelationalAlgebraIRBasicOperators
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
@@ -85,7 +85,7 @@ trait RelationalAlgebraIRBasicOperators
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 	}
 
     case class DuplicateElimination[Domain: Manifest] (
@@ -94,7 +94,7 @@ trait RelationalAlgebraIRBasicOperators
 
 		def isMaterialized: Boolean = !isIncrementLocal //Duplicate Elimination stores intermediate objects and therefore implements foreach
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
@@ -104,7 +104,7 @@ trait RelationalAlgebraIRBasicOperators
 
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 

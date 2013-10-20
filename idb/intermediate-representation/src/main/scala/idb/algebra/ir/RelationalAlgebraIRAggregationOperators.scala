@@ -58,11 +58,11 @@ trait RelationalAlgebraIRAggregationOperators
     ) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
-		relation : Rep[Query[Domain]],
+		var relation : Rep[Query[Domain]],
 		start : Result,
 		added : Rep[((Domain, Result)) => Result],
 		removed : Rep[((Domain, Result)) => Result],
@@ -70,11 +70,11 @@ trait RelationalAlgebraIRAggregationOperators
 	) extends Def[Query[Result]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		relation: Rep[Query[Domain]],
+		var relation: Rep[Query[Domain]],
 		grouping: Rep[Domain => Key],
 		start : Range,
 		added : Rep[((Domain, Range)) => Range],
@@ -83,11 +83,11 @@ trait RelationalAlgebraIRAggregationOperators
 	) extends  Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
-		relation : Rep[Query[Domain]],
+		var relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
 		added : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
@@ -98,11 +98,11 @@ trait RelationalAlgebraIRAggregationOperators
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
-		relation : Rep[Query[Domain]],
+		var relation : Rep[Query[Domain]],
 		start : Range,
 		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
 		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
@@ -110,11 +110,11 @@ trait RelationalAlgebraIRAggregationOperators
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		relation: Rep[Query[Domain]],
+		var relation: Rep[Query[Domain]],
 		grouping: Rep[Domain => Key],
 		start : Range,
 		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
@@ -123,16 +123,16 @@ trait RelationalAlgebraIRAggregationOperators
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	case class Grouping[Domain : Manifest, Result : Manifest] (
-		relation : Rep[Query[Domain]],
+		var relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Result]
 	) extends Def[Query[Result]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
-		def isIncrementLocal = false
+		def isIncrementLocal = relation.isIncrementLocal
 	}
 
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
