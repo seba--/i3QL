@@ -32,19 +32,31 @@
  */
 package idb.lms.extensions.operations
 
-import scala.virtualization.lms.common.CastingOpsExp
+import scala.virtualization.lms.common._
 import scala.reflect.SourceContext
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait CastingOpsExpExt
+trait MirrorDefinitions
     extends CastingOpsExp
+    with SeqOpsExp
+    with StringOpsExp
+    with ListOpsExp
 {
 
+    // The following entities were not defined for mirroring in the orignal LMS
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
         case RepIsInstanceOf (lhs, mA, mB) => rep_isinstanceof (f (lhs), mA, mB)
+
+        case SeqApply(xs, index) => seq_apply(f(xs), f(index))
+        case SeqLength(xs) => seq_length(f(xs))
+
+        case StringStartsWith(s, prefix) => string_startswith(f(s), f(prefix))
+
+        case ListConcat(l1, l2) => list_concat(f(l1), f(l2))
+
         case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
 

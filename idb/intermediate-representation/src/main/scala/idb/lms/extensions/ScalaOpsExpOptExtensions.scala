@@ -37,7 +37,7 @@ import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 import idb.lms.extensions.normalization._
 import idb.lms.extensions.reduction._
 import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.operations.CastingOpsExpExt
+import idb.lms.extensions.operations.MirrorDefinitions
 
 /**
  *
@@ -50,7 +50,7 @@ trait ScalaOpsExpOptExtensions
     with TupledFunctionsExpAlphaEquivalence
     with StaticDataExpAlphaEquivalence
     with OptionOpsExpAlphaEquivalence
-    with CastingOpsExpExt
+    with MirrorDefinitions
     with FunctionsExpDynamicLambdaAlphaEquivalence
     with ScalaOpsExpConstantPropagation
     with NumericOpsExpNormalization
