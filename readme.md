@@ -7,7 +7,7 @@ Projects:
     /runtime-compiler - Transforms syntax trees to runnable "code".
     /integration-test - End-to-end user tests of queries.
     /schema-examples - University database example that is used for testing.
-    /annotations - Implements custom annotations.
+    /annotations - Implements custom annotations, e.g., @LocalIncrement
 /bytecode-database - Concrete database for Java Bytecode
 /analyses - Demo static analyses of Findbugs, Metrics
 
