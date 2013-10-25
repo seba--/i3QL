@@ -1,0 +1,53 @@
+Single relation
+    //Add element
+
+    //Add elements
+
+    //Update element
+
+    //Add double element
+
+    //Update double element
+
+    //Remove double element
+
+    //Remove elements
+
+    //Remove all elements
+
+Double relations:
+	//Add one element to left relation
+
+	//Add one element to right relation
+
+	//Add element to left relation that is filtered.
+
+    //Add element to right relation that is filtered
+
+    //Add more elements
+
+    //Update element of left relation
+
+    //Update element of right relation
+
+    //Add double element to left relation
+
+    //Add double element to right relation
+
+    //Update double element of left relation
+
+    //Update double element of right relation
+
+    //Remove element of left relation
+
+    //Add last removed element again
+
+    //Remove element of right relation
+
+    //Remove all elements of left relation
+
+    //Re-add the last removed elements
+
+    //Remove all elements of right relation
+
+    //Remove all elements of left relation

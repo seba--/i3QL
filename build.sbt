@@ -24,7 +24,5 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
-fork in Test := true
-
 //SHow additional test info
 testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-v", "-a")

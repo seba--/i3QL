@@ -33,7 +33,7 @@
 package idb.integration.test
 
 import idb.schema.university._
-import idb.{BagExtent, Extent}
+import idb.{Relation, BagExtent, Extent}
 
 /**
  *

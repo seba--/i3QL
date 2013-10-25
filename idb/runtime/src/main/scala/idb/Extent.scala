@@ -57,6 +57,11 @@ trait Extent[V]
         notify_updated (oldV, newV)
     }
 
+	def ~= (vs : (V,V)) : Extent[V] = {
+		update(vs._1,vs._2)
+		this
+	}
+
     def remove (v: V) {
         notify_removed (v)
     }
@@ -65,7 +70,6 @@ trait Extent[V]
 		remove(v)
 		this
 	}
-
 
     def add (v: V) {
         notify_added (v)
