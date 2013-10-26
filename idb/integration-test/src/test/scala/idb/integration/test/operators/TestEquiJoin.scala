@@ -43,39 +43,158 @@ class TestEquiJoin extends UniversityTestData with RelationalAlgebraPrintPlan {
 		val query = compile(queryUncompiled).asMaterialized
 
 		//Add one element to left relation
+		students += johnDoe
+		students.endTransaction()
+
+		assertThat (query.size, is (0))
 
 		//Add one element to right relation
+		registrations += johnTakesEise
+		registrations.endTransaction()
 
-		//Add element to left relation that is filtered.
-
-		//Add element to right relation that is filtered
+		assertThat (query contains (johnDoe, johnTakesEise), is (true))
+		assertThat (query.size, is (1))
 
 		//Add more elements
+		students += sallyFields += jackBlack += janeDoe
+		students.endTransaction()
+		registrations += sallyTakesIcs1 += jackTakesIcs1 += johannaTakesIcs1
+		registrations.endTransaction()
+
+		assertThat (query contains (johnDoe, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+		query.foreach ((sr : (Student, Registration)) => assertThat (sr._1, is (not (equalTo (janeDoe)))))
+		query.foreach ((sr : (Student, Registration)) => assertThat (sr._2, is (not (equalTo (johannaTakesIcs1)))))
+
+		assertThat (query.size, is (3))
 
 		//Update element of left relation
+		students ~= (johnDoe, johnFields)
+		students.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query contains (johnDoe, johnTakesEise), is (false))
+
+		assertThat (query.size, is (3))
 
 		//Update element of right relation
+		registrations ~= (sallyTakesIcs1, sallyTakesIcs2)
+		registrations.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query contains (sallyFields, sallyTakesIcs1), is (false))
+
+		assertThat (query.size, is (3))
 
 		//Add double element to left relation
+		students += jackBlack
+		students.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query count (jackBlack, jackTakesIcs1), is (2))
+
+		assertThat (query.size, is (4))
 
 		//Add double element to right relation
+		registrations += sallyTakesIcs2
+		registrations.endTransaction()
 
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query count (jackBlack, jackTakesIcs1), is (2))
+		assertThat (query count (sallyFields, sallyTakesIcs2), is (2))
+
+		assertThat (query.size, is (5))
+
+		//TODO How to handle updates of double elements?
 		//Update double element of left relation
+/*		students ~= (jackBlack, jackCarter)
+		students.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+		assertThat (query contains (jackCarter, jackTakesIcs1), is (true))
+
+		assertThat (query count (jackBlack, jackTakesIcs1), is (1))
+		assertThat (query count (sallyFields, sallyTakesIcs2), is (2))
+
+		assertThat (query.size, is (5))
 
 		//Update double element of right relation
+		registrations ~= (sallyTakesIcs2, sallyTakesIcs1)
+		registrations.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+		assertThat (query contains (jackCarter, jackTakesIcs1), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
+
+		assertThat (query count (sallyFields, sallyTakesIcs2), is (1))
+
+		assertThat (query.size, is (5))
 
 		//Remove element of left relation
+		students -= jackCarter
+		students.endTransaction()
 
-		//Add last removed element again
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
+
+		assertThat (query.size, is (4))
 
 		//Remove element of right relation
+		registrations -= sallyTakesIcs1
+		registrations.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query.size, is (3))
 
 		//Remove all elements of left relation
+		students -= johnFields -= sallyFields -= jackBlack -= janeDoe
+		students.endTransaction()
+
+		assertThat (query.size, is (0))
 
 		//Re-add the last removed elements
+		students += johnFields += sallyFields += jackBlack += janeDoe
+		students.endTransaction()
+
+		assertThat (query contains (johnFields, johnTakesEise), is (true))
+		assertThat (query contains (sallyFields, sallyTakesIcs2), is (true))
+		assertThat (query contains (jackBlack, jackTakesIcs1), is (true))
+
+		assertThat (query.size, is (3))
 
 		//Remove all elements of right relation
+		registrations -= johnTakesEise -= sallyTakesIcs2 -= jackTakesIcs1 -= johannaTakesIcs1
+		registrations.endTransaction()
+
+		assertThat (query.size, is (0))
 
 		//Remove all elements of left relation
+		students += johnFields += sallyFields += jackBlack += janeDoe
+		students.endTransaction()
+
+		assertThat (query.size, is (0))     */
+
 	}
 }

@@ -52,6 +52,17 @@ class TestAggregateClauses1
 		val query = plan (
 			SELECT (COUNT ((s : Rep[Student]) => s.lastName)) FROM students
 		)
+
+		assertEqualStructure (
+			aggregationSelfMaintainedWithoutGrouping (
+				extent (students),
+				0,
+				fun ((c: Rep[Student], i: Rep[Int]) => i + 1),
+				fun ((c: Rep[Student], i: Rep[Int]) => i - 1),
+				fun ((c1: Rep[Student], c2: Rep[Student], i: Rep[Int]) => i)
+			),
+			query
+		)
 	}
 
 	@Test
@@ -60,8 +71,17 @@ class TestAggregateClauses1
             SELECT (COUNT (*)) FROM students
         )
 
-
-    }
+		assertEqualStructure (
+			aggregationSelfMaintainedWithoutGrouping (
+				extent (students),
+				0,
+				fun ((c: Rep[Student], i: Rep[Int]) => i + 1),
+				fun ((c: Rep[Student], i: Rep[Int]) => i - 1),
+				fun ((c1: Rep[Student], c2: Rep[Student], i: Rep[Int]) => i)
+			),
+			query
+		)
+	}
 
 
     @Test

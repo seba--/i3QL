@@ -42,7 +42,7 @@ import scala.virtualization.lms.common.StructExp
  *
  */
 
-@LocalIncrement
+//@LocalIncrement
 case class Course (number: Int, title: String, creditPoints: Int)
 {
 

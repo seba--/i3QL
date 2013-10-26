@@ -62,6 +62,8 @@ trait UniversityTestData
 
 	val janeFields = Student (5, "Jane", "Fields")
 
+	val jackCarter = Student (6, "Jack", "Carter")
+
 	//Courses
     val ics1 = Course (1, "Introduction to Computer Science I", 9)
 
@@ -81,6 +83,8 @@ trait UniversityTestData
 
 	//Registrations
     val sallyTakesIcs1 = Registration (1, 1, "Sally takes ICS1")
+
+	val sallyTakesIcs2 = Registration (2, 1, "Sally takes ICS2")
 
 	val johnTakesEise = Registration (3, 2, "John takes EISE")
 

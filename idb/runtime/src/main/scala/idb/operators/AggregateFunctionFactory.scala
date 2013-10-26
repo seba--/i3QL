@@ -7,7 +7,7 @@ package idb.operators
  * -SelfMaintainableAggregateFunctionFactory
  *
  */
-trait AggregateFunctionFactory[Domain, AggregationValue, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]
+trait AggregateFunctionFactory[Domain, AggregationValue, +AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]
 {
     def apply(): AggregateFunctionType
 

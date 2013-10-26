@@ -45,6 +45,10 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		courses += ics2 += sedc
 		courses.endTransaction()
 
+		Predef.println("****************************")
+		query.foreach(Predef.println(_))
+		Predef.println("****************************")
+
 		assertThat (query contains 24, is (true))
 		assertThat (query.size, is (1))
 
@@ -90,11 +94,13 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		assertThat (query.size, is (0))
 	}
 
+	//TODO test aggregation without tuple but with grouping
+
 	@Test
 	def testQueryWithGrouping1 () {
 		//Initialize query
 		val queryUncompiled = plan(
-			SELECT (COUNT (*)) FROM (students) GROUP BY ((s : Rep[Student]) => s.lastName)
+			SELECT ((s : Rep[String]) => s, COUNT (*)) FROM (students) GROUP BY ((s : Rep[Student]) => s.lastName)
 		)
 		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
 
@@ -105,7 +111,7 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//John Doe
 
-		assertThat (query contains 1, is (true))
+		assertThat (query contains ("Doe", 1), is (true))
 		assertThat (query.size, is (1))
 
 		//Add element that does not group
@@ -113,9 +119,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//John Doe / Sally Fields
 
-		assertThat (query contains 1, is (true))
-
-		assertThat (query count 1, is (2))
+		assertThat (query contains  ("Doe", 1), is (true))
+		assertThat (query contains  ("Fields", 1), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -124,8 +129,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//John Doe, Jane Doe, Sally Doe / Sally Fields
 
-		assertThat (query contains 3, is (true))
-		assertThat (query contains 1, is (true))
+		assertThat (query contains ("Doe", 3), is (true))
+		assertThat (query contains ("Fields", 1), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -134,9 +139,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//Jane Doe, Sally Doe / Sally Fields, John Fields
 
-		assertThat (query contains 2, is (true))
-
-		assertThat (query count 2, is (2))
+		assertThat (query contains ("Doe", 2), is (true))
+		assertThat (query contains ("Fields", 2), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -145,8 +149,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//Jane Doe, Sally Doe / Sally Fields, Sally Fields, John Fields
 
-		assertThat (query contains 2, is (true))
-		assertThat (query contains 3, is (true))
+		assertThat (query contains ("Doe", 2), is (true))
+		assertThat (query contains ("Fields", 3), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -155,8 +159,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//Jane Doe, Sally Doe, Sally Doe / Sally Fields, John Fields
 
-		assertThat (query contains 3, is (true))
-		assertThat (query contains 2, is (true))
+		assertThat (query contains ("Doe", 3), is (true))
+		assertThat (query contains ("Fields", 2), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -165,9 +169,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		//Jane Doe, Sally Doe / Sally Fields, John Fields
 
-		assertThat (query contains 2, is (true))
-
-		assertThat (query count 2, is (2))
+		assertThat (query contains ("Doe", 2), is (true))
+		assertThat (query contains ("Fields", 2), is (true))
 
 		assertThat (query.size, is (2))
 
@@ -176,7 +179,8 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		students.endTransaction()
 		// Sally Fields, John Fields
 
-		assertThat (query contains 2, is (true))
+		assertThat (query contains ("Fields", 2), is (true))
+
 		assertThat (query.size, is (1))
 
 		//Remove all elements
