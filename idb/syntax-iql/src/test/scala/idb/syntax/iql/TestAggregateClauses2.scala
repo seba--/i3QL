@@ -48,7 +48,7 @@ class TestAggregateClauses2
     def testGrouping () {
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM(students, registrations) GROUP BY (
-                (s: Rep[Student], r: Rep[Registration]) => s.lastName + r.comment
+                (s: Rep[Person], r: Rep[Registration]) => s.lastName + r.comment
             )
         )
 
@@ -59,7 +59,7 @@ class TestAggregateClauses2
                     extent (students),
                     extent (registrations)
                 ),
-                fun ((s: Rep[Student], r: Rep[Registration]) => s.lastName + r.comment)
+                fun ((s: Rep[Person], r: Rep[Registration]) => s.lastName + r.comment)
             ),
             query
         )

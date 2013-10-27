@@ -8,9 +8,7 @@ import idb.syntax.iql.IR._
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
-import idb.schema.university.Course
-import idb.schema.university.Student
-import idb.schema.university.Registration
+import idb.schema.university.{Person, Course, Student, Registration}
 
 
 /**
@@ -202,7 +200,7 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 			) WHERE (
 				(s : Rep[Student], r : Rep[Registration], c : Rep[Course]) => s.matriculationNumber == r.studentMatriculationNumber && r.courseNumber == c.number
 			) GROUP BY (
-				(s : Rep[Student], r : Rep[Registration], c : Rep[Course]) => s.lastName
+				(s : Rep[Person], r : Rep[Registration], c : Rep[Course]) => s.lastName
 			)
 		)
 		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))

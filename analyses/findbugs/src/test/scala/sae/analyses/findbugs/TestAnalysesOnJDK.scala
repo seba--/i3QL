@@ -36,6 +36,7 @@ import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
+import sae.analyses.findbugs.random.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
 
 /**
  *
@@ -214,4 +215,12 @@ class TestAnalysesOnJDK
         //assertEquals (53, analysis.size)
         assertEquals (117, analysis.size)
     }
+
+	@Test
+	def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION () {
+		val database = getDatabase
+		val analysis = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (3, analysis.size)
+	}
 }
