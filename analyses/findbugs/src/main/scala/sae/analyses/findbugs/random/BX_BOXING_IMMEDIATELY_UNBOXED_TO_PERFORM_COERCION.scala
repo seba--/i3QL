@@ -22,18 +22,18 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION {
 			methodInvocationInstructions, methodInvocationInstructions
 		) WHERE (
 			(invSpecial : Rep[MethodInvocationInstruction], invVirtual : Rep[MethodInvocationInstruction]) =>
-				invSpecial.opcode == OpCodes.INVOKESPECIAL &&
-				invVirtual.opcode == OpCodes.INVOKEVIRTUAL &&
-				invSpecial.declaringMethod == invVirtual.declaringMethod &&
-				invSpecial.methodInfo.receiverType == invVirtual.methodInfo.receiverType &&
-				invSpecial.nextPC == invVirtual.pc &&
-				invSpecial.methodInfo.parameterTypes.length == 1 &&
-				! (invSpecial.methodInfo.parameterTypes(0) == invVirtual.methodInfo.returnType) &&
-				! (invSpecial.methodInfo.parameterTypes(0).IsInstanceOf[ReferenceType]) &&
-				invSpecial.declaringMethod.declaringClass.majorVersion >= 49 &&
-				invSpecial.methodInfo.receiverType.IsInstanceOf[ObjectType] &&
-				invSpecial.methodInfo.receiverType.AsInstanceOf[ObjectType].className.startsWith ("java/lang") &&
-				invVirtual.methodInfo.parameterTypes == Nil //&&
+				invSpecial.opcode == OpCodes.INVOKESPECIAL AND
+				invVirtual.opcode == OpCodes.INVOKEVIRTUAL AND
+				invSpecial.declaringMethod == invVirtual.declaringMethod AND
+				invSpecial.methodInfo.receiverType == invVirtual.methodInfo.receiverType AND
+				invSpecial.nextPC == invVirtual.pc AND
+				invSpecial.methodInfo.parameterTypes.length == 1 AND
+				NOT (invSpecial.methodInfo.parameterTypes(0) == invVirtual.methodInfo.returnType) AND
+				NOT (invSpecial.methodInfo.parameterTypes(0).IsInstanceOf[ReferenceType]) AND
+				invSpecial.declaringMethod.declaringClass.majorVersion >= 49 AND
+				invSpecial.methodInfo.receiverType.IsInstanceOf[ObjectType] AND
+				invSpecial.methodInfo.receiverType.AsInstanceOf[ObjectType].className.startsWith ("java/lang") AND
+				invVirtual.methodInfo.parameterTypes == Nil //AND
 				//invVirtual.methodInfo.name.endsWith ("Value")
 		)
 	}

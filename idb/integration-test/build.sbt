@@ -8,3 +8,5 @@ organization := "de.tud.cs.st"
 parallelExecution in Test := false
 
 logBuffered in Test := false
+
+fork in Test := true

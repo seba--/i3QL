@@ -43,10 +43,6 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		courses += ics2 += sedc
 		courses.endTransaction()
 
-		Predef.println("****************************")
-		query.foreach(Predef.println(_))
-		Predef.println("****************************")
-
 		assertThat (query contains 24, is (true))
 		assertThat (query.size, is (1))
 
@@ -92,10 +88,56 @@ class TestSelfMaintainedAggregation extends UniversityTestData with RelationalAl
 		assertThat (query.size, is (0))
 	}
 
-	//TODO test aggregation without tuple but with grouping
+	@Test
+	def testQueryWithGrouping2 () {
+		val queryUncompiled = plan(
+			SELECT (COUNT (*) ) FROM (students, registrations)
+				WHERE ((s : Rep[Student], r : Rep[Registration]) => r.studentMatriculationNumber == s.matriculationNumber)
+				GROUP BY ((s : Rep[Student], r : Rep[Registration]) => s.lastName)
+		)
+		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
+
+		val query = compile(queryUncompiled).asMaterialized
+
+		//Add one element to left relation
+
+		//Add one element to right relation
+
+		//Add element to left relation that is filtered.
+
+		//Add element to right relation that is filtered
+
+		//Add more elements
+
+		//Update element of left relation
+
+		//Update element of right relation
+
+		//Add double element to left relation
+
+		//Add double element to right relation
+
+		//Update double element of left relation
+
+		//Update double element of right relation
+
+		//Remove element of left relation
+
+		//Add last removed element again
+
+		//Remove element of right relation
+
+		//Remove all elements of left relation
+
+		//Re-add the last removed elements
+
+		//Remove all elements of right relation
+
+		//Remove all elements of left relation
+	}
 
 	@Test
-	def testQueryWithGrouping1 () {
+	def testQueryWithGroupingAndConvert1 () {
 		//Initialize query
 		val queryUncompiled = plan(
 			SELECT ((s : Rep[String]) => s, COUNT (*)) FROM (students) GROUP BY ((s : Rep[Student]) => s.lastName)
