@@ -1,53 +1,27 @@
-Single relation
-    //Add element
+	Description					|	Start	|	Operation		|   Filter	|   Projection  |    Distinct
+														            _ != c
+---------------------------------------------------------------------------------------------
+01									{}          add (a)
+02									{}          add (c)						||||||||||||||||||||||||||||||||||||||||||||
+03									{}          remove (a)
+04									{}          update (a, b)
+05									{a}         add (b)
+06									{b}         add (a)
+07									{a}         update (a, b)
+08									{b}         update (b, a)
+09									{c}			update (c, a)				|||||||||||||||||||||||||||||||||||||||||||||
+10									{a}			update (a, c)               |||||||||||||||||||||||||||||||||||||||||||||
+11									{a}         remove (a)
+12 Add-double element  				{a}         add (a)
+13									{c}         add (c)						||||||||||||||||||||||||||||||||||||||||||||
+14									{a, a}      update (a, b)
+15									{a, a}      remove (a)
+16 Non-empty result    				{a, b}      remove (a)
+17 Non-empty result other  		   	{a, b}      remove (b)
+18									{a, a, b}	update (a, b)
+19									{a, a, b}	remove (a)
+20 Remove twice						{a, b}		remove (a)
+												remove (b)
+21 Re-add							{a}			remove (a)
+												add(a)
 
-    //Add elements
-
-    //Update element
-
-    //Add double element
-
-    //Update double element
-
-    //Remove double element
-
-    //Remove elements
-
-    //Remove all elements
-
-Double relations:
-	//Add one element to left relation
-
-	//Add one element to right relation
-
-	//Add element to left relation that is filtered.
-
-    //Add element to right relation that is filtered
-
-    //Add more elements
-
-    //Update element of left relation
-
-    //Update element of right relation
-
-    //Add double element to left relation
-
-    //Add double element to right relation
-
-    //Update double element of left relation
-
-    //Update double element of right relation
-
-    //Remove element of left relation
-
-    //Add last removed element again
-
-    //Remove element of right relation
-
-    //Remove all elements of left relation
-
-    //Re-add the last removed elements
-
-    //Remove all elements of right relation
-
-    //Remove all elements of left relation

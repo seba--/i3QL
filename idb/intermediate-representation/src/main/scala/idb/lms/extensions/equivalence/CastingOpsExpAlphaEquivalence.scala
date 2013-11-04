@@ -45,7 +45,14 @@ trait CastingOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalentDef (a, b) // TODO implement this
+	override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+      	(a, b) match {
+        	case (RepIsInstanceOf(lhs, lmA, lmB), RepIsInstanceOf(rhs, rmA, rmB)) =>
+       			isEquivalent(lhs,rhs) && (lmA equals rmA) && (lmB equals rmB)
+			case (RepAsInstanceOf(lhs, lmA, lmB), RepAsInstanceOf(rhs, rmA, rmB)) =>
+				isEquivalent(lhs,rhs) && (lmA equals rmA) && (lmB equals rmB)
+			case _ => super.isEquivalentDef (a, b)
+      }
+
 
 }

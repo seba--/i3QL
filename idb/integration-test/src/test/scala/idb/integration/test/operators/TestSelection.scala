@@ -3,13 +3,15 @@ package idb.integration.test.operators
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
-import org.junit.Test
+import org.junit.{Before, Test}
 import idb.schema.university.{Registration, Student, Course}
 import idb.syntax.iql.IR._
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
+import idb.schema.university.Student
+import idb.{BagExtent, MaterializedView}
 
 
 /**
@@ -17,263 +19,214 @@ import idb.schema.university.Student
  *
  * @author Mirko Köhler
  */
-class TestSelection extends UniversityTestData with RelationalAlgebraPrintPlan {
+class TestSelection extends UniversityTestData
+	with AbstractStudentOperatorTest[Student] {
 
 	val IR = idb.syntax.iql.IR
 
 	val printQuery = true
 
-	@Test
-	def testQuery1 () {
-		//Initialize query
-		val queryUncompiled = plan(
-			SELECT (*) FROM (students) WHERE ((s : Rep[Student]) => s.matriculationNumber < 6)
-		)
-		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
+	var query : Relation[Student] = null
+	var extent : Extent[Student] = null
 
-		val query = compile(queryUncompiled).asMaterialized
-
-		//Add element to relation
-		students += johnDoe
-		students.endTransaction()
-
-		assertThat (query contains johnDoe, is (true))
-
-		assertThat (query.size, is (1))
-
-		//Add element that is filtered.
-		students += jackBlack
-		students.endTransaction()
-
-		assertThat (query contains johnDoe, is (true))
-		assertThat (query contains jackBlack, is (false))
-
-		assertThat (query.size, is (1))
-
-		//Add elements to relation
-		students += judyCarter += jackBlack += janeDoe += johannaOrleans += sallyFields
-		students.endTransaction()
-
-		assertThat (query contains johnDoe, is (true))
-		assertThat (query contains judyCarter, is (true))
-		assertThat (query contains jackBlack, is (false))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains johannaOrleans, is (false))
-		assertThat (query contains sallyFields, is (true))
-
-		assertThat (query.size, is (4))
-
-		//Update element
-		students ~= (sallyFields, sallyDoe)
-		students.endTransaction()
-
-		assertThat (query contains johnDoe, is (true))
-		assertThat (query contains judyCarter, is (true))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains sallyFields, is (false))
-		assertThat (query contains sallyDoe, is (true))
-
-		assertThat (query.size, is (4))
-
-		//Add double element
-		students += johnDoe
-
-		assertThat (query contains johnDoe, is (true))
-		assertThat (query contains judyCarter, is (true))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains sallyDoe, is (true))
-
-		assertThat (query count johnDoe, is (2))
-		assertThat (query.size, is (5))
-
-		//Update double element
-		students ~= (johnDoe, johnFields)
-		students.endTransaction()
-
-		assertThat (query contains judyCarter, is (true))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains sallyDoe, is (true))
-		assertThat (query contains johnFields, is (true))
-
-		assertThat (query count johnFields, is (2))
-		assertThat (query.size, is (5))
-
-		//Remove double element from the query
-		students -= johnFields
-		students.endTransaction()
-
-		assertThat (query contains johnFields, is (true))
-		assertThat (query contains judyCarter, is (true))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains sallyDoe, is (true))
-
-		assertThat (query count johnFields, is (1))
-		assertThat (query.size, is (4))
-
-		//Remove multiple elements at once
-		students -= sallyDoe -= johnFields -= judyCarter
-		students.endTransaction()
-
-		assertThat (query contains johnFields, is (false))
-		assertThat (query contains judyCarter, is (false))
-		assertThat (query contains janeDoe, is (true))
-		assertThat (query contains sallyDoe, is (false))
-
-		assertThat (query.size, is (1))
-
-		//Remove all elements
-		students -= janeDoe
-		students.endTransaction()
-
-		assertThat (query.size, is (0))
-
+	@Before
+	def setUp() {
+		extent = BagExtent.empty[Student]
+		query = compile(SELECT (*) FROM (extent) WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 ))
 	}
 
 
-/*	@Test
-	def testQuery2 () {
-		//Initialize query
 
-		val queryUncompiled = plan(
-			SELECT (*) FROM (students, registrations)
-				WHERE ((s : Rep[Student], r : Rep[Registration]) => (s.matriculationNumber < 6 && r.courseNumber == 1))
-		)
+	def assertAddToEmptyA(q : MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
 
-		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
+		assertThat (q.size, is (1))
+	}
 
-		val query = compile(queryUncompiled).asMaterialized
+	def assertAddToEmptyB(q : MaterializedView[Student]) {
+		assertThat (q contains jackBlack, is (false))
 
-		//Add one element to left relation
-		students += johnDoe
-		students.endTransaction()
+		assertThat (q.size, is (0))
+	}
 
-		assertThat (query.size, is (0))
+	def assertAddToFilled(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (true))
 
-		//Add one element to right relation
-		registrations += johnTakesEise
-		registrations.endTransaction()
+		assertThat (q.size, is (2))
+	}
 
-		assertThat (query contains (johnDoe, johnTakesEise), is (true))
-		assertThat (query.size, is (1))
+	def assertUpdateA(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (false))
+		assertThat (q contains sallyFields, is (true))
 
-		//Add element to left relation that is filtered.
-		students += jackBlack
-		students.endTransaction()
+		assertThat (q.size, is (1))
+	}
 
-		assertThat (query contains (johnDoe, johnTakesEise), is (true))
-		query.foreach((sr : (Student, Registration)) => assertThat(sr._1, not (equalTo (jackBlack))))
+	def assertUpdateB(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (false))
 
-		assertThat (query.size, is (1))
+		assertThat (q.size, is (1))
+	}
 
-		//Add element to right relation that is filtered
-		registrations += jackTakesIcs1
-		registrations.endTransaction()
+	def assertUpdateC(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains jackBlack, is (false))
 
-		assertThat (query contains (johnDoe, johnTakesEise), is (true))
-		query.foreach((sr : (Student, Registration)) => assertThat (sr._2, not( equalTo (jackTakesIcs1))))
+		assertThat (q.size, is (1))
+	}
 
-		assertThat (query.size, is (1))
+	def assertUpdateD(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (false))
+		assertThat (q contains jackBlack, is (false))
 
-		//Add more elements
-		students += sallyFields += judyCarter += johannaOrleans
-		students.endTransaction()
-		registrations += sallyTakesIcs1 += judyTakesIcs2 += johannaTakesIcs1
-		registrations.endTransaction()
+		assertThat (q.size, is (0))
+	}
 
-		assertThat (query contains (johnDoe, johnTakesEise), is (true))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
-		assertThat (query contains (johannaOrleans, johannaTakesIcs1), is (false))
+	def assertRemove(q: MaterializedView[Student]) {
+		assertThat (q contains sallyFields, is (false))
 
-		assertThat (query.size, is (3))
+		assertThat (q.size, is (0))
+	}
 
-		//Update element of left relation
-		students ~= (johnDoe, johnFields)
-		students.endTransaction()
+	def assertAddDoubleA(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q count johnDoe, is (2))
 
-		assertThat (query contains (johnFields, johnTakesEise), is (true))
-		assertThat (query contains (johnDoe, johnTakesEise), is (false))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+		assertThat (q.size, is (2))
 
-		assertThat (query.size, is (3))
+	}
 
-		//Update element of right relation
-		registrations ~= (johnTakesEise, johnTakesSedc)
-		registrations.endTransaction()
+	def assertAddDoubleB(q: MaterializedView[Student]) {
+		assertThat (q contains jackBlack, is (false))
 
-		assertThat (query contains (johnFields, johnTakesEise), is (false))
-		assertThat (query contains (johnFields, johnTakesSedc), is (true))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+		assertThat (q.size, is (0))
 
-		assertThat (query.size, is (3))
-		
-		//Add double element to left relation
-		students += sallyFields
-		students.endTransaction()
+	}
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (true))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+	def assertUpdateDouble(q: MaterializedView[Student]) {
+    assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (true))
+		assertThat (q count johnDoe, is (1))
 
-		assertThat (query count (sallyFields, sallyTakesIcs1), is (2))
-		assertThat (query.size, is (4))
+		assertThat (q.size, is (2))
+	}
 
-		//Add double element to right relation
-		registrations += sallyTakesIcs1
-		registrations.endTransaction()
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (true))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+	def assertRemoveDouble(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q count johnDoe, is (1))
 
-		assertThat (query count (sallyFields, sallyTakesIcs1), is (4))
-		assertThat (query.size, is (6))
+		assertThat (q.size, is (1))
+	}
 
-		//Update double element of left relation
-		students ~= (sallyFields, sallyDoe)
-		students.endTransaction()
+	def assertRemoveNonEmptyResultA(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (false))
+		assertThat (q contains sallyFields, is (true))
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (true))
-		assertThat (query contains (sallyDoe, sallyTakesIcs1), is (false))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (false))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+		assertThat (q.size, is (1))
+	}
 
-		assertThat (query count (sallyFields, sallyTakesIcs1), is (4))
-		assertThat (query.size, is (6))
-		
-		
+	def assertRemoveNonEmptyResultB(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (false))
 
-		//Remove element of left relation
-		students -= johnFields
-		students.endTransaction()
+		assertThat (q.size, is (1))
+	}
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (false))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+	def assertUpdateTriple(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (true))
+		assertThat (q count johnDoe, is (1))
+		assertThat (q count sallyFields, is (2))
 
-		assertThat (query.size, is (2))
+		assertThat (q.size, is (3))
+	}
 
-		//Add last removed element again
-		students += johnFields
-		students.endTransaction()
+	def assertRemoveFromTriple(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q contains sallyFields, is (true))
+		assertThat (q count johnDoe, is (1))
+		assertThat (q count sallyFields, is (1))
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (true))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+		assertThat (q.size, is (2))
+	}
 
-		assertThat (query.size, is (3))
+	def assertRemoveTwice(q: MaterializedView[Student]) = {
+		assertThat (q contains johnDoe, is (false))
+		assertThat (q contains sallyFields, is (false))
 
-		//Remove element of right relation
-		registrations -= johnTakesSedc
-		registrations.endTransaction()
+		assertThat (q.size, is (0))
+	}
 
-		assertThat (query contains (johnFields, johnTakesSedc), is (false))
-		assertThat (query contains (sallyFields, sallyTakesIcs1), is (true))
-		assertThat (query contains (judyCarter, judyTakesIcs2), is (true))
+	def assertReadd(q: MaterializedView[Student]) {
+		assertThat (q contains johnDoe, is (true))
+		assertThat (q count johnDoe, is (1))
 
-		assertThat (query.size, is (2))
-	} */
+		assertThat (q.size, is (1))
+	}
 
+	/*
+		Additional selection tests
+	 */
+	@Test
+	def testAddToEmptyB() {
+		val q = query.asMaterialized
+		val e = extent
+
+		//Test
+		e += jackBlack
+		e.endTransaction()
+
+		assertAddToEmptyB(q)
+	}
+
+	@Test
+	def testUpdateC() {
+		val q = query.asMaterialized
+		val e = extent
+
+		//SetUp
+		e += jackBlack
+		e.endTransaction()
+
+		//Test
+		e ~= (jackBlack, johnDoe)
+		e.endTransaction()
+
+		assertUpdateC(q)
+	}
+
+	@Test
+	def testUpdateD() {
+		val q = query.asMaterialized
+		val e = extent
+
+		//SetUp
+		e += johnDoe
+		e.endTransaction()
+
+		//Test
+		e ~= (johnDoe, jackBlack)
+		e.endTransaction()
+
+		assertUpdateD(q)
+	}
+
+	@Test
+	def testAddDoubleB() {
+		val q = query.asMaterialized
+		val e = extent
+
+		//SetUp
+		e += jackBlack
+		e.endTransaction()
+
+		//Test
+		e += jackBlack
+		e.endTransaction()
+
+		assertAddDoubleB(q)
+	}
 }

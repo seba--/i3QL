@@ -60,10 +60,15 @@ trait Bag[V]
     }
 
     def update_element (oldV: V, newV: V) {
-        val count = data.count (oldV)
+        if (data remove oldV) {
+          data add newV
+          notify_updated(oldV, newV)
+        }
+
+     /*   val count = data.count (oldV)
         data.setCount (oldV, 0)
         data.add (newV, count)
-        notify_updated (oldV, newV)
+        notify_updated (oldV, newV)    */
     }
 
     def update_element (oldV: V, newV: V, count: Int) {

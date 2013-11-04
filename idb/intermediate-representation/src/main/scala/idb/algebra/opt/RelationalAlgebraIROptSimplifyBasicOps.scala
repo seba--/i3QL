@@ -164,7 +164,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                         )(domainOf (ra.relationB), domainOf (rb), domainOf (rb))
                                     )
 
-                                case Def (DuplicateElimination (`rb`)) =>
+                              	case Def (DuplicateElimination (`rb`)) =>
                                     projection (
                                         equiJoin (
                                             ra.relationB,
@@ -209,6 +209,8 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                 case _ =>
                                     super.projection (relation, function)
                             }
+						case _ => //TODO is this correct?
+							super.projection(relation, function)
                     }
 
                 case -1 =>
