@@ -122,12 +122,16 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
-            val (count, aggregationFunction, oldResult) = groups (oldKey)
-            val aggregationResult = aggregationFunction.update (oldV, newV)
-            val newResult = convertKeyAndAggregateValueToResult (oldKey, aggregationResult)
-            groups.put (oldKey, (count, aggregationFunction, newResult))
-            if (oldResult != newResult)
-                notify_updated (oldResult, newResult)
+			try {
+				val (count, aggregationFunction, oldResult) = groups (oldKey)
+				val aggregationResult = aggregationFunction.update (oldV, newV)
+				val newResult = convertKeyAndAggregateValueToResult (oldKey, aggregationResult)
+				groups.put (oldKey, (count, aggregationFunction, newResult))
+				if (oldResult != newResult)
+					notify_updated (oldResult, newResult)
+			} catch {
+				case ex : NoSuchElementException => throw new IllegalStateException("No element to be updated.")
+			}
         }
         else
         {
@@ -141,24 +145,30 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
      */
     def removed(v: Domain) {
         val key = groupingFunction (v)
-        val (count, aggregationFunction, oldResult) = groups (key)
+		try {
+        	val (count, aggregationFunction, oldResult) = groups (key)
 
-        if (count.dec == 0) {
-            //remove a group
-            groups -= key
-            notify_removed (oldResult)
-        }
-        else
-        {
-            //remove element from key group
-            val aggregationResult = aggregationFunction.remove (v)
-            val newResult = convertKeyAndAggregateValueToResult (key, aggregationResult)
-            if (newResult != oldResult) {
-                //some aggregation values changed => updated event
-                groups.put (key, (count, aggregationFunction, newResult))
-				notify_updated (oldResult, newResult)
-            }
-        }
+			if (count.dec == 0) {
+				//remove a group
+				groups -= key
+				notify_removed (oldResult)
+			}
+			else
+			{
+				//remove element from key group
+				val aggregationResult = aggregationFunction.remove (v)
+				val newResult = convertKeyAndAggregateValueToResult (key, aggregationResult)
+				if (newResult != oldResult) {
+					//some aggregation values changed => updated event
+					groups.put (key, (count, aggregationFunction, newResult))
+					notify_updated (oldResult, newResult)
+				}
+			}
+
+		} catch {
+			case ex : NoSuchElementException => throw new IllegalStateException("No element to be updated.")
+		}
+
     }
 
     /**

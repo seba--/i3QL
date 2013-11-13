@@ -124,10 +124,25 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain],
 		if (oldV == newV) {
 			return
 		}
-		val count = data.count(oldV)
-		data.remove(oldV, count)
-		data.add(newV, count)
-		notify_updated(oldV, newV)
+
+		if(!(data remove oldV))
+			throw new IllegalStateException("The element '" + oldV + "' could not been updated: The element does not exist in the relation.")
+
+		data add newV
+
+		val oldCount = data count oldV
+		val newCount = data count newV
+
+		if (oldCount == 0 && newCount > 1) {
+			notify_removed (oldV)
+		} else if (oldCount > 0 && newCount > 1) {
+			return
+		} else if (oldCount > 0 && newCount <= 1) {
+			notify_added (newV)
+		} else if (oldCount == 0 && newCount <= 1) {
+			notify_updated (oldV, newV)
+		}
+
 	}
 
 	def removed(v: Domain) {

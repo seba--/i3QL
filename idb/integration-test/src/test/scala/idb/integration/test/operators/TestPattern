@@ -1,5 +1,7 @@
-	Description					|	Start	|	Operation		|   Filter	|   Projection  |    Distinct
-														            _ != c
+	Description					|	Start	|	Operation		|   Filter	|   Projection  |    Distinct   |   Self-maintained Aggregation
+														            _ != c      a => a'                         Ungrouped   |   Grouped |   Grouped-Tupled
+														                        b => b'                                        I = {a, c}
+														                        c => a'                                        II = {b}
 ---------------------------------------------------------------------------------------------
 01									{}          add (a)
 02									{}          add (c)						||||||||||||||||||||||||||||||||||||||||||||
@@ -9,10 +11,11 @@
 06									{b}         add (a)
 07									{a}         update (a, b)
 08									{b}         update (b, a)
-09									{c}			update (c, a)				|||||||||||||||||||||||||||||||||||||||||||||
-10									{a}			update (a, c)               |||||||||||||||||||||||||||||||||||||||||||||
+09									{c}			update (c, a)				                |||||||||||||||||||||||||||||||||||||||||||||
+10									{a}			update (a, c)                               |||||||||||||||||||||||||||||||||||||||||||||
 11									{a}         remove (a)
 12 Add-double element  				{a}         add (a)
+12b                                 {a}         add (c)         ||||||||||||                ||||||||||||||||||||||||||||||
 13									{c}         add (c)						||||||||||||||||||||||||||||||||||||||||||||
 14									{a, a}      update (a, b)
 15									{a, a}      remove (a)
@@ -24,4 +27,8 @@
 												remove (b)
 21 Re-add							{a}			remove (a)
 												add(a)
+									{a, b}      add(c)
+									{a, b, c}   remove(c)
+									{a, b, c}   update(c, b)
+									{a, b, c}   update(c, a)
 

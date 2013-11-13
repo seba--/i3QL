@@ -85,6 +85,7 @@ class TestExistsClauses1
         assertEquals (result.asList, Nil)
     }
 
+	@Ignore
     @Test
     def testNotExists () {
         val result = compile (

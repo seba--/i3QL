@@ -48,22 +48,31 @@ trait Bag[V]
 
 
     def add_element (v: V, count: Int) {
-        data.add (v, count)
+    //    data.add (v, count)
+		throw new UnsupportedOperationException()
     }
 
     def remove_element (v: V) {
-        data.remove (v)
+        if (!data.remove (v))
+			throw new IllegalStateException("Unable to remove '" + v + "': element is not in the bag.")
+		notify_removed(v)
     }
 
     def remove_element (v: V, count: Int) {
-        data.remove (v, count)
-    }
+	/*	val i = data.remove (v, count)
+       	if (i < count)
+		   throw new IllegalStateException("Unable to remove '" + v + "': element was only "+ i + " times in the bag (remove count was " + count + ").")
+    */
+		throw new UnsupportedOperationException()
+	}
 
     def update_element (oldV: V, newV: V) {
         if (data remove oldV) {
           data add newV
           notify_updated(oldV, newV)
-        }
+        } else {
+			throw new IllegalStateException("Unable to update '" + oldV + "': element is not in the bag.")
+		}
 
      /*   val count = data.count (oldV)
         data.setCount (oldV, 0)
@@ -72,12 +81,17 @@ trait Bag[V]
     }
 
     def update_element (oldV: V, newV: V, count: Int) {
-        val oldCount = data.count (oldV)
+	/*	(1 to count) foreach {
+			(i) => update_element(oldV, newV)
+		}   */
+		throw new UnsupportedOperationException()
+
+	/*    val oldCount = data.count (oldV)
 
         assert (oldCount >= count)
 
         data.setCount (oldV, oldCount - count)
         data.add (newV, count)
-        notify_updated (oldV, newV)
+        notify_updated (oldV, newV)  */
     }
 }

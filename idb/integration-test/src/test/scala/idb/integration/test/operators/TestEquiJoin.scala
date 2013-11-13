@@ -19,8 +19,8 @@ import idb.schema.university.Registration
  *
  * @author Mirko Köhler
  */
-class TestEquiJoin extends UniversityTestData with RelationalAlgebraPrintPlan {
-
+class TestEquiJoin { //extends UniversityTestData with RelationalAlgebraPrintPlan {
+/*
 	val IR = idb.syntax.iql.IR
 
 	val printQuery = true
@@ -196,5 +196,5 @@ class TestEquiJoin extends UniversityTestData with RelationalAlgebraPrintPlan {
 
 		assertThat (query.size, is (0))     */
 
-	}
+	}   */
 }
