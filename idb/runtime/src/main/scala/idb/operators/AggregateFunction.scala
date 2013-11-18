@@ -8,11 +8,11 @@ package idb.operators
  */
 trait AggregateFunction[Domain, Result]
 {
-    def add(newD: Domain, data: Iterable[Domain]): Result
+    def add(newD: Domain, data: Seq[Domain]): Result
 
-    def remove(newD: Domain, data: Iterable[Domain]): Result
+    def remove(newD: Domain, data: Seq[Domain]): Result
 
-    def update(oldD: Domain, newD: Domain, data: Iterable[Domain]): Result
+    def update(oldD: Domain, newD: Domain, data: Seq[Domain]): Result
 
 	def get : Result
 }
@@ -34,15 +34,15 @@ trait SelfMaintainableAggregateFunction[Domain, Result]
     extends AggregateFunction[Domain, Result]
 {
 
-    final override def add(newD: Domain, data: Iterable[Domain]): Result = {
+    final override def add(newD: Domain, data: Seq[Domain]): Result = {
         add (newD)
     }
 
-    final override def remove(newD: Domain, data: Iterable[Domain]): Result = {
+    final override def remove(newD: Domain, data: Seq[Domain]): Result = {
         remove (newD)
     }
 
-    final override def update(oldD: Domain, newD: Domain, data: Iterable[Domain]): Result = {
+    final override def update(oldD: Domain, newD: Domain, data: Seq[Domain]): Result = {
         update (oldD, newD)
     }
 

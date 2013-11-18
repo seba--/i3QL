@@ -1,6 +1,6 @@
 package idb.operators.impl.opt
 
-import collection.mutable
+import scala.collection.mutable
 import idb.Relation
 import idb.operators._
 import idb.observer.{Observable, NotifyObservers, Observer}
@@ -60,7 +60,7 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			val oldV = aggregateFunction.get
 
 			for (dom <- setAsScala) {
-				aggregateFunction.add(dom, setAsScala)
+				aggregateFunction.add(dom, setAsScala.to[Seq])
 			}
 
 			val newV = aggregateFunction.get
@@ -80,7 +80,7 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			val oldV = aggregateFunction.get
 
 			for (dom <- setAsScala) {
-				aggregateFunction.remove(dom, setAsScala)
+				aggregateFunction.remove(dom, setAsScala.to[Seq])
 			}
 
 			val newV = aggregateFunction.get
@@ -277,9 +277,9 @@ object TransactionalAggregationNotSelfMaintained {
 		source : Relation[Domain],
 		grouping : Domain => Key,
 		start : AggregateValue,
-		added : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
-		removed : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
-		updated : ( (Domain, Domain, AggregateValue, Iterable[Domain]) ) => AggregateValue,
+		added : ((Domain, AggregateValue, Seq[Domain])) => AggregateValue,
+		removed : ((Domain, AggregateValue, Seq[Domain])) => AggregateValue,
+		updated : ( (Domain, Domain, AggregateValue, Seq[Domain]) ) => AggregateValue,
 		convert : ((Key,AggregateValue)) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
@@ -290,19 +290,19 @@ object TransactionalAggregationNotSelfMaintained {
 					new NotSelfMaintainableAggregateFunction[Domain,AggregateValue] {
 						private var aggregate : AggregateValue = start
 
-						def add(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def add(newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = added( (newD, aggregate, data) )
 							aggregate = a
 							a
 						}
 
-						def remove(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def remove(newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = removed( (newD, aggregate, data) )
 							aggregate = a
 							a
 						}
 
-						def update(oldD: Domain, newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def update(oldD: Domain, newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = updated( (oldD, newD, aggregate, data) )
 							aggregate = a
 							a
@@ -327,9 +327,9 @@ object TransactionalAggregationNotSelfMaintained {
 		source: Relation[Domain],
 		grouping: Domain => Key,
 		start : Range,
-		added : ((Domain, Range, Iterable[Domain])) => Range,
-		removed : ((Domain, Range, Iterable[Domain])) => Range,
-		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		added : ((Domain, Range, Seq[Domain])) => Range,
+		removed : ((Domain, Range, Seq[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Seq[Domain]) ) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
 		apply (
@@ -348,9 +348,9 @@ object TransactionalAggregationNotSelfMaintained {
 		source: Relation[Domain],
 		grouping: Domain => Key,
 		start : RangeB,
-		added : ((Domain, RangeB, Iterable[Domain])) => RangeB,
-		removed : ((Domain, RangeB, Iterable[Domain])) => RangeB,
-		updated: ((Domain, Domain, RangeB, Iterable[Domain])) => RangeB,
+		added : ((Domain, RangeB, Seq[Domain])) => RangeB,
+		removed : ((Domain, RangeB, Seq[Domain])) => RangeB,
+		updated: ((Domain, Domain, RangeB, Seq[Domain])) => RangeB,
 		convertKey : Key => RangeA,
 		convert : ((RangeA, RangeB)) => Range,
 		isSet : Boolean
@@ -372,9 +372,9 @@ object TransactionalAggregationNotSelfMaintained {
 	def apply[Domain, Range](
 		source : Relation[Domain],
 		start : Range,
-		added : ((Domain, Range, Iterable[Domain])) => Range,
-		removed : ((Domain, Range, Iterable[Domain])) => Range,
-		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		added : ((Domain, Range, Seq[Domain])) => Range,
+		removed : ((Domain, Range, Seq[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Seq[Domain]) ) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
 		apply(source,

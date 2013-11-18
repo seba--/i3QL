@@ -50,11 +50,11 @@ case class SelectTupledAggregateClause3[Select : Manifest, DomainA : Manifest, D
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB, DomainC), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )

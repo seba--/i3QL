@@ -51,10 +51,10 @@ trait AGGREGATE_FUNCTION_NOT_SELF_MAINTAINED[Domain, AggregateRange]
 
 	def start : AggregateRange
 
-	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def added : Rep[((Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
-	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def removed : Rep[((Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
-	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def updated : Rep[((Domain, Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
 }

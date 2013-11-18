@@ -90,9 +90,9 @@ trait RelationalAlgebraIRAggregationOperators
 		var relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
-		added : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
-		removed : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
-		updated: Rep[( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB],
+		added : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
+		removed : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
+		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
 	) extends Def[Query[Range]] with QueryBaseOps {
@@ -104,9 +104,9 @@ trait RelationalAlgebraIRAggregationOperators
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		var relation : Rep[Query[Domain]],
 		start : Range,
-		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
+		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
@@ -117,9 +117,9 @@ trait RelationalAlgebraIRAggregationOperators
 		var relation: Rep[Query[Domain]],
 		grouping: Rep[Domain => Key],
 		start : Range,
-		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
+		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
@@ -192,9 +192,9 @@ trait RelationalAlgebraIRAggregationOperators
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		start : RangeB,
-		added : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
-		removed : Rep[( (Domain, RangeB, Iterable[Domain]) ) => RangeB],
-		updated: Rep[( (Domain, Domain, RangeB, Iterable[Domain]) ) => RangeB],
+		added : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
+		removed : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
+		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
   	): Rep[Query[Range]] =
@@ -212,9 +212,9 @@ trait RelationalAlgebraIRAggregationOperators
 	def aggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		start : Range,
-		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
+		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
 	): Rep[Query[Range]] =
 		AggregationNotSelfMaintainedWithoutGrouping (
 			relation,
@@ -228,9 +228,9 @@ trait RelationalAlgebraIRAggregationOperators
 		relation: Rep[Query[Domain]],
 		grouping: Rep[Domain => Key],
 		start : Range,
-		added : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Iterable[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Iterable[Domain]) ) => Range]
+		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
+		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
 	): Rep[Query[Range]] =
 		AggregationNotSelfMaintainedWithoutConvert (
 			relation,

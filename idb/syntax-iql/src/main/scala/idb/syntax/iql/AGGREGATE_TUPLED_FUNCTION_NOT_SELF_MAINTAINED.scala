@@ -46,11 +46,11 @@ trait AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, ProjectRange
 
 	def start : AggregateRange
 
-	def added : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def added : Rep[((Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
-	def removed : Rep[((Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def removed : Rep[((Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
-	def updated : Rep[((Domain, Domain, AggregateRange, Iterable[Domain])) => AggregateRange]
+	def updated : Rep[((Domain, Domain, AggregateRange, Seq[Domain])) => AggregateRange]
 
 	def project : Rep[Select => ProjectRange]
 

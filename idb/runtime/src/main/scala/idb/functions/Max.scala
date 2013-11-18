@@ -11,13 +11,13 @@ private class MaxIntern[Domain <: AnyRef](val f: Domain => Int)
 {
     var max = Integer.MIN_VALUE
 
-    def add(d: Domain, data: Iterable[Domain]) = {
+    def add(d: Domain, data: Seq[Domain]) = {
         if (f(d) > max)
             max = f(d)
         max
     }
 
-    def remove(d: Domain, data: Iterable[Domain]) = {
+    def remove(d: Domain, data: Seq[Domain]) = {
         if (f(d) == max) {
             max = f(data.head)
             max = (max /: data)((i, s) => if (i > f(s)) i else f(s))
@@ -25,7 +25,7 @@ private class MaxIntern[Domain <: AnyRef](val f: Domain => Int)
         max
     }
 
-    def update(oldV: Domain, newV: Domain, data: Iterable[Domain]) = {
+    def update(oldV: Domain, newV: Domain, data: Seq[Domain]) = {
         if (f(oldV) == max || f(newV) > max) {
             max = f(data.head)
             max = (max /: data)((i, s) => if (i > f(s)) i else f(s))

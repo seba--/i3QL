@@ -78,11 +78,11 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, Domain, RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[(Domain, RangeB, Iterable[Domain])]) =>
+							(x : Rep[(Domain, RangeB, Seq[Domain])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[(Domain, RangeB, Iterable[Domain])]) =>
+							(x : Rep[(Domain, RangeB, Seq[Domain])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[(Domain, Domain, RangeB, Iterable[Domain])]) =>
+							(x : Rep[(Domain, Domain, RangeB, Seq[Domain])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )
@@ -127,11 +127,11 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+							(x : Rep[((DomainA, DomainB), RangeB, Seq[(DomainA, DomainB)])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+							(x : Rep[((DomainA, DomainB), RangeB, Seq[(DomainA, DomainB)])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB, Iterable[(DomainA, DomainB)])]) =>
+							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB, Seq[(DomainA, DomainB)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )
@@ -180,11 +180,11 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB, DomainC), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB, Iterable[(DomainA, DomainB, DomainC)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )
@@ -235,11 +235,11 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB, DomainC, DomainD), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD)])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD)])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )
@@ -293,11 +293,11 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 					SelectAggregateClause (
 						AggregateTupledFunctionNotSelfMaintained[Select, (DomainA, DomainB, DomainC, DomainD, DomainE), RangeA, RangeB, (RangeA, RangeB)] (
 							notSelfMaintained.start,
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
 								notSelfMaintained.added ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
 								notSelfMaintained.removed ((x._1, x._2, x._3)),
-							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
+							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )

@@ -1,7 +1,7 @@
 package idb.operators.impl
 
 
-import collection.mutable
+import scala.collection.mutable
 import idb.operators._
 import idb.observer.{Observable, NotifyObservers, Observer}
 import idb.{MaterializedView, Relation}
@@ -140,7 +140,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             val (data, aggregationFunction, oldResult) = groups (oldKey)
             data.remove (oldV)
             data.add (newV)
-            val aggregationResult = aggregationFunction.update (oldV, newV, data)
+            val aggregationResult = aggregationFunction.update (oldV, newV, data.to[Seq])
             val res = convertKeyAndAggregateValueToResult (oldKey, aggregationResult)
             groups.put (oldKey, (data, aggregationFunction, res))
             if (oldResult != res)
@@ -174,7 +174,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         else
         {
             data.remove (v)
-            val aggregationResult = aggregationFunction.remove (v, data)
+            val aggregationResult = aggregationFunction.remove (v, data.to[Seq])
             val res = convertKeyAndAggregateValueToResult (key, aggregationResult)
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
@@ -204,7 +204,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             val (data, aggregationFunction, oldResult) = groups (key)
             data.add (v)
 
-            val aggRes = aggregationFunction.add (v, data)
+            val aggRes = aggregationFunction.add (v, data.to[Seq])
             val res = convertKeyAndAggregateValueToResult (key, aggRes)
             if (res != oldResult) {
                 //some aggregation value changed => updated event
@@ -218,7 +218,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             val data = HashMultiset.create[Domain]()
             data.add (v)
             val aggregationFunction = aggregateFunctionFactory ()
-            val aggregationResult = aggregationFunction.add (v, data)
+            val aggregationResult = aggregationFunction.add (v, data.to[Seq])
             val res = convertKeyAndAggregateValueToResult (key, aggregationResult)
             groups.put (key, (data, aggregationFunction, res))
             if (notify) notify_added (res)
@@ -232,9 +232,9 @@ object AggregationForNotSelfMaintainableFunctions {
 		source : Relation[Domain],
 		grouping : Domain => Key,
 		start : AggregateValue,
-		added : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
-		removed : ((Domain, AggregateValue, Iterable[Domain])) => AggregateValue,
-		updated : ( (Domain, Domain, AggregateValue, Iterable[Domain]) ) => AggregateValue,
+		added : ((Domain, AggregateValue, Seq[Domain])) => AggregateValue,
+		removed : ((Domain, AggregateValue, Seq[Domain])) => AggregateValue,
+		updated : ( (Domain, Domain, AggregateValue, Seq[Domain]) ) => AggregateValue,
 		convert : ((Key,AggregateValue)) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
@@ -245,19 +245,19 @@ object AggregationForNotSelfMaintainableFunctions {
 					new NotSelfMaintainableAggregateFunction[Domain,AggregateValue] {
 						private var aggregate : AggregateValue = start
 
-						def add(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def add(newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = added( (newD, aggregate, data) )
 							aggregate = a
 							a
 						}
 
-						def remove(newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def remove(newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = removed( (newD, aggregate, data) )
 							aggregate = a
 							a
 						}
 
-						def update(oldD: Domain, newD: Domain, data : Iterable[Domain]): AggregateValue = {
+						def update(oldD: Domain, newD: Domain, data : Seq[Domain]): AggregateValue = {
 							val a = updated( (oldD, newD, aggregate, data) )
 							aggregate = a
 							a
@@ -282,9 +282,9 @@ object AggregationForNotSelfMaintainableFunctions {
 		source: Relation[Domain],
 		grouping: Domain => Key,
 		start : Range,
-		added : ((Domain, Range, Iterable[Domain])) => Range,
-		removed : ((Domain, Range, Iterable[Domain])) => Range,
-		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		added : ((Domain, Range, Seq[Domain])) => Range,
+		removed : ((Domain, Range, Seq[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Seq[Domain]) ) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
 		apply (
@@ -303,9 +303,9 @@ object AggregationForNotSelfMaintainableFunctions {
 		source: Relation[Domain],
 		grouping: Domain => Key,
 		start : RangeB,
-		added : ((Domain, RangeB, Iterable[Domain])) => RangeB,
-		removed : ((Domain, RangeB, Iterable[Domain])) => RangeB,
-		updated: ((Domain, Domain, RangeB, Iterable[Domain])) => RangeB,
+		added : ((Domain, RangeB, Seq[Domain])) => RangeB,
+		removed : ((Domain, RangeB, Seq[Domain])) => RangeB,
+		updated: ((Domain, Domain, RangeB, Seq[Domain])) => RangeB,
 		convertKey : Key => RangeA,
 		convert : ((RangeA, RangeB)) => Range,
 		isSet : Boolean
@@ -327,9 +327,9 @@ object AggregationForNotSelfMaintainableFunctions {
 	def apply[Domain, Range](
 		source : Relation[Domain],
 		start : Range,
-		added : ((Domain, Range, Iterable[Domain])) => Range,
-		removed : ((Domain, Range, Iterable[Domain])) => Range,
-		updated : ( (Domain, Domain, Range, Iterable[Domain]) ) => Range,
+		added : ((Domain, Range, Seq[Domain])) => Range,
+		removed : ((Domain, Range, Seq[Domain])) => Range,
+		updated : ( (Domain, Domain, Range, Seq[Domain]) ) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
 		apply(source,
