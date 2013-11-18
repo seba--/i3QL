@@ -55,16 +55,17 @@ trait SeqOpsExpExt
 
     case class SeqHead[T:Manifest](xs: Exp[Seq[T]]) extends Def[T]
     case class SeqTail[T:Manifest](xs: Exp[Seq[T]]) extends Def[Seq[T]]
-
+	case class SeqFoldLeft[T1 : Manifest, T2 : Manifest](xs : Exp[Seq[T1]], z: Exp[T2], op: Exp[(T2, T1) => T2]) extends Def[T2]
 
     def seq_head[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[T] = SeqHead(xs)
     def seq_tail[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[Seq[T]] = SeqTail(xs)
-
+	def seq_foldleft[T1 : Manifest, T2 : Manifest](xs : Exp[Seq[T1]], z: Exp[T2], op: Exp[(T2, T1) => T2])(implicit pos: SourceContext): Exp[T2] = SeqFoldLeft(xs, z, op)
 
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
         case SeqHead (xs) => seq_head (f (xs))
         case SeqTail (xs) => seq_tail (f (xs))
+		//case SeqFoldLeft (xs, z, op) => f (seq_foldleft (xs, z, op))
         case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
 
@@ -80,6 +81,7 @@ extends ScalaGenSeqOps
     override def emitNode(sym: Sym[Any], rhs: Def[Any]) = rhs match {
         case SeqHead(xs) => emitValDef(sym, quote(xs) + ".head")
         case SeqTail(xs) => emitValDef(sym, quote(xs) + ".tail")
+		case SeqFoldLeft (xs, z, op) => emitValDef (sym, quote(xs) + ".foldLeft(" + quote(z) + ")(" + quote(op) + ")")
         case _ => super.emitNode(sym, rhs)
     }
 }
