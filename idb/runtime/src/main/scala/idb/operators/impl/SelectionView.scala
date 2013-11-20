@@ -111,10 +111,10 @@ class SelectionView[Domain] (
     }
 
     def added (v: Domain) {
-        if (filter (v)) {
-            notify_added (v)
-        }
-    }
+		if (filter (v)) {
+			notify_added (v)
+		}
+	}
 
 
 }

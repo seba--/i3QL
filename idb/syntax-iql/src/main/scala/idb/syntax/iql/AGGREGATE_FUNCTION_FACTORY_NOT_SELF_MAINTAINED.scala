@@ -48,20 +48,20 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 
 	def added[Domain] (v : Rep[Domain],
 		previousResult : Rep[Range],
-		data : Rep[Iterable[Domain]],
+		data : Rep[Seq[Domain]],
 		column: Rep[Domain] => Rep[Column]
 	) : Rep[Range]
 
 	def removed[Domain] (v: Rep[Domain],
 		previousResult: Rep[Range],
-		data : Rep[Iterable[Domain]],
+		data : Rep[Seq[Domain]],
 		column: Rep[Domain] => Rep[Column]
 	) : Rep[Range]
 
 	def updated[Domain] (oldV: Rep[Domain],
 		newV : Rep[Domain],
 		previousResult: Rep[Range],
-		data : Rep[Iterable[Domain]],
+		data : Rep[Seq[Domain]],
 		column: Rep[Domain] => Rep[Column]
 	) : Rep[Range]
 
@@ -72,9 +72,9 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 	) =
         AggregateFunctionNotSelfMaintained[Domain, Range](
 			start,
-			(p : Rep[(Domain, Range, Iterable[Domain])]) => added (p._1, p._2, p._3,column),
-			(p : Rep[(Domain, Range, Iterable[Domain])]) => removed (p._1, p._2, p._3, column),
-			(p : Rep[(Domain, Domain, Range, Iterable[Domain])]) => updated (p._1, p._2, p._3, p._4, column)
+			(p : Rep[(Domain, Range, Seq[Domain])]) => added (p._1, p._2, p._3,column),
+			(p : Rep[(Domain, Range, Seq[Domain])]) => removed (p._1, p._2, p._3, column),
+			(p : Rep[(Domain, Domain, Range, Seq[Domain])]) => updated (p._1, p._2, p._3, p._4, column)
 		)
 
     def apply[DomainA, DomainB] (
@@ -86,9 +86,9 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 
 		AggregateFunctionNotSelfMaintained[(DomainA, DomainB), Range](
 			start,
-			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range, Iterable[(DomainA, DomainB)])]) => updated (p._1, p._2, p._3, p._4, c)
+			(p : Rep[((DomainA, DomainB), Range, Seq[(DomainA, DomainB)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), Range, Seq[(DomainA, DomainB)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB), (DomainA, DomainB), Range, Seq[(DomainA, DomainB)])]) => updated (p._1, p._2, p._3, p._4, c)
 		)
 	}
 
@@ -103,9 +103,9 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 
 		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC), Range](
 			start,
-			(p : Rep[((DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => added (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => removed (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), Range, Iterable[(DomainA, DomainB, DomainC)])]) => updated (p._1, p._2, p._3, p._4, c)
+			(p : Rep[((DomainA, DomainB, DomainC), Range, Seq[(DomainA, DomainB, DomainC)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC), Range, Seq[(DomainA, DomainB, DomainC)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), Range, Seq[(DomainA, DomainB, DomainC)])]) => updated (p._1, p._2, p._3, p._4, c)
 		)
 	}
 
@@ -118,9 +118,9 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 
 		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC, DomainD), Range](
 			start,
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => added (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => removed (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), Range, Iterable[(DomainA, DomainB, DomainC, DomainD)])]) => updated (p._1, p._2, p._3, p._4, c)
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Seq[(DomainA, DomainB, DomainC, DomainD)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), Range, Seq[(DomainA, DomainB, DomainC, DomainD)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), Range, Seq[(DomainA, DomainB, DomainC, DomainD)])]) => updated (p._1, p._2, p._3, p._4, c)
 		)
 	}
 
@@ -133,9 +133,9 @@ trait AGGREGATE_FUNCTION_FACTORY_NOT_SELF_MAINTAINED[Column, Range]
 
 		AggregateFunctionNotSelfMaintained[(DomainA, DomainB, DomainC, DomainD, DomainE), Range](
 			start,
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => added (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => removed (p._1, p._2, p._3, c),
-			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), Range, Iterable[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => updated (p._1, p._2, p._3, p._4, c)
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => added (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), Range, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => removed (p._1, p._2, p._3, c),
+			(p : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), Range, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) => updated (p._1, p._2, p._3, p._4, c)
 		)
 	}
 }

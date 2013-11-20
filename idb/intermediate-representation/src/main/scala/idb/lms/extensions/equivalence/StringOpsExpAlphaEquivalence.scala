@@ -77,6 +77,9 @@ trait StringOpsExpAlphaEquivalence
             case (StringLastIndexOf (s1, c1), StringLastIndexOf (s2, c2)) =>
                 isEquivalent (s1, s2) && isEquivalent (c1, c2)
 
+			case (StringEndsWith (s1, e1), StringEndsWith (s2, e2)) =>
+				isEquivalent (s1, s2) && isEquivalent (e1, e2)
+
             case _ => super.isEquivalentDef (a, b)
         }
 

@@ -33,8 +33,8 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION {
 				invSpecial.declaringMethod.declaringClass.majorVersion >= 49 AND
 				invSpecial.methodInfo.receiverType.IsInstanceOf[ObjectType] AND
 				invSpecial.methodInfo.receiverType.AsInstanceOf[ObjectType].className.startsWith ("java/lang") AND
-				invVirtual.methodInfo.parameterTypes == Nil //AND
-				//invVirtual.methodInfo.name.endsWith ("Value")
+				invVirtual.methodInfo.parameterTypes == Nil AND
+				invVirtual.methodInfo.name.endsWith ("Value")
 		)
 	}
 

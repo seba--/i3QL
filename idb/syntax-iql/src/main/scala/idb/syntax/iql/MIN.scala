@@ -15,7 +15,7 @@ case object MIN
 	def added[Domain](
 		v: IR.Rep[Domain],
 		previousResult: IR.Rep[Int],
-		data: IR.Rep[Iterable[Domain]],
+		data: IR.Rep[Seq[Domain]],
 		column: (IR.Rep[Domain]) => IR.Rep[Int]
 	): IR.Rep[Int] =
 		previousResult.min(column (v))
@@ -23,9 +23,24 @@ case object MIN
 	def removed[Domain](
 		v: IR.Rep[Domain],
 		previousResult: IR.Rep[Int],
-		data: IR.Rep[Iterable[Domain]],
+		data: IR.Rep[Seq[Domain]],
 		column: (IR.Rep[Domain]) => IR.Rep[Int]
-	): IR.Rep[Int] = ???
+	): IR.Rep[Int] = {
+		/*if (column (v) == previousResult) {
+			if (data.isEmpty)
+				previousResult
+			else if ()
 
-	def updated[Domain](oldV: IR.Rep[Domain], newV: IR.Rep[Domain], previousResult: IR.Rep[Int], data: IR.Rep[Iterable[Domain]], column: (IR.Rep[Domain]) => IR.Rep[Int]): IR.Rep[Int] = ???
+		}
+		min    */
+		0
+	}
+
+	def updated[Domain](
+		oldV: IR.Rep[Domain],
+		newV: IR.Rep[Domain],
+		previousResult: IR.Rep[Int],
+		data: IR.Rep[Seq[Domain]],
+		column: (IR.Rep[Domain]) => IR.Rep[Int]
+	): IR.Rep[Int] = 0
 }

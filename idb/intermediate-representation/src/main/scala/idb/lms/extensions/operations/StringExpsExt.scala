@@ -37,7 +37,7 @@ import scala.reflect.SourceContext
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke , Mirko Köhler
  */
 trait StringOpsExpExt
     extends StringOpsExp
@@ -49,11 +49,19 @@ trait StringOpsExpExt
     def string_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
         StringLastIndexOf (s, c)
 
+	def infix_endsWith (s: Rep[String], end: Rep[String])(implicit pos: SourceContext): Rep[Boolean] =
+		string_endsWith (s, end)
+
+	def string_endsWith (s: Rep[String], end: Rep[String])(implicit pos: SourceContext): Rep[Boolean] =
+		StringEndsWith (s, end)
+
+	case class StringEndsWith (s: Exp[String], end: Exp[String]) extends Def[Boolean]
     case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
         case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
-        case _ => super.mirror (e, f)
+		case StringEndsWith (s, end) => string_endsWith (f (s), f (end))
+		case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
 }
 
@@ -66,6 +74,7 @@ trait ScalaGenStringOpsExt extends ScalaGenStringOps
 
     override def emitNode (sym: Sym[Any], rhs: Def[Any]) = rhs match {
         case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
+		case StringEndsWith (s, end) => emitValDef (sym, "%s.endsWith(%s)".format (quote (s), quote (end)))
         case _ => super.emitNode (sym, rhs)
     }
 }

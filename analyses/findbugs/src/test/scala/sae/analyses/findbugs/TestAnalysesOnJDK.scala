@@ -36,7 +36,7 @@ import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
-import sae.analyses.findbugs.random.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
+import sae.analyses.findbugs.random.{DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT, BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION}
 
 /**
  *
@@ -222,5 +222,13 @@ class TestAnalysesOnJDK
 		val analysis = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database).asMaterialized
 		database.addArchive(getStream)
 		assertEquals (3, analysis.size)
+	}
+
+	@Test
+	def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT () {
+		val database = getDatabase
+		val analysis = DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (0, analysis.size)
 	}
 }
