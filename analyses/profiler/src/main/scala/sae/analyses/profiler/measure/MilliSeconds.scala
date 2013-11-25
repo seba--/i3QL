@@ -30,19 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.statistics
+package sae.analyses.profiler.measure
 
 /**
-   * Created with IntelliJ IDEA.
-   * User: Ralf Mitschke
-   * Date: 26.08.12
-   * Time: 12:54
+ * @author Ralf Mitschke
  */
 
-trait MeasurementUnit
+object MilliSeconds
+  extends MeasurementUnit
 {
+  def descriptor = "ms"
 
-    def descriptor : String
-
-    def fromBase(value : Double) : Double
+  def fromBase(value: Double) = value / 1000000
 }

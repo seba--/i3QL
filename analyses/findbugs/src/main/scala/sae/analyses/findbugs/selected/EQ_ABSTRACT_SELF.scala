@@ -36,6 +36,7 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
@@ -43,8 +44,9 @@ import idb.syntax.iql.IR._
  *
  */
 object EQ_ABSTRACT_SELF
+	extends FindbugsAnalysis[BytecodeDatabase#MethodDeclaration]
 {
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodDeclaration] = {
         import database._
         SELECT (*) FROM methodDeclarations WHERE ((m: Rep[MethodDeclaration]) =>
             m.isAbstract AND

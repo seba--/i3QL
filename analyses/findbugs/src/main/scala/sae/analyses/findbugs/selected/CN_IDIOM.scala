@@ -36,6 +36,7 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
@@ -44,8 +45,9 @@ import idb.syntax.iql.IR._
  */
 
 object CN_IDIOM
+	extends FindbugsAnalysis[BytecodeDatabase#ObjectType]
 {
-    def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#ObjectType] = {
         import database._
 
         SELECT ((_: Rep[Inheritance]).subType) FROM interfaceInheritance WHERE ((t: Rep[Inheritance]) =>

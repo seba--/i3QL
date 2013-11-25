@@ -5,12 +5,13 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
+import sae.analyses.findbugs.FindbugsAnalysis
 
 
 /**
  * @author Mirko Köhler
  */
-object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT {
+object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT extends FindbugsAnalysis[BytecodeDatabase#MethodInvocationInstruction] {
 
 	def apply(database : BytecodeDatabase) : Relation[BytecodeDatabase#MethodInvocationInstruction] = {
 		import database._

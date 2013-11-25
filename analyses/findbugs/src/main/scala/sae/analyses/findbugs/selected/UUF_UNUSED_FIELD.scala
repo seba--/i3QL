@@ -36,6 +36,7 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
@@ -43,8 +44,9 @@ import idb.syntax.iql.IR._
  *
  */
 object UUF_UNUSED_FIELD
+	extends FindbugsAnalysis[BytecodeDatabase#FieldDeclaration]
 {
-    def apply (database: BytecodeDatabase): Relation[database.FieldDeclaration] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#FieldDeclaration] = {
         import database._
         SELECT (*) FROM fieldDeclarations WHERE ((f: Rep[FieldDeclaration]) =>
             NOT (f.isPublic) AND

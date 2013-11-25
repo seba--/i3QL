@@ -43,14 +43,17 @@ object sae extends Build {
     Project Analyses
   */
 
-  lazy val analyses = Project(id = "analyses", base = file("analyses"))
-    .aggregate (findbugs, metrics)
+  	lazy val analyses = Project(id = "analyses", base = file("analyses"))
+    	.aggregate (findbugs, metrics, profiler)
   
-  lazy val findbugs = Project(id = "analyses-findbugs", base = file("analyses/findbugs"))
-    .dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
+  	lazy val findbugs = Project(id = "analyses-findbugs", base = file("analyses/findbugs"))
+    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
   
-  lazy val metrics = Project(id = "analyses-metrics", base = file("analyses/metrics"))
-    .dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
+  	lazy val metrics = Project(id = "analyses-metrics", base = file("analyses/metrics"))
+    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
+
+	lazy val profiler = Project(id = "analyses-profiler", base = file("analyses/profiler"))
+		.dependsOn(databaseInterface % "compile", bindingASM % "compile", findbugs % "compile;test", metrics % "compile;test", testData % "compile;test")
    
   /*
     Project Test Data
@@ -62,7 +65,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics)
+		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler)
   
     
 

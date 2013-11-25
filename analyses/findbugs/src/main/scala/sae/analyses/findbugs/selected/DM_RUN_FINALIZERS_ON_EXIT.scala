@@ -37,14 +37,16 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
  * @author Ralf Mitschke
  */
 object DM_RUN_FINALIZERS_ON_EXIT
+	extends FindbugsAnalysis[BytecodeDatabase#MethodInvocationInstruction]
 {
-    def apply (database: BytecodeDatabase): Relation[database.MethodInvocationInstruction] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodInvocationInstruction] = {
         import database._
         SELECT (*) FROM methodInvocationInstructions WHERE ((i: Rep[MethodInvocationInstruction]) =>
             i.opcode == OpCodes.INVOKESTATIC AND

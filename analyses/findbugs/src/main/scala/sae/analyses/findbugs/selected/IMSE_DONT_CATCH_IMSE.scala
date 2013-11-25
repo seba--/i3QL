@@ -32,20 +32,21 @@
  */
 package sae.analyses.findbugs.selected
 
-
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
  * @author Ralf Mitschke
  */
 object IMSE_DONT_CATCH_IMSE
+	extends FindbugsAnalysis[BytecodeDatabase#MethodDeclaration]
 {
-    def apply (database: BytecodeDatabase): Relation[database.MethodDeclaration] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodDeclaration] = {
         import database._
 
         SELECT DISTINCT ((_: Rep[ExceptionHandler]).declaringMethod) FROM exceptionHandlers WHERE

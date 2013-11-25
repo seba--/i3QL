@@ -30,19 +30,33 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.statistics
+package sae.analyses.profiler.statistics
 
 /**
-   * Created with IntelliJ IDEA.
-   * User: Ralf Mitschke
-   * Date: 26.08.12
-   * Time: 12:54
+ *
+ * @author Ralf Mitschke
+ *
  */
 
-trait MeasurementUnit
+trait DataStatistic
 {
 
-    def descriptor : String
+  def classCount: Long
 
-    def fromBase(value : Double) : Double
+  def methodCount: Long
+
+  def fieldCount: Long
+
+  def instructionCount: Long
+
+  private val defaultLocale = java.util.Locale.UK
+
+  def summary: String = {
+    val values = Seq (classCount, methodCount, fieldCount, instructionCount)
+
+    "classes: %,5d   methods: %,6d   fields: %,6d   instructions: %,8d" formatLocal (
+      defaultLocale,
+      values: _*
+      )
+  }
 }

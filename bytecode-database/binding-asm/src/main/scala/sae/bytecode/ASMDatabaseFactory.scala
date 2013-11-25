@@ -39,7 +39,7 @@ import sae.bytecode.asm.ASMDatabase
  *
  * @author Ralf Mitschke
  */
-object ASMDatabaseFactory
+object ASMDatabaseFactory extends BytecodeDatabaseFactory
 {
     def create (): BytecodeDatabase = new ASMDatabase ()
 }

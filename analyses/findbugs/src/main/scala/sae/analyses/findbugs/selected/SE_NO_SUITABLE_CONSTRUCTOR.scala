@@ -37,14 +37,16 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
  * @author Ralf Mitschke
  */
 object SE_NO_SUITABLE_CONSTRUCTOR
+	extends FindbugsAnalysis[BytecodeDatabase#ObjectType]
 {
-    def apply (database: BytecodeDatabase): Relation[database.ObjectType] = {
+    def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#ObjectType] = {
         import database._
 
         val query =

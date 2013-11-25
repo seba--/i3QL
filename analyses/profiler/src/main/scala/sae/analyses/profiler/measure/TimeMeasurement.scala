@@ -30,19 +30,43 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.statistics
+package sae.analyses.profiler.measure
+
+import sae.analyses.profiler.statistics.{ArrayBufferSampleStatistic, SampleStatistic}
+
 
 /**
-   * Created with IntelliJ IDEA.
-   * User: Ralf Mitschke
-   * Date: 26.08.12
-   * Time: 12:54
+ * @author Ralf Mitschke
  */
 
-trait MeasurementUnit
+trait TimeMeasurement
 {
 
-    def descriptor : String
+  def getStatistic (iterations : Int) = new ArrayBufferSampleStatistic (iterations)
 
-    def fromBase(value : Double) : Double
+  /**
+   * Measures the time spent when executing the given method.
+   */
+  def time[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
+    val start = System.nanoTime
+    val r = f
+    val end = System.nanoTime
+    mu (end - start)
+    r
+  }
+
+  /**
+   * performs the measurement of function f, iterations times.
+   * f should return the time taken to perform the required computation.
+   * A statistic is returned for the time consumed when applying f
+   */
+  def measureTime(iterations: Int)(f: () => Long): SampleStatistic = {
+    val statistic = getStatistic (iterations)
+    for (i <- 1 to iterations)
+    {
+      statistic.add (f ())
+
+    }
+    statistic
+  }
 }
