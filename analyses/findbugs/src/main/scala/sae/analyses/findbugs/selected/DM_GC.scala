@@ -37,14 +37,13 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
-import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
  * @author Ralf Mitschke
  */
 object DM_GC
-	extends FindbugsAnalysis[BytecodeDatabase#MethodInvocationInstruction]
+	extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodInvocationInstruction])
 {
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodInvocationInstruction] = {
         import database._

@@ -6,14 +6,14 @@ import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.asm.instructions.opcodes.INVOKESPECIAL
 import sae.bytecode.constants.OpCodes
-import sae.analyses.findbugs.FindbugsAnalysis
+
 
 
 /**
  *
  * @author Mirko Köhler, Ralf Mitschke
  */
-object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION extends FindbugsAnalysis[BytecodeDatabase#MethodInvocationInstruction] {
+object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodInvocationInstruction]) {
 
 	def apply(database : BytecodeDatabase) : Relation[BytecodeDatabase#MethodInvocationInstruction] = {
 		import database._

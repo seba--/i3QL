@@ -151,7 +151,7 @@ class TestSelfMaintainedAggregationGroupedAndTupled extends UniversityTestData
 	}
 
 	/*
-		Additional tests
+		Additional aggregation tests
 	 */
 	@Test
 	def testAddGrouped() {

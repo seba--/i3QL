@@ -37,7 +37,7 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
-import sae.analyses.findbugs.FindbugsAnalysis
+
 
 /**
  *
@@ -46,7 +46,7 @@ import sae.analyses.findbugs.FindbugsAnalysis
  */
 
 object CN_IDIOM_NO_SUPER_CALL
-	extends FindbugsAnalysis[BytecodeDatabase#MethodDeclaration]
+	extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodDeclaration])
 {
 
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodDeclaration] = {

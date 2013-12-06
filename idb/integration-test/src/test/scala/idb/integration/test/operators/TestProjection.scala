@@ -152,7 +152,7 @@ class TestProjection extends UniversityTestData
 	}
 
 	/*
-		Additional selection tests
+		Additional projection tests
 	 */
 
 	@Test

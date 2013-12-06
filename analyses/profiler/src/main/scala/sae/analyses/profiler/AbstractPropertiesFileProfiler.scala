@@ -8,16 +8,19 @@ import sae.analyses.profiler.measure.MeasurementUnit
 /**
  * @author Ralf Mitschke, Mirko Köhler
  */
-trait AbstractProfiler
+trait AbstractPropertiesFileProfiler
 {
 
-		def optimized: Boolean = isOptimized
 
-		private var isOptimized = false
 
 		def reReadJars: Boolean = isReReadJars
 
-		private var isReReadJars = false
+		private var isReReadJars = true
+
+	/*
+		def optimized: Boolean = isOptimized
+
+		private var isOptimized = false
 
 		def transactional: Boolean = isTransactional
 
@@ -25,7 +28,7 @@ trait AbstractProfiler
 
 		def sharedSubQueries: Boolean = isSharedSubQueries
 
-		private var isSharedSubQueries = false
+		private var isSharedSubQueries = false   */
 
 		def properties = lProperties
 
@@ -47,7 +50,7 @@ trait AbstractProfiler
           false
         }
 
-      isOptimized =
+    /*  isOptimized =
         if (args.length > 2)
         {
           java.lang.Boolean.parseBoolean (args (2))
@@ -73,7 +76,7 @@ trait AbstractProfiler
         else
         {
           false
-        }
+        }      */
 
 			val propertiesFile = args (0)
 
@@ -81,14 +84,11 @@ trait AbstractProfiler
 
 			sys.exit (0)
 		}
-
     def execute (propertiesFile : String) {
-
-
 
       lProperties = getProperties (propertiesFile).getOrElse (
       {
-        println ("could not find properties file or resource: " + propertiesFile)
+        println ("could not find properties file or resource: " + System.getProperty("user.dir") + ", File:" + propertiesFile)
         sys.exit (-1)
       }
       )
@@ -111,7 +111,7 @@ trait AbstractProfiler
       val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-      println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars + " optimized = " + optimized + " transactional = " + transactional + " sharedSubQueries = " + sharedSubQueries)
+      println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars) // + " optimized = " + optimized + " transactional = " + transactional + " sharedSubQueries = " + sharedSubQueries)
       val count = warmup (warmupIterations, warmupJars, queries)
       println ("\tdone")
       println ("Num. of Results: " + count)
@@ -119,7 +119,7 @@ trait AbstractProfiler
       val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
       memoryMXBean.gc ()
 
-      println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars + " optimized = " + optimized + " transactional = " + transactional + " sharedSubQueries = " + sharedSubQueries)
+      println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars) // + " optimized = " + optimized + " transactional = " + transactional + " sharedSubQueries = " + sharedSubQueries)
       val statistic = measure (measurementIterations, measurementJars, queries)
       println ("\tdone")
       println (statistic.summary (measurementUnit))
@@ -158,9 +158,9 @@ trait AbstractProfiler
 					warumUpIterations + separator +
 					measurementIterations + separator +
 					reReadJars.toString + separator +
-					optimized.toString + separator +
-					transactional.toString + separator +
-					sharedSubQueries.toString + separator +
+			//		optimized.toString + separator +
+			//		transactional.toString + separator +
+			//		sharedSubQueries.toString + separator +
 					(if(queries.isEmpty){"NONE"} else {queries.reduce (_ + " | " + _) + separator}) +
 					resultCount + separator +
 					("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.mean))) + separator +

@@ -36,7 +36,6 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import sae.analyses.findbugs.FindbugsAnalysis
 
 /**
  *
@@ -45,7 +44,7 @@ import sae.analyses.findbugs.FindbugsAnalysis
  */
 
 object CI_CONFUSED_INHERITANCE
-	extends FindbugsAnalysis[BytecodeDatabase#FieldDeclaration]
+	extends (BytecodeDatabase => Relation[BytecodeDatabase#FieldDeclaration])
 {
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#FieldDeclaration] = {
         import database._

@@ -36,7 +36,6 @@ import sae.bytecode.BytecodeDatabase
 import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import sae.analyses.findbugs.FindbugsAnalysis
 
 
 /**
@@ -44,7 +43,7 @@ import sae.analyses.findbugs.FindbugsAnalysis
  * @author Ralf Mitschke
  */
 object CO_SELF_NO_OBJECT
-	extends FindbugsAnalysis[BytecodeDatabase#ClassDeclaration]
+	extends (BytecodeDatabase => Relation[BytecodeDatabase#ClassDeclaration])
 {
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#ClassDeclaration] = {
         import database._

@@ -138,6 +138,7 @@ trait BytecodeStructureOps
         def name: Rep[String]
 
         def fieldType: Rep[Type]
+
     }
 
     trait FieldDeclarationInfixOps

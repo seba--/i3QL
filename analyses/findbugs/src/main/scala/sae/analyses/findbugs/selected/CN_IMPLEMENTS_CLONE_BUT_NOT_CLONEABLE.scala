@@ -37,14 +37,14 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import sae.analyses.findbugs.FindbugsAnalysis
+
 
 /**
  *
  * @author Ralf Mitschke
  */
 object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
-	extends FindbugsAnalysis[BytecodeDatabase#MethodDeclaration]
+	extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodDeclaration])
 {
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#MethodDeclaration] = {
         import database._

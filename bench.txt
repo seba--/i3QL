@@ -1,0 +1,7 @@
+bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;10;5;true;false;false;false;SS_SHOULD_BE_STATIC;0;382.698;11.819;5.286;ms
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;10;5;true;false;false;false;DM_RUN_FINALIZERS_ON_EXIT;0;355.105;3.054;1.366;ms
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;10;5;true;DM_RUN_FINALIZERS_ON_EXIT;0;358.124;1.178;0.527;ms
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;10;5;false;DM_RUN_FINALIZERS_ON_EXIT;0;358.044;1.242;0.556;ms
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;10;5;false;DM_RUN_FINALIZERS_ON_EXIT;0;366.919;11.540;5.161;ms
+ASM Database time;scala-compiler.jar;7710;66531;20137;808084;25;10;false;DM_RUN_FINALIZERS_ON_EXIT;0;390.932;156.887;49.612;ms

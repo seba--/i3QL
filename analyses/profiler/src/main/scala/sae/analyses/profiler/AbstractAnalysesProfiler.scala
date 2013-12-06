@@ -44,7 +44,7 @@ import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic}
  */
 
 trait AbstractAnalysesProfiler
-  extends AbstractProfiler
+  extends AbstractPropertiesFileProfiler
 {
 
   def databaseFactory : BytecodeDatabaseFactory
