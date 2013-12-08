@@ -11,7 +11,7 @@ import sae.bytecode.constants.OpCodes
 
 /**
  *
- * @author Mirko Köhler, Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodInvocationInstruction]) {
 

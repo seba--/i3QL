@@ -36,11 +36,11 @@ import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
-import sae.analyses.findbugs.random.{DP_DO_INSIDE_DO_PRIVILEGED, DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT, BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION}
+import sae.analyses.findbugs.random._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 
@@ -222,6 +222,7 @@ class TestAnalysesOnJDK
 		val analysis = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database).asMaterialized
 		database.addArchive(getStream)
 		assertEquals (3, analysis.size)
+		//Findbugs says 3
 	}
 
 	@Test
@@ -230,6 +231,7 @@ class TestAnalysesOnJDK
 		val analysis = DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database).asMaterialized
 		database.addArchive(getStream)
 		assertEquals (0, analysis.size)
+		//Findbugs says 0
 	}
 
 	@Test
@@ -237,6 +239,43 @@ class TestAnalysesOnJDK
 		val database = getDatabase
 		val analysis = DP_DO_INSIDE_DO_PRIVILEGED (database).asMaterialized
 		database.addArchive(getStream)
+		assertEquals (10, analysis.size)
+		//Findbugs says 0
+	}
+
+	@Test
+	def test_FI_USELESS () {
+		val database = getDatabase
+		val analysis = FI_USELESS (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (2, analysis.size)
+		//Findbugs says 0
+	}
+
+	@Test
+	def test_MS_PKGPROTECT () {
+		val database = getDatabase
+		val analysis = MS_PKGPROTECT (database).asMaterialized
+		database.addArchive(getStream)
 		assertEquals (0, analysis.size)
+		//Findbugs says 61
+	}
+
+	@Test
+	def test_MS_SHOULD_BE_FINAL () {
+		val database = getDatabase
+		val analysis = MS_SHOULD_BE_FINAL (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (0, analysis.size)
+		//Findbugs says 32
+	}
+
+	@Test
+	def test_SE_BAD_FIELD_INNER_CLASS () {
+		val database = getDatabase
+		val analysis = SE_BAD_FIELD_INNER_CLASS (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (3, analysis.size)
+		//Findbugs says 3
 	}
 }

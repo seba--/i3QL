@@ -7,26 +7,40 @@ import idb.syntax.iql.IR._
 import sae.bytecode.constants.AccessFlags
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object SE_BAD_FIELD_INNER_CLASS
-	extends (BytecodeDatabase => Relation[(BytecodeDatabase#ObjectType, BytecodeDatabase#ObjectType)]) {
+	extends (BytecodeDatabase => Relation[(BytecodeDatabase#Type, BytecodeDatabase#Type)]) {
 
 
-	def apply(database : BytecodeDatabase): Relation[(BytecodeDatabase#ObjectType, BytecodeDatabase#ObjectType)] = {
+	def apply(database : BytecodeDatabase): Relation[(BytecodeDatabase#Type, BytecodeDatabase#Type)] = {
 		import database._
 
 		val nonStaticInner : Relation[(Type, Type)] =
+			//TODO Should be unresolvedInnerClasses instead of innerClassAttributes
 			SELECT ((a: Rep[InnerClassAttribute]) => (a.innerClassType, a.outerClassType.get)) FROM innerClassAttributes WHERE
 				((a : Rep[InnerClassAttribute]) =>
 					a.declaringClass.classType == a.innerClassType AND
 					a.outerClassType.isDefined AND
 					(a.innerClassAccessFlags & AccessFlags.ACC_STATIC) != 0)
 
+		val inheritanceOfSerializable =
+			SELECT (*) FROM interfaceInheritance WHERE ((i : Rep[Inheritance]) =>
+				i.superType == ObjectType("java/io/Serializable"))
 
+		val serializableNonStaticInner =
+			SELECT ((t : Rep[(Type, Type)], i : Rep[Inheritance]) => t) FROM (nonStaticInner, inheritanceOfSerializable) WHERE ((t : Rep[(Type, Type)], i : Rep[Inheritance]) =>
+				t._1 == i.declaringClass)
 
-
-		return null
+		SELECT (*) FROM serializableNonStaticInner WHERE ((t : Rep[(Type, Type)]) =>
+			NOT (
+				EXISTS (
+					SELECT (*) FROM inheritanceOfSerializable WHERE ((i : Rep[Inheritance]) =>
+						i.declaringClass == t._2
+					)
+				)
+			)
+		)
 	}
 
 	/*def hasStaticFlag: UnresolvedInnerClassEntry => Boolean = e =>

@@ -6,7 +6,7 @@ import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object MS_PKGPROTECT extends (BytecodeDatabase => Relation[BytecodeDatabase#FieldDeclaration])
 {
@@ -40,7 +40,8 @@ object MS_PKGPROTECT extends (BytecodeDatabase => Relation[BytecodeDatabase#Fiel
 							SELECT (*) FROM fieldReadsFromExternalPackage WHERE (
 								(fInst : Rep[FieldAccessInstruction]) =>
 									fInst.declaringMethod.declaringClass == fDecl.declaringClass AND
-									//fInst.fieldInfo.name == "" AND //TODO: Field declaration name
+									//fInst.fieldInfo.name == "" AND
+									// TODO: Field declaration name
 									fInst.fieldInfo.declaringType == fDecl.valueType
 							)
 						)

@@ -9,7 +9,7 @@ import sae.bytecode.constants.OpCodes
 
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodInvocationInstruction]) {
 

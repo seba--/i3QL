@@ -71,7 +71,7 @@ object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
             val IR = idb.syntax.iql.IR
         }
 
-        Predef.println(printer.quoteRelation(query))
+       // Predef.println(printer.quoteRelation(query))
 
         query
     }

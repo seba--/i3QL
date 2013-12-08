@@ -7,7 +7,7 @@ import idb.syntax.iql.IR._
 
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object DP_DO_INSIDE_DO_PRIVILEGED extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodInvocationInstruction]) {
 

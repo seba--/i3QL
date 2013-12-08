@@ -45,7 +45,12 @@ trait PrimitiveOpsExpAlphaEquivalence
     with BaseExpAlphaEquivalence
 {
 
-    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalent (a, b) // TODO implement this
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+		(a, b) match {
+			case (IntBinaryAnd (x, y), IntBinaryAnd (u, v)) => isEquivalent (x, u) && isEquivalent (y, v)
+
+			case _ => super.isEquivalentDef (a, b) // TODO implement this
+		}
+
 
 }

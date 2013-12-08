@@ -1,2 +1,0 @@
-idb/schema-examples/src/main
-test-data/src/main

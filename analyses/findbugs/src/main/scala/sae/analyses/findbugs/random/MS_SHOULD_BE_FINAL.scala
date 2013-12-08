@@ -7,7 +7,7 @@ import idb.syntax.iql.IR._
 
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object MS_SHOULD_BE_FINAL
 	extends (BytecodeDatabase => Relation[BytecodeDatabase#FieldDeclaration])
@@ -26,9 +26,11 @@ object MS_SHOULD_BE_FINAL
 						NOT (f.declaringClass.isInterface)
 				)
 
-		SELECT (*) FROM (ms_fields) WHERE (
+		SELECT (*) FROM ms_fields WHERE (
 			(f : Rep[FieldDeclaration]) =>
-				f.isFinal AND (f.valueType.IsInstanceOf[ArrayType[Any]] OR f.valueType == ObjectType ("java/util/Hashtable"))
+				f.isFinal AND
+				f.valueType.isDefined AND
+				(f.valueType.get.IsInstanceOf[ArrayType[Any]] OR f.valueType.get == ObjectType ("java/util/Hashtable")))
 
 		)
 	}

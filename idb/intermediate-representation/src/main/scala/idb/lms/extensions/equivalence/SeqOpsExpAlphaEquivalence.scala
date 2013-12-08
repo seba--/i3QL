@@ -62,6 +62,9 @@ trait SeqOpsExpAlphaEquivalence
             case (SeqApply (x, n), SeqApply (y, m)) =>
                 isEquivalent (x, y) && isEquivalent (n, m)
 
+			case (SeqContains (xs, e1), SeqContains (ys, e2)) =>
+				isEquivalent(xs, ys) && isEquivalent(e1, e2)
+
             case _ => super.isEquivalentDef (a, b)
         }
 

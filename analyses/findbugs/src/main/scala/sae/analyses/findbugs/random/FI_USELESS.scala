@@ -7,7 +7,7 @@ import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
 
 /**
- * @author Mirko Köhler
+ * @author Ralf Mitschke, Mirko Köhler
  */
 object FI_USELESS extends (BytecodeDatabase => Relation[BytecodeDatabase#MethodDeclaration]) {
 
