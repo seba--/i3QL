@@ -20,10 +20,10 @@ object MS_SHOULD_BE_FINAL
 			SELECT (*) FROM fieldDeclarations WHERE (
 				(f : Rep[FieldDeclaration]) =>
 					f.isStatic AND
-						NOT (f.isSynthetic) AND
-						NOT (f.isVolatile) AND
-						(f.isProtected OR f.isPublic) AND
-						NOT (f.declaringClass.isInterface)
+					NOT (f.isSynthetic) AND
+					NOT (f.isVolatile) AND
+					(f.isProtected OR f.isPublic) AND
+					NOT (f.declaringClass.isInterface)
 				)
 
 		SELECT (*) FROM ms_fields WHERE (
@@ -32,7 +32,6 @@ object MS_SHOULD_BE_FINAL
 				f.valueType.isDefined AND
 				(f.valueType.get.IsInstanceOf[ArrayType[Any]] OR f.valueType.get == ObjectType ("java/util/Hashtable")))
 
-		)
 	}
 
 }

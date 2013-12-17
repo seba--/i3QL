@@ -44,81 +44,45 @@ import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic}
  */
 
 trait AbstractAnalysesProfiler
-  extends AbstractPropertiesFileProfiler
-{
+	extends AbstractPropertiesFileProfiler {
 
-  def databaseFactory : BytecodeDatabaseFactory
+	def database: BytecodeDatabase
 
-  //def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_]
-  def getAnalysis(query: String, database: BytecodeDatabase): Relation[_]
+	def getAnalysis(query: String): Relation[_]
 
 
- /* def createMaterializedDatabase(database : BytecodeDatabase, jars: List[String], queries: List[String]) = {
+	def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
 
+		val results = for (query <- queries) yield {
+			getAnalysis(query).asMaterialized
+		}
 
-    // initialize the needed materializations at least once
-    val relations = for (query <- queries) yield {
-      getAnalysis (query, database)(optimized, transactional, sharedSubQueries)
-    }
+		jars.foreach(jar => {
+			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
+			database.addArchive(stream)
+			stream.close()
+		})
 
+		results.map(_.size).sum
+	}
 
-    jars.foreach (jar => {
-      val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-      database.addArchive (stream)
-      stream.close ()
-    })
+	def dataStatistic(jars: List[String]): DataStatistic = {
 
-    relations.foreach (_.clearObserversForChildren (visitChild => true))
+		val classes = database.classDeclarations.asMaterialized
 
-    database
-  }   */
+		val methods = database.methodDeclarations.asMaterialized
 
+		val fields = database.fieldDeclarations.asMaterialized
 
-  def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
-    val database = databaseFactory.create ()
-    val results = for (query <- queries) yield {
-      getAnalysis (query, database).asMaterialized
-    }
+		val instructions = database.instructions.asMaterialized
 
+		jars.foreach(jar => {
+			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
+			database.addArchive(stream)
+			stream.close()
+		})
 
-    jars.foreach (jar => {
-      val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-      database.addArchive (stream)
-      stream.close ()
-    })
-
-    results.map (_.size).sum
-  }
-
-  def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
-    val database = databaseFactory.create ()
-
-    val results = for (query <- queries) yield {
-      getAnalysis (query, database).asMaterialized
-    }
-
-    results.map (_.size).sum
-  }
-
-
-  def dataStatistic(jars: List[String]): DataStatistic = {
-    val database = databaseFactory.create ()
-
-    val classes = database.classDeclarations.asMaterialized
-
-    val methods = database.methodDeclarations.asMaterialized
-
-    val fields = database.fieldDeclarations.asMaterialized
-
-    val instructions = database.instructions.asMaterialized
-
-    jars.foreach (jar => {
-      val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-      database.addArchive (stream)
-      stream.close ()
-    })
-
-    SimpleDataStatistic (classes.size, methods.size, fields.size, instructions.size)
-  }
+		SimpleDataStatistic(classes.size, methods.size, fields.size, instructions.size)
+	}
 
 }

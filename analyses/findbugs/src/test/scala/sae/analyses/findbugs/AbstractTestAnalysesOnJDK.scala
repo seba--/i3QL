@@ -30,48 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.types
+package sae.analyses.findbugs
 
-import scala.virtualization.lms.common.Base
+import org.junit.{Ignore, Test}
+import org.junit.Assert._
+import sae.bytecode.{BytecodeDatabase, ASMDatabaseFactory}
+import sae.analyses.findbugs.selected._
+import sae.analyses.findbugs.random._
+import idb.Relation
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
+ *
  */
-trait BytecodeTypeConstructors
-    extends BytecodeTypes
+
+trait AbstractTestAnalysesOnJDK
 {
-    val IR: Base
 
-    import IR._
+    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
-    def void: Rep[VoidType]
+    def getDatabase = ASMDatabaseFactory.create ()
 
-    def char: Rep[PrimitiveType]
-
-    def boolean: Rep[PrimitiveType]
-
-    def byte: Rep[PrimitiveType]
-
-    def short: Rep[PrimitiveType]
-
-    def int: Rep[PrimitiveType]
-
-    def long: Rep[PrimitiveType]
-
-    def float: Rep[PrimitiveType]
-
-    def double: Rep[PrimitiveType]
-
-    /**
-     * Constructs a new object type, i.e., a type describing a class.
-     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
-     */
-    def ObjectType (desc: Rep[String]): Rep[ObjectType]
-
-	def ArrayType[T <: Type : Manifest] (componentType: Rep[T]): Rep[ArrayType[T]]
-
-    /*
-    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
-     */
+	def executeAnalysis(analysis : (BytecodeDatabase => Relation[_]), expectedMatches : Int) {
+		val database = getDatabase
+		val relation = analysis (database).asMaterialized
+		database.addArchive(getStream)
+		assertEquals (expectedMatches, relation.size)
+	}
 }

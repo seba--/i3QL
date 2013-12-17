@@ -4,11 +4,12 @@ import sae.analyses.findbugs.random._
 import sae.analyses.findbugs.selected._
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
+import scala.collection._
 
 /**
  * @author Mirko Köhler
  */
-object Analyses {
+class Analyses(database : BytecodeDatabase) {
 
 	private val analysesList : List[(BytecodeDatabase => Relation[_])] =
 		BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION ::
@@ -28,11 +29,22 @@ object Analyses {
 		UUF_UNUSED_FIELD ::
 		Nil
 
+	private val compiledAnalyses : mutable.HashMap[String, Relation[_]] = mutable.HashMap.empty[String, Relation[_]]
 
-	def apply (name : String) : (BytecodeDatabase => Relation[_]) = {
-		analysesList.find( (analysis) => analysisName(analysis) == name ) match {
-			case Some (a) => a
-			case None => throw new IllegalArgumentException ("Analysis with the name " + name + " is unknown.")
+
+	def apply (name : String) : Relation[_] = {
+		compiledAnalyses.get(name) match {
+			case Some (relation) => relation
+			case None => {
+				analysesList.find( (analysis) => analysisName(analysis) == name ) match {
+					case Some (a) => {
+						val result = a(database)
+						compiledAnalyses.put(name, result)
+						result
+					}
+					case None => throw new IllegalArgumentException ("Analysis with the name " + name + " is unknown.")
+				}
+			}
 		}
 	}
 

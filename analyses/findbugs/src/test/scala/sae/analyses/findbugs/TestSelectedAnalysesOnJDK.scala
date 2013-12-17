@@ -44,114 +44,74 @@ import sae.analyses.findbugs.random._
  *
  */
 
-class TestAnalysesOnJDK
+class TestSelectedAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 {
-
-    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
-
-    def getDatabase = ASMDatabaseFactory.create ()
-
 
     @Test
     def test_CI_CONFUSED_INHERITANCE () {
-        val database = getDatabase
-        val analysis = CI_CONFUSED_INHERITANCE (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (123, analysis.size)
+		executeAnalysis(CI_CONFUSED_INHERITANCE, expectedMatches = 123)
     }
 
   // TODO Findbugs finds less entries
     @Test
     def test_CN_IDIOM () {
-        val database = getDatabase
-        val analysis = CN_IDIOM (database).asMaterialized
-        database.addArchive (getStream)
-        // Findbugs says 18
-        //assertEquals (18, analysis.size)
-        assertEquals (25, analysis.size)
+		executeAnalysis(CN_IDIOM, expectedMatches = 25)
     }
 
 
     @Test
     def test_CN_IDIOM_NO_SUPER_CALL () {
-        val database = getDatabase
-        val analysis = CN_IDIOM_NO_SUPER_CALL (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (136, analysis.size)
+		executeAnalysis(CN_IDIOM_NO_SUPER_CALL, expectedMatches = 136)
+
     }
 
   // TODO Findbugs finds more entries
     @Test
     def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE () {
-        val database = getDatabase
-        val analysis = CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database).asMaterialized
-        database.addArchive (getStream)
+	  	executeAnalysis(CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE, expectedMatches = 34)
         // Findbugs says 38
-        //assertEquals (38, analysis.size)
-        assertEquals (34, analysis.size)
     }
 
 
     @Test
     def test_CO_ABSTRACT_SELF () {
-        val database = getDatabase
-        val analysis = CO_ABSTRACT_SELF (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (16, analysis.size)
+		executeAnalysis(CO_ABSTRACT_SELF, expectedMatches = 16)
     }
 
 
     @Test
     def test_CO_SELF_NO_OBJECT () {
-        val database = getDatabase
-        val analysis = CO_SELF_NO_OBJECT (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (55, analysis.size)
+		executeAnalysis(CO_SELF_NO_OBJECT, expectedMatches = 55)
     }
 
 
     @Test
     def test_DM_GC () {
-        val database = getDatabase
-        val analysis = DM_GC (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (3, analysis.size)
+		executeAnalysis(DM_GC, expectedMatches = 3)
     }
 
 
     @Test
     def test_DM_RUN_FINALIZERS_ON_EXIT () {
-        val database = getDatabase
-        val analysis = DM_RUN_FINALIZERS_ON_EXIT (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (1, analysis.size)
+		executeAnalysis(DM_RUN_FINALIZERS_ON_EXIT, expectedMatches = 1)
     }
 
 
     @Test
     def test_EQ_ABSTRACT_SELF () {
-        val database = getDatabase
-        val analysis = EQ_ABSTRACT_SELF (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (4, analysis.size)
+		executeAnalysis(EQ_ABSTRACT_SELF, expectedMatches = 4)
     }
 
 
     @Test
     def test_FI_PUBLIC_SHOULD_BE_PROTECTED () {
-        val database = getDatabase
-        val analysis = FI_PUBLIC_SHOULD_BE_PROTECTED (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (20, analysis.size)
+		executeAnalysis(FI_PUBLIC_SHOULD_BE_PROTECTED, expectedMatches = 20)
     }
 
 
     @Test
     def test_IMSE_DONT_CATCH_IMSE () {
-        val database = getDatabase
-        val analysis = IMSE_DONT_CATCH_IMSE (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (0, analysis.size)
+		executeAnalysis(IMSE_DONT_CATCH_IMSE, expectedMatches = 0)
     }
 
 
@@ -159,22 +119,16 @@ class TestAnalysesOnJDK
     @Ignore
     @Test
     def test_SE_NO_SUITABLE_CONSTRUCTOR () {
-        val database = getDatabase
-        val analysis = SE_NO_SUITABLE_CONSTRUCTOR (database).asMaterialized
-        database.addArchive (getStream)
-        assertEquals (19, analysis.size)
+		executeAnalysis(SE_NO_SUITABLE_CONSTRUCTOR, expectedMatches = 19)
     }
 
 
     // TODO Findbugs finds less entries
     @Test
     def test_SS_SHOULD_BE_STATIC () {
-        val database = getDatabase
-        val analysis = SS_SHOULD_BE_STATIC (database).asMaterialized
-        database.addArchive (getStream)
+		executeAnalysis(SS_SHOULD_BE_STATIC, expectedMatches = 102)
+
       // Findbugs says 92, but it is not clear why the last 10 entries are filtered
-      //assertEquals (92, analysis.size)
-        assertEquals (102, analysis.size)
         // the respective entries are:
         /*
         FieldDeclaration(ClassDeclaration(51,32,Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;,
@@ -208,74 +162,7 @@ class TestAnalysesOnJDK
   // TODO Findbugs finds less entries
     @Test
     def test_UUF_UNUSED_FIELD () {
-        val database = getDatabase
-        val analysis = UUF_UNUSED_FIELD (database).asMaterialized
-        database.addArchive (getStream)
+	  	executeAnalysis(UUF_UNUSED_FIELD, expectedMatches = 117)
         // Findbugs says 53
-        //assertEquals (53, analysis.size)
-        assertEquals (117, analysis.size)
     }
-
-	@Test
-	def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION () {
-		val database = getDatabase
-		val analysis = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (3, analysis.size)
-		//Findbugs says 3
-	}
-
-	@Test
-	def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT () {
-		val database = getDatabase
-		val analysis = DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (0, analysis.size)
-		//Findbugs says 0
-	}
-
-	@Test
-	def test_DP_DO_INSIDE_DO_PRIVILEGED () {
-		val database = getDatabase
-		val analysis = DP_DO_INSIDE_DO_PRIVILEGED (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (10, analysis.size)
-		//Findbugs says 0
-	}
-
-	@Test
-	def test_FI_USELESS () {
-		val database = getDatabase
-		val analysis = FI_USELESS (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (2, analysis.size)
-		//Findbugs says 0
-	}
-
-	@Test
-	def test_MS_PKGPROTECT () {
-		val database = getDatabase
-		val analysis = MS_PKGPROTECT (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (0, analysis.size)
-		//Findbugs says 61
-	}
-
-	@Test
-	def test_MS_SHOULD_BE_FINAL () {
-		val database = getDatabase
-		val analysis = MS_SHOULD_BE_FINAL (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (0, analysis.size)
-		//Findbugs says 32
-	}
-
-	@Test
-	def test_SE_BAD_FIELD_INNER_CLASS () {
-		val database = getDatabase
-		val analysis = SE_BAD_FIELD_INNER_CLASS (database).asMaterialized
-		database.addArchive(getStream)
-		assertEquals (3, analysis.size)
-		//Findbugs says 3
-	}
 }

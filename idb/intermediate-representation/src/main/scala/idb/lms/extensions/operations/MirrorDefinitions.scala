@@ -44,6 +44,7 @@ trait MirrorDefinitions
     with SeqOpsExp
     with StringOpsExp
     with ListOpsExp
+	with PrimitiveOpsExp
 {
 
     // The following entities were not defined for mirroring in the orignal LMS
@@ -52,6 +53,8 @@ trait MirrorDefinitions
 
         case SeqApply(xs, index) => seq_apply(f(xs), f(index))
         case SeqLength(xs) => seq_length(f(xs))
+
+		case IntBinaryAnd(a1, a2) => int_binaryand(f(a1), f(a2))
 
         case StringStartsWith(s, prefix) => string_startswith(f(s), f(prefix))
 

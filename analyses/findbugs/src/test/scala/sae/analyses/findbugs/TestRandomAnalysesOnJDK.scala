@@ -30,48 +30,70 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.types
+package sae.analyses.findbugs
 
-import scala.virtualization.lms.common.Base
+import org.junit.{Ignore, Test}
+import org.junit.Assert._
+import sae.bytecode.{BytecodeDatabase, ASMDatabaseFactory}
+import sae.analyses.findbugs.selected._
+import sae.analyses.findbugs.random._
+import idb.Relation
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
+ *
  */
-trait BytecodeTypeConstructors
-    extends BytecodeTypes
+
+class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 {
-    val IR: Base
 
-    import IR._
 
-    def void: Rep[VoidType]
+	@Test
+	def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION () {
+		executeAnalysis(BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, expectedMatches = 3)
+		//Findbugs says 3
+	}
 
-    def char: Rep[PrimitiveType]
+	@Test
+	def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT () {
+		executeAnalysis(DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT, expectedMatches = 0)
+		//Findbugs says 0
+	}
 
-    def boolean: Rep[PrimitiveType]
+	@Test
+	def test_DP_DO_INSIDE_DO_PRIVILEGED () {
+		executeAnalysis(DP_DO_INSIDE_DO_PRIVILEGED, expectedMatches = 10)
+		//Findbugs says 0
+	}
 
-    def byte: Rep[PrimitiveType]
+	@Test
+	def test_FI_USELESS () {
+		executeAnalysis(FI_USELESS, expectedMatches = 2)
+		//Findbugs says 0
+	}
 
-    def short: Rep[PrimitiveType]
+	@Test
+	def test_ITA_INEFFICIENT_TO_ARRAY () {
+		executeAnalysis(ITA_INEFFICIENT_TO_ARRAY, expectedMatches = 0)
+		//Findbugs says 0
+	}
 
-    def int: Rep[PrimitiveType]
+	@Test
+	def test_MS_PKGPROTECT () {
+		executeAnalysis(MS_PKGPROTECT, expectedMatches = 0)
+		//Findbugs says 61
+	}
 
-    def long: Rep[PrimitiveType]
+	@Test
+	def test_MS_SHOULD_BE_FINAL () {
+		executeAnalysis(MS_SHOULD_BE_FINAL, expectedMatches = 0)
+		//Findbugs says 32
+	}
 
-    def float: Rep[PrimitiveType]
-
-    def double: Rep[PrimitiveType]
-
-    /**
-     * Constructs a new object type, i.e., a type describing a class.
-     * @param desc A fully qualified class name in plain Java notation, e.g., "java.lang.String"
-     */
-    def ObjectType (desc: Rep[String]): Rep[ObjectType]
-
-	def ArrayType[T <: Type : Manifest] (componentType: Rep[T]): Rep[ArrayType[T]]
-
-    /*
-    def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]
-     */
+	@Test
+	def test_SE_BAD_FIELD_INNER_CLASS () {
+		executeAnalysis(SE_BAD_FIELD_INNER_CLASS, expectedMatches = 0)
+		//Findbugs says 3
+	}
 }

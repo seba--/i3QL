@@ -75,6 +75,11 @@ trait ASMTypeConstructors
 
     override def ObjectType (desc: Rep[String]): Rep[ObjectType] = objectType (desc)
 
+	private def arrayType[T <: Type : Manifest] : Rep[T => ArrayType[T]] = staticData (
+		(t : Type) => Type.getType("[" + t.getDescriptor).asInstanceOf[ArrayType[T]]
+	)
+
+	override def ArrayType[T  <: Type: Manifest] (componentType: Rep[T]): Rep[ArrayType[T]] = arrayType[T].apply(componentType)
 
     /*
     def ArrayType[T <: Type] (componentType: Rep[T], dimensions: Rep[Int]): Rep[ArrayType[T]]

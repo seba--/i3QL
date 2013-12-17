@@ -45,107 +45,73 @@ import idb.Relation
  */
 
 trait AbstractAnalysesTimeProfiler
-  extends AbstractAnalysesProfiler
-  with TimeMeasurement
-{
+	extends AbstractAnalysesProfiler
+	with TimeMeasurement {
 
-  val usage: String = """|Usage: java SAEAnalysesTimeProfiler propertiesFile
-                        |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                        | """.stripMargin
+	def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
+		measureTime(iterations)(() => applyAnalysesWithJarReading(jars, queries))
+	}
 
+	def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
+		var i = 0
+		while (i < iterations) {
+			applyAnalysesWithJarReading(jars, queries)
 
-  def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
-      measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
-  }
+			i += 1
+		}
 
-  def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
-    var i = 0
-    while (i < iterations) {
-        applyAnalysesWithJarReading (jars, queries)
+		getResultsWithReadingJars(jars, queries)
 
-      i += 1
-    }
-
-    if (reReadJars) {
-      getResultsWithReadingJars (jars, queries)
-    }
-    else
-    {
-      getResultsWithoutReadingJars (jars, queries)
-    }
-  }
+	}
 
 
-  def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
-    var taken: Long = 0
-    var database = databaseFactory.create ()
-    val results = for (query <- queries) yield {
-      getAnalysis (query, database).asMaterialized
-    }
-    time {
-      l => taken += l
-    }
-    {
-      jars.foreach (jar => {
-        val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-        database.addArchive (stream)
-        stream.close ()
-      })
-    }
-    database = null
-    val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-    memoryMXBean.gc ()
-    print (".")
-    taken
-  }
+	def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
+		var taken: Long = 0
+		val results = for (query <- queries) yield {
+			getAnalysis(query).asMaterialized
+		}
+		time {
+			l => taken += l
+		} {
+			jars.foreach(jar => {
+				val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
+				database.addArchive(stream)
+				stream.close()
+			})
+		}
+
+		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+		memoryMXBean.gc()
+		print(".")
+		taken
+	}
+
+	/* def applyAnalysesWithTransactionalJarReading(jars: List[String], queries: List[String]): Long = {
+		var taken: Long = 0
+		var database = databaseFactory.create ()
+		val results = for (query <- queries) yield {
+		  getAnalysis (query, database)(optimized, transactional, sharedSubQueries).asMaterialized
+		}
+		jars.foreach (jar => {
+
+		  database.beginTransaction ()
+		  val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+		  database.addArchive (stream)
+		  stream.close ()
+		  time {
+			l => taken += l
+		  }
+		  {
+			database.commitTransaction ()
+		  }
+		})
+		database = null
+		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+		memoryMXBean.gc ()
+		print (".")
+		taken
+	  }   */
 
 
-  def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
-    var taken: Long = 0
-    var relations: Iterable[Relation[_]] = null
-    time {
-      l => taken += l
-    }
-    {
-      relations = for (query <- queries) yield {
-        getAnalysis (query, database).asMaterialized
-      }
-
-    }
-    relations.foreach (_.clearObserversForChildren (visitChild => true))
-    relations = null
-    val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-    memoryMXBean.gc ()
-    print (".")
-    taken
-  }
-
- /* def applyAnalysesWithTransactionalJarReading(jars: List[String], queries: List[String]): Long = {
-    var taken: Long = 0
-    var database = databaseFactory.create ()
-    val results = for (query <- queries) yield {
-      getAnalysis (query, database)(optimized, transactional, sharedSubQueries).asMaterialized
-    }
-    jars.foreach (jar => {
-
-      database.beginTransaction ()
-      val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-      database.addArchive (stream)
-      stream.close ()
-      time {
-        l => taken += l
-      }
-      {
-        database.commitTransaction ()
-      }
-    })
-    database = null
-    val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-    memoryMXBean.gc ()
-    print (".")
-    taken
-  }   */
-
-
-  def measurementUnit = MilliSeconds
+	def measurementUnit = MilliSeconds
 }
