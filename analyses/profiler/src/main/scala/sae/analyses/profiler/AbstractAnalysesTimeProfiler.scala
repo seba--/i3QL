@@ -34,7 +34,7 @@ package sae.analyses.profiler
 
 import sae.analyses.profiler.measure.{MilliSeconds, TimeMeasurement}
 import sae.bytecode.BytecodeDatabase
-import sae.analyses.profiler.statistics.SampleStatistic
+import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
 import idb.Relation
 
 
@@ -45,7 +45,8 @@ import idb.Relation
  */
 
 trait AbstractAnalysesTimeProfiler
-	extends AbstractAnalysesProfiler
+	extends AbstractPropertiesFileProfiler
+	with AbstractAnalysesProfiler
 	with TimeMeasurement {
 
 	def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
@@ -56,12 +57,26 @@ trait AbstractAnalysesTimeProfiler
 		var i = 0
 		while (i < iterations) {
 			applyAnalysesWithJarReading(jars, queries)
-
 			i += 1
 		}
 
 		getResultsWithReadingJars(jars, queries)
 
+	}
+
+	def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
+
+		val results = for (query <- queries) yield {
+			getAnalysis(query).asMaterialized
+		}
+
+		jars.foreach(jar => {
+			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
+			database.addArchive(stream)
+			stream.close()
+		})
+
+		results.map(_.size).sum
 	}
 
 
@@ -79,10 +94,9 @@ trait AbstractAnalysesTimeProfiler
 				stream.close()
 			})
 		}
-
+		print(".")
 		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 		memoryMXBean.gc()
-		print(".")
 		taken
 	}
 
@@ -114,4 +128,23 @@ trait AbstractAnalysesTimeProfiler
 
 
 	def measurementUnit = MilliSeconds
+
+	def dataStatistic(jars: List[String]): DataStatistic = {
+
+		val classes = database.classDeclarations.asMaterialized
+
+		val methods = database.methodDeclarations.asMaterialized
+
+		val fields = database.fieldDeclarations.asMaterialized
+
+		val instructions = database.instructions.asMaterialized
+
+		jars.foreach(jar => {
+			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
+			database.addArchive(stream)
+			stream.close()
+		})
+
+		SimpleDataStatistic(classes.size, methods.size, fields.size, instructions.size)
+	}
 }

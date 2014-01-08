@@ -96,4 +96,24 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 		executeAnalysis(SE_BAD_FIELD_INNER_CLASS, expectedMatches = 0)
 		//Findbugs says 3
 	}
+
+	@Test
+	def test_SW_SWING_METHODS_INVOKED_IN_SWING_THREAD () {
+		executeAnalysis(SW_SWING_METHODS_INVOKED_IN_SWING_THREAD, expectedMatches = 0)
+		//Findbugs says 0
+	}
+
+	@Test
+	def test_UG_SYNC_SET_UNSYNC_GET () {
+		executeAnalysis(UG_SYNC_SET_UNSYNC_GET, expectedMatches = 32)
+		//Findbugs says 35
+	}
+
+	@Test
+	def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR () {
+		executeAnalysis(UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR, expectedMatches = 0)
+		//Findbugs says 1
+	}
+
+
 }

@@ -10,7 +10,7 @@ import sae.analyses.findbugs.Analyses
 class ASMDatabaseTimeProfiler(val database: BytecodeDatabase)
 	extends AbstractAnalysesTimeProfiler {
 
-	val analyses = new Analyses(database)
+	private val analyses = new Analyses(database)
 
 	val usage: String = """|Usage: run-main sae.analyses.profiler.ASMDatabaseProfiler propertiesFile
 						  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -18,7 +18,6 @@ class ASMDatabaseTimeProfiler(val database: BytecodeDatabase)
 
 	def benchmarkType = "ASM Database time"
 
-	//def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_]
 	def getAnalysis(query: String): Relation[_] =
 		analyses (query)
 

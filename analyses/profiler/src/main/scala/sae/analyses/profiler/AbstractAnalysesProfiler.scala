@@ -39,50 +39,15 @@ import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic}
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  *
  */
 
-trait AbstractAnalysesProfiler
-	extends AbstractPropertiesFileProfiler {
+trait AbstractAnalysesProfiler {
 
 	def database: BytecodeDatabase
 
 	def getAnalysis(query: String): Relation[_]
 
-
-	def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
-
-		val results = for (query <- queries) yield {
-			getAnalysis(query).asMaterialized
-		}
-
-		jars.foreach(jar => {
-			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
-			database.addArchive(stream)
-			stream.close()
-		})
-
-		results.map(_.size).sum
-	}
-
-	def dataStatistic(jars: List[String]): DataStatistic = {
-
-		val classes = database.classDeclarations.asMaterialized
-
-		val methods = database.methodDeclarations.asMaterialized
-
-		val fields = database.fieldDeclarations.asMaterialized
-
-		val instructions = database.instructions.asMaterialized
-
-		jars.foreach(jar => {
-			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
-			database.addArchive(stream)
-			stream.close()
-		})
-
-		SimpleDataStatistic(classes.size, methods.size, fields.size, instructions.size)
-	}
 
 }

@@ -47,6 +47,17 @@ trait BytecodeTypeOps
     import IR._
 
 
+	implicit def typeToInfixOps (i: Rep[Type]): TypeInfixOps
+
+	trait TypeInfixOps {
+
+		def isArrayType : Rep[Boolean]
+
+		def isObjectType : Rep[Boolean]
+
+		def isVoidType : Rep[Boolean]
+	}
+
     implicit def objectTypeToInfixOps (i: Rep[ObjectType]): ObjectTypeInfixOps
 
     trait ObjectTypeInfixOps

@@ -8,16 +8,13 @@ import sae.analyses.profiler.measure.MeasurementUnit
 /**
  * @author Ralf Mitschke, Mirko Köhler
  */
-trait AbstractPropertiesFileProfiler {
-
-	def properties = lProperties
-
-	private var lProperties: Properties = new Properties()
+trait AbstractPropertiesFileProfiler extends PropertiesFileImporter {
 
 
 	def execute(propertiesFile: String) {
 
-		lProperties = getProperties(propertiesFile).getOrElse(
+		val properties = getProperties(propertiesFile).getOrElse(
+
 		{
 			println("could not find properties file or resource: " + System.getProperty("user.dir") + ", File:" + propertiesFile)
 			sys.exit(-1)
@@ -125,29 +122,8 @@ trait AbstractPropertiesFileProfiler {
 	 */
 	def warmup(iterations: Int, jars: List[String], queries: List[String]): Long
 
+	def basePath = "analyses/properties/time"
 
-	def isFile(propertiesFile: String): Boolean = {
-		val file = new java.io.File(propertiesFile)
-		file.exists() && file.canRead && !file.isDirectory
 
-	}
 
-	def isResource(propertiesFile: String): Boolean = {
-		this.getClass.getClassLoader.getResource(propertiesFile) != null
-	}
-
-	def getProperties(propertiesFile: String): Option[Properties] = {
-		if (isFile(propertiesFile)) {
-			val file = new java.io.File(propertiesFile)
-			val properties = new Properties()
-			properties.load(new FileInputStream(file))
-			return Some(properties)
-		}
-		if (isResource(propertiesFile)) {
-			val properties = new Properties()
-			properties.load(this.getClass.getClassLoader.getResource(propertiesFile).openStream())
-			return Some(properties)
-		}
-		None
-	}
 }

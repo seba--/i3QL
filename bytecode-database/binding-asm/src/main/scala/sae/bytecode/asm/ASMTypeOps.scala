@@ -63,6 +63,30 @@ trait ASMTypeOps
         (t: ObjectType) => ObjectType_PackageName (t)
     )
 
+	private val typeIsObjectType : Rep[Type => Boolean] = staticData (
+		(t : Type) => t.getSort == org.objectweb.asm.Type.OBJECT
+	)
+
+	private val typeIsVoidType : Rep[Type => Boolean] = staticData (
+		(t : Type) => t.getSort == org.objectweb.asm.Type.VOID
+	)
+
+	private val typeIsArrayType : Rep[Type => Boolean] = staticData (
+		(t : Type) => t.getSort == org.objectweb.asm.Type.ARRAY
+	)
+
+
+	override implicit def typeToInfixOps (i: Rep[ObjectType]) =
+		ASMTypeInfixOps (i)
+
+	case class ASMTypeInfixOps (i: Rep[Type]) extends TypeInfixOps
+	{
+		def isObjectType : Rep[Boolean] = typeIsObjectType (i)
+
+		def isVoidType : Rep[Boolean] = typeIsVoidType (i)
+
+		def isArrayType : Rep[Boolean] = typeIsArrayType (i)
+	}
 
     override implicit def objectTypeToInfixOps (i: Rep[ObjectType]) =
         ASMObjectTypeInfixOps (i)

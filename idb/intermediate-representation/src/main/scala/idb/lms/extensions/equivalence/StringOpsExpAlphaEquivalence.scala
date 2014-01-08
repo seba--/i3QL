@@ -80,6 +80,15 @@ trait StringOpsExpAlphaEquivalence
 			case (StringEndsWith (s1, e1), StringEndsWith (s2, e2)) =>
 				isEquivalent (s1, s2) && isEquivalent (e1, e2)
 
+			case (StringIndexOf (s1, e1), StringIndexOf (s2, e2)) =>
+				isEquivalent (s1, s2) && isEquivalent (e1, e2)
+
+			case (StringToLowerCase (s1), StringToLowerCase (s2)) =>
+				isEquivalent(s1, s2)
+
+			case (StringSubstring (s1, i1), StringSubstring (s2, i2)) =>
+				isEquivalent(s1, s2) && isEquivalent(i1, i2)
+
             case _ => super.isEquivalentDef (a, b)
         }
 

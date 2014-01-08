@@ -26,11 +26,15 @@ object MS_SHOULD_BE_FINAL
 					NOT (f.declaringClass.isInterface)
 				)
 
-		SELECT (*) FROM ms_fields WHERE (
+		val definedValueTypes : Relation[FieldDeclaration] =
+			SELECT (*) FROM ms_fields WHERE ((f : Rep[FieldDeclaration]) =>
+				f.valueType.isDefined
+			)
+
+		SELECT (*) FROM definedValueTypes WHERE (
 			(f : Rep[FieldDeclaration]) =>
 				f.isFinal AND
-				f.valueType.isDefined AND
-				(f.valueType.get.IsInstanceOf[ArrayType[Any]] OR f.valueType.get == ObjectType ("java/util/Hashtable")))
+				(f.valueType.get.isArrayType OR f.valueType.get == ObjectType ("java/util/Hashtable")))
 
 	}
 

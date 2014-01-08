@@ -17,7 +17,7 @@ object MS_PKGPROTECT extends (BytecodeDatabase => Relation[BytecodeDatabase#Fiel
 		val fieldReadsFromExternalPackage: Relation[FieldAccessInstruction] =
 			SELECT(*) FROM fieldAccessInstructions WHERE (
 				(i : Rep[FieldAccessInstruction]) =>
-					i.fieldInfo.declaringType.IsInstanceOf[ObjectType] AND
+					i.fieldInfo.declaringType.isObjectType AND
 					i.declaringMethod.declaringClass.classType.packageName != i.fieldInfo.declaringType.AsInstanceOf[ObjectType].packageName)
 
 		val ms_fields: Relation[FieldDeclaration] =
@@ -48,9 +48,15 @@ object MS_PKGPROTECT extends (BytecodeDatabase => Relation[BytecodeDatabase#Fiel
 					)
 			)
 
-		SELECT (*) FROM ms_base WHERE (
+		val definedValueTypes : Relation[FieldDeclaration] =
+			SELECT (*) FROM ms_base WHERE ((f : Rep[FieldDeclaration]) =>
+				f.valueType.isDefined
+			)
+
+		SELECT (*) FROM definedValueTypes WHERE (
 			(f : Rep[FieldDeclaration]) =>
-		        f.isFinal AND (f.valueType.IsInstanceOf[ArrayType[Any]] OR f.valueType == ObjectType ("java/util/Hashtable"))
+		        f.isFinal AND
+				(f.valueType.get.isArrayType OR f.valueType.get == ObjectType ("java/util/Hashtable"))
 		)
 
 	}

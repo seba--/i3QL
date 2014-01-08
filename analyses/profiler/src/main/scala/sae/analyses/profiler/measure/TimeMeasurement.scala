@@ -64,8 +64,7 @@ trait TimeMeasurement
     val statistic = getStatistic (iterations)
     for (i <- 1 to iterations)
     {
-      statistic.add (f ())
-
+      	statistic.add (f ())
     }
     statistic
   }
