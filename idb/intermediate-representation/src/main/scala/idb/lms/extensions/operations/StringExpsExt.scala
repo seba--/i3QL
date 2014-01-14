@@ -71,22 +71,19 @@ trait StringOpsExpExt
 		string_substring (s, startIndex)
 
 	def string_substring (s: Rep[String], startIndex : Rep[Int])(implicit pos: SourceContext): Rep[String] =
-		StringSubstring (s, startIndex)
+		StringSubstring (s, startIndex, string_length(s))
 
 
 	case class StringToLowerCase (s : Exp[String]) extends Def[String]
 	case class StringEndsWith (s: Exp[String], end: Exp[String]) extends Def[Boolean]
 	case class StringIndexOf (s: Exp[String], s1: Exp[String]) extends Def[Int]
     case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
-	case class StringSubstring (s : Exp[String], startIndex : Exp[Int]) extends Def[String]
-
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
 		case StringIndexOf (s, s1) => string_indexOf(f (s), f (s1))
-        case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
+    case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
 		case StringEndsWith (s, end) => string_endsWith (f (s), f (end))
 		case StringToLowerCase (s) => string_toLowerCase( f (s))
-		case StringSubstring (s, i) => string_substring( f (s), f (i))
 		case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
 }
@@ -99,11 +96,10 @@ trait ScalaGenStringOpsExt extends ScalaGenStringOps
     import IR._
 
     override def emitNode (sym: Sym[Any], rhs: Def[Any]) = rhs match {
-		case StringIndexOf (s, s1) => emitValDef (sym, "%s.indexOf(%s)".format (quote (s), quote (s1)))
-        case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
-		case StringEndsWith (s, end) => emitValDef (sym, "%s.endsWith(%s)".format (quote (s), quote (end)))
-		case StringToLowerCase (s) => emitValDef (sym, "%s.toLowerCase".format (quote (s)))
-		case StringSubstring (s, i) => emitValDef (sym, "%s.substring(%s)".format (quote (s), quote (i)))
-        case _ => super.emitNode (sym, rhs)
+      case StringIndexOf (s, s1) => emitValDef (sym, "%s.indexOf(%s)".format (quote (s), quote (s1)))
+      case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
+      case StringEndsWith (s, end) => emitValDef (sym, "%s.endsWith(%s)".format (quote (s), quote (end)))
+      case StringToLowerCase (s) => emitValDef (sym, "%s.toLowerCase".format (quote (s)))
+      case _ => super.emitNode (sym, rhs)
     }
 }
