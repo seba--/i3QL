@@ -11,6 +11,8 @@ import sae.analyses.profiler.measure.MeasurementUnit
 trait AbstractPropertiesFileProfiler extends PropertiesFileImporter {
 
 
+	def basePath = "analyses/properties/time/"
+
 	def execute(propertiesFile: String) {
 
 		val properties = getProperties(propertiesFile).getOrElse(
@@ -122,7 +124,7 @@ trait AbstractPropertiesFileProfiler extends PropertiesFileImporter {
 	 */
 	def warmup(iterations: Int, jars: List[String], queries: List[String]): Long
 
-	def basePath = "analyses/properties/time"
+
 
 
 

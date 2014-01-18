@@ -47,7 +47,7 @@ import sae.analyses.profiler.statistics.{DataStatistic, SampleStatistic}
 trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 {
 
-	def basePath = "analyses/properties/replay-time"
+	def basePath = "analyses/properties/replay-time/"
 
 	def execute(propertiesFile : String) {
 		val properties = getProperties(propertiesFile).getOrElse(
@@ -143,8 +143,8 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
             val outputLine =
                 benchmarkType + separator +
                         measurementLocation + separator +
-                        eventSets(i)(0).eventTime + separator +
-                        eventSets(i).size + separator +
+                      //  eventSets(i)(0).eventTime + separator +
+                      //  eventSets(i).size + separator +
                         dataStatistics(i).classCount + separator +
                         dataStatistics(i).methodCount + separator +
                         dataStatistics(i).fieldCount + separator +

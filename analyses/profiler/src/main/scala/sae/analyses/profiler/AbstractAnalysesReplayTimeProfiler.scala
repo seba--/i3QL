@@ -87,7 +87,7 @@ trait AbstractAnalysesReplayTimeProfiler
 	private def applyStepWithJarReadTime(set: Seq[ReplayEvent]): Long = {
 		var taken: Long = 0
 		val (additions, deletions, updates) = sortEventsByType (set)
-		print (set.head.eventTime)
+		//print (set.head.eventTime)
 		time {
 			l => taken += l
 		}
@@ -152,7 +152,7 @@ trait AbstractAnalysesReplayTimeProfiler
 
 		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 		memoryMXBean.gc ()
-		print(", ")
+		print(",")
 		taken
 	}
 

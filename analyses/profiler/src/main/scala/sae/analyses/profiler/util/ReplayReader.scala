@@ -79,6 +79,12 @@ class ReplayReader(val location: File)
         var sortedFiles = getAllFilesSortedByEventTime (currentLocation)
         var lastFile: Option[ReplayEvent] = None
         var subList = List[ReplayEvent]()
+
+		println("current location = " + currentLocation.getAbsolutePath)
+
+		println("sorted files = ")
+		sortedFiles.foreach(println)
+
         for (eventFile <- sortedFiles) {
             lastFile match {
                 case None => {

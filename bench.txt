@@ -12,3 +12,9 @@ ASM Database time;scala-compiler.jar;7710;66531;20137;808084;150;50;DM_RUN_FINAL
 ASM Database time;scala-compiler.jar;7710;66531;20137;808084;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;321.329;26.469;3.743;ms
 ASM Database time;scala-compiler.jar;7710;66531;20137;808084;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;329.317;13.391;1.894;ms
 ASM Database time;scala-compiler.jar;7710;66531;20137;808084;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;338.978;11.559;1.635;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.003;0.001;0.000;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.003;0.000;0.000;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.002;0.000;0.000;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.003;0.001;0.000;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.002;0.000;0.000;ms
+ASM databse replay time;vespucci_developer_changes;0;0;0;0;150;50;DM_RUN_FINALIZERS_ON_EXIT;0;0.003;0.000;0.000;ms
