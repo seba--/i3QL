@@ -33,13 +33,13 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
-import idb.lms.extensions.CompileScalaExt
+import idb.lms.extensions.{FunctionUtils, CompileScalaExt}
 import idb.operators.impl._
 import idb.operators.impl.opt._
-import scala.virtualization.lms.common.ScalaGenEffect
-import scala.virtualization.lms.common.FunctionsExp
-import scala.virtualization.lms.common.FunctionsExp
+import scala.virtualization.lms.common._
 import idb.MaterializedView
+import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
 
 /**
  *
@@ -58,12 +58,20 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 		with RelationalAlgebraGenSAEBinding
 		with FunctionsExp
 
+	val IRn = IR
+
     import IR._
 
     // TODO incorporate set semantics into ir
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
             case Def (Selection (r, f)) => {
+
+				val printer = new RelationalAlgebraPrintPlan {
+					override val IR = IRn
+
+				}
+
                 new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
             case Def (Projection (r, f)) => {

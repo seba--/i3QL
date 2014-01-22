@@ -57,6 +57,7 @@ trait MirrorDefinitions
 		case IntBinaryAnd(a1, a2) => int_binaryand(f(a1), f(a2))
 
         case StringStartsWith(s, prefix) => string_startswith(f(s), f(prefix))
+		//case StringSubstring(s, i1, i2) => string_substring(f(s), f(i1), f(i2))
 
         case ListConcat(l1, l2) => list_concat(f(l1), f(l2))
 

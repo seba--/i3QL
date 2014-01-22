@@ -45,6 +45,7 @@ import scala.virtualization.lms.common.ScalaGenEffect
 trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
     with RelationalAlgebraGenQueryCache
+
     with CompileScalaExt
     with ScalaGenEffect
 {
@@ -54,28 +55,24 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
         with RelationalAlgebraGenSAEBinding
         with FunctionsExp
 
-    import IR.Def
-    import IR.Query
-    import IR.Recursion
-    import IR.RecursionResult
-    import IR.Relation
-    import IR.Rep
+    import IR._
 
 
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            /*
+
         case Def (e@TransitiveClosure (r, h, t)) => {
-            if(e.isIncrementLocal)
+         /*   if(e.isIncrementLocal)
                 new TransactionalCyclicTransitiveClosureView(
                     compile (r) (e.mEdge),
                     compileFunctionWithDynamicManifests(h),
                     compileFunctionWithDynamicManifests(t),
                     false).asInstanceOf[Relation[Domain]]
-            else
-                new AcyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h),
+            else          */
+                new AcyclicTransitiveClosureView(compile (r), compileFunctionWithDynamicManifests(h),
                 compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
-        }*/
+		}
+
 
             case Def (Recursion (b, _)) => {
                 new RecursiveDRed[Domain](compile (b), isSet = false)

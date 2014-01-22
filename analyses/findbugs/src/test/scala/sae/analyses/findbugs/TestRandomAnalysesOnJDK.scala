@@ -56,6 +56,7 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 	}
 
 	@Test
+	@Ignore
 	def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT () {
 		executeAnalysis(DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT, expectedMatches = 0)
 		//Findbugs says 0

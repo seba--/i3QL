@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions.reduction
+package idb.lms.extensions.equivalence
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.EffectExp
@@ -41,8 +41,7 @@ import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
  * @author Ralf Mitschke
  *
  */
- // TODO move this trait, it is associated to alpha equivalence rather then beta-reduction
-trait EffectExpBetaReduction
+trait EffectExpAlphaEquivalence
     extends EffectExp
     with BaseExpAlphaEquivalence
 {

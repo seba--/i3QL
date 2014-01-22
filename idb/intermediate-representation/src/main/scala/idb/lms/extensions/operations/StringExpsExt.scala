@@ -81,7 +81,7 @@ trait StringOpsExpExt
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
 		case StringIndexOf (s, s1) => string_indexOf(f (s), f (s1))
-    case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
+    	case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
 		case StringEndsWith (s, end) => string_endsWith (f (s), f (end))
 		case StringToLowerCase (s) => string_toLowerCase( f (s))
 		case _ => super.mirror (e, f)

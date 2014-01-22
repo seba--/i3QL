@@ -89,6 +89,9 @@ trait StringOpsExpAlphaEquivalence
 			case (StringSubstring (s1, i1, j1), StringSubstring (s2, i2, j2)) =>
 				isEquivalent(s1, s2) && isEquivalent(i1, i2) && isEquivalent(j1, j2)
 
+			case (StringLength (s1), StringLength(s2)) =>
+				isEquivalent(s1, s2)
+
             case _ => super.isEquivalentDef (a, b)
         }
 

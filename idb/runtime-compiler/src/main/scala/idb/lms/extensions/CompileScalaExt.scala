@@ -47,9 +47,9 @@ trait CompileScalaExt
 
     var compileCount = 0
 
-    var dumpGeneratedCode = false
+    var dumpGeneratedCode = true
 
-    var silent = true
+    var silent = false
 
     def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
         compileFunction (IR.doApply (f, _))
@@ -57,6 +57,7 @@ trait CompileScalaExt
 
 
     def compileFunctionWithDynamicManifests[A, B] (f: IR.Rep[A => B]): A => B = {
+
         f.tp.typeArguments match {
             case List (mA, mB) => {
                 val mAUnsafe = mA.asInstanceOf[Manifest[A]]

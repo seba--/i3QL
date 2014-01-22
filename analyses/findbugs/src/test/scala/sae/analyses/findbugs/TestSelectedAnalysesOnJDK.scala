@@ -116,7 +116,7 @@ class TestSelectedAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 
 
     // TODO Option.get is called on None, due to too optimistic pushing of operators
-    @Ignore
+   // @Ignore
     @Test
     def test_SE_NO_SUITABLE_CONSTRUCTOR () {
 		executeAnalysis(SE_NO_SUITABLE_CONSTRUCTOR, expectedMatches = 19)

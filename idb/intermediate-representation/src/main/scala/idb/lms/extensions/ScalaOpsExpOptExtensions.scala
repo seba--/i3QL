@@ -56,7 +56,7 @@ trait ScalaOpsExpOptExtensions
     with NumericOpsExpNormalization
     with TupledFunctionsExpBetaReduction
     with TupleOpsExpOptBetaReduction
-    with EffectExpBetaReduction
+    with EffectExpAlphaEquivalence
     with BooleanOpsExpSimplification
     //with BooleanOpsExpOrdering
     //with BooleanOpsExpDNFNormalization

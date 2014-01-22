@@ -93,10 +93,10 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		memoryMXBean.gc()
 
 		println("Measure: " + measurementIterations + " times : " + queries + " on " + measurementLocation)
-		val statistics = measure(measurementIterations, measurementEvents, queries)
+		val statistics : List[SampleStatistic] = measure(measurementIterations, measurementEvents, queries)
 		println("\tdone")
 
-		//println (statistics.summary (measurementUnit))
+		statistics.foreach(x => println(x.summary (measurementUnit)))
 
 		val dataStatisticList = dataStatistics(measurementEvents)
 
@@ -161,6 +161,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                                 .fromBase(statistics(i).standardError))) + separator +
                         measurementUnit.descriptor
 
+			Predef.println(outputLine)
             out.println(outputLine)
             i += 1
         }

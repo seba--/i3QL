@@ -186,8 +186,8 @@ package object iql
 
 
     implicit def compile[Range: Manifest] (
-        query: Rep[Query[Range]]
-    ): Relation[Range] =
+	query: Rep[Query[Range]]
+	): Relation[Range] =
         CompilerBinding.compile (query)
 
     implicit def compile[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,

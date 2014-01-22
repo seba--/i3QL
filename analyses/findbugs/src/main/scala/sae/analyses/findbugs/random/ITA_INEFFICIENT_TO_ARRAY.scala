@@ -34,7 +34,7 @@ object ITA_INEFFICIENT_TO_ARRAY
 					(invoke.pc == a.nextPC)
 				)
 
-		SELECT (*) FROM (invokes) WHERE ((invoke : Rep[MethodInvocationInstruction]) =>
+		SELECT (*) FROM invokes WHERE ((invoke : Rep[MethodInvocationInstruction]) =>
 			EXISTS (
 				SELECT (*) FROM subTyping WHERE ((typing : Rep[TypeRelation]) =>
 					(typing.superType == ObjectType ("java/util/Collection")) AND

@@ -85,7 +85,7 @@ trait AbstractBytecodeDatabaseManipulation
 
     def updateClassFile (oldStream: InputStream, newStream: InputStream) {
         doAddClassFile (newStream)
-        doRemoveClassFile (newStream)
+        doRemoveClassFile (oldStream)
         doEndTransaction ()
     }
 }

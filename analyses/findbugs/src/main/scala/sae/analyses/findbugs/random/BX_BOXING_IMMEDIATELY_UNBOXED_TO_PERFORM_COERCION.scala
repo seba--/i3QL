@@ -17,18 +17,23 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION extends (BytecodeDataba
 
 	def apply(database : BytecodeDatabase) : Relation[BytecodeDatabase#MethodInvocationInstruction] = {
 		import database._
+
+		val invSpecialWithParameter : Relation[MethodInvocationInstruction] =
+			SELECT (*) FROM methodInvocationInstructions WHERE ( (invSpecial : Rep[MethodInvocationInstruction]) =>
+				(invSpecial.opcode == OpCodes.INVOKESPECIAL) AND
+				(invSpecial.methodInfo.parameterTypes.length == 1)
+			)
+
 		SELECT (
 			(a : Rep[MethodInvocationInstruction], b : Rep[MethodInvocationInstruction]) => b
 		) FROM (
-			methodInvocationInstructions, methodInvocationInstructions
+			invSpecialWithParameter, methodInvocationInstructions
 		) WHERE (
 			(invSpecial : Rep[MethodInvocationInstruction], invVirtual : Rep[MethodInvocationInstruction]) =>
-				invSpecial.opcode == OpCodes.INVOKESPECIAL AND
 				invVirtual.opcode == OpCodes.INVOKEVIRTUAL AND
 				invSpecial.declaringMethod == invVirtual.declaringMethod AND
 				invSpecial.methodInfo.receiverType == invVirtual.methodInfo.receiverType AND
 				invSpecial.nextPC == invVirtual.pc AND
-				invSpecial.methodInfo.parameterTypes.length == 1 AND
 				NOT (invSpecial.methodInfo.parameterTypes(0) == invVirtual.methodInfo.returnType) AND
 				NOT (invSpecial.methodInfo.parameterTypes(0).IsInstanceOf[ReferenceType]) AND
 				invSpecial.declaringMethod.declaringClass.majorVersion >= 49 AND

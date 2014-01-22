@@ -20,15 +20,15 @@ object SE_BAD_FIELD_INNER_CLASS
 			//TODO Should be unresolvedInnerClasses instead of innerClassAttributes
 			SELECT ((a: Rep[InnerClassAttribute]) => (a.innerClassType, a.outerClassType.get)) FROM innerClassAttributes WHERE
 				((a : Rep[InnerClassAttribute]) =>
-					(a.declaringClass.classType == a.innerClassType) AND
+					a.declaringClass.classType == a.innerClassType AND
 					a.outerClassType.isDefined AND
 					(a.innerClassAccessFlags & AccessFlags.ACC_STATIC) == 0)
 
-		val inheritanceOfSerializable =
+		val inheritanceOfSerializable : Relation[Inheritance] =
 			SELECT (*) FROM interfaceInheritance WHERE ((i : Rep[Inheritance]) =>
 				i.superType == ObjectType("java/io/Serializable"))
 
-		val serializableNonStaticInner =
+		val serializableNonStaticInner : Relation[(Type, Type)] =
 			SELECT ((t : Rep[(Type, Type)], i : Rep[Inheritance]) => t) FROM (nonStaticInner, inheritanceOfSerializable) WHERE ((t : Rep[(Type, Type)], i : Rep[Inheritance]) =>
 				t._1 == i.declaringClass)
 

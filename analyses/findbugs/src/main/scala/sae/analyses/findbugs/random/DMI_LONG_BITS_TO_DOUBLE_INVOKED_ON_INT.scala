@@ -19,18 +19,18 @@ object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT extends (BytecodeDatabase => Relat
 			(a : Rep[Instruction], b : Rep[MethodInvocationInstruction]) => b
 		) FROM (
 			instructions, methodInvocationInstructions
-			) WHERE (
+		) WHERE (
 			(i2l : Rep[Instruction], invStatic : Rep[MethodInvocationInstruction]) => {
-					i2l.opcode == OpCodes.I2L AND
-					invStatic.opcode == OpCodes.INVOKESTATIC AND
-					i2l.declaringMethod == invStatic.declaringMethod AND
-					i2l.nextPC == invStatic.pc AND
-					invStatic.methodInfo.receiverType == ObjectType("java/lang/Double") AND
-					invStatic.methodInfo.name == "longBitsToDouble" AND
-					invStatic.methodInfo.returnType == double AND
-					invStatic.methodInfo.parameterTypes == Seq(long)
-				}
-			)
+				i2l.opcode == OpCodes.I2L AND
+				invStatic.opcode == OpCodes.INVOKESTATIC AND
+				i2l.declaringMethod == invStatic.declaringMethod AND
+				i2l.nextPC == invStatic.pc AND
+				invStatic.methodInfo.receiverType == ObjectType("java/lang/Double") AND
+				invStatic.methodInfo.name == "longBitsToDouble" AND
+				invStatic.methodInfo.returnType == double AND
+				invStatic.methodInfo.parameterTypes == Seq(long)
+			}
+		)
 	}
 	/*def apply(database: BytecodeDatabase): Relation[INVOKESTATIC] = {
 		import database._

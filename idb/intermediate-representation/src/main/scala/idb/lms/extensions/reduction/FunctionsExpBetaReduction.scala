@@ -36,6 +36,7 @@ import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
 import scala.collection.immutable.Map
 import idb.lms.extensions.ExpressionUtils
+import idb.lms.extensions.equivalence.EffectExpAlphaEquivalence
 
 /**
  *
@@ -45,7 +46,7 @@ import idb.lms.extensions.ExpressionUtils
 trait FunctionsExpBetaReduction
     extends FunctionsExp
     with BaseFatExp // required to use the forward transformer
-    with EffectExpBetaReduction
+    with EffectExpAlphaEquivalence
     with ExpressionUtils
 {
 
