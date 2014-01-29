@@ -32,10 +32,10 @@
  */
 package sae.analyses.profiler
 
-import sae.analyses.profiler.measure.MeasurementUnit
+import sae.analyses.profiler.measure.{MilliSeconds, MeasurementUnit}
 import sae.bytecode.profiler.statistics.EventStatistic
 import sae.analyses.profiler.util.{ReplayEvent, ReplayReader}
-import java.io.{FileWriter, PrintWriter, File}
+import java.io.{FileInputStream, FileWriter, PrintWriter, File}
 import sae.analyses.profiler.statistics.{DataStatistic, SampleStatistic}
 
 /**
@@ -78,6 +78,8 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 
 		println("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation)
 
+
+
 		val warmupEventReader = new ReplayReader(new File(warmupLocation))
 		val warmupEvents = warmupEventReader.getAllEventSets
 		val counts = warmup(warmupIterations, warmupEvents, queries)
@@ -96,7 +98,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		val statistics : List[SampleStatistic] = measure(measurementIterations, measurementEvents, queries)
 		println("\tdone")
 
-		statistics.foreach(x => println(x.summary (measurementUnit)))
+		//statistics.foreach(x => println(x.summary (measurementUnit)))
 
 		val dataStatisticList = dataStatistics(measurementEvents)
 
@@ -110,6 +112,13 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		//println (dataStatistics.summary)
 
 		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
+
+		val maxTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(Double.NegativeInfinity)(math.max))
+		val minTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(Double.PositiveInfinity)(math.min))
+		val meanTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(0d)((x : Double,y : Double) => x + y)) / statistics.length
+
+		Predef.println("File: " + propertiesFile)
+		Predef.println("Max Time: %.3f - Min Time: %.3f - Mean Time : %.3f".format(maxTime, minTime, meanTime))
 
 		sys.exit(0)
 	}
@@ -131,14 +140,11 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                 "re-read jars" + separator + "optimized" + separator + "transactional" + separator + "shared" + separator +
                 "queries" + separator + "newResult count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
-
-
-
         if (writeHeader) {
             out.println(header)
         }
 
-        var i = 0
+		var i = 0
         while (i < statistics.size) {
             val outputLine =
                 benchmarkType + separator +
@@ -161,7 +167,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                                 .fromBase(statistics(i).standardError))) + separator +
                         measurementUnit.descriptor
 
-			Predef.println(outputLine)
+		//	Predef.println(outputLine)
             out.println(outputLine)
             i += 1
         }

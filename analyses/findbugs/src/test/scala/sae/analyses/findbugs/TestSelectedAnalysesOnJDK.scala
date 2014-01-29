@@ -33,10 +33,8 @@
 package sae.analyses.findbugs
 
 import org.junit.{Ignore, Test}
-import org.junit.Assert._
-import sae.bytecode.ASMDatabaseFactory
 import sae.analyses.findbugs.selected._
-import sae.analyses.findbugs.random._
+
 
 /**
  *

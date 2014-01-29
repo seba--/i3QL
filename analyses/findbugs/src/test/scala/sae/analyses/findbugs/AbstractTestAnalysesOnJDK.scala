@@ -32,11 +32,8 @@
  */
 package sae.analyses.findbugs
 
-import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import sae.bytecode.{BytecodeDatabase, ASMDatabaseFactory}
-import sae.analyses.findbugs.selected._
-import sae.analyses.findbugs.random._
 import idb.Relation
 
 /**
@@ -56,7 +53,6 @@ trait AbstractTestAnalysesOnJDK
 		var database : BytecodeDatabase = null
 		database = getDatabase
 		val relation = analysis (database).asMaterialized
-
 
 		database.addArchive(getStream)
 

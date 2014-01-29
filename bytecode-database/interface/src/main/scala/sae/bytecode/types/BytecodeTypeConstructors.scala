@@ -69,6 +69,10 @@ trait BytecodeTypeConstructors
      */
     def ObjectType (desc: Rep[String]): Rep[ObjectType]
 
+	/**
+	 * Constructs a new array type.
+	 * @param componentType The type of elements.
+	 */
 	def ArrayType[T <: Type : Manifest] (componentType: Rep[T]): Rep[ArrayType[T]]
 
     /*
