@@ -35,6 +35,7 @@ package idb.algebra.fusion
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.normalization.RelationalAlgebraNormalize
 import idb.lms.extensions.FunctionUtils
+import idb.algebra.print.RelationalAlgebraPrintPlan
 
 /**
  *
@@ -65,6 +66,7 @@ trait RelationalAlgebraIRFuseBasicOperators
         }
 
 
+
     /**
      * Fusion of selection operations
      */
@@ -74,6 +76,9 @@ trait RelationalAlgebraIRFuseBasicOperators
     ): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f)) => {
+
+             println(relation)
+
                 withoutNormalization (
                     selection (r, createConjunction (f, function))
                 )

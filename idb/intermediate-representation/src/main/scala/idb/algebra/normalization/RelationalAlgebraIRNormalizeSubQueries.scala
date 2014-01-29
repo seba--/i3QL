@@ -35,7 +35,9 @@ package idb.algebra.normalization
 import idb.algebra.base.RelationalAlgebraDerivedOperators
 import idb.algebra.ir._
 import idb.lms.extensions._
-import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp}
+import scala.virtualization.lms.common._
+import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
 
 
 /**

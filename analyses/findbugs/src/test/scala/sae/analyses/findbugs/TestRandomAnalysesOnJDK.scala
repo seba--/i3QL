@@ -47,6 +47,7 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 
 
 	@Test
+  @Ignore
 	def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION () {
 		executeAnalysis (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, expectedMatches = 3)
 		//Findbugs says 3
@@ -107,6 +108,7 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 	}
 
 	@Test
+  @Ignore
 	def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR () {
 		executeAnalysis(UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR, expectedMatches = 0)
 		//Findbugs says 1
