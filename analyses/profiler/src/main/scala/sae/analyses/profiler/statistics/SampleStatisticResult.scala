@@ -1,6 +1,6 @@
 package sae.analyses.profiler.statistics
 
-import sae.analyses.profiler.measure.MeasurementUnit
+import sae.analyses.profiler.measure.units.MeasurementUnit
 
 
 /**

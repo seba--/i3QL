@@ -3,7 +3,7 @@ package sae.analyses.profiler
 import java.util.Properties
 import java.io.{FileInputStream, FileWriter, PrintWriter, File}
 import sae.analyses.profiler.statistics.{SampleStatistic, DataStatistic}
-import sae.analyses.profiler.measure.MeasurementUnit
+import sae.analyses.profiler.measure.units.MeasurementUnit
 
 /**
  * @author Ralf Mitschke, Mirko Köhler

@@ -30,58 +30,50 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.fusion
+package sae.analyses.profiler.measure
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.algebra.normalization.RelationalAlgebraNormalize
-import idb.lms.extensions.FunctionUtils
-import idb.algebra.print.RelationalAlgebraPrintPlan
+import sae.analyses.profiler.statistics.{ReplayStatistic, SimpleReplayStatistic}
+
 
 /**
- *
- * TODO could check that the functions are pure (i.e., side-effect free), an only then do shortcut evaluation
- * @author Ralf Mitschke
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 23.08.12
+ * Time: 16:00
  */
-trait RelationalAlgebraIRFuseBasicOperators
-    extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraNormalize
-    with FunctionUtils
+
+trait MemoryMeasurement
 {
+    /**
+     * Measures the amount of memory that is used as a side-effect
+     * of executing the given method.
+     */
+    def memory[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        //memoryMXBean.setVerbose(true)
+        memoryMXBean.gc()
+        val usedBefore = memoryMXBean.getHeapMemoryUsage.getUsed
+        val r = f
+        memoryMXBean.gc()
+        val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
+        mu(usedAfter - usedBefore)
+        r
+    }
 
     /**
-     * Fusion of projection operations
+     * performs the measurement of function f in iterations times.
+     * Two statistics are returned
+     * first: memory consumed when applying f
+     * second: memory leak after f has been applied
      */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
-        relation match {
-            case Def (Projection (r, f)) =>
-                //val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
-                val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
-                projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType (f), mRangeUnsafe))
-            case _ =>
-                super.projection (relation, function)
+    def measureMemory(iterations: Int)(f: () => Long): (ReplayStatistic, ReplayStatistic) = {
+        val leakStatistic = new SimpleReplayStatistic(iterations)
+        val memStatistic =  new SimpleReplayStatistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            memory (leakStatistic.add(i,_))(memStatistic.add (i,f ()))
+
         }
-
-
-
-    /**
-     * Fusion of selection operations
-     */
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
-        relation match {
-            case Def (Selection (r, f)) => {
-                withoutNormalization (
-                    selection (r, createConjunction (f, function))
-                )
-            }
-            case _ =>
-                super.selection (relation, function)
-        }
-
+        (memStatistic, leakStatistic)
+    }
 }

@@ -30,14 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.analyses.profiler
+package sae.analyses.profiler
 
-import sae.bytecode.bat.BATDatabaseFactory
+import sae.analyses.profiler.statistics.ReplayStatistic
 import sae.bytecode.BytecodeDatabase
-import sae._
-import bytecode.profiler.MemoryUsage
-import bytecode.profiler.statistics.SampleStatistic
+import idb.Relation
 import sae.analyses.profiler.measure.units.MebiByte
+import sae.analyses.profiler.measure.MemoryMeasurement
 
 
 /**
@@ -46,65 +45,43 @@ import sae.analyses.profiler.measure.units.MebiByte
  *
  */
 
-abstract class SAEAnalysesMemoryProfiler
-    extends SAEAnalysesProfiler
-    with MemoryUsage
+trait AbstractAnalysesReplayMemoryProfiler
+    extends AbstractAnalysesProfiler
+    with AbstractPropertiesFileReplayProfiler
+    with MemoryMeasurement
 {
-    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_]
+   
 
     val usage: String = """|Usage: java SAEAnalysesMemoryProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
-        if (reReadJars) {
-            measureMemory (iterations)(() => applyAnalysesWithJarReading (jars, queries))._1
-        }
-        else
-        {
-            val database = createMaterializedDatabase (jars, queries)
-            measureMemory (iterations)(() => applyAnalysesWithoutJarReading (database, queries))._1
-        }
+    def measure(iterations: Int, jars: List[String], queries: List[String]): ReplayStatistic = {
+        measureMemory (iterations)(() => applyAnalysesWithJarReading (jars, queries))._1
     }
 
     def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
-        val materializedDatabase =
-            if (reReadJars) {
-                None
-            }
-            else
-            {
-                Some (createMaterializedDatabase (jars, queries))
-            }
+
+
 
         var i = 0
         while (i < iterations) {
-            if (reReadJars) {
                 applyAnalysesWithJarReading (jars, queries)
-            }
-            else
-            {
-                applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
-            }
             i += 1
         }
 
-        if (reReadJars) {
-            getResultsWithReadingJars (jars, queries)
-        }
-        else
-        {
-            getResultsWithoutReadingJars (jars, queries)
-        }
+
+      //  getResultsWithReadingJars (jars, queries)
+        0
+
     }
 
     def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
-        var database = BATDatabaseFactory.create ()
+
         val relations = for (query <- queries) yield {
-            //sae.relationToResult (AnalysesOO (query, database))
-            getAnalysis (query, database)(optimized, transactional, sharedSubQueries)
+            getAnalysis (query)
         }
 
         memory {
@@ -118,8 +95,6 @@ abstract class SAEAnalysesMemoryProfiler
             })
         }
 
-
-        database = null
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
         print (".")
@@ -135,7 +110,7 @@ abstract class SAEAnalysesMemoryProfiler
         }
         {
             relations = for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database)(optimized, transactional, sharedSubQueries))
+                getAnalysis (query).asMaterialized
             }
 
         }

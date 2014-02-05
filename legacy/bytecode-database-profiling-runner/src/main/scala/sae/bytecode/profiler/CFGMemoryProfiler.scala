@@ -33,8 +33,9 @@
 package sae.bytecode.profiler
 
 import java.io.File
-import util.{MegaByte, Byte}
+import util.Byte
 import sae.bytecode.BytecodeDatabase
+import sae.analyses.profiler.measure.units.MebiByte
 
 /**
  * Created with IntelliJ IDEA.
@@ -104,53 +105,53 @@ object CFGMemoryProfiler
 
         println ("DATA")
 
-        println ("methodDeclarations:                " + (methodDeclarations).summary (MegaByte))
+        println ("methodDeclarations:                " + (methodDeclarations).summary (MebiByte))
         println ("methodDeclaration:                 " + (methodDeclarations).summaryPerUnit (methodDeclarationCount)(Byte))
-        println ("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary (MegaByte))
+        println ("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary (MebiByte))
         println ("basicBlockEndPc:                   " + (basicBlockEndPcs - methodDeclarations).summaryPerUnit (basicBlockEndPcsCount)(Byte))
-        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary (MegaByte))
+        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary (MebiByte))
         println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdges - methodDeclarations).summaryPerUnit (immediateBasicBlockSuccessorEdgesCount)(Byte))
-        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary (MegaByte))
+        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary (MebiByte))
         println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessors - methodDeclarations).summaryPerUnit (fallThroughCaseSuccessorsCount)(Byte))
-        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary (MegaByte))
+        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary (MebiByte))
         println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdges - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
-        println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MegaByte))
+        println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MebiByte))
         println ("basicBlockStartPc:                 " + (basicBlockStartPcs - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
-        println ("borders:                           " + (borders).summary (MegaByte))
+        println ("borders:                           " + (borders).summary (MebiByte))
         println ("border:                            " + (borders - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
-        println ("startBorder                        " + (startBorders).summary (MegaByte))
+        println ("startBorder                        " + (startBorders).summary (MebiByte))
         println ("startBorder                        " + (startBorders - methodDeclarations).summaryPerUnit (startBlocksCount)(Byte))
-        println ("endBorders:                        " + (endBorders).summary (MegaByte))
+        println ("endBorders:                        " + (endBorders).summary (MebiByte))
         println ("endBorder:                         " + (endBorders - methodDeclarations).summaryPerUnit (endBlocksCount)(Byte))
-        println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
+        println ("basicBlocks:                       " + (basicBlocks).summary (MebiByte))
         println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
-        println ("basicBlocksNew:                    " + (basicBlocksNew).summary (MegaByte))
+        println ("basicBlocksNew:                    " + (basicBlocksNew).summary (MebiByte))
         println ("basicBlockNew:                     " + (basicBlocksNew - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
 
 
         println ("COMPUTATION")
-        println ("methodDeclarations:                " + (methodDeclarationsComp).summary (MegaByte))
+        println ("methodDeclarations:                " + (methodDeclarationsComp).summary (MebiByte))
         println ("methodDeclaration:                 " + (methodDeclarationsComp).summaryPerUnit (methodDeclarationCount)(Byte))
-        println ("basicBlockEndPcs:                  " + (basicBlockEndPcsComp).summary (MegaByte))
+        println ("basicBlockEndPcs:                  " + (basicBlockEndPcsComp).summary (MebiByte))
         println ("basicBlockEndPc:                   " + (basicBlockEndPcsComp - methodDeclarations).summaryPerUnit (basicBlockEndPcsCount)(Byte))
-        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdgesComp).summary (MegaByte))
+        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdgesComp).summary (MebiByte))
         println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdgesComp - methodDeclarations).summaryPerUnit (immediateBasicBlockSuccessorEdgesCount)(Byte))
-        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessorsComp).summary (MegaByte))
+        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessorsComp).summary (MebiByte))
         println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessorsComp - methodDeclarations).summaryPerUnit (fallThroughCaseSuccessorsCount)(Byte))
-        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdgesComp).summary (MegaByte))
+        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdgesComp).summary (MebiByte))
         println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdgesComp - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
-        println ("basicBlockStartPcs:                " + (basicBlockStartPcsComp).summary (MegaByte))
+        println ("basicBlockStartPcs:                " + (basicBlockStartPcsComp).summary (MebiByte))
         println ("basicBlockStartPc:                 " + (basicBlockStartPcsComp - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
-        println ("borders:                           " + (bordersComp).summary (MegaByte))
+        println ("borders:                           " + (bordersComp).summary (MebiByte))
         println ("border:                            " + (bordersComp - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
-        println ("startBorder                        " + (startBordersComp).summary (MegaByte))
+        println ("startBorder                        " + (startBordersComp).summary (MebiByte))
         println ("startBorder                        " + (startBordersComp - methodDeclarations).summaryPerUnit (startBlocksCount)(Byte))
-        println ("endBorders:                        " + (endBordersComp).summary (MegaByte))
+        println ("endBorders:                        " + (endBordersComp).summary (MebiByte))
         println ("endBorder:                         " + (endBordersComp - methodDeclarations).summaryPerUnit (endBlocksCount)(Byte))
-        println ("basicBlocks:                       " + (basicBlocksComp).summary (MegaByte))
+        println ("basicBlocks:                       " + (basicBlocksComp).summary (MebiByte))
         println ("basicBlock:                        " + (basicBlocksComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
-        println ("basicBlocksNew:                    " + (basicBlocksNewComp).summary (MegaByte))
+        println ("basicBlocksNew:                    " + (basicBlocksNewComp).summary (MebiByte))
         println ("basicBlockNew:                     " + (basicBlocksNewComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
 

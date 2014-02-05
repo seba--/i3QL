@@ -32,11 +32,11 @@
  */
 package sae.analyses.profiler
 
-import sae.analyses.profiler.measure.{MilliSeconds, MeasurementUnit}
 import sae.bytecode.profiler.statistics.EventStatistic
 import sae.analyses.profiler.util.{ReplayEvent, ReplayReader}
 import java.io.{FileInputStream, FileWriter, PrintWriter, File}
-import sae.analyses.profiler.statistics.{DataStatistic, SampleStatistic}
+import sae.analyses.profiler.statistics.{ReplayStatistic, DataStatistic, SampleStatistic}
+import sae.analyses.profiler.measure.units.MeasurementUnit
 
 /**
  *
@@ -73,7 +73,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 				properties.getProperty ("sae.benchmark.queries").split (";").toList
 			}
 
-		val outputFile = properties.getProperty("sae.benchmark.out", System.getProperty("user.dir") + "/bench.txt")
+		val outputFile = properties.getProperty("sae.benchmark.out", System.getProperty("user.dir") + "/bench_"+benchmarkType+"_"+queries.fold("")((s, q) => s + q)+".csv")
 
 
 		println("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation)
@@ -82,10 +82,19 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 
 		val warmupEventReader = new ReplayReader(new File(warmupLocation))
 		val warmupEvents = warmupEventReader.getAllEventSets
-		val counts = warmup(warmupIterations, warmupEvents, queries)
 
-		println("\tdone")
-		println("Num. of Results: " + counts)
+        var counts : List[Long] = Nil
+        try {
+            counts = warmup(warmupIterations, warmupEvents, queries)
+            println("\tdone")
+            println("Num. of Results: " + counts)
+        } catch {
+            case e : Exception => {
+                println("Executing " + propertiesFile + " returned an exception.")
+                e.printStackTrace()
+                return
+            }
+        }
 
 		val measurementEventReader = new ReplayReader(new File(measurementLocation))
 		val measurementEvents = measurementEventReader.getAllEventSets
@@ -95,86 +104,77 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		memoryMXBean.gc()
 
 		println("Measure: " + measurementIterations + " times : " + queries + " on " + measurementLocation)
-		val statistics : List[SampleStatistic] = measure(measurementIterations, measurementEvents, queries)
+		val statistics : List[ReplayStatistic] = measure(measurementIterations, measurementEvents, queries)
 		println("\tdone")
 
-		//statistics.foreach(x => println(x.summary (measurementUnit)))
-
-		val dataStatisticList = dataStatistics(measurementEvents)
+        val dataStatisticList = dataStatistics(measurementEvents)
 
 		if (counts.size != measurementEvents.size || dataStatisticList.size != measurementEvents.size || statistics
 			.size != measurementEvents.size) {
 			sys.error("different sizes for sampled data and list of event sets")
-			sys.exit(-1)
-		}
+			return
+        }
 
-
-		//println (dataStatistics.summary)
-
-		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
-
-		val maxTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(Double.NegativeInfinity)(math.max))
-		val minTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(Double.PositiveInfinity)(math.min))
-		val meanTime = MilliSeconds.fromBase(statistics.map(x => x.mean).fold(0d)((x : Double,y : Double) => x + y)) / statistics.length
-
-		Predef.println("File: " + propertiesFile)
-		Predef.println("Max Time: %.3f - Min Time: %.3f - Mean Time : %.3f".format(maxTime, minTime, meanTime))
-
-		sys.exit(0)
+  		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
 	}
 
 
     def reportCSV(outputFile: String, warmUpIterations: Int, measurementIterations: Int, measurementLocation: String,
                   eventSets: List[Seq[ReplayEvent]], dataStatistics: List[DataStatistic], queries: List[String],
-                  statistics: List[SampleStatistic], resultCounts: List[Long]) {
+                  statistics: List[ReplayStatistic], resultCounts: List[Long]) {
+
         val file = new File(outputFile)
-        val writeHeader = !file.exists()
+
+        if(file.exists())
+            file.delete()
 
         val out = new PrintWriter(new FileWriter(file, true))
 
         val separator = ";"
 
-        val header = "bench type" + separator + "location" + separator + "timestamp" + separator + "change size" + separator +
-                "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
-                "num. warmup iterations" + separator + "num. measure iterations" + separator +
-                "re-read jars" + separator + "optimized" + separator + "transactional" + separator + "shared" + separator +
-                "queries" + separator + "newResult count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
+        val header =
+            "benchmark" + separator +
+            "queries" + separator +
+            "location" + separator +
+            "timestamp" + separator +
+            "change size" + separator +
+            "classes" + separator +
+            "methods" + separator +
+            "fields" + separator +
+            "instructions" + separator +
+            "warmup iterations" + separator +
+            "measure iterations" + separator +
+            "results#" + separator +
+            "times(" + measurementUnit.descriptor +")"
 
-        if (writeHeader) {
-            out.println(header)
-        }
 
-		var i = 0
-        while (i < statistics.size) {
-            val outputLine =
+        out.println(header)
+
+
+
+        for (i <- 0 until statistics.size) {
+            var outputLine : String =
                 benchmarkType + separator +
-                        measurementLocation + separator +
-                      //  eventSets(i)(0).eventTime + separator +
-                      //  eventSets(i).size + separator +
-                        dataStatistics(i).classCount + separator +
-                        dataStatistics(i).methodCount + separator +
-                        dataStatistics(i).fieldCount + separator +
-                        dataStatistics(i).instructionCount + separator +
-                        warmUpIterations + separator +
-                        measurementIterations + separator +
-                        (if(queries.isEmpty){"NONE" + separator} else {queries.reduce (_ + " | " + _) + separator}) +
-                        resultCounts(i) + separator +
-                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
-                                .fromBase(statistics(i).mean))) + separator +
-                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
-                                .fromBase(statistics(i).standardDeviation))) + separator +
-                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
-                                .fromBase(statistics(i).standardError))) + separator +
-                        measurementUnit.descriptor
+                (if(queries.isEmpty) "NONE" else queries.reduce (_ + " | " + _)) + separator +
+                measurementLocation + separator +
+                eventSets(i)(0).eventTime + separator +
+                eventSets(i).size + separator +
+                dataStatistics(i).classCount + separator +
+                dataStatistics(i).methodCount + separator +
+                dataStatistics(i).fieldCount + separator +
+                dataStatistics(i).instructionCount + separator +
+                warmUpIterations + separator +
+                measurementIterations + separator +
+                resultCounts(i)
 
-		//	Predef.println(outputLine)
+            for (j <- 1 to measurementIterations)
+                outputLine = outputLine + separator + measurementUnit.fromBase(statistics(i)(j))
+
             out.println(outputLine)
-            i += 1
+
         }
         out.close()
     }
-
-    def usage: String
 
     def benchmarkType: String
 
@@ -185,7 +185,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
     /**
      * Perform the actual measurement.
      */
-    def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[SampleStatistic]
+    def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[ReplayStatistic]
 
     /**
      * Perform the warmup by doing exactly the same operation as in the measurement.

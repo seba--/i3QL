@@ -30,58 +30,41 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.fusion
+package sae.analyses.profiler
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.algebra.normalization.RelationalAlgebraNormalize
-import idb.lms.extensions.FunctionUtils
-import idb.algebra.print.RelationalAlgebraPrintPlan
+import sae.bytecode.BytecodeDatabase
+import idb.Relation
+import sae.analyses.findbugs.Analyses
+import sae.analyses.profiler.util.ReplayEvent
+import sae.analyses.profiler.statistics.{ReplayStatistic, DataStatistic}
+
 
 /**
  *
- * TODO could check that the functions are pure (i.e., side-effect free), an only then do shortcut evaluation
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIRFuseBasicOperators
-    extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraNormalize
-    with FunctionUtils
+
+class ASMDatabaseReplayMemoryProfiler(val database : BytecodeDatabase)
+    extends AbstractAnalysesReplayMemoryProfiler
 {
+    def benchmarkType = "ASM-database-memory"
+
+    private val analyses = new Analyses(database)
+    
+    def getAnalysis(query: String): Relation[_] =
+        analyses (query)
 
     /**
-     * Fusion of projection operations
+     * Perform the warmup by doing exactly the same operation as in the measurement.
+     * The warmup is must return the number of results returned by the measured analyses.
      */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
-        relation match {
-            case Def (Projection (r, f)) =>
-                //val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
-                val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
-                projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType (f), mRangeUnsafe))
-            case _ =>
-                super.projection (relation, function)
-        }
-
-
+    override def warmup(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[Long] = null
 
     /**
-     * Fusion of selection operations
+     * Perform the actual measurement.
      */
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
-        relation match {
-            case Def (Selection (r, f)) => {
-                withoutNormalization (
-                    selection (r, createConjunction (f, function))
-                )
-            }
-            case _ =>
-                super.selection (relation, function)
-        }
+    override def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[ReplayStatistic] = null
 
+    override def dataStatistics(eventSets: List[Seq[ReplayEvent]]): List[DataStatistic] = null
 }

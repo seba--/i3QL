@@ -34,7 +34,8 @@ package sae.bytecode.profiler
 
 import sae.bytecode._
 import statistics.Statistic
-import util.{MegaByte, KiloByte}
+import util.KibiByte
+import sae.analyses.profiler.measure.units.MebiByte
 
 
 /**
@@ -165,8 +166,8 @@ object BaseRelationMemoryProfiler
             memory (leakStatistic.add (_))(memStatistic.add (f ()))
 
         }
-        println (msg + " memory: " + memStatistic.summary (MegaByte))
-        println (msg + " leak  : " + leakStatistic.summary (KiloByte))
+        println (msg + " memory: " + memStatistic.summary (MebiByte))
+        println (msg + " leak  : " + leakStatistic.summary (KibiByte))
     }
 
 }

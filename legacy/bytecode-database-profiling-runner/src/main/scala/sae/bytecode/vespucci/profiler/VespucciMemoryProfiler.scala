@@ -38,8 +38,8 @@ import analyses.architecture.hibernate.HibernateEnsembles
 import bytecode.BytecodeDatabase
 import bytecode.profiler.{MemoryUsage, AbstractPropertiesFileProfiler}
 import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic}
-import bytecode.profiler.util.MegaByte
 import unisson.model.UnissonDatabase
+import sae.analyses.profiler.measure.units.MebiByte
 
 /**
  *
@@ -85,7 +85,7 @@ object VespucciMemoryProfiler
     }
 
 
-    def measurementUnit = MegaByte
+    def measurementUnit = MebiByte
 
     def measure(iterations: Int, jars: List[String], queries: List[String]) = {
         measureMemory (iterations)(() => createVanillaDatabase (jars, queries))._1

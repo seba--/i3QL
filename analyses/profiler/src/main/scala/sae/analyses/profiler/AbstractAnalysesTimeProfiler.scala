@@ -32,10 +32,11 @@
  */
 package sae.analyses.profiler
 
-import sae.analyses.profiler.measure.{MilliSeconds, TimeMeasurement}
+import sae.analyses.profiler.measure.TimeMeasurement
 import sae.bytecode.BytecodeDatabase
 import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
 import idb.Relation
+import sae.analyses.profiler.measure.units.MilliSeconds
 
 
 /**

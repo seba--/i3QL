@@ -1,12 +1,15 @@
 package sae.analyses.profiler
 
-import sae.analyses.profiler.measure.{MilliSeconds, MeasurementUnit, TimeMeasurement}
+import sae.analyses.profiler.measure.TimeMeasurement
 import sae.analyses.profiler.util.{ReplayEventType, ReplayEvent}
-import sae.analyses.profiler.statistics.{ArrayBufferSampleStatistic, SimpleDataStatistic, DataStatistic, SampleStatistic}
+import sae.analyses.profiler.statistics._
 import sae.bytecode.profiler.statistics.EventStatistic
 import idb.Relation
 import sae.bytecode.BytecodeDatabase
 import java.io.FileInputStream
+import sae.analyses.profiler.util.ReplayEvent
+import sae.analyses.profiler.statistics.SimpleDataStatistic
+import sae.analyses.profiler.measure.units.{MilliSeconds, MeasurementUnit}
 
 /**
  * @author Mirko Köhler
@@ -152,27 +155,27 @@ trait AbstractAnalysesReplayTimeProfiler
 
 		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 		memoryMXBean.gc ()
-		print(",")
+		print(".")
 		taken
 	}
 
 	/**
 	 * Perform the actual measurement.
 	 */
-	def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[SampleStatistic] = {
+	def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[ReplayStatistic] = {
     	measureTime (iterations, eventSets.size)(() => applyAnalysesWithJarReading (eventSets, queries))
 
 	}
 
-	def measureTime(iterations: Int, sampleSize: Int)(f: () => List[Long]): List[SampleStatistic] = {
-		val statistics = Array.fill (sampleSize)(new ArrayBufferSampleStatistic(iterations))
+	def measureTime(iterations: Int, sampleSize: Int)(f: () => List[Long]): List[ReplayStatistic] = {
+		val statistics = Array.fill (sampleSize)(new SimpleReplayStatistic(iterations))
 
 		for (i <- 1 to iterations)
 		{
 			val results = f ()
 			var j = 0
 			while (j < sampleSize) {
-				statistics (j).add (results (j))
+				statistics (j).add (i, results (j))
 				j += 1
 			}
 			println ()
@@ -186,12 +189,9 @@ trait AbstractAnalysesReplayTimeProfiler
 	 * The warmup is must return the number of results returned by the measured analyses.
 	 */
 	def warmup(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[Long] = {
-		var i = 0
-		while (i < iterations) {
-
+		for (i <- 0 until iterations) {
 			applyAnalysesWithJarReading (eventSets, queries)
 			println ()
-			i += 1
 		}
 		getResultsWithReadingJars (eventSets, queries)
 	}

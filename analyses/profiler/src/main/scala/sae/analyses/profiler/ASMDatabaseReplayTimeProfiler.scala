@@ -34,7 +34,7 @@ package sae.analyses.profiler
 
 
 import java.io.FileInputStream
-import sae.analyses.profiler.measure.{MilliSeconds, TimeMeasurement}
+import sae.analyses.profiler.measure.TimeMeasurement
 import idb.Relation
 import sae.analyses.profiler.util.ReplayEvent
 import sae.analyses.profiler.statistics.SampleStatistic
@@ -53,29 +53,37 @@ class ASMDatabaseReplayTimeProfiler(val database : BytecodeDatabase)
 {
 	private val analyses = new Analyses(database)
 
-	val usage: String = """|Usage: java SAEAnalysesReplayTimeProfiler propertiesFile
-                          |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                          | """.stripMargin
-
 	def getAnalysis(query: String): Relation[_] =
 		analyses (query)
 
-	def benchmarkType: String = "ASM databse replay time"
+	def benchmarkType: String = "ASM-database-replay-time"
 
 }
 
 object ASMDatabaseReplayTimeProfiler {
 
 	def main(args: Array[String]) {
-		val profiler = new ASMDatabaseReplayTimeProfiler(ASMDatabaseFactory.create())
 
-		if (args.length == 0 || !args(0).endsWith(".properties")) {
-			println(profiler.usage)
+
+		if (args.length == 0) {
+            System.err.println("No properties file specified.")
 			sys.exit(1)
 		}
-		val propertiesFile = args(0)
 
-		profiler.execute(propertiesFile)
+        for (i <- 0 until args.length) {
+            val propertiesFile = args(i)
+
+            println("Running analyses for properties file " + propertiesFile +"...")
+
+            var profiler = new ASMDatabaseReplayTimeProfiler(ASMDatabaseFactory.create())
+            profiler.execute(propertiesFile)
+
+            profiler = null
+
+            val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+            memoryMXBean.gc ()
+        }
+
 
 		sys.exit(0)
 	}

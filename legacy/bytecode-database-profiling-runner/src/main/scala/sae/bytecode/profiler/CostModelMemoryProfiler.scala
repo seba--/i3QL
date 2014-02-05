@@ -35,7 +35,8 @@ package sae.bytecode.profiler
 import sae.syntax.sql._
 import sae.bytecode._
 import bat.BATDatabaseFactory
-import util.{Byte, MegaByte, RelationMap}
+import util.{Byte, RelationMap}
+import sae.analyses.profiler.measure.units.MebiByte
 
 
 /**
@@ -111,8 +112,8 @@ object CostModelMemoryProfiler
         )
         val (classMem, _) = mem (classDataFunction)
         val (typeMem, _) = mem (classTypeDataFunction)
-        println (classMem.summary (MegaByte))
-        println (typeMem.summary (MegaByte))
+        println (classMem.summary (MebiByte))
+        println (typeMem.summary (MebiByte))
 
         println ((classMem - typeMem).summaryPerUnit (counters ((db: BytecodeDatabase) => db.classDeclarations))(Byte))
     }

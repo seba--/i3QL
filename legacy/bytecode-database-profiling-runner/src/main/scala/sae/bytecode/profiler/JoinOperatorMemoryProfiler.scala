@@ -36,8 +36,9 @@ import java.io.File
 import sae.bytecode.BytecodeDatabase
 import sae.syntax.sql._
 import sae.bytecode.instructions.{INVOKEVIRTUAL, INVOKESPECIAL, InstructionInfo}
-import util.{Byte, MegaByte}
+import util.Byte
 import sae.Relation
+import sae.analyses.profiler.measure.units.MebiByte
 
 /**
  *
@@ -66,8 +67,8 @@ object JoinOperatorMemoryProfiler
         val (joinData, _) = measureDataMemory (joinConsecutiveInstructions)
         val (joinComp, _) = measureComputationMemory (joinConsecutiveInstructions)
 
-        println ("join -- data:               " + (joinData).summary (MegaByte))
-        println ("join -- computation + data: " + (joinComp).summary (MegaByte))
+        println ("join -- data:               " + (joinData).summary (MebiByte))
+        println ("join -- computation + data: " + (joinComp).summary (MebiByte))
         println ("join -- computation/unit:   " + (joinComp - joinData).summaryPerUnit (joinCount)(Byte))
     }
 

@@ -30,16 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.profiler.measure
+package sae.analyses.profiler.measure.units
+
 
 /**
- * @author Ralf Mitschke
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 26.08.12
+ * Time: 12:54
  */
 
-object MilliSeconds
-  extends MeasurementUnit
+object KibiByte
+    extends MeasurementUnit
 {
-  def descriptor = "ms"
+    def descriptor = "KiB"
 
-  def fromBase(value: Double) = value / 1000000
+    def fromBase(value: Double) = value / 1024
 }

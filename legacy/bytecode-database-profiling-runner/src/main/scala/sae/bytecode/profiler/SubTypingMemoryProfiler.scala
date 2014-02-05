@@ -34,9 +34,10 @@ package sae.bytecode.profiler
 
 import java.io.File
 import sae.bytecode.BytecodeDatabase
-import util.{MegaByte, Byte}
+import util.Byte
 import sae.syntax.sql._
 import sae.bytecode.structure.InheritanceRelation
+import sae.analyses.profiler.measure.units.MebiByte
 
 /**
  * This class profiles the memory used in the acyclic transitive closure used for inheritance relations
@@ -69,14 +70,14 @@ object SubTypingMemoryProfiler
 
         val (nodeData, _) = measureDataMemory (nodes)
 
-        println ("subtypes -- data:               " + (subTypesData).summary (MegaByte))
-        println ("subtypes -- computation + data: " + (subTypesComputation).summary (MegaByte))
+        println ("subtypes -- data:               " + (subTypesData).summary (MebiByte))
+        println ("subtypes -- computation + data: " + (subTypesComputation).summary (MebiByte))
 
-        println ("nodes -- data:                  " + (nodeData).summary (MegaByte))
+        println ("nodes -- data:                  " + (nodeData).summary (MebiByte))
         println ("node  -- data/unit              " + (nodeData).summaryPerUnit (nodeCount)(Byte))
 
 
-        println ("subtypes -- computation:        " + (subTypesComputation - subTypesData).summary (MegaByte))
+        println ("subtypes -- computation:        " + (subTypesComputation - subTypesData).summary (MebiByte))
         println ("subtypes -- computation/unit:   " + (subTypesComputation - subTypesData).summaryPerUnit(subTypesCount) (Byte))
 
         println ("subtypes -- computation/node:   " + (subTypesComputation - subTypesData).summaryPerUnit(nodeCount) (Byte))

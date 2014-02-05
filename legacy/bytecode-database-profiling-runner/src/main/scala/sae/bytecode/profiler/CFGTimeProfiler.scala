@@ -33,7 +33,7 @@
 package sae.bytecode.profiler
 
 import java.io.File
-import util.{Seconds, MegaByte}
+import util.Seconds
 import sae.bytecode.BytecodeDatabase
 
 /**
