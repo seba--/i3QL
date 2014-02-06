@@ -99,6 +99,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		val measurementEventReader = new ReplayReader(new File(measurementLocation))
 		val measurementEvents = measurementEventReader.getAllEventSets
 
+        val dataStatisticList = dataStatistics(measurementEvents)
 
 		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 		memoryMXBean.gc()
@@ -107,7 +108,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		val statistics : List[ReplayStatistic] = measure(measurementIterations, measurementEvents, queries)
 		println("\tdone")
 
-        val dataStatisticList = dataStatistics(measurementEvents)
+
 
 		if (counts.size != measurementEvents.size || dataStatisticList.size != measurementEvents.size || statistics
 			.size != measurementEvents.size) {
