@@ -85,6 +85,7 @@ trait CompileScalaExt
 
         val source = new StringWriter ()
         val staticData = emitSource (f, className, new PrintWriter (source))
+        // IR.reset
 
         if (dumpGeneratedCode) println (source)
 

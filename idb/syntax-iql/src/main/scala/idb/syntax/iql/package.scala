@@ -188,20 +188,20 @@ package object iql
     implicit def compile[Range: Manifest] (
 	query: Rep[Query[Range]]
 	): Relation[Range] =
-        CompilerBinding.compile (query)
+      new CompilerBinding().compile (query)
 
     implicit def compile[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+      new CompilerBinding().compile (plan (clause))
 
     implicit def compile[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest,
     GroupDomainA: Manifest, GroupDomainB: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+      new CompilerBinding().compile (plan (clause))
 
     implicit def compile[
     Select: Manifest,
@@ -217,7 +217,7 @@ package object iql
         clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
             Range]
     ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+        new CompilerBinding().compile (plan (clause))
 
     implicit def compile[
     Select: Manifest,
@@ -235,7 +235,7 @@ package object iql
         clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
             GroupDomainD, GroupRange, Range]
     ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+      new CompilerBinding().compile (plan (clause))
 
     implicit def compile[
     Select: Manifest,
@@ -255,7 +255,7 @@ package object iql
         clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
     ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+      new CompilerBinding().compile (plan (clause))
 
 
 }
