@@ -44,7 +44,7 @@ trait RelationalAlgebraGenCacheAll
     with RelationalAlgebraGenQueryCache
 {
 
-    val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
+    val IR: RelationalAlgebraIRBase with RelationalAlgebraSAEBinding
 
     import IR._
 

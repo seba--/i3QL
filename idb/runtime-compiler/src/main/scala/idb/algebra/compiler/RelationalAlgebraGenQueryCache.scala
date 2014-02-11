@@ -43,7 +43,7 @@ trait RelationalAlgebraGenQueryCache
     extends RelationalAlgebraGenBaseAsIncremental
 {
 
-    val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
+    val IR: RelationalAlgebraIRBase with RelationalAlgebraSAEBinding
 
     import IR._
 
@@ -51,6 +51,10 @@ trait RelationalAlgebraGenQueryCache
 
     def getRelation[Domain] (query: Rep[Query[Domain]]): Relation[Domain] =
         queryCache (query).asInstanceOf[Relation[Domain]]
+
+    def resetQueryCache() {
+        queryCache = Map.empty
+    }
 
 
 }

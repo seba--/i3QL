@@ -38,7 +38,7 @@ import org.junit.Assert._
 import scala.virtualization.lms.common._
 import idb.schema.university.{StudentSchema, Student, University}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
-import idb.algebra.compiler.{RelationalAlgebraGenBasicOperatorsAsIncremental, RelationalAlgebraGenSAEBinding}
+import idb.algebra.compiler.{RelationalAlgebraGenBasicOperatorsAsIncremental, RelationalAlgebraSAEBinding}
 import idb.lms.extensions.lifiting.LiftEverything
 
 /**
@@ -54,7 +54,7 @@ class TestCompileScalaExt
 			with RelationalAlgebraIRSetTheoryOperators
 			with RelationalAlgebraIRRecursiveOperators
 			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
             with LiftEverything
@@ -83,7 +83,7 @@ class TestCompileScalaExt
 			with RelationalAlgebraIRSetTheoryOperators
 			with RelationalAlgebraIRRecursiveOperators
 			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
             with TupledFunctionsExp
@@ -113,7 +113,7 @@ class TestCompileScalaExt
 			with RelationalAlgebraIRSetTheoryOperators
 			with RelationalAlgebraIRRecursiveOperators
 			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
             with LiftAll
@@ -142,7 +142,7 @@ class TestCompileScalaExt
 			with RelationalAlgebraIRSetTheoryOperators
 			with RelationalAlgebraIRRecursiveOperators
 			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
             with TupledFunctionsExp
@@ -172,7 +172,7 @@ class TestCompileScalaExt
 			with RelationalAlgebraIRSetTheoryOperators
 			with RelationalAlgebraIRRecursiveOperators
 			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
         {

@@ -45,7 +45,7 @@ object CompilerBinding
 	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
 	with RelationalAlgebraGenAggregationOperatorsAsIncremental
 	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-    with RelationalAlgebraGenSAEBinding
+  //  with RelationalAlgebraGenSAEBinding
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
@@ -57,20 +57,10 @@ object CompilerBinding
 {
     override val IR = idb.syntax.iql.IR
 
-    override type Block[+T] = IR.Block[T]
-
-	/*override def compile[Domain] (query: IR.Rep[IR.Query[Domain]]): Relation[Domain] = {
-		val printer = new idb.algebra.print.RelationalAlgebraPrintPlan {
-			val IR = idb.syntax.iql.IR
-		}
-		println("##############################################################")
-		print ("Now compiling: ")
-		println(printer.quoteRelation (query))
-		println("###############################################################")
-		super.compile[Domain] (query)
-	}   */
-
     override def reset {
-        super.reset // TODO how should this be implemented correctly?
+        resetQueryCache()
+        super.reset
     }
+
+
 }

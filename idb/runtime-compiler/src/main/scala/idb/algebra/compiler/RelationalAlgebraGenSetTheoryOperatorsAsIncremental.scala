@@ -54,7 +54,7 @@ trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
 		with RelationalAlgebraIRSetTheoryOperators
 		with RelationalAlgebraIRRecursiveOperators
 		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraGenSAEBinding
+		with RelationalAlgebraSAEBinding
 		with FunctionsExp
 
     import IR._

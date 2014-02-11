@@ -60,6 +60,8 @@ class TestDuplicateElimination extends UniversityTestData
 	}
 
 	def assertRemove(q: MaterializedView[Student]) {
+
+
 		assertThat (q contains sallyFields, is (false))
 
 		assertThat (q.size, is (0))

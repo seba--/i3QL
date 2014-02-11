@@ -122,24 +122,30 @@ package object iql
     }
 
 
-    implicit def plan[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest,
-    GroupDomainA: Manifest, GroupDomainB: Manifest,
-    GroupRange <: Select : Manifest, Range: Manifest] (
+    implicit def plan[
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
+    ] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
 
     implicit def plan[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        DomainC <: GroupDomainC : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupDomainC: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
     ] (
         clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
             Range]
@@ -147,17 +153,17 @@ package object iql
         ClauseToAlgebra (clause)
 
     implicit def plan[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    DomainD <: GroupDomainD : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupDomainD: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        DomainC <: GroupDomainC : Manifest,
+        DomainD <: GroupDomainD : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupDomainC: Manifest,
+        GroupDomainD: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
     ] (
         clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
             GroupDomainD, GroupRange, Range]
@@ -165,19 +171,19 @@ package object iql
         ClauseToAlgebra (clause)
 
     implicit def plan[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    DomainD <: GroupDomainD : Manifest,
-    DomainE <: GroupDomainE : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupDomainD: Manifest,
-    GroupDomainE: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        DomainC <: GroupDomainC : Manifest,
+        DomainD <: GroupDomainD : Manifest,
+        DomainE <: GroupDomainE : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupDomainC: Manifest,
+        GroupDomainD: Manifest,
+        GroupDomainE: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
     ] (
         clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
@@ -186,38 +192,55 @@ package object iql
 
 
     implicit def compile[Range: Manifest] (
-	query: Rep[Query[Range]]
-	): Relation[Range] =
-        CompilerBinding.compile (query)
+	    query: Rep[Query[Range]]
+	): Relation[Range] = {
+        val res = CompilerBinding.compile (query)
+    //    CompilerBinding.reset
+        res
+    }
 
-    implicit def compile[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
-    GroupRange <: Select : Manifest, Range: Manifest] (
+    implicit def compile[
+        Select: Manifest,
+        Domain <: GroupDomain : Manifest,
+        GroupDomain: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
+    ] (
         clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    ): Relation[Range] = {
+        val res = CompilerBinding.compile (plan (clause))
+        CompilerBinding.reset
+        res
+    }
 
     implicit def compile[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest,
     GroupDomainA: Manifest, GroupDomainB: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    ): Relation[Range] = {
+        val res = CompilerBinding.compile (plan (clause))
+        CompilerBinding.reset
+        res
+    }
 
     implicit def compile[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        DomainC <: GroupDomainC : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupDomainC: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
     ] (
         clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
             Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    ): Relation[Range] = {
+        val res = CompilerBinding.compile (plan (clause))
+        CompilerBinding.reset
+        res
+    }
 
     implicit def compile[
     Select: Manifest,
@@ -234,28 +257,36 @@ package object iql
     ] (
         clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
             GroupDomainD, GroupRange, Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    ): Relation[Range] = {
+        val res = CompilerBinding.compile (plan (clause))
+        CompilerBinding.reset
+        res
+    }
 
     implicit def compile[
-    Select: Manifest,
-    DomainA <: GroupDomainA : Manifest,
-    DomainB <: GroupDomainB : Manifest,
-    DomainC <: GroupDomainC : Manifest,
-    DomainD <: GroupDomainD : Manifest,
-    DomainE <: GroupDomainE : Manifest,
-    GroupDomainA: Manifest,
-    GroupDomainB: Manifest,
-    GroupDomainC: Manifest,
-    GroupDomainD: Manifest,
-    GroupDomainE: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        DomainC <: GroupDomainC : Manifest,
+        DomainD <: GroupDomainD : Manifest,
+        DomainE <: GroupDomainE : Manifest,
+        GroupDomainA: Manifest,
+        GroupDomainB: Manifest,
+        GroupDomainC: Manifest,
+        GroupDomainD: Manifest,
+        GroupDomainE: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest
     ] (
         clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    ): Relation[Range] = {
+        val res = CompilerBinding.compile (plan (clause))
+        CompilerBinding.reset
+        res
+    }
+
+
 
 
 }
