@@ -58,8 +58,8 @@ object CompilerBinding
     override val IR = idb.syntax.iql.IR
 
     override def reset {
-        resetQueryCache()
-        super.reset
+   //     resetQueryCache()
+   //     super.reset
     }
 
 

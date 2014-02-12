@@ -48,11 +48,13 @@ object SE_NO_SUITABLE_CONSTRUCTOR
     def apply (database: BytecodeDatabase): Relation[BytecodeDatabase#ObjectType] = {
         import database._
 
+        val superTypeDefined : Relation[ClassDeclaration] =
+            SELECT (*) FROM classDeclarations WHERE ((c : Rep[ClassDeclaration]) => c.superType.isDefined)
+
         val query =
             SELECT (
-                (_: Rep[ClassDeclaration]).superType.get) FROM classDeclarations WHERE ((c: Rep[ClassDeclaration]) =>
+                (_: Rep[ClassDeclaration]).superType.get) FROM superTypeDefined WHERE ((c: Rep[ClassDeclaration]) =>
                 NOT (c.isInterface) AND
-                    c.superType.isDefined AND
                     EXISTS (
                         SELECT (*) FROM classDeclarations WHERE ((c1: Rep[ClassDeclaration]) =>
                             NOT (c1.isInterface) AND
@@ -74,12 +76,12 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                         )
                     )
                 )
-        val printer = new RelationalAlgebraPrintPlan
+      /*  val printer = new RelationalAlgebraPrintPlan
         {
             val IR = idb.syntax.iql.IR
         }
 
-        Predef.println (printer.quoteRelation (query))
+        Predef.println (printer.quoteRelation (query))   */
 
         query
     }
