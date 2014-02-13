@@ -174,6 +174,11 @@ trait RelationalAlgebraIROptPushSelection
             return (None, None)
         }
 
+      println("---")
+      println(s"params $symsInQuestion")
+      println(s"free: $freeV")
+      println(printFun(function))
+
         // TODO Using symsInQuestion(i) below as parameter means that we can have x._1 and x._2 as a parameter.
         // We could change that.
         // However, there is no problem, since there is always a variable (i.e., a Sym) for x._1, i.e., y = x._1
@@ -191,5 +196,23 @@ trait RelationalAlgebraIROptPushSelection
             case 1 => (Some (dynamicLambda (symsInQuestion (0), functionBody)), None)
         }
     }
+
+  def printEffects[T](ef: List[Exp[T]]): String =
+    ef.foldRight("")((x,y) => s"${printExp(x)}, $y")
+
+  def printExp[T](e: Exp[T]): String = e match {
+    case Def(Reify(e, _, ef)) => s"reify(${printExp(e)}, {${printEffects(ef)}})"
+    case Def(Equal(e1, e2)) => s"${printExp(e1)} == ${printExp(e2)}"
+//    case Def(Field(a)) => a
+    case Const(c) => c.toString
+    case Def(d) => d.toString
+  }
+
+  def printFun[A,B](function: Rep[Function[A,B]]): String = function match {
+    case Def (Lambda (_, x, body)) =>
+      s"($x => ${printExp(body.res)}})"
+    case Const (c) => c.toString
+    case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
+  }
 
 }
