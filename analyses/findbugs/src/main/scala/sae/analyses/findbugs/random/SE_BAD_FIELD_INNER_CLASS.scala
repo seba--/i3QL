@@ -5,6 +5,11 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.AccessFlags
+import idb.algebra.print.RelationalAlgebraPrintPlan
+import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.FunctionUtils
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 
 /**
  * @author Ralf Mitschke, Mirko Köhler
@@ -21,7 +26,7 @@ object SE_BAD_FIELD_INNER_CLASS
 			SELECT ((a: Rep[InnerClassAttribute]) => (a.innerClassType, a.outerClassType.get)) FROM innerClassAttributes WHERE
 				((a : Rep[InnerClassAttribute]) =>
 					a.declaringClass.classType == a.innerClassType AND
-					a.outerClassType.isDefined AND
+						a.outerClassType.isDefined AND
 					(a.innerClassAccessFlags & AccessFlags.ACC_STATIC) == 0)
 
 		val inheritanceOfSerializable : Relation[Inheritance] =
@@ -32,15 +37,25 @@ object SE_BAD_FIELD_INNER_CLASS
 			SELECT ((t : Rep[(Type, Type)], i : Rep[Inheritance]) => t) FROM (nonStaticInner, inheritanceOfSerializable) WHERE ((t : Rep[(Type, Type)], i : Rep[Inheritance]) =>
 				t._1 == i.declaringClass)
 
-		SELECT (*) FROM serializableNonStaticInner WHERE ((t : Rep[(Type, Type)]) =>
-			NOT (
+		val res = plan(SELECT (*) FROM serializableNonStaticInner WHERE ((t : Rep[(Type, Type)]) =>
+      		NOT (
 				EXISTS (
 					SELECT (*) FROM inheritanceOfSerializable WHERE ((i : Rep[Inheritance]) =>
 						i.declaringClass == t._2
 					)
 				)
 			)
-		)
+		))
+
+    val printer = new RelationalAlgebraPrintPlan {
+      override val IR = idb.syntax.iql.IR
+    }
+
+    Predef.println(printer.quoteRelation(res))
+
+    compile (res)
+
+
 	}
 
 	/*def hasStaticFlag: UnresolvedInnerClassEntry => Boolean = e =>

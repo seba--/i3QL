@@ -45,7 +45,6 @@ object CompilerBinding
 	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
 	with RelationalAlgebraGenAggregationOperatorsAsIncremental
 	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-  //  with RelationalAlgebraGenSAEBinding
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
@@ -58,8 +57,8 @@ object CompilerBinding
     override val IR = idb.syntax.iql.IR
 
     override def reset {
-   //     resetQueryCache()
-   //     super.reset
+        resetQueryCache()
+        super.reset
     }
 
 

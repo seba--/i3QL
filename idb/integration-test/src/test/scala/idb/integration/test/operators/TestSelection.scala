@@ -172,7 +172,7 @@ class TestSelection extends UniversityTestData
 	 */
 	@Test
 	def testAddToEmptyB() {
-		val q = query.asMaterialized
+		val q = getQuery.asMaterialized
 		val e = extent
 
 		//Test
@@ -184,7 +184,7 @@ class TestSelection extends UniversityTestData
 
 	@Test
 	def testUpdateC() {
-		val q = query.asMaterialized
+		val q = getQuery.asMaterialized
 		val e = extent
 
 		//SetUp
@@ -200,7 +200,7 @@ class TestSelection extends UniversityTestData
 
 	@Test
 	def testUpdateD() {
-		val q = query.asMaterialized
+		val q = getQuery.asMaterialized
 		val e = extent
 
 		//SetUp
@@ -216,7 +216,7 @@ class TestSelection extends UniversityTestData
 
 	@Test
 	def testAddDoubleB() {
-		val q = query.asMaterialized
+		val q = getQuery.asMaterialized
 		val e = extent
 
 		//SetUp

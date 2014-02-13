@@ -50,12 +50,19 @@ trait AbstractTestAnalysesOnJDK
     def getDatabase = ASMDatabaseFactory.create ()
 
 	def executeAnalysis(analysis : (BytecodeDatabase => Relation[_]), expectedMatches : Int) {
-		var database : BytecodeDatabase = null
-		database = getDatabase
-		val relation = analysis (database).asMaterialized
 
-		database.addArchive(getStream)
+		try {
+			var database : BytecodeDatabase = null
+			database = getDatabase
+			val relation = analysis (database).asMaterialized
 
-		assertEquals (expectedMatches, relation.size)
+			database.addArchive(getStream)
+
+			assertEquals (expectedMatches, relation.size)
+		} finally {
+			idb.syntax.iql.reset()
+		}
+
+
 	}
 }

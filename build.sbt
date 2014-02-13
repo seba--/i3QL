@@ -17,7 +17,7 @@ libraryDependencies in ThisBuild ++= Seq(
     "org.scala-lang.virtualized" % "scala-compiler" % virtScala
 )
 
-javaOptions in Test += "-Xmx4G"
+javaOptions in Test += "-Xmx1G"
 
 //Test settings
 parallelExecution in Test := false
