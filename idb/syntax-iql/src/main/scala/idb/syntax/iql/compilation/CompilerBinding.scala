@@ -40,21 +40,24 @@ import idb.lms.extensions.operations.{ScalaGenSeqOpsExt, ScalaGenStringOpsExt, S
  *
  * @author Ralf Mitschke
  */
-class CompilerBinding
-    extends RelationalAlgebraGenCacheAll
+object CompilerBinding
+    extends RelationalAlgebraGenBasicOperatorsAsIncremental
+	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
+	with RelationalAlgebraGenAggregationOperatorsAsIncremental
+	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
+    with RelationalAlgebraGenCacheAll
+    with ScalaGenStaticData
+    with ScalaGenOptionOps
+    with ScalaGenStringOpsExt
+    with ScalaGenSeqOpsExt
+    with ScalaCodeGenPkg
+    with ScalaGenStruct
+    with ScalaGenTupledFunctions
 {
     override val IR = idb.syntax.iql.IR
 
-    type Block[+T] = IR.Block[T]
-
-	override def compile[Domain] (query: IR.Rep[IR.Query[Domain]]): IR.Relation[Domain] = {
-		val printer = new idb.algebra.print.RelationalAlgebraPrintPlan {
-			val IR = idb.syntax.iql.IR
-		}
-		println("##############################################################")
-		print ("Now compiling: ")
-		println(printer.quoteRelation (query))
-		println("###############################################################")
-		super.compile[Domain] (query)
-	}
+    override def reset {
+        resetQueryCache()
+        super.reset
+    }
 }

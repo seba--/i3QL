@@ -117,7 +117,7 @@ class TestSelectedAnalysesOnJDK extends AbstractTestAnalysesOnJDK
    // @Ignore
     @Test
     def test_SE_NO_SUITABLE_CONSTRUCTOR () {
-		executeAnalysis(SE_NO_SUITABLE_CONSTRUCTOR, expectedMatches = 19)
+		executeAnalysis(SE_NO_SUITABLE_CONSTRUCTOR, expectedMatches = 46)
     }
 
 

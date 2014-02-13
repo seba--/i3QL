@@ -32,9 +32,9 @@
  */
 package idb.syntax.iql.planning
 
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
 import scala.virtualization.lms.common.{ScalaGenTupledFunctions, ScalaGenStruct, ScalaCodeGenPkg}
+import idb.algebra.print.RelationalAlgebraPrintPlan
+
 
 /**
  *
@@ -46,13 +46,7 @@ object PlanPrinter
     with ScalaGenTupledFunctions
     with RelationalAlgebraPrintPlan
 {
-    override val IR = idb.syntax.iql.IR
-
-    override type Block[+T] = IR.Block[T]
-
-    override def reset {
-        super.reset // TODO how should this be implemented correctly?
-    }
+    override val IR  = idb.syntax.iql.IR
 
     def apply(x: IR.Exp[Any]): String = quote(x)
 }

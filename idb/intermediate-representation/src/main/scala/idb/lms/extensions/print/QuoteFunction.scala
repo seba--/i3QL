@@ -54,13 +54,7 @@ trait QuoteFunction
 
     override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp  with FunctionUtils
 
-    import IR.Exp
-    import IR.Sym
-    import IR.Def
-    import IR.Lambda
-    import IR.UnboxedTuple
-    import IR.Variable
-    import IR.returnType
+    import IR._
 
     def quoteFunction[A, B] (f: Exp[A => B]): String = {
         val writer = new StringWriter ()

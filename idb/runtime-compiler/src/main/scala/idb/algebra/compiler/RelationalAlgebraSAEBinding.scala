@@ -38,7 +38,7 @@ import idb.algebra.ir.RelationalAlgebraIRBase
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraGenSAEBinding
+trait RelationalAlgebraSAEBinding
     extends RelationalAlgebraIRBase
 {
 

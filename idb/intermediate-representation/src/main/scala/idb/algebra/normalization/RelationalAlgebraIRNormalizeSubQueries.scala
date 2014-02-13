@@ -60,11 +60,13 @@ trait RelationalAlgebraIRNormalizeSubQueries
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         if (normalize) {
+
+
             function match {
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
                     body.res match {
                         // de-correlation of EXISTS( SELECT .... )
-                        case Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]) =>
+                        case Def (exists: ExistsCondition[_, Domain@unchecked]) =>
                             naturalJoin (
                                 relation,
                                 duplicateElimination (
@@ -72,7 +74,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                 )
                             )
 
-                        case Def (Reify (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]), _, _)) =>
+                        case Def (Reify (Def (exists: ExistsCondition[_, Domain@unchecked]), _, _)) =>
                             naturalJoin (
                                 relation,
                                 duplicateElimination (
@@ -81,7 +83,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
                             )
 
                         // de-correlation of NOT EXISTS( SELECT .... )
-                        case Def (BooleanNegate (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]))) =>
+                        case Def (BooleanNegate (Def (exists: ExistsCondition[_, Domain@unchecked]))) =>
                             difference (
                                 relation,
                                 naturalJoin (
@@ -92,7 +94,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                 )
                             )
 
-                        case Def (Reify (Def (BooleanNegate (Def (exists: ExistsCondition[Any@unchecked, Domain@unchecked]))), _,_)) =>
+                        case Def (Reify (Def (BooleanNegate (Def (exists: ExistsCondition[_, Domain@unchecked]))), _,_)) =>
                             difference (
                                 relation,
                                 naturalJoin (

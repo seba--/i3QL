@@ -55,10 +55,9 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 		with RelationalAlgebraIRSetTheoryOperators
 		with RelationalAlgebraIRRecursiveOperators
 		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraGenSAEBinding
+		with RelationalAlgebraSAEBinding
 		with FunctionsExp
 
-	val IRn = IR
 
     import IR._
 
@@ -66,12 +65,6 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
             case Def (Selection (r, f)) => {
-
-				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = IRn
-
-				}
-
                 new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
             case Def (Projection (r, f)) => {

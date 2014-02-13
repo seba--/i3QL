@@ -60,7 +60,7 @@ class TestIRGenBasicOperatorsAsIncremental
             with RelationalAlgebraIRSetTheoryOperators
             with RelationalAlgebraIRRecursiveOperators
             with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
+            with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
             with LiftEverything

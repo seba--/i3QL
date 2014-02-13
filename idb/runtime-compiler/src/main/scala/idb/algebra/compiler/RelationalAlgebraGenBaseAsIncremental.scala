@@ -42,7 +42,7 @@ import idb.algebra.ir.RelationalAlgebraIRBase
 trait RelationalAlgebraGenBaseAsIncremental
 {
 
-    val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
+    val IR: RelationalAlgebraIRBase with RelationalAlgebraSAEBinding
 
     import IR._
 

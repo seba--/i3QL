@@ -10,7 +10,7 @@ import sae.bytecode.BytecodeDatabase
  */
 object Definitions {
 
-	def fieldReadsFromExternalPackage(database : BytecodeDatabase) : Relation[database.FieldAccessInstruction] = {
+	def fieldReadsFromExternalPackage(database : BytecodeDatabase) : Relation[BytecodeDatabase#FieldAccessInstruction] = {
 		import database._
 		SELECT(*) FROM fieldAccessInstructions WHERE (
 		(i : Rep[FieldAccessInstruction]) =>
@@ -19,7 +19,7 @@ object Definitions {
 	}
 
 
-	def ms_fields(database : BytecodeDatabase) : Relation[database.FieldDeclaration] = {
+	def ms_fields(database : BytecodeDatabase) : Relation[BytecodeDatabase#FieldDeclaration] = {
 		import database._
 		SELECT (*) FROM fieldDeclarations WHERE (
 			(f : Rep[FieldDeclaration]) =>

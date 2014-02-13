@@ -52,7 +52,7 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
 
     val IR: RelationalAlgebraIRBasicOperators
         with RelationalAlgebraIRRecursiveOperators
-        with RelationalAlgebraGenSAEBinding
+        with RelationalAlgebraSAEBinding
         with FunctionsExp
 
     import IR._

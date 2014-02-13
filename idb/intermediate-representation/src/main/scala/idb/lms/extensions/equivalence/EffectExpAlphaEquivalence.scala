@@ -34,7 +34,7 @@ package idb.lms.extensions.equivalence
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.EffectExp
-import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
+
 
 /**
  *

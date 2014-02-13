@@ -52,11 +52,11 @@ object ClauseToAlgebra {
 
 
     def apply[
-    Select,
-    Domain <: GroupDomain,
-    GroupDomain,
-    GroupRange <: Select,
-    Range
+		Select,
+		Domain <: GroupDomain,
+		GroupDomain,
+		GroupRange <: Select,
+		Range
     ] (
         query: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     )(

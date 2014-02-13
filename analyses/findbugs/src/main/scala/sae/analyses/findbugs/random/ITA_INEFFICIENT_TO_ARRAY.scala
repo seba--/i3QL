@@ -24,6 +24,21 @@ object ITA_INEFFICIENT_TO_ARRAY
 			SELECT ((i: Rep[Instruction], a: Rep[Instruction]) => a) FROM (iconst0, anewarray) WHERE
 				((i : Rep[Instruction], a : Rep[Instruction]) => i.nextPC == a.pc)
 
+	/*	val invokesAfterNewArray : Relation[MethodInvocationInstruction] =
+			SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
+				(invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
+					invoke.pc == a.nextPC
+				)
+
+		val invokes: Relation[MethodInvocationInstruction] =
+			SELECT (*) FROM invokesAfterNewArray WHERE (
+				(invoke : Rep[MethodInvocationInstruction])  =>
+					((invoke.opcode == OpCodes.INVOKEINTERFACE) OR (invoke.opcode == OpCodes.INVOKEVIRTUAL)) AND
+					(invoke.methodInfo.name == "toArray") AND
+					(invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
+					(invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object"))))
+			)       */
+
 		val invokes: Relation[MethodInvocationInstruction] =
 				SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
 					(invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>

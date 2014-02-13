@@ -55,12 +55,14 @@ object SubQueryToAlgebra
         }
 
 
-    def apply[Select: Manifest,
-    Domain <: GroupDomain : Manifest,
-    GroupDomain: Manifest,
-    GroupRange <: Select : Manifest,
-    Range: Manifest,
-    ContextDomain: Manifest] (
+    def apply[
+        Select: Manifest,
+        Domain <: GroupDomain : Manifest,
+        GroupDomain: Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest,
+        ContextDomain: Manifest
+    ] (
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range],
         context: Rep[Query[ContextDomain]],
         contextParameter: Rep[ContextDomain]
@@ -103,8 +105,16 @@ object SubQueryToAlgebra
                 )
         }
 
-    def apply[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest, GroupDomainA : Manifest, GroupDomainB : Manifest,
-	GroupRange <: Select : Manifest, Range: Manifest, ContextDomain : Manifest] (
+    def apply[
+        Select: Manifest,
+        DomainA <: GroupDomainA : Manifest,
+        DomainB <: GroupDomainB : Manifest,
+        GroupDomainA : Manifest,
+        GroupDomainB : Manifest,
+        GroupRange <: Select : Manifest,
+        Range: Manifest,
+        ContextDomain : Manifest
+    ] (
         subQuery: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range],
         context: Rep[Query[ContextDomain]]
     ): Rep[Query[Range]] =
