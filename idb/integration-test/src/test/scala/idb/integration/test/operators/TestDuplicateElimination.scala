@@ -16,8 +16,8 @@ import idb.{BagExtent, MaterializedView}
  *
  * @author Mirko Köhler
  */
-class TestDuplicateElimination extends UniversityTestData
-	with AbstractStudentOperatorTest[Student] {
+class TestDuplicateElimination extends AbstractStudentOperatorTest[Student] with UniversityTestData
+	 {
 
 	val IR = idb.syntax.iql.IR
 

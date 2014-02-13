@@ -5,7 +5,7 @@ import idb.{Extent, Relation}
 /**
  * @author Mirko Köhler
  */
-trait AbstractOperatorTest[Domain, Range] {
+abstract class AbstractOperatorTest[Domain, Range:Manifest] {
 
 	def getQuery : Relation[Range] = {
 		import idb.syntax.iql._

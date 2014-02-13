@@ -16,8 +16,7 @@ import idb.{BagExtent, MaterializedView}
  *
  * @author Mirko Köhler
  */
-class TestSelfMaintainedAggregationGrouped extends UniversityTestData
-	with AbstractStudentOperatorTest[Int] {
+class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[Int] with UniversityTestData {
 
 	val IR = idb.syntax.iql.IR
 

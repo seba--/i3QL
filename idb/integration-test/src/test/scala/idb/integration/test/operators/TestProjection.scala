@@ -16,8 +16,7 @@ import idb.{BagExtent, MaterializedView}
  *
  * @author Mirko Köhler
  */
-class TestProjection extends UniversityTestData
-	with AbstractStudentOperatorTest[String] {
+class TestProjection extends AbstractStudentOperatorTest[String] with UniversityTestData {
 
 	val IR = idb.syntax.iql.IR
 
