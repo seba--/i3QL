@@ -62,7 +62,7 @@ trait RelationalAlgebraIROptPushSelection
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
+    ): Rep[Query[Domain]] = {
         (relation match {
             // pushing over projections
             case Def (Projection (r, f)) => {
@@ -79,27 +79,26 @@ trait RelationalAlgebraIROptPushSelection
                 function) && !isDisjunctiveParameterEquality (f) =>
                 selection (selection (r, function)(exactDomainOf (relation)), f)
 
-
             case Def (CrossProduct (a, b)) => {
                 pushedOverBinaryOperator (function) match {
                     case (None, None) =>
                         super.selection (relation, function)
                     case (Some (f), None) =>
                         crossProduct (
-                            selection (a, f)(domainOf (a)),
+                            selection (a, f)(parameterType(f)),
                             b
                         )(domainOf (a), domainOf (b))
 
                     case (None, Some (f)) =>
                         crossProduct (
                             a,
-                            selection (b, f)(domainOf (b))
+                            selection (b, f)(parameterType(f))
                         )(domainOf (a), domainOf (b))
 
                     case (Some (fa), Some (fb)) =>
                         crossProduct (
-                            selection (a, fa)(domainOf (a)),
-                            selection (b, fb)(domainOf (b))
+                            selection (a, fa)(parameterType(fa)),
+                            selection (b, fb)(parameterType(fb))
                         )(domainOf (a), domainOf (b))
                 }
             }
@@ -111,7 +110,7 @@ trait RelationalAlgebraIROptPushSelection
 
                     case (Some (f), None) =>
                         equiJoin (
-                            selection (a, f)(domainOf (a)),
+                            selection (a, f)(parameterType(f)),
                             b,
                             l
                         )(domainOf (a), domainOf (b))
@@ -119,14 +118,14 @@ trait RelationalAlgebraIROptPushSelection
                     case (None, Some (f)) =>
                         equiJoin (
                             a,
-                            selection (b, f)(domainOf (b)),
+                            selection (b, f)(parameterType(f)),
                             l
                         )(domainOf (a), domainOf (b))
 
                     case (Some (fa), Some (fb)) =>
                         equiJoin (
-                            selection (a, fa)(domainOf (a)),
-                            selection (b, fb)(domainOf (b)),
+                            selection (a, fa)(parameterType(fa)),
+                            selection (b, fb)(parameterType(fb)),
                             l
                         )(domainOf (a), domainOf (b))
                 }
@@ -148,6 +147,7 @@ trait RelationalAlgebraIROptPushSelection
                 super.selection (relation, function)
 
         }).asInstanceOf[Rep[Query[Domain]]]
+    }
 
 
     private def pushedOverBinaryOperator[Domain: Manifest] (
@@ -167,17 +167,15 @@ trait RelationalAlgebraIROptPushSelection
                         "Expected a tupled value type to push over binary operator. Found: " + e.tp)
             }
 
-
-
         val freeV = unusedVars (function, symsInQuestion)
         if (freeV.isEmpty) {
             return (None, None)
         }
 
-      println("---")
+    /*  println("---")
       println(s"params $symsInQuestion")
       println(s"free: $freeV")
-      println(printFun(function))
+      println(printFun(function))    */
 
         // TODO Using symsInQuestion(i) below as parameter means that we can have x._1 and x._2 as a parameter.
         // We could change that.
@@ -197,22 +195,6 @@ trait RelationalAlgebraIROptPushSelection
         }
     }
 
-  def printEffects[T](ef: List[Exp[T]]): String =
-    ef.foldRight("")((x,y) => s"${printExp(x)}, $y")
 
-  def printExp[T](e: Exp[T]): String = e match {
-    case Def(Reify(e, _, ef)) => s"reify(${printExp(e)}, {${printEffects(ef)}})"
-    case Def(Equal(e1, e2)) => s"${printExp(e1)} == ${printExp(e2)}"
-//    case Def(Field(a)) => a
-    case Const(c) => c.toString
-    case Def(d) => d.toString
-  }
-
-  def printFun[A,B](function: Rep[Function[A,B]]): String = function match {
-    case Def (Lambda (_, x, body)) =>
-      s"($x => ${printExp(body.res)}})"
-    case Const (c) => c.toString
-    case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
-  }
 
 }

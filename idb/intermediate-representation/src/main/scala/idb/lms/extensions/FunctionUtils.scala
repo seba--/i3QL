@@ -32,9 +32,9 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp}
-import scala.collection.mutable
-import scala.reflect.ManifestFactory
+import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp, TupleOpsExp}
+import scala.reflect.SourceContext
+
 
 /**
  *
@@ -295,6 +295,56 @@ trait FunctionUtils
      * Types are checked dynamically to conform to Domain.
      *
      */
+    /*def createConjunction[A : Manifest , B : Manifest , Domain: Manifest] (
+        fa: Rep[A => Boolean],
+        fb: Rep[B => Boolean]
+    ): Rep[Domain => Boolean] = {
+
+        val mDomain = implicitly[Manifest[Domain]]
+        val mA : Manifest[A] = fa.tp.typeArguments (0).asInstanceOf[Manifest[A]]
+        val mB : Manifest[B] = fb.tp.typeArguments (0).asInstanceOf[Manifest[B]]
+
+        var tupledDomainWithA = false
+        var tupledDomainWithB = false
+
+        println(mDomain.runtimeClass.getName)
+       // println(Class[Tuple2[Any,Any]])
+
+        if (!(mA >:> mDomain)) {
+            if (mDomain.runtimeClass.getName.startsWith("scala.Tuple2") && (mDomain.typeArguments(0) equals mA)) {
+                tupledDomainWithA = true
+            } else {
+                throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
+            }
+        }
+        if (!(mB >:> mDomain)) {
+            if (mDomain.runtimeClass.getName.startsWith("scala.Tuple2") && (mDomain.typeArguments(1) equals mB)) {
+                tupledDomainWithB = true
+            } else {
+                throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
+            }
+        }
+
+        var faUnsafe : Rep[Domain => Boolean] = null
+        var fbUnsafe : Rep[Domain => Boolean] = null
+
+        if (tupledDomainWithA) {
+            faUnsafe = fun ((x : Rep[Domain]) => fa(tuple2_get1(x.asInstanceOf[Rep[(A,_)]])))(mDomain, manifest[Boolean])
+        } else {
+            faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
+        }
+        if(tupledDomainWithB) {
+            fbUnsafe =
+                fun ((x : Rep[Domain]) =>
+                        fb(tuple2_get2(x.asInstanceOf[Rep[(_,B)]])))(mDomain, manifest[Boolean])
+        } else {
+            fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
+        }
+
+        val result = fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
+        result
+    }  */
+
     def createConjunction[A, B, Domain: Manifest] (
         fa: Rep[A => Boolean],
         fb: Rep[B => Boolean]
@@ -312,6 +362,24 @@ trait FunctionUtils
 
         val result = fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
         result
+    }
+
+    def printEffects[T](ef: List[Exp[T]]): String =
+        ef.foldRight("")((x,y) => s"${printExp(x)}, $y")
+
+    def printExp[T](e: Exp[T]): String = e match {
+        case Def(Reify(e, _, ef)) => s"reify(${printExp(e)}, {${printEffects(ef)}})"
+        case Def(Equal(e1, e2)) => s"${printExp(e1)} == ${printExp(e2)}"
+        //    case Def(Field(a)) => a
+        case Const(c) => c.toString
+        case Def(d) => d.toString
+    }
+
+    def printFun[A,B](function: Rep[Function[A,B]]): String = function match {
+        case Def (Lambda (_, x, body)) =>
+            s"(${x.tp.toString()} => ${printExp(body.res)}})"
+        case Const (c) => c.toString
+        case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
     }
 
 

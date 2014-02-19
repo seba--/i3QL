@@ -52,10 +52,14 @@ trait AbstractTestAnalysesOnJDK
 	def executeAnalysis(analysis : (BytecodeDatabase => Relation[_]), expectedMatches : Int) {
 
 		try {
+            val analysisName = analysis.getClass.getSimpleName
+
 			var database : BytecodeDatabase = null
-			database = getDatabase
+			println(s"Compile analysis ${analysisName}...")
+            database = getDatabase
 			val relation = analysis (database).asMaterialized
 
+            println(s"Start analysis ${analysisName}...")
 			database.addArchive(getStream)
 
 			assertEquals (expectedMatches, relation.size)

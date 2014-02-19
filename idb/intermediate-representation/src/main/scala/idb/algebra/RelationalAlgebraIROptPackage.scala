@@ -51,14 +51,7 @@ import idb.algebra.opt._
  *
  */
 trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRSetTheoryOperators
-    with RelationalAlgebraIRRecursiveOperators
-    with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRSubQueries
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraDerivedOperators
-    with RelationalAlgebraIRFuseBasicOperators
+    extends RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIRFuseSetTheoryOperators
     with RelationalAlgebraIROptSimplifyBasicOps
     with RelationalAlgebraIROptSimplifySetTheoryOps
@@ -66,12 +59,10 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIROptSelectionInSetTheoryOps
     with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptPushDuplicateElimination
-    //with RelationalAlgebraIROptOrderSelections
+    with RelationalAlgebraIROptOrderSelections
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIROptLiftProjection
-    with RelationalAlgebraIRNormalizeBasicOperators
-    with RelationalAlgebraIRNormalizeSubQueries
 {
 
 }

@@ -59,6 +59,8 @@ trait RelationalAlgebraIRBasicOperators
         var relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ) extends Def[Query[Domain]] with QueryBaseOps {
+        val mDom = implicitly[Manifest[Domain]]
+
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal

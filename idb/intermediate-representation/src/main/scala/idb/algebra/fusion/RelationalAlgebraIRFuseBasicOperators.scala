@@ -58,7 +58,6 @@ trait RelationalAlgebraIRFuseBasicOperators
     ): Rep[Query[Range]] =
         relation match {
             case Def (Projection (r, f)) =>
-                //val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
                 val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
                 projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType (f), mRangeUnsafe))
             case _ =>

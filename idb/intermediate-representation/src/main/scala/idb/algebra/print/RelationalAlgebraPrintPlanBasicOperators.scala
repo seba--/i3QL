@@ -70,14 +70,14 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
-            case Def (Selection (relation, function)) =>
-                withIndent ("selection(" + "\n") +
+            case Def (s@Selection (relation, function)) =>
+                withIndent ("selection[" + s.mDom + "](" + "\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
-            case Def (CrossProduct (left, right)) =>
-                withIndent ("crossProduct(" + "\n") +
+            case Def (c@CrossProduct (left, right)) =>
+                withIndent ("crossProduct[" + c.mDomA + "," + c.mDomB + "](" + "\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")

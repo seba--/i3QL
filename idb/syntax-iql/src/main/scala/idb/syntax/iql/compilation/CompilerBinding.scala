@@ -42,9 +42,9 @@ import idb.lms.extensions.operations.{ScalaGenSeqOpsExt, ScalaGenStringOpsExt, S
  */
 object CompilerBinding
     extends RelationalAlgebraGenBasicOperatorsAsIncremental
-	with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
-	with RelationalAlgebraGenAggregationOperatorsAsIncremental
-	with RelationalAlgebraGenRecursiveOperatorsAsIncremental
+    with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
+    with RelationalAlgebraGenAggregationOperatorsAsIncremental
+    with RelationalAlgebraGenRecursiveOperatorsAsIncremental
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps

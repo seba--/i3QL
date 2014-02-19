@@ -47,21 +47,19 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 
 
 	@Test
-  @Ignore
 	def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION () {
-		executeAnalysis (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, expectedMatches = 3)
+		executeAnalysis (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, expectedMatches = 0)
 		//Findbugs says 3
 	}
 
 	@Test
-    @Ignore
 	def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT () {
 		executeAnalysis(DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT, expectedMatches = 0)
 		//Findbugs says 0
 	}
 
 	@Test
-	def test_DP_DO_INSIDE_DO_PRIVILEGED () {
+    def test_DP_DO_INSIDE_DO_PRIVILEGED () {
 		executeAnalysis(DP_DO_INSIDE_DO_PRIVILEGED, expectedMatches = 10)
 		//Findbugs says 0
 	}
@@ -74,7 +72,8 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 
 	@Test
 	def test_ITA_INEFFICIENT_TO_ARRAY () {
-		executeAnalysis(ITA_INEFFICIENT_TO_ARRAY, expectedMatches = 0)
+		//TODO Why does this analysis find so much?
+        executeAnalysis(ITA_INEFFICIENT_TO_ARRAY, expectedMatches = 0)
 		//Findbugs says 0
 	}
 
@@ -109,7 +108,6 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 	}
 
 	@Test
-  @Ignore
 	def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR () {
 		executeAnalysis(UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR, expectedMatches = 0)
 		//Findbugs says 1

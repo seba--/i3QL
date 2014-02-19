@@ -5,6 +5,11 @@ import idb.Relation
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.constants.OpCodes
+import idb.algebra.print.RelationalAlgebraPrintPlan
+import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.FunctionUtils
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 
 /**
  * @author Ralf Mitschke, Mirko Köhler
@@ -16,40 +21,36 @@ object ITA_INEFFICIENT_TO_ARRAY
 	def apply(database : BytecodeDatabase): Relation[BytecodeDatabase#MethodInvocationInstruction] = {
 		import database._
 
-		val iconst0 : Relation[Instruction] = SELECT (*) FROM instructions WHERE ((i : Rep[Instruction]) => i.opcode == OpCodes.ICONST_0 )
-
-		val anewarray : Relation[Instruction] = SELECT (*) FROM instructions WHERE ((i : Rep[Instruction]) => i.opcode == OpCodes.ANEWARRAY )
-
 		val newArray0 : Relation[Instruction] =
-			SELECT ((i: Rep[Instruction], a: Rep[Instruction]) => a) FROM (iconst0, anewarray) WHERE
-				((i : Rep[Instruction], a : Rep[Instruction]) => i.nextPC == a.pc)
+			SELECT ((i: Rep[Instruction], a: Rep[Instruction]) => a) FROM (instructions, instructions) WHERE (
+                (iconst0 : Rep[Instruction], anewarray : Rep[Instruction]) =>
+                    (iconst0.opcode == OpCodes.ICONST_0) AND
+                    (anewarray.opcode == OpCodes.ANEWARRAY) AND
+                    (iconst0.nextPC == anewarray.pc)
+                )
 
-	/*	val invokesAfterNewArray : Relation[MethodInvocationInstruction] =
-			SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
-				(invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
-					invoke.pc == a.nextPC
-				)
-
-		val invokes: Relation[MethodInvocationInstruction] =
-			SELECT (*) FROM invokesAfterNewArray WHERE (
-				(invoke : Rep[MethodInvocationInstruction])  =>
-					((invoke.opcode == OpCodes.INVOKEINTERFACE) OR (invoke.opcode == OpCodes.INVOKEVIRTUAL)) AND
-					(invoke.methodInfo.name == "toArray") AND
-					(invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
-					(invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object"))))
-			)       */
-
-		val invokes: Relation[MethodInvocationInstruction] =
-				SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
+		val invokes : Relation[MethodInvocationInstruction] =
+            (
+                SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
 					(invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
-					((invoke.opcode == OpCodes.INVOKEINTERFACE) OR (invoke.opcode == OpCodes.INVOKEVIRTUAL)) AND
+					(invoke.opcode == OpCodes.INVOKEINTERFACE) AND
 					(invoke.methodInfo.name == "toArray") AND
 					(invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
 					(invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object")))) AND
 					(invoke.pc == a.nextPC)
 				)
+            ) UNION (
+                SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
+                (invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
+                    (invoke.opcode == OpCodes.INVOKEVIRTUAL) AND
+                    (invoke.methodInfo.name == "toArray") AND
+                    (invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
+                    (invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object")))) AND
+                    (invoke.pc == a.nextPC)
+                )
+            )
 
-		SELECT (*) FROM invokes WHERE ((invoke : Rep[MethodInvocationInstruction]) =>
+        SELECT (*) FROM invokes WHERE ((invoke : Rep[MethodInvocationInstruction]) =>
 			EXISTS (
 				SELECT (*) FROM subTyping WHERE ((typing : Rep[TypeRelation]) =>
 					(typing.superType == ObjectType ("java/util/Collection")) AND
@@ -60,17 +61,7 @@ object ITA_INEFFICIENT_TO_ARRAY
 
 	}
 }
-
-
-
-
-
-/*object ITA_INEFFICIENT_TO_ARRAY
-	extends (BytecodeDatabase => Relation[InvokeInstruction])
-{
-
-
-	val objectArrayType = ArrayType (ClassType ("java/lang/Object"))
+/*	val objectArrayType = ArrayType (ClassType ("java/lang/Object"))
 
 	val collectionInterface = ClassType ("java/util/Collection")
 
@@ -114,4 +105,4 @@ object ITA_INEFFICIENT_TO_ARRAY
 				(_.superType == collectionInterface) AND
 				(subType === receiverType)
 		)
-	}  */
+*/

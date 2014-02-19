@@ -22,14 +22,11 @@ case class SelectTupledAggregateClause1[Select : Manifest, Domain : Manifest, Ra
 				FromClause1[Select, Domain, (RangeA, RangeB)] (
 					relation,
 					SelectAggregateClause (
-						AggregateTupledFunctionSelfMaintained[Select, Domain, RangeA, RangeB, (RangeA, RangeB)] (
+                        AggregateTupledFunctionSelfMaintained[Select, Domain, RangeA, RangeB, (RangeA, RangeB)] (
 							selfMaintained.start,
-							(x : Rep[(Domain, RangeB)]) =>
-								selfMaintained.added ((x._1, x._2)),
-							(x : Rep[(Domain, RangeB)]) =>
-								selfMaintained.removed ((x._1, x._2)),
-							(x : Rep[(Domain, Domain, RangeB)]) =>
-								selfMaintained.updated ((x._1, x._2, x._3)),
+							(x : Rep[(Domain, RangeB)]) => selfMaintained.added ((x._1, x._2)),
+							(x : Rep[(Domain, RangeB)]) => selfMaintained.removed ((x._1, x._2)),
+                            (x : Rep[(Domain, Domain, RangeB)]) => selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
 							fun ( (x : Rep[(RangeA, RangeB)]) => x )
 						),

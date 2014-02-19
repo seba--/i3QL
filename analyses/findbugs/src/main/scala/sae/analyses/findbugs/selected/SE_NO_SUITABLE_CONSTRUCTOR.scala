@@ -76,12 +76,6 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                         )
                     )
                 )
-      /*  val printer = new RelationalAlgebraPrintPlan
-        {
-            val IR = idb.syntax.iql.IR
-        }
-
-        Predef.println (printer.quoteRelation (query))   */
 
         query
     }

@@ -88,7 +88,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
                 withoutNormalization (
                     selection (
                         ra,
-                        createConjunction (fa, fb)(parameterType (fa))
+                        createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
 
@@ -108,7 +108,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
                         ra,
                         createConjunction (fa,
                             fun ((x: Rep[Domain]) => !fb (x))
-                        )(parameterType (fa))
+                        )(parameterType(fa))
                     )
                 )
             case _ =>
