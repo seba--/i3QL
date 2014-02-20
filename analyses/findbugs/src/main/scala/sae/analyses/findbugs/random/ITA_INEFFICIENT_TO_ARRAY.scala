@@ -26,29 +26,21 @@ object ITA_INEFFICIENT_TO_ARRAY
                 (iconst0 : Rep[Instruction], anewarray : Rep[Instruction]) =>
                     (iconst0.opcode == OpCodes.ICONST_0) AND
                     (anewarray.opcode == OpCodes.ANEWARRAY) AND
-                    (iconst0.nextPC == anewarray.pc)
+                    (iconst0.nextPC == anewarray.pc) AND
+                    (iconst0.declaringMethod == anewarray.declaringMethod)
                 )
 
 		val invokes : Relation[MethodInvocationInstruction] =
-            (
-                SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
+            SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
 					(invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
-					(invoke.opcode == OpCodes.INVOKEINTERFACE) AND
+                    ((invoke.opcode == OpCodes.INVOKEINTERFACE) OR (invoke.opcode == OpCodes.INVOKEVIRTUAL)) AND
 					(invoke.methodInfo.name == "toArray") AND
 					(invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
 					(invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object")))) AND
-					(invoke.pc == a.nextPC)
+					(invoke.pc == a.nextPC) AND
+                    (invoke.declaringMethod == a.declaringMethod)
 				)
-            ) UNION (
-                SELECT ((i: Rep[MethodInvocationInstruction], a: Rep[Instruction]) => i) FROM (methodInvocationInstructions, newArray0) WHERE (
-                (invoke : Rep[MethodInvocationInstruction], a : Rep[Instruction])  =>
-                    (invoke.opcode == OpCodes.INVOKEVIRTUAL) AND
-                    (invoke.methodInfo.name == "toArray") AND
-                    (invoke.methodInfo.returnType ==  ArrayType (ObjectType ("java/lang/Object"))) AND
-                    (invoke.methodInfo.parameterTypes == Seq ( ArrayType (ObjectType ("java/lang/Object")))) AND
-                    (invoke.pc == a.nextPC)
-                )
-            )
+
 
         SELECT (*) FROM invokes WHERE ((invoke : Rep[MethodInvocationInstruction]) =>
 			EXISTS (

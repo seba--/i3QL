@@ -72,8 +72,7 @@ class TestRandomAnalysesOnJDK extends AbstractTestAnalysesOnJDK
 
 	@Test
 	def test_ITA_INEFFICIENT_TO_ARRAY () {
-		//TODO Why does this analysis find so much?
-        executeAnalysis(ITA_INEFFICIENT_TO_ARRAY, expectedMatches = 0)
+        executeAnalysis(ITA_INEFFICIENT_TO_ARRAY, expectedMatches = 32)
 		//Findbugs says 0
 	}
 

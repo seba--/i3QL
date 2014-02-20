@@ -47,11 +47,6 @@ object SE_BAD_FIELD_INNER_CLASS
 			)
 		))
 
-    val printer = new RelationalAlgebraPrintPlan {
-      override val IR = idb.syntax.iql.IR
-    }
-
-    Predef.println(printer.quoteRelation(res))
 
     compile (res)
 
