@@ -30,16 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.profiler.measure.units
+package idb.algebra
+
+import idb.algebra.base.RelationalAlgebraDerivedOperators
+import idb.algebra.fusion.{RelationalAlgebraIRFuseSetTheoryOperators, RelationalAlgebraIRFuseBasicOperators}
+import idb.algebra.ir._
+import idb.algebra.normalization.{RelationalAlgebraIROrderSetTheoryOps, RelationalAlgebraIRNormalizeSubQueries,
+RelationalAlgebraIRNormalizeBasicOperators}
+import idb.algebra.opt._
+
 
 /**
+ * Packaged trait for all relational algebra optimizations.
+ * Note that trait mixin order is important.
+ * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
+ * The various optimizations currently require no order, but fusion has to come last, i.e.,
+ * creating fused functions for selection operations.
+ *
  * @author Ralf Mitschke
+ *
  */
-
-object MilliSeconds
-  extends MeasurementUnit
+trait RelationalAlgebraIRFusionPackage
+    extends RelationalAlgebraIRFuseBasicOperators
+    with RelationalAlgebraIRFuseSetTheoryOperators
 {
-  def descriptor = "ms"
 
-  def fromBase(value: Double) = value / 1E6
 }

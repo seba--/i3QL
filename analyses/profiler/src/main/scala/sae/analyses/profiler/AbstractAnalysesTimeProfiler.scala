@@ -101,44 +101,9 @@ trait AbstractAnalysesTimeProfiler
 		taken
 	}
 
-	/* def applyAnalysesWithTransactionalJarReading(jars: List[String], queries: List[String]): Long = {
-		var taken: Long = 0
-		var database = databaseFactory.create ()
-		val results = for (query <- queries) yield {
-		  getAnalysis (query, database)(optimized, transactional, sharedSubQueries).asMaterialized
-		}
-		jars.foreach (jar => {
-
-		  database.beginTransaction ()
-		  val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-		  database.addArchive (stream)
-		  stream.close ()
-		  time {
-			l => taken += l
-		  }
-		  {
-			database.commitTransaction ()
-		  }
-		})
-		database = null
-		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-		memoryMXBean.gc ()
-		print (".")
-		taken
-	  }   */
-
-
 	def measurementUnit = MilliSeconds
 
 	def dataStatistic(jars: List[String]): DataStatistic = {
-
-		val classes = database.classDeclarations.asMaterialized
-
-		val methods = database.methodDeclarations.asMaterialized
-
-		val fields = database.fieldDeclarations.asMaterialized
-
-		val instructions = database.instructions.asMaterialized
 
 		jars.foreach(jar => {
 			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
@@ -146,6 +111,6 @@ trait AbstractAnalysesTimeProfiler
 			stream.close()
 		})
 
-		SimpleDataStatistic(classes.size, methods.size, fields.size, instructions.size)
+		SimpleDataStatistic(database.classCount, database.methodCount, database.fieldCount, database.instructionCount)
 	}
 }

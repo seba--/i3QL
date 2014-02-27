@@ -47,6 +47,8 @@ import sae.analyses.profiler.measure.units.MeasurementUnit
 trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 {
 
+	def getResults : List[DataStatistic]
+
 	def basePath = "analyses/properties/replay-time/"
 
 	def execute(propertiesFile : String) {
@@ -83,11 +85,8 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		val warmupEventReader = new ReplayReader(new File(warmupLocation))
 		val warmupEvents = warmupEventReader.getAllEventSets
 
-        var counts : List[Long] = Nil
         try {
-            counts = warmup(warmupIterations, warmupEvents, queries)
-            println("\tdone")
-            println("Num. of Results: " + counts)
+            warmup(warmupIterations, warmupEvents, queries)
         } catch {
             case e : Exception => {
                 println("Executing " + propertiesFile + " returned an exception.")
@@ -99,7 +98,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		val measurementEventReader = new ReplayReader(new File(measurementLocation))
 		val measurementEvents = measurementEventReader.getAllEventSets
 
-        val dataStatisticList = dataStatistics(measurementEvents)
+        val dataStatisticList = getResults
 
 		val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 		memoryMXBean.gc()
@@ -110,19 +109,28 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 
 
 
-		if (counts.size != measurementEvents.size || dataStatisticList.size != measurementEvents.size || statistics
+		if (dataStatisticList.size != measurementEvents.size || statistics
 			.size != measurementEvents.size) {
+			println(dataStatisticList.size)
+			println(measurementEvents.size)
+			println(statistics.size)
+
+
 			sys.error("different sizes for sampled data and list of event sets")
+
+
+
+
 			return
         }
 
-  		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
+  		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics)
 	}
 
 
     def reportCSV(outputFile: String, warmUpIterations: Int, measurementIterations: Int, measurementLocation: String,
                   eventSets: List[Seq[ReplayEvent]], dataStatistics: List[DataStatistic], queries: List[String],
-                  statistics: List[ReplayStatistic], resultCounts: List[Long]) {
+                  statistics: List[ReplayStatistic]) {
 
         val file = new File(outputFile)
 
@@ -145,7 +153,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
             "instructions" + separator +
             "warmup iterations" + separator +
             "measure iterations" + separator +
-            "results#" + separator +
+            //"results#" + separator +
             "times(" + measurementUnit.descriptor +")"
 
 
@@ -165,8 +173,8 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                 dataStatistics(i).fieldCount + separator +
                 dataStatistics(i).instructionCount + separator +
                 warmUpIterations + separator +
-                measurementIterations + separator +
-                resultCounts(i)
+                measurementIterations + separator
+                //resultCounts(i)
 
             for (j <- 1 to measurementIterations)
                 outputLine = outputLine + separator + measurementUnit.fromBase(statistics(i)(j))
@@ -177,9 +185,9 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
         out.close()
     }
 
-    def benchmarkType: String
+    var benchmarkType: String
 
-    def dataStatistics(eventSets: List[Seq[ReplayEvent]]): List[DataStatistic]
+   // def dataStatistics(eventSets: List[Seq[ReplayEvent]]): List[DataStatistic]
 
     def measurementUnit: MeasurementUnit
 
@@ -192,7 +200,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
      * Perform the warmup by doing exactly the same operation as in the measurement.
      * The warmup is must return the number of results returned by the measured analyses.
      */
-    def warmup(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[Long]
+    def warmup(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String])
 
 
 }

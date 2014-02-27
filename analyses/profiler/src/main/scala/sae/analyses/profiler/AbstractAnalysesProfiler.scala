@@ -35,6 +35,7 @@ package sae.analyses.profiler
 import sae.bytecode.{BytecodeDatabaseFactory, BytecodeDatabase}
 import idb.Relation
 import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic}
+import sae.analyses.profiler.util.DatabaseReader
 
 
 /**
@@ -45,9 +46,16 @@ import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic}
 
 trait AbstractAnalysesProfiler {
 
-	def database: BytecodeDatabase
+	def database: DatabaseReader
+
+	def disposeDatabase()
+	def initializeDatabase()
+
+	var storeResults : Boolean
+	def getResults : List[DataStatistic]
+
+	def classCount : Int
 
 	def getAnalysis(query: String): Relation[_]
-
 
 }

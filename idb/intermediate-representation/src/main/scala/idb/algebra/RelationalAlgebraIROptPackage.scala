@@ -51,9 +51,7 @@ import idb.algebra.opt._
  *
  */
 trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIRFuseSetTheoryOperators
-    with RelationalAlgebraIROptSimplifyBasicOps
+    extends RelationalAlgebraIROptSimplifyBasicOps
     with RelationalAlgebraIROptSimplifySetTheoryOps
     with RelationalAlgebraIROrderSetTheoryOps
     with RelationalAlgebraIROptSelectionInSetTheoryOps

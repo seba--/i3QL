@@ -1,70 +1,14 @@
-/* License (BSD Style License):
- *  Copyright (c) 2009, 2011
- *  Software Technology Group
- *  Department of Computer Science
- *  Technische Universität Darmstadt
- *  All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *
- *  - Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
- *  - Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische
- *    Universität Darmstadt nor the names of its contributors may be used to
- *    endorse or promote products derived from this software without specific
- *    prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
- *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- *  POSSIBILITY OF SUCH DAMAGE.
- */
 package sae.analyses.profiler
 
-import sae.bytecode.BytecodeDatabase
-import idb.Relation
-import sae.analyses.findbugs.Analyses
-import sae.analyses.profiler.util.ReplayEvent
-import sae.analyses.profiler.statistics.{ReplayStatistic, DataStatistic}
-
+import sae.bytecode.{BytecodeDatabase, ASMDatabaseFactory}
 
 /**
- *
- * @author Ralf Mitschke
- *
+ * @author Mirko Köhler
  */
-
-class ASMDatabaseReplayMemoryProfiler(val database : BytecodeDatabase)
-    extends AbstractAnalysesReplayMemoryProfiler
+object ASMDatabaseReplayMemoryProfiler
+	extends BytecodeDatabaseAnalysesReplayProfiler
+	with AbstractAnalysesReplayMemoryProfiler
 {
-    def benchmarkType = "ASM-database-memory"
-
-    private val analyses = new Analyses(database)
-    
-    def getAnalysis(query: String): Relation[_] =
-        analyses (query)
-
-    /**
-     * Perform the warmup by doing exactly the same operation as in the measurement.
-     * The warmup is must return the number of results returned by the measured analyses.
-     */
-    override def warmup(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[Long] = null
-
-    /**
-     * Perform the actual measurement.
-     */
-    override def measure(iterations: Int, eventSets: List[Seq[ReplayEvent]], queries: List[String]): List[ReplayStatistic] = null
-
-    override def dataStatistics(eventSets: List[Seq[ReplayEvent]]): List[DataStatistic] = null
+	override def createBytecodeDatabase: BytecodeDatabase = ASMDatabaseFactory.create()
+	override var benchmarkType: String = "ASM-database-replay-memory"
 }

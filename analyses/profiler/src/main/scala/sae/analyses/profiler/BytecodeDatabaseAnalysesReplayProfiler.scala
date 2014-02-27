@@ -30,16 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.profiler.measure.units
+package sae.analyses.profiler
+
+
+import java.io.FileInputStream
+import sae.analyses.profiler.measure.TimeMeasurement
+import idb.{MaterializedView, Relation}
+import sae.analyses.profiler.util.{DatabaseReader, BytecodeDatabaseReader, ReplayEvent}
+import sae.analyses.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
+import sae.bytecode.{ASMDatabaseFactory, BytecodeDatabase}
+import sae.analyses.findbugs.Analyses
+import idb.syntax.iql.compilation.CompilerBinding
+
 
 /**
- * @author Ralf Mitschke
+ *
+ * @author Ralf Mitschke, Mirko Köhler
+ *
  */
 
-object MilliSeconds
-  extends MeasurementUnit
+abstract class BytecodeDatabaseAnalysesReplayProfiler
+    extends AbstractAnalysesReplayProfiler
 {
-  def descriptor = "ms"
+	def createBytecodeDatabase : BytecodeDatabase
 
-  def fromBase(value: Double) = value / 1E6
+	var database : DatabaseReader = null
+	private var bytecodeDatabase : BytecodeDatabase = null
+	private var analyses : Analyses = null
+
+	private var classDeclarations : MaterializedView[BytecodeDatabase#ClassDeclaration] = null
+
+    def classCount : Int = classDeclarations.size
+
+	var storeResults = false
+
+	def getAnalysis(query: String): Relation[_] =
+		analyses (query)
+
+    def initializeDatabase() {
+		bytecodeDatabase = createBytecodeDatabase
+		database = new BytecodeDatabaseReader(bytecodeDatabase)
+		analyses = new Analyses(bytecodeDatabase)
+
+		if (storeResults) {
+			classDeclarations = bytecodeDatabase.classDeclarations.asMaterialized
+		}
+	}
+
+	def disposeDatabase() {
+		database = null
+		analyses = null
+		CompilerBinding.reset
+	}
+
 }
+
+

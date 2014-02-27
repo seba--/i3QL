@@ -3,14 +3,17 @@ package sae.analyses.profiler
 import sae.bytecode.{ASMDatabaseFactory, BytecodeDatabaseFactory, BytecodeDatabase}
 import idb.Relation
 import sae.analyses.findbugs.Analyses
+import sae.analyses.profiler.util.BytecodeDatabaseReader
 
 /**
  * @author Ralf Mitschke, Mirko Köhler
  */
-class ASMDatabaseTimeProfiler(val database: BytecodeDatabase)
+class ASMDatabaseTimeProfiler/*(val bytecodeDatabase : BytecodeDatabase)
 	extends AbstractAnalysesTimeProfiler {
 
-	private val analyses = new Analyses(database)
+	val database = new BytecodeDatabaseReader(bytecodeDatabase)
+
+	private val analyses = new Analyses(bytecodeDatabase)
 
 	val usage: String = """|Usage: run-main sae.analyses.profiler.ASMDatabaseProfiler propertiesFile
 						  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -21,6 +24,11 @@ class ASMDatabaseTimeProfiler(val database: BytecodeDatabase)
 	def getAnalysis(query: String): Relation[_] =
 		analyses (query)
 
+	override var storeResults: Boolean = false
+
+	override def initializeDatabase() {}
+
+	override def disposeDatabase() {}
 }
 
 object ASMDatabaseTimeProfiler {
@@ -39,4 +47,4 @@ object ASMDatabaseTimeProfiler {
 		sys.exit(0)
 	}
 
-}
+}       */

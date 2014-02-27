@@ -35,8 +35,9 @@ package sae.analyses.profiler
 import sae.analyses.profiler.statistics.ReplayStatistic
 import sae.bytecode.BytecodeDatabase
 import idb.Relation
-import sae.analyses.profiler.measure.units.MebiByte
+import sae.analyses.profiler.measure.units.{KibiByte, MebiByte}
 import sae.analyses.profiler.measure.MemoryMeasurement
+import sae.analyses.profiler.util.{DatabaseReader, ReplayEvent}
 
 
 /**
@@ -46,82 +47,11 @@ import sae.analyses.profiler.measure.MemoryMeasurement
  */
 
 trait AbstractAnalysesReplayMemoryProfiler
-    extends AbstractAnalysesProfiler
+    extends AbstractAnalysesReplayProfiler
     with AbstractPropertiesFileReplayProfiler
     with MemoryMeasurement
 {
-   
+    def measurementUnit = KibiByte
 
-    val usage: String = """|Usage: java SAEAnalysesMemoryProfiler propertiesFile
-                          |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                          | """.stripMargin
-
-
-    def measure(iterations: Int, jars: List[String], queries: List[String]): ReplayStatistic = {
-        measureMemory (iterations)(() => applyAnalysesWithJarReading (jars, queries))._1
-    }
-
-    def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
-
-
-
-        var i = 0
-        while (i < iterations) {
-                applyAnalysesWithJarReading (jars, queries)
-            i += 1
-        }
-
-
-      //  getResultsWithReadingJars (jars, queries)
-        0
-
-    }
-
-    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
-        var taken: Long = 0
-
-        val relations = for (query <- queries) yield {
-            getAnalysis (query)
-        }
-
-        memory {
-            l => taken += l
-        }
-        {
-            jars.foreach (jar => {
-                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
-                stream.close ()
-            })
-        }
-
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-
-    def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
-        var taken: Long = 0
-        var relations: Iterable[Relation[_]] = null
-        memory {
-            l => taken += l
-        }
-        {
-            relations = for (query <- queries) yield {
-                getAnalysis (query).asMaterialized
-            }
-
-        }
-        relations.foreach (_.clearObserversForChildren (visitChild => true))
-        relations = null
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-    def measurementUnit = MebiByte
-
+	def measurement[T](m : Long => Unit)(f : => T) = memory(m)(f)
 }

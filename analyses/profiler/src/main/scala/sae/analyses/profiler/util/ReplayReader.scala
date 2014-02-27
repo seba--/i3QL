@@ -76,7 +76,7 @@ class ReplayReader(val location: File)
     def getAllFilesGroupedByEventTime(currentLocation: File) : List[List[ReplayEvent]]= {
         previousEvents = mutable.Map[String, ReplayEvent]()
         var list = List[List[ReplayEvent]]()
-        var sortedFiles = getAllFilesSortedByEventTime (currentLocation)
+        val sortedFiles = getAllFilesSortedByEventTime (currentLocation)
         var lastFile: Option[ReplayEvent] = None
         var subList = List[ReplayEvent]()
 
@@ -116,7 +116,7 @@ class ReplayReader(val location: File)
      *          sorted by the eventTime
      */
     private def getAllFilesSortedByEventTime(currentLocation: File): Array[ReplayEvent] = {
-        var allEvents = readAllFiles (currentLocation)
+        val allEvents = readAllFiles (currentLocation)
         val sorted = scala.util.Sorting.stableSort (allEvents, (f: ReplayEvent) => f.eventTime)
         sorted
         //sorted.reverse // (ascending order)
@@ -147,13 +147,10 @@ class ReplayReader(val location: File)
      * simple validation check
      */
     private def checkFile(file: File): Boolean = {
-        // FIXME this method will always (in 100% of all cases) return true....
-
         if (file.isDirectory)
             return false
         if (!file.getName.endsWith ("class"))
             return false
-        // TODO do you want check that we have something like: a.<DATE>.<KIND>.class ? If so, document it.
         if (file.getName.split (FILE_METADATA_SEPARATOR).size < 3)
             return false
         true

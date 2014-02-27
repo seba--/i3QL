@@ -36,7 +36,7 @@ import idb.algebra.compiler.RelationalAlgebraSAEBinding
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import scala.language.implicitConversions
 import scala.virtualization.lms.common._
-import idb.algebra.{RelationalAlgebraIROperatorsPackage, RelationalAlgebraIRNormalizePackage, RelationalAlgebraIROptPackage}
+import idb.algebra.{RelationalAlgebraIRFusionPackage, RelationalAlgebraIROperatorsPackage, RelationalAlgebraIRNormalizePackage, RelationalAlgebraIROptPackage}
 import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
 import idb.lms.extensions.lifiting.LiftEverything
 import idb.algebra.print.RelationalAlgebraPrintPlan
@@ -50,13 +50,15 @@ import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
  * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
  * functions.
  * Importing the object automatically brings Rep and Exp into Scope.
+ * Note that the order of the imports is important.
  *
  * @author Ralf Mitschke
  */
 object IR
     extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROperatorsPackage
-    with RelationalAlgebraIROptPackage
+	with RelationalAlgebraIRFusionPackage
+//    with RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizePackage
     with TupledFunctionsExpDynamicLambda
     with RelationalAlgebraSAEBinding
@@ -65,9 +67,6 @@ object IR
     with StaticDataExp
     with LiftEverything
 {
-
-
-
     type SubQuery[+T] = IQL_SUB_QUERY[T]
 
 }

@@ -107,7 +107,7 @@ trait AbstractPropertiesFileProfiler extends PropertiesFileImporter {
 
 	def usage: String
 
-	def benchmarkType: String
+	var benchmarkType: String
 
 	def dataStatistic(jars: List[String]): DataStatistic
 
