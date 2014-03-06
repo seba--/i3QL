@@ -52,9 +52,11 @@ trait MemoryMeasurement
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         //memoryMXBean.setVerbose(true)
         memoryMXBean.gc()
+		Thread.sleep(2000)
         val usedBefore = memoryMXBean.getHeapMemoryUsage.getUsed
         val r = f
         memoryMXBean.gc()
+		Thread.sleep(2000)
         val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
         mu(usedAfter - usedBefore)
         r

@@ -102,15 +102,4 @@ trait AbstractAnalysesTimeProfiler
 	}
 
 	def measurementUnit = MilliSeconds
-
-	def dataStatistic(jars: List[String]): DataStatistic = {
-
-		jars.foreach(jar => {
-			val stream = this.getClass.getClassLoader.getResourceAsStream(jar)
-			database.addArchive(stream)
-			stream.close()
-		})
-
-		SimpleDataStatistic(database.classCount, database.methodCount, database.fieldCount, database.instructionCount)
-	}
 }

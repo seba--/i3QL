@@ -60,6 +60,8 @@ trait FunctionUtils
         )
     }
 
+	//override def findDefinition[T](d: Def[T]): Option[Stm] = None
+
     def parametersAsList[A] (params: Exp[A]): List[Exp[Any]] = {
         params match {
             case UnboxedTuple (xs) => xs

@@ -10,5 +10,7 @@ object ASMDatabaseReplayTimeProfiler
 	with AbstractAnalysesReplayTimeProfiler
 {
 	override def createBytecodeDatabase: BytecodeDatabase = ASMDatabaseFactory.create()
-	override var benchmarkType: String = "ASM-database-replay-time"
+
+	override def benchmarkType : String = "time"
+	override def queryType : String = "no-lms-opts"
 }

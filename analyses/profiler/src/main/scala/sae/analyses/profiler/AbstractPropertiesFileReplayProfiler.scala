@@ -59,10 +59,10 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		}
 		)
 
-		val warmupIterations = properties.getProperty("sae.warmup.iterations").toInt
+		val warmupIterations = 2//properties.getProperty("sae.warmup.iterations").toInt
 		val warmupLocation = properties.getProperty("sae.warmup.location")
 
-		val measurementIterations = properties.getProperty("sae.benchmark.iterations").toInt
+		val measurementIterations = 3//properties.getProperty("sae.benchmark.iterations").toInt
 		val measurementLocation = properties.getProperty("sae.benchmark.location")
 
 		val queries =
@@ -75,12 +75,13 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 				properties.getProperty ("sae.benchmark.queries").split (";").toList
 			}
 
-		val outputFile = properties.getProperty("sae.benchmark.out", System.getProperty("user.dir") + "/bench_"+benchmarkType+"_"+queries.fold("")((s, q) => s + q)+".csv")
+		val outputPath = System.getProperty("user.dir") + "/benchmarks/" + benchmarkType + "/"+ queryType
+		val outputFile = "/" + propertiesFile + ".csv"
 
+		val path = new File(outputPath)
+		path.mkdirs()
 
 		println("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation)
-
-
 
 		val warmupEventReader = new ReplayReader(new File(warmupLocation))
 		val warmupEvents = warmupEventReader.getAllEventSets
@@ -124,7 +125,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 			return
         }
 
-  		reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics)
+  		reportCSV(outputPath + outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics)
 	}
 
 
@@ -132,10 +133,14 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                   eventSets: List[Seq[ReplayEvent]], dataStatistics: List[DataStatistic], queries: List[String],
                   statistics: List[ReplayStatistic]) {
 
-        val file = new File(outputFile)
 
-        if(file.exists())
-            file.delete()
+		val file = new File(outputFile)
+
+		if(file.exists())
+			file.delete()
+
+
+		file.createNewFile()
 
         val out = new PrintWriter(new FileWriter(file, true))
 
@@ -173,7 +178,7 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
                 dataStatistics(i).fieldCount + separator +
                 dataStatistics(i).instructionCount + separator +
                 warmUpIterations + separator +
-                measurementIterations + separator
+                measurementIterations
                 //resultCounts(i)
 
             for (j <- 1 to measurementIterations)
@@ -185,7 +190,10 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
         out.close()
     }
 
-    var benchmarkType: String
+    def benchmarkType : String
+	def queryType : String
+
+
 
    // def dataStatistics(eventSets: List[Seq[ReplayEvent]]): List[DataStatistic]
 

@@ -54,6 +54,8 @@ abstract class BytecodeDatabaseAnalysesReplayProfiler
 {
 	def createBytecodeDatabase : BytecodeDatabase
 
+
+
 	var database : DatabaseReader = null
 	private var bytecodeDatabase : BytecodeDatabase = null
 	private var analyses : Analyses = null

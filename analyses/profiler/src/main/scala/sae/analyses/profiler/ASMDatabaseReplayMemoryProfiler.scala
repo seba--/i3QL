@@ -10,5 +10,7 @@ object ASMDatabaseReplayMemoryProfiler
 	with AbstractAnalysesReplayMemoryProfiler
 {
 	override def createBytecodeDatabase: BytecodeDatabase = ASMDatabaseFactory.create()
-	override var benchmarkType: String = "ASM-database-replay-memory"
+
+	override def benchmarkType : String = "memory"
+	override def queryType : String = "no-opts"
 }
