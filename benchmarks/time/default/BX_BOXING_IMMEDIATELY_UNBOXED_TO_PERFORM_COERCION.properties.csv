@@ -1,4 +1,4 @@
-benchmark;queries;location;timestamp;change size;classes;methods;fields;instructions;warmup iterations;measure iterations;times(KiB)
+benchmark;queries;location;timestamp;change size;classes;methods;fields;instructions;warmup iterations;measure iterations;times(KiB);2;3;4;5
 time;BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION;test-data/src/main/resources/vespucci_developer_changes;1000000000000;381;381;0;0;0;5;5;13166.625;13167.609375;13167.109375;13167.109375;13167.109375
 time;BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION;test-data/src/main/resources/vespucci_developer_changes;1310221951171;1;380;0;0;0;5;5;8.1171875;8.1171875;8.1171875;8.1171875;8.1171875
 time;BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION;test-data/src/main/resources/vespucci_developer_changes;1310222092902;1;380;0;0;0;5;5;-0.078125;-0.078125;-0.078125;-0.078125;-0.078125

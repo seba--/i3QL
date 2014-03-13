@@ -1,4 +1,4 @@
-benchmark;queries;location;timestamp;change size;classes;methods;fields;instructions;warmup iterations;measure iterations;times(ms)
+benchmark;queries;location;timestamp;change size;classes;methods;fields;instructions;warmup iterations;measure iterations;times(ms);2;3;4;5
 time;CN_IDIOM;test-data/src/main/resources/vespucci_developer_changes;1000000000000;381;381;0;0;0;5;5;134.842267;135.220194;134.150103;134.783404;133.190191
 time;CN_IDIOM;test-data/src/main/resources/vespucci_developer_changes;1310221951171;1;380;0;0;0;5;5;2.73424;2.690168;2.785253;2.670246;2.692583
 time;CN_IDIOM;test-data/src/main/resources/vespucci_developer_changes;1310222092902;1;380;0;0;0;5;5;2.752652;2.769557;2.785556;2.801554;2.780424
