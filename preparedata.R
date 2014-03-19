@@ -1,15 +1,42 @@
 
-preparecsv <- function(benchmarkType, optType, analysisName) {
-  #"benchmarks\\time\\default\\CN_IDIOM.properties.csv"
+preparecsv5 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
   data <- read.csv(file.path("benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
-                   head=TRUE, 
+                   head=FALSE, 
                    sep=";",
+                   skip = skipLines + 1,
                    colClasses = c("character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
   ) 
   
   colnames(data) <- c("benchmark", "queries", "location", "timestamp", "changes", "classes", "methods", "fields", "instructions", "warmup", "measure", "result.a", "result.b", "result.c", "result.d", "result.e")
   
   data$average <- (data$result.a + data$result.b + data$result.c + data$result.d + data$result.e) / 5
+
+  data$totalchanges[1] <- data$changes[1]
+  for (i in 2:nrow(data)) {
+    data$totalchanges[i] <- data$totalchanges[i-1] + data$changes[i]
+  }
+  
+  data$totalresult[1] <- data$average[1]
+  for (i in 2:nrow(data)) {
+    data$totalresult[i] <- data$totalresult[i-1] + data$average[i]
+  }
+  
+  data <- data[order(data$changes),]
+  
+  return(data)
+}
+
+preparecsv3 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
+  data <- read.csv(file.path("benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
+                   head=FALSE, 
+                   sep=";",
+                   skip = skipLines + 1,
+                   colClasses = c("character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
+  ) 
+  
+  colnames(data) <- c("benchmark", "queries", "location", "timestamp", "changes", "classes", "methods", "fields", "instructions", "warmup", "measure", "result.a", "result.b", "result.c")
+  
+  data$average <- (data$result.a + data$result.b + data$result.c) / 3
   
   data$totalchanges[1] <- data$changes[1]
   for (i in 2:nrow(data)) {
@@ -20,12 +47,38 @@ preparecsv <- function(benchmarkType, optType, analysisName) {
   for (i in 2:nrow(data)) {
     data$totalresult[i] <- data$totalresult[i-1] + data$average[i]
   }
+  
+  data <- data[order(data$changes),]
+  
   return(data)
 }
 
 
-time_default_cnidiom <- preparecsv("time","default","CN_IDIOM")
-time_default_dmgc <- preparecsv("time","default","DM_GC")
+names <- c(
+  "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION", 
+  "CI_CONFUSED_INHERITANCE",  
+  "CN_IDIOM",  
+  "CN_IDIOM_NO_SUPER_CALL", 
+  "DM_GC", 
+  "DM_RUN_FINALIZERS_ON_EXIT", 
+  #"DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT", 
+  "DP_DO_INSIDE_DO_PRIVILEGED", 
+  "EQ_ABSTRACT_SELF", 
+  "FI_PUBLIC_SHOULD_BE_PROTECTED",
+  #"FI_USELESS",
+  "IMSE_DONT_CATCH_IMSE",
+  "MS_PKGPROTECT",
+  "MS_SHOULD_BE_FINAL",
+  "SE_BAD_FIELD_INNER_CLASS",
+  #"SS_SHOULD_BE_STATIC",
+  "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD",
+  "UG_SYNC_SET_UNSYNC_GET"
+)
+
+
+
+# time_default_cnidiom <- preparecsv5("time","default","CN_IDIOM")
+# time_default_dmgc <- preparecsv5("time","default","DM_GC")
 
 
 

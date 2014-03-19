@@ -1,0 +1,24 @@
+\documentclass{article}
+\begin{document}
+\begin{center} \makebox[\textwidth]{
+\begin{tabular}{ p{5cm} || r | r | r | r | r | r |}
+& \multicolumn{2}{| l |}{with optimizations} & \multicolumn{2}{| l |}{without optimizations}  & \multicolumn{2}{| l |}{without LMS optimizations}\\
+ & Time (ms) & Memory (KiB) & Time (ms) & Memory (KiB)  & Time (ms) & Memory (KiB) \\ \hline \hline
+BX BOXING IMMEDIATELY UNBOXED TO PERFORM COERCION & 2312.04 & 13698.63 & 345684.19 & 13414.70 & time & mem \\ \hline
+CI CONFUSED INHERITANCE & 2161.97 & 13694.17 & 2180.10 & 13611.47 & time & mem \\ \hline
+CN IDIOM & 2298.57 & 13898.93 & 12873.38 & 13781.56 & time & mem \\ \hline
+CN IDIOM NO SUPER CALL & 2254.35 & 13685.93 & 47218.25 & 13717.01 & time & mem \\ \hline
+DM GC & 2491.45 & 13665.74 & 2806.16 & 13663.60 & time & mem \\ \hline
+DM RUN FINALIZERS ON EXIT & 2151.80 & 13678.71 & 2435.74 & 13680.90 & time & mem \\ \hline
+DP DO INSIDE DO PRIVILEGED & 2083.25 & 13663.46 & 2248.17 & 13639.59 & time & mem \\ \hline
+EQ ABSTRACT SELF & 2120.62 & 13674.68 & 2259.03 & 13666.65 & time & mem \\ \hline
+FI PUBLIC SHOULD BE PROTECTED & 2095.91 & 13676.81 & 2212.64 & 13676.37 & time & mem \\ \hline
+IMSE DONT CATCH IMSE & 2054.89 & 13677.10 & 2151.38 & 13596.74 & time & mem \\ \hline
+MS PKGPROTECT & 2345.32 & 13861.99 & 3019.35 & 13800.30 & time & mem \\ \hline
+MS SHOULD BE FINAL & 2099.94 & 13664.94 & 2242.49 & 13660.18 & time & mem \\ \hline
+SE BAD FIELD INNER CLASS & 2109.37 & 13726.83 & 2240.53 & 13709.27 & time & mem \\ \hline
+SW SWING METHODS INVOKED IN SWING THREAD & 2316.70 & 13694.17 & 2424.88 & 13637.21 & time & mem \\ \hline
+UG SYNC SET UNSYNC GET & 2139.93 & 13934.49 & 2238.27 & 13679.24 & time & mem \\ \hline
+\end{tabular}}
+\end{center}
+\end{document}

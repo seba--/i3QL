@@ -1,6 +1,7 @@
 package sae.analyses.profiler
 
 import sae.bytecode.{BytecodeDatabase, ASMDatabaseFactory}
+import sae.analyses.profiler.interfaces.{BytecodeDatabaseAnalysesReplayProfiler, AbstractAnalysesReplayMemoryProfiler}
 
 /**
  * @author Mirko Köhler
