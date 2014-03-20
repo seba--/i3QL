@@ -6,16 +6,18 @@ totalaverage <- 0
 totalerror <- 0
 
 #Options
-plotsize <- 350
-type <-  "time"
+plotsizeX <- 310
+plotsizeY <- 130
+plotsizeMax <- max(plotsizeX, plotsizeY)
+type <-  "memory"
 skip <- 1
 
 
 #Initialization
-sx = "Number of changes"  
+sx = "Change size"  
 if (type == "memory") {
   t = "Memory usage of analysis"
-  sy = "Memory (KiB)"
+  sy = "Memory change (KiB)"
 } else if (type == "time") {
   t = "Duration of analysis"
   sy = "Time (ms)"
@@ -36,10 +38,10 @@ plotAnalysisResults <- function(benchmarkType, analysisName) {
   #Plot the data
   changes <<- dataDefault$changes  
   
-  plot(x = dataNoOpts$changes, y = dataNoOpts$average, type = "l", col ="red", lty = 3, xlim = c(0,plotsize), ylim = c(0,plotsize),xlab=sx, ylab=sy)
+  plot(x = dataNoOpts$changes, y = dataNoOpts$average, type = "l", col ="red", lty = 3, xlim = c(0,plotsizeX), ylim = c(0,plotsizeY),xlab=sx, ylab=sy)
  # title(main=paste(t,analysisName,sep="\n"))
   lines(x = dataDefault$changes, y = dataDefault$average, col ="red")
-  lines(x = 0:plotsize, y = 0:plotsize, lty=2)
+  lines(x = 0:plotsizeMax, y = 0:plotsizeMax, lty=2)
   
 }
 
@@ -58,9 +60,10 @@ for (s in names) {
 
 totalerror <- totalerror / length(names)
 
-plot(x = 0:plotsize, y = 0:plotsize, lty=2, type="l", xlim = c(0,plotsize), ylim = c(0,plotsize),ylab=sy, xlab=sx)
-lines(x = changes, y = (totalaverage + totalerror), type = "l", col ="gray", lty = 1)
-lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
+plot(x = 0:plotsizeMax, y = 0:plotsizeMax, lty=2, type="l", xlim = c(0,plotsizeX), ylim = c(-110,plotsizeY),ylab=sy, xlab=sx)
+#lines(x = changes, y = (totalaverage + totalerror), type = "l", col ="gray", lty = 1)
+#lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
+lines(x = -100:(plotsizeMax+100), y = rep(0, 201 + plotsizeMax), lty=3)
 lines(x = changes, y = totalaverage, col="red")
 
 
