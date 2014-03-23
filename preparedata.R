@@ -1,5 +1,5 @@
 
-preparecsv5 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
+preparecsv5 <- function(benchmarkType, optType, analysisName, skipLines = 0, ordered = FALSE) {
   data <- read.csv(file.path("benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
                    head=FALSE, 
                    sep=";",
@@ -21,12 +21,15 @@ preparecsv5 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
     data$totalresult[i] <- data$totalresult[i-1] + data$average[i]
   }
   
-  data <- data[order(data$changes),]
+  if (ordered) {
+    data <- data[order(data$changes),]
+  }
+  
   
   return(data)
 }
 
-preparecsv3 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
+preparecsv3 <- function(benchmarkType, optType, analysisName, skipLines = 0, ordered = FALSE) {
   data <- read.csv(file.path("benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
                    head=FALSE, 
                    sep=";",
@@ -48,7 +51,9 @@ preparecsv3 <- function(benchmarkType, optType, analysisName, skipLines = 0) {
     data$totalresult[i] <- data$totalresult[i-1] + data$average[i]
   }
   
-  data <- data[order(data$changes),]
+  if (ordered) {
+    data <- data[order(data$changes),]
+  }
   
   return(data)
 }

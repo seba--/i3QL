@@ -1,28 +1,28 @@
 \begin{table*} \begin{center}
 \begin{tabular}{ l  r  r | r r r | r r r }
-& \multicolumn{2}{ c }{OPT} & \multicolumn{3}{ c }{NO-ALG-OPT}  & \multicolumn{3}{ c }{NO-LMS-OPT}\\
+& \multicolumn{2}{ c }{NO-OPT} & \multicolumn{3}{ c }{LMS-OPT}  & \multicolumn{3}{ c }{ALG-LMS-OPT}\\
 \toprule
-\multicolumn{1}{r|}{} & Time & Memory & Time & SpeedUp & Memory & Time & SpeedUp & Memory \\
+\multicolumn{1}{r|}{} & Time & Memory & Time & Speedup & Memory & Time & Speedup & Memory \\
 \midrule
-\multicolumn{1}{r|}{A} & 2312.04 & 13698.63 & 345684.19 & 14951.47\% & 13414.70 & 1329936.29 & 57522.18\% & mem \\
-\multicolumn{1}{r|}{B} & 2161.97 & 13694.17 & 2180.10 & 100.84\% & 13611.47 & 2084.04 & 96.40\% & mem \\
-\multicolumn{1}{r|}{C} & 2298.57 & 13898.93 & 12873.38 & 560.06\% & 13781.56 & 10889.12 & 473.73\% & mem \\
-\multicolumn{1}{r|}{D} & 2254.35 & 13685.93 & 47218.25 & 2094.54\% & 13717.01 & 39451.98 & 1750.04\% & mem \\
-\multicolumn{1}{r|}{E} & 2491.45 & 13665.74 & 2806.16 & 112.63\% & 13663.60 & 4841.84 & 194.34\% & mem \\
-\multicolumn{1}{r|}{F} & 2151.80 & 13678.71 & 2435.74 & 113.20\% & 13680.90 & 2463.81 & 114.50\% & mem \\
-\multicolumn{1}{r|}{G} & 2083.25 & 13663.46 & 2248.17 & 107.92\% & 13639.59 & 2345.25 & 112.58\% & mem \\
-\multicolumn{1}{r|}{H} & 2120.62 & 13674.68 & 2259.03 & 106.53\% & 13666.65 & 2257.02 & 106.43\% & mem \\
-\multicolumn{1}{r|}{I} & 2095.91 & 13676.81 & 2212.64 & 105.57\% & 13676.37 & 2198.39 & 104.89\% & mem \\
-\multicolumn{1}{r|}{J} & 2054.89 & 13677.10 & 2151.38 & 104.70\% & 13596.74 & 2109.33 & 102.65\% & mem \\
-\multicolumn{1}{r|}{K} & 2345.32 & 13861.99 & 3019.35 & 128.74\% & 13800.30 & 3244.49 & 138.34\% & mem \\
-\multicolumn{1}{r|}{L} & 2099.94 & 13664.94 & 2242.49 & 106.79\% & 13660.18 & 2264.46 & 107.83\% & mem \\
-\multicolumn{1}{r|}{M} & 2109.37 & 13726.83 & 2240.53 & 106.22\% & 13709.27 & 2184.53 & 103.56\% & mem \\
-\multicolumn{1}{r|}{N} & 2316.70 & 13694.17 & 2424.88 & 104.67\% & 13637.21 & 3784.96 & 163.38\% & mem \\
-\multicolumn{1}{r|}{O} & 2139.93 & 13934.49 & 2238.27 & 104.60\% & 13679.24 & 2531.69 & 118.31\% & mem \\
+\multicolumn{1}{r|}{A} & 1329936 & -453 & 345684 & 3.85 & -433 & 2312 & 575.22 & 532 \\
+\multicolumn{1}{r|}{B} & 2084 & 565 & 2180 & 0.96 & 479 & 2162 & 0.96 & 563 \\
+\multicolumn{1}{r|}{C} & 10889 & 66 & 12873 & 0.85 & 43 & 2299 & 4.74 & 613 \\
+\multicolumn{1}{r|}{D} & 39452 & 67 & 47218 & 0.84 & 60 & 2254 & 17.50 & 544 \\
+\multicolumn{1}{r|}{E} & 4842 & 565 & 2806 & 1.73 & 531 & 2491 & 1.94 & 535 \\
+\multicolumn{1}{r|}{F} & 2464 & 565 & 2436 & 1.01 & 548 & 2152 & 1.15 & 548 \\
+\multicolumn{1}{r|}{G} & 2345 & 565 & 2248 & 1.04 & 507 & 2083 & 1.13 & 533 \\
+\multicolumn{1}{r|}{H} & 2257 & 565 & 2259 & 1.00 & 534 & 2121 & 1.06 & 544 \\
+\multicolumn{1}{r|}{I} & 2198 & 565 & 2213 & 0.99 & 543 & 2096 & 1.05 & 546 \\
+\multicolumn{1}{r|}{J} & 2109 & 561 & 2151 & 0.98 & 464 & 2055 & 1.03 & 544 \\
+\multicolumn{1}{r|}{K} & 3244 & 577 & 3019 & 1.07 & 563 & 2345 & 1.38 & 650 \\
+\multicolumn{1}{r|}{L} & 2264 & 565 & 2242 & 1.01 & 519 & 2100 & 1.08 & 530 \\
+\multicolumn{1}{r|}{M} & 2185 & 565 & 2241 & 0.98 & 542 & 2109 & 1.04 & 561 \\
+\multicolumn{1}{r|}{N} & 3785 & 565 & 2425 & 1.56 & 504 & 2317 & 1.63 & 563 \\
+\multicolumn{1}{r|}{O} & 2532 & 569 & 2238 & 1.13 & 518 & 2140 & 1.18 & 714 \\
 \bottomrule
 \end{tabular}
-\\ {\small Bug patterns of the analyses similar to FindBugs: A = BX\_BOXING\_IMMEDIATELY\_UNBOXED\_TO\_PERFORM\_COERCION, B = CI\_CONFUSED\_INHERITANCE, C = CN\_IDIOM, D = CN\_IDIOM\_NO\_SUPER\_CALL, E = DM\_GC, F = DM\_RUN\_FINALIZERS\_ON\_EXIT, G = DP\_DO\_INSIDE\_DO\_PRIVILEGED, H = EQ\_ABSTRACT\_SELF, I = FI\_PUBLIC\_SHOULD\_BE\_PROTECTED, J = IMSE\_DONT\_CATCH\_IMSE, K = MS\_PKGPROTECT, L = MS\_SHOULD\_BE\_FINAL, M = SE\_BAD\_FIELD\_INNER\_CLASS, N = SW\_SWING\_METHODS\_INVOKED\_IN\_SWING\_THREAD, O = UG\_SYNC\_SET\_UNSYNC\_GET}
 \end{center}
-\caption{Total duration (in ms) and total memory usage (in KiB) for the static program analyses, as well as the time speed up relative to the analysis with optimizations.}
+{\small Bug patterns of the analyses similar to FindBugs: A = BX\_BOXING\_IMMEDIATELY\_UNBOXED\_TO\_PERFORM\_COERCION, B = CI\_CONFUSED\_INHERITANCE, C = CN\_IDIOM, D = CN\_IDIOM\_NO\_SUPER\_CALL, E = DM\_GC, F = DM\_RUN\_FINALIZERS\_ON\_EXIT, G = DP\_DO\_INSIDE\_DO\_PRIVILEGED, H = EQ\_ABSTRACT\_SELF, I = FI\_PUBLIC\_SHOULD\_BE\_PROTECTED, J = IMSE\_DONT\_CATCH\_IMSE, K = MS\_PKGPROTECT, L = MS\_SHOULD\_BE\_FINAL, M = SE\_BAD\_FIELD\_INNER\_CLASS, N = SW\_SWING\_METHODS\_INVOKED\_IN\_SWING\_THREAD, O = UG\_SYNC\_SET\_UNSYNC\_GET}
+\caption{Total duration (in ms) and total memory usage (in KiB) for the static program analyses, as well as the time speed up relative to NO-OPT.}
 \label{tbl:analysisbenchmarks}
 \end{table*}

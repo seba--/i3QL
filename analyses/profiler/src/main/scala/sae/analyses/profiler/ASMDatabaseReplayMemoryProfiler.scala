@@ -13,5 +13,5 @@ object ASMDatabaseReplayMemoryProfiler
 	override def createBytecodeDatabase: BytecodeDatabase = ASMDatabaseFactory.create()
 
 	override def benchmarkType : String = "memory"
-	override def queryType : String = "default"
+	override def queryType : String = "no-lms-opts"
 }

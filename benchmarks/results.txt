@@ -1,0 +1,5 @@
+							Time				Memory
+first iteration i3ql: 		129.9631 ms			-
+first iteration findbugs: 	534.6314916563 ms	738,5818142361 KiB
+
+

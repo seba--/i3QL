@@ -30,6 +30,7 @@ class Analyses(database : BytecodeDatabase) {
 		ITA_INEFFICIENT_TO_ARRAY ::
 		MS_PKGPROTECT ::
 		MS_SHOULD_BE_FINAL ::
+		NONE ::
 		SE_BAD_FIELD_INNER_CLASS ::
 		SE_NO_SUITABLE_CONSTRUCTOR ::
 		SS_SHOULD_BE_STATIC ::

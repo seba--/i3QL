@@ -7,14 +7,14 @@ totalerror <- 0
 
 #Options
 plotsizeX <- 310
-plotsizeY <- 130
+plotsizeY <- 250
 plotsizeMax <- max(plotsizeX, plotsizeY)
-type <-  "memory"
+type <-  "time"
 skip <- 1
 
 
 #Initialization
-sx = "Change size"  
+sx = "Change size (in number of affected classes)"  
 if (type == "memory") {
   t = "Memory usage of analysis"
   sy = "Memory change (KiB)"
@@ -29,8 +29,8 @@ if (type == "memory") {
 
 plotAnalysisResults <- function(benchmarkType, analysisName) {
     
-  dataDefault <- preparecsv5(benchmarkType, "default", analysisName, skipLines = skip)
-  dataNoOpts <- preparecsv3(benchmarkType, "no-opts", analysisName, skipLines = skip)
+  dataDefault <- preparecsv5(benchmarkType, "default", analysisName, skipLines = skip, ordered = TRUE)
+  dataNoOpts <- preparecsv3(benchmarkType, "no-opts", analysisName, skipLines = skip, ordered = TRUE)
   
   #Calculate total average
   totalaverage <<- totalaverage + dataDefault$average
@@ -54,18 +54,21 @@ for (s in names) {
 totalaverage <- totalaverage / length(names)
 
 for (s in names) {
-  data <- preparecsv5(type, "default", s, skipLines = skip)
+  data <- preparecsv5(type, "default", s, skipLines = skip, ordered = TRUE)
   totalerror <- totalerror + abs(data$average - totalaverage)
 }
 
 totalerror <- totalerror / length(names)
 
-plot(x = 0:plotsizeMax, y = 0:plotsizeMax, lty=2, type="l", xlim = c(0,plotsizeX), ylim = c(-110,plotsizeY),ylab=sy, xlab=sx)
+plot(x = -100:(plotsizeMax+100), y = rep(0, 201 + plotsizeMax), col = "gray", lty=3, type="l", xlim = c(0,plotsizeX), ylim = c(-0,plotsizeY),ylab=sy, xlab=sx)
 #lines(x = changes, y = (totalaverage + totalerror), type = "l", col ="gray", lty = 1)
 #lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
-lines(x = -100:(plotsizeMax+100), y = rep(0, 201 + plotsizeMax), lty=3)
 lines(x = changes, y = totalaverage, col="red")
 
+plot(x = -100:(plotsizeMax+100), y = -100:(plotsizeMax+100) , lty=2, type="l", xlim = c(0,plotsizeX), ylim = c(-0,plotsizeY),ylab=sy, xlab=sx)
+#lines(x = changes, y = (totalaverage + totalerror), type = "l", col ="gray", lty = 1)
+#lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
+lines(x = changes, y = totalaverage, col="red")
 
 
 
