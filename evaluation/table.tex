@@ -1,28 +1,28 @@
-\begin{table*} \begin{center}
-\begin{tabular}{ l  r  r | r r r | r r r }
-& \multicolumn{2}{ c }{NO-OPT} & \multicolumn{3}{ c }{PE-OPT}  & \multicolumn{3}{ c }{ALG-PE-OPT}\\
+\begin{table}  \begin{center}
+\begin{tabular}{ l r| r r | r r }
+& \multicolumn{1}{ c }{\bf NO-OPT} & \multicolumn{2}{ c }{\bf PE-OPT}  & \multicolumn{2}{ c }{\bf ALG-PE-OPT}\\
 \toprule
-\multicolumn{1}{r|}{} & Time & Memory & Time & Speedup & Memory & Time & Speedup & Memory \\
+\multicolumn{1}{r|}{} & Time & Time & Speedup & Time & Speedup \\
 \midrule
-\multicolumn{1}{r|}{A} & 1329936 & -453 & 345684 & 3.85 & -433 & 2312 & 575.22 & 532 \\
-\multicolumn{1}{r|}{B} & 2084 & 565 & 2180 & 0.96 & 479 & 2162 & 0.96 & 563 \\
-\multicolumn{1}{r|}{C} & 10889 & 66 & 12873 & 0.85 & 43 & 2299 & 4.74 & 613 \\
-\multicolumn{1}{r|}{D} & 39452 & 67 & 47218 & 0.84 & 60 & 2254 & 17.50 & 544 \\
-\multicolumn{1}{r|}{E} & 4842 & 565 & 2806 & 1.73 & 531 & 2491 & 1.94 & 535 \\
-\multicolumn{1}{r|}{F} & 2464 & 565 & 2436 & 1.01 & 548 & 2152 & 1.15 & 548 \\
-\multicolumn{1}{r|}{G} & 2345 & 565 & 2248 & 1.04 & 507 & 2083 & 1.13 & 533 \\
-\multicolumn{1}{r|}{H} & 2257 & 565 & 2259 & 1.00 & 534 & 2121 & 1.06 & 544 \\
-\multicolumn{1}{r|}{I} & 2198 & 565 & 2213 & 0.99 & 543 & 2096 & 1.05 & 546 \\
-\multicolumn{1}{r|}{J} & 2109 & 561 & 2151 & 0.98 & 464 & 2055 & 1.03 & 544 \\
-\multicolumn{1}{r|}{K} & 3244 & 577 & 3019 & 1.07 & 563 & 2345 & 1.38 & 650 \\
-\multicolumn{1}{r|}{L} & 2264 & 565 & 2242 & 1.01 & 519 & 2100 & 1.08 & 530 \\
-\multicolumn{1}{r|}{M} & 2185 & 565 & 2241 & 0.98 & 542 & 2109 & 1.04 & 561 \\
-\multicolumn{1}{r|}{N} & 3785 & 565 & 2425 & 1.56 & 504 & 2317 & 1.63 & 563 \\
-\multicolumn{1}{r|}{O} & 2532 & 569 & 2238 & 1.13 & 518 & 2140 & 1.18 & 714 \\
+\multicolumn{1}{r|}{A} & 1329.936 & 345.684 & 3.85 & 2.312 & 575.22 \\
+\multicolumn{1}{r|}{B} & 2.084 & 2.180 & 0.96 & 2.162 & 0.96 \\
+\multicolumn{1}{r|}{C} & 10.889 & 12.873 & 0.85 & 2.299 & 4.74 \\
+\multicolumn{1}{r|}{D} & 39.452 & 47.218 & 0.84 & 2.254 & 17.50 \\
+\multicolumn{1}{r|}{E} & 4.842 & 2.806 & 1.73 & 2.491 & 1.94 \\
+\multicolumn{1}{r|}{F} & 2.464 & 2.436 & 1.01 & 2.152 & 1.15 \\
+\multicolumn{1}{r|}{G} & 2.345 & 2.248 & 1.04 & 2.083 & 1.13 \\
+\multicolumn{1}{r|}{H} & 2.257 & 2.259 & 1.00 & 2.121 & 1.06 \\
+\multicolumn{1}{r|}{I} & 2.198 & 2.213 & 0.99 & 2.096 & 1.05 \\
+\multicolumn{1}{r|}{J} & 2.109 & 2.151 & 0.98 & 2.055 & 1.03 \\
+\multicolumn{1}{r|}{K} & 3.244 & 3.019 & 1.07 & 2.345 & 1.38 \\
+\multicolumn{1}{r|}{L} & 2.264 & 2.242 & 1.01 & 2.100 & 1.08 \\
+\multicolumn{1}{r|}{M} & 2.185 & 2.241 & 0.98 & 2.109 & 1.04 \\
+\multicolumn{1}{r|}{N} & 3.785 & 2.425 & 1.56 & 2.317 & 1.63 \\
+\multicolumn{1}{r|}{O} & 2.532 & 2.238 & 1.13 & 2.140 & 1.18 \\
 \bottomrule
 \end{tabular}
 \end{center}
-{\small Bug patterns of the analyses similar to FindBugs: A = BX\_BOXING\_IMMEDIATELY\_UNBOXED\_TO\_PERFORM\_COERCION, B = CI\_CONFUSED\_INHERITANCE, C = CN\_IDIOM, D = CN\_IDIOM\_NO\_SUPER\_CALL, E = DM\_GC, F = DM\_RUN\_FINALIZERS\_ON\_EXIT, G = DP\_DO\_INSIDE\_DO\_PRIVILEGED, H = EQ\_ABSTRACT\_SELF, I = FI\_PUBLIC\_SHOULD\_BE\_PROTECTED, J = IMSE\_DONT\_CATCH\_IMSE, K = MS\_PKGPROTECT, L = MS\_SHOULD\_BE\_FINAL, M = SE\_BAD\_FIELD\_INNER\_CLASS, N = SW\_SWING\_METHODS\_INVOKED\_IN\_SWING\_THREAD, O = UG\_SYNC\_SET\_UNSYNC\_GET}
-\caption{Total duration (in ms) and total memory usage (in KiB) for the static program analyses, as well as the time speed up relative to NO-OPT.}
+{\tiny FindBugs patterns from \href{http://findbugs.sourceforge.net/bugDescriptions.html}{http://findbugs.sourceforge.net/bugDescriptions.html}: A=BX\textunderscore\allowbreak{}BOXING\textunderscore\allowbreak{}IMMEDIATELY\textunderscore\allowbreak{}UNBOXED\textunderscore\allowbreak{}TO\textunderscore\allowbreak{}PERFORM\textunderscore\allowbreak{}COERCION, B=CI\textunderscore\allowbreak{}CONFUSED\textunderscore\allowbreak{}INHERITANCE, C=CN\textunderscore\allowbreak{}IDIOM, D=CN\textunderscore\allowbreak{}IDIOM\textunderscore\allowbreak{}NO\textunderscore\allowbreak{}SUPER\textunderscore\allowbreak{}CALL, E=DM\textunderscore\allowbreak{}GC, F=DM\textunderscore\allowbreak{}RUN\textunderscore\allowbreak{}FINALIZERS\textunderscore\allowbreak{}ON\textunderscore\allowbreak{}EXIT, G=DP\textunderscore\allowbreak{}DO\textunderscore\allowbreak{}INSIDE\textunderscore\allowbreak{}DO\textunderscore\allowbreak{}PRIVILEGED, H=EQ\textunderscore\allowbreak{}ABSTRACT\textunderscore\allowbreak{}SELF, I=FI\textunderscore\allowbreak{}PUBLIC\textunderscore\allowbreak{}SHOULD\textunderscore\allowbreak{}BE\textunderscore\allowbreak{}PROTECTED, J=IMSE\textunderscore\allowbreak{}DONT\textunderscore\allowbreak{}CATCH\textunderscore\allowbreak{}IMSE, K=MS\textunderscore\allowbreak{}PKGPROTECT, L=MS\textunderscore\allowbreak{}SHOULD\textunderscore\allowbreak{}BE\textunderscore\allowbreak{}FINAL, M=SE\textunderscore\allowbreak{}BAD\textunderscore\allowbreak{}FIELD\textunderscore\allowbreak{}INNER\textunderscore\allowbreak{}CLASS, N=SW\textunderscore\allowbreak{}SWING\textunderscore\allowbreak{}METHODS\textunderscore\allowbreak{}INVOKED\textunderscore\allowbreak{}IN\textunderscore\allowbreak{}SWING\textunderscore\allowbreak{}THREAD, O=UG\textunderscore\allowbreak{}SYNC\textunderscore\allowbreak{}SET\textunderscore\allowbreak{}UNSYNC\textunderscore\allowbreak{}GET\par}
+\caption{Duration in seconds, speed up relative to NO-OPT.}
 \label{tbl:analysisbenchmarks}
-\end{table*}
+\end{table}
