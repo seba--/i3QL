@@ -65,7 +65,7 @@ plot(x = -100:(plotsizeMax+100), y = rep(0, 201 + plotsizeMax), col = "gray", lt
 #lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
 lines(x = changes, y = totalaverage, col="red")
 
-plot(x = -100:(plotsizeMax+100), y = -100:(plotsizeMax+100) , lty=2, type="l", xlim = c(0,plotsizeX), ylim = c(-0,plotsizeY),ylab=sy, xlab=sx)
+plot(x = -100:(plotsizeMax+100), y = -100:(plotsizeMax+100) , lty=3, type="l", xlim = c(0,plotsizeX), ylim = c(-0,plotsizeY),ylab=sy, xlab=sx)
 #lines(x = changes, y = (totalaverage + totalerror), type = "l", col ="gray", lty = 1)
 #lines(x = changes, y = (totalaverage - totalerror), type = "l", col ="gray", lty = 1)
 lines(x = changes, y = totalaverage, col="red")

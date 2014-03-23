@@ -11,7 +11,7 @@ firstResult <- 0
 
 write("\\begin{table*} \\begin{center}",file=outfile)
 write("\\begin{tabular}{ l  r  r | r r r | r r r }",file=outfile,append=TRUE)
-write("& \\multicolumn{2}{ c }{NO-OPT} & \\multicolumn{3}{ c }{LMS-OPT}  & \\multicolumn{3}{ c }{ALG-LMS-OPT}\\\\",file=outfile,append=TRUE)
+write("& \\multicolumn{2}{ c }{NO-OPT} & \\multicolumn{3}{ c }{PE-OPT}  & \\multicolumn{3}{ c }{ALG-PE-OPT}\\\\",file=outfile,append=TRUE)
 write("\\toprule",file=outfile,append=TRUE)
 write("\\multicolumn{1}{r|}{} & Time & Memory & Time & Speedup & Memory & Time & Speedup & Memory \\\\",file=outfile,append=TRUE)
 write("\\midrule",file=outfile,append=TRUE)
