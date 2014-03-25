@@ -1,3 +1,0 @@
-bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
-SAEOO memory;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;5;20;true;false;false;false;CA | CE | DIT;20186;22.796;0.379;0.085;MB
-SAEOO memory;scala-compiler.jar;7710;66531;20137;808084;5;20;true;false;false;false;CA | CE | DIT;7852;11.444;0.409;0.092;MB

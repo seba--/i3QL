@@ -1,8 +1,0 @@
-bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;DL_SYNCHRONIZATION;1;15918.409;106.019;14.993;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;DMI_INVOKING_TOSTRING_ON_ARRAY;48;15806.599;77.300;10.932;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;RV_RETURN_VALUE_IGNORED;29118;15655.439;65.214;9.223;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;RC_REF_COMPARISON;28;15610.581;135.433;19.153;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;SA_FIELD_SELF_COMPARISON;1389;15656.835;159.751;22.592;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;SA_LOCAL_SELF_ASSIGNMENT;1004;14813.448;72.042;10.188;ms
-BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;10;50;true;false;false;false;SQL_BAD_PREPARED_STATEMENT_ACCESS;0;16147.388;129.141;18.263;ms
