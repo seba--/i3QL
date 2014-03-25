@@ -11,10 +11,10 @@ firstResult <- 0
 
 
 write("\\begin{table}  \\begin{center}",file=outfile)
-write("\\begin{tabular}{ l r| r r | r r }",file=outfile,append=TRUE)
-write("& \\multicolumn{1}{ c }{\\bf NO-OPT} & \\multicolumn{2}{ c }{\\bf PE-OPT}  & \\multicolumn{2}{ c }{\\bf ALG-PE-OPT}\\\\",file=outfile,append=TRUE)
+write("\\begin{tabular}{ l r r r }",file=outfile,append=TRUE)
+# write("& \\multicolumn{1}{ c }{\\bf NO-OPT} & \\multicolumn{2}{ c }{\\bf OPT}\\\\",file=outfile,append=TRUE)
 write("\\toprule",file=outfile,append=TRUE)
-write("\\multicolumn{1}{r|}{} & Time & Time & Speedup & Time & Speedup \\\\",file=outfile,append=TRUE)
+write("\\multicolumn{1}{r|}{} & Time (no opt.) & Time (with opt.) & Speedup \\\\",file=outfile,append=TRUE)
 write("\\midrule",file=outfile,append=TRUE)
 i <- 0
 for (s in names) {
@@ -41,8 +41,8 @@ for (s in names) {
               " & ", formatt(dataTimeNoLMSOptsSum / 1000) ,   
 #              " & ", formatd(sum(dataMemNoLMSOpts$average)) ,                         
               #LMS_OPTS
-              " & ", formatt(dataTimeNoOptsSum / 1000) ,
-              " & ", formatp(dataTimeNoLMSOptsSum / dataTimeNoOptsSum),
+#              " & ", formatt(dataTimeNoOptsSum / 1000) ,
+#              " & ", formatp(dataTimeNoLMSOptsSum / dataTimeNoOptsSum),
 #              " & ", formatd(sum(dataMemNoOpts$average)) ,
               #ALG-LMS-OPTS
               " & ", formatt(dataTimeSum / 1000),
@@ -59,7 +59,7 @@ write("\\bottomrule",file=outfile,append=TRUE)
 write("\\end{tabular}",file=outfile,append=TRUE)
 write("\\end{center}",file=outfile,append=TRUE)
 write("{\\tiny FindBugs patterns from \\href{http://findbugs.sourceforge.net/bugDescriptions.html}{http://findbugs.sourceforge.net/bugDescriptions.html}: A=BX\\textunderscore\\allowbreak{}BOXING\\textunderscore\\allowbreak{}IMMEDIATELY\\textunderscore\\allowbreak{}UNBOXED\\textunderscore\\allowbreak{}TO\\textunderscore\\allowbreak{}PERFORM\\textunderscore\\allowbreak{}COERCION, B=CI\\textunderscore\\allowbreak{}CONFUSED\\textunderscore\\allowbreak{}INHERITANCE, C=CN\\textunderscore\\allowbreak{}IDIOM, D=CN\\textunderscore\\allowbreak{}IDIOM\\textunderscore\\allowbreak{}NO\\textunderscore\\allowbreak{}SUPER\\textunderscore\\allowbreak{}CALL, E=DM\\textunderscore\\allowbreak{}GC, F=DM\\textunderscore\\allowbreak{}RUN\\textunderscore\\allowbreak{}FINALIZERS\\textunderscore\\allowbreak{}ON\\textunderscore\\allowbreak{}EXIT, G=DP\\textunderscore\\allowbreak{}DO\\textunderscore\\allowbreak{}INSIDE\\textunderscore\\allowbreak{}DO\\textunderscore\\allowbreak{}PRIVILEGED, H=EQ\\textunderscore\\allowbreak{}ABSTRACT\\textunderscore\\allowbreak{}SELF, I=FI\\textunderscore\\allowbreak{}PUBLIC\\textunderscore\\allowbreak{}SHOULD\\textunderscore\\allowbreak{}BE\\textunderscore\\allowbreak{}PROTECTED, J=IMSE\\textunderscore\\allowbreak{}DONT\\textunderscore\\allowbreak{}CATCH\\textunderscore\\allowbreak{}IMSE, K=MS\\textunderscore\\allowbreak{}PKGPROTECT, L=MS\\textunderscore\\allowbreak{}SHOULD\\textunderscore\\allowbreak{}BE\\textunderscore\\allowbreak{}FINAL, M=SE\\textunderscore\\allowbreak{}BAD\\textunderscore\\allowbreak{}FIELD\\textunderscore\\allowbreak{}INNER\\textunderscore\\allowbreak{}CLASS, N=SW\\textunderscore\\allowbreak{}SWING\\textunderscore\\allowbreak{}METHODS\\textunderscore\\allowbreak{}INVOKED\\textunderscore\\allowbreak{}IN\\textunderscore\\allowbreak{}SWING\\textunderscore\\allowbreak{}THREAD, O=UG\\textunderscore\\allowbreak{}SYNC\\textunderscore\\allowbreak{}SET\\textunderscore\\allowbreak{}UNSYNC\\textunderscore\\allowbreak{}GET\\par}",file=outfile,append=TRUE)
-write("\\caption{Total time in seconds for analyzing initial revision and replaying all $242$ changes, speedup relative to NO-OPT.}",file=outfile,append=TRUE)
+write("\\caption{Total time in seconds and optimization speedup for analyzing the initial revision and replaying all $242$ changes.}",file=outfile,append=TRUE)
 write("\\label{tbl:analysisbenchmarks}",file=outfile,append=TRUE)
 write("\\end{table}",file=outfile,append=TRUE)
 
