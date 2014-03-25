@@ -1,6 +1,6 @@
 
 preparecsv5 <- function(benchmarkType, optType, analysisName, skipLines = 0, ordered = FALSE) {
-  data <- read.csv(file.path("benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
+  data <- read.csv(file.path("findbugs-benchmarks",benchmarkType,optType,paste(analysisName,".properties.csv",sep="")), 
                    head=FALSE, 
                    sep=";",
                    skip = skipLines + 1,
