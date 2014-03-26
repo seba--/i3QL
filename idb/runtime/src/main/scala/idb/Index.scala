@@ -56,7 +56,7 @@ import idb.observer.{NotifyObservers, Observer, Observable}
  *
  */
 trait Index[K, V]
-    extends Relation[(K, V)]
+    extends View[(K, V)]
     with Observer[V]
 	with NotifyObservers[(K,V)]
 {

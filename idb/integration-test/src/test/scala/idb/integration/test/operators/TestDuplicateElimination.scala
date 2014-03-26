@@ -8,7 +8,7 @@ import idb.syntax.iql.IR._
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
-import idb.{BagExtent, MaterializedView}
+import idb.{BagTable, MaterializedView}
 
 
 /**
@@ -24,12 +24,12 @@ class TestDuplicateElimination extends AbstractStudentOperatorTest[Student] with
 	val printQuery = true
 
 	var query : Relation[Student] = null
-	var extent : Extent[Student] = null
+	var table : Table[Student] = null
 
 	@Before
 	def setUp() {
-		extent = BagExtent.empty[Student]
-		query = compile(SELECT DISTINCT (*) FROM (extent))
+		table = BagTable.empty[Student]
+		query = compile(SELECT DISTINCT (*) FROM (table))
 	}
 
 

@@ -37,7 +37,7 @@ import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
 import idb.schema.university.{Student, University}
-import idb.SetExtent
+import idb.SetTable
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.lifiting.LiftEverything
 
@@ -54,7 +54,7 @@ class TestIRGenBasicOperatorsAsIncremental
     @Test
     def testConstructSelection () {
 
-        val base = new SetExtent[Student]
+        val base = new SetTable[Student]
 
         val prog = new RelationalAlgebraIRBasicOperators
             with RelationalAlgebraIRSetTheoryOperators
@@ -65,7 +65,7 @@ class TestIRGenBasicOperatorsAsIncremental
             with University
             with LiftEverything
         {
-            val query = selection (extent (base), (s: Rep[Student]) => s.firstName == "Sally")
+            val query = selection (table (base), (s: Rep[Student]) => s.firstName == "Sally")
         }
 
         val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct

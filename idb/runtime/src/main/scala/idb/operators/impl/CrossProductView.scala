@@ -1,7 +1,7 @@
 package idb.operators.impl
 
 import idb.operators.CrossProduct
-import idb.{MaterializedView, Extent, Relation}
+import idb.{MaterializedView, Table, Relation}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
 /**

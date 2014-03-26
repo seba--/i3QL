@@ -1,7 +1,7 @@
 package idb.operators.impl.opt
 
 import idb.operators.CrossProduct
-import idb.{Extent, Relation}
+import idb.{Table, Relation}
 import idb.observer.{Observable, NotifyObservers, Observer}
 import idb.operators.impl.util.TransactionElementObserver
 

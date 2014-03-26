@@ -32,7 +32,7 @@
  */
 package sae.bytecode.asm
 
-import idb.SetExtent
+import idb.SetTable
 import sae.bytecode.structure.instructions.{BytecodeInstructionsManifest, BytecodeInstructionsRelations}
 import idb.syntax.iql._
 import sae.bytecode.asm.instructions.opcodes.{TABLESWITCH, LOOKUPSWITCH, RET, IINC}
@@ -48,49 +48,49 @@ trait ASMInstructionsRelations
 {
 
     val basicInstructions =
-        SetExtent.empty[Instruction]()
+        SetTable.empty[Instruction]()
 
     val fieldReadInstructions =
-        SetExtent.empty[FieldAccessInstruction]()
+        SetTable.empty[FieldAccessInstruction]()
 
     val fieldWriteInstructions =
-        SetExtent.empty[FieldAccessInstruction]()
+        SetTable.empty[FieldAccessInstruction]()
 
     val constantValueInstructions =
-        SetExtent.empty[ConstantValueInstruction[Any]]()
+        SetTable.empty[ConstantValueInstruction[Any]]()
 
     val lookupSwitchInstructions =
-        SetExtent.empty[LOOKUPSWITCH]()
+        SetTable.empty[LOOKUPSWITCH]()
 
     val tableSwitchInstructions =
-        SetExtent.empty[TABLESWITCH]()
+        SetTable.empty[TABLESWITCH]()
 
     val methodInvocationInstructions =
-        SetExtent.empty[MethodInvocationInstruction]()
+        SetTable.empty[MethodInvocationInstruction]()
 
     val objectTypeInstructions =
-        SetExtent.empty[ObjectTypeInstruction]()
+        SetTable.empty[ObjectTypeInstruction]()
 
     val newArrayInstructions =
-        SetExtent.empty[NewArrayInstruction[Any]]()
+        SetTable.empty[NewArrayInstruction[Any]]()
 
     val localVariableLoadInstructions =
-        SetExtent.empty[LocalVariableAccessInstruction]()
+        SetTable.empty[LocalVariableAccessInstruction]()
 
     val localVariableStoreInstructions =
-        SetExtent.empty[LocalVariableAccessInstruction]()
+        SetTable.empty[LocalVariableAccessInstruction]()
 
     val retInstructions =
-        SetExtent.empty[RET]()
+        SetTable.empty[RET]()
 
     val integerIncrementInstructions =
-        SetExtent.empty[IINC]()
+        SetTable.empty[IINC]()
 
     val conditionalJumpInstructions =
-        SetExtent.empty[JumpInstruction]()
+        SetTable.empty[JumpInstruction]()
 
     val unconditionalJumpInstructions =
-        SetExtent.empty[JumpInstruction]()
+        SetTable.empty[JumpInstruction]()
 
 
     lazy val jumpInstructions = compile (

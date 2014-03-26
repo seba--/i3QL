@@ -52,10 +52,10 @@ trait ScalaOpsExpOptExtensions
     with OptionOpsExpAlphaEquivalence
     with MirrorDefinitions
     with FunctionsExpDynamicLambdaAlphaEquivalence
-   // with ScalaOpsExpConstantPropagation
+    with ScalaOpsExpConstantPropagation
     with NumericOpsExpNormalization
-   // with TupledFunctionsExpBetaReduction
-  //  with TupleOpsExpOptBetaReduction
+    with TupledFunctionsExpBetaReduction
+    with TupleOpsExpOptBetaReduction
     with EffectExpAlphaEquivalence
   //  with BooleanOpsExpSimplification
     //with BooleanOpsExpOrdering

@@ -55,7 +55,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintainedWithoutGrouping (
-				extent (students),
+				table (students),
 				0,
 				fun ((c: Rep[Student], i: Rep[Int]) => i + 1),
 				fun ((c: Rep[Student], i: Rep[Int]) => i - 1),
@@ -73,7 +73,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintainedWithoutGrouping (
-				extent (students),
+				table (students),
 				0,
 				fun ((c: Rep[Student], i: Rep[Int]) => i + 1),
 				fun ((c: Rep[Student], i: Rep[Int]) => i - 1),
@@ -92,7 +92,7 @@ class TestAggregateClauses1
 
         assertEqualStructure (
             aggregationSelfMaintainedWithoutGrouping (
-                extent (courses),
+                table (courses),
                 0,
                 fun ((c: Rep[Course], i: Rep[Int]) => i + c.creditPoints),
                 fun ((c: Rep[Course], i: Rep[Int]) => i - c.creditPoints),
@@ -110,7 +110,7 @@ class TestAggregateClauses1
 
         assertEqualStructure (
             aggregationSelfMaintainedWithoutGrouping (
-                extent (students),
+                table (students),
                 0,
                 fun ((s: Rep[Student], i: Rep[Int]) => i + 1),
                 fun ((s: Rep[Student], i: Rep[Int]) => i - 1),
@@ -130,7 +130,7 @@ class TestAggregateClauses1
 
         assertEqualStructure (
             grouping (
-                extent (students),
+                table (students),
                 fun ((s: Rep[Student]) => s.lastName)
             ),
             query
@@ -150,7 +150,7 @@ class TestAggregateClauses1
 		assertEqualStructure (
 			projection (
 				grouping (
-					extent (students),
+					table (students),
 					fun ((s: Rep[Student]) => (s.firstName, s.lastName))
 				),
 				fun ((firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName)
@@ -168,7 +168,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintainedWithoutConvert (
-				extent (students),
+				table (students),
 				fun ((s: Rep[Student]) =>  s.lastName),
 				0,
 				fun ((s: Rep[Student], i: Rep[Int]) => i + 1),
@@ -189,7 +189,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintained (
-				extent (students),
+				table (students),
 				fun ((s: Rep[Student]) =>  s.lastName),
 				0,
 				fun ((s: Rep[Student], i: Rep[Int]) => i + 1),
@@ -210,7 +210,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintained (
-				extent (students),
+				table (students),
 				fun ((s: Rep[Student]) =>  s.lastName),
 				0,
 				fun ((s: Rep[Student], i: Rep[Int]) => i + 1),
@@ -232,7 +232,7 @@ class TestAggregateClauses1
 
 		assertEqualStructure (
 			aggregationSelfMaintained (
-				extent (students),
+				table (students),
 				fun ((s: Rep[Student]) =>  s.lastName),
 				0,
 				fun ((s: Rep[Student], i: Rep[Int]) => i + s.matriculationNumber),
@@ -258,7 +258,7 @@ class TestAggregateClauses1
 		assertEqualStructure (
 			grouping (
 				selection (
-					extent (students),
+					table (students),
 					fun ((s : Rep[Student]) => s.matriculationNumber > 10000)
 				),
 				fun ((s: Rep[Student]) => s.lastName)
@@ -278,7 +278,7 @@ class TestAggregateClauses1
 		assertEqualStructure (
 			aggregationSelfMaintainedWithoutConvert (
 				selection (
-					extent (students),
+					table (students),
 					fun ((s : Rep[Student]) => s.matriculationNumber > 10000)
 				),
 				fun ((s: Rep[Student]) =>  s.lastName),
@@ -302,7 +302,7 @@ class TestAggregateClauses1
 		assertEqualStructure (
 			aggregationSelfMaintained (
 				selection (
-					extent (students),
+					table (students),
 					fun ((s : Rep[Student]) => s.matriculationNumber > 10000)
 				),
 				fun ((s: Rep[Student]) =>  s.lastName),

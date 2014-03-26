@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.{MaterializedView, Relation}
+import idb.{View, MaterializedView, Relation}
 
 
 /**
@@ -11,7 +11,7 @@ import idb.{MaterializedView, Relation}
  * @author Ralf Mitschke
  */
 trait TransitiveClosure[Edge, Vertex]
-    extends Relation[(Vertex, Vertex)]
+    extends View[(Vertex, Vertex)]
 {
     def source: Relation[Edge]
     // naming after  "Network Flows: Theory, Algorithms, and Applications"

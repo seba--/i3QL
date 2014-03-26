@@ -32,7 +32,7 @@
  */
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -70,7 +70,7 @@ import idb.Relation
  * constructors during pattern matching
  */
 trait Projection[Domain, Range]
-    extends Relation[Range]
+    extends View[Range]
 {
     def projection: Domain => Range
 

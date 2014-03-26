@@ -1,6 +1,6 @@
 package idb.integration.test.operators
 
-import idb.{Extent, Relation}
+import idb.{Table, Relation}
 
 /**
  * @author Mirko Köhler
@@ -17,7 +17,7 @@ abstract class AbstractOperatorTest[Domain, Range:Manifest] {
 
 	def query : Relation[Range]
 
-	def extent : Extent[Domain]
+	def table : Table[Domain]
 
   def printRelation(r : Relation[Any]) {
     println("********************************************")

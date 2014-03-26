@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -12,7 +12,7 @@ import idb.Relation
  * respective function.
  */
 trait ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
-    extends Relation[Range]
+    extends View[Range]
 {
 
     def left: Relation[DomainA]

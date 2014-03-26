@@ -36,20 +36,20 @@ import idb.observer.NotifyObservers
 
 /**
  *
- * An extent is a base relation for providing data.
- * Extents are invariant in the domain (V), since once they are created they MUST supply objects of the specified
+ * A table is a base relation for providing data.
+ * Tables are invariant in the domain (V), since once they are created they MUST supply objects of the specified
  * elements.
  * Otherwise, runtime errors can occur for already constructed queries.
  * For example, with (Student <: Person) :
- * r1 : Extent[Student]
- * r2 : Extent[Person]
+ * r1 : Table[Student]
+ * r2 : Table[Person]
  * q = SELECT (student => student.grades) FROM r1
  * r2 = r1
  * r2.add(new Person("..."))
  *
  * @author Ralf Mitschke
  */
-trait Extent[V]
+trait Table[V]
     extends Relation[V]
     with NotifyObservers[V]
 {
@@ -57,7 +57,7 @@ trait Extent[V]
         notify_updated (oldV, newV)
     }
 
-	def ~= (vs : (V,V)) : Extent[V] = {
+	def ~= (vs : (V,V)) : Table[V] = {
 		update(vs._1,vs._2)
 		this
 	}
@@ -66,7 +66,7 @@ trait Extent[V]
         notify_removed (v)
     }
 
-	def -=(v: V) : Extent[V] =  {
+	def -=(v: V) : Table[V] =  {
 		remove(v)
 		this
 	}
@@ -75,7 +75,7 @@ trait Extent[V]
         notify_added (v)
     }
 
-	def +=(v : V) : Extent[V] = {
+	def +=(v : V) : Table[V] = {
 		add(v)
 		this
 	}

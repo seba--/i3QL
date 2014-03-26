@@ -32,7 +32,7 @@
  */
 package sae.bytecode.asm
 
-import idb.SetExtent
+import idb.SetTable
 import sae.bytecode.structure.base.BytecodeStructureRelations
 
 /**
@@ -44,25 +44,25 @@ trait ASMStructureRelations
     with BytecodeStructureRelations
 {
 
-    lazy val classDeclarations: SetExtent[ClassDeclaration] =
-        SetExtent.empty[ClassDeclaration]()
+    lazy val classDeclarations: SetTable[ClassDeclaration] =
+        SetTable.empty[ClassDeclaration]()
 
-    lazy val methodDeclarations: SetExtent[MethodDeclaration] =
-        SetExtent.empty[MethodDeclaration]()
+    lazy val methodDeclarations: SetTable[MethodDeclaration] =
+        SetTable.empty[MethodDeclaration]()
 
-    lazy val fieldDeclarations: SetExtent[FieldDeclaration] =
-        SetExtent.empty[FieldDeclaration]()
+    lazy val fieldDeclarations: SetTable[FieldDeclaration] =
+        SetTable.empty[FieldDeclaration]()
 
-    lazy val codeAttributes: SetExtent[CodeAttribute] =
-        SetExtent.empty[CodeAttribute]()
+    lazy val codeAttributes: SetTable[CodeAttribute] =
+        SetTable.empty[CodeAttribute]()
 
-    lazy val exceptionHandlers: SetExtent[ExceptionHandler] =
-        SetExtent.empty[ExceptionHandler]()
+    lazy val exceptionHandlers: SetTable[ExceptionHandler] =
+        SetTable.empty[ExceptionHandler]()
 
-    lazy val innerClassAttributes: SetExtent[InnerClassAttribute] =
-        SetExtent.empty[InnerClassAttribute]()
+    lazy val innerClassAttributes: SetTable[InnerClassAttribute] =
+        SetTable.empty[InnerClassAttribute]()
 
-    lazy val enclosingMethodAttributes: SetExtent[EnclosingMethodAttribute] =
-        SetExtent.empty[EnclosingMethodAttribute]()
+    lazy val enclosingMethodAttributes: SetTable[EnclosingMethodAttribute] =
+        SetTable.empty[EnclosingMethodAttribute]()
 
 }

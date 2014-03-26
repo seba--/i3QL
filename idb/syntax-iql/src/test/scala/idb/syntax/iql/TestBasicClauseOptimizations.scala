@@ -58,8 +58,8 @@ class TestBasicClauseOptimizations
 
       assertEqualStructure (
             equiJoin (
-                selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
-               	extent (registrations),
+                selection (table (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
+               	table (registrations),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -80,8 +80,8 @@ class TestBasicClauseOptimizations
 
       assertEqualStructure (
             equiJoin (
-                extent (students),
-                selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
+                table (students),
+                selection (table (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -101,8 +101,8 @@ class TestBasicClauseOptimizations
 
       assertEqualStructure (
             equiJoin (
-                extent (lectures),
-                extent (bookRecommendations),
+                table (lectures),
+                table (bookRecommendations),
                 scala.List ((
                     fun ((l: Rep[Lecture]) => l.course),
                     fun ((b: Rep[BookRecommendation]) => b.course)

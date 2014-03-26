@@ -39,10 +39,10 @@ package object iql
 
     // implicit conversions
 
-    implicit def extentToQuery[Domain] (ext: Extent[Domain])(
+    implicit def tableToQuery[Domain] (ext: Table[Domain])(
         implicit mDom: Manifest[Domain],
-        mExt: Manifest[Extent[Domain]]
-    ): Rep[Query[Domain]] = extent (ext)
+        mExt: Manifest[Table[Domain]]
+    ): Rep[Query[Domain]] = table (ext)
 
 
     implicit def relationToQuery[Domain] (rel: Relation[Domain])(
@@ -55,6 +55,12 @@ package object iql
     {
         def UNION[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]]): Rep[Query[Range]] =
             unionMax (query, other)
+
+		def INTERSECT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]]): Rep[Query[Range]] =
+			intersection (query, other)
+
+		def EXCEPT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]]): Rep[Query[Range]] =
+			difference (query, other)
 
         def UNION[OtherRange <: Range : Manifest]  (all: ALL_QUERY[OtherRange]): Rep[Query[Range]] =
             unionAdd (query, all.query)

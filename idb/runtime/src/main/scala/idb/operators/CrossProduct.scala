@@ -32,7 +32,7 @@
  */
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -56,7 +56,7 @@ import idb.Relation
  *
  */
 trait CrossProduct[DomainA, DomainB, Range]
-    extends Relation[Range]
+    extends View[Range]
 {
 
     def left: Relation[DomainA]

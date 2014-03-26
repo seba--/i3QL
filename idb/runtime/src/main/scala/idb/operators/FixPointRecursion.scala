@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -9,7 +9,7 @@ import idb.Relation
  * @author Ralf Mitschke
  */
 trait FixPointRecursion[Domain, Range, Key]
-    extends Relation[Range]
+    extends View[Range]
 {
     def source: Relation[Domain]
 

@@ -50,9 +50,9 @@ trait RelationalAlgebraBase
     type Query[Domain]
 
     /**
-     * A concrete extent
+     * A concrete table
      */
-    type Extent[Domain]
+    type Table[Domain]
 
     /**
      * A concrete compiled relation
@@ -60,11 +60,11 @@ trait RelationalAlgebraBase
     type Relation[+Domain]
 
     /**
-     * Wraps an extent as a leaf in the query tree
+     * Wraps an table as a leaf in the query tree
      */
-    def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
+    def table[Domain] (table: Table[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
-        mRel: Manifest[Extent[Domain]]
+        mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]]
 
 

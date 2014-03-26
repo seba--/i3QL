@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.{Relation}
+import idb.{View, Relation}
 
 /**
  * A join based on equality between elements in the underlying relations.
@@ -11,7 +11,7 @@ import idb.{Relation}
  * respective function.
  */
 trait EquiJoin[DomainA, DomainB, Range, Key]
-    extends Relation[Range]
+    extends View[Range]
 {
 
     def left: Relation[DomainA]

@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -16,7 +16,7 @@ import idb.Relation
  *
  */
 trait Difference[Domain]
-        extends Relation[Domain]
+        extends View[Domain]
 {
     def left: Relation[Domain]
 

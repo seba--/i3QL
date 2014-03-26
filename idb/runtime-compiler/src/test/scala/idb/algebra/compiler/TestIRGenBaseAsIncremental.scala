@@ -34,7 +34,7 @@ package idb.algebra.compiler
 
 import org.junit.Test
 import org.junit.Assert._
-import idb.SetExtent
+import idb.SetTable
 import idb.algebra.ir.RelationalAlgebraIRBase
 
 /**
@@ -55,8 +55,8 @@ class TestIRGenBaseAsIncremental
 
 
         import IR._
-        val base = new SetExtent[Int]
-        val query = extent (base)
+        val base = new SetTable[Int]
+        val query = table (base)
         val result = compile (query)
 
         assertEquals (base, result)

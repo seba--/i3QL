@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.{MaterializedView, Relation}
+import idb.{View, MaterializedView, Relation}
 
 
 /**
@@ -16,7 +16,7 @@ import idb.{MaterializedView, Relation}
  *
  */
 trait Intersection[Domain]
-    extends Relation[Domain]
+    extends View[Domain]
 {
     def left: Relation[Domain]
 

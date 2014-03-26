@@ -32,7 +32,7 @@
  */
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -40,7 +40,7 @@ import idb.Relation
  * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
  */
 trait Selection[Domain]
-    extends Relation[Domain]
+    extends View[Domain]
 {
     def filter: Domain => Boolean
 

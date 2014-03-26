@@ -79,11 +79,11 @@ class TestIRConstruction
     }
 
     @Test
-    def testLocalIncrementExtent () {
+    def testLocalIncrementTable () {
         val e = emptyRelation[Data]()
 
         assertEquals (
-            QueryExtent (scala.List.empty[Data], isSet = false, isIncrementLocal = true, isMaterialized = false),
+            QueryTable (scala.List.empty[Data], isSet = false, isIncrementLocal = true, isMaterialized = false),
             e
         )
     }

@@ -8,7 +8,7 @@ import idb.syntax.iql.IR._
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
-import idb.{BagExtent, MaterializedView}
+import idb.{BagTable, MaterializedView}
 
 
 /**
@@ -23,12 +23,12 @@ class TestSelfMaintainedAggregationUngrouped extends AbstractStudentOperatorTest
 	val printQuery = true
 
 	var query : Relation[Int] = null
-	var extent : Extent[Student] = null
+	var table : Table[Student] = null
 
 	@Before
 	def setUp() {
-		extent = BagExtent.empty[Student]
-		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM (extent))
+		table = BagTable.empty[Student]
+		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM (table))
 	}
 
 

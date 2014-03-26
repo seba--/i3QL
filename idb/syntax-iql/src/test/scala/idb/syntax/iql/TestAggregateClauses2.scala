@@ -56,8 +56,8 @@ class TestAggregateClauses2
         assertEqualStructure (
             grouping (
                 crossProduct (
-                    extent (students),
-                    extent (registrations)
+                    table (students),
+                    table (registrations)
                 ),
                 fun ((s: Rep[Person], r: Rep[Registration]) => s.lastName + r.comment)
             ),
@@ -79,8 +79,8 @@ class TestAggregateClauses2
 			aggregationSelfMaintainedWithoutGrouping (
 				selection (
 					crossProduct (
-						extent (students),
-						extent (registrations)
+						table (students),
+						table (registrations)
 					),
 					fun ((s: Rep[Student], r: Rep[Registration]) => s.matriculationNumber == r.studentMatriculationNumber)
 				),
@@ -108,8 +108,8 @@ class TestAggregateClauses2
 			grouping (
 				selection (
 					crossProduct (
-						extent (students),
-						extent (registrations)
+						table (students),
+						table (registrations)
 					),
 					fun ((s: Rep[Student], r: Rep[Registration]) => s.matriculationNumber == r.studentMatriculationNumber)
 				),
@@ -132,8 +132,8 @@ class TestAggregateClauses2
 			aggregationSelfMaintainedWithoutGrouping (
 				selection (
 					crossProduct (
-						extent (registrations),
-						extent (courses)
+						table (registrations),
+						table (courses)
 					),
 					fun ((r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number)
 				),

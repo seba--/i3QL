@@ -1,7 +1,7 @@
 package idb.operators
 
 import impl.{AggregationForSelfMaintainableFunctions, AggregationForNotSelfMaintainableFunctions}
-import idb.{Relation, MaterializedView}
+import idb.{View, Relation, MaterializedView}
 
 
 /**
@@ -19,7 +19,7 @@ import idb.{Relation, MaterializedView}
  * @author Ralf Mitschke
  */
 trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
-    extends Relation[Result]
+    extends View[Result]
 {
     def source: Relation[Domain]
 

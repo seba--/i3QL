@@ -50,7 +50,7 @@ package idb
 
 
 trait MaterializedView[+V]
-    extends Relation[V]
+    extends View[V]
 {
 
     def contains[U >: V] (element: U): Boolean

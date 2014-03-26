@@ -32,11 +32,11 @@
  */
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 trait UnNest[Domain, Range]
-    extends Relation[(Domain,Range)]
+    extends View[(Domain,Range)]
 {
     def relation: Relation[Domain]
 

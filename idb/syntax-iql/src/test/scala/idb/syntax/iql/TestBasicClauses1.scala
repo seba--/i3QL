@@ -47,14 +47,16 @@ import scala.language.implicitConversions
  */
 class TestBasicClauses1
 {
+
+
     @Test
-    def testExtent () {
+    def testTable () {
 
         val query = plan (
             SELECT (*) FROM students
         )
 
-        assertEqualStructure (extent (students), query)
+        assertEqualStructure (table (students), query)
     }
 
     @Test
@@ -64,7 +66,7 @@ class TestBasicClauses1
         )
 
         assertEqualStructure (
-            projection (extent (students), (_: Rep[Student]).lastName),
+            projection (table (students), (_: Rep[Student]).lastName),
             query
         )
     }
@@ -77,7 +79,7 @@ class TestBasicClauses1
         )
 
         assertEqualStructure (
-            projection (extent (students), fun ((s: Rep[Student]) => (s.firstName, s.lastName))),
+            projection (table (students), fun ((s: Rep[Student]) => (s.firstName, s.lastName))),
             query
         )
     }
@@ -90,7 +92,7 @@ class TestBasicClauses1
         )
 
         assertEqualStructure (
-            selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+            selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
             query
         )
     }
@@ -106,7 +108,7 @@ class TestBasicClauses1
         assertEqualStructure (
             selection (
                 selection (
-                    extent (students),
+                    table (students),
                     (s: Rep[Student]) => s.lastName == "Fields"
                 ),
                 (s: Rep[Student]) => !(s.firstName == "Sally")
@@ -127,7 +129,7 @@ class TestBasicClauses1
 
             selection (
                 selection(
-                    selection (extent (students), (s: Rep[Student]) => s.lastName == "Fields"),
+                    selection (table (students), (s: Rep[Student]) => s.lastName == "Fields"),
                     (s: Rep[Student]) => s.matriculationNumber > 0
                 ),
                 (s: Rep[Student]) => !(s.firstName == "Sally")
@@ -143,7 +145,7 @@ class TestBasicClauses1
         )
 
         assertEqualStructure (
-            selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction")),
+            selection (table (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction")),
             query
         )
     }
@@ -160,7 +162,7 @@ class TestBasicClauses1
         assertEqualStructure (
             projection (
                 selection (
-                    extent (students),
+                    table (students),
                     fun ((s: Rep[Student]) => s.firstName == "Sally")
                 ),
                 fun ((s: Rep[Student]) => (s.firstName, s.lastName))
@@ -180,7 +182,7 @@ class TestBasicClauses1
         assertEqualStructure (
             projection (
                 selection (
-                    extent (students),
+                    table (students),
                     fun ((s: Rep[Student]) => s.firstName == "Sally")
                 ),
                 fun ((s: Rep[Student]) => (s.firstName, s.lastName))
@@ -191,14 +193,14 @@ class TestBasicClauses1
 
 
     @Test
-    def testDistinctExtent () {
+    def testDistinctTable () {
         val query = plan (
             SELECT DISTINCT (*) FROM students
         )
 
         assertEqualStructure (
             duplicateElimination (
-                extent (students)
+                table (students)
             ),
             query
         )

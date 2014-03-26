@@ -8,7 +8,7 @@ import idb.syntax.iql.IR._
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
-import idb.{BagExtent, MaterializedView}
+import idb.{BagTable, MaterializedView}
 
 
 /**
@@ -23,12 +23,12 @@ class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[I
 	val printQuery = true
 
 	var query : Relation[Int] = null
-	var extent : Extent[Student] = null
+	var table : Table[Student] = null
 
 	@Before
 	def setUp() {
-		extent = BagExtent.empty[Student]
-		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM (extent) GROUP BY ((s : Rep[Student]) => s.lastName))
+		table = BagTable.empty[Student]
+		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM (table) GROUP BY ((s : Rep[Student]) => s.lastName))
 	}
 
 
@@ -155,7 +155,7 @@ class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[I
 	@Test
 	def testAddGrouped() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -174,7 +174,7 @@ class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[I
 	@Test
 	def testRemoveGrouped() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -194,7 +194,7 @@ class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[I
 	@Test
 	def testUpdateGroupedA() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -214,7 +214,7 @@ class TestSelfMaintainedAggregationGrouped extends AbstractStudentOperatorTest[I
 	@Test
 	def testUpdateGroupedB() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe

@@ -11,7 +11,7 @@ import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
 import idb.schema.university.Student
-import idb.{BagExtent, MaterializedView}
+import idb.{BagTable, MaterializedView}
 
 
 /**
@@ -26,12 +26,12 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	val printQuery = true
 
 	var query : Relation[Student] = null
-	var extent : Extent[Student] = null
+	var table : Table[Student] = null
 
 	@Before
 	def setUp() {
-		extent = BagExtent.empty[Student]
-		query = compile(SELECT (*) FROM (extent) WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 ))
+		table = BagTable.empty[Student]
+		query = compile(SELECT (*) FROM (table) WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 ))
 	}
 
 
@@ -172,7 +172,7 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	@Test
 	def testAddToEmptyB() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//Test
 		e += jackBlack
@@ -184,7 +184,7 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	@Test
 	def testUpdateC() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += jackBlack
@@ -200,7 +200,7 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	@Test
 	def testUpdateD() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -216,7 +216,7 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	@Test
 	def testAddDoubleB() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += jackBlack

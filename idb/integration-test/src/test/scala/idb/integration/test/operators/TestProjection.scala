@@ -8,7 +8,7 @@ import idb.syntax.iql.IR._
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
 import idb.schema.university.Student
-import idb.{BagExtent, MaterializedView}
+import idb.{BagTable, MaterializedView}
 
 
 /**
@@ -23,12 +23,12 @@ class TestProjection extends AbstractStudentOperatorTest[String] with University
 	val printQuery = true
 
 	var query : Relation[String] = null
-	var extent : Extent[Student] = null
+	var table : Table[Student] = null
 
 	@Before
 	def setUp() {
-		extent = BagExtent.empty[Student]
-		query = compile(SELECT ((s : Rep[Student]) => s.lastName) FROM (extent))
+		table = BagTable.empty[Student]
+		query = compile(SELECT ((s : Rep[Student]) => s.lastName) FROM (table))
 	}
 
 
@@ -157,7 +157,7 @@ class TestProjection extends AbstractStudentOperatorTest[String] with University
 	@Test
 	def testAddDoubleB() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += janeDoe
@@ -173,7 +173,7 @@ class TestProjection extends AbstractStudentOperatorTest[String] with University
 	@Test
 	def testUpdateC() {
 		val q = query.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += janeDoe

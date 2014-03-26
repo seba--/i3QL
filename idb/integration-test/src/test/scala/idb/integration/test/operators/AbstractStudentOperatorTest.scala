@@ -16,7 +16,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testAddToEmptyA() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//Test
 		e += johnDoe
@@ -30,7 +30,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test(expected = classOf[IllegalStateException])
 	def testRemoveFromEmpty() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//Test
 		e -= johnDoe
@@ -41,7 +41,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test(expected = classOf[IllegalStateException])
 	def testUpdateEmpty() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//Test
 		e ~= (johnDoe, johnFields)
@@ -52,7 +52,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testAddToFilledA() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -68,7 +68,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testAddToFilledB() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += sallyFields
@@ -86,7 +86,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testUpdateA() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -104,7 +104,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testUpdateB() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += sallyFields
@@ -122,7 +122,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemove() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += sallyFields
@@ -141,7 +141,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testAddDoubleA() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -159,7 +159,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testUpdateDouble() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -178,7 +178,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemoveDouble() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -197,7 +197,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemoveNonEmptyResultA() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -216,7 +216,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemoveNonEmptyResultB() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -235,7 +235,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testUpdateTriple() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -255,7 +255,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemoveFromTriple() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -275,7 +275,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testRemoveTwice() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe
@@ -295,7 +295,7 @@ trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, R
 	@Test
 	def testReadd() {
 		val q = getQuery.asMaterialized
-		val e = extent
+		val e = table
 
 		//SetUp
 		e += johnDoe

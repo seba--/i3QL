@@ -44,17 +44,17 @@ trait RelationalAlgebraSAEBinding
 
     type Relation[+Domain] = idb.Relation[Domain]
 
-    type Extent[Domain] = idb.Extent[Domain]
+    type Table[Domain] = idb.Table[Domain]
 
 
     /**
-     * Wraps an extent as a leaf in the query tree
+     * Wraps a table as a leaf in the query tree
      */
-    def extent[Domain] (extent: Extent[Domain])(
+    def table[Domain] (table: Table[Domain])(
         implicit mDom: Manifest[Domain],
-        mRel: Manifest[Extent[Domain]]
+        mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
-        super.extent (extent, extent.isSet)
+        super.table (table, table.isSet)
 
 
     /**

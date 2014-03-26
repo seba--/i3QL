@@ -33,7 +33,7 @@
 package idb.operators.impl.opt
 
 import collection.mutable
-import idb.Relation
+import idb.{View, Relation}
 import idb.observer.{Observer, NotifyObservers}
 import idb.operators.impl.util.TransactionKeyValueObserver
 
@@ -49,7 +49,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
                                                                   val combinationFunction: (Range, Range) => Range,
                                                                   val step: (Domain, Range) => Range,
 																  override val isSet : Boolean)
-    extends Relation[Range]
+    extends View[Range]
     with TransactionKeyValueObserver[Key, Domain]
 	with NotifyObservers[Range]
 {

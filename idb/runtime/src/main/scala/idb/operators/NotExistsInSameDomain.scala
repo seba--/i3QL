@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.{MaterializedView, Relation}
+import idb.{View, MaterializedView, Relation}
 
 
 /**
@@ -16,7 +16,7 @@ import idb.{MaterializedView, Relation}
  *
  */
 trait NotExistsInSameDomain[Domain]
-    extends Relation[Domain]
+    extends View[Domain]
 {
     def left: MaterializedView[Domain]
 

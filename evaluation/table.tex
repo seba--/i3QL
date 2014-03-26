@@ -1,0 +1,29 @@
+
+\begin{table}  \begin{center}
+\begin{tabular}{ l r r r }
+\toprule
+\multicolumn{1}{r|}{} & Time (no opt.) & Time (with opt.) & Speedup \\
+\midrule
+\multicolumn{1}{r|}{A} & 1329.936 & 2.312 & 575.22 \\
+\multicolumn{1}{r|}{B} & 2.084 & 2.162 & 0.96 \\
+\multicolumn{1}{r|}{C} & 10.889 & 2.299 & 4.74 \\
+\multicolumn{1}{r|}{D} & 39.452 & 2.254 & 17.50 \\
+\multicolumn{1}{r|}{E} & 4.842 & 2.491 & 1.94 \\
+\multicolumn{1}{r|}{F} & 2.464 & 2.152 & 1.15 \\
+\multicolumn{1}{r|}{G} & 2.345 & 2.083 & 1.13 \\
+\multicolumn{1}{r|}{H} & 2.257 & 2.121 & 1.06 \\
+\multicolumn{1}{r|}{I} & 2.198 & 2.096 & 1.05 \\
+\multicolumn{1}{r|}{J} & 2.109 & 2.055 & 1.03 \\
+\multicolumn{1}{r|}{K} & 3.244 & 2.345 & 1.38 \\
+\multicolumn{1}{r|}{L} & 2.264 & 2.100 & 1.08 \\
+\multicolumn{1}{r|}{M} & 2.185 & 2.109 & 1.04 \\
+\multicolumn{1}{r|}{N} & 3.785 & 2.317 & 1.63 \\
+\multicolumn{1}{r|}{O} & 2.532 & 2.140 & 1.18 \\
+
+\bottomrule
+\end{tabular}
+\end{center}
+{\tiny FindBugs patterns from \href{http://findbugs.sourceforge.net/bugDescriptions.html}{http://findbugs.sourceforge.net/bugDescriptions.html}: A=BX\textunderscore\allowbreak{}BOXING\textunderscore\allowbreak{}IMMEDIATELY\textunderscore\allowbreak{}UNBOXED\textunderscore\allowbreak{}TO\textunderscore\allowbreak{}PERFORM\textunderscore\allowbreak{}COERCION, B=CI\textunderscore\allowbreak{}CONFUSED\textunderscore\allowbreak{}INHERITANCE, C=CN\textunderscore\allowbreak{}IDIOM, D=CN\textunderscore\allowbreak{}IDIOM\textunderscore\allowbreak{}NO\textunderscore\allowbreak{}SUPER\textunderscore\allowbreak{}CALL, E=DM\textunderscore\allowbreak{}GC, F=DM\textunderscore\allowbreak{}RUN\textunderscore\allowbreak{}FINALIZERS\textunderscore\allowbreak{}ON\textunderscore\allowbreak{}EXIT, G=DP\textunderscore\allowbreak{}DO\textunderscore\allowbreak{}INSIDE\textunderscore\allowbreak{}DO\textunderscore\allowbreak{}PRIVILEGED, H=EQ\textunderscore\allowbreak{}ABSTRACT\textunderscore\allowbreak{}SELF, I=FI\textunderscore\allowbreak{}PUBLIC\textunderscore\allowbreak{}SHOULD\textunderscore\allowbreak{}BE\textunderscore\allowbreak{}PROTECTED, J=IMSE\textunderscore\allowbreak{}DONT\textunderscore\allowbreak{}CATCH\textunderscore\allowbreak{}IMSE, K=MS\textunderscore\allowbreak{}PKGPROTECT, L=MS\textunderscore\allowbreak{}SHOULD\textunderscore\allowbreak{}BE\textunderscore\allowbreak{}FINAL, M=SE\textunderscore\allowbreak{}BAD\textunderscore\allowbreak{}FIELD\textunderscore\allowbreak{}INNER\textunderscore\allowbreak{}CLASS, N=SW\textunderscore\allowbreak{}SWING\textunderscore\allowbreak{}METHODS\textunderscore\allowbreak{}INVOKED\textunderscore\allowbreak{}IN\textunderscore\allowbreak{}SWING\textunderscore\allowbreak{}THREAD, O=UG\textunderscore\allowbreak{}SYNC\textunderscore\allowbreak{}SET\textunderscore\allowbreak{}UNSYNC\textunderscore\allowbreak{}GET\par}
+\caption{Total time in seconds and speedup for analyzing initial revision and replaying all $242$ changes.}
+\label{tbl:analysisbenchmarks}
+\end{table}

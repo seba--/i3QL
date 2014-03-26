@@ -74,17 +74,17 @@ trait RelationalAlgebraIRBase
         relation.tp.typeArguments (0).asInstanceOf[Manifest[T]]
 
 
-    case class QueryExtent[Domain] (
-        extent: Extent[Domain],
+    case class QueryTable[Domain] (
+        table: Table[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false
     )
-            (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
+            (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
 
     case class QueryRelation[Domain] (
-        extent: Relation[Domain],
+        table: Relation[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false
@@ -106,13 +106,13 @@ trait RelationalAlgebraIRBase
     }
 
     /**
-     * Wraps an extent as a leaf in the query tree
+     * Wraps an table as a leaf in the query tree
      */
-    override def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
-        mRel: Manifest[Extent[Domain]]
+        mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
-        QueryExtent (extent, isSet, isIncrementLocal (mDom))
+        QueryTable (table, isSet, isIncrementLocal (mDom))
 
 
     /**

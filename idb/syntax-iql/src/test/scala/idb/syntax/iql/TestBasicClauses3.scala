@@ -57,8 +57,8 @@ class TestBasicClauses3
         assertEqualStructure (
             projection (
                 crossProduct (
-                    crossProduct (extent (students), extent (registrations)),
-                    extent (courses)
+                    crossProduct (table (students), table (registrations)),
+                    table (courses)
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
@@ -82,10 +82,10 @@ class TestBasicClauses3
             projection (
                 crossProduct (
                     crossProduct (
-                        selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                        extent (registrations)
+                        selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                        table (registrations)
                     ),
-                    extent (courses)
+                    table (courses)
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
@@ -111,15 +111,15 @@ class TestBasicClauses3
                 crossProduct (
                     crossProduct (
                         selection (
-                            extent (students),
+                            table (students),
                             (s: Rep[Student]) => s.firstName == "Sally"
                         ),
                         selection (
-                            extent (registrations),
+                            table (registrations),
                             (r: Rep[Registration]) => r.comment == "This is an introductory Course"
                         )
                     ),
-                    extent (courses)
+                    table (courses)
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
@@ -147,16 +147,16 @@ class TestBasicClauses3
                 crossProduct (
                     crossProduct (
                         selection (
-                            extent (students),
+                            table (students),
                             (s: Rep[Student]) => s.firstName == "Sally"
                         ),
                         selection (
-                            extent (registrations),
+                            table (registrations),
                             (r: Rep[Registration]) => r.comment == "This is an introductory Course"
                         )
                     ),
                     selection (
-                        extent (courses),
+                        table (courses),
                         (c: Rep[Course]) => c.title.startsWith ("Introduction")
                     )
                 ),
@@ -191,20 +191,20 @@ class TestBasicClauses3
                 crossProduct (
                     crossProduct (
                         selection (
-                            extent (students),
+                            table (students),
                             (s: Rep[Student]) =>
                                 s.firstName == "Sally" &&
                                     s.lastName == "Fields"
                         ),
                         selection (
-                            extent (registrations),
+                            table (registrations),
                             (r: Rep[Registration]) =>
                                 r.comment == "This is an introductory Course" &&
                                     r.studentMatriculationNumber > 100000
                         )
                     ),
                     selection (
-                        extent (courses),
+                        table (courses),
                         (c: Rep[Course]) =>
                             c.title.startsWith ("Introduction") &&
                                 c.creditPoints > 4
@@ -238,15 +238,15 @@ class TestBasicClauses3
                 crossProduct (
                     selection (
                         crossProduct (
-                            extent (students),
-                            extent (registrations)
+                            table (students),
+                            table (registrations)
                         ),
                         (s: Rep[Student], r: Rep[Registration]) => {
                             r.comment == "This is an introductory Course" ||
                                 s.firstName == "Sally"
                         }
                     ),
-                    extent (courses)
+                    table (courses)
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
@@ -274,9 +274,9 @@ class TestBasicClauses3
         assertEqualStructure (
             selection (
                 crossProduct (
-                    extent (students),
-                    extent (registrations),
-                    extent (courses)
+                    table (students),
+                    table (registrations),
+                    table (courses)
                 ),
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
                     r.comment == "This is an introductory Course" ||
@@ -306,8 +306,8 @@ class TestBasicClauses3
             projection (
                 crossProduct (
                     equiJoin (
-                        extent (students),
-                        extent (registrations),
+                        table (students),
+                        table (registrations),
                         scala.List (
                             scala.Tuple2 (
                                 fun((s: Rep[Student]) => s.matriculationNumber),
@@ -315,7 +315,7 @@ class TestBasicClauses3
                             )
                         )
                     ),
-                    extent (courses)
+                    table (courses)
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
@@ -344,8 +344,8 @@ class TestBasicClauses3
             projection (
                 equiJoin (
                     equiJoin (
-                        extent (students),
-                        extent (registrations),
+                        table (students),
+                        table (registrations),
                         scala.List (
                             scala.Tuple2 (
                                 fun((s: Rep[Student]) => s.matriculationNumber),
@@ -353,7 +353,7 @@ class TestBasicClauses3
                             )
                         )
                     ),
-                    extent (courses),
+                    table (courses),
                     scala.List (
                         scala.Tuple2 (
                             fun((s: Rep[Student], r: Rep[Registration]) => r.courseNumber),

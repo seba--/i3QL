@@ -36,18 +36,19 @@ package idb
  *
  * @author Ralf Mitschke
  */
-class SetExtent[V]
-    extends Extent[V]
+class BagTable[V]
+    extends Table[V]
 {
     /**
      * Runtime information whether a compiled query is a set or a bag
      */
-    def isSet: Boolean = true
+    def isSet: Boolean = false
 }
 
-object SetExtent
+object BagTable
 {
-    def apply[V] () = new SetExtent[V]()
+    def apply[V] () = new BagTable[V]()
 
-    def empty[V] () = new SetExtent[V]()
+    def empty[V] = new BagTable[V]()
 }
+

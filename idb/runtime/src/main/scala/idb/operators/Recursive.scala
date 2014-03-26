@@ -32,7 +32,7 @@
  */
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 import idb.observer.Observer
 
 
@@ -44,7 +44,7 @@ import idb.observer.Observer
 
 
 trait Recursive[Domain]
-    extends Relation[Domain] with Observer[Domain]
+    extends View[Domain] with Observer[Domain]
 {
     def relation: Relation[Domain]
 

@@ -1,6 +1,6 @@
 package idb.operators
 
-import idb.Relation
+import idb.{View, Relation}
 
 
 /**
@@ -14,7 +14,7 @@ import idb.Relation
  * The Union in our algebra is always non-distinct
  */
 trait Union[Range, DomainA <: Range, DomainB <: Range]
-    extends Relation[Range]
+    extends View[Range]
 {
 
     def left: Relation[DomainA]

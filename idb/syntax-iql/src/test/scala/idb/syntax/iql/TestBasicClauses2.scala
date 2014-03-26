@@ -54,7 +54,7 @@ class TestBasicClauses2
         )
 
         assertEqualStructure (
-            crossProduct (extent (students), extent (courses)),
+            crossProduct (table (students), table (courses)),
             query
         )
 
@@ -74,7 +74,7 @@ class TestBasicClauses2
 
         assertEqualStructure (
             projection (
-                crossProduct (extent (students), extent (courses)),
+                crossProduct (table (students), table (courses)),
                 (s: Rep[Student], c: Rep[Course]) => s.lastName + c.title
             ),
             query
@@ -96,7 +96,7 @@ class TestBasicClauses2
         assertEqualStructure (
             projection (
                 grouping (
-                    crossProduct (extent (students), extent (courses)),
+                    crossProduct (table (students), table (courses)),
                     (s: Rep[Student], r: Rep[Course]) => s.lastName + " " + r.title
                 ),
                 (s: Rep[String]) => s
@@ -123,8 +123,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             crossProduct (
-                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                extent (courses)
+                selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                table (courses)
             ),
             query
         )
@@ -146,8 +146,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             crossProduct (
-                extent (students),
-                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+                table (students),
+                selection (table (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
             ),
             query
         )
@@ -169,8 +169,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             crossProduct (
-                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+                selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                selection (table (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
             ),
             query
         )
@@ -194,8 +194,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             crossProduct (
-                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally" && s.lastName == "Fields"),
-                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+                selection (table (students), (s: Rep[Student]) => s.firstName == "Sally" && s.lastName == "Fields"),
+                selection (table (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
             ),
             query
         )
@@ -217,8 +217,8 @@ class TestBasicClauses2
         assertEqualStructure (
             selection (
                 crossProduct (
-                    extent (students),
-                    extent (courses)
+                    table (students),
+                    table (courses)
                 ),
                 (e: Rep[(Student, Course)]) => {
                     e._1.firstName != e._2.title
@@ -243,8 +243,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             equiJoin (
-                extent (students),
-                extent (registrations),
+                table (students),
+                table (registrations),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -272,8 +272,8 @@ class TestBasicClauses2
         assertEqualStructure (
             projection (
                 equiJoin (
-                    extent (registrations),
-                    extent (courses),
+                    table (registrations),
+                    table (courses),
                     scala.List ((
                         fun ((r: Rep[Registration]) => r.courseNumber),
                         fun ((c: Rep[Course]) => c.number)
@@ -303,8 +303,8 @@ class TestBasicClauses2
 
         assertEqualStructure (
             equiJoin (
-                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
+                selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                selection (table (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
                 scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -334,8 +334,8 @@ class TestBasicClauses2
         assertEqualStructure (
             selection (
                 equiJoin (
-                    selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                    selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
+                    selection (table (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                    selection (table (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
                     scala.List ((
                         fun ((s: Rep[Student]) => s.matriculationNumber),
                         fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -355,7 +355,7 @@ class TestBasicClauses2
     }
 
     @Test
-    def testDistinctExtents () {
+    def testDistinctTables () {
         val query = plan (
             SELECT DISTINCT (*) FROM(students, registrations)
         )
@@ -363,8 +363,8 @@ class TestBasicClauses2
         assertEqualStructure (
             duplicateElimination (
                 crossProduct (
-                    extent (students),
-                    extent (registrations)
+                    table (students),
+                    table (registrations)
                 )
             ),
             query
