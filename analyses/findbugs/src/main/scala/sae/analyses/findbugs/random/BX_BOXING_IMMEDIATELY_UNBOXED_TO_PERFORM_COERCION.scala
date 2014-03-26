@@ -1,7 +1,7 @@
 package sae.analyses.findbugs.random
 
 import sae.bytecode.BytecodeDatabase
-import idb.Relation
+import idb.{View, Relation}
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import sae.bytecode.asm.instructions.opcodes.INVOKESPECIAL

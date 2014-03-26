@@ -5,6 +5,7 @@ import idb.syntax.iql.compilation.CompilerBinding
 import idb.syntax.iql.planning.{SubQueryToAlgebra, ClauseToAlgebra}
 import scala.language.implicitConversions
 import scala.reflect.SourceContext
+import idb.View
 
 /**
  *
@@ -32,6 +33,13 @@ package object iql
 
     implicit def booleanToInfixOps (lhs: Rep[Boolean]) =
         InfixBooleanOps (lhs)
+
+//	case class EqualityOps[A : Manifest] (lhs : A => _) {
+//		def ===[B : Manifest] (rhs: B => _) : (A, B) => Boolean = (a : A, b : B) => lhs(a) == rhs(b)
+//	}
+
+//	implicit def anythingToEqualityOps[A : Manifest] (lhs : A => _) =
+//	EqualityOps (lhs)
 
     //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strange
     def NOT (x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate (x)
@@ -195,6 +203,7 @@ package object iql
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
+
 
 
     implicit def compile[Range: Manifest] (

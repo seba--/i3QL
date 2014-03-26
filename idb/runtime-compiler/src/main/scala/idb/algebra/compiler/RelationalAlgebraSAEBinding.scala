@@ -33,6 +33,7 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
+import scala.language.implicitConversions
 
 /**
  *
@@ -55,7 +56,6 @@ trait RelationalAlgebraSAEBinding
         mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
         super.table (table, table.isSet)
-
 
     /**
      * Wraps a compiled relation again as a leaf in the query tree
