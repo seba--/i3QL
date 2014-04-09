@@ -32,9 +32,9 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.RelationalAlgebraIRAggregationOperators
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRAggregationOperators}
 import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{OptionOpsExp, StringOpsExpExt}
+import idb.lms.extensions.operations.{SeqOpsExpExt, OptionOpsExp, StringOpsExpExt}
 import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
 import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 
@@ -48,8 +48,8 @@ trait RelationalAlgebraPrintPlanAggregationOperators
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with RelationalAlgebraIRAggregationOperators
+    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
+		FunctionUtils with RelationalAlgebraIRAggregationOperators
 
 
 	import IR.AggregationSelfMaintained

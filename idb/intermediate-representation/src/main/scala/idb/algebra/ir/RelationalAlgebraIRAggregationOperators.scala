@@ -43,7 +43,7 @@ import idb.lms.extensions.ScalaOpsExpOptExtensions
  *
  */
 trait RelationalAlgebraIRAggregationOperators
-    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with ScalaOpsExpOptExtensions
+    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators
 {
 
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, RangeA, RangeB, Range : Manifest] (

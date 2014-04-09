@@ -5,7 +5,7 @@ object sae extends Build {
   /*
     Project IDB
   */
-	lazy val ibd = Project(id = "idb", base = file("idb"))
+	lazy val idb = Project(id = "idb", base = file("idb"))
 		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest)
 
 	lazy val runtime = Project(id = "idb-runtime", base = file("idb/runtime"))
@@ -55,6 +55,12 @@ object sae extends Build {
 	lazy val profiler = Project(id = "analyses-profiler", base = file("analyses/profiler"))
 		.dependsOn(databaseInterface % "compile", bindingASM % "compile", findbugs % "compile;test", metrics % "compile;test", testData % "compile;test")
    
+   /*
+	Project Interpreter
+   */
+	lazy val interpreter = Project(id = "interpreter", base = file("interpreter"))
+    	.dependsOn(syntax % "compile")
+   
   /*
     Project Test Data
   */ 
@@ -65,7 +71,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler)
+		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter)
   
     
 

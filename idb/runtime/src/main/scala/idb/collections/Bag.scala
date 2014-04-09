@@ -53,8 +53,10 @@ trait Bag[V]
     }
 
     def remove_element (v: V) {
-        if (!data.remove (v))
-			throw new IllegalStateException("Unable to remove '" + v + "': element is not in the bag.")
+		//TODO Why does this not work?
+      /* if (!data.remove (v))
+			throw new IllegalStateException("Unable to remove '" + v + "': element is not in the bag.")  */
+		data.remove(v)
 		notify_removed(v)
     }
 

@@ -70,11 +70,13 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
         recursiveNotification = true
         notify_added (v)
+		//println("Base -> Added " + v)
 
         while (nextElement.isDefined) {
             val next = nextElement.get
             nextElement = None
 			notify_added (next)
+			//println("Base -> Added " + next)
         }
         recursiveNotification = false
     }
@@ -87,6 +89,7 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
         recursiveNotification = true
 		notify_removed (v)
+		//println("Base -> Removed")
 
         while (nextElement.isDefined) {
             val next = nextElement.get

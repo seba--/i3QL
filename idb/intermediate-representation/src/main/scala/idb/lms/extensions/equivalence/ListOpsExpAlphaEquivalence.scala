@@ -46,6 +46,12 @@ trait ListOpsExpAlphaEquivalence
 {
 
     override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
-        super.isEquivalentDef (a, b) // TODO implement this
+		(a, b) match {
+			case (ListHead(x), ListHead(y)) => isEquivalent(x,y)
+			case _ => super.isEquivalentDef(a,b)
+
+		}
+
+
 
 }

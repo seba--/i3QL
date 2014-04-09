@@ -35,6 +35,7 @@ package idb.lms.extensions.operations
 import scala.virtualization.lms.common._
 import scala.reflect.SourceContext
 
+
 /**
  *
  * @author Ralf Mitschke
@@ -45,6 +46,7 @@ trait MirrorDefinitions
     with StringOpsExp
     with ListOpsExp
 	with PrimitiveOpsExp
+	with MiscOpsExp
 {
 
     // The following entities were not defined for mirroring in the orignal LMS
@@ -58,8 +60,10 @@ trait MirrorDefinitions
 
         case StringStartsWith(s, prefix) => string_startswith(f(s), f(prefix))
 		//case StringSubstring(s, i1, i2) => string_substring(f(s), f(i1), f(i2))
+        case ListConcat (l1, l2) => list_concat(f(l1), f(l2))
+		case ListHead (l) => list_head(f(l))
 
-        case ListConcat(l1, l2) => list_concat(f(l1), f(l2))
+		case PrintLn (s) => println(f(s))
 
         case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
