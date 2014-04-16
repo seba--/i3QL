@@ -1,9 +1,9 @@
 package sae.interpreter
 
-import idb.SetTable
+import idb.{IndexService, BagTable, SetTable}
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import sae.interpreter.schema.{Literal, Syntax}
+import sae.interpreter.schema.{Syntax, Max, Plus}
 
 
 
@@ -12,38 +12,104 @@ import sae.interpreter.schema.{Literal, Syntax}
  */
 abstract class Interpreter[V : Manifest] {
 
-	type Value = (Int, V)
-	type Definition = (Int, Syntax, Seq[Int])
+	type Key = Int
+	type Value = (Key, V)
+	type Definition = (Key, Either[(Syntax,Seq[Int]),V])
 
-	def literal(in : Int) : V
 
-	def interpret(syntax : Syntax, values : V*) : V
+	def interpret(syntax : Syntax, values : Seq[V]) : V
 
-	private def literalPriv : Rep[Seq[Int] => V] = staticData (
-		(l : Seq[Int]) => literal(l.head)
+	private def keyFunction(e : Either[(Syntax,Seq[Int]),V]) : Key =
+		e.hashCode()
+
+	protected val definitionAsValue : Rep[Definition => (Int, V)] = staticData (
+		(d : Definition) => (d._1, d._2.right.get)
 	)
 
-	private def interpretPriv : Rep[((Syntax, V, V)) => V] = staticData (
-		(t : (Syntax, V, V)) => interpret(t._1, t._2, t._3)
+	protected val definitionAsComposite : Rep[Definition => (Int, Syntax, Seq[Int])] = staticData (
+		(d : Definition) => {
+			val e : (Syntax, Seq[Int]) = d._2.left.get
+			(d._1,e._1,e._2)
+		}
 	)
 
-	private def syntaxIsLiteral : Rep[Syntax => Boolean] = staticData (
-		(s : Syntax) => s == Literal
+	protected val interpretPriv : Rep[((Syntax, Seq[V])) => V] = staticData (
+		(t : (Syntax, Seq[V])) => interpret(t._1, t._2)
 	)
 
-	val expressions : Table[Definition] = SetTable[Definition]
+	protected val definitionIsLiteral : Rep[Definition => Boolean] = staticData (
+		(s : Definition) => s._2.isRight
+	)
 
-	val literals : Relation[Definition] =
-		SELECT (*) FROM expressions WHERE ((exp : Rep[Definition]) => syntaxIsLiteral(exp._2))
+	//protected val expressionTable : Table[Either[(Syntax,Seq[Int]),V]] = BagTable[Either[(Syntax,Seq[Int]),V]]
 
-	val nonliterals : Relation[Definition] =
-		(SELECT (*) FROM expressions) EXCEPT literals
+	val expressions : Table[Definition] = SetTable.empty()
 
-	private val interpretLiterals : Relation[Value] =
-		SELECT ((e : Rep[Definition])=> (e._1, literalPriv(e._3))) FROM literals
+	protected val literals : Relation[(Int, V)] =
+		SELECT (definitionAsValue(_ : Rep[Definition])) FROM expressions WHERE ((d : Rep[Definition]) => definitionIsLiteral(d))
 
-	private val unnestedNonLiterals : Relation[(Definition, Int)] =
-		UNNEST(nonliterals, (_ : Rep[Definition])._3)
+	protected val nonliterals : Relation[(Int, Syntax, Seq[Int])] =
+		SELECT (definitionAsComposite(_ : Rep[Definition])) FROM expressions WHERE ((d : Rep[Definition]) => NOT (definitionIsLiteral(d)))
+
+	protected val nonLiteralsTwoArguments : Relation [(Int, Syntax, Seq[Int])] =
+		SELECT (*) FROM nonliterals WHERE ((d : Rep[(Int, Syntax, Seq[Int])]) => d._3.length == 2)
+
+	protected val nonLiteralsThreeArguments : Relation[(Int, Syntax, Seq[Int])] =
+		SELECT (*) FROM nonliterals WHERE ((d : Rep[(Int, Syntax, Seq[Int])]) => d._3.length == 3)
+
+	val values : Relation[Value] =
+			WITH RECURSIVE (
+				(vQuery : Rep[Query[Value]]) => {
+					literals UNION ALL (
+						QueryInfixOps(
+							SELECT (
+								(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value]) =>
+									(d._1, interpretPriv (d._2, Seq(v1._2, v2._2)))
+							) FROM (
+								nonLiteralsTwoArguments, vQuery, vQuery
+							) WHERE (
+								(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value]) =>
+									(d._3(0) == v1._1) AND
+									(d._3(1) == v2._1)
+							)
+						).UNION(
+							ALL(
+								SELECT (
+									(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value], v3 : Rep[Value]) =>
+										(d._1, interpretPriv (d._2, Seq(v1._2, v2._2, v3._2)))
+								) FROM (
+									nonLiteralsThreeArguments, vQuery, vQuery, vQuery
+								) WHERE (
+									(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value], v3 : Rep[Value]) =>
+										(d._3(0) == v1._1) AND
+											(d._3(1) == v2._1) AND
+											(d._3(2) == v3._1)
+								)
+							)
+						)
+					)
+				}
+			)
+
+	/*UNION (
+			WITH RECURSIVE (
+				(vQuery : Rep[Query[Value]]) => {
+					literals UNION ALL (
+						SELECT (
+							(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value], v3 : Rep[Value]) =>
+								(d._1, interpretPriv (d._2, Seq(v1._2, v2._2, v3._2)))
+						) FROM (
+							nonLiteralsThreeArguments, vQuery, vQuery, vQuery
+						) WHERE (
+							(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value], v3 : Rep[Value]) =>
+								(d._3(0) == v1._1) AND
+								(d._3(1) == v2._1) AND
+								(d._3(2) == v3._1)
+						)
+					)
+				}
+			)
+		)*/
 
 	private var freshID = 0
 
@@ -52,32 +118,19 @@ abstract class Interpreter[V : Manifest] {
 		freshID
 	}
 
-	def define(syntax : Syntax, reference : Int*) : Int = {
+	def define(syntax : Syntax, reference : Int*) : Key = {
+		val exp = Left ((syntax, reference))
 		val id = fresh()
-		expressions add (id, syntax, reference)
+		expressions add (id, exp)
 		id
 	}
 
-
-
-	val values : Relation[Value] =
-		WITH RECURSIVE (
-			(vQuery : Rep[Query[Value]]) =>
-				interpretLiterals UNION ALL (
-					SELECT
-						((d1  : Rep[(Definition, Int)], d2 : Rep[(Definition,Int)], v1 : Rep[Value], v2 : Rep[Value]) => (d1._1._1, interpretPriv(d1._1._2, v1._2, v2._2)))
-					FROM
-						(unnestedNonLiterals, unnestedNonLiterals, vQuery, vQuery)
-					WHERE (
-						(d1  : Rep[(Definition, Int)], d2 : Rep[(Definition,Int)], v1 : Rep[Value], v2 : Rep[Value]) =>
-							(d1._1._1 == d2._1._1) AND //Same expression
-							(d1._2 < d2._2) AND  //other parameter
-							(v1._1 == d1._2) AND //value 1 exists
-							(v2._1 == d2._2)
-						)
-				)
-			)
-
+	def define(value : V) : Key = {
+		val exp = Right(value)
+		val id = fresh()
+		expressions add (id, exp)
+		id
+	}
 }
 
 

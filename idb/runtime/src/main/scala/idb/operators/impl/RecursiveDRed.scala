@@ -212,15 +212,15 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
 
 
         for ((key, deletionCount) <- deletedElements) {
-            val newSupportCount = supportedElements (key) - deletionCount
-            if (newSupportCount > 0) {
-                supportedElements (key) = newSupportCount
-                rederivations = key :: rederivations
-            }
-            else
-            {
-                supportedElements.remove (key)
-            }
+			val newSupportCount = supportedElements (key) - deletionCount
+			if (newSupportCount > 0) {
+				supportedElements (key) = newSupportCount
+				rederivations = key :: rederivations
+			}
+			else
+			{
+				supportedElements.remove (key)
+			}
         }
 
         deletedElements = mutable.HashMap.empty

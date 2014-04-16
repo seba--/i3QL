@@ -1,22 +1,21 @@
 package sae.interpreter
 
-import idb.syntax.iql.IR._
-import sae.interpreter.schema.{Plus, Literal, Syntax}
+import sae.interpreter.schema.{Max, Plus, Syntax}
+
 
 
 /**
  * @author Mirko Köhler
  */
-object ArithmeticInterpreter extends Interpreter[Int] {
+object ArithmeticInterpreter extends Interpreter[Double] {
 
-	override def literal(in: Int): Int =
-		in
-
-	override def interpret(syntax: Syntax, values: Int*): Int = {
+	override def interpret(syntax: Syntax, values: Seq[Double]): Double = {
 		syntax match {
-			case Literal => values(0)
-			case Plus => values(0) + values(1)
+			case Plus => values.foldLeft(0.0)(_ + _)
+			case Max =>  values.foldLeft(0.0)(Math.max)
 		}
 	}
+
+
 
 }

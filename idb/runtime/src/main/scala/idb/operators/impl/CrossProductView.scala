@@ -17,6 +17,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 	left addObserver LeftObserver
 	right addObserver RightObserver
 
+	private var leftList : List[DomainA] = Nil
+	private var rightList : List[DomainB] = Nil
+
 	override protected def lazyInitialize() {
 		/* do nothing */
 	}
@@ -54,31 +57,45 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on left relation
 		override def updated(oldA: DomainA, newA: DomainA) {
+			var l1 : List[Range] = Nil
+			var l2 : List[Range] = Nil
+
 			right.foreach(
 				b => {
-					notify_removed(projection(oldA, b))
-					notify_added(projection(newA, b))
+					l1 = projection(oldA, b) :: l1
+					l2 = projection(newA, b) :: l2
 				}
 			)
+
+			l1 foreach notify_removed
+			l2 foreach notify_added
 		}
 
 		override def removed(v: DomainA) {
+			var l : List[Range] = Nil
+
 			right.foreach(
 				b => {
-					notify_removed(projection(v, b))
+					l = projection(v, b) :: l
 				}
 			)
 
-			if (left == right)
-				notify_removed(projection(v,v.asInstanceOf[DomainB]))
+			l.foreach(notify_removed)
+
+		//	if (left == right)
+		//		notify_removed(projection(v,v.asInstanceOf[DomainB]))
 		}
 
 		override def added(v: DomainA) {
+			var l : List[Range] = Nil //STore changes in list, because of possible recursive changes to right
+
 			right.foreach(
 				b => {
-					notify_added(projection(v, b))
+					l = projection(v, b) :: l
 				}
 			)
+
+			l.foreach(notify_added)
 		}
 	}
 
@@ -90,31 +107,45 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on right relation
 		override def updated(oldB: DomainB, newB: DomainB) {
+			var l1 : List[Range] = Nil
+			var l2 : List[Range] = Nil
+
 			left.foreach(
 				a => {
-					notify_removed(projection(a, oldB))
-					notify_added(projection(a, newB))
+					l1 = projection(a, oldB) :: l1
+					l2 = projection(a, newB) :: l2
 				}
 			)
+
+			l1 foreach notify_removed
+			l2 foreach notify_added
 		}
 
 		override def removed(v: DomainB) {
+			var l : List[Range] = Nil
+
 			left.foreach(
 				a => {
-					notify_removed(projection(a, v))
+					l = projection(a, v) :: l
 				}
 			)
 
-			if (left == right)
-				notify_removed(projection(v.asInstanceOf[DomainA],v))
+			l foreach notify_removed
+
+		//	if (left == right)
+		//		notify_removed(projection(v.asInstanceOf[DomainA],v))
 		}
 
 		override def added(v: DomainB) {
+			var l : List[Range] = Nil //STore changes in list, because of possible recursive changes to left
+
 			left.foreach(
 				a => {
-					notify_added(projection(a, v))
+					l = projection(a, v) :: l
 				}
 			)
+
+			l.foreach(notify_added)
 		}
 	}
 
