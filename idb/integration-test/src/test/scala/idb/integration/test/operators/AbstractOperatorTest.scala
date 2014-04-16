@@ -19,11 +19,4 @@ abstract class AbstractOperatorTest[Domain, Range:Manifest] {
 
 	def table : Table[Domain]
 
-  def printRelation(r : Relation[Any]) {
-    println("********************************************")
-    r.foreach(println(_))
-    println("********************************************")
-
-  }
-
 }

@@ -67,8 +67,7 @@ class MaterializedSet[V] (val relation: Relation[V])
 
 
     def updated (oldV: V, newV: V) {
-        this -= oldV
-        this += newV
+        update_element(oldV, newV)
     }
 
     def removed (v: V) {
@@ -78,5 +77,7 @@ class MaterializedSet[V] (val relation: Relation[V])
     def added (v: V) {
         this += v
     }
+
+
 
 }

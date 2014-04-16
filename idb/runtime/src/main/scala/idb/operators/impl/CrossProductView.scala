@@ -3,6 +3,7 @@ package idb.operators.impl
 import idb.operators.CrossProduct
 import idb.{MaterializedView, Table, Relation}
 import idb.observer.{Observable, NotifyObservers, Observer}
+import com.google.common.collect.{ConcurrentHashMultiset, Multiset}
 
 /**
  * The cross product does not really require the underlying relations to be materialized directly.
@@ -17,8 +18,8 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 	left addObserver LeftObserver
 	right addObserver RightObserver
 
-	private var leftList : List[DomainA] = Nil
-	private var rightList : List[DomainB] = Nil
+	private val leftSet : Multiset[DomainA] = ConcurrentHashMultiset.create()
+	private val rightSet : Multiset[DomainB] = ConcurrentHashMultiset.create()
 
 	override protected def lazyInitialize() {
 		/* do nothing */
@@ -57,45 +58,35 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on left relation
 		override def updated(oldA: DomainA, newA: DomainA) {
-			var l1 : List[Range] = Nil
-			var l2 : List[Range] = Nil
+			if (!leftSet.remove(oldA))
+				throw new IllegalStateException("Removed element not in relation: " + oldA)
 
-			right.foreach(
-				b => {
-					l1 = projection(oldA, b) :: l1
-					l2 = projection(newA, b) :: l2
-				}
-			)
-
-			l1 foreach notify_removed
-			l2 foreach notify_added
+			leftSet.add(newA)
+			val it = rightSet.iterator()
+			while(it.hasNext) {
+				val b = it.next
+				notify_updated(projection(oldA,b), projection(newA,b))
+			}
 		}
 
 		override def removed(v: DomainA) {
-			var l : List[Range] = Nil
+			if (!leftSet.remove(v))
+				throw new IllegalStateException("Removed element not in relation: " + v)
 
-			right.foreach(
-				b => {
-					l = projection(v, b) :: l
-				}
-			)
-
-			l.foreach(notify_removed)
-
-		//	if (left == right)
-		//		notify_removed(projection(v,v.asInstanceOf[DomainB]))
+			val it = rightSet.iterator()
+			while(it.hasNext) {
+				val b = it.next
+				notify_removed(projection(v,b))
+			}
 		}
 
 		override def added(v: DomainA) {
-			var l : List[Range] = Nil //STore changes in list, because of possible recursive changes to right
-
-			right.foreach(
-				b => {
-					l = projection(v, b) :: l
-				}
-			)
-
-			l.foreach(notify_added)
+			leftSet.add(v)
+			val it = rightSet.iterator()
+			while(it.hasNext) {
+				val b = it.next
+				notify_added(projection(v,b))
+			}
 		}
 	}
 
@@ -107,45 +98,35 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on right relation
 		override def updated(oldB: DomainB, newB: DomainB) {
-			var l1 : List[Range] = Nil
-			var l2 : List[Range] = Nil
+			if (!rightSet.remove(oldB))
+				throw new IllegalStateException("Removed element not in relation: " + oldB)
 
-			left.foreach(
-				a => {
-					l1 = projection(a, oldB) :: l1
-					l2 = projection(a, newB) :: l2
-				}
-			)
-
-			l1 foreach notify_removed
-			l2 foreach notify_added
+			rightSet.add(newB)
+			val it = leftSet.iterator()
+			while(it.hasNext) {
+				val a = it.next
+				notify_updated(projection(a,oldB), projection(a,newB))
+			}
 		}
 
 		override def removed(v: DomainB) {
-			var l : List[Range] = Nil
+			if (!rightSet.remove(v))
+				throw new IllegalStateException("Removed element not in relation: " + v)
 
-			left.foreach(
-				a => {
-					l = projection(a, v) :: l
-				}
-			)
-
-			l foreach notify_removed
-
-		//	if (left == right)
-		//		notify_removed(projection(v.asInstanceOf[DomainA],v))
+			val it = leftSet.iterator()
+			while(it.hasNext) {
+				val a = it.next
+				notify_removed(projection(a,v))
+			}
 		}
 
 		override def added(v: DomainB) {
-			var l : List[Range] = Nil //STore changes in list, because of possible recursive changes to left
-
-			left.foreach(
-				a => {
-					l = projection(a, v) :: l
-				}
-			)
-
-			l.foreach(notify_added)
+			rightSet.add(v)
+			val it = leftSet.iterator()
+			while(it.hasNext) {
+				val a = it.next
+				notify_added(projection(a,v))
+			}
 		}
 	}
 
@@ -154,10 +135,6 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 object CrossProductView {
 	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
-
-		val l = if (left.isInstanceOf[MaterializedView[_]]) left else left.asMaterialized
-		val r = if (right.isInstanceOf[MaterializedView[_]]) right else right.asMaterialized
-
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](l,r,(l : DomainA, r : DomainB) => (l,r),isSet)
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
 	}
 }

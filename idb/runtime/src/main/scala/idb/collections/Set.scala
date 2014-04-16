@@ -18,12 +18,24 @@ trait Set[V]
     def add_element (v: V) {
         data.add (v)
         data
+		notify_added(v)
     }
 
     def remove_element (v: V) {
-        data.remove (v)
+        if (!data.remove (v))
+			throw new IllegalStateException("Element not in set: " + v)
         data
+		notify_removed(v)
     }
+
+	def update_element (oldV: V, newV: V) {
+		if (!data.remove (oldV)) {
+			throw new IllegalStateException("Unable to update '" + oldV + "': element is not in the bag.")
+		} else {
+			data add newV
+			notify_updated(oldV, newV)
+		}
+	}
 
     def foreach[U] (f: V => U) {
         data.foreach (f)
