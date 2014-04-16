@@ -63,19 +63,19 @@ abstract class Interpreter[V : Manifest] {
 			WITH RECURSIVE (
 				(vQuery : Rep[Query[Value]]) => {
 					literals UNION ALL (
-						queryToInfixOps(
+						queryToInfixOps (
+							SELECT (
+								(d  : Rep[Composite], v1 : Rep[Value], v2 : Rep[Value]) =>
+									(d._1, interpretPriv (d._2, Seq(v1._2, v2._2)))
+							) FROM (
+								nonLiteralsTwoArguments, vQuery, vQuery
+							) WHERE (
+								(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value]) =>
+									(d._3(0) == v1._1) AND
+									(d._3(1) == v2._1)
+							)
+						) UNION ALL (
 							queryToInfixOps (
-								SELECT (
-									(d  : Rep[Composite], v1 : Rep[Value], v2 : Rep[Value]) =>
-										(d._1, interpretPriv (d._2, Seq(v1._2, v2._2)))
-								) FROM (
-									nonLiteralsTwoArguments, vQuery, vQuery
-								) WHERE (
-									(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value], v2 : Rep[Value]) =>
-										(d._3(0) == v1._1) AND
-										(d._3(1) == v2._1)
-								)
-							) UNION ALL (
 								SELECT (
 									(d  : Rep[Composite], v1 : Rep[Value], v2 : Rep[Value], v3 : Rep[Value]) =>
 										(d._1, interpretPriv (d._2, Seq(v1._2, v2._2, v3._2)))
@@ -87,17 +87,17 @@ abstract class Interpreter[V : Manifest] {
 										(d._3(1) == v2._1) AND
 										(d._3(2) == v3._1)
 								)
-							)
-						) UNION ALL (
-							SELECT (
-								(d  : Rep[Composite], v1 : Rep[Value]) =>
-									(d._1, interpretPriv (d._2, Seq(v1._2)))
-							) FROM (
-								nonLiteralsOneArgument, vQuery
+							) UNION ALL (
+								SELECT (
+									(d  : Rep[Composite], v1 : Rep[Value]) =>
+										(d._1, interpretPriv (d._2, Seq(v1._2)))
+								) FROM (
+									nonLiteralsOneArgument, vQuery
 								) WHERE (
-								(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value]) =>
-									d._3(0) == v1._1
+									(d  : Rep[(Int, Syntax, Seq[Int])], v1 : Rep[Value]) =>
+										d._3(0) == v1._1
 								)
+							)
 						)
 					)
 				}
