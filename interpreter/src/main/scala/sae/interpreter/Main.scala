@@ -20,8 +20,8 @@ object Main {
 		println("Values ####################################")
 		matval.foreach(println)
 
-		val ref6 = define(Plus, ref1, define(-23))
-		val ref8 = define(Plus, ref6, ref3, ref4)
+		val ref7 = define(Plus, ref1, define(-23))
+		val ref8 = define(Plus, ref7, ref3, ref4)
 
 		println("Values ####################################")
 		matval.foreach(println)
@@ -36,7 +36,7 @@ object Main {
 		println("Values ####################################")
 		matval.foreach(println)
 
-		update( (ref8, Left(Plus, ref6 :: ref3 :: ref4 :: Nil)), (ref8, Left(Plus, ref6 :: ref9 :: Nil)) )
+		update( (ref8, Left(Plus, Seq(ref6, ref3, ref4))), (ref8, Left(Plus, Seq(ref6, ref9))) )
 
 		println("Values ####################################")
 		matval.foreach(println)
