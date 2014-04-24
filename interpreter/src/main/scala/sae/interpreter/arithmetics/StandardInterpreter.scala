@@ -1,74 +1,143 @@
+package sae.interpreter.arithmetics
 
-import idb.syntax.iql.IR.Table
+
+import idb.syntax.iql.IR.{Table, Relation}
+import sae.interpreter.{Interpreter, Syntax}
 import scala.collection.mutable
+import idb.SetTable
 
 object StandardInterpreter {
 
-  abstract class Exp
-  case class Num(n: Int) extends Exp
-  case class Add(e1: Exp, e2: Exp) extends Exp
-  case class Sub(e1: Exp, e2: Exp) extends Exp
+	trait Exp
+	case class Num(n: Value) extends Exp
+	case class Add(e1: Exp, e2: Exp) extends Exp
+	case class Sub(e1: Exp, e2: Exp) extends Exp
 
-  type Value = Int
+	type Value = Int
 
-  def interp(e: Exp): Value = e match {
-    case Num(n) => n
-    case Add(e1, e2) => interp(e1) + interp(e2)
-    case Sub(e1, e2) => interp(e1) - interp(e2)
-  }
+	def interp(e: Exp): Value = e match {
+		case Num(n) => n
+		case Add(e1, e2) => interp(e1) + interp(e2)
+		case Sub(e1, e2) => interp(e1) - interp(e2)
+	}
 
-  abstract class ExpKind
-  case object NumKind extends ExpKind
-  case object AddKind extends ExpKind
-  case object SubKind extends ExpKind
+	trait ExpKind
+	case object NumKind extends ExpKind
+	case object AddKind extends ExpKind
+	case object SubKind extends ExpKind
 
-  type Key = Int
-  type IExpTable = Table[(Key, Either[(ExpKind,Seq[Key]),Value])]
-  type IExpMap = mutable.Map[Key, Either[(ExpKind,Seq[Key]),Value]]
-  type IExp = (IExpTable, IExpMap)
-  type IValue = Table[(Key, Value)]
+	type Key = Int
+	type IExpTable = Table[(Key, Either[(ExpKind,Seq[Key]),Value])]
+	type IExpMap = mutable.Map[Key, Either[(ExpKind,Seq[Key]),Value]]
+	type IExp = (IExpTable, IExpMap)
+	type IValue = Relation[(Key, Value)]
 
-  private var freshID = 0
+	private var freshID = 0
 
-  private def fresh() : Int = {
-    freshID = freshID + 1
-    freshID
-  }
+	private def fresh() : Int = {
+		freshID = freshID + 1
+		freshID
+	}
 
-  def insertExp(e: Exp, tab: IExp): Key = e match {
-    case Num(n) => insertValue(n, tab)
-    case Add(e1, e2) => insertNode(AddKind, Seq(insertExp(e1, tab), insertExp(e2, tab)), tab)
-    case Sub(e1, e2) => insertNode(SubKind, Seq(insertExp(e1, tab), insertExp(e2, tab)), tab)
-  }
+	def insertExp(e: Exp, tab: IExp): Key = e match {
+		case Num(n) => insertValue(n, tab)
+		case Add(e1, e2) => insertNode(AddKind, Seq(insertExp(e1, tab), insertExp(e2, tab)), tab)
+		case Sub(e1, e2) => insertNode(SubKind, Seq(insertExp(e1, tab), insertExp(e2, tab)), tab)
+	}
 
-  def insertValue(v: Value, tab: IExp): Key = {
-    val exp = Right(v)
-    val id = fresh()
-    tab._1 add (id, exp)
-    tab._2 += ((id, exp))
-    id
-  }
+	def insertValue(v: Value, tab: IExp): Key = {
+		val exp = Right(v)
+		val id = fresh()
+		tab._1 add (id, exp)
+		tab._2.put(id, exp)
+		id
+	}
 
-  def insertNode(k: ExpKind, kids: Seq[Key], tab: IExp): Key = {
-    val exp = Left(k, kids)
-    val id = fresh()
-    tab._1 add (id, exp)
-    tab._2 += ((id, exp))
-    id
-  }
+	def insertNode(k: ExpKind, kids: Seq[Key], tab: IExp): Key = {
+		val exp = Left(k, kids)
+		val id = fresh()
+		tab._1 add (id, exp)
+		tab._2.put(id, exp)
+		id
+	}
+
+	def updateExp(oldKey : Key, e : Exp, tab: IExp) {
+		val oldValue = tab._2(oldKey)
+		(e, oldValue) match {
+			case (Num(n), Right(v1)) if n == v1 => {}
+			case (Num(n), _ ) => updateValue(oldKey, n, tab)
+
+			case (Add(e1, e2), Left((AddKind, seq))) => {
+				updateExp(seq(0), e1, tab)
+				updateExp(seq(1), e2, tab)
+			}
+			//TODO what if kids dont change?
+		/*	case (Add(e1,e2), Left((_, seq))) if seq.size == 2 => {
+				updateNode(oldKey, AddKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
+			}   */
+			case (Add(e1,e2), _) => {
+				updateNode(oldKey, AddKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
+			}
+
+			case (Sub(e1, e2), Left((SubKind, seq))) => {
+				updateExp(seq(0), e1, tab)
+				updateExp(seq(1), e2, tab)
+			}
+			case (Sub(e1,e2), _) => {
+				updateNode(oldKey, SubKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
+			}
+		}
+	}
+
+	def updateValue(oldKey : Key, v : Value, tab : IExp): Key = {
+		val exp = Right(v)
+		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
+		tab._2.put(oldKey, exp)
+		oldKey
+	}
+
+	def updateNode(oldKey : Key, k : ExpKind, kids : Seq[Key], tab : IExp): Key = {
+		val exp = Left(k, kids)
+		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
+		tab._2.put(oldKey, exp)
+		oldKey
+	}
+
+	def getValues(tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
+		val interpreter = new IncrementalInterpreter(tab._1)
+		val result = new MaterializedMap[Key, Value]
+		interpreter.values.addObserver(result)
+		result
+	}
+
+	def createIExp : IExp = (SetTable.empty[(Key, Either[(ExpKind,Seq[Key]),Value])], mutable.HashMap.empty)
+
+	private class IncrementalInterpreter(override val expressions : IExpTable) extends Interpreter[Key, ExpKind, Value] {
+		override def interpret(e: ExpKind, s: Seq[Value]): Value = e match {
+			case NumKind => s(0)
+			case AddKind => s(0) + s(1)
+			case SubKind => s(0) - s(1)
+		}
+	}
 
 
-  def updateExp(old: Key, e: Exp, tab: IExp): Key = {
-    tab._2(old) match {
-      case Left((kind, kids)) => -1
-      case oldV@Right(_) => {
-        if (e.isInstanceOf[Num])
-          tab._1.update((old, oldV), (old, Right(e.asInstanceOf[Num].n)))
-        else
-          null
-        old
-      }
-    }
-  }
+	def main(args : Array[String]) {
+		val tab : IExp = createIExp
 
+		val exp1 = Add(Sub(Num(5), Num(2)), Num(10))
+		val exp2 = Add(Sub(Num(6), Num(2)), Num(10))
+
+		val values = getValues(tab)
+
+		val ref1 = insertExp(exp1, tab)
+
+		println("Before update: " + values(ref1))
+
+		updateExp(ref1, exp2, tab)
+
+		println("After update: " + values(ref1))
+
+
+
+	}
 }

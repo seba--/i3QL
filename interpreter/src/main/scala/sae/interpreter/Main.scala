@@ -36,7 +36,7 @@ object Main {
 		println("Values ####################################")
 		matval.foreach(println)
 
-		update( (ref8, Left(Plus, Seq(ref6, ref3, ref4))), (ref8, Left(Plus, Seq(ref6, ref9))) )
+		update( (ref8, Left(Plus, Seq(ref7, ref3, ref4))), (ref8, Left(Plus, Seq(ref7, ref9))) )
 
 		println("Values ####################################")
 		matval.foreach(println)

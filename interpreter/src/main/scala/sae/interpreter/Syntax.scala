@@ -7,12 +7,14 @@ package sae.interpreter
 trait Syntax
 
 //Arithmetic Syntax
-case object Plus extends Syntax
-case object Abs extends Syntax
-case object Max extends Syntax
+trait ArithmeticSyntax
+case object Plus extends ArithmeticSyntax
+case object Abs extends ArithmeticSyntax
+case object Max extends ArithmeticSyntax
 
 //Boolean Syntax
-case object And extends Syntax
+trait BooleanSyntax
+case object And extends BooleanSyntax
 
 //Misc
 case object Equals extends Syntax

@@ -2,12 +2,13 @@ package sae.interpreter
 
 
 
+
 /**
  * @author Mirko Köhler
  */
-object ArithmeticInterpreter extends Interpreter[Double] {
+object ArithmeticInterpreter extends IntKeyInterpreter[ArithmeticSyntax, Double] {
 
-	override def interpret(syntax: Syntax, values: Seq[Double]): Double = {
+	override def interpret(syntax: ArithmeticSyntax, values: Seq[Double]): Double = {
 		syntax match {
 			case Plus => values.fold(0.0)(_ + _)
 			case Max => values.fold(0.0)(Math.max)
@@ -15,6 +16,9 @@ object ArithmeticInterpreter extends Interpreter[Double] {
 		}
 	}
 
+	import idb.syntax.iql.IR
+	import idb.SetTable
+	override val expressions : IR.Table[(Int, Either[(ArithmeticSyntax,Seq[Int]),Double])] = SetTable.empty[(Int, Either[(ArithmeticSyntax,Seq[Int]),Double])]
 
 
 }
