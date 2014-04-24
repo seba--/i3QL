@@ -64,24 +64,36 @@ object StandardInterpreter {
 	def updateExp(oldKey : Key, e : Exp, tab: IExp) {
 		val oldValue = tab._2(oldKey)
 		(e, oldValue) match {
+			//1. Both literals with the same value
 			case (Num(n), Right(v1)) if n == v1 => {}
+			//2 ... else...
 			case (Num(n), _ ) => updateValue(oldKey, n, tab)
 
+			//1. Both are adds
 			case (Add(e1, e2), Left((AddKind, seq))) => {
 				updateExp(seq(0), e1, tab)
 				updateExp(seq(1), e2, tab)
 			}
-			//TODO what if kids dont change?
-		/*	case (Add(e1,e2), Left((_, seq))) if seq.size == 2 => {
-				updateNode(oldKey, AddKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
-			}   */
+			//2. 1 add and 1 non-add, but children are potentially the same
+			case (Add(e1,e2), Left((_, seq))) if seq.size == 2 => {
+				updateExp(seq(0), e1, tab)
+				updateExp(seq(1), e2, tab)
+				updateNode(oldKey, AddKind, seq, tab)
+			}
+			//3. Not the same at all
 			case (Add(e1,e2), _) => {
 				updateNode(oldKey, AddKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
 			}
 
+			//Analogous to add
 			case (Sub(e1, e2), Left((SubKind, seq))) => {
 				updateExp(seq(0), e1, tab)
 				updateExp(seq(1), e2, tab)
+			}
+			case (Sub(e1,e2), Left((_, seq))) if seq.size == 2 => {
+				updateExp(seq(0), e1, tab)
+				updateExp(seq(1), e2, tab)
+				updateNode(oldKey, SubKind, seq, tab)
 			}
 			case (Sub(e1,e2), _) => {
 				updateNode(oldKey, SubKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
@@ -90,6 +102,7 @@ object StandardInterpreter {
 	}
 
 	def updateValue(oldKey : Key, v : Value, tab : IExp): Key = {
+		println("updateValue: oldKey = " + oldKey + ", v = " + v)
 		val exp = Right(v)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
@@ -97,6 +110,7 @@ object StandardInterpreter {
 	}
 
 	def updateNode(oldKey : Key, k : ExpKind, kids : Seq[Key], tab : IExp): Key = {
+		println("updateNode: oldKey = " + oldKey + ", k = " + k + ", kids = " + kids)
 		val exp = Left(k, kids)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
@@ -126,6 +140,7 @@ object StandardInterpreter {
 
 		val exp1 = Add(Sub(Num(5), Num(2)), Num(10))
 		val exp2 = Add(Sub(Num(6), Num(2)), Num(10))
+		val exp3 = Add(Add(Num(5), Num(2)), Num(10))
 
 		val values = getValues(tab)
 
