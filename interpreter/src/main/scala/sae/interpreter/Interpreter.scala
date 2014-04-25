@@ -38,17 +38,17 @@ abstract class Interpreter[Key : Manifest, SyntaxKind : Manifest, Value : Manife
 	protected val literals : Relation[(Key, Value)] =
 		SELECT (definitionAsValue(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
 
-	protected val nonliterals : Relation[(Key, SyntaxKind, Seq[Key])] =
+	protected val nonLiterals : Relation[(Key, SyntaxKind, Seq[Key])] =
 		SELECT (definitionAsComposite(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => NOT (definitionIsLiteral(d)))
 
 	protected val nonLiteralsOneArgument : Relation[IComp] =
-		SELECT (*) FROM nonliterals WHERE ((d : Rep[IComp]) => d._3.length == 1)
+		SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 1)
 
 	protected val nonLiteralsTwoArguments : Relation[IComp] =
-		SELECT (*) FROM nonliterals WHERE ((d : Rep[IComp]) => d._3.length == 2)
+		SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 2)
 
 	protected val nonLiteralsThreeArguments : Relation[IComp] =
-		SELECT (*) FROM nonliterals WHERE ((d : Rep[IComp]) => d._3.length == 3)
+		SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 3)
 
 	val values : Relation[IValue] =
 		WITH RECURSIVE (

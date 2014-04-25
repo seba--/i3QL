@@ -8,6 +8,8 @@ import idb.SetTable
 
 object StandardInterpreter {
 
+	var printUpdates = true
+
 	trait Exp
 	case class Num(n: Value) extends Exp
 	case class Add(e1: Exp, e2: Exp) extends Exp
@@ -61,11 +63,11 @@ object StandardInterpreter {
 		id
 	}
 
-	def updateExp(oldKey : Key, e : Exp, tab: IExp) {
+	def updateExp(oldKey : Key, newExp : Exp, tab: IExp) : Key = {
 		val oldValue = tab._2(oldKey)
-		(e, oldValue) match {
+		(newExp, oldValue) match {
 			//1. Both literals with the same value
-			case (Num(n), Right(v1)) if n == v1 => {}
+			case (Num(n), Right(v1)) if n == v1 => oldKey
 			//2 ... else...
 			case (Num(n), _ ) => updateValue(oldKey, n, tab)
 
@@ -73,6 +75,7 @@ object StandardInterpreter {
 			case (Add(e1, e2), Left((AddKind, seq))) => {
 				updateExp(seq(0), e1, tab)
 				updateExp(seq(1), e2, tab)
+				oldKey
 			}
 			//2. 1 add and 1 non-add, but children are potentially the same
 			case (Add(e1,e2), Left((_, seq))) if seq.size == 2 => {
@@ -102,7 +105,7 @@ object StandardInterpreter {
 	}
 
 	def updateValue(oldKey : Key, v : Value, tab : IExp): Key = {
-		println("updateValue: oldKey = " + oldKey + ", v = " + v)
+		if (printUpdates) println("updateValue: oldKey = " + oldKey + ", v = " + v)
 		val exp = Right(v)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
@@ -110,7 +113,7 @@ object StandardInterpreter {
 	}
 
 	def updateNode(oldKey : Key, k : ExpKind, kids : Seq[Key], tab : IExp): Key = {
-		println("updateNode: oldKey = " + oldKey + ", k = " + k + ", kids = " + kids)
+		if (printUpdates) println("updateNode: oldKey = " + oldKey + ", k = " + k + ", kids = " + kids)
 		val exp = Left(k, kids)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
@@ -141,16 +144,19 @@ object StandardInterpreter {
 		val exp1 = Add(Sub(Num(5), Num(2)), Num(10))
 		val exp2 = Add(Sub(Num(6), Num(2)), Num(10))
 		val exp3 = Add(Add(Num(5), Num(2)), Num(10))
+		val exp4 = Add(exp1, exp1)
 
 		val values = getValues(tab)
 
-		val ref1 = insertExp(exp1, tab)
+		val ref1 = insertExp(exp2, tab)
 
 		println("Before update: " + values(ref1))
+		values.foreach(println)
 
-		updateExp(ref1, exp2, tab)
+		updateExp(ref1, exp3, tab)
 
 		println("After update: " + values(ref1))
+		values.foreach(println)
 
 
 
