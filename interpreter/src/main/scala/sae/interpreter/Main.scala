@@ -10,7 +10,7 @@ object Main {
 	def main(args: Array[String]) {
 		import ArithmeticInterpreter._
 
-		val matval = values.asMaterialized
+		val matval = values(null).asMaterialized
 
 		val ref1 = define(42)
 		val ref3 = define(Abs, define(-100))

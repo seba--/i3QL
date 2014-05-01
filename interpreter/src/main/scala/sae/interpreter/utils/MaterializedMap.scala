@@ -1,7 +1,6 @@
-package sae.interpreter.arithmetics
+package sae.interpreter.utils
 
 import idb.observer.Observer
-import scala.collection.mutable
 import com.google.common.collect.ArrayListMultimap
 
 /**

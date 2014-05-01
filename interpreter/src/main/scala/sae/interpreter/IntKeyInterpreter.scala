@@ -5,7 +5,7 @@ import idb.{Table, SetTable}
 /**
  * @author Mirko Köhler
  */
-abstract class IntKeyInterpreter[SyntaxKind : Manifest, Value : Manifest] extends Interpreter[Int, SyntaxKind, Value] {
+abstract class IntKeyInterpreter[ExpKind : Manifest, Context : Manifest, Value : Manifest] extends Interpreter[Int, ExpKind, Context, Value] {
 
 	private var freshID = 0
 
@@ -15,7 +15,7 @@ abstract class IntKeyInterpreter[SyntaxKind : Manifest, Value : Manifest] extend
 		freshID
 	}
 
-	def define(syntax : SyntaxKind, reference : Int*) : Int = {
+	def define(syntax : ExpKind, reference : Int*) : Int = {
 		val exp = Left ((syntax, reference))
 		val id = fresh()
 		expressions add ((id, exp))

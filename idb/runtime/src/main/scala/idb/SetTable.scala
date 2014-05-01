@@ -47,7 +47,7 @@ class SetTable[V]
 
 object SetTable
 {
-    def apply[V] () = new SetTable[V]()
+    def apply[V] ()  = new SetTable[V]()
 
-    def empty[V] () = new SetTable[V]()
+    def empty[V]  = new SetTable[V]()
 }

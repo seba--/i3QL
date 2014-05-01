@@ -31,7 +31,9 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	@Before
 	def setUp() {
 		table = BagTable.empty[Student]
-		query = compile(SELECT (*) FROM table WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 ))
+		query = compile(
+			SELECT (*) FROM table WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 )
+		)
 	}
 
 

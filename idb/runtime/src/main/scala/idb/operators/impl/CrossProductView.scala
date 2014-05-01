@@ -50,6 +50,7 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 		)
 	}
 
+	//TODO: Reactivate exceptions in remove and update
 	object LeftObserver extends Observer[DomainA] {
 
 		override def endTransaction() {
@@ -58,25 +59,29 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on left relation
 		override def updated(oldA: DomainA, newA: DomainA) {
-			if (!leftSet.remove(oldA))
-				throw new IllegalStateException("Removed element not in relation: " + oldA)
 
-			leftSet.add(newA)
-			val it = rightSet.iterator()
-			while(it.hasNext) {
-				val b = it.next
-				notify_updated(projection(oldA,b), projection(newA,b))
+			if (leftSet.remove(oldA)) {
+				leftSet.add(newA)
+				val it = rightSet.iterator()
+				while(it.hasNext) {
+					val b = it.next
+					notify_updated(projection(oldA,b), projection(newA,b))
+				}
+			} else {
+				throw new IllegalStateException("Removed element not in relation: " + oldA)
 			}
 		}
 
 		override def removed(v: DomainA) {
-			if (!leftSet.remove(v))
-				throw new IllegalStateException("Removed element not in relation: " + v)
 
-			val it = rightSet.iterator()
-			while(it.hasNext) {
-				val b = it.next
-				notify_removed(projection(v,b))
+			if (leftSet.remove(v)) {
+				val it = rightSet.iterator()
+				while(it.hasNext) {
+					val b = it.next
+					notify_removed(projection(v,b))
+				}
+			} else {
+				throw new IllegalStateException("Removed element not in relation: " + v)
 			}
 		}
 
@@ -98,25 +103,28 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 		// update operations on right relation
 		override def updated(oldB: DomainB, newB: DomainB) {
-			if (!rightSet.remove(oldB))
+			if (rightSet.remove(oldB)) {
+				rightSet.add(newB)
+				val it = leftSet.iterator()
+				while(it.hasNext) {
+					val a = it.next
+					notify_updated(projection(a,oldB), projection(a,newB))
+				}
+			} else {
 				throw new IllegalStateException("Removed element not in relation: " + oldB)
-
-			rightSet.add(newB)
-			val it = leftSet.iterator()
-			while(it.hasNext) {
-				val a = it.next
-				notify_updated(projection(a,oldB), projection(a,newB))
 			}
 		}
 
 		override def removed(v: DomainB) {
-			if (!rightSet.remove(v))
+			if (rightSet.remove(v)) {
+				val it = leftSet.iterator()
+				while(it.hasNext) {
+					val a = it.next
+					notify_removed(projection(a,v))
+				}
+			} else {
+				println(rightSet)
 				throw new IllegalStateException("Removed element not in relation: " + v)
-
-			val it = leftSet.iterator()
-			while(it.hasNext) {
-				val a = it.next
-				notify_removed(projection(a,v))
 			}
 		}
 

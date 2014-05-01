@@ -5,16 +5,18 @@ import idb.syntax.iql.IR.{Table, Relation}
 import sae.interpreter.{Interpreter, Syntax}
 import scala.collection.mutable
 import idb.SetTable
+import sae.interpreter.utils.MaterializedMap
 
 object StandardInterpreter {
 
 	var printUpdates = true
 
-	trait Exp
-	case class Num(n: Value) extends Exp
-	case class Add(e1: Exp, e2: Exp) extends Exp
-	case class Sub(e1: Exp, e2: Exp) extends Exp
+	trait ArithExp
+	case class Num(n: Int) extends ArithExp
+	case class Add(e1: ArithExp, e2: ArithExp) extends ArithExp
+	case class Sub(e1: ArithExp, e2: ArithExp) extends ArithExp
 
+	type Exp = ArithExp
 	type Value = Int
 
 	def interp(e: Exp): Value = e match {
@@ -23,11 +25,13 @@ object StandardInterpreter {
 		case Sub(e1, e2) => interp(e1) - interp(e2)
 	}
 
-	trait ExpKind
-	case object NumKind extends ExpKind
-	case object AddKind extends ExpKind
-	case object SubKind extends ExpKind
+	trait ArithExpKind
+	case object NumKind extends ArithExpKind
+	case object AddKind extends ArithExpKind
+	case object SubKind extends ArithExpKind
 
+
+	type ExpKind = ArithExpKind
 	type Key = Int
 	type IExpTable = Table[(Key, Either[(ExpKind,Seq[Key]),Value])]
 	type IExpMap = mutable.Map[Key, Either[(ExpKind,Seq[Key]),Value]]
@@ -84,14 +88,19 @@ object StandardInterpreter {
 				updateNode(oldKey, AddKind, seq, tab)
 			}
 			//3. Not the same at all
-			case (Add(e1,e2), _) => {
+			case (Add(e1,e2),_) =>
 				updateNode(oldKey, AddKind, Seq(insertExp(e1,tab), insertExp(e2,tab)), tab)
-			}
+		/*	case (Add(e1,e2), _) => {
+				val ref1 = updateExp(oldKey, e1, tab)
+				val ref2 = updateExp(oldKey, e2, tab)
+				insertNode(AddKind, Seq(ref1, ref2), tab)
+			}*/
 
 			//Analogous to add
 			case (Sub(e1, e2), Left((SubKind, seq))) => {
 				updateExp(seq(0), e1, tab)
 				updateExp(seq(1), e2, tab)
+				oldKey
 			}
 			case (Sub(e1,e2), Left((_, seq))) if seq.size == 2 => {
 				updateExp(seq(0), e1, tab)
@@ -123,14 +132,14 @@ object StandardInterpreter {
 	def getValues(tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
 		val interpreter = new IncrementalInterpreter(tab._1)
 		val result = new MaterializedMap[Key, Value]
-		interpreter.values.addObserver(result)
+		interpreter.values(null).addObserver(result)
 		result
 	}
 
 	def createIExp : IExp = (SetTable.empty[(Key, Either[(ExpKind,Seq[Key]),Value])], mutable.HashMap.empty)
 
-	private class IncrementalInterpreter(override val expressions : IExpTable) extends Interpreter[Key, ExpKind, Value] {
-		override def interpret(e: ExpKind, s: Seq[Value]): Value = e match {
+	private class IncrementalInterpreter(override val expressions : IExpTable) extends Interpreter[Key, ExpKind, Null, Value] {
+		override def interpret(e: ExpKind, c : Null, s: Seq[Value]): Value = e match {
 			case NumKind => s(0)
 			case AddKind => s(0) + s(1)
 			case SubKind => s(0) - s(1)
@@ -141,21 +150,27 @@ object StandardInterpreter {
 	def main(args : Array[String]) {
 		val tab : IExp = createIExp
 
-		val exp1 = Add(Sub(Num(5), Num(2)), Num(10))
+		val exp1 = Add(Add(Num(5), Num(2)), Num(10))
 		val exp2 = Add(Sub(Num(6), Num(2)), Num(10))
 		val exp3 = Add(Add(Num(5), Num(2)), Num(10))
-		val exp4 = Add(exp1, exp1)
+		val exp4 = Add(exp1, Num(100))
 
 		val values = getValues(tab)
 
-		val ref1 = insertExp(exp2, tab)
+		var ref1 = insertExp(exp1, tab)
 
-		println("Before update: " + values(ref1))
+		println("Before update: " + values(ref1) + "[" + ref1 + "]")
+		println("exps")
+		tab._2.foreach(println)
+		println("values")
 		values.foreach(println)
 
-		updateExp(ref1, exp3, tab)
+		ref1 = updateExp(ref1, exp4, tab)
 
-		println("After update: " + values(ref1))
+		println("After update: " + values(ref1) + "[" + ref1 + "]")
+		println("exps")
+		tab._2.foreach(println)
+		println("values")
 		values.foreach(println)
 
 

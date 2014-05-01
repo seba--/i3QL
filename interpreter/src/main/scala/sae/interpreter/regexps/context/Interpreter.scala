@@ -1,4 +1,4 @@
-package sae.interpreter
+package sae.interpreter.regexps.context
 
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
@@ -12,7 +12,7 @@ abstract class Interpreter[Key : Manifest, ExpKind : Manifest, Context : Manifes
 	type IValue = (Key, Value)
 	type IComp = (Key, ExpKind, Seq[Key])
 
-	def interpret(syntax : ExpKind, c : Context, values : Seq[Value]) : Value
+	def interpret(ref : Key, k : ExpKind, c : Context, values : Seq[Value]) : Value
 
 	protected val definitionAsValue : Rep[IDef => IValue] = staticData (
 		(d : IDef) => (d._1, d._2.right.get)
@@ -25,8 +25,8 @@ abstract class Interpreter[Key : Manifest, ExpKind : Manifest, Context : Manifes
 		}
 	)
 
-	protected val interpretPriv : Rep[((ExpKind, Context, Seq[Value])) => Value] = staticData (
-		(t : (ExpKind, Context, Seq[Value])) => interpret(t._1, t._2, t._3)
+	protected val interpretPriv : Rep[((Key, ExpKind, Context, Seq[Value])) => Value] = staticData (
+		(t : (Key, ExpKind, Context, Seq[Value])) => interpret(t._1, t._2, t._3, t._4)
 	)
 
 	protected val definitionIsLiteral : Rep[IDef => Boolean] = staticData (
@@ -59,7 +59,7 @@ abstract class Interpreter[Key : Manifest, ExpKind : Manifest, Context : Manifes
 					queryToInfixOps (
 						SELECT (
 							(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue]) =>
-								(d._1, interpretPriv (d._2, context, Seq(v1._2, v2._2)))
+								(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2, v2._2)))
 						) FROM (
 							nonLiteralsTwoArguments, vQuery, vQuery
 							) WHERE (
@@ -71,10 +71,10 @@ abstract class Interpreter[Key : Manifest, ExpKind : Manifest, Context : Manifes
 						queryToInfixOps (
 							SELECT (
 								(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
-									(d._1, interpretPriv (d._2, context, Seq(v1._2, v2._2, v3._2)))
+									(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2, v2._2, v3._2)))
 							) FROM (
 								nonLiteralsThreeArguments, vQuery, vQuery, vQuery
-								) WHERE (
+							) WHERE (
 								(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
 									(d._3(0) == v1._1) AND
 										(d._3(1) == v2._1) AND
@@ -83,7 +83,7 @@ abstract class Interpreter[Key : Manifest, ExpKind : Manifest, Context : Manifes
 						) UNION ALL (
 							SELECT (
 								(d  : Rep[IComp], v1 : Rep[IValue]) =>
-									(d._1, interpretPriv (d._2, context, Seq(v1._2)))
+									(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2)))
 							) FROM (
 								nonLiteralsOneArgument, vQuery
 								) WHERE (

@@ -6,9 +6,9 @@ package sae.interpreter
 /**
  * @author Mirko Köhler
  */
-object ArithmeticInterpreter extends IntKeyInterpreter[ArithmeticSyntax, Double] {
+object ArithmeticInterpreter extends IntKeyInterpreter[ArithmeticSyntax, Null, Double] {
 
-	override def interpret(syntax: ArithmeticSyntax, values: Seq[Double]): Double = {
+	override def interpret(syntax: ArithmeticSyntax, c : Null, values: Seq[Double]): Double = {
 		syntax match {
 			case Plus => values.fold(0.0)(_ + _)
 			case Max => values.fold(0.0)(Math.max)
