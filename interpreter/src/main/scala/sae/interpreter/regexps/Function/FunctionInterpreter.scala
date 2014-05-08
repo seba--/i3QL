@@ -1,4 +1,4 @@
-package sae.interpreter.regexps.Function
+package sae.interpreter.regexps.function
 
 import sae.interpreter.Interpreter
 import scala.collection.mutable

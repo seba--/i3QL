@@ -33,6 +33,7 @@
 package idb.lms.extensions.equivalence
 
 import scala.virtualization.lms.common.ScalaOpsPkgExp
+import idb.lms.extensions.operations.{OptionOps, EitherOps}
 
 /**
  *
@@ -42,6 +43,8 @@ import scala.virtualization.lms.common.ScalaOpsPkgExp
 
 trait ScalaOpsPkgExpAlphaEquivalence
     extends ScalaOpsPkgExp
+	with EitherOps
+	with OptionOps
     with ImplicitOpsExpAlphaEquivalence
     with NumericOpsExpAlphaEquivalence
     with FractionalOpsExpAlphaEquivalence
@@ -69,6 +72,11 @@ trait ScalaOpsPkgExpAlphaEquivalence
     with SetOpsExpAlphaEquivalence
     with ObjectOpsExpAlphaEquivalence
     with ArrayBufferOpsExpAlphaEquivalence
+	with StructExpAlphaEquivalence
+	with TupledFunctionsExpAlphaEquivalence
+	with StaticDataExpAlphaEquivalence
+	with OptionOpsExpAlphaEquivalence
+	with EitherOpsExpAlphaEquivalence
 {
 
 }

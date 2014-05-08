@@ -22,9 +22,8 @@ object ContextInterpreter {
 
 	def interp(e : Exp, c : Context): Value = e match {
 		case Terminal(s2) => if (c.startsWith(s2)) Set(c.substring(s2.length)) else Set()
-		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c) //Could be written interp(r1, s) ++ interp(r2, s)
+		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
 		case Asterisk(r) => Set(c) ++ interp(Sequence(r, Asterisk(r)), c)
-		//case Asterisk(r) => interp(r, c) flatMap (c2 => interp(Asterisk(r), c2))
 		case Sequence(r1, r2) => interp(r1, c) flatMap (s2 => interp(r2, s2))
 	}
 
@@ -35,11 +34,15 @@ object ContextInterpreter {
 	case object SequenceKind extends RegExpKind
 
 
+
 	import idb.syntax.iql.IR.{Table, Relation}
 	type ExpKind = RegExpKind
 	type Key = Int
-	type IExpTable = Table[(Key, Either[(ExpKind,Seq[Key]),Value])]
-	type IExpKindMap = mutable.Map[Key, Either[(ExpKind,Seq[Key]),Value]]
+	type Node = (ExpKind, Option[Context], Seq[Key])
+	type Lit = (ExpKind, Option[Context], Seq[Any])
+
+	type IExpTable = Table[(Key, Either[Node, Lit])]
+	type IExpKindMap = mutable.Map[Key, Either[Node, Lit]]
 	type IExpMap = mutable.Map[Key, Exp]
 	type IExp = (IExpTable, IExpKindMap, IExpMap)
 	type IValue = Relation[(Key, Value)]
@@ -51,16 +54,18 @@ object ContextInterpreter {
 		freshID
 	}
 
-	def insertExp(e: Exp, c : Context, tab: IExp): Key = e match {
+	def insertExp(e : Exp, c : Context, tab : IExp) : Key = insertExp(e, Some(c), tab)
+
+	def insertExp(e: Exp, c : Option[Context], tab: IExp): Key = e match {
 		//1. Build case distinction according to interp
-		case l@Terminal(s2) => insertValue(e, interp(l,c), tab) //No recursive call => insertValue, convert literal to value using interp
-		case Alt(r1, r2) => insertNode(e, AltKind, Seq(insertExp(r1, c, tab), insertExp(r2, c, tab)), tab) //Recursive call => insertNode, (r1, s) emerges from the definition of interp
-		case Asterisk(r) => insertNode(e, AsteriskKind, Seq(insertExp(Sequence(r, Asterisk(r)), c, tab)), tab) //Use same parameter as the recursive call in interp
-		case Sequence(r1,r2) => insertNode(e, SequenceKind, Seq(insertExp(r1, c, tab), insertExp(r2, c, tab)), tab) //Ignore other logic
+		case l@Terminal(s2) => insertLiteral(e, TerminalKind, c, Seq(s2), tab) //No recursive call => insertLiteral, param is the sequence of parameters of the literal
+		case Alt(r1, r2) => insertNode(e, AltKind, c, Seq(insertExp(r1, c, tab), insertExp(r2, c, tab)), tab) //Recursive call => insertNode, (r1, s) emerges from the definition of interp
+		case Asterisk(r) => insertNode(e, AsteriskKind, c, Seq(insertExp(Sequence(r, Asterisk(r)), c, tab)), tab) //Use same parameter as the recursive call in interp
+		case Sequence(r1,r2) => insertNode(e, SequenceKind, c, Seq(insertExp(r1, c, tab), insertExp(r2, None, tab)), tab) //Use none if the context differs from the context in the parameter
 	}
 
-	def insertValue(e : Exp, v: Value, tab: IExp): Key = {
-		val exp = Right(v)
+	def insertLiteral(e : Exp, k: ExpKind, c : Option[Context], param: Seq[Any], tab: IExp): Key = {
+		val exp = Right(k, c, param)
 		val id = fresh()
 		tab._1 add (id, exp)
 		tab._2.put(id, exp)
@@ -68,201 +73,229 @@ object ContextInterpreter {
 		id
 	}
 
-	def insertNode(e : Exp, k: ExpKind, kids: Seq[Key], tab: IExp): Key = {
-		val exp = Left(k, kids)
+	def insertNode(e : Exp, k: ExpKind, c : Option[Context], kids: Seq[Key], tab: IExp): Key = {
+		val exp = Left(k, c, kids)
 		val id = fresh()
-		tab._1 add (id, exp)
+		tab._1.add(id, exp)
 		tab._2.put(id, exp)
 		tab._3.put(id, e)
 		id
 	}
 
-	def updateExp(oldKey : Key, newExp : Exp, c : Context, tab: IExp) : Key = {
+	def updateExp(oldKey : Key, newExp : Exp, newC : Context, tab : IExp) : Key = updateExp(oldKey, newExp, Some(newC), tab)
+
+	def updateExp(oldKey : Key, newExp : Exp, newC : Option[Context], tab: IExp) : Key = {
 		val oldValue = tab._2(oldKey)
 		(newExp, oldValue) match {
 
 			//I
-			case (l@Terminal(s2), Right(v1)) if interp(l, c) == v1 => oldKey //Use interp to convert literal to value, use interp case distinction
-			case (l@Terminal(s2), _ ) => updateValue(oldKey, newExp, interp(l, c), tab) //Use interp to convert literal to value
+			case (l@Terminal(s2), Right(v1)) if v1._1 == TerminalKind && v1._2 == newC && v1._3 == Seq(s2) => oldKey
+			case (l@Terminal(s2), _ ) => updateLiteral(oldKey, newExp, TerminalKind, newC, Seq(s2), tab)
 
 			//II
-			case (Alt(r1, r2), Left((AltKind, seq))) => {
-				updateExp(seq(0), r1, c, tab) //use expression in the recursive call
-				updateExp(seq(1), r2, c, tab)
+			case (Alt(r1, r2), Left((AltKind, `newC`, seq))) => {
+				updateExp(seq(0), r1, newC, tab) //use expression in the recursive call
+				updateExp(seq(1), r2, newC, tab)
 				oldKey
 			}
-			case (Alt(r1, r2), Left((_, seq))) if seq.size == 2 => {
-				updateExp(seq(0), r1, c, tab)
-				updateExp(seq(1), r2, c, tab)
-				updateNode(oldKey, newExp, AltKind, seq, tab)
+			case (Alt(r1, r2), Left((_, c, seq))) if seq.size == 2 => {
+				updateExp(seq(0), r1, newC, tab)
+				updateExp(seq(1), r2, newC, tab)
+				updateNode(oldKey, newExp, AltKind, newC, seq, tab)
 			}
 			case (Alt(r1, r2),_) =>
-				updateNode(oldKey, newExp, AltKind, Seq(insertExp(r1, c,tab), insertExp(r2, c,tab)), tab)
+				updateNode(oldKey, newExp, AltKind, newC, Seq(insertExp(r1, newC, tab), insertExp(r2, newC, tab)), tab)
 
 			//III
-    		case (Asterisk(r), Left((AsteriskKind, seq))) => {
-				updateExp(seq(0), Sequence(r, Asterisk(r)), c, tab)
+    		case (Asterisk(r), Left((AsteriskKind, `newC`, seq))) => {
+				updateExp(seq(0), Sequence(r, Asterisk(r)), newC, tab)
 				oldKey
 			}
-			case (Asterisk(r), Left((_, seq))) if seq.size == 1 => {
-				updateExp(seq(0), Sequence(r, Asterisk(r)), c, tab)
-				updateNode(oldKey, newExp, AsteriskKind, seq, tab)
+			case (Asterisk(r), Left((_, c, seq))) if seq.size == 1 => {
+				updateExp(seq(0), Sequence(r, Asterisk(r)), newC, tab)
+				updateNode(oldKey, newExp, AsteriskKind, newC, seq, tab)
 			}
 			case (Asterisk(r), _) => {
-				updateNode(oldKey, newExp, AsteriskKind, Seq(insertExp(Sequence(r, Asterisk(r)), c, tab)), tab)
+				updateNode(oldKey, newExp, AsteriskKind, newC, Seq(insertExp(Sequence(r, Asterisk(r)), newC, tab)), tab)
 			}
 
 			//IV
-			case (Sequence(r1, r2), Left((SequenceKind, seq))) => {
-				updateExp(seq(0), r1, c, tab) //use expression in the recursive call
-				updateExp(seq(1), r2, c, tab)
+			case (Sequence(r1, r2), Left((SequenceKind, `newC`, seq))) => {
+				updateExp(seq(0), r1, newC, tab) //use expression in the recursive call
+				updateExp(seq(1), r2, newC, tab)
 				oldKey
 			}
-			case (Sequence(r1, r2), Left((_, seq))) if seq.size == 2 => {
-				updateExp(seq(0), r1, c, tab)
-				updateExp(seq(1), r2, c, tab)
-				updateNode(oldKey, newExp, SequenceKind, seq, tab)
+			case (Sequence(r1, r2), Left((_, c, seq))) if seq.size == 2 => {
+				updateExp(seq(0), r1, newC, tab)
+				updateExp(seq(1), r2, newC, tab)
+				updateNode(oldKey, newExp, SequenceKind, newC, seq, tab)
 			}
 			case (Sequence(r1, r2),_) =>
-				updateNode(oldKey, newExp, SequenceKind, Seq(insertExp(r1, c, tab), insertExp(r2, c, tab)), tab)
+				updateNode(oldKey, newExp, SequenceKind, newC, Seq(insertExp(r1, newC, tab), insertExp(r2, newC, tab)), tab)
 		}
 	}
 
-	def updateValue(oldKey : Key, e : Exp, v : Value, tab : IExp): Key = {
-		if (printUpdates) println("updateValue: oldKey = " + oldKey + ", v = " + v)
-		val exp = Right(v)
+	def updateLiteral(oldKey : Key, e : Exp, k : ExpKind, c : Option[Context], param : Seq[Any], tab : IExp): Key = {
+		if (printUpdates) println("updateLiteral: oldKey = " + oldKey + ", k = " + k + ", param = " + param)
+		val exp = Right(k, c, param)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
 		tab._3.put(oldKey, e)
 		oldKey
 	}
 
-	def updateNode(oldKey : Key, e : Exp, k : ExpKind, kids : Seq[Key], tab : IExp): Key = {
+	def updateNode(oldKey : Key, e : Exp, k : ExpKind, c : Option[Context], kids : Seq[Key], tab : IExp): Key = {
 		if (printUpdates) println("updateNode: oldKey = " + oldKey + ", k = " + k + ", kids = " + kids)
-		val exp = Left(k, kids)
+		val exp = Left(k, c, kids)
 		tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
 		tab._2.put(oldKey, exp)
 		tab._3.put(oldKey, e)
 		oldKey
 	}
 
-	def getValues(c : Context, tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
+	def getValues(tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
 		val interpreter = new IncrementalInterpreter(tab)
-		val result = new MaterializedMap[Key, Value]
-		interpreter.values(c).addObserver(result)
-		result
+		interpreter.result
 	}
 
-	def createIExp : IExp = (SetTable.empty[(Key, Either[(ExpKind,Seq[Key]),Value])], mutable.HashMap.empty, mutable.HashMap.empty)
+	def createIExp : IExp = (SetTable.empty, mutable.HashMap.empty, mutable.HashMap.empty)
 
 	private class IncrementalInterpreter(val tab : IExp) { //extends Interpreter[Key, ExpKind, Context, Value] {
 
-		val expressions = tab._1
+		val expressions : Relation[IDef] = tab._1
 
-		def interpret(ref : Key, k : ExpKind, c : Context, s: Seq[Value]): Value = k match {
-			case TerminalKind => s(0) //Literal => just return the first value of the sequence
+		def interpretLiteral(ref : Key, k : ExpKind, c : Context, s : Seq[Any]): Value = k match {
+			case TerminalKind =>  {
+				val s0 = s(0).asInstanceOf[String] //Cast parameters of the terminal accordingly
+				if (c.startsWith(s0)) Set(c.substring(s0.length)) else Set()
+			}
+		}
+
+		def interpretNode(ref : Key, k : ExpKind, c : Context, s: Seq[Value]): Value = k match {
 			case AltKind => s(0) ++ s(1) //Non-literal => like interp but substitute calls to interp with the values of the sequence
 			case AsteriskKind => Set(c) ++ s(0)
 			case SequenceKind => {
-				s(0) flatMap (s2 => {
-					val newTab = createIExp
-					val newVals = getValues(s2, newTab)
-					val ref2 = insertExp(tab._3(ref), s2, newTab)
-					newVals(ref2)
-				})
+				s(0) flatMap (s2 => result(insertExp(tab._3(ref), Some(s2), tab)))
 			}
 		}
 
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
 
-		type IDef = (Key, Either[(ExpKind,Seq[Key]),Value])
+		type Node = (ExpKind, Option[Context], Seq[Key])
+		type Lit =  (ExpKind, Option[Context], Seq[Any])
+
+		type IDef = (Key, Either[Node,Lit])
+		type INode = (Key, Node)
+		type ILit = (Key, Lit)
+
 		type IValue = (Key, Value)
-		type IComp = (Key, ExpKind, Seq[Key])
+
 
 		//def interpret(ref : Key, k : ExpKind, c : Context, values : Seq[Value]) : Value
 
-		protected val definitionAsValue : Rep[IDef => IValue] = staticData (
-			(d : IDef) => (d._1, d._2.right.get)
-		)
-
-		protected val definitionAsComposite : Rep[IDef => IComp] = staticData (
+		protected val iDefAsILit : Rep[IDef => ILit] = staticData (
 			(d : IDef) => {
-				val e : (ExpKind, Seq[Key]) = d._2.left.get
-				(d._1,e._1,e._2)
+				val e = d._2.right.get
+				(d._1, (e._1, e._2, e._3))
 			}
 		)
 
+		protected val iDefAsINode : Rep[IDef => INode] = staticData (
+			(d : IDef) => {
+				val e = d._2.left.get
+				(d._1, (e._1, e._2, e._3))
+			}
+		)
+
+		protected val interpretILit : Rep[ILit => Value] = staticData (
+			(t : ILit) => interpretLiteral(t._1, t._2._1, t._2._2.get, t._2._3)
+		)
+
 		protected val interpretPriv : Rep[((Key, ExpKind, Context, Seq[Value])) => Value] = staticData (
-			(t : (Key, ExpKind, Context, Seq[Value])) => interpret(t._1, t._2, t._3, t._4)
+			(t : (Key, ExpKind, Context, Seq[Value])) => interpretNode(t._1, t._2, t._3, t._4)
 		)
 
 		protected val definitionIsLiteral : Rep[IDef => Boolean] = staticData (
-			(s : IDef) => s._2.isRight
+			(s : IDef) => s._2.isRight && s._2.right.get._2.isDefined
 		)
+
+		protected val definitionIsNode : Rep[IDef => Boolean] = staticData (
+			(s : IDef) => s._2.isLeft
+		)
+
+		protected val children : Rep[INode => Seq[Key]] = staticData (
+			(t : INode) => t._2._3
+		)
+
 
 		//val expressions : Table[IDef]
 
-		protected val literals : Relation[(Key, Value)] =
-			SELECT (definitionAsValue(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
+		protected val literals : Relation[IValue] =
+			SELECT ((d : Rep[IDef]) => (d._1, interpretILit(iDefAsILit(d)))) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
 
-		protected val nonLiterals : Relation[(Key, ExpKind, Seq[Key])] =
-			SELECT (definitionAsComposite(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => NOT (definitionIsLiteral(d)))
+		protected val nonLiterals : Relation[INode] =
+			SELECT (iDefAsINode(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsNode(d))
 
-		protected val nonLiteralsOneArgument : Relation[IComp] =
-			SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 1)
+		protected val nonLiteralsOneArgument : Relation[INode] =
+			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 1)
 
-		protected val nonLiteralsTwoArguments : Relation[IComp] =
-			SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 2)
+		protected val nonLiteralsTwoArguments : Relation[INode] =
+			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 2)
 
-		protected val nonLiteralsThreeArguments : Relation[IComp] =
-			SELECT (*) FROM nonLiterals WHERE ((d : Rep[IComp]) => d._3.length == 3)
+		protected val nonLiteralsThreeArguments : Relation[INode] =
+			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 3)
 
-		def values(c : Context) : Relation[IValue] = {
-			val context : Rep[Context] = staticData(c)
+		val values : Relation[IValue] = {
 			WITH RECURSIVE (
 				(vQuery : Rep[Query[IValue]]) => {
 					literals UNION ALL (
 						queryToInfixOps (
 							SELECT (
-								(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue]) =>
-									(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2, v2._2)))
+								(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue]) =>
+									(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2, v2._2)))
 							) FROM (
 								nonLiteralsTwoArguments, vQuery, vQuery
 								) WHERE (
-								(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue]) =>
-									(d._3(0) == v1._1) AND
-										(d._3(1) == v2._1)
+								(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue]) =>
+									(children(d)(0) == v1._1) AND
+									(children(d)(1) == v2._1) AND
+									d._2._2.isDefined
 								)
 						) UNION ALL (
 							queryToInfixOps (
 								SELECT (
-									(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
-										(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2, v2._2, v3._2)))
+									(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
+										(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2, v2._2, v3._2)))
 								) FROM (
 									nonLiteralsThreeArguments, vQuery, vQuery, vQuery
 									) WHERE (
-									(d  : Rep[IComp], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
-										(d._3(0) == v1._1) AND
-											(d._3(1) == v2._1) AND
-											(d._3(2) == v3._1)
+									(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
+										(children(d)(0) == v1._1) AND
+										(children(d)(1) == v2._1) AND
+										(children(d)(2) == v3._1) AND
+										d._2._2.isDefined
 									)
 							) UNION ALL (
 								SELECT (
-									(d  : Rep[IComp], v1 : Rep[IValue]) =>
-										(d._1, interpretPriv (d._1, d._2, context, Seq(v1._2)))
+									(d  : Rep[INode], v1 : Rep[IValue]) =>
+										(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2)))
 								) FROM (
 									nonLiteralsOneArgument, vQuery
 									) WHERE (
-									(d  : Rep[IComp], v1 : Rep[IValue]) =>
-										d._3(0) == v1._1
+									(d  : Rep[INode], v1 : Rep[IValue]) =>
+										children(d)(0) == v1._1 AND
+										d._2._2.isDefined
 									)
 							)
 						)
 					)
 				}
-				)
+			)
 		}
+
+		val result = new MaterializedMap[Key, Value]
+		values.addObserver(result)
 	}
 
 
@@ -291,27 +324,30 @@ object ContextInterpreter {
 		val exp4 =
 			Sequence(
 				Terminal("b"),
-				Sequence(
-					Terminal("a"),
-					Terminal("b")
-				)
+				Terminal("a")
 			)
 
 		val s = "babac"
 
-      	val values = getValues(s, tab)
+      	val values = getValues(tab)
 
 		var ref1 = insertExp(exp1, s, tab)
 
-		println("Before update: " + values(ref1) + "[Key = " + ref1 + "]")
+		println("Before update: "
+		//	+ values(ref1)
+			+ "[Key = " + ref1 + "]")
 		println("exps")
 		tab._2.foreach(println)
 		println("values")
 		values.foreach(println)
 
+		println("##########################################################")
+
 		ref1 = updateExp(ref1, exp4, s, tab)
 
-		println("After update: " + values(ref1) + "[Key = " + ref1 + "]")
+		println("After update: "
+		//	+ values(ref1)
+			+ "[Key = " + ref1 + "]")
 		println("exps")
 		tab._2.foreach(println)
 		println("values")

@@ -30,33 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import idb.lms.extensions.equivalence._
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
-import idb.lms.extensions.normalization._
-import idb.lms.extensions.reduction._
-import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.operations.MirrorDefinitions
+import idb.lms.extensions.operations.{EitherOpsExp, OptionOpsExp}
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with ScalaOpsPkgExpAlphaEquivalence
 
-    with MirrorDefinitions
-    with FunctionsExpDynamicLambdaAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with NumericOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
-    with EffectExpAlphaEquivalence
-  //  with BooleanOpsExpSimplification
-    //with BooleanOpsExpOrdering
-    //with BooleanOpsExpDNFNormalization
+trait EitherOpsExpAlphaEquivalence
+    extends EitherOpsExp
+    with BaseExpAlphaEquivalence
 {
+
+    override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+        (a, b) match {
+            case (LeftNew (x), LeftNew (y)) =>
+                isEquivalent (x, y)
+            case (RightNew (x), RightNew (y)) =>
+                isEquivalent (x, y)
+            case (EitherIsLeft (x), EitherIsLeft (y)) =>
+                isEquivalent (x, y)
+            case (EitherIsRight (x), EitherIsRight (y)) =>
+                isEquivalent (x, y)
+			case (EitherGetLeft (x), EitherGetLeft (y)) =>
+				isEquivalent (x, y)
+			case (EitherGetRight (x), EitherGetRight (y)) =>
+				isEquivalent (x, y)
+			case _ => super.isEquivalentDef (a, b)
+        }
+
 
 }
