@@ -8,7 +8,7 @@ import idb.SetTable
 import sae.interpreter.utils.MaterializedMap
 
 object StandardInterpreter {
-
+   /*
 	var printUpdates = true
 
 	trait ArithExp
@@ -131,9 +131,10 @@ object StandardInterpreter {
 
 	def getValues(tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
 		val interpreter = new IncrementalInterpreter(tab._1)
-		val result = new MaterializedMap[Key, Value]
+		val result = new MaterializedMap[Key,Nothing, Value]
 		interpreter.values(null).addObserver(result)
 		result
+		null
 	}
 
 	def createIExp : IExp = (SetTable.empty[(Key, Either[(ExpKind,Seq[Key]),Value])], mutable.HashMap.empty)
@@ -175,5 +176,5 @@ object StandardInterpreter {
 
 
 
-	}
+	}   */
 }

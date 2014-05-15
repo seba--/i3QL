@@ -5,7 +5,7 @@ import scala.collection.mutable
 import idb.SetTable
 import sae.interpreter.utils.MaterializedMap
 
-object FunctionInterpreter {
+object FunctionInterpreter/* {
 
 	var printUpdates = true
 
@@ -209,4 +209,4 @@ object FunctionInterpreter {
 		println("values")
 		values.foreach(println)
 	}
-}
+}  */

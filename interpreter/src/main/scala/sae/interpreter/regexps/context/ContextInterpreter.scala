@@ -38,13 +38,14 @@ object ContextInterpreter {
 	import idb.syntax.iql.IR.{Table, Relation}
 	type ExpKind = RegExpKind
 	type Key = Int
-	type Node = (ExpKind, Option[Context], Seq[Key])
-	type Lit = (ExpKind, Option[Context], Seq[Any])
+	type Node = (ExpKind, Seq[Key])
+	type Leaf = (ExpKind, Seq[Any])
 
-	type IExpTable = Table[(Key, Either[Node, Lit])]
-	type IExpKindMap = mutable.Map[Key, Either[Node, Lit]]
+	type IExpKindTable = Table[(Key, Either[Node, Leaf])]
+	type IContextTable = Table[(Key, Context)]
+	type IExpKindMap = mutable.Map[Key, Either[Node, Leaf]]
 	type IExpMap = mutable.Map[Key, Exp]
-	type IExp = (IExpTable, IExpKindMap, IExpMap)
+	type IExp = (IExpKindTable, IContextTable, IExpKindMap, IExpMap)
 	type IValue = Relation[(Key, Value)]
 
 	private var freshID = 0
@@ -53,6 +54,13 @@ object ContextInterpreter {
 		freshID = freshID + 1
 		freshID
 	}
+
+	private def expKindTable(tab : IExp) : IExpKindTable = tab._1
+	private def contextTable(tab : IExp) : IContextTable = tab._2
+	private def expKindMap(tab : IExp) : IExpKindMap = tab._3
+	private def expMap(tab : IExp) : IExpMap = tab._4
+	
+	
 
 	def insertExp(e : Exp, c : Context, tab : IExp) : Key = insertExp(e, Some(c), tab)
 
@@ -65,24 +73,34 @@ object ContextInterpreter {
 	}
 
 	def insertLiteral(e : Exp, k: ExpKind, c : Option[Context], param: Seq[Any], tab: IExp): Key = {
-		val exp = Right(k, c, param)
+		val exp = Right(k, param)
 		val id = fresh()
-		tab._1 add (id, exp)
-		tab._2.put(id, exp)
-		tab._3.put(id, e)
+		expKindMap(tab).put(id, exp)
+		expMap(tab).put(id, e)
+		c match {case Some(x) => contextTable(tab).add((id,x)) ; case None => }
+		expKindTable(tab).add((id, exp))
+
+
 		id
 	}
 
 	def insertNode(e : Exp, k: ExpKind, c : Option[Context], kids: Seq[Key], tab: IExp): Key = {
-		val exp = Left(k, c, kids)
+		val exp = Left(k, kids)
 		val id = fresh()
-		tab._1.add(id, exp)
-		tab._2.put(id, exp)
-		tab._3.put(id, e)
+		expKindMap(tab).put(id, exp)
+		expMap(tab).put(id, e)
+		c match {case Some(x) => contextTable(tab).add((id,x)) ; case None => }
+		expKindTable(tab).add((id, exp))
+
+
 		id
 	}
 
-	def updateExp(oldKey : Key, newExp : Exp, newC : Context, tab : IExp) : Key = updateExp(oldKey, newExp, Some(newC), tab)
+	def insertContext(key : Key, c : Context, tab : IExp) {
+		contextTable(tab).add(key,c)
+	}
+
+/*	def updateExp(oldKey : Key, newExp : Exp, newC : Context, tab : IExp) : Key = updateExp(oldKey, newExp, Some(newC), tab)
 
 	def updateExp(oldKey : Key, newExp : Exp, newC : Option[Context], tab: IExp) : Key = {
 		val oldValue = tab._2(oldKey)
@@ -151,73 +169,84 @@ object ContextInterpreter {
 		tab._2.put(oldKey, exp)
 		tab._3.put(oldKey, e)
 		oldKey
-	}
+	}  */
 
-	def getValues(tab : IExp) : PartialFunction[Key, Value] with Iterable[(Key,Value)] = {
+	def getValues(tab : IExp) : PartialFunction[(Key, Context), Value] with Iterable[((Key, Context),Value)] = {
 		val interpreter = new IncrementalInterpreter(tab)
 		interpreter.result
 	}
 
-	def createIExp : IExp = (SetTable.empty, mutable.HashMap.empty, mutable.HashMap.empty)
+	def createIExp : IExp = (SetTable.empty, SetTable.empty, mutable.HashMap.empty, mutable.HashMap.empty)
 
 	private class IncrementalInterpreter(val tab : IExp) { //extends Interpreter[Key, ExpKind, Context, Value] {
 
-		val expressions : Relation[IDef] = tab._1
+		val expressions : Relation[IDef] = expKindTable(tab)
+		val contexts : Relation[IContext] = contextTable(tab)
 
-		def interpretLiteral(ref : Key, k : ExpKind, c : Context, s : Seq[Any]): Value = k match {
+		def interpretLiteral(ref : Key, k : ExpKind, s : Seq[Any], c : Context): Value = k match {
 			case TerminalKind =>  {
 				val s0 = s(0).asInstanceOf[String] //Cast parameters of the terminal accordingly
 				if (c.startsWith(s0)) Set(c.substring(s0.length)) else Set()
 			}
 		}
 
-		def interpretNode(ref : Key, k : ExpKind, c : Context, s: Seq[Value]): Value = k match {
+		def interpretNode(ref : Key, k : ExpKind, s: Seq[Value],  c : Context): Value = k match {
 			case AltKind => s(0) ++ s(1) //Non-literal => like interp but substitute calls to interp with the values of the sequence
 			case AsteriskKind => Set(c) ++ s(0)
 			case SequenceKind => {
-				s(0) flatMap (s2 => result(insertExp(tab._3(ref), Some(s2), tab)))
+				s(0) flatMap (s2 => {
+					println(expKindMap(tab))
+					val key = expKindMap(tab)(ref).left.get._2(1)
+					insertContext(key,s2, tab)
+					result(key, s2)
+				})
 			}
 		}
 
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
 
-		type Node = (ExpKind, Option[Context], Seq[Key])
-		type Lit =  (ExpKind, Option[Context], Seq[Any])
+		type Node = (ExpKind, Seq[Key])
+		type Leaf =  (ExpKind, Seq[Any])
 
-		type IDef = (Key, Either[Node,Lit])
+		type IDef = (Key, Either[Node,Leaf])
 		type INode = (Key, Node)
-		type ILit = (Key, Lit)
+		type ILeaf = (Key, Leaf)
+		type IContext = (Key, Context)
 
-		type IValue = (Key, Value)
+		type IValue = (Key, Context, Value)
 
 
 		//def interpret(ref : Key, k : ExpKind, c : Context, values : Seq[Value]) : Value
 
-		protected val iDefAsILit : Rep[IDef => ILit] = staticData (
+		protected val iDefAsILit : Rep[IDef => ILeaf] = staticData (
 			(d : IDef) => {
 				val e = d._2.right.get
-				(d._1, (e._1, e._2, e._3))
+				(d._1, (e._1, e._2))
 			}
 		)
 
 		protected val iDefAsINode : Rep[IDef => INode] = staticData (
 			(d : IDef) => {
 				val e = d._2.left.get
-				(d._1, (e._1, e._2, e._3))
+				(d._1, (e._1, e._2))
 			}
 		)
 
-		protected val interpretILit : Rep[ILit => Value] = staticData (
-			(t : ILit) => interpretLiteral(t._1, t._2._1, t._2._2.get, t._2._3)
+		protected val interpretILit : Rep[((ILeaf, Context)) => Value] = staticData (
+			(t : (ILeaf, Context)) => {
+				val lit = t._1
+				val c = t._2
+				interpretLiteral(lit._1,lit._2._1, lit._2._2, c)
+			}
 		)
 
-		protected val interpretPriv : Rep[((Key, ExpKind, Context, Seq[Value])) => Value] = staticData (
-			(t : (Key, ExpKind, Context, Seq[Value])) => interpretNode(t._1, t._2, t._3, t._4)
+		protected val interpretPriv : Rep[((Key, ExpKind, Seq[Value], Context)) => Value] = staticData (
+			(t : (Key, ExpKind, Seq[Value], Context)) => interpretNode(t._1, t._2, t._3, t._4)
 		)
 
 		protected val definitionIsLiteral : Rep[IDef => Boolean] = staticData (
-			(s : IDef) => s._2.isRight && s._2.right.get._2.isDefined
+			(s : IDef) => s._2.isRight
 		)
 
 		protected val definitionIsNode : Rep[IDef => Boolean] = staticData (
@@ -225,14 +254,18 @@ object ContextInterpreter {
 		)
 
 		protected val children : Rep[INode => Seq[Key]] = staticData (
-			(t : INode) => t._2._3
+			(t : INode) => t._2._2
+		)
+
+		protected val isSequence : Rep[INode => Boolean] = staticData (
+			(t : INode) => t._2._1 == SequenceKind
 		)
 
 
 		//val expressions : Table[IDef]
 
-		protected val literals : Relation[IValue] =
-			SELECT ((d : Rep[IDef]) => (d._1, interpretILit(iDefAsILit(d)))) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
+		protected val literals : Relation[ILeaf] =
+			SELECT (iDefAsILit(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
 
 		protected val nonLiterals : Relation[INode] =
 			SELECT (iDefAsINode(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsNode(d))
@@ -246,47 +279,55 @@ object ContextInterpreter {
 		protected val nonLiteralsThreeArguments : Relation[INode] =
 			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 3)
 
+		protected val literalsInterpreted : Relation[IValue] =
+			SELECT (
+				(d : Rep[ILeaf], c : Rep[IContext]) => (d._1, c._2, interpretILit(d, c._2))
+			) FROM (
+				literals, contexts
+			) WHERE (
+				(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
+			)
+
 		val values : Relation[IValue] = {
 			WITH RECURSIVE (
 				(vQuery : Rep[Query[IValue]]) => {
-					literals UNION ALL (
-						queryToInfixOps (
-							SELECT (
-								(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue]) =>
-									(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2, v2._2)))
-							) FROM (
-								nonLiteralsTwoArguments, vQuery, vQuery
+					literalsInterpreted UNION ALL(
+						queryToInfixOps(
+							SELECT(
+								(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue], v2: Rep[IValue]) =>
+									(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3, v2._3), c._2))
+							) FROM(
+								nonLiteralsTwoArguments, contexts, vQuery, vQuery
 								) WHERE (
-								(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue]) =>
+								(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue], v2: Rep[IValue]) =>
 									(children(d)(0) == v1._1) AND
 									(children(d)(1) == v2._1) AND
-									d._2._2.isDefined
+									c._1 == d._1
 								)
-						) UNION ALL (
+						) UNION ALL(
 							queryToInfixOps (
-								SELECT (
-									(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
-										(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2, v2._2, v3._2)))
-								) FROM (
-									nonLiteralsThreeArguments, vQuery, vQuery, vQuery
-									) WHERE (
-									(d  : Rep[INode], v1 : Rep[IValue], v2 : Rep[IValue], v3 : Rep[IValue]) =>
-										(children(d)(0) == v1._1) AND
-										(children(d)(1) == v2._1) AND
-										(children(d)(2) == v3._1) AND
-										d._2._2.isDefined
-									)
+								SELECT(
+									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
+										(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3), c._2))
+								) FROM(
+									nonLiteralsOneArgument, contexts, vQuery
+								) WHERE (
+								(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
+									(children(d)(0) == v1._1) AND
+									c._1 == d._1
+								)
 							) UNION ALL (
-								SELECT (
-									(d  : Rep[INode], v1 : Rep[IValue]) =>
-										(d._1, interpretPriv (d._1, d._2._1, d._2._2.get, Seq(v1._2)))
-								) FROM (
-									nonLiteralsOneArgument, vQuery
-									) WHERE (
-									(d  : Rep[INode], v1 : Rep[IValue]) =>
-										children(d)(0) == v1._1 AND
-										d._2._2.isDefined
-									)
+								SELECT(
+									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
+										(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3), c._2))
+								) FROM(
+									nonLiteralsTwoArguments, contexts, vQuery
+								) WHERE (
+									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
+										isSequence(d) AND
+										(children(d)(0) == v1._1) AND
+										c._1 == d._1
+								)
 							)
 						)
 					)
@@ -294,7 +335,8 @@ object ContextInterpreter {
 			)
 		}
 
-		val result = new MaterializedMap[Key, Value]
+		val result = new MaterializedMap[Key, Context, Value]
+
 		values.addObserver(result)
 	}
 
@@ -331,10 +373,10 @@ object ContextInterpreter {
 
       	val values = getValues(tab)
 
-		var ref1 = insertExp(exp1, s, tab)
+		var ref1 = insertExp(exp4, s, tab)
 
 		println("Before update: "
-		//	+ values(ref1)
+			+ values(ref1,s)
 			+ "[Key = " + ref1 + "]")
 		println("exps")
 		tab._2.foreach(println)
@@ -343,7 +385,7 @@ object ContextInterpreter {
 
 		println("##########################################################")
 
-		ref1 = updateExp(ref1, exp4, s, tab)
+		/*ref1 = updateExp(ref1, exp4, s, tab)
 
 		println("After update: "
 		//	+ values(ref1)
@@ -351,6 +393,6 @@ object ContextInterpreter {
 		println("exps")
 		tab._2.foreach(println)
 		println("values")
-		values.foreach(println)
+		values.foreach(println) */
 	}
 }
