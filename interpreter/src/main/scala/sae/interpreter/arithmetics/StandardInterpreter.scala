@@ -8,7 +8,7 @@ import idb.SetTable
 import sae.interpreter.utils.MaterializedMap
 
 object StandardInterpreter {
-   /*
+
 	var printUpdates = true
 
 	trait ArithExp
@@ -176,5 +176,5 @@ object StandardInterpreter {
 
 
 
-	}   */
+	}
 }

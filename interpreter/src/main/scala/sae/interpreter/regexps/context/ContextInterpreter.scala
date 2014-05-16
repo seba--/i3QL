@@ -17,34 +17,48 @@ object ContextInterpreter {
 	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
 
 	type Exp = RegExp
-	type Context = String
+	type Context = Set[String]
 	type Value = Set[String]
 
   Sequence(Terminal("aa"), Terminal("bb"))
   // 4 matches "aaa", "aa", "a", ""
 
+  def matchRegexp(e: Exp, c: Context): Boolean = interp(e, c).contains("")
+
 	def interp(e : Exp, c : Context): Value = e match {
-		case Terminal(s2) => if (c.startsWith(s2)) Set(c.substring(s2.length)) else Set()
+		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else None)
 		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
-		case Asterisk(r) => Set(c) ++ interp(Sequence(r, Asterisk(r)), c)
-		case Sequence(r1, r2) => interp(r1, c) flatMap (s2 => interp(r2, s2))
+    case ths@Asterisk(r) => {
+      if (!c.isEmpty) {
+        val v1 = interp(r, c)
+        val v2 = interp(ths, v1)
+        c ++ v2
+      }
+      else
+        c
+    }
+		case Sequence(r1, r2) => {
+      val v1 = interp(r1, c)
+      val v2 = interp(r2, v1)
+      v2
+    }
 	}
 
-  def interpk[T](e : Exp, c : Context, k: Value => T): T = e match {
-    case Terminal(s2) => if (c.startsWith(s2)) k(Set(c.substring(s2.length))) else k(Set())
-    case Alt(r1, r2) => interpk(r1, c, res1 => interpk(r2, c, res2 => k(res1 ++ res2)))
-    case Asterisk(r) => interpk(Sequence(r, Asterisk(r)), c, res => k(Set(c) ++ res))
-    case Sequence(r1, r2) => interpk(r1, c, res =>
-                              mapK[String, Value, T]
-                                   (res.toList)
-                                   (s2 => k => interpk(r2, s2, k))
-                                   ((l: List[Value]) => k(l.toSet.flatten)))
-  }
-
-  def mapK[T,U,W](l: List[T])(f: T => (U => W) => W)(k: List[U] => W): W = l match {
-    case Nil => k(Nil)
-    case x::xs => f(x)(u => mapK(xs)(f)(us => k(u::us)))
-  }
+//  def interpk[T](e : Exp, c : Context, k: Value => T): T = e match {
+//    case Terminal(s2) => if (c.startsWith(s2)) k(Set(c.substring(s2.length))) else k(Set())
+//    case Alt(r1, r2) => interpk(r1, c, res1 => interpk(r2, c, res2 => k(res1 ++ res2)))
+//    case Asterisk(r) => interpk(Sequence(r, Asterisk(r)), c, res => k(Set(c) ++ res))
+//    case Sequence(r1, r2) => interpk(r1, c, res =>
+//                              mapK[String, Value, T]
+//                                   (res.toList)
+//                                   (s2 => k => interpk(r2, s2, k))
+//                                   ((l: List[Value]) => k(l.toSet.flatten)))
+//  }
+//
+//  def mapK[T,U,W](l: List[T])(f: T => (U => W) => W)(k: List[U] => W): W = l match {
+//    case Nil => k(Nil)
+//    case x::xs => f(x)(u => mapK(xs)(f)(us => k(u::us)))
+//  }
 
 
   // Asterisk(Terminal("a"))
