@@ -1,0 +1,49 @@
+We need 3 tables:
+* one table for tasks
+* one table for values
+* one table for context propagation
+
+Primary keys:
+* TreeKey = Int
+* TaskKey = (TreeKey,ContextKey)
+* ValueKey = (TreeKey,ContextKey)
+* ContextKey = (TreeKey, ContextKey, Int) 
+	- TreeKey: the node that propagates the context
+	- ContextKey: the old context
+	- Int: We enumerate all subtasks a task has. This number indentifies for which subtask the context is computed
+
+Example 2:
+type Context = String; type Value = Set[String]
+
+intial regexp: Alt(“aa”, “bb”)*
+initial context: “aabb”
+
+
+// tasks are described by pairs of tree-Key and Context-Key, which fully defines the input of the computation (function interp in our case)
+let c0 = (-1, -1, -1)
+addContext(c0, “aabb”)
+
+let t1 = key for tree Star(Alt(“aa”,“bb”))
+let c1 = (t1, c0, 0)
+let c2 = (t1, c0, 1)
+addTask((t1,c0), [(t2, c1), (t1, c2)])
+
+
+
+
+Rest of example needs to be fixed:
+
+addContext(c1, c0) // context propagated from t1 to t2
+(t2, c1) <- addTask(Alt(“aa”,“bb”), c1, [t3,t4])
+
+c2 <- addContext(c1) // context propagated from t2 to t3
+(t3, c2) <- addTask(“aa”, c2, [])
+
+c3 <- addContext(c1) // context propagated from t2 to t4
+(t4, c3) <- addTask(“bb”, c3, [])
+
+(t3, c2) <- addValue(Set(“bb”))  // because Task (t3,c0) without subtasks and context c0 available
+(t4, c3) <- addValue(Set())  // because Task (t4,c0) without subtasks and context c0 available
+(t2, c1) <- addValue(Set(“bb”)) // because Task(t2,c0) and all subtasks have produced value and context c0 available (even though c0 is not used locally)
+
+(t1, c0, 1) <- addContext(“bb")
