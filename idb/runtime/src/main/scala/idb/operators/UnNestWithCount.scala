@@ -30,23 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.operators
 
-import idb.syntax.iql.IR._
+import idb.{View, Relation}
 
-/**
- *
- * @author Ralf Mitschke
- *
- */
 
-object UNNEST
+trait UnNestWithCount[Domain, Range]
+    extends View[(Domain, Int, Range)]
 {
+    def relation: Relation[Domain]
 
-    def apply[Domain: Manifest, Range: Manifest] (
-        query: Rep[Query[Domain]],
-        unnesting: Rep[Domain] => Rep[Traversable[Range]]
-    ) : Rep[Query[(Domain,Range)]] =
-        unnest (query, unnesting)
+    def unNestFunction: Domain => Traversable[Range]
+
+    override protected def children = List (relation)
 
 }
+
+
