@@ -48,11 +48,12 @@ object Main
 
     def main (args: Array[String]) {
 
-        val words = List ("time", "flies", "like", "an", "arrow")
+		val inputString = args(0)
+
+        val words = inputString.split(" ")
 
         val parser = KilburySentenceParser
 
-        println(printer.quoteRelation(parser.success))
 
         val result = parser.success.asMaterialized
 
@@ -61,38 +62,49 @@ object Main
 
         implicit val ord = parser.edgeOrdering
 
-        result.asList.sorted.foreach (println)
+        //result.asList.sorted.foreach (println)
 
-        parser.input -=("like", 2)
+		val isValid = result.asList.asInstanceOf[List[(Int, Int, String, Seq[String])]].foldLeft(0)((prev : Int,e : (Int, Int, String, Seq[String])) => Math.max(prev,e._2)) == words.length
+		println("The sentence is valid? " + isValid)
 
-        parser.input +=("with", 2)
 
-        result.asList.sorted.foreach (println)
+
+		/*     parser.input -=("like", 2)
+
+				parser.input +=("with", 2)
+
+				result.asList.sorted.foreach (println)  */
     }
 
 
     object KilburySentenceParser
         extends kilbury.Parser
     {
-        def topLevelCategory = "Sentence"
+        def topLevelCategory = "S"
 
-        productions +=("Sentence", Seq ("Noun Phrase", "Verb Phrase"))
-        productions +=("Verb Phrase", Seq ("Verb"))
-        productions +=("Verb Phrase", Seq ("Verb", "Noun Phrase"))
-        productions +=("Verb Phrase", Seq ("Verb Phrase", "Preposition Phrase"))
-        productions +=("Noun Phrase", Seq ("Noun"))
-        productions +=("Noun Phrase", Seq ("Determiner", "Noun"))
-        productions +=("Noun Phrase", Seq ("Noun Phrase", "Preposition Phrase"))
-        productions +=("Preposition Phrase", Seq ("Preposition", "Noun Phrase"))
+        productions +=("S", Seq ("NP", "VP"))
+		productions +=("NP", Seq ("Noun"))
+		productions +=("NP", Seq ("AdjP", "Noun"))
+        productions +=("VP", Seq ("Verb"))
+        productions +=("VP", Seq ("Verb", "Adv"))
+		productions +=("AdjP", Seq ("Adj"))
+		productions +=("AdjP", Seq ("Adj", "AdjP"))
 
-        terminals +=("an", "Determiner")
-        terminals +=("arrow", "Noun")
-        terminals +=("flies", "Noun")
-        terminals +=("flies", "Verb")
-        terminals +=("like", "Preposition")
-        terminals +=("like", "Verb")
-        terminals +=("with", "Preposition")
-        terminals +=("time", "Noun")
-    }
+
+
+
+		terminals +=("green", "Noun")
+        terminals +=("ideas", "Noun")
+        terminals +=("sleep", "Noun")
+        terminals +=("green", "Verb")
+		terminals +=("sleep", "Verb")
+		terminals +=("colorless", "Adj")
+		terminals +=("green", "Adj")
+		terminals +=("furiously", "Adv")
+
+
+
+
+	}
 
 }
