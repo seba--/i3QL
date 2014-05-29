@@ -32,9 +32,9 @@
  */
 package idb.demo.chartparser.kilbury
 
+import idb.SetTable
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import idb.SetExtent
 
 /**
  *
@@ -44,7 +44,7 @@ trait Parser
     extends Scanner
 {
 
-    val productions = SetExtent.empty[Production]()
+    val productions = SetTable.empty[Production]()
 
     def topLevelCategory: Category
 

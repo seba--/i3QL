@@ -32,8 +32,8 @@
  */
 package idb.demo.chartparser.kilbury
 
-import idb.SetExtent
 import idb.demo.chartparser.schema.ParserSchema
+import idb.SetTable
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
@@ -44,9 +44,9 @@ import idb.syntax.iql.IR._
 trait Scanner
     extends ParserSchema
 {
-    val terminals = SetExtent.empty[Terminal]()
+    val terminals = SetTable.empty[Terminal]()
 
-    val input = SetExtent.empty[InputToken]()
+    val input = SetTable.empty[InputToken]()
 
     val passiveEdges: Rep[Query[Edge]] =
         SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
