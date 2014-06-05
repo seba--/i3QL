@@ -30,14 +30,11 @@ How to build me (SBT)
 
 3.  Download and build the SAE project. The user credentials is your RBG username and password.
 
-        $ git clone https://repository.st.informatik.tu-darmstadt.de/git/sae.git
+        $ git clone https://github.com/seba--/i3QL.git
 
-    Go to the root directory and install the project using SBT. Currently you need to be on the branch 'lms'.
+    Go to the root directory and install the project using SBT. Currently you need to be on the branch 'master' (the default one).
 
-        $ cd sae
-        $ git checkout lms
+        $ cd i3Ql
+        $ git checkout master
         $ sbt publish-local
 
-4.  (Optional) You can automatically create project files for IntelliJ IDEA by using
-
-        $ sbt gen-idea
