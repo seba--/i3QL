@@ -44,6 +44,7 @@ trait Parser
     extends Scanner
 {
 
+
     val productions = SetTable.empty[Production]()
 
     def topLevelCategory: Category
@@ -83,6 +84,10 @@ trait Parser
             )
 
     val success: Rep[Query[Edge]] =
-        SELECT (*) FROM parseTrees WHERE ((e: Rep[Edge]) => e.next == Nil AND e.category == topLevelCategory)
+        SELECT (*) FROM parseTrees WHERE ((e: Rep[Edge]) => e.start == 0 AND e.next == Nil AND e.category == topLevelCategory)
     //SELECT (*) FROM (SELECT (*)  FROM parseTrees WHERE (_.next == Nil)) WHERE (_.category == topLevelCategory)
+
+	def setInput(words : List[String]) {
+		words.zipWithIndex.foreach (input += _)
+	}
 }

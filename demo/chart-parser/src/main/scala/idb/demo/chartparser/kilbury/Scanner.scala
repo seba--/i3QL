@@ -51,18 +51,18 @@ trait Scanner
     val passiveEdges: Rep[Query[Edge]] =
         SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
             PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
+        ) FROM (terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
             t.tokenValue == in.value
-            )
+        )
 
 
     val unknownEdges: Rep[Query[Edge]] =
         SELECT ((in: Rep[InputToken]) =>
             PassiveEdge (in.position, in.position + 1, "Unknown")
-        ) FROM (input) WHERE ((in: Rep[InputToken]) =>
+        ) FROM input WHERE ((in: Rep[InputToken]) =>
             NOT (
                 EXISTS (
-                    SELECT (*) FROM terminals.asMaterialized WHERE ((t: Rep[Terminal]) =>
+                    SELECT (*) FROM terminals WHERE ((t: Rep[Terminal]) =>
                         t.tokenValue == in.value
                         )
                 )

@@ -48,6 +48,29 @@ object Main
 
     def main (args: Array[String]) {
 
+		val parser = SentenceParser
+
+		val words = List("green", "ideas", "sleep").zipWithIndex
+
+		val result = parser.success.asMaterialized
+
+		val passiveEdges = parser.passiveEdges.asMaterialized
+		//val unknownEdges = parser.unknownEdges.asMaterialized
+
+		words.foreach(parser.input.add)
+
+		println("passive")
+		passiveEdges.asList.foreach(println)
+		println("unknown")
+		//unknownEdges.asList.foreach(println)
+
+		println("result")
+		result.asList.foreach(println)
+
+	     /*
+
+
+
 		val inputString = args(0)
 
         val words = inputString.split(" ")
@@ -67,7 +90,7 @@ object Main
 		val isValid = result.asList.asInstanceOf[List[(Int, Int, String, Seq[String])]].foldLeft(0)((prev : Int,e : (Int, Int, String, Seq[String])) => Math.max(prev,e._2)) == words.length
 		println("The sentence is valid? " + isValid)
 
-
+                                                */
 
 		/*     parser.input -=("like", 2)
 
