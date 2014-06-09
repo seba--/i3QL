@@ -83,8 +83,8 @@ trait Parser
                 )
             )
 
-    val success: Rep[Query[Edge]] =
-        SELECT (*) FROM parseTrees WHERE ((e: Rep[Edge]) => e.start == 0 AND e.next == Nil AND e.category == topLevelCategory)
+    val success: Rep[Query[(Int,Int)]] =
+        SELECT ((e: Rep[Edge]) => (e._1, e._2 - 1)) FROM parseTrees WHERE ((e: Rep[Edge]) => e.next == Nil AND e.category == topLevelCategory)
     //SELECT (*) FROM (SELECT (*)  FROM parseTrees WHERE (_.next == Nil)) WHERE (_.category == topLevelCategory)
 
 	def setInput(words : List[String]) {

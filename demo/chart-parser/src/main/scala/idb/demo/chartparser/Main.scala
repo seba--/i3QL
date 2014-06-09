@@ -59,10 +59,6 @@ object Main
 
 		words.foreach(parser.input.add)
 
-		println("passive")
-		passiveEdges.asList.foreach(println)
-		println("unknown")
-		//unknownEdges.asList.foreach(println)
 
 		println("result")
 		result.asList.foreach(println)
