@@ -33,6 +33,7 @@
 		i3Ql is already installed on the VM image and you can skip this section if you want to run i3Ql on the VM only. However, if you want to install the project yourself, you have to follow these steps:
 
 		1. To build this project you need to have JDK, SBT and GIT installed
+			Download and install JDK: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 			Download and install SBT: http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
 			Download and install GIT: https://github.com
 
@@ -172,11 +173,11 @@
 		As you can see, the pair (0,3) has disappeared from the result relation and thus the sentence is not valid anymore.		
 		
 		
-== 7. Step-by-step guides ==
+== 7. Executing analyses ==
 
-	This section contains step-by-step guides for executing the examples in the paper.
+	This section contains step-by-step guides for executing the analyses described in the paper (Section 6). On the VM image, the analyses can be found at /home/stg/Projects/git/i3ql/analyses/findbugs. The project, as well as two analyses have been linked on the desktop.
 
-	-- 7.1. Step-by-step instructions for executing a single analysis (Section 6) and output the results
+	-- 7.1. Step-by-step instructions for executing a single analysis  and output the results
 
 		1. Start the VM.
 			
@@ -191,10 +192,10 @@
 		5. Change project to the findbugs analyses
 			> project analyses-findbugs
 			
-		6. Run the analysis with its name as argument. The analysis will be executed on JDK 1.7.0 64-bit. The names of all analyses are shown in the list above (Section 3.2).
-			> run-main sae.analyses.findbugs.AnalysisRunner ITA_INEFFICIENT_TO_ARRAY
+		6. Run the analysis with its name as argument. The analysis will be executed on JDK 1.7.0 64-bit. The names of all analyses are shown in the list below (Section 7.3).
+			> run-main sae.analyses.findbugs.AnalysisRunner FI_USELESS
 	
-	-- 7.2 Step-by-step instructions for executing the analyses benchmarks (Section 6):
+	-- 7.2 Step-by-step instructions for executing the analyses benchmarks:
 
 		1. Start the VM.
 			
@@ -209,35 +210,37 @@
 		5. Change project to the analysis profiler
 			> project analyses-profiler
 			
-		6. Run the profiler with a properties file as argument. There is a properties file for every analysis, which is named <analysis-name>.properties, e.g. ITA_INEFFICIENT_TO_ARRAY.properties.
-			> run-main sae.analyses.profiler.ASMDatabaseReplayTimeRunner ITA_INEFFICIENT_TO_ARRAY.properties
+		6. Run the profiler with a properties file as argument. There is a properties file for every analysis, which is named <analysis-name>.properties, e.g. FI_USELESS.properties. Analysis names can be found in the list below (Section 7.3).
+			> run-main sae.analyses.profiler.ASMDatabaseReplayTimeRunner FI_USELESS.properties
 			
-			List of possible analyses (the intent of the analyses can be found at http://findbugs.sourceforge.net/bugDescriptions.html):
-				BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
-				CI_CONFUSED_INHERITANCE
-				CN_IDIOM
-				CN_IDIOM_NO_SUPER_CALL
-				CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
-				CO_ABSTRACT_SELF
-				CO_SELF_NO_OBJECT
-				DM_GC
-				DM_RUN_FINALIZERS_ON_EXIT
-				DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT
-				DP_DO_INSIDE_DO_PRIVILEGED
-				EQ_ABSTRACT_SELF
-				FI_PUBLIC_SHOULD_BE_PROTECTED
-				FI_USELESS
-				IMSE_DONT_CATCH_IMSE
-				ITA_INEFFICIENT_TO_ARRAY
-				MS_PKGPROTECT
-				MS_SHOULD_BE_FINAL
-				NONE
-				SE_BAD_FIELD_INNER_CLASS
-				SE_NO_SUITABLE_CONSTRUCTOR
-				SS_SHOULD_BE_STATIC
-				SW_SWING_METHODS_INVOKED_IN_SWING_THREAD
-				UG_SYNC_SET_UNSYNC_GET
-				UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
-				UUF_UNUSED_FIELD
+		7. The results can be found as .csv file at ~/Projects/git/i3ql/benchmarks/time/default/<analsis-name>.properties.csv 
+			
+	-- 7.3 List of possible analyses
+		List of possible analyses (the intent of the analyses can be found at http://findbugs.sourceforge.net/bugDescriptions.html):
+			BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
+			CI_CONFUSED_INHERITANCE
+			CN_IDIOM
+			CN_IDIOM_NO_SUPER_CALL
+			CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
+			CO_ABSTRACT_SELF
+			CO_SELF_NO_OBJECT
+			DM_GC
+			DM_RUN_FINALIZERS_ON_EXIT
+			DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT
+			DP_DO_INSIDE_DO_PRIVILEGED
+			EQ_ABSTRACT_SELF
+			FI_PUBLIC_SHOULD_BE_PROTECTED
+			FI_USELESS
+			IMSE_DONT_CATCH_IMSE
+			MS_PKGPROTECT
+			MS_SHOULD_BE_FINAL
+			NONE
+			SE_BAD_FIELD_INNER_CLASS
+			SE_NO_SUITABLE_CONSTRUCTOR
+			SS_SHOULD_BE_STATIC
+			SW_SWING_METHODS_INVOKED_IN_SWING_THREAD
+			UG_SYNC_SET_UNSYNC_GET
+			UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
+			UUF_UNUSED_FIELD
 		
 	

@@ -43,10 +43,6 @@ class SetTable[V]
      * Runtime information whether a compiled query is a set or a bag
      */
     def isSet: Boolean = true
-
-	override def foreach[T] (f: (V) => T) {
-		throw new UnsupportedOperationException("Can not execute foreach on virtual table.")
-	}
 }
 
 object SetTable
