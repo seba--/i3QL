@@ -161,7 +161,7 @@
 		11. Print the result relation 
 			> result.foreach(println)
 			
-		The result relation has been updated. The result relation has the pair (0,3) and thus the whole sentence is valid.
+		The result relation has been updated. The result relation contains the pair (0,3) and thus the whole sentence is valid.
 	
 	-- 6.3 Incremental update --
 		12. Update the first element from green to yellow
@@ -170,7 +170,15 @@
 		13. Print the result relation 
 			> result.foreach(println)
 
-		As you can see, the pair (0,3) has disappeared from the result relation and thus the sentence is not valid anymore.		
+		As you can see, the pair (0,3) has disappeared from the result relation and thus the sentence is not valid anymore.	However, we can add a new rule to our grammar.	
+		
+		14. Add the rule for adjective "yellow" to the grammar
+			> parser.terminals += ("yellow", "Adj")
+			
+		15. Print the result relation 
+			> result.foreach(println)
+			
+		Now, the pair (0,3) is in our result relation and thus the sentence is valid.
 		
 		
 == 7. Executing analyses ==
