@@ -33,6 +33,12 @@
 package idb.demo.chartparser
 
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.FunctionUtils
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
+import idb.Relation
+import idb.observer.Observer
 
 /**
  *
@@ -55,18 +61,35 @@ object Main
 		val result = parser.success.asMaterialized
 
 		val passiveEdges = parser.passiveEdges.asMaterialized
-		//val unknownEdges = parser.unknownEdges.asMaterialized
+	//	val unknownEdges = parser.unknownEdges.asMaterialized
 
 		words.foreach(parser.input.add)
 
+		val printer = new RelationalAlgebraPrintPlan {
+			override val IR = idb.syntax.iql.IR
+		}
+
+		println(printer.quoteRelation(parser.passiveEdges))
+
+		val pp = new RelationPrinter(parser.passiveEdges)
 
 		println("result")
 		result.asList.foreach(println)
 
-	     /*
+		println("passive")
+		passiveEdges.foreach(println)
+
+		parser.input remove (("green", 0))
+
+		println("result")
+		result.asList.foreach(println)
+
+		println("passive")
+		passiveEdges.foreach(println)
 
 
 
+		/*
 		val inputString = args(0)
 
         val words = inputString.split(" ")
@@ -95,35 +118,20 @@ object Main
 				result.asList.sorted.foreach (println)  */
     }
 
+	class RelationPrinter[A](relation : Relation[A]) extends Observer[A] {
+		relation.addObserver(this)
 
-    object KilburySentenceParser
-        extends kilbury.Parser
-    {
-        def topLevelCategory = "S"
+		override def updated(oldV: A, newV: A): Unit =
+			println("update : " + oldV + " -> " + newV)
 
-        productions +=("S", Seq ("NP", "VP"))
-		productions +=("NP", Seq ("Noun"))
-		productions +=("NP", Seq ("AdjP", "Noun"))
-        productions +=("VP", Seq ("Verb"))
-        productions +=("VP", Seq ("Verb", "Adv"))
-		productions +=("AdjP", Seq ("Adj"))
-		productions +=("AdjP", Seq ("Adj", "AdjP"))
+		override def endTransaction(): Unit =
+			println("endTransaction")
 
+		override def removed(v: A): Unit =
+			println("removed : " + v)
 
-
-
-		terminals +=("green", "Noun")
-        terminals +=("ideas", "Noun")
-        terminals +=("sleep", "Noun")
-        terminals +=("green", "Verb")
-		terminals +=("sleep", "Verb")
-		terminals +=("colorless", "Adj")
-		terminals +=("green", "Adj")
-		terminals +=("furiously", "Adv")
-
-
-
-
+		override def added(v: A): Unit =
+			println("added : " + v)
 	}
 
 }

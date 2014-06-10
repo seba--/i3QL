@@ -16,12 +16,14 @@ trait Set[V]
     def size: Int = data.size
 
     def add_element (v: V) {
-        data.add (v)
+        if (data.add (v))
+			notify_added (v)
         data
     }
 
     def remove_element (v: V) {
-        data.remove (v)
+        if (data.remove (v))
+			notify_removed(v)
         data
     }
 

@@ -51,7 +51,7 @@ trait Scanner
     val passiveEdges: Rep[Query[Edge]] =
         SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
             PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM (terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
+        ) FROM (terminals, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
             t.tokenValue == in.value
         )
 
