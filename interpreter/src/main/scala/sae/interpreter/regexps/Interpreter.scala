@@ -1,23 +1,69 @@
-package sae.interpreter.regexps.context
+package sae.interpreter.regexps
+
+import idb.observer.{NotifyObservers, Observer}
 
 import scala.collection.mutable
-import idb.SetTable
-import sae.interpreter.utils.MaterializedMap
-import idb.observer.{Observer, NotifyObservers}
-import com.google.common.collect.ArrayListMultimap
-import idb.syntax.iql.IR._
-import scala.Left
-import scala.Some
-import scala.Predef.println
-import scala.Seq
-import scala.Predef.Set
-import scala.Predef.String
-import scala.Right
-import scala.Array
-import scala.Int
+
 
 
 object Interpreter {
+
+	def main(args : Array[String]) {
+		val tab : IExp = createIExp
+
+		val exp1 = Alt(Terminal("a"), Terminal("b"))
+		val exp2 =
+			Sequence(
+				Sequence(
+					Terminal("b"),
+					Terminal("a")
+				),
+				Alt(
+					Terminal("c"),
+					Terminal("b")
+				)
+			)
+
+		val exp3 =
+			Alt(
+				Terminal("b"),
+				Terminal("a")
+			)
+
+		val exp4 =
+			Sequence(
+				Terminal("b"),
+				Terminal("a")
+			)
+
+		val s1 = "babac"
+		val s2 = "bacab"
+
+		val values = getValues(tab)
+
+		val ref1 = addExp(exp2, Set.empty[String] + s1, tab)
+
+			println("Before update: "
+				+ values(ref1)
+				+ "[Key = " + ref1 + "]")
+			println("exps")
+			tab._1.foreach(println)
+			println("values")
+			values.foreach(println)
+
+			println("##########################################################")
+
+		tab._2.update(ref1, Set.empty[String] + s2)
+
+		println("After update: "
+			+ values(ref1)
+			+ "[Key = " + ref1 + "]")
+		println("exps")
+		tab._1.foreach(println)
+		println("values")
+		values.foreach(println)
+	}
+
 
 	var printUpdates = true
 
@@ -35,10 +81,10 @@ object Interpreter {
 	def matchRegexp(e: Exp, c: Context): Boolean = interp(e, c).contains("")
 
 	def interp(e : Exp, c : Context): Value = e match {
-		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else None)
+		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else Some(s))
 		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
 		case ths@Asterisk(r) => {
-			if (!c.isEmpty) {
+			if (c.nonEmpty) {
 				val v1 = interp(r, c)
 				val v2 = interp(ths, v1)
 				c ++ v2
@@ -82,7 +128,7 @@ object Interpreter {
 	/*
 		Type Declarations
 	 */
-	import idb.syntax.iql.IR.{Table, Relation}
+	import idb.syntax.iql.IR.Relation
 	type Exp = RegExp
 	type Context = Set[String]
 	type Value = Set[String]
@@ -105,25 +151,22 @@ object Interpreter {
 	private def expKindTable(tab : IExp) : IExpKindTable = tab._1
 	private def contextTable(tab : IExp) : IContextTable = tab._2
 
-	def propagateContext(k : ExpKind, c : Context) : Seq[Option[Context]] = k match {
-		case TerminalKind => Seq()
-		case SequenceKind => Seq(Some(c), None)
-	}
-
-	def propagateValue(k : ExpKind, c : Context, v : Value, index : Int) : (Seq[Option[Context]], Option[Value])  = (k, index) match {
-		case (SequenceKind, 0) => (Seq(None, Some(v)), None)
-		case (SequenceKind, 1) => (Seq(None, None), Some(v))
-	}
 
 	def addExp(e : Exp, c : Context, tab : IExp) : Key = {
 		val k = addTask(e, tab)
-		updateContext(k, c, tab)
+		contextTable(tab).put(k,c)
 		k
 	}
 
 	private def addTask(e : Exp, tab : IExp) : Key = e match {
 		case Terminal(s) => {
 			insertLiteral(e, TerminalKind, Seq(s), tab)
+		}
+		case Alt(e1,e2) => {
+			val t1 = addTask(e1, tab)
+			val t2 = addTask(e2, tab)
+
+			insertNode(e, AltKind, Seq(t1, t2), tab)
 		}
 		case Sequence(e1, e2) => {
 			//Add subtasks
@@ -133,34 +176,6 @@ object Interpreter {
 			insertNode(e, SequenceKind, Seq(t1, t2), tab)
 		}
 	}
-
-	private def updateContext(key : Key, c : Context, tab : IExp) {
-		contextTable(tab).update(key, c)
-
-		val e = expKindTable(tab)(key)
-
-		//Propagate contexts straightforward
-		e match {
-			case Left( (expKind, kids) ) =>
-				propagateContext(expKind, c).zip(kids).foreach((t : (Option[Context], Key)) => t match {
-					case (Some(c1), k) => updateContext(k, c1, tab)
-					case (None, k) =>
-				} )
-			case _ =>
-		}
-	}
-
-
-
-	/*def insertExp(e : Exp, c : Context, tab : IExp) : ExpKey = insertExp(e, Some(c), tab)
-
-	def insertExp(e: Exp, c : Option[Context], tab: IExp): ExpKey = e match {
-		//1. Build case distinction according to interp
-		case Terminal(s2) => insertLiteral(e, TerminalKind, c, Seq(s2), tab) //No recursive call => insertLiteral, param is the sequence of parameters of the literal
-		case Alt(r1, r2) => insertNode(e, AltKind, c, Seq(insertExp(r1, c, tab), insertExp(r2, c, tab)), tab) //Recursive call => insertNode, (r1, s) emerges from the definition of interp
-		case Asterisk(r) => insertNode(e, AsteriskKind, c, Seq(insertExp(Sequence(r, Asterisk(r)), c, tab)), tab) //Use same parameter as the recursive call in interp
-		case Sequence(r1,r2) => insertNode(e, SequenceKind, c, Seq(insertExp(r1, c, tab), insertExp(r2, None, tab)), tab) //Use none if the context differs from the context in the parameter
-	}  */
 
 	def insertLiteral(e : Exp, k: ExpKind, param: Seq[Any], tab: IExp): Key = {
 		val key = expKindTable(tab).add(Right(k, param))
@@ -247,24 +262,36 @@ object Interpreter {
 			oldKey
 		}  */
 
-	def getValues(tab : IExp) : PartialFunction[(ExpKey, Context), Value] with Iterable[((ExpKey, Context),Value)] = {
+	def getValues(tab : IExp) : PartialFunction[Key,  Value] with Iterable[(Key,Value)] = {
 		val interpreter = new IncrementalInterpreter(tab)
 		interpreter.result
 	}
 
-	def createIExp : IExp = (SetTable.empty, SetTable.empty, mutable.HashMap.empty, mutable.HashMap.empty)
+	def getValuesTest(tab : IExp) : Relation[_] = {
+		val interpreter = new IncrementalInterpreter(tab)
+		interpreter.valuesInternal
+	}
+
+	def createIExp : IExp = (new IntMapTable[Either[ExpNode, ExpLeaf]], new IntMapTable[Context])
 
 	private class IncrementalInterpreter(val tab : IExp) { //extends Interpreter[Key, ExpKind, Context, Value] {
 
-		val expressions : Relation[IDef] = null
-		val contexts : Relation[IContext] = null
 
-		def interpretLiteral(ref : Key, k : ExpKind, s : Seq[Any], c : Context): Value = k match {
-			case n => null
+
+		def interpretLiteral(k : ExpKind, seq : Seq[Any], c : Context): Value = k match {
+			case TerminalKind => {
+				val s2 = seq(0).asInstanceOf[String]
+				c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else None)
+			}
 		}
 
-		def interpretNode(ref : Key, k : ExpKind, s: Seq[Value],  c : Context): Value = k match {
-			case n => null
+		def interpretNode(k : ExpKind, seq: Seq[Value],  c : Context): Value = k match {
+			case AltKind => seq(0) ++ seq(1)
+			case SequenceKind => {
+				val v1 = seq(0)
+				val v2 = seq(1)
+				v2
+			}
 		}
 
 		import idb.syntax.iql.IR._
@@ -277,7 +304,9 @@ object Interpreter {
 		type IValue = (Key, Value)
 
 
-		//def interpret(ref : Key, k : ExpKind, c : Context, values : Seq[Value]) : Value
+		val expressions : Relation[IDef] = tab._1
+
+
 
 		protected val iDefAsILit : Rep[IDef => ILeaf] = staticData (
 			(d : IDef) => {
@@ -293,16 +322,14 @@ object Interpreter {
 			}
 		)
 
-		protected val interpretILit : Rep[((ILeaf, Context)) => Value] = staticData (
-			(t : (ILeaf, Context)) => {
-				val lit = t._1
-				val c = t._2
-				interpretLiteral(lit._1, lit._3._1, lit._3._2, c)
+		protected val interpretLit : Rep[((ExpKind, Seq[Any], Context)) => Value] = staticData (
+			(t : (ExpKind, Seq[Any], Context)) => {
+				interpretLiteral(t._1, t._2, t._3)
 			}
 		)
 
-		protected val interpretPriv : Rep[((Key, ExpKind, Seq[Value], Context)) => Value] = staticData (
-			(t : (Key, ExpKind, Seq[Value], Context)) => interpretNode(t._1, t._2, t._3, t._4)
+		protected val interpretPriv : Rep[((ExpKind, Seq[Value], Context)) => Value] = staticData (
+			(t : (ExpKind, Seq[Value], Context)) => interpretNode(t._1, t._2, t._3)
 		)
 
 		protected val definitionIsLiteral : Rep[IDef => Boolean] = staticData (
@@ -317,18 +344,17 @@ object Interpreter {
 			(t : INode) => t._2._2
 		)
 
-		protected val isSequence : Rep[INode => Boolean] = staticData (
+		protected val isTerminalKind : Rep[ILeaf => Boolean] = staticData (
+			(t : ILeaf) => t._2._1 == TerminalKind
+		)
+
+		protected val isSequenceKind : Rep[INode => Boolean] = staticData (
 			(t : INode) => t._2._1 == SequenceKind
 		)
 
-		protected val contextPropagation : Rep[((ExpKind, Context)) => Seq[Option[Context]]] = staticData (
-			(t : (ExpKind, Context)) => propagateContext(t._1, t._2)
+		protected val isAltKind : Rep[INode => Boolean] = staticData (
+			(n : INode) => n._2._1 == AltKind
 		)
-
-		protected val valuePropagation : Rep[((ExpKind, Context, Value, Int)) => (Seq[Option[Context]], Option[Value])] = staticData (
-			(t : (ExpKind, Context, Value, Int)) => propagateValue(t._1, t._2, t._3, t._4)
-		)
-
 
 
 		protected val seqToSeqWithCount : Rep[Seq[Key] => Seq[(Int, Key)]] = staticData (
@@ -339,10 +365,10 @@ object Interpreter {
 		)
 
 		protected val literals : IR.Relation[ILeaf] =
-			SELECT (iDefAsILit(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsLiteral(d))
+			SELECT (iDefAsILit(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => d._2.isRight)
 
 		protected val nonLiterals : IR.Relation[INode] =
-			SELECT (iDefAsINode(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => definitionIsNode(d))
+			SELECT (iDefAsINode(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => d._2.isLeft)
 
 		protected val nonLiteralsOneArgument : Relation[INode] =
 			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 1)
@@ -353,7 +379,7 @@ object Interpreter {
 		protected val nonLiteralsThreeArguments : Relation[INode] =
 			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 3)
 
-		def propagatedContexts(vQuery : Rep[Query[IValue]]) : Relation[IContext] =
+	/*	def propagatedContexts(vQuery : Rep[Query[IValue]]) : Relation[IContext] =
 			WITH RECURSIVE (
 				(cQuery : Rep[Query[IContext]]) => {
 					contexts UNION ALL (
@@ -385,20 +411,160 @@ object Interpreter {
 						)
 					)
 				}
-			)
+			)  */
 
 
-		protected val literalsInterpreted : Relation[IValue] =
+	/*	protected val literalsInterpreted : Rep[Query[IValue]] =
 			SELECT (
-				(d : Rep[ILeaf], c : Rep[IContext]) => (d._1, interpretILit(d, c._2))
+				(d : Rep[ILeaf], c : Rep[IContext]) =>  (d._1, interpretILit(d, c._2))
 			) FROM (
 				literals, contexts
-				) WHERE (
-				(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
+			) WHERE (
+					(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
 				)
 
-		val values : Relation[IValue] = {
+		protected val literalsInterpreted2 : Rep[Query[Either[IValue, IContext]]] =
+			SELECT (
+				(d : Rep[ILeaf], c : Rep[IContext]) =>  Left[IValue,IContext](d._1, interpretILit(d, c._2))
+			) FROM (
+				literals, contexts
+			) WHERE (
+				(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
+			) */
+
+		protected def valueRelation(r : Rep[Query[Either[IValue, IContext]]]) : Rep[Query[IValue]] =
+			SELECT ((e : Rep[Either[IValue, IContext]]) => e.leftGet) FROM r WHERE ( (e : Rep[Either[IValue, IContext]]) => e.isLeft)
+
+		protected def contextRelation(r : Rep[Query[Either[IValue, IContext]]]) : Rep[Query[IContext]] =
+			SELECT ((e : Rep[Either[IValue, IContext]]) => e.rightGet) FROM r WHERE ( (e : Rep[Either[IValue, IContext]]) => e.isRight)
+
+		protected val unnestedNonLiterals : Rep[Query[(INode, (Int, Key))]] =
+			UNNEST(nonLiterals, (n: Rep[INode]) => seqToSeqWithCount(n._2._2))
+
+		protected val contexts : Rep[Query[Either[IValue,IContext]]] =
+			SELECT (Right[IValue, IContext](_ : Rep[IContext])) FROM tab._2
+
+		val valuesInternal : Rep[Query[Either[IValue,IContext]]] = {
 			WITH RECURSIVE (
+				(vQuery: Rep[Query[Either[IValue, IContext]]]) => {
+					contexts UNION ALL (
+						//Terminal
+						queryToInfixOps (
+							//Terminal context -> value
+							SELECT (
+								(l : Rep[ILeaf], c : Rep[IContext]) =>
+									Left[IValue, IContext]((l._1, interpretLit(l._2._1, l._2._2, c._2)))
+							) FROM (
+								literals, contextRelation(vQuery)
+							) WHERE (
+								(l : Rep[ILeaf], c : Rep[IContext]) =>
+									isTerminalKind(l) AND
+									l._1 == c._1
+							)
+						) UNION ALL (
+							queryToInfixOps (
+								//Alt
+								queryToInfixOps (
+									queryToInfixOps (
+										//Alt Context propagation Left
+										SELECT(
+											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+												Right[IValue, IContext]((e._1, parentContext._2))
+										) FROM(
+											expressions, nonLiterals, contextRelation(vQuery)
+										) WHERE (
+											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+												isAltKind(parent) AND
+												e._1 == parent._2._2(0) AND
+												parentContext._1 == parent._1
+										)
+									) UNION ALL (
+										//Alt Context propagation Right
+										SELECT(
+											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+												Right[IValue, IContext]((e._1, parentContext._2))
+										) FROM(
+											expressions, nonLiterals, contextRelation(vQuery)
+										) WHERE (
+											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+												isAltKind(parent) AND
+												e._1 == parent._2._2(1) AND
+												parentContext._1 == parent._1
+										)
+									)
+
+								) UNION ALL (
+									//Alt value propagation
+									SELECT(
+										(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
+											Left[IValue, IContext]((e._1, interpretPriv(e._2._1, Seq(child1Val._2, child2Val._2), c._2)))
+									) FROM (
+										nonLiterals, contextRelation(vQuery), valueRelation(vQuery), valueRelation(vQuery)
+									) WHERE (
+										(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
+											isAltKind(e) AND
+											e._1 == c._1 AND
+											e._2._2(0) == child1Val._1 AND
+											e._2._2(1) == child2Val._1
+									)
+								)
+							) UNION ALL (
+								//Seq
+								queryToInfixOps(
+									//Seq Context propagation
+									SELECT(
+										(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+											Right[IValue, IContext]((e._1, parentContext._2))
+									) FROM(
+										expressions, nonLiterals, contextRelation(vQuery)
+										) WHERE (
+										(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
+											isSequenceKind(parent) AND
+												e._1 == parent._2._2(0) AND
+												parentContext._1 == parent._1
+										)
+								) UNION ALL (
+									queryToInfixOps (
+										//Seq value child(0) -> context child(1)
+										SELECT(
+											(e: Rep[IDef], parent: Rep[INode], child1Val: Rep[IValue]) =>
+												Right[IValue, IContext]((e._1, child1Val._2)) //TODO: How to convert value to context?
+										) FROM (
+											expressions, nonLiterals, valueRelation(vQuery)
+										) WHERE (
+											(e: Rep[IDef], parent: Rep[INode], child1Val: Rep[IValue]) =>
+												isSequenceKind(parent) AND
+													e._1 == parent._2._2(1) AND
+													child1Val._1 == parent._2._2(0)
+											)
+									) UNION ALL (
+										//Seq value propagation
+										SELECT(
+											(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
+												Left[IValue, IContext]((e._1, interpretPriv(e._2._1, Seq(child1Val._2, child2Val._2), c._2)))
+										) FROM (
+											nonLiterals, contextRelation(vQuery), valueRelation(vQuery), valueRelation(vQuery)
+											) WHERE (
+											(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
+												isSequenceKind(e) AND
+													e._1 == c._1 AND
+													e._2._2(0) == child1Val._1 AND
+													e._2._2(1) == child2Val._1
+											)
+									)
+								)
+							)
+						)
+
+
+					)
+				}
+			)
+		}
+
+
+		val values : Relation[IValue] = valueRelation(valuesInternal)
+	/*		WITH RECURSIVE (
 				(vQuery : Rep[Query[IValue]]) => {
 					literalsInterpreted UNION ALL(
 						queryToInfixOps(
@@ -441,69 +607,16 @@ object Interpreter {
 						)
 					)
 				}
-				)
-		}
+			) */
 
-		val result = new MaterializedMap[Key, Context, Value]
+
+		val result = new MaterializedMap[Key, Value]
 
 		values.addObserver(result)
 	}
 
 
-	def main(args : Array[String]) {
-		val tab : IExp = createIExp
 
-		val exp1 = Alt(Terminal("a"), Terminal("b"))
-		val exp2 =
-			Sequence(
-				Sequence(
-					Terminal("a"),
-					Terminal("b")
-				),
-				Alt(
-					Terminal("c"),
-					Terminal("a")
-				)
-			)
-
-		val exp3 =
-			Alt(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val exp4 =
-			Sequence(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val s = "babac"
-
-		val values = getValues(tab)
-
-		var ref1 = insertExp(exp4, s, tab)
-
-		println("Before update: "
-			+ values(ref1,s)
-			+ "[Key = " + ref1 + "]")
-		println("exps")
-		tab._2.foreach(println)
-		println("values")
-		values.foreach(println)
-
-		println("##########################################################")
-
-		/*ref1 = updateExp(ref1, exp4, s, tab)
-
-		println("After update: "
-		//	+ values(ref1)
-			+ "[Key = " + ref1 + "]")
-		println("exps")
-		tab._2.foreach(println)
-		println("values")
-		values.foreach(println) */
-	}
 }
 
 
@@ -519,15 +632,6 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 
 	override protected def children: Seq[Relation[_]] = Seq()
 
-	/**
-	 * Each view must be able to
-	 * materialize it's content from the underlying
-	 * views.
-	 * The laziness allows a query to be set up
-	 * on relations (tables) that are already filled.
-	 * The lazy initialization must be performed prior to processing the
-	 * first add/delete/update events or foreach calls.
-	 */
 	override protected def lazyInitialize() { }
 
 	private var freshInt = 0
@@ -562,7 +666,7 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 
 	def put(k : Int, v : V) = {
 		if (materializedMap.contains(k)) {
-			println("Warning[IntKeyMap.put]: Key already existed")
+			println("Warning[IntMapTable.put]: Key already existed")
 			update(k, v)
 		}
 
@@ -573,27 +677,27 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 
 }
 
-class MaterializedMap[Key, Context, Value] extends Observer[(Key, Context, Value)] with PartialFunction[(Key, Context), Value] with Iterable[((Key, Context), Value)] {
+class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFunction[Key, Value] with Iterable[(Key, Value)] {
+	import com.google.common.collect.ArrayListMultimap
 
-	private val materializedMap : ArrayListMultimap[(Key, Context),Value] = ArrayListMultimap.create[(Key, Context),Value]
+	private val materializedMap : ArrayListMultimap[Key, Value] = ArrayListMultimap.create[Key, Value]
 
-	override def added(v: (Key, Context, Value)) {
+	override def added(v: (Key, Value)) {
 		val key = v._1
-		val c = v._2
-		val value = v._3
-		if (! (materializedMap.containsKey((key, c)) && materializedMap.get((key,c)).contains(value)))
-			materializedMap.put((key, v._2), v._3)
+		val value = v._2
+		if (! (materializedMap.containsKey(key) && materializedMap.get(key).contains(value)))
+			materializedMap.put(key, value)
 	}
 
-	override def removed(v: (Key, Context, Value)) {
-		materializedMap.remove((v._1, v._2), v._3)/* match {
+	override def removed(v: (Key, Value)) {
+		materializedMap.remove(v._1, v._2)/* match {
 			case None => throw new IllegalStateException("Value not contained in map: " + v._2)
 			case Some(e) if e != v._2 => throw new IllegalStateException("There is another value " + e + " than the removed value " + v._2)
 			case _ => {}
 		}   */
 	}
 
-	override def updated(oldV: (Key, Context, Value), newV: (Key, Context, Value)): Unit = {
+	override def updated(oldV: (Key, Value), newV: (Key, Value)): Unit = {
 		if (oldV._1 != newV._1)
 			throw new IllegalArgumentException("oldKey != newKey")
 		removed(oldV)
@@ -607,23 +711,23 @@ class MaterializedMap[Key, Context, Value] extends Observer[(Key, Context, Value
 
 	override def endTransaction() { }
 
-	override def apply(t : (Key, Context)) : Value = apply(t._1, t._2)
 
-	def apply(k: Key, c : Context): Value = {
-		val result = materializedMap.get((k,c))
+
+	def apply(k: Key): Value = {
+		val result = materializedMap.get(k)
 		if (result.size != 1)
-			throw new IllegalStateException("There are more values at this position. Key = " + k + ", Context = " + c + ", Value = " + result)
+			throw new IllegalStateException("There are more values at this position. Key = " + k + ", Value = " + result)
 		result.get(0)
 	}
 
-	override def isDefinedAt(t : (Key, Context)): Boolean = materializedMap.containsKey(t)
+	override def isDefinedAt(t : Key): Boolean = materializedMap.containsKey(t)
 
-	override def iterator: Iterator[((Key, Context), Value)] = new Iterator[((Key, Context), Value)](){
+	override def iterator: Iterator[(Key,  Value)] = new Iterator[(Key, Value)](){
 		val it = materializedMap.entries().iterator()
 
 		override def hasNext: Boolean = it.hasNext
 
-		override def next(): ((Key, Context), Value) = {
+		override def next(): (Key, Value) = {
 			val e = it.next()
 			(e.getKey, e.getValue)
 		}

@@ -7,7 +7,7 @@ import scala.collection.mutable
 import idb.SetTable
 import sae.interpreter.utils.MaterializedMap
 
-object StandardInterpreter {
+object StandardInterpreter /*{
 
 	var printUpdates = true
 
@@ -177,4 +177,4 @@ object StandardInterpreter {
 
 
 	}
-}
+}         */

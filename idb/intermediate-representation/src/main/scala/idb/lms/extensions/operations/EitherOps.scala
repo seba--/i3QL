@@ -14,11 +14,11 @@ trait EitherOps
 {
 
 	object Left {
-		def apply[A: Manifest] (x: Rep[A])(implicit pos: SourceContext) = left_new (x)
+		def apply[A : Manifest, B : Manifest] (x: Rep[A])(implicit pos: SourceContext) = left_new[A,B] (x)
 	}
 
 	object Right {
-		def apply[B: Manifest] (x: Rep[B])(implicit pos: SourceContext) = right_new (x)
+		def apply[A : Manifest, B: Manifest] (x: Rep[B])(implicit pos: SourceContext) = right_new[A,B] (x)
 	}
 
 
@@ -34,14 +34,14 @@ trait EitherOps
 
 		def isLeft (implicit pos: SourceContext) = either_isLeft(a)
 
-		def right (implicit pos: SourceContext) = either_getRight(a)
+		def rightGet (implicit pos: SourceContext) = either_getRight(a)
 
-		def left (implicit pos: SourceContext) = either_getLeft(a)
+		def leftGet (implicit pos: SourceContext) = either_getLeft(a)
 	}
 
-	def left_new[A : Manifest] (x: Rep[A])(implicit pos: SourceContext): Rep[Left[A, _]]
+	def left_new[A : Manifest, B : Manifest] (x: Rep[A])(implicit pos: SourceContext): Rep[Either[A, B]]
 
-	def right_new[B : Manifest] (x : Rep[B])(implicit pos: SourceContext): Rep[Right[_, B]]
+	def right_new[A : Manifest, B : Manifest] (x : Rep[B])(implicit pos: SourceContext): Rep[Either[A, B]]
 
 	def either_isRight[A : Manifest, B : Manifest] (x : Rep[Either[A, B]])(implicit pos: SourceContext): Rep[Boolean]
 
@@ -56,9 +56,9 @@ trait EitherOps
 trait EitherOpsExp extends EitherOps with EffectExp
 {
 
-	case class LeftNew[A: Manifest] (x: Rep[A]) extends Def[Left[A, _]]
+	case class LeftNew[A: Manifest, B : Manifest] (x: Rep[A]) extends Def[Either[A, B]]
 
-	case class RightNew[B : Manifest] (x: Rep[B]) extends Def[Right[_, B]]
+	case class RightNew[A : Manifest, B : Manifest] (x: Rep[B]) extends Def[Either[A, B]]
 
 	case class EitherIsRight[A : Manifest, B : Manifest] (x: Exp[Either[A, B]]) extends Def[Boolean]
 
@@ -69,11 +69,11 @@ trait EitherOpsExp extends EitherOps with EffectExp
 	case class EitherGetLeft[A : Manifest, B : Manifest] (x: Exp[Either[A, B]]) extends Def[A]
 
 
-	override def left_new[A : Manifest] (x: Rep[A])(implicit pos: SourceContext): Rep[Left[A, _]] =
-		LeftNew(x)
+	override def left_new[A : Manifest, B : Manifest] (x: Rep[A])(implicit pos: SourceContext): Rep[Either[A, B]] =
+		LeftNew[A,B](x)
 
-	override def right_new[B : Manifest] (x : Rep[B])(implicit pos: SourceContext): Rep[Right[_, B]] =
-		RightNew(x)
+	override def right_new[A : Manifest, B : Manifest] (x : Rep[B])(implicit pos: SourceContext): Rep[Either[A, B]] =
+		RightNew[A,B](x)
 
 	override def either_isRight[A : Manifest, B : Manifest] (x : Rep[Either[A, B]])(implicit pos: SourceContext): Rep[Boolean] =
 		EitherIsRight(x)
@@ -119,8 +119,8 @@ trait ScalaGenEitherOps extends BaseGenEitherOps with ScalaGenEffect
 		case RightNew (x) => emitValDef (sym, "Right(" + quote (x) + ")")
 		case EitherIsRight (x) => emitValDef (sym, "" + quote (x) + ".isRight")
 		case EitherIsLeft (x) => emitValDef (sym, "" + quote (x) + ".isLeft")
-		case EitherGetRight (x) => emitValDef (sym, "" + quote (x) + ".right")
-		case EitherGetLeft (x) => emitValDef (sym, "" + quote (x) + ".left")
+		case EitherGetRight (x) => emitValDef (sym, "" + quote (x) + ".right.get")
+		case EitherGetLeft (x) => emitValDef (sym, "" + quote (x) + ".left.get")
 		case _ => super.emitNode (sym, rhs)
 	}
 }

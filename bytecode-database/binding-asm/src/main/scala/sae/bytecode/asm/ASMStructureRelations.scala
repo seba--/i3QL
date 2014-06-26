@@ -45,24 +45,24 @@ trait ASMStructureRelations
 {
 
     lazy val classDeclarations: SetTable[ClassDeclaration] =
-        SetTable.empty[ClassDeclaration]()
+        SetTable.empty[ClassDeclaration]
 
     lazy val methodDeclarations: SetTable[MethodDeclaration] =
-        SetTable.empty[MethodDeclaration]()
+        SetTable.empty[MethodDeclaration]
 
     lazy val fieldDeclarations: SetTable[FieldDeclaration] =
-        SetTable.empty[FieldDeclaration]()
+        SetTable.empty[FieldDeclaration]
 
     lazy val codeAttributes: SetTable[CodeAttribute] =
-        SetTable.empty[CodeAttribute]()
+        SetTable.empty[CodeAttribute]
 
     lazy val exceptionHandlers: SetTable[ExceptionHandler] =
-        SetTable.empty[ExceptionHandler]()
+        SetTable.empty[ExceptionHandler]
 
     lazy val innerClassAttributes: SetTable[InnerClassAttribute] =
-        SetTable.empty[InnerClassAttribute]()
+        SetTable.empty[InnerClassAttribute]
 
     lazy val enclosingMethodAttributes: SetTable[EnclosingMethodAttribute] =
-        SetTable.empty[EnclosingMethodAttribute]()
+        SetTable.empty[EnclosingMethodAttribute]
 
 }

@@ -5,6 +5,6 @@ package sae.bytecode
  */
 trait BytecodeDatabaseFactory {
 
-  def create () : BytecodeDatabase
+  def create : BytecodeDatabase
 
 }

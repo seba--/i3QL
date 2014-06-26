@@ -48,49 +48,49 @@ trait ASMInstructionsRelations
 {
 
     val basicInstructions =
-        SetTable.empty[Instruction]()
+        SetTable.empty[Instruction]
 
     val fieldReadInstructions =
-        SetTable.empty[FieldAccessInstruction]()
+        SetTable.empty[FieldAccessInstruction]
 
     val fieldWriteInstructions =
-        SetTable.empty[FieldAccessInstruction]()
+        SetTable.empty[FieldAccessInstruction]
 
     val constantValueInstructions =
-        SetTable.empty[ConstantValueInstruction[Any]]()
+        SetTable.empty[ConstantValueInstruction[Any]]
 
     val lookupSwitchInstructions =
-        SetTable.empty[LOOKUPSWITCH]()
+        SetTable.empty[LOOKUPSWITCH]
 
     val tableSwitchInstructions =
-        SetTable.empty[TABLESWITCH]()
+        SetTable.empty[TABLESWITCH]
 
     val methodInvocationInstructions =
-        SetTable.empty[MethodInvocationInstruction]()
+        SetTable.empty[MethodInvocationInstruction]
 
     val objectTypeInstructions =
-        SetTable.empty[ObjectTypeInstruction]()
+        SetTable.empty[ObjectTypeInstruction]
 
     val newArrayInstructions =
-        SetTable.empty[NewArrayInstruction[Any]]()
+        SetTable.empty[NewArrayInstruction[Any]]
 
     val localVariableLoadInstructions =
-        SetTable.empty[LocalVariableAccessInstruction]()
+        SetTable.empty[LocalVariableAccessInstruction]
 
     val localVariableStoreInstructions =
-        SetTable.empty[LocalVariableAccessInstruction]()
+        SetTable.empty[LocalVariableAccessInstruction]
 
     val retInstructions =
-        SetTable.empty[RET]()
+        SetTable.empty[RET]
 
     val integerIncrementInstructions =
-        SetTable.empty[IINC]()
+        SetTable.empty[IINC]
 
     val conditionalJumpInstructions =
-        SetTable.empty[JumpInstruction]()
+        SetTable.empty[JumpInstruction]
 
     val unconditionalJumpInstructions =
-        SetTable.empty[JumpInstruction]()
+        SetTable.empty[JumpInstruction]
 
 
     lazy val jumpInstructions = compile (
