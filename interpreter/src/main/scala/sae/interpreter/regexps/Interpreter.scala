@@ -1,6 +1,8 @@
 package sae.interpreter.regexps
 
+import idb.{SetTable, Table}
 import idb.observer.{NotifyObservers, Observer}
+import sae.interpreter.regexps.Interpreter.TaskKey
 
 import scala.collection.mutable
 
@@ -9,7 +11,7 @@ import scala.collection.mutable
 object Interpreter {
 
 	def main(args : Array[String]) {
-		val tab : IExp = createIExp
+		val tab : ITable = createIExp
 
 		val exp1 = Alt(Terminal("a"), Terminal("b"))
 		val exp2 =
@@ -39,21 +41,28 @@ object Interpreter {
 		val s1 = "babac"
 		val s2 = "bacab"
 
-		val values = getValues(tab)
+		val (values, tasks) = getValuesTest(tab)
+		val matTasks = tab._3.asMaterialized
 
-		val ref1 = addExp(exp2, Set.empty[String] + s1, tab)
+		val ref1 = addExp(exp3, Set.empty[String] + s1, tab)
 
-			println("Before update: "
+/*			println("Before update: "
 				+ values(ref1)
-				+ "[Key = " + ref1 + "]")
+				+ "[Key = " + ref1 + "]") */
 			println("exps")
 			tab._1.foreach(println)
+			println("contexts")
+			tab._2.foreach(println)
+			println("tasks")
+		    tasks.foreach(println)
+			println("matTasks")
+			matTasks.foreach(println)
 			println("values")
 			values.foreach(println)
 
 			println("##########################################################")
 
-		tab._2.update(ref1, Set.empty[String] + s2)
+/*		tab._2.update(ref1, Set.empty[String] + s2)
 
 		println("After update: "
 			+ values(ref1)
@@ -61,7 +70,7 @@ object Interpreter {
 		println("exps")
 		tab._1.foreach(println)
 		println("values")
-		values.foreach(println)
+		values.foreach(println)   */
 	}
 
 
@@ -82,6 +91,7 @@ object Interpreter {
 
 	def interp(e : Exp, c : Context): Value = e match {
 		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else Some(s))
+		case Alt(r1, Alt(r2, r3)) if r2 == r3 => interp(Alt(r1,r2),c)
 		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
 		case ths@Asterisk(r) => {
 			if (c.nonEmpty) {
@@ -96,7 +106,11 @@ object Interpreter {
 			val v2 = interp(r2, v1)
 			v2
 		}
+
 	}
+
+	def valueToContext(v : Value) : Context =
+		v
 
 	//  def interpk[T](e : Exp, c : Context, k: Value => T): T = e match {
 	//    case Terminal(s2) => if (c.startsWith(s2)) k(Set(c.substring(s2.length))) else k(Set())
@@ -134,55 +148,60 @@ object Interpreter {
 	type Value = Set[String]
 
 	type ExpKind = RegExpKind
-	type Key = Int
-	type ExpNode = (ExpKind, Seq[Key])
+	type ExpKey = Int
+	type ExpNode = (ExpKind, Seq[ExpKey])
 	type ExpLeaf = (ExpKind, Seq[Any])
 
-	//type ContextKey = String
+	type ContextKey = Int
 
-	type IExpKindTable = IntMapTable[Either[ExpNode, ExpLeaf]]
-	type IContextTable = IntMapTable[Context]
+	type TaskKey = Int
+	type Task = (ExpKey, ContextKey)
+
+	type IExpKindTable = KeyMapTable[ExpKey, Either[ExpNode, ExpLeaf]]
+	type IContextTable = KeyMapTable[ContextKey, Context]
+	type ITaskTable = KeyMapTable[TaskKey,Task]
 
 	//	type IExpKindMap = mutable.Map[ExpKey, Either[ExpNode, ExpLeaf]]
-	type IExpMap = mutable.Map[Key, Exp]
-	type IExp = (IExpKindTable, IContextTable)
-	type IValue = Relation[(Key, Value)]
+	type ITable = (IExpKindTable, IContextTable, ITaskTable)
+//	type IValue = Relation[(TaskKey, Value)]
 
-	private def expKindTable(tab : IExp) : IExpKindTable = tab._1
-	private def contextTable(tab : IExp) : IContextTable = tab._2
+	private def expKindTable(tab : ITable) : IExpKindTable = tab._1
+	private def contextTable(tab : ITable) : IContextTable = tab._2
+	private def taskTable(tab : ITable) : ITaskTable = tab._3
 
 
-	def addExp(e : Exp, c : Context, tab : IExp) : Key = {
-		val k = addTask(e, tab)
-		contextTable(tab).put(k,c)
-		k
+	def addExp(e : Exp, c : Context, tab : ITable) : TaskKey = {
+		val expKey = insertExp(e, tab)
+		val contextKey = contextTable(tab).add(c)
+		taskTable(tab).add((expKey, contextKey))
+
 	}
 
-	private def addTask(e : Exp, tab : IExp) : Key = e match {
+	private def insertExp(e : Exp, tab : ITable) : ExpKey = e match {
 		case Terminal(s) => {
-			insertLiteral(e, TerminalKind, Seq(s), tab)
+			insertLiteral(TerminalKind, Seq(s), tab)
 		}
 		case Alt(e1,e2) => {
-			val t1 = addTask(e1, tab)
-			val t2 = addTask(e2, tab)
+			val t1 = insertExp(e1, tab)
+			val t2 = insertExp(e2, tab)
 
-			insertNode(e, AltKind, Seq(t1, t2), tab)
+			insertNode(AltKind, Seq(t1, t2), tab)
 		}
 		case Sequence(e1, e2) => {
 			//Add subtasks
-			val t1 = addTask(e1, tab)
-			val t2 = addTask(e2, tab)
+			val t1 = insertExp(e1, tab)
+			val t2 = insertExp(e2, tab)
 			//Add this task with reference to the subtasks
-			insertNode(e, SequenceKind, Seq(t1, t2), tab)
+			insertNode(SequenceKind, Seq(t1, t2), tab)
 		}
 	}
 
-	def insertLiteral(e : Exp, k: ExpKind, param: Seq[Any], tab: IExp): Key = {
+	def insertLiteral(k: ExpKind, param: Seq[Any], tab: ITable): ExpKey = {
 		val key = expKindTable(tab).add(Right(k, param))
 		key
 	}
 
-	def insertNode(e : Exp, k: ExpKind, kids: Seq[Key], tab: IExp): Key = {
+	def insertNode(k: ExpKind, kids: Seq[ExpKey], tab: ITable): ExpKey = {
 		val key = expKindTable(tab).add(Left(k, kids))
 		key
 	}
@@ -262,21 +281,23 @@ object Interpreter {
 			oldKey
 		}  */
 
-	def getValues(tab : IExp) : PartialFunction[Key,  Value] with Iterable[(Key,Value)] = {
+	def getValues(tab : ITable) : PartialFunction[TaskKey,Value] with Iterable[(TaskKey,Value)] = {
 		val interpreter = new IncrementalInterpreter(tab)
 		interpreter.result
 	}
 
-	def getValuesTest(tab : IExp) : Relation[_] = {
+	def getValuesTest(tab : ITable) : (Relation[(TaskKey,Value)], Relation[(TaskKey,Task)]) = {
 		val interpreter = new IncrementalInterpreter(tab)
-		interpreter.valuesInternal
+		(interpreter.values, interpreter.tasks)
 	}
 
-	def createIExp : IExp = (new IntMapTable[Either[ExpNode, ExpLeaf]], new IntMapTable[Context])
+	def createIExp : ITable = (
+		new KeyMapTable[ExpKey, Either[ExpNode, ExpLeaf]](new IntKeyGenerator),
+		new KeyMapTable[ExpKey, Context](new IntKeyGenerator),
+		new KeyMapTable[ExpKey, Task](new IntKeyGenerator)
+		)
 
-	private class IncrementalInterpreter(val tab : IExp) { //extends Interpreter[Key, ExpKind, Context, Value] {
-
-
+	private class IncrementalInterpreter(val tab : ITable) {
 
 		def interpretLiteral(k : ExpKind, seq : Seq[Any], c : Context): Value = k match {
 			case TerminalKind => {
@@ -296,27 +317,25 @@ object Interpreter {
 
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
-		type IDef = (Key, Either[ExpNode,ExpLeaf])
-		type INode = (Key, ExpNode)
-		type ILeaf = (Key, ExpLeaf)
-		type IContext = (Key, Context)
+		type IExp = (ExpKey, Either[ExpNode,ExpLeaf])
+		type INode = (ExpKey, ExpNode)
+		type ILeaf = (ExpKey, ExpLeaf)
+		type IContext = (ContextKey, Context)
+		type ITask = (TaskKey, Task)
 
-		type IValue = (Key, Value)
+		type IValue = (TaskKey, Value)
 
+		val expressions : Relation[IExp] = tab._1
 
-		val expressions : Relation[IDef] = tab._1
-
-
-
-		protected val iDefAsILit : Rep[IDef => ILeaf] = staticData (
-			(d : IDef) => {
+		protected val iDefAsILit : Rep[IExp => ILeaf] = staticData (
+			(d : IExp) => {
 				val e = d._2.right.get
 				(d._1, e)
 			}
 		)
 
-		protected val iDefAsINode : Rep[IDef => INode] = staticData (
-			(d : IDef) => {
+		protected val iDefAsINode : Rep[IExp => INode] = staticData (
+			(d : IExp) => {
 				val e = d._2.left.get
 				(d._1, e)
 			}
@@ -332,15 +351,15 @@ object Interpreter {
 			(t : (ExpKind, Seq[Value], Context)) => interpretNode(t._1, t._2, t._3)
 		)
 
-		protected val definitionIsLiteral : Rep[IDef => Boolean] = staticData (
-			(s : IDef) => s._2.isRight
+		protected val definitionIsLiteral : Rep[IExp => Boolean] = staticData (
+			(s : IExp) => s._2.isRight
 		)
 
-		protected val definitionIsNode : Rep[IDef => Boolean] = staticData (
-			(s : IDef) => s._2.isLeft
+		protected val definitionIsNode : Rep[IExp => Boolean] = staticData (
+			(s : IExp) => s._2.isLeft
 		)
 
-		protected val children : Rep[INode => Seq[Key]] = staticData (
+		protected val children : Rep[INode => Seq[ExpKey]] = staticData (
 			(t : INode) => t._2._2
 		)
 
@@ -356,19 +375,28 @@ object Interpreter {
 			(n : INode) => n._2._1 == AltKind
 		)
 
+		protected val isAsteriskKind : Rep[INode => Boolean] = staticData (
+			(n : INode) => n._2._1 == AsteriskKind
+		)
 
-		protected val seqToSeqWithCount : Rep[Seq[Key] => Seq[(Int, Key)]] = staticData (
-			(s : Seq[Key]) => {
+
+		protected val valueToContextRep : Rep[Value => Context] = staticData (
+			valueToContext
+		)
+
+
+		protected val seqToSeqWithCount : Rep[Seq[ExpKey] => Seq[(Int, ExpKey)]] = staticData (
+			(s : Seq[ExpKey]) => {
 				var i = 0
 				s.map(e => {i = i + 1 ; (i,e)})
 			}
 		)
 
 		protected val literals : IR.Relation[ILeaf] =
-			SELECT (iDefAsILit(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => d._2.isRight)
+			SELECT (iDefAsILit(_ : Rep[IExp])) FROM expressions WHERE ((d : Rep[IExp]) => d._2.isRight)
 
 		protected val nonLiterals : IR.Relation[INode] =
-			SELECT (iDefAsINode(_ : Rep[IDef])) FROM expressions WHERE ((d : Rep[IDef]) => d._2.isLeft)
+			SELECT (iDefAsINode(_ : Rep[IExp])) FROM expressions WHERE ((d : Rep[IExp]) => d._2.isLeft)
 
 		protected val nonLiteralsOneArgument : Relation[INode] =
 			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 1)
@@ -379,184 +407,278 @@ object Interpreter {
 		protected val nonLiteralsThreeArguments : Relation[INode] =
 			SELECT (*) FROM nonLiterals WHERE ((d : Rep[INode]) => children(d).length == 3)
 
-	/*	def propagatedContexts(vQuery : Rep[Query[IValue]]) : Relation[IContext] =
-			WITH RECURSIVE (
-				(cQuery : Rep[Query[IContext]]) => {
-					contexts UNION ALL (
-						SELECT ((k : Rep[Key], c : Rep[Option[Context]]) => (k, c.get)) FROM (
-							queryToInfixOps (
-								SELECT (
-									(e : Rep[(INode, (Int, Key))], c : Rep[IContext]) => (e._2._2, contextPropagation(e._1._2._1, c._2).apply(e._2._1))
-								) FROM (
-									UNNEST (nonLiterals, (n : Rep[INode]) => seqToSeqWithCount(n._2._2)), cQuery
-								) WHERE (
-								(e : Rep[(INode, (Int, Key))], c : Rep[IContext]) =>
-									e._1._1 == c._1 //e.contextKey == c.contextKey
-								)
-							) UNION ALL (
-								SELECT (
-									(e : Rep[(INode, (Int, Key))], c : Rep[IContext], v : Rep[IValue]) => (e._2._2, valuePropagation(e._1._2._1, c._2, v._2, e._2._1)._1.apply(e._2._1))
-								) FROM (
-									UNNEST (nonLiterals, (n : Rep[INode]) => seqToSeqWithCount(n._2._2)), cQuery, vQuery
-								) WHERE (
-									(e : Rep[(INode, (Int, Key))], c : Rep[IContext], v : Rep[IValue]) =>
-										(e._1._1 == c._1) AND
-										(e._2._2 == v._1)
-
-								)
-							)
-						) WHERE (
-							(k : Rep[Key], c : Rep[Option[Context]]) =>
-								c.isDefined
-						)
-					)
-				}
-			)  */
 
 
-	/*	protected val literalsInterpreted : Rep[Query[IValue]] =
-			SELECT (
-				(d : Rep[ILeaf], c : Rep[IContext]) =>  (d._1, interpretILit(d, c._2))
-			) FROM (
-				literals, contexts
-			) WHERE (
-					(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
-				)
 
-		protected val literalsInterpreted2 : Rep[Query[Either[IValue, IContext]]] =
-			SELECT (
-				(d : Rep[ILeaf], c : Rep[IContext]) =>  Left[IValue,IContext](d._1, interpretILit(d, c._2))
-			) FROM (
-				literals, contexts
-			) WHERE (
-				(d : Rep[ILeaf], c : Rep[IContext]) => c._1 == d._1
-			) */
+		type RecType = Either[Either[ITask, IExp], Either[IValue,IContext]]
 
-		protected def valueRelation(r : Rep[Query[Either[IValue, IContext]]]) : Rep[Query[IValue]] =
-			SELECT ((e : Rep[Either[IValue, IContext]]) => e.leftGet) FROM r WHERE ( (e : Rep[Either[IValue, IContext]]) => e.isLeft)
+		private val recTypeIsValue : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isRight && r.right.get.isLeft
+		)
 
-		protected def contextRelation(r : Rep[Query[Either[IValue, IContext]]]) : Rep[Query[IContext]] =
-			SELECT ((e : Rep[Either[IValue, IContext]]) => e.rightGet) FROM r WHERE ( (e : Rep[Either[IValue, IContext]]) => e.isRight)
+		private val recTypeIsContext : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isRight && r.right.get.isRight
+		)
 
-		protected val unnestedNonLiterals : Rep[Query[(INode, (Int, Key))]] =
+		private val recTypeIsTask : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isLeft && r.left.get.isLeft
+		)
+
+		private val recTypeIsExp : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isLeft && r.left.get.isRight
+		)
+
+		private val recTypeIsLeaf : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isLeft && r.left.get.isRight && r.left.get.right.get._2.isRight
+		)
+
+		private val recTypeIsNode : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isLeft && r.left.get.isRight && r.left.get.right.get._2.isLeft
+		)
+
+		private val recTypeToValue : Rep[RecType => IValue] = staticData (
+			(r : RecType) => r.right.get.left.get
+		)
+
+		private val recTypeToContext : Rep[RecType => IContext] = staticData (
+			(r : RecType) => r.right.get.right.get
+		)
+
+		private val recTypeToTask : Rep[RecType => ITask] = staticData (
+			(r : RecType) => r.left.get.left.get
+		)
+
+		private val recTypeToExp : Rep[RecType => IExp] = staticData (
+			(r : RecType) => r.left.get.right.get
+		)
+
+		private val recTypeToLeaf : Rep[RecType => ILeaf] = staticData (
+			(r : RecType) => {
+				val e = r.left.get.right.get
+				(e._1, e._2.right.get)
+			}
+		)
+
+		private val recTypeToNode : Rep[RecType => INode] = staticData (
+			(r : RecType) => {
+				val e = r.left.get.right.get
+				(e._1, e._2.left.get)
+			}
+		)
+
+
+		private def taskGetId(t : Rep[ITask]) : Rep[TaskKey] = t._1
+		private def taskGetExpKey(t : Rep[ITask]) : Rep[TaskKey] = t._2._1
+		private def taskGetContextKey(t : Rep[ITask]) : Rep[ContextKey] = t._2._2
+
+
+		protected def valueRelation(r : Rep[Query[RecType]]) :  Rep[Query[IValue]] =
+			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsValue(e))
+
+		protected def contextRelation(r : Rep[Query[RecType]]) :  Rep[Query[IContext]] =
+			SELECT ((e : Rep[RecType]) => recTypeToContext(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsContext(e))
+
+		protected def taskRelation(r : Rep[Query[RecType]]) :  Rep[Query[ITask]] =
+			SELECT ((e : Rep[RecType]) => recTypeToTask(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsTask(e))
+
+		protected def expRelation(r : Rep[Query[RecType]]) :  Rep[Query[IExp]] =
+			SELECT ((e : Rep[RecType]) => recTypeToExp(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsExp(e))
+
+		protected def leafRelation(r : Rep[Query[RecType]]) :  Rep[Query[ILeaf]] =
+			SELECT ((e : Rep[RecType]) => recTypeToLeaf(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsLeaf(e))
+
+		protected def nodeRelation(r : Rep[Query[RecType]]) :  Rep[Query[INode]] =
+			SELECT ((e : Rep[RecType]) => recTypeToNode(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsNode(e))
+
+
+		private val valueToRecType : Rep[IValue => RecType] = staticData (
+			(r : IValue) => scala.Right (scala.Left (r))
+		)
+
+		private val contextToRecType : Rep[IContext => RecType] = staticData (
+			(r : IContext) => scala.Right (scala.Right (r))
+		)
+
+		private val taskToRecType : Rep[ITask => RecType] = staticData (
+			(r : ITask) => scala.Left (scala.Left (r))
+		)
+
+		private val expToRecType : Rep[IExp => RecType] = staticData (
+			(r : IExp) => scala.Left (scala.Right (r))
+		)
+
+		private val leafToRecType : Rep[ILeaf => RecType] = staticData (
+			(r : ILeaf) =>  scala.Left (scala.Right ((r._1, scala.Right (r._2))))
+		)
+
+		private val nodeToRecType : Rep[INode => RecType] = staticData (
+			(r : INode) =>  scala.Left (scala.Right ((r._1, scala.Left (r._2))))
+		)
+
+		protected def makeValue(k : Rep[TaskKey], v : Rep[Value]) : Rep[RecType] =
+			valueToRecType((k,v))
+
+		protected def makeContext(k : Rep[ContextKey], c : Rep[Context]) : Rep[RecType] =
+			contextToRecType((k,c))
+
+		protected def makeTask(k : Rep[TaskKey], t : Rep[Task]) : Rep[RecType] =
+			taskToRecType((k,t))
+
+		protected def makeExp(k : Rep[ExpKey], e : Rep[Either[ExpNode,ExpLeaf]]) =
+			expToRecType((k,e))
+
+		protected def makeLeaf(k : Rep[ExpKey], e : Rep[ExpLeaf]) : Rep[RecType] =
+			leafToRecType((k,e))
+
+		protected def makeNode(k : Rep[ExpKey], e : Rep[ExpNode]) : Rep[RecType] =
+			nodeToRecType((k,e))
+
+
+		protected val freshContextKey : Rep[Int => ContextKey] = staticData (
+			(i : Int) => tab._2.keyGenerator.fresh()
+		)
+
+		protected val freshTaskKey : Rep[Int => TaskKey] = staticData (
+			(i : Int) => tab._3.keyGenerator.fresh()
+		)
+
+		protected def newTask(ek : Rep[ExpKey]) : Rep[RecType] =
+			makeTask(freshTaskKey(0) , (ek, freshContextKey(0)))
+
+		protected def newTask(ek : Rep[ExpKey], ck : Rep[ContextKey]) : Rep[RecType] =
+			makeTask(freshTaskKey(0) , (ek, ck))
+
+
+		protected val unnestedNonLiterals : Rep[Query[(INode, (Int, ExpKey))]] =
 			UNNEST(nonLiterals, (n: Rep[INode]) => seqToSeqWithCount(n._2._2))
 
-		protected val contexts : Rep[Query[Either[IValue,IContext]]] =
-			SELECT (Right[IValue, IContext](_ : Rep[IContext])) FROM tab._2
+		protected val contextsRec : Relation[RecType] =
+			SELECT ((e : Rep[IContext]) => makeContext(e._1, e._2)) FROM tab._2
 
-		val valuesInternal : Rep[Query[Either[IValue,IContext]]] = {
+		protected val tasksRec : Relation[RecType] =
+			SELECT ((e : Rep[ITask]) => makeTask(e._1, e._2)) FROM tab._3
+
+		protected val expRec : Relation[RecType] =
+			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2)) FROM expressions
+
+		protected val recursionBase :  Relation[RecType] =
+			tasksRec UNION ALL (contextsRec) UNION ALL (expRec)
+
+		private def unionPrivate[T : Manifest](queries : Rep[Query[T]]*) : Rep[Query[T]] =
+			if (queries.length == 1)
+				queries.head
+			else
+				queries.head UNION ALL (unionPrivate[T](queries.tail : _*))
+
+		val valuesInternal : Rep[Query[RecType]] = {
 			WITH RECURSIVE (
-				(vQuery: Rep[Query[Either[IValue, IContext]]]) => {
-					contexts UNION ALL (
-						//Terminal
-						queryToInfixOps (
+				(rec:  Rep[Query[RecType]]) => {
+					recursionBase UNION ALL (
+						unionPrivate (
 							//Terminal context -> value
 							SELECT (
-								(l : Rep[ILeaf], c : Rep[IContext]) =>
-									Left[IValue, IContext]((l._1, interpretLit(l._2._1, l._2._2, c._2)))
+								(l : Rep[ILeaf], c : Rep[IContext], t : Rep[ITask]) =>
+									makeValue(taskGetId(t), interpretLit(l._2._1, l._2._2, c._2))
 							) FROM (
-								literals, contextRelation(vQuery)
+								leafRelation(rec), contextRelation(rec), taskRelation(rec)
 							) WHERE (
-								(l : Rep[ILeaf], c : Rep[IContext]) =>
+								(l : Rep[ILeaf], c : Rep[IContext], t : Rep[ITask]) =>
 									isTerminalKind(l) AND
-									l._1 == c._1
+									l._1 == taskGetExpKey(t) AND
+									c._1 == taskGetContextKey(t)
 							)
-						) UNION ALL (
-							queryToInfixOps (
-								//Alt
-								queryToInfixOps (
-									queryToInfixOps (
-										//Alt Context propagation Left
-										SELECT(
-											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-												Right[IValue, IContext]((e._1, parentContext._2))
-										) FROM(
-											expressions, nonLiterals, contextRelation(vQuery)
-										) WHERE (
-											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-												isAltKind(parent) AND
-												e._1 == parent._2._2(0) AND
-												parentContext._1 == parent._1
-										)
-									) UNION ALL (
-										//Alt Context propagation Right
-										SELECT(
-											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-												Right[IValue, IContext]((e._1, parentContext._2))
-										) FROM(
-											expressions, nonLiterals, contextRelation(vQuery)
-										) WHERE (
-											(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-												isAltKind(parent) AND
-												e._1 == parent._2._2(1) AND
-												parentContext._1 == parent._1
-										)
-									)
-
-								) UNION ALL (
-									//Alt value propagation
-									SELECT(
-										(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
-											Left[IValue, IContext]((e._1, interpretPriv(e._2._1, Seq(child1Val._2, child2Val._2), c._2)))
-									) FROM (
-										nonLiterals, contextRelation(vQuery), valueRelation(vQuery), valueRelation(vQuery)
-									) WHERE (
-										(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
-											isAltKind(e) AND
-											e._1 == c._1 AND
-											e._2._2(0) == child1Val._1 AND
-											e._2._2(1) == child2Val._1
-									)
-								)
-							) UNION ALL (
-								//Seq
-								queryToInfixOps(
-									//Seq Context propagation
-									SELECT(
-										(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-											Right[IValue, IContext]((e._1, parentContext._2))
-									) FROM(
-										expressions, nonLiterals, contextRelation(vQuery)
-										) WHERE (
-										(e: Rep[IDef], parent: Rep[INode], parentContext: Rep[IContext]) =>
-											isSequenceKind(parent) AND
-												e._1 == parent._2._2(0) AND
-												parentContext._1 == parent._1
-										)
-								) UNION ALL (
-									queryToInfixOps (
-										//Seq value child(0) -> context child(1)
-										SELECT(
-											(e: Rep[IDef], parent: Rep[INode], child1Val: Rep[IValue]) =>
-												Right[IValue, IContext]((e._1, child1Val._2)) //TODO: How to convert value to context?
-										) FROM (
-											expressions, nonLiterals, valueRelation(vQuery)
-										) WHERE (
-											(e: Rep[IDef], parent: Rep[INode], child1Val: Rep[IValue]) =>
-												isSequenceKind(parent) AND
-													e._1 == parent._2._2(1) AND
-													child1Val._1 == parent._2._2(0)
-											)
-									) UNION ALL (
-										//Seq value propagation
-										SELECT(
-											(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
-												Left[IValue, IContext]((e._1, interpretPriv(e._2._1, Seq(child1Val._2, child2Val._2), c._2)))
-										) FROM (
-											nonLiterals, contextRelation(vQuery), valueRelation(vQuery), valueRelation(vQuery)
-											) WHERE (
-											(e: Rep[INode], c : Rep[IContext], child1Val : Rep[IValue], child2Val : Rep[IValue]) =>
-												isSequenceKind(e) AND
-													e._1 == c._1 AND
-													e._2._2(0) == child1Val._1 AND
-													e._2._2(1) == child2Val._1
-											)
-									)
-								)
+						,
+							//Alt task propagation left
+							SELECT (
+								(e: Rep[IExp], parent: Rep[INode], parentContext: Rep[IContext], parentTask : Rep[ITask]) =>
+									newTask(e._1, parentContext._1)
+							) FROM (
+								expRelation(rec), nodeRelation(rec), contextRelation(rec), taskRelation(rec)
+							) WHERE (
+								(e: Rep[IExp], parent: Rep[INode], parentContext: Rep[IContext], parentTask : Rep[ITask]) =>
+									isAltKind(parent) AND
+									(e._1 == parent._2._2(0) OR e._1 == parent._2._2(1))  AND
+									parent._1 == taskGetExpKey(parentTask) AND
+									parentContext._1 == taskGetContextKey(parentTask)
 							)
+						,
+							//Alt value propagation
+							SELECT (
+								(e: Rep[INode], c : Rep[IContext],  childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									makeValue(taskGetId(tasks._1), interpretPriv(e._2._1, Seq(childVals._1._2, childVals._2._2), c._2))
+							) FROM (
+								nonLiterals, contextRelation(rec), SELECT (*) FROM (valueRelation(rec), valueRelation(rec)), SELECT (*) FROM (taskRelation(rec), taskRelation(rec), taskRelation(rec))
+							) WHERE (
+								(e: Rep[INode], c : Rep[IContext], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									isAltKind(e) AND
+									e._1 == taskGetExpKey(tasks._1) AND
+									c._1 == taskGetContextKey(tasks._1) AND
+									e._2._2(0) == taskGetExpKey(tasks._2) AND
+									childVals._1._1 == taskGetId(tasks._2) AND
+									e._2._2(1) == taskGetExpKey(tasks._3) AND
+									childVals._2._1 == taskGetId(tasks._3)
+							)
+						,
+							//Seq task propagation left
+							SELECT(
+								(e: Rep[IExp], parent: Rep[INode], parentContext: Rep[IContext], t : Rep[ITask]) =>
+									newTask(e._1, parentContext._1)
+							) FROM(
+								expRelation(rec), nodeRelation(rec), contextRelation(rec), taskRelation(rec)
+							) WHERE (
+								(e: Rep[IExp], parent: Rep[INode], parentContext: Rep[IContext], t : Rep[ITask]) =>
+									isSequenceKind(parent) AND
+									e._1 == parent._2._2(0) AND
+									parent._1 == t._1 AND
+									parentContext._1 == taskGetContextKey(t)
+							)
+						,
+							//Seq task creation right
+							SELECT(
+								(e: Rep[IExp], parent: Rep[INode], child1Val: Rep[IValue], t : Rep[ITask]) =>
+									newTask(e._1)
+							) FROM (
+								expRelation(rec), nodeRelation(rec), valueRelation(rec), taskRelation(rec)
+							) WHERE (
+								(e: Rep[IExp], parent: Rep[INode], child1Val: Rep[IValue], t : Rep[ITask]) =>
+									isSequenceKind(parent) AND
+									e._1 == parent._2._2(1) AND
+									parent._2._2(0) == taskGetExpKey(t) AND
+									child1Val._1 == taskGetId(t)
+							)
+						,
+							//Seq child(0) value -> child(1) context
+							SELECT(
+								(e: Rep[IExp], parent: Rep[INode], child0Val: Rep[IValue], child0Task : Rep[ITask], child1Task : Rep[ITask]) =>
+									makeContext(taskGetContextKey(child1Task), valueToContextRep(child0Val._2))
+							) FROM (
+								expRelation(rec), nodeRelation(rec), valueRelation(rec), taskRelation(rec), taskRelation(rec)
+							) WHERE (
+								(e: Rep[IExp], parent: Rep[INode], child0Val: Rep[IValue], child0Task : Rep[ITask], child1Task : Rep[ITask]) =>
+									isSequenceKind(parent) AND
+									e._1 == parent._2._2(1) AND
+									parent._2._2(0) == child0Task._1 AND
+									child0Val._1 == taskGetId(child0Task) AND
+									e._1 == child1Task._1
+								)
+						,
+							//Seq value propagation
+							SELECT (
+								(e: Rep[INode], c : Rep[IContext],  childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									makeValue(taskGetId(tasks._1), interpretPriv(e._2._1, Seq(childVals._1._2, childVals._2._2), c._2))
+							) FROM (
+								nodeRelation(rec), contextRelation(rec), SELECT (*) FROM (valueRelation(rec), valueRelation(rec)), SELECT (*) FROM (taskRelation(rec), taskRelation(rec), taskRelation(rec))
+							) WHERE (
+								(e: Rep[INode], c : Rep[IContext], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									isSequenceKind(e) AND
+									e._1 == taskGetExpKey(tasks._1) AND
+									c._1 == taskGetContextKey(tasks._1) AND
+									e._2._2(0) == taskGetExpKey(tasks._2) AND
+									childVals._1._1 == taskGetId(tasks._2) AND
+									e._2._2(1) == taskGetExpKey(tasks._3) AND
+									childVals._2._1 == taskGetId(tasks._3)
+								)
 						)
-
-
 					)
 				}
 			)
@@ -564,53 +686,8 @@ object Interpreter {
 
 
 		val values : Relation[IValue] = valueRelation(valuesInternal)
-	/*		WITH RECURSIVE (
-				(vQuery : Rep[Query[IValue]]) => {
-					literalsInterpreted UNION ALL(
-						queryToInfixOps(
-							SELECT(
-								(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue], v2: Rep[IValue]) =>
-									(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3, v2._3), c._2))
-							) FROM (
-								nonLiteralsTwoArguments, contexts, vQuery, vQuery
-								) WHERE (
-								(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue], v2: Rep[IValue]) =>
-									(children(d)(0) == v1._1) AND
-										(children(d)(1) == v2._1) AND
-										c._1 == d._1
-								)
-						) UNION ALL(
-							queryToInfixOps (
-								SELECT(
-									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
-										(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3), c._2))
-								) FROM(
-									nonLiteralsOneArgument, contexts, vQuery
-									) WHERE (
-									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
-										(children(d)(0) == v1._1) AND
-											c._1 == d._1
-									)
-							) UNION ALL (
-								SELECT(
-									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
-										(d._1, c._2, interpretPriv(d._1, d._2._1, Seq(v1._3), c._2))
-								) FROM(
-									nonLiteralsTwoArguments, contexts, vQuery
-									) WHERE (
-									(d: Rep[INode], c: Rep[IContext], v1: Rep[IValue]) =>
-										isSequence(d) AND
-											(children(d)(0) == v1._1) AND
-											c._1 == d._1
-									)
-							)
-						)
-					)
-				}
-			) */
-
-
-		val result = new MaterializedMap[Key, Value]
+		val tasks = taskRelation(valuesInternal).asMaterialized
+		val result = new MaterializedMap[TaskKey, Value]
 
 		values.addObserver(result)
 	}
@@ -619,11 +696,31 @@ object Interpreter {
 
 }
 
+trait KeyGenerator[T] {
+
+	private var freshKey : T = startKey
+
+	protected def startKey : T
+	protected def nextKey(k : T) : T
+
+	def fresh() : T = {
+		val key = freshKey
+		freshKey = nextKey(freshKey)
+		key
+	}
+}
+
+class IntKeyGenerator extends KeyGenerator[Int] {
+	def startKey = 0
+	def nextKey(k : Int) = k + 1
+}
+
+
 
 import idb.Relation
-class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
+class KeyMapTable[K,V](val keyGenerator : KeyGenerator[K]) extends Relation[(K, V)] with NotifyObservers[(K, V)] {
 
-	private val materializedMap : mutable.Map[Int,V] = mutable.HashMap.empty[Int,V]
+	private val materializedMap : mutable.Map[K,V] = mutable.HashMap.empty[K,V]
 
 	/**
 	 * Runtime information whether a compiled query is a set or a bag
@@ -634,29 +731,23 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 
 	override protected def lazyInitialize() { }
 
-	private var freshInt = 0
 
-	private def freshId() : Int = {
-		freshInt = freshInt + 1
-		freshInt
-	}
-
-	override def foreach[T](f: ((Int, V)) => T) {
+	override def foreach[T](f: ((K, V)) => T) {
 		materializedMap.foreach(f)
 	}
 
-	def apply(k : Int) : V = {
+	def apply(k : K) : V = {
 		materializedMap(k)
 	}
 
-	def add(v : V) : Int = {
-		val id  = freshId
+	def add(v : V) : K = {
+		val id  = keyGenerator.fresh()
 		materializedMap.put(id, v)
 		notify_added((id,v))
 		id
 	}
 
-	def update(oldKey : Int, newV : V) {
+	def update(oldKey : K, newV : V) {
 		if (!materializedMap.contains(oldKey))
 			throw new IllegalStateException("Key could not be updated, because it does not exist. Key: " + oldKey)
 		val Some(oldV) = materializedMap.put(oldKey,newV)
@@ -664,7 +755,7 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 		notify_updated((oldKey, oldV), (oldKey, newV))
 	}
 
-	def put(k : Int, v : V) = {
+	/*def put(k : K, v : V) = {
 		if (materializedMap.contains(k)) {
 			println("Warning[IntMapTable.put]: Key already existed")
 			update(k, v)
@@ -673,7 +764,7 @@ class IntMapTable[V] extends Relation[(Int, V)] with NotifyObservers[(Int, V)] {
 		freshInt = k
 		materializedMap.put(k, v)
 		notify_added((k,v))
-	}
+	}  */
 
 }
 
