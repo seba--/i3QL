@@ -55,9 +55,9 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIROptSimplifySetTheoryOps
     with RelationalAlgebraIROrderSetTheoryOps
     with RelationalAlgebraIROptSelectionInSetTheoryOps
-   // with RelationalAlgebraIROptPushSelection
+    with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptPushDuplicateElimination
-   // with RelationalAlgebraIROptOrderSelections
+    with RelationalAlgebraIROptOrderSelections
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIROptLiftProjection

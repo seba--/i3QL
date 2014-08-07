@@ -55,7 +55,7 @@ object Interpreter {
 		val values = getValues(tab)
 		val matTasks = tab._2.asMaterialized
 
-		val ref1 = addExp(exp5, Set.empty[String] + s1, tab)
+		val ref1 = addExp(exp4, Set.empty[String] + s1, tab)
 
 /*			println("Before update: "
 				+ values(ref1)

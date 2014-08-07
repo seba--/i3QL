@@ -85,8 +85,8 @@ class SelectionView[Domain] (
     }
 
     def updated (oldV: Domain, newV: Domain) {
-        val oldVPasses = try {filter(oldV)} catch {case e : IndexOutOfBoundsException => false}
-        val newVPasses = try {filter(newV)} catch {case e : IndexOutOfBoundsException => false}
+        val oldVPasses = applyFilter(oldV)
+        val newVPasses = applyFilter(newV)
         if (oldVPasses && newVPasses) {
             notify_updated (oldV, newV)
         }
@@ -105,16 +105,23 @@ class SelectionView[Domain] (
     }
 
     def removed (v: Domain) {
-		val b = try {filter(v)} catch {case e : IndexOutOfBoundsException => false}
-		if (b) {
+		if (applyFilter(v)) {
             notify_removed (v)
         }
     }
 
     def added (v: Domain) {
-		val b = try {filter(v)} catch {case e : IndexOutOfBoundsException => false}
-		if (b) {
+		if (applyFilter(v)) {
 			notify_added (v)
+		}
+	}
+
+	private def applyFilter(v : Domain) : Boolean = {
+		try {
+			filter(v)
+		} catch {
+			case e : IndexOutOfBoundsException => false
+			case e : ClassCastException => false
 		}
 	}
 
