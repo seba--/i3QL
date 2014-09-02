@@ -55,7 +55,7 @@ object Interpreter {
 		val values = getValues(tab)
 		val matTasks = tab._2.asMaterialized
 
-		val ref1 = addExp(exp4, Set.empty[String] + s1, tab)
+		val ref1 = addInput(exp4, Set.empty[String] + s1, tab)
 
 /*			println("Before update: "
 				+ values(ref1)
@@ -89,9 +89,9 @@ object Interpreter {
 	case class Asterisk(r1: RegExp) extends RegExp
 	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
 
-	def matchRegexp(e: Exp, c: Context): Boolean = interp(e, c).contains("")
+	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
-	def interp(e : Exp, c : Context): Value = e match {
+	def interp(e : Exp, c : Text): Value = e match {
 		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else Some(s))
 		case Alt(r1, Alt(r2, r3)) if r2 == r3 => interp(Alt(r1,r2),c)
 		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
@@ -111,7 +111,7 @@ object Interpreter {
 
 	}
 
-	def interp2(e : (Exp, Context)) : Value = {
+	def interp2(e : (Exp, Text)) : Value = {
 		var result : Value = null
 		if (e._1.isInstanceOf[Terminal]) {
 			val t1 : Terminal = e._1.asInstanceOf[Terminal]
@@ -126,7 +126,7 @@ object Interpreter {
 		} else if (e._1.isInstanceOf[Asterisk] && e._2.nonEmpty) {
 			val t1 : Asterisk = e._1.asInstanceOf[Asterisk]
 			val v1 : Value = interp2((t1.r1,e._2)) //Task3
-			val v2 : Value = interp2((t1, valueToContext(v1))) //Task4
+			val v2 : Value = interp2((t1, valueToText(v1))) //Task4
 			val res : Value = e._2 ++ v2
 			result = res
 		} else if (e._1.isInstanceOf[Asterisk] && !e._2.nonEmpty) {
@@ -135,7 +135,7 @@ object Interpreter {
 		} else if (e._1.isInstanceOf[Sequence]) {
 			val t1 : Sequence = e._1.asInstanceOf[Sequence]
 			val v1 : Value = interp2((t1.r1,e._2)) //Task5
-			val v2 : Value = interp2((t1.r2,valueToContext(v1))) //Task6
+			val v2 : Value = interp2((t1.r2,valueToText(v1))) //Task6
 			val res : Value = v2
 			result = res
 		}
@@ -143,10 +143,10 @@ object Interpreter {
 		return result
 	}
 
-	def valueToContext(v : Value) : Context =
+	def valueToText(v : Value) : Text =
 		v
 
-	//  def interpk[T](e : Exp, c : Context, k: Value => T): T = e match {
+	//  def interpk[T](e : Exp, c : Text, k: Value => T): T = e match {
 	//    case Terminal(s2) => if (c.startsWith(s2)) k(Set(c.substring(s2.length))) else k(Set())
 	//    case Alt(r1, r2) => interpk(r1, c, res1 => interpk(r2, c, res2 => k(res1 ++ res2)))
 	//    case Asterisk(r) => interpk(Sequence(r, Asterisk(r)), c, res => k(Set(c) ++ res))
@@ -175,35 +175,43 @@ object Interpreter {
 		Type Declarations
 	 */
 	type Exp = RegExp
-	type Context = Set[String]
+	type Text = Set[String]
 
 	type ExpKind = RegExpKind
 	type ExpKey = Int
 	type ExpNode = (ExpKind, Seq[ExpKey], Seq[Any])
 
+	type Input = (ExpKey, Text)
+	type InputKey = Int
+
 	type TaskKey = Int
 	type TaskIndex = Int
 	type Value = Set[String]
-	type Task = (TaskKey, TaskIndex, ExpKey, Context)
+	type Task = (TaskKey, TaskIndex, InputKey) //Parent Task, Index of the task within one branch, input parameters
 
 	type IExp = (ExpKey, ExpNode)
 	type ITask = (TaskKey, Task)
 	type IValue = (TaskKey, Value)
+	type IInput = (InputKey, Input)
 
 	type IExpKindTable = KeyMapTable[ExpKey, ExpNode]
 	type ITaskTable = KeyMapTable[TaskKey,Task]
+	type IInputTable = KeyMapTable[InputKey, Input]
 
-	type ITable = (IExpKindTable, ITaskTable)
+	type ITable = (IInputTable, ITaskTable, IExpKindTable)
 
-	private def expKindTable(tab : ITable) : IExpKindTable = tab._1
-	//private def contextTable(tab : ITable) : IContextTable = tab._2
+	private def expKindTable(tab : ITable) : IExpKindTable = tab._3
+	//private def TextTable(tab : ITable) : ITextTable = tab._2
 	private def taskTable(tab : ITable) : ITaskTable = tab._2
+	private def inputTable(tab : ITable) : IInputTable = tab._1
 
 
-	def addExp(e : Exp, c : Context, tab : ITable) : TaskKey = {
-		val expKey = insertExp(e, tab)
-	//	val contextKey = contextTable(tab).add(c)
-		taskTable(tab).add((tab._2.keyGenerator.fresh(), -1, expKey, c))
+
+	def addInput(exp : Exp, text : Text, tab : ITable) : TaskKey = {
+		val expKey = insertExp(exp, tab)
+		val inKey = inputTable(tab).add((expKey, text))
+	//	val TextKey = TextTable(tab).add(c)
+		taskTable(tab).add((tab._2.keyGenerator.fresh(), -1, inKey))
 
 	}
 
@@ -242,9 +250,9 @@ object Interpreter {
 
 
 
-	/*	def updateExp(oldKey : Key, newExp : Exp, newC : Context, tab : IExp) : Key = updateExp(oldKey, newExp, Some(newC), tab)
+	/*	def updateExp(oldKey : Key, newExp : Exp, newC : Text, tab : IExp) : Key = updateExp(oldKey, newExp, Some(newC), tab)
 
-		def updateExp(oldKey : Key, newExp : Exp, newC : Option[Context], tab: IExp) : Key = {
+		def updateExp(oldKey : Key, newExp : Exp, newC : Option[Text], tab: IExp) : Key = {
 			val oldValue = tab._2(oldKey)
 			(newExp, oldValue) match {
 
@@ -295,7 +303,7 @@ object Interpreter {
 			}
 		}
 
-		def updateLiteral(oldKey : Key, e : Exp, k : ExpKind, c : Option[Context], param : Seq[Any], tab : IExp): Key = {
+		def updateLiteral(oldKey : Key, e : Exp, k : ExpKind, c : Option[Text], param : Seq[Any], tab : IExp): Key = {
 			if (printUpdates) println("updateLiteral: oldKey = " + oldKey + ", k = " + k + ", param = " + param)
 			val exp = Right(k, c, param)
 			tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
@@ -304,7 +312,7 @@ object Interpreter {
 			oldKey
 		}
 
-		def updateNode(oldKey : Key, e : Exp, k : ExpKind, c : Option[Context], kids : Seq[Key], tab : IExp): Key = {
+		def updateNode(oldKey : Key, e : Exp, k : ExpKind, c : Option[Text], kids : Seq[Key], tab : IExp): Key = {
 			if (printUpdates) println("updateNode: oldKey = " + oldKey + ", k = " + k + ", kids = " + kids)
 			val exp = Left(k, c, kids)
 			tab._1.update((oldKey, tab._2(oldKey)), (oldKey, exp))
@@ -319,9 +327,10 @@ object Interpreter {
 	}
 
 	def createIExp : ITable = (
-		new KeyMapTable[ExpKey, ExpNode](new IntKeyGenerator),
-		new KeyMapTable[ExpKey, Task](new IntKeyGenerator)
-		)
+		new KeyMapTable[InputKey, Input](new IntKeyGenerator),
+		new KeyMapTable[TaskKey, Task](new IntKeyGenerator),
+		new KeyMapTable[ExpKey, ExpNode](new IntKeyGenerator)
+	)
 
 
 	/**
@@ -333,10 +342,10 @@ object Interpreter {
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
 
-	/*	protected val interpretRep : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+	/*	protected val interpretRep : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 				var result : Value = null
 				if (e._1 == TerminalKind) {
@@ -367,10 +376,10 @@ object Interpreter {
 		)        */
 
 
-		protected val createValueCond1 : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+		protected val createValueCond1 : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
 				val param0 : String = e._3(0).asInstanceOf[String]
@@ -379,10 +388,10 @@ object Interpreter {
 			}
 		)
 
-		protected val createValueCond2 : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+		protected val createValueCond2 : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
 				val value0: Value = values(0)
@@ -392,10 +401,10 @@ object Interpreter {
 			}
 		)
 
-		protected val createValueCond3 : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+		protected val createValueCond3 : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
 				val value0: Value = values(0)
@@ -405,10 +414,10 @@ object Interpreter {
 			}
 		)
 
-		protected val createValueCond4 : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+		protected val createValueCond4 : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
 				val res: Value = c
@@ -416,10 +425,10 @@ object Interpreter {
 			}
 		)
 
-		protected val createValueCond5 : Rep[((ExpNode, Context, Seq[Value])) => Value] = staticData (
-			(t : (ExpNode, Context, Seq[Value])) => {
+		protected val createValueCond5 : Rep[((ExpNode, Text, Seq[Value])) => Value] = staticData (
+			(t : (ExpNode, Text, Seq[Value])) => {
 				val e : ExpNode = t._1
-				val c : Context = t._2
+				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
 				val value0: Value = values(0)
@@ -441,25 +450,27 @@ object Interpreter {
 			(e : IExp) => e._2._1 == AltKind
 		)
 
-		protected val isAsteriskKindCond1 : Rep[((IExp, ITask)) => Boolean] = staticData (
-			(t : (IExp, ITask)) => t._1._2._1 == AsteriskKind && t._2._2._4.nonEmpty
+		protected val isAsteriskKindCond1 : Rep[((IInput, IExp, ITask)) => Boolean] = staticData (
+			(t : (IInput, IExp, ITask)) => t._1._2._1 == AsteriskKind && t._1._2._2.nonEmpty
 		)
 
-		protected val isAsteriskKindCond2 : Rep[((IExp, ITask)) => Boolean] = staticData (
-			(t : (IExp, ITask)) => t._1._2._1 == AsteriskKind && !t._2._2._4.nonEmpty
-		)
-
-
-		protected val valueToContextRep : Rep[Value => Context] = staticData (
-			valueToContext
-		)
-
-		protected val asteriskCond1MakeValue : Rep[((ITask, IValue)) => Value] = staticData (
-			(t : (ITask, IValue)) => t._1._2._4 ++ t._2._2
+		protected val isAsteriskKindCond2 : Rep[((IInput, IExp, ITask)) => Boolean] = staticData (
+			(t : (IInput, IExp, ITask)) => t._1._2._1 == AsteriskKind && !t._1._2._2.nonEmpty
 		)
 
 
+		protected val valueToTextRep : Rep[Value => Text] = staticData (
+			valueToText
+		)
 
+		protected val asteriskCond1MakeValue : Rep[((IInput, ITask, IValue)) => Value] = staticData (
+			(t : (IInput, ITask, IValue)) => t._1._2._2 ++ t._3._2
+		)
+
+
+		private val recTypeIsInput : Rep[RecType => Boolean] = staticData (
+			(r : RecType) => r.isInstanceOf[InputType]
+		)
 
 		private val recTypeIsValue : Rep[RecType => Boolean] = staticData (
 			(r : RecType) => r.isInstanceOf[ValueType]
@@ -473,6 +484,10 @@ object Interpreter {
 			(r : RecType) => r.isInstanceOf[ExpType]
 		)
 
+
+		private val recTypeToInput : Rep[RecType => IInput] = staticData (
+			(r : RecType) => r.asInstanceOf[InputType].input
+		)
 
 		private val recTypeToValue : Rep[RecType => IValue] = staticData (
 			(r : RecType) => r.asInstanceOf[ValueType].value
@@ -492,9 +507,14 @@ object Interpreter {
 
 		private def taskGetId(t : Rep[ITask]) : Rep[TaskKey] = t._1
 		private def taskGetParentId(t : Rep[ITask]) : Rep[TaskKey] = t._2._1
-		private def taskGetExpKey(t : Rep[ITask]) : Rep[ExpKey] = t._2._3
+		private def taskGetInputKey(t : Rep[ITask]) : Rep[InputKey] = t._2._3
 		private def taskGetIndex(t : Rep[ITask]) : Rep[TaskIndex] = t._2._2
-		private def taskGetContext(t : Rep[ITask]) : Rep[Context] = t._2._4
+	//	private def taskGetText(t : Rep[ITask]) : Rep[Text] = t._2._4
+
+		private def inputGetInputKey(t : Rep[IInput]) : Rep[InputKey] = t._1
+		private def inputGetExpKey(t : Rep[IInput]) : Rep[ExpKey] = t._2._1
+		private def inputGetText(t : Rep[IInput]) : Rep[Text] = t._2._2
+
 
 		private def expGetExpKey(e : Rep[IExp]) : Rep[ExpKey] = e._1
 		private def expGetExp(e : Rep[IExp]) : Rep[ExpNode] = e._2
@@ -506,6 +526,8 @@ object Interpreter {
 		private def valGetValue(v : Rep[IValue]) : Rep[Value] = v._2
 
 
+		protected def inputRelation(r : Rep[Query[RecType]]) : Rep[Query[IInput]] =
+			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsInput(e))
 
 		protected def valueRelation(r : Rep[Query[RecType]]) : Rep[Query[IValue]] =
 			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsValue(e))
@@ -538,6 +560,21 @@ object Interpreter {
 			}
 		)
 
+		private val inputToRecType : Rep[IInput => RecType] = staticData (
+			(r : IInput) => {
+				Predef.println("Input -> " + r)
+				InputType(r)
+			}
+		)
+
+		private val createInput : Rep[((ExpKey, Text)) => InputKey] = staticData (
+			(e : (ExpKey, Text)) => inputTable(tab).add(e._1,e._2)
+		)
+
+		protected def makeInput(k : Rep[InputKey], in : Rep[Input]) : Rep[RecType] =
+			inputToRecType((k,in))
+
+
 		protected def makeValue(k : Rep[TaskKey], v : Rep[Value]) : Rep[RecType] =
 			valueToRecType((k,v))
 
@@ -555,14 +592,17 @@ object Interpreter {
 			(i : Int) => tab._2.keyGenerator.fresh()
 		)
 
+		protected val inputRec : Relation[RecType] =
+			SELECT ((e : Rep[IInput]) => makeInput(e._1, e._2)) FROM tab._1
+
 		protected val tasksRec : Relation[RecType] =
 			SELECT ((e : Rep[ITask]) => makeTask(e._1, e._2)) FROM tab._2
 
 		protected val expRec : Relation[RecType] =
-			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2)) FROM tab._1
+			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2)) FROM tab._3
 
 		protected val recursionBase :  Relation[RecType] =
-			tasksRec UNION ALL (expRec)
+			tasksRec UNION ALL (expRec) UNION ALL (inputRec)
 
 		private def unionPrivate[T : Manifest](queries : Rep[Query[T]]*) : Rep[Query[T]] = {
 			if (queries.length == 1)
@@ -576,68 +616,70 @@ object Interpreter {
 		private val TWO : Rep[Int] = 2
 
 
-		private val valuesInternal : Rep[Query[RecType]] = {
+				private val valuesInternal : Rep[Query[RecType]] = {
 			WITH RECURSIVE (
 				(rec:  Rep[Query[RecType]]) => {
 					val expressionRel = expRelation(rec)
 					val taskRel = taskRelation(rec)
 					val valueRel = valueRelation(rec)
+					val inputRel = inputRelation(rec)
 					recursionBase UNION ALL (
 						unionPrivate (
-							//Terminal context -> value
+							//Terminal Text -> value
 							SELECT (
-								(e : Rep[IExp], t : Rep[ITask]) =>
-									makeValue(taskGetId(t), createValueCond1(expGetExp(e), taskGetContext(t), Seq()))
+								(in : Rep[IInput], e : Rep[IExp], t : Rep[ITask]) =>
+									makeValue(taskGetId(t), createValueCond1(expGetExp(e), inputGetText(in), Seq()))
 							) FROM (
-								expressionRel, taskRel
+								inputRel, expressionRel, taskRel
 							) WHERE (
-								(l : Rep[IExp], t : Rep[ITask]) =>
-									l._1 == taskGetExpKey(t) AND
-									isTerminalKind(l)
+								(in : Rep[IInput], e : Rep[IExp], t : Rep[ITask]) =>
+									isTerminalKind(e) AND
+									inputGetInputKey(in) == taskGetInputKey(t) AND
+									inputGetExpKey(in) == expGetExpKey(e)
+
 							)
 						,
 							//Alt task creation left
 							SELECT (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, expGetExpKey(e), taskGetContext(parentTask))
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
 							) FROM (
-								expressionRel, expressionRel, taskRel
+								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
 									isAltKind(parent) AND
+									inputGetInputKey(in) == taskGetInputKey(parentTask) AND
+									expGetExpKey(parent) == inputGetExpKey(in) AND
 									expGetExpKey(e) == expGetChildren(parent)(0)
-
-
 							)
 						,
 							//Alt task creation right
 							SELECT (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ONE, expGetExpKey(e), taskGetContext(parentTask))
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									newTask(taskGetId(parentTask), ONE, inputGetInputKey(in))
 							) FROM (
-								expressionRel, expressionRel, taskRel
-							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
+								inputRel, expressionRel, expressionRel, taskRel
+								) WHERE (
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
 									isAltKind(parent) AND
-									expGetExpKey(e) == expGetChildren(parent)(1)
-
-
+										inputGetInputKey(in) == taskGetInputKey(parentTask) AND
+										expGetExpKey(parent) == inputGetExpKey(in) AND
+										expGetExpKey(e) == expGetChildren(parent)(1)
 								)
 						,
 							//Alt value propagation
 							SELECT (
-								(e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
-									makeValue(taskGetId(tasks._1), createValueCond2(expGetExp(e), taskGetContext(tasks._1), Seq(childVals._1._2, childVals._2._2)))
+								(in : Rep[IInput], e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									makeValue(taskGetId(tasks._1), createValueCond2(expGetExp(e), inputGetText(in), Seq(childVals._1._2, childVals._2._2)))
 							) FROM (
-								expressionRel, SELECT (*) FROM (valueRel, valueRel), SELECT (*) FROM (taskRel, taskRel, taskRel)
+								inputRel, expressionRel, SELECT (*) FROM (valueRel, valueRel), SELECT (*) FROM (taskRel, taskRel, taskRel)
 							) WHERE (
-								(e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
-									expGetExpKey(e) == taskGetExpKey(tasks._1) AND
+								(in : Rep[IInput], e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									isAltKind(e) AND
+									inputGetInputKey(in) == taskGetInputKey(tasks._1) AND
+									expGetExpKey(e) == inputGetExpKey(in) AND
 									valGetId(childVals._1) == taskGetId(tasks._2) AND
 									valGetId(childVals._2) == taskGetId(tasks._3) AND
-									isAltKind(e) AND
 									taskGetParentId(tasks._2) == taskGetId(tasks._1) AND
 									taskGetParentId(tasks._3) == taskGetId(tasks._1) AND
 									taskGetIndex(tasks._2) == ZERO AND
@@ -647,106 +689,112 @@ object Interpreter {
 						,
 							//Ast Cond1 task 1
 							SELECT (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, expGetExpKey(e), taskGetContext(parentTask))
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
 							) FROM (
-								expressionRel, expressionRel, taskRel
+								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
-									isAsteriskKindCond1((parent,  parentTask)) AND
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									isAsteriskKindCond1((in, parent, parentTask)) AND
+									inputGetInputKey(in) == taskGetInputKey(parentTask) AND
+									expGetExpKey(parent) == inputGetExpKey(in) AND
 									expGetExpKey(e) == expGetChildren(parent)(0)
 							)
 						,
 							//Ast Cond1 task 2
 							SELECT (
-								(e: Rep[IExp], parent: Rep[IExp], childVal : Rep[IValue], parentTask : Rep[ITask], childTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ONE, expGetExpKey(parent), valueToContextRep(valGetValue(childVal)))
+								(in : Rep[IInput], parent: Rep[IExp], childVal : Rep[IValue],  tasks : Rep[(ITask, ITask)]) =>
+									newTask(taskGetId(tasks._1), ONE, createInput(expGetExpKey(parent), valueToTextRep(valGetValue(childVal)))) //TODO How to create new input?
 							) FROM (
-								expressionRel, expressionRel, valueRel, taskRel, taskRel
+								inputRel, expressionRel, valueRel, SELECT (*) FROM (taskRel, taskRel)
 							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], childVal : Rep[IValue], parentTask : Rep[ITask], childTask : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
-									isAsteriskKindCond1((parent,  parentTask)) AND
-									expGetExpKey(e) == expGetChildren(parent)(0) AND
-									taskGetId(parentTask) == taskGetParentId(childTask) AND
-									taskGetIndex(childTask) == ZERO AND
-									taskGetId(childTask) == valGetId(childVal)
+								(in : Rep[IInput], parent: Rep[IExp], childVal : Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
+									isAsteriskKindCond1((in, parent,  tasks._1)) AND
+									inputGetInputKey(in) == taskGetInputKey(tasks._1) AND
+									expGetExpKey(parent) == inputGetExpKey(in) AND
+									taskGetId(tasks._1) == taskGetParentId(tasks._2) AND
+									taskGetIndex(tasks._2) == ZERO AND
+									taskGetId(tasks._2) == valGetId(childVal)
 								)
 						,
 							//Ast Cond1 Value propagation
 							SELECT (
-								(e : Rep[IExp], child : Rep[IExp], childVal : Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
-									makeValue(taskGetId(tasks._1),createValueCond3(expGetExp(e), taskGetContext(tasks._1), Seq(valGetValue(childVal))))
+								(in : Rep[IInput], e : Rep[IExp], childVal : Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
+									makeValue(taskGetId(tasks._1),createValueCond3(expGetExp(e), inputGetText(in), Seq(valGetValue(childVal))))
 							) FROM (
-								expressionRel, expressionRel, valueRel, SELECT(*) FROM (taskRel, taskRel)
+								inputRel, expressionRel, valueRel, SELECT(*) FROM (taskRel, taskRel)
 							) WHERE (
-								(e : Rep[IExp], child : Rep[IExp], childVal : Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
-									expGetExpKey(e) == taskGetExpKey(tasks._1) AND
+								(in : Rep[IInput], e : Rep[IExp], childVal : Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
+									isAsteriskKindCond1((in,e,tasks._1)) AND
+									inputGetInputKey(in) == taskGetInputKey(tasks._1) AND
+									expGetExpKey(e) == inputGetExpKey(in) AND
 									valGetId(childVal) == taskGetId(tasks._2) AND
-									isAsteriskKindCond1((e,tasks._1)) AND
 									taskGetParentId(tasks._2) == taskGetId(tasks._1) AND
 									taskGetIndex(tasks._2) == ONE
 							)
 						,
 							//Ast Cond2 value creation
 							SELECT(
-								(e : Rep[IExp], t : Rep[ITask]) =>
-									makeValue(taskGetId(t), taskGetContext(t))
+								(in : Rep[IInput], e : Rep[IExp], t : Rep[ITask]) =>
+									makeValue(taskGetId(t), inputGetText(in))
 							) FROM (
-								expressionRel, taskRel
+								inputRel, expressionRel, taskRel
 							) WHERE (
-								(e : Rep[IExp], t : Rep[ITask]) =>
-								isAsteriskKindCond2((e,t)) AND
-								expGetExpKey(e) == taskGetExpKey(t)
+								(in : Rep[IInput], e : Rep[IExp], t : Rep[ITask]) =>
+								isAsteriskKindCond2((in,e,t)) AND
+								inputGetInputKey(in) == taskGetInputKey(t) AND
+								expGetExpKey(e) == inputGetExpKey(in)
 							)
 						,
 							//Seq task propagation left
 							SELECT(
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, e._1, taskGetContext(parentTask))
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
 							) FROM(
-								expressionRel, expressionRel, taskRel
+								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
-										isSequenceKind(parent) AND
-										expGetExpKey(e) == expGetChildren(parent)(0)
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
+									isSequenceKind(parent) AND
+									inputGetInputKey(in) == taskGetInputKey(parentTask) AND
+									expGetExpKey(parent) == inputGetExpKey(in) AND
+									expGetExpKey(e) == expGetChildren(parent)(0)
 							)
 						,
-							//Seq child(0) value -> child(1) context
+							//Seq child(0) value -> child(1) Text
 							SELECT(
-								(e: Rep[IExp], parent: Rep[IExp], child0Val: Rep[IValue], parentTask : Rep[ITask], child0Task : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ONE, e._1, valueToContextRep(valGetValue(child0Val)))
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], child0Val: Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
+									newTask(taskGetId(tasks._1), ONE, createInput(e._1, valueToTextRep(valGetValue(child0Val)))) //TODO How to create new input
 							) FROM (
-								expressionRel, expressionRel, valueRel, taskRel, taskRel
+								inputRel, expressionRel, expressionRel, valueRel, SELECT (*) FROM (taskRel, taskRel)
 							) WHERE (
-								(e: Rep[IExp], parent: Rep[IExp], child0Val: Rep[IValue], parentTask : Rep[ITask], child0Task : Rep[ITask]) =>
-									expGetExpKey(parent) == taskGetExpKey(parentTask) AND
+								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], child0Val: Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
 									isSequenceKind(parent) AND
+									inputGetInputKey(in) == taskGetInputKey(tasks._1) AND
+									expGetExpKey(parent) == inputGetExpKey(in) AND
 									expGetExpKey(e) == expGetChildren(parent)(1) AND
-									taskGetId(parentTask) == taskGetParentId(child0Task) AND
-									taskGetIndex(child0Task) == ZERO AND
-									taskGetId(child0Task) == valGetId(child0Val)
+									taskGetId(tasks._1) == taskGetParentId(tasks._2) AND
+									taskGetIndex(tasks._2) == ZERO AND
+									taskGetId(tasks._2) == valGetId(child0Val)
 
 							)
 						,
 							//Seq value propagation
 							SELECT (
-								(e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
-									makeValue(taskGetId(tasks._1), createValueCond5(expGetExp(e), taskGetContext(tasks._1), Seq(childVals._1._2, childVals._2._2)))
+								(in : Rep[IInput], e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									makeValue(taskGetId(tasks._1), createValueCond5(expGetExp(e), inputGetText(in), Seq(childVals._1._2, childVals._2._2)))
 							) FROM (
-								expressionRel, SELECT (*) FROM (valueRel, valueRel), SELECT (*) FROM (taskRel, taskRel, taskRel)
+								inputRel, expressionRel, SELECT (*) FROM (valueRel, valueRel), SELECT (*) FROM (taskRel, taskRel, taskRel)
 							) WHERE (
-								(e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
-									expGetExpKey(e) == taskGetExpKey(tasks._1) AND
-										valGetId(childVals._1) == taskGetId(tasks._2) AND
-										valGetId(childVals._2) == taskGetId(tasks._3) AND
-										isSequenceKind(e) AND
-										taskGetParentId(tasks._2) == taskGetId(tasks._1) AND
-										taskGetParentId(tasks._3) == taskGetId(tasks._1) AND
-										taskGetIndex(tasks._2) == ZERO AND
-										taskGetIndex(tasks._3) == ONE
+								(in : Rep[IInput], e: Rep[IExp], childVals : Rep[(IValue, IValue)], tasks : Rep[(ITask, ITask, ITask)]) =>
+									isSequenceKind(e) AND
+									inputGetInputKey(in) == taskGetInputKey(tasks._1) AND
+									expGetExpKey(e) == inputGetExpKey(in) AND
+									valGetId(childVals._1) == taskGetId(tasks._2) AND
+									valGetId(childVals._2) == taskGetId(tasks._3) AND
+									taskGetParentId(tasks._2) == taskGetId(tasks._1) AND
+									taskGetParentId(tasks._3) == taskGetId(tasks._1) AND
+									taskGetIndex(tasks._2) == ZERO AND
+									taskGetIndex(tasks._3) == ONE
 							)
 						)
 					)
@@ -775,6 +823,7 @@ object Interpreter {
 trait RecType { }
 
 case class ValueType(value : Interpreter.IValue) extends RecType
+case class InputType(input : Interpreter.IInput) extends RecType
 case class TaskType(task : Interpreter.ITask) extends RecType
 case class ExpType(exp : Interpreter.IExp) extends RecType
 
