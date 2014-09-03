@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.NumericOpsExp
+import scala.virtualization.lms.common.{PrimitiveOpsExp, NumericOpsExp}
 
 /**
  *
@@ -42,6 +42,7 @@ import scala.virtualization.lms.common.NumericOpsExp
 
 trait NumericOpsExpAlphaEquivalence
     extends NumericOpsExp
+	with PrimitiveOpsExp
     with BaseExpAlphaEquivalence
 {
 

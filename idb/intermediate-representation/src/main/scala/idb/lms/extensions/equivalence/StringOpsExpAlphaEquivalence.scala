@@ -58,9 +58,11 @@ trait StringOpsExpAlphaEquivalence
             case (StringTrim (s1), StringTrim (s2)) =>
                 isEquivalent (s1, s2)
 
-            case (StringSplit (s1, separators1), StringSplit (s2, separators2)) =>
+            case (StringSplit (s1, separators1, limit1), StringSplit (s2, separators2, limit2)) =>
                 isEquivalent (s1, s2) &&
-                    isEquivalent (separators1, separators2)
+                    isEquivalent (separators1, separators2) &&
+					isEquivalent (limit1, limit2)
+
 
             case (StringValueOf (x1), StringValueOf (x2)) =>
                 isEquivalent (x1, x2)

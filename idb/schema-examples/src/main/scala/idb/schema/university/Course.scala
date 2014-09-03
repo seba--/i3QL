@@ -58,7 +58,7 @@ trait CourseSchema
     def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
         struct[Course](
             ClassTag[Course]("Course"),
-            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
+            Seq ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
         )
 
     // use an infix operation class to avoid name clashes

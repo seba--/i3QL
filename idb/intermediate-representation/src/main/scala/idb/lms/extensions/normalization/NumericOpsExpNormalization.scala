@@ -33,7 +33,7 @@
 package idb.lms.extensions.normalization
 
 import scala.reflect.SourceContext
-import scala.virtualization.lms.common.NumericOpsExpOpt
+import scala.virtualization.lms.common.{PrimitiveOpsExp, NumericOpsExpOpt}
 
 /**
  *
@@ -41,6 +41,7 @@ import scala.virtualization.lms.common.NumericOpsExpOpt
  */
 trait NumericOpsExpNormalization
     extends NumericOpsExpOpt
+	with PrimitiveOpsExp
 {
     override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
             (implicit pos: SourceContext): Exp[T] =

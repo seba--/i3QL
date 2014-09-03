@@ -72,7 +72,7 @@ trait RelationalAlgebraIROptCreateJoin
     def createEqualityFunctions[A, B] (function: Exp[A => Boolean]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
         val params = parameters (function)
         if (params.size != 2) {
-            throw new IllegalArgumentException ("Expected two parameters for function " + function)
+            throw new IllegalArgumentException ("Expected two parameters for function " + function.toString)
         }
         body (function) match {
             case Def (Equal (lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
@@ -80,7 +80,7 @@ trait RelationalAlgebraIROptCreateJoin
                 val usedByRight = findSyms (rhs)(params.toSet)
                 if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
                     throw new IllegalArgumentException (
-                        "Expected equality that separates left and right parameter in function " + function)
+                        "Expected equality that separates left and right parameter in function " + function.toString)
                 }
                 val x = params (0)
                 val y = params (1)
@@ -92,7 +92,7 @@ trait RelationalAlgebraIROptCreateJoin
                     (dynamicLambda (x, rhs), dynamicLambda (y, lhs))
                 }
             }
-            case _ => throw new IllegalArgumentException ("Expected equality in function " + function)
+            case _ => throw new IllegalArgumentException ("Expected equality in function " + function.toString)
         }
     }
 }

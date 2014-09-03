@@ -71,7 +71,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after cross product, " +
-                                "but found more parameters" + f)
+                                "but found more parameters" + f.toString)
                 }
             }
 
@@ -142,7 +142,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after equi join, " +
-                                "but found more parameters" + f)
+                                "but found more parameters" + f.toString)
                 }
             }
 

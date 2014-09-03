@@ -13,7 +13,7 @@ trait University
     def Student (matriculationNumber: Rep[Int], firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
         struct[Student](
             ClassTag[Student]("Student"),
-            Map ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
+            Seq ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
         )
 
     def infix_firstName (s: Rep[Student]): Rep[String] = field[String](s, "firstName")

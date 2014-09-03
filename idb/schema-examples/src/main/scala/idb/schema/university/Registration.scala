@@ -56,7 +56,7 @@ trait RegistrationSchema
     def Registration (courseNumber: Rep[Int], studentMatriculationNumber: Rep[Int], comment: Rep[String]) =
         struct[Registration](
             ClassTag[Registration]("Registration"),
-            Map ("courseNumber" -> courseNumber,
+            Seq ("courseNumber" -> courseNumber,
                 "studentMatriculationNumber" -> studentMatriculationNumber,
                 "comment" -> comment
             )

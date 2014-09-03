@@ -48,10 +48,13 @@ trait StructExpAlphaEquivalence
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
 
-            case (Def (Field (s1, i1, t1)), Def (Field (s2, i2, t2))) =>
-                i1 == i2 && t1 == t2 && isEquivalent (s1, s2)
+           /* case (Def (Field (s1, i1, t1)), Def (Field (s2, i2, t2))) =>
+                i1 == i2 && t1 == t2 && isEquivalent (s1, s2)  */
 
-            case (Def (SimpleStruct (tag1, map1)), Def (SimpleStruct (tag2, map2))) => {
+			case (Def (Field (struct1, name1)), Def (Field (struct2, name2))) =>
+				name1 == name2 && isEquivalent (struct1, struct2)
+
+            case (Def (Struct (tag1, map1)), Def (Struct (tag2, map2))) => {
                 if (tag1 != tag2)
                 {
                     return false

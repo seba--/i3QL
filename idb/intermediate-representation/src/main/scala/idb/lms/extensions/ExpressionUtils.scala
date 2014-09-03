@@ -103,6 +103,35 @@ trait ExpressionUtils
     private def findSymsRec (e: Any, search: Set[Exp[Any]], traversed: Set[Exp[Any]]): Set[Exp[Any]] = {
         val next = (e match {
 
+            case Def (Field (UnboxedTuple (vars), "_1")) => Set (vars (0))
+            case Def (Field (UnboxedTuple (vars), "_2")) => Set (vars (1))
+            case Def (Field (UnboxedTuple (vars), "_3")) => Set (vars (2))
+            case Def (Field (UnboxedTuple (vars), "_4")) => Set (vars (3))
+            case Def (Field (UnboxedTuple (vars), "_5")) => Set (vars (4))
+
+            case s@Sym (_) => syms (findDefinition (s)).toSet[Exp[Any]]
+            case _ => Set.empty[Exp[Any]]
+        }).diff (traversed)
+        if (next.isEmpty)
+            return Set ()
+        val result = search.intersect (next)
+        val forward = next.diff (search)
+        val nextSeen = traversed.union (forward)
+
+        result.union (
+            for (s <- forward;
+                 n <- findSymsRec (s, search, nextSeen)
+            ) yield
+            {
+                n
+            }
+        )
+    }
+
+	/*
+	private def findSymsRec (e: Any, search: Set[Exp[Any]], traversed: Set[Exp[Any]]): Set[Exp[Any]] = {
+        val next = (e match {
+
             case Def (Tuple2Access1 (UnboxedTuple (vars))) => Set (vars (0))
             case Def (Tuple2Access2 (UnboxedTuple (vars))) => Set (vars (1))
 
@@ -139,4 +168,5 @@ trait ExpressionUtils
             }
         )
     }
+	 */
 }

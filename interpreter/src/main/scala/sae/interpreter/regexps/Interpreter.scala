@@ -451,11 +451,11 @@ object Interpreter {
 		)
 
 		protected val isAsteriskKindCond1 : Rep[((IInput, IExp, ITask)) => Boolean] = staticData (
-			(t : (IInput, IExp, ITask)) => t._1._2._1 == AsteriskKind && t._1._2._2.nonEmpty
+			(t : (IInput, IExp, ITask)) => t._2._2._1 == AsteriskKind && t._1._2._2.nonEmpty
 		)
 
 		protected val isAsteriskKindCond2 : Rep[((IInput, IExp, ITask)) => Boolean] = staticData (
-			(t : (IInput, IExp, ITask)) => t._1._2._1 == AsteriskKind && !t._1._2._2.nonEmpty
+			(t : (IInput, IExp, ITask)) => t._2._2._1 == AsteriskKind && !t._1._2._2.nonEmpty
 		)
 
 

@@ -66,7 +66,7 @@ trait CourseDescriptionSchema
     ) =
         struct[CourseDescription](
             ClassTag[CourseDescription]("CourseDescription"),
-            Map ("course" -> course,
+            Seq ("course" -> course,
                 "lecturers" -> lecturers,
                 "books" -> books,
                 "description" -> description)

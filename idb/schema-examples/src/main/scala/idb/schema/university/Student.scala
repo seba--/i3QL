@@ -22,7 +22,7 @@ trait StudentSchema
     def Student (matriculationNumber: Rep[Int], firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
         struct[Student](
             ClassTag[Student]("Student"),
-            Map ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
+            Seq ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
         )
 
     case class StudentInfixOp (s: Rep[Student])

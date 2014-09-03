@@ -56,7 +56,7 @@ trait BookRecommendationSchema
     def BookRecommendation (course: Rep[Course], book: Rep[Book]) =
         struct[BookRecommendation](
             ClassTag[BookRecommendation]("BookRecommendation"),
-            Map ("course" -> course, "book" -> book)
+            Seq ("course" -> course, "book" -> book)
         )
 
     // use an infix operation class to avoid name clashes

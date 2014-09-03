@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.{EqualExpOpt, OrderingOpsExp, NumericOpsExpOpt}
+import scala.virtualization.lms.common.{PrimitiveOpsExp, EqualExpOpt, OrderingOpsExp, NumericOpsExpOpt}
 import scala.reflect.SourceContext
 
 /**
@@ -40,7 +40,7 @@ import scala.reflect.SourceContext
  * @author Ralf Mitschke
  */
 trait ScalaOpsExpConstantPropagation
-    extends NumericOpsExpOpt with OrderingOpsExp with EqualExpOpt
+    extends NumericOpsExpOpt with OrderingOpsExp with EqualExpOpt with PrimitiveOpsExp
 {
 
     //  override def equals[A: Manifest, B: Manifest] (a: Rep[A], b: Rep[B])

@@ -56,7 +56,7 @@ trait LectureSchema
     def Lecture (course: Rep[Course], lecturer: Rep[Lecturer], semester: Rep[Int]) =
         struct[Lecture](
             ClassTag[Lecture]("Lecture"),
-            Map ("course" -> course, "lecturer" -> lecturer, "semester" -> semester)
+            Seq ("course" -> course, "lecturer" -> lecturer, "semester" -> semester)
         )
 
     // use an infix operation class to avoid name clashes
