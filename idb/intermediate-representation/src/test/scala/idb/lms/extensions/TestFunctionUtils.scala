@@ -50,6 +50,7 @@ class TestFunctionUtils
     with BooleanOpsExp
     with LiftAll
     with FunctionUtils
+	with PrimitiveOpsExp
 {
 
     @Test

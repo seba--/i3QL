@@ -58,6 +58,9 @@ class TestIROptFusion
 
     override def reset { super.reset }
 
+	override def isPrimitiveType[T](m: Manifest[T]) : Boolean =
+		super.isPrimitiveType[T](m)
+
     @Test
     def testSelectionFusion () {
 

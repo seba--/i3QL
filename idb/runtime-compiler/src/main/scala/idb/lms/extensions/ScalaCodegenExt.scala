@@ -1,6 +1,6 @@
 package idb.lms.extensions
 
-import scala.virtualization.lms.internal.ScalaCodegen
+import scala.virtualization.lms.internal.{ScalaFatCodegen, ScalaCodegen}
 import scala.tools.nsc.{Settings, Global}
 import scala.tools.nsc.reporters.ConsoleReporter
 import java.io.{StringWriter, PrintWriter}
@@ -12,7 +12,7 @@ import scala.virtualization.lms.common.{FunctionsExp, BaseExp}
  *
  * @author Ralf Mitschke
  */
-trait CompileScalaExt
+trait ScalaCodegenExt
     extends ScalaCodegen
 {
 
@@ -45,7 +45,7 @@ trait CompileScalaExt
         compiler = new Global (settings, reporter)
     }
 
-    var compileCount = 0
+	var compileCount = 0
 
     var dumpGeneratedCode = true
 

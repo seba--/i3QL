@@ -62,6 +62,9 @@ class TestIROptPushSelection
 
     override def reset { super.reset }
 
+	override def isPrimitiveType[T](m: Manifest[T]) : Boolean =
+		super.isPrimitiveType[T](m)
+
     @Test
     def testSelectionOverProjectionSimpleInt () {
         val f1 = fun ((x: Rep[Int]) => x + 2)

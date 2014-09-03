@@ -45,7 +45,7 @@ class TestASMReader
 
     @Test
     def testReadJDK () {
-        val database = ASMDatabaseFactory.create ()
+        val database = ASMDatabaseFactory.create
 
 
 		//TODO you cant materialize those relations because the memory size is too big

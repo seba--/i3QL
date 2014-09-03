@@ -48,6 +48,8 @@ trait PrimitiveOpsExpAlphaEquivalence
     override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
 		(a, b) match {
 			case (IntBinaryAnd (x, y), IntBinaryAnd (u, v)) => isEquivalent (x, u) && isEquivalent (y, v)
+			case (IntPlus (x1,y1), IntPlus (x2,y2)) => isEquivalent(x1,x2) && isEquivalent(y1,y2)
+			case (IntMinus (x1,y1), IntMinus (x2,y2)) => isEquivalent(x1,x2) && isEquivalent(y1,y2)
 
 			case _ => super.isEquivalentDef (a, b) // TODO implement this
 		}
