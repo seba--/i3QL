@@ -170,6 +170,13 @@ object Interpreter {
 		case Sequence(r1, r2) => interp(r1, c) flatMap (s2 => interp(r2, s2))
 	}
 
+  abstract class Defun[In, Out] {
+    def apply(in: In): Out
+  }
+  case class runInterpNorm(r2: RegExp) extends Defun[String, Value] {
+    def apply(s: String) = interpNorm((r2, s))
+  }
+
 	def interpNorm(e : (Exp, Text)) : Value = {
 		if (e._1.isInstanceOf[Terminal]) {
 			val t1 : Terminal = e._1.asInstanceOf[Terminal]
@@ -189,11 +196,24 @@ object Interpreter {
 		} else if (e._1.isInstanceOf[Sequence]) {
 			val t1 : Sequence = e._1.asInstanceOf[Sequence]
 			val v1 : Value = interpNorm((t1.r1,e._2)) //Task5
-			val f : Function[String,Value] = s => interpNorm((t1.r2,s))
-			val v2 : Value = v1 flatMap f //Task6
+//			val f : Function[String,Value] = s => interpNorm((t1.r2,s))
+      val f = runInterpNorm(t1.r2)
+			val v2 : Value = flatMapInterpNorm(v1, t1.r2)
 			val res : Value = v2
 			return res
 		}
+    
+    def flatMapDefun[T](f: Defun[T, Set[T]], c: Set[T]): Set[T] =
+      if (c.isEmpty)
+        Set()
+      else
+        f(c.head) ++ flatMapDefun(f, c.tail)
+
+    def flatMapInterpNorm(v1: Value, r2: RegExp): Value =
+      if (v1.isEmpty)
+        Set()
+      else
+        interpNorm((r2, v1.head)) ++ flatMapInterpNorm(v1.tail, r2)
 
 		return null
 	}
@@ -234,7 +254,6 @@ object Interpreter {
 	type StringList = (Char, StringListKey)
 	type StringListKey = Int
 	type IStringList = (StringListKey, StringList)
-
 
 	type Input = (ExpKey, StringListKey)
 	type InputKey = Int
