@@ -241,8 +241,10 @@ object Interpreter {
 
 	type TaskKey = Int
 	type TaskIndex = Int
+	type TaskTag = String
+	type Task = (TaskKey, TaskTag, TaskIndex, InputKey) //Parent Task, Index of the task within one branch, input parameters
+
 	type InterpValue = Set[String]
-	type Task = (TaskKey, TaskIndex, InputKey) //Parent Task, Index of the task within one branch, input parameters
 
 	type IExp = (ExpKey, ExpNode)
 	type ITask = (TaskKey, Task)
@@ -262,6 +264,8 @@ object Interpreter {
 	private def inputTable(tab : ITable) : IInputTable = tab._1
 	private def stringListTable(tab : ITable) : IStringListTable = tab._4
 
+	val interpTag : TaskTag = "interp"
+	val flatMapTag : TaskTag = "flatMap"
 
 
 	def addInput(exp : Exp, text : Text, tab : ITable) : TaskKey = {
