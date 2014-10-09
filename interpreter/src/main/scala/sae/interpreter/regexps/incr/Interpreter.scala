@@ -198,6 +198,63 @@ object Interpreter {
 		return null
 	}
 
+
+
+	def interp(e : Exp, c : Text): InterpValue = e match {
+		case Terminal(s2) => if (c.startsWith(s2)) Set(c.substring(s2.length)) else Set()
+		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
+		case Asterisk(r) => Set(c) ++ interp(Sequence(r, Asterisk(r)),c)
+		case Sequence(r1, r2) => interp(r1, c) flatMap (s2 => interp(r2, s2))
+	}
+
+/*	abstract class Defun[In, Out] {
+		def apply(in: In): Out
+	}
+	case class runInterpNorm(r2: RegExp) extends Defun[String, InterpValue] {
+		def apply(s: String) = interpNorm((r2, s))
+	}  */
+
+/*	def interpNorm(e : (Exp, Text)) : Value = {
+		if (e._1.isInstanceOf[Terminal]) {
+			val t1 : Terminal = e._1.asInstanceOf[Terminal]
+			val res : Value = if (e._2.startsWith(t1.s)) Set(e._2.substring(t1.s.length)) else Set()
+			return res
+		} else if (e._1.isInstanceOf[Alt]) {
+			val t1 : Alt = e._1.asInstanceOf[Alt]
+			val v1 : Value = interpNorm((t1.r1,e._2)) //Task1
+			val v2 : Value = interpNorm((t1.r2,e._2)) //Task2
+			val res : Value = v1 ++ v2
+			return res
+		} else if (e._1.isInstanceOf[Asterisk]) {
+			val t1 : Asterisk = e._1.asInstanceOf[Asterisk]
+			val v1 : Value = interpNorm((Sequence(t1.r1, t1),e._2)) //Task3
+			val res : Value = Set(e._2) ++ v1
+			return res
+		} else if (e._1.isInstanceOf[Sequence]) {
+			val t1 : Sequence = e._1.asInstanceOf[Sequence]
+			val v1 : Value = interpNorm((t1.r1,e._2)) //Task5
+			//			val f : Function[String,Value] = s => interpNorm((t1.r2,s))
+			val f = runInterpNorm(t1.r2)
+			val v2 : Value = flatMapInterpNorm(v1, t1.r2)
+			val res : Value = v2
+			return res
+		}    */
+
+	/*	def flatMapDefun[T](f: Defun[T, Set[T]], c: Set[T]): Set[T] =
+			if (c.isEmpty)
+				Set()
+			else
+				f(c.head) ++ flatMapDefun(f, c.tail)  */
+
+		def flatMapInterpNorm(v1: InterpValue, r2: RegExp): InterpValue =
+			if (v1.isEmpty)
+				Set()
+			else
+				interpNorm((r2, v1.head)) ++ flatMapInterpNorm(v1.tail, r2)
+
+
+
+
 	//  def interpk[T](e : Exp, c : Text, k: Value => T): T = e match {
 	//    case Terminal(s2) => if (c.startsWith(s2)) k(Set(c.substring(s2.length))) else k(Set())
 	//    case Alt(r1, r2) => interpk(r1, c, res1 => interpk(r2, c, res2 => k(res1 ++ res2)))
