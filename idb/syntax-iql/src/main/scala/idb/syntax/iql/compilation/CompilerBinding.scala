@@ -33,7 +33,7 @@
 package idb.syntax.iql.compilation
 
 import idb.algebra.compiler._
-import idb.lms.extensions.ScalaGenDateOps
+import idb.lms.extensions.{ScalaGenFlightOps, ScalaGenDateOps}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.operations.{ScalaGenSeqOpsExt, ScalaGenStringOpsExt, ScalaGenOptionOps}
 
@@ -55,6 +55,7 @@ object CompilerBinding
     with ScalaGenStruct
     with ScalaGenTupledFunctions
     with ScalaGenDateOps
+    with ScalaGenFlightOps
 {
     override val IR = idb.syntax.iql.IR
 
