@@ -7,48 +7,22 @@ import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import idb.SetTable
 
-object Flight {
+object FlightView {
 
-  type _Airport = (Int, String, String)
-  type Airport = Rep[_Airport]
-  object Airport {
-    def apply(id: Int, code: String, city: String) = (id, code, city)
-    def unapply(a: _Airport) = Some(a)
-  }
-  implicit def airportOps(a: Airport) = AirportOps(a)
-  case class AirportOps(a: Airport) {
-    def id = a._1
-    def code = a._2
-    def city = a._3
-  }
-
-  type _Flight = (Int, Int, Date)
-  type Flight = Rep[_Flight]
-  object Flight {
-    def apply(from: Int, to: Int, takeoff: Date) = (from, to, takeoff)
-    def unapply(a: _Flight) = Some(a)
-  }
-  implicit def flightOps(a: Flight) = FlightOps(a)
-  case class FlightOps(a: Flight) {
-    def from = a._1
-    def to = a._2
-    def takeoff = a._3
-  }
-
-  val airport = SetTable.empty[_Airport]
-  val flight = SetTable.empty[_Flight]
-
+  val airport = SetTable.empty[Airport]
+  val flight = SetTable.empty[Flight]
 
   val q = (
-    SELECT ((s: Rep[String]) => s, COUNT(*))
+    SELECT ((s: Rep[String]) => s,
+            COUNT(*))
     FROM (airport, airport, flight)
-    WHERE ((a1: Airport, a2: Airport, f: Flight) =>
+    WHERE ((a1, a2, f) =>
       f.from == a1.id &&
       f.to == a2.id &&
       a2.code == "PDX" &&
       f.takeoff >= new Date(2014, 01, 01) &&
       f.takeoff < new Date(2015, 01, 01))
-    GROUP BY ((a1: Airport, a2: Airport, f: Flight) => a1.city)
+    GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
   )
 
 
