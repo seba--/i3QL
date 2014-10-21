@@ -5,6 +5,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
 import idb.{SetTable, Table}
 import idb.observer.{NotifyObservers, Observer}
+import sae.interpreter.regexps._
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
 
 
@@ -176,11 +177,7 @@ object Interpreter {
 
 	var printUpdates = true
 
-	trait RegExp
-	case class Terminal(s: String) extends RegExp
-	case class Alt(r1: RegExp, r2: RegExp) extends RegExp
-	case class Asterisk(r1: RegExp) extends RegExp
-	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
+
 
 	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
@@ -391,7 +388,7 @@ object Interpreter {
 			e._1.toString + string(tab, e._2)
 		}
 
-	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
+/*	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
 		//TODO add empty list element
 
 
@@ -416,7 +413,7 @@ object Interpreter {
 
 
 		}
-	}
+	}   */
 
 
 
