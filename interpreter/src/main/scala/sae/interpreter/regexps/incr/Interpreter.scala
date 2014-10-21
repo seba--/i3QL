@@ -391,6 +391,33 @@ object Interpreter {
 			e._1.toString + string(tab, e._2)
 		}
 
+	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
+		//TODO add empty list element
+
+
+		val oldIList : ListElement = listTable(tab)(oldKey)
+		(oldIList, newList) match {
+			case (())
+		}
+
+	}
+
+	def diffExp(tab : ITable, oldKey : ExpKey, newExp : Exp) {
+		val oldIExp : ExpNode = expTable(tab)(oldKey)
+		(oldIExp, newExp) match {
+			case ((TerminalKind, _, Seq(s0)), Terminal(s1)) => expTable(tab).update(oldKey, (TerminalKind, Seq(), Seq(s1)))
+
+			case ((AltKind, Seq(a0,a1), _), Alt(b0, b1)) => {
+				diffExp(tab, a0, b0)
+				diffExp(tab, a1, b1)
+			}
+
+
+
+
+		}
+	}
+
 
 
 
