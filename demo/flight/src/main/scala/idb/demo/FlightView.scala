@@ -17,10 +17,10 @@ object FlightView {
             COUNT(*))
     FROM (airport, airport, flight)
     WHERE ((a1, a2, f) =>
-      f.from == a1.id &&
-      f.to == a2.id &&
-      a2.code == "PDX" &&
-      f.takeoff >= new Date(2014, 01, 01) &&
+      f.from == a1.id AND
+      f.to == a2.id AND
+      a2.code == "PDX" AND
+      f.takeoff >= new Date(2014, 01, 01) AND
       f.takeoff < new Date(2015, 01, 01))
     GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
   )
