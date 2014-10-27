@@ -48,20 +48,27 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
         val key = nextKey()
         table += ((key, kind, lits, subkeys))
         _expMap += this -> key
+        println(s"inserted $this")
         key
     }
   }
 
+  // returns true if changed
   def replace(e: Exp): Unit = {
-    if (kind == e.kind && lits == e.lits && sub.length == e.sub.length)
-      for (i <- 0 until sub.length) sub(i).replace(e.sub(i))
+    println(s"replace $this -> $e")
+    if (kind == e.kind && lits == e.lits && sub.length == e.sub.length) {
+      for (i <- 0 until sub.length)
+        sub(i).replace(e.sub(i))
+      _expMap += e -> key
+    }
     else {
       val thiskey = key
-      val oldsubkeys = e.sub map (_.key)
+      val oldsubkeys = sub map (_.key)
       val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees due to _expMap
       table ~= (thiskey, kind, lits, oldsubkeys) -> (thiskey, e.kind, e.lits, newsubkeys)
       _expMap += e -> thiskey
     }
+    println(s"replaced $this -> $e")
   }
 
   override def toString = {

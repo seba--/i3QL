@@ -31,7 +31,6 @@ object DirectTypecheck {
         scala.Left(TNum)
   }
 
-
   val types = WITH.RECURSIVE[TypeTuple] (types =>
       (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq())))
        FROM Exp.table // 0-ary
@@ -58,8 +57,10 @@ object DirectTypecheck {
     e.insert
     printTyings(e, resultTypes)
 
-    val e2 = Add(Num(17), Add(Num(12), Num(1)))
+    val e2 = Add(Num(17), Add(Num(10), Num(2)))
     e.replace(e2)
+    resultTypes foreach (Predef.println(_))
+    printTyings(e2, resultTypes)
     printTyings(e2, resultTypes)
   }
 
