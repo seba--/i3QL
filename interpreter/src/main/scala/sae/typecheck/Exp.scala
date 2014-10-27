@@ -33,6 +33,7 @@ object Exp {
     }
   }
   private def lookupExp(e: Exp) = _expMap.get(e).map(_._1)
+  private def lookupExpCount(e: Exp) = _expMap.get(e).map(_._2).getOrElse(0)
   private def lookupExpWithCount(e: Exp) = _expMap.get(e)
 
   val table = BagTable.empty[ExpTuple]
@@ -60,34 +61,48 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def insert: ExpKey = {
     val subkeys = sub map (_.insert)
-    val key = this.getkey.getOrElse(nextKey())
-    println(s"insert ${(key, kind, lits, subkeys)}")
+    val key = getkey.getOrElse(nextKey())
+    println(s"insert ${(key, kind, lits, subkeys)}*${lookupExpCount(this)}")
     table += ((key, kind, lits, subkeys))
     bindExp(this, key)
+    println(s"inserted ${(key, kind, lits, subkeys)}*${lookupExpCount(this)}")
     key
+  }
+
+  def remove: ExpKey = {
+    val subkeys = sub map (_.remove)
+    val k = key
+    println(s"remove ${(k, kind, lits, subkeys)}*${lookupExpCount(this)}")
+    table -= ((k, kind, lits, subkeys))
+    unbindExp(this)
+    println(s"removed ${(k, kind, lits, subkeys)}*${lookupExpCount(this)}")
+    k
   }
 
   def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
     lookupExpWithCount(old) match {
       case Some((oldkey, 1)) =>
+        println(s"update-old ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($oldkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
+        if (oldsubkeys != newsubkeys)
+          table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (oldkey, e.kind, e.lits, newsubkeys)
         unbindExp(old)
-        println(s"update ($oldkey, $kind, $lits, $oldsubkeys) -> ($oldkey, ${e.kind}, ${e.lits}, $newsubkeys)")
-        table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (oldkey, e.kind, e.lits, newsubkeys)
         bindExp(e, oldkey)
+        println(s"updated-old ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($oldkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
         oldkey
       case Some((oldkey, _)) =>
         val newkey = nextKey()
-        unbindExp(old)
-        println(s"update ($oldkey, $kind, $lits, $oldsubkeys) -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
+        println(s"update-new ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
         table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
+        unbindExp(old)
         bindExp(e, newkey)
+        println(s"updated-new ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
         newkey
       case None => throw new IllegalStateException(s"Cannot update unbound expression $old to $e")
     }
   }
 
   def replaceWith(e: Exp): ExpKey = {
-    println(s"replace $this -> $e")
+//    println(s"replace $this -> $e")
     if (kind == e.kind && lits == e.lits && sub.length == e.sub.length) {
       if (sub == e.sub)
         key
@@ -99,7 +114,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       }
     }
     else {
-      val oldsubkeys = sub map (_.key)
+      val oldsubkeys = sub map (_.remove)
       val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees due to _expMap
       updateExp(this, e, oldsubkeys, newsubkeys)
     }
