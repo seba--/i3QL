@@ -51,17 +51,36 @@ object DirectTypecheck {
 
 
   def main(args: Array[String]): Unit = {
+    val expressions = Exp.table.asMaterialized
     val resultTypes = types.asMaterialized
 
     val e = Add(Num(17), Num(12))
     e.insert
     printTyings(e, resultTypes)
+    expressions foreach (Predef.println(_))
+    resultTypes foreach (Predef.println(_))
+    Predef.println()
 
     val e2 = Add(Num(17), Add(Num(10), Num(2)))
-    e.replace(e2)
+    e.replaceWith(e2)
+    printTyings(e2, resultTypes)
+    expressions foreach (Predef.println(_))
     resultTypes foreach (Predef.println(_))
-    printTyings(e2, resultTypes)
-    printTyings(e2, resultTypes)
+    Predef.println()
+
+    val e3 = Add(Add(Num(17), Num(1)), Add(Num(10), Num(2)))
+    e2.replaceWith(e3)
+    printTyings(e3, resultTypes)
+    expressions foreach (Predef.println(_))
+    resultTypes foreach (Predef.println(_))
+    Predef.println()
+
+    val e4 = Num(30)
+    e3.replaceWith(e4)
+    printTyings(e4, resultTypes)
+    expressions foreach (Predef.println(_))
+    resultTypes foreach (Predef.println(_))
+    Predef.println()
   }
 
 }
