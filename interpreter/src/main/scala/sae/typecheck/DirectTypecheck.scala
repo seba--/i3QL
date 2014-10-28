@@ -13,12 +13,21 @@ object DirectTypecheck  {
 
   case object Num extends ExpKind
   case object Add extends ExpKind
+  case object String extends ExpKind
 
   case object TNum extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
     def subst(s: TSubst) = this
     def unify(other: Type) = other match {
       case TNum => scala.Some(Map())
+      case _ => None
+    }
+  }
+  case object TString extends Type {
+    def rename(ren: Map[Symbol, Symbol]) = this
+    def subst(s: TSubst) = this
+    def unify(other: Type) = other match {
+      case TString => scala.Some(Map())
       case _ => None
     }
   }
@@ -29,6 +38,7 @@ object DirectTypecheck  {
 
   def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[Type]): Either[Type, TError] = e match {
     case Num => scala.Left(TNum)
+    case String => scala.Left(TString)
     case Add =>
       if (sub(0) != TNum)
         scala.Right(s"Left child of Add should be TNum but was ${sub(0)}")
@@ -86,6 +96,18 @@ object DirectTypecheck  {
     val e5 = Num(30)
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
+
+    val e6 = Add(Num(17), Num(12))
+    root.set(e6)
+    Predef.println(s"Type of $e6 is ${root.Type}")
+
+    val e7 = Add(Num(17), String("abcdef"))
+    root.set(e7)
+    Predef.println(s"Type of $e7 is ${root.Type}")
+
+    val e8 = Add(Num(17), Num(13))
+    root.set(e8)
+    Predef.println(s"Type of $e8 is ${root.Type}")
   }
 
 }

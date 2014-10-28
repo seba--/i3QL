@@ -58,7 +58,6 @@ object ConstraintTypecheck {
       case VarRequirement(`x`, t2) => scala.Some((scala.Seq(EqConstraint(t, t2)), scala.Seq(this)))
       case _ => None
     }
-
     def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
   }
 
