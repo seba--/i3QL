@@ -180,10 +180,10 @@ object ConstraintTypecheck {
     root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
 
-//    val e5 = Num(30)
-//    root.set(e5)
-//    Predef.println(s"Type of $e5 is ${root.Type}")
-//
+    val e5 = Abs('x, Abs('y, Add(Var('x), Var('y))))
+    root.set(e5)
+    Predef.println(s"Type of $e5 is ${root.Type}")
+
 //    val e6 = Var('x)
 //    root.set(e6)
 //    Predef.println(s"Type of $e6 is ${root.Type}")

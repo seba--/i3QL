@@ -54,7 +54,7 @@ object Constraint {
     (mfree, ren)
   }
 
-  val name = """(\w+)_(\d+)""".r
+  val name = """([^\d]+)_(\d+)""".r
   def tick(x: Symbol, avoid: Set[Symbol]): Symbol = {
     val x2 = x.name match {
       case name(s, i) => Symbol(s + "_" + (i.toInt + 1))
