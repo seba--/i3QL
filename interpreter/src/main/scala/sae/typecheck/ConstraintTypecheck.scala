@@ -24,7 +24,7 @@ object ConstraintTypecheck {
   case class TFun(t1: Type, t2: Type) extends Type
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint
-  case class VarRequirement(x: Symbol) extends Requirement
+  case class VarRequirement(x: Symbol, t: Type) extends Requirement
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => typecheckStep(p._1, p._2, p._3)
@@ -48,7 +48,7 @@ object ConstraintTypecheck {
     case Var =>
       val x = lits(0).asInstanceOf[Symbol]
       val X = nextTVar()
-      (X, scala.Seq(), scala.Seq(VarRequirement(x)))
+      (X, scala.Seq(), scala.Seq(VarRequirement(x, X)))
     case App =>
       val (t1, cons1, reqs1) = sub(0)
       val (t2, cons2, reqs2) = sub(1)
@@ -59,10 +59,16 @@ object ConstraintTypecheck {
       val x = lits(0).asInstanceOf[Symbol]
       val X = nextTVar()
       val (t, cons, reqs) = sub(0)
-      (TFun(X, t), cons, reqs.filter(_!=x))
+      val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
+      val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t)}
+      (TFun(X, t), cons ++ xcons, otherReqs)
     case Root.Root =>
-      val (t, cons, reqs) = sub(0)
-      (Root.TRoot(t), cons, reqs)
+      if (sub.isEmpty)
+        (TVar('Uninitialized), scala.Seq(EqConstraint(TNum, TFun(TNum, TNum))), scala.Seq())
+      else {
+        val (t, cons, reqs) = sub(0)
+        (Root.TRoot(t), cons, reqs)
+      }
   }
 
   val types = WITH.RECURSIVE[ConstraintTuple] (types =>
@@ -106,6 +112,14 @@ object ConstraintTypecheck {
     val e5 = Num(30)
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
+
+    val e6 = Var('x)
+    root.set(e6)
+    Predef.println(s"Type of $e6 is ${root.Type}")
+
+    val e7 = Abs(scala.Seq('y), scala.Seq(Var('y)))
+    root.set(e7)
+    Predef.println(s"Type of $e7 is ${root.Type}")
   }
 
 }

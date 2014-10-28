@@ -53,6 +53,7 @@ object Exp {
     def apply(): Exp = Exp(k, scala.Seq(), scala.Seq())
     def apply(l: Lit, lits: Lit*): Exp = Exp(k, l +: scala.Seq(lits:_*), scala.Seq())
     def apply(e: Exp, sub: Exp*): Exp = Exp(k, scala.Seq(), e +: scala.Seq(sub:_*))
+    def apply(lits: Seq[Lit], sub: Seq[Exp]): Exp = Exp(k, lits, sub)
   }
 }
 
@@ -93,7 +94,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val newcount = lookupExpCount(e)
     unbindExp(old)
     bindExp(e, newkey)
-    if (oldcount == 1 && newcount == 0 && oldsubkeys != newsubkeys) {
+    if (oldcount == 1 && newcount == 0 && (old.lits != e.lits || oldsubkeys != newsubkeys)) {
 //      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount")
 
       // TODO this should be a single update event, but then the view nondeterministically ignores the new value
@@ -140,7 +141,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val subs = lits.map(_.toString) ++ sub.map(_.toString)
     val subssep = if (subs.isEmpty) subs else subs.flatMap(s => Seq(", ", s)).tail
     val substring = subssep.foldLeft("")(_+_)
-    val keyString = "" //getkey match {case None => ""; case Some(k) => s"$k@"}
+    val keyString = getkey match {case None => ""; case Some(k) => s"$k@"}
     s"$keyString$kind($substring)"
   }
 }
