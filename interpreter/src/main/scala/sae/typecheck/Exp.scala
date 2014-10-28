@@ -141,7 +141,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val subs = lits.map(_.toString) ++ sub.map(_.toString)
     val subssep = if (subs.isEmpty) subs else subs.flatMap(s => Seq(", ", s)).tail
     val substring = subssep.foldLeft("")(_+_)
-    val keyString = getkey match {case None => ""; case Some(k) => s"$k@"}
+    val keyString = "" //getkey match {case None => ""; case Some(k) => s"$k@"}
     s"$keyString$kind($substring)"
   }
 }

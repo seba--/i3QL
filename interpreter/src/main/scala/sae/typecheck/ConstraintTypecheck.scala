@@ -134,7 +134,7 @@ object ConstraintTypecheck {
   def solveConstraints(cons: Seq[Constraint]): (TSubst, Seq[Constraint]) = {
     var unres = scala.Seq[Constraint]()
     var res = Map[Symbol, Type]()
-    cons.head match {
+    for (c <- cons) c match {
       case EqConstraint(t1, t2) => t1.subst(res).unify(t2.subst(res)) match {
         case scala.Some(s) => res = res.mapValues(_.subst(s)) ++ s
         case scala.None => unres = cons +: unres
