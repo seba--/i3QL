@@ -1,7 +1,7 @@
 package sae.typecheck
 
 import idb.syntax.iql.IR.Rep
-import idb.BagTable
+import idb.SetTable
 
 /**
  * Created by seba on 27/10/14.
@@ -36,7 +36,7 @@ object Exp {
   private def lookupExpCount(e: Exp) = _expMap.get(e).map(_._2).getOrElse(0)
   private def lookupExpWithCount(e: Exp) = _expMap.get(e)
 
-  val table = BagTable.empty[ExpTuple]
+  val table = SetTable.empty[ExpTuple]
 
 
   def nextKey() = {
@@ -61,59 +61,51 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def insert: ExpKey = {
     val subkeys = sub map (_.insert)
-    val key = getkey.getOrElse(nextKey())
-    println(s"insert ${(key, kind, lits, subkeys)}*${lookupExpCount(this)}")
-    table += ((key, kind, lits, subkeys))
-    bindExp(this, key)
-    println(s"inserted ${(key, kind, lits, subkeys)}*${lookupExpCount(this)}")
-    key
+    getkey match {
+      case None =>
+        val key = nextKey()
+        table += ((key, kind, lits, subkeys))
+        bindExp(this, key)
+        key
+      case Some(key) =>
+        bindExp(this, key)
+        key
+    }
   }
 
   def remove: ExpKey = {
     val subkeys = sub map (_.remove)
-    val k = key
-    println(s"remove ${(k, kind, lits, subkeys)}*${lookupExpCount(this)}")
-    table -= ((k, kind, lits, subkeys))
+    val Some((key, count)) = lookupExpWithCount(this)
     unbindExp(this)
-    println(s"removed ${(k, kind, lits, subkeys)}*${lookupExpCount(this)}")
-    k
+    if (count == 1)
+      table -= ((key, kind, lits, subkeys))
+    key
   }
 
   def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
-    lookupExpWithCount(old) match {
-      case Some((oldkey, 1)) =>
-        println(s"update-old ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($oldkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
-        if (oldsubkeys != newsubkeys)
-          table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (oldkey, e.kind, e.lits, newsubkeys)
-        unbindExp(old)
-        bindExp(e, oldkey)
-        println(s"updated-old ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($oldkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
-        oldkey
-      case Some((oldkey, _)) =>
-        val newkey = nextKey()
-        println(s"update-new ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
-        table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
-        unbindExp(old)
-        bindExp(e, newkey)
-        println(s"updated-new ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(this)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
-        newkey
-      case None => throw new IllegalStateException(s"Cannot update unbound expression $old to $e")
-    }
+    val Some((oldkey, oldcount)) = lookupExpWithCount(old)
+    val newkey = if (oldcount == 1) oldkey else nextKey()
+    unbindExp(old)
+    bindExp(e, newkey)
+    if (!(oldkey == newkey && oldsubkeys == newsubkeys))
+      table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
+    newkey
   }
 
   def replaceWith(e: Exp): ExpKey = {
-//    println(s"replace $this -> $e")
     if (kind == e.kind && lits == e.lits && sub.length == e.sub.length) {
       if (sub == e.sub)
+        // equal to old expression, no change required
         key
       else {
-        val oldkey = key
+        // same structure, just replace subexpressions
         val oldsubkeys = sub map (_.key)
         val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
         updateExp(this, e, oldsubkeys, newsubkeys)
       }
     }
     else {
+      // different structure, remove old subexpressions and insert new subexpressions
       val oldsubkeys = sub map (_.remove)
       val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees due to _expMap
       updateExp(this, e, oldsubkeys, newsubkeys)
