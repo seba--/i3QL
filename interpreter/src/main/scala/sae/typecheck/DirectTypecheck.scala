@@ -16,6 +16,11 @@ object DirectTypecheck  {
 
   case object TNum extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
+    def subst(s: TSubst) = this
+    def unify(other: Type) = other match {
+      case TNum => scala.Some(Map())
+      case _ => None
+    }
   }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (
@@ -52,9 +57,15 @@ object DirectTypecheck  {
     )
   )
 
+  val rootTypeExtractor = (x: scala.Either[Type, TError]) => x match {
+    case scala.Left(Root.TRoot(t)) => scala.Left(t)
+    case scala.Right(msg) => scala.Right(msg)
+    case scala.Left(t) => throw new RuntimeException(s"Unexpected root type $t")
+  } 
+  
   def main(args: Array[String]): Unit = {
     val resultTypes = types.asMaterialized
-    val root = Root(types)
+    val root = Root(types, staticData (rootTypeExtractor))
 
     val e = Add(Num(17), Num(12))
     root.set(e)

@@ -51,7 +51,7 @@ object Exp {
   implicit def constructable(k: ExpKind) = new Constructable(k)
   class Constructable(k: ExpKind) {
     def apply(): Exp = Exp(k, scala.Seq(), scala.Seq())
-    def apply(l: Lit, lits: Lit*): Exp = Exp(k, l +: scala.Seq(lits:_*), scala.Seq())
+    def apply(l: Lit, sub: Exp*): Exp = Exp(k, scala.Seq(l), scala.Seq(sub:_*))
     def apply(e: Exp, sub: Exp*): Exp = Exp(k, scala.Seq(), e +: scala.Seq(sub:_*))
     def apply(lits: Seq[Lit], sub: Seq[Exp]): Exp = Exp(k, lits, sub)
   }

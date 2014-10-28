@@ -11,8 +11,11 @@ import idb.syntax.iql.SELECT
 import Exp._
 object Type {
   type TError = String
+  type TSubst = Map[Symbol, Type]
   abstract class Type {
     def rename(ren: Map[Symbol, Symbol]): Type
+    def subst(s: TSubst): Type
+    def unify(other: Type): Option[TSubst]
   }
 
   type TypeTuple = (ExpKey, Either[Type, TError])
