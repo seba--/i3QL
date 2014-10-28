@@ -1,7 +1,9 @@
 package sae.typecheck
 
-import idb.MaterializedView
+import idb.{Relation, MaterializedView}
+import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
+import idb.syntax.iql.SELECT
 
 /**
  * Created by seba on 27/10/14.
@@ -36,5 +38,4 @@ object Type {
       case None => throw new RuntimeException(s"ERROR: unregistered expression without key $e")
     }
   }
-
 }

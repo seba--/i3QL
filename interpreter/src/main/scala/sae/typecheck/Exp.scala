@@ -1,5 +1,6 @@
 package sae.typecheck
 
+import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
 import idb.BagTable
 
@@ -143,3 +144,4 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     s"$keyString$kind($substring)"
   }
 }
+

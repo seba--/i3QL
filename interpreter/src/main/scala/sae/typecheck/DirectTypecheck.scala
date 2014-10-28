@@ -30,7 +30,7 @@ object DirectTypecheck {
         scala.Right(s"Right child of Add should be TNum but was ${sub(1)}")
       else
         scala.Left(TNum)
-    case root.Root => if (sub.isEmpty) scala.Right("Uninitialized root") else scala.Left(root.TRoot(sub(0)))
+    case Root.Root => if (sub.isEmpty) scala.Right("Uninitialized root") else scala.Left(Root.TRoot(sub(0)))
   }
 
   val types = WITH.RECURSIVE[TypeTuple] (types =>
@@ -51,54 +51,28 @@ object DirectTypecheck {
     )
   )
 
-
-  // use root to ensure fixed rootkey for all programs
-  object root {
-    case object Root extends ExpKind
-    case class TRoot(t: Type) extends Type
-
-    val rootNode = Root()
-    def replaceWith(e: Exp) = rootNode.replaceWith(Root(e))
-
-    val rootKey = Exp.prefetchKey
-    val rootQuery = SELECT ((t: Rep[TypeTuple]) => t._2) FROM types WHERE (t => tid(t) == rootKey)
-
-    var Type: Either[Type, TError] = scala.Right("Uninitialized root")
-    def store(t: Either[Type, TError]) = t match {
-      case scala.Left(TRoot(t)) => Type = scala.Left(t)
-      case scala.Right(msg) => Type = scala.Right(msg)
-      case _ => throw new RuntimeException(s"Unexpected root type $t")
-    }
-    rootQuery.addObserver(new Observer[Either[Type, TError]] {
-      override def updated(oldV: Either[Type, TError], newV: Either[Type, TError]): Unit = store(newV)
-      override def endTransaction(): Unit = {}
-      override def removed(v: Either[Type, TError]): Unit = Type = scala.Right("Uninitialized root")
-      override def added(v: Either[Type, TError]): Unit = store(v)
-    })
-    rootNode.insert
-  }
-
   def main(args: Array[String]): Unit = {
     val resultTypes = types.asMaterialized
+    val root = Root(types)
 
     val e = Add(Num(17), Num(12))
-    root.replaceWith(e)
+    root.set(e)
     Predef.println(s"Type of $e is ${root.Type}")
 
     val e2 = Add(Num(17), Add(Num(10), Num(2)))
-    e.replaceWith(e2)
+    root.set(e2)
     Predef.println(s"Type of $e2 is ${root.Type}")
 
     val e3 = Add(Add(Num(17), Num(1)), Add(Num(10), Num(2)))
-    e2.replaceWith(e3)
+    root.set(e3)
     Predef.println(s"Type of $e3 is ${root.Type}")
 
     val e4 = Add(Add(Num(17), Num(1)), Add(Num(17), Num(1)))
-    e3.replaceWith(e4)
+    root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
 
     val e5 = Num(30)
-    e4.replaceWith(e5)
+    root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
   }
 
