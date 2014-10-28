@@ -24,7 +24,12 @@ object ConstraintTypecheck {
   case class TFun(t1: Type, t2: Type) extends Type
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint
-  case class VarRequirement(x: Symbol, t: Type) extends Requirement
+  case class VarRequirement(x: Symbol, t: Type) extends Requirement {
+    def merge(r: Requirement) = r match {
+      case VarRequirement(`x`, t2) => scala.Some((scala.Seq(EqConstraint(t, t2)), scala.Seq(this)))
+      case _ => None
+    }
+  }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => typecheckStep(p._1, p._2, p._3)
@@ -44,7 +49,8 @@ object ConstraintTypecheck {
       val (t2, cons2, reqs2) = sub(1)
       val lcons = EqConstraint(TNum, t1)
       val rcons = EqConstraint(TNum, t2)
-      (TNum, lcons +: rcons +: (cons1 ++ cons2), reqs1 ++ reqs2)
+      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
+      (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs)
     case Var =>
       val x = lits(0).asInstanceOf[Symbol]
       val X = nextTVar()
@@ -54,7 +60,8 @@ object ConstraintTypecheck {
       val (t2, cons2, reqs2) = sub(1)
       val X = nextTVar()
       val fcons = EqConstraint(TFun(t2, X), t1)
-      (X, fcons +: (cons1 ++ cons2), reqs1 ++ reqs2)
+      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
+      (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs)
     case Abs =>
       val x = lits(0).asInstanceOf[Symbol]
       val X = nextTVar()
@@ -93,7 +100,7 @@ object ConstraintTypecheck {
     val resultTypes = types.asMaterialized
     val root = Root(types)
 
-    val e = Add(Num(17), Num(12))
+    val e = Add(Var('x), Var('x))
     root.set(e)
     Predef.println(s"Type of $e is ${root.Type}")
 
