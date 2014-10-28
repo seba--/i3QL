@@ -151,7 +151,10 @@ object ConstraintTypecheck {
     else {
       val (s, unres) = solveConstraints(cons)
       if (unres.isEmpty)
-        scala.Left(t.subst(s))
+        t.subst(s) match {
+          case Root.TRoot(t) => scala.Left(t)
+          case _ => throw new RuntimeException(s"Unexpected root type $t")
+        }
       else
         scala.Right(s"Unresolved constraints $unres, type ${t.subst(s)}, free $free")
     }
