@@ -11,14 +11,14 @@ import sae.typecheck.Type._
  *
  * Use root to ensure fixed rootkey for all programs
  */
-class Root(private var rootNode: Exp) {
+class Root[V](private var rootNode: Exp) {
   def set(e: Exp): Unit = {
     val newroot = Root.Root(e)
     rootNode.replaceWith(newroot)
     rootNode = newroot
   }
 
-  var Type: Either[Type, TError] = scala.Right("Uninitialized root")
+  var Type: V = scala.Right("Uninitialized root")
   def store(t: Either[Type, TError]) = t match {
     case scala.Left(Root.TRoot(t)) => Type = scala.Left(t)
     case scala.Right(msg) => Type = scala.Right(msg)
@@ -30,9 +30,9 @@ object Root {
   case object Root extends ExpKind
   case class TRoot(t: Type) extends Type
 
-  def apply(types: Relation[TypeTuple]): Root = {
+  def apply[V](types: Relation[V]): Root[V] = {
     val rootNode = Exp(Root, scala.Seq(), scala.Seq())
-    val root = new Root(rootNode)
+    val root = new Root[V](rootNode)
     val rootKey: Rep[Int] = Exp.prefetchKey
     val rootQuery = SELECT ((t: Rep[TypeTuple]) => t._2) FROM types WHERE (t => tid(t) == rootKey)
     rootQuery.addObserver(new Observer[Either[Type, TError]] {
