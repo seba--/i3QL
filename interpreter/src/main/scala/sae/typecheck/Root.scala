@@ -24,7 +24,9 @@ class Root[V](private var rootNode: Exp) {
 
 object Root {
   case object Root extends ExpKind
-  case class TRoot(t: Type) extends Type
+  case class TRoot(t: Type) extends Type {
+    def rename(ren: Map[Symbol, Symbol]) = TRoot(t.rename(ren))
+  }
 
   def apply[V : Manifest](types: Relation[(Exp.ExpKey, V)]): Root[V] = {
     val rootNode = Exp(Root, scala.Seq(), scala.Seq())

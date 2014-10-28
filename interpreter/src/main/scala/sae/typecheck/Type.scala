@@ -11,7 +11,10 @@ import idb.syntax.iql.SELECT
 import Exp._
 object Type {
   type TError = String
-  abstract class Type
+  abstract class Type {
+    def rename(ren: Map[Symbol, Symbol]): Type
+  }
+
   type TypeTuple = (ExpKey, Either[Type, TError])
   def tid(t: Rep[TypeTuple]) = t._1
   def isType(t: Rep[TypeTuple]) = t._2.isLeft

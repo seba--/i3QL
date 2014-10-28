@@ -1,6 +1,5 @@
 package sae.typecheck
 
-import idb.observer.Observer
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
@@ -10,12 +9,14 @@ import sae.typecheck.Type._
 /**
 * Created by seba on 26/10/14.
 */
-object DirectTypecheck {
+object DirectTypecheck  {
 
   case object Num extends ExpKind
   case object Add extends ExpKind
 
-  case object TNum extends Type
+  case object TNum extends Type {
+    def rename(ren: Map[Symbol, Symbol]) = this
+  }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[Type])) => typecheckStep(p._1, p._2, p._3)
