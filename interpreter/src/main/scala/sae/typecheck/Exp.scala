@@ -1,7 +1,7 @@
 package sae.typecheck
 
 import idb.syntax.iql.IR.Rep
-import idb.SetTable
+import idb.BagTable
 
 /**
  * Created by seba on 27/10/14.
@@ -36,7 +36,7 @@ object Exp {
   private def lookupExpCount(e: Exp) = _expMap.get(e).map(_._2).getOrElse(0)
   private def lookupExpWithCount(e: Exp) = _expMap.get(e)
 
-  val table = SetTable.empty[ExpTuple]
+  val table = BagTable.empty[ExpTuple]
 
 
   def nextKey() = {
@@ -44,6 +44,7 @@ object Exp {
     _nextKey += 1
     k
   }
+  def prefetchKey = _nextKey
 
   import scala.language.implicitConversions
   implicit def constructable(k: ExpKind) = new Constructable(k)
@@ -65,6 +66,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       case None =>
         val key = nextKey()
         table += ((key, kind, lits, subkeys))
+//        println(s"insert ${(key, kind, lits, subkeys)}")
         bindExp(this, key)
         key
       case Some(key) =>
@@ -77,18 +79,39 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val subkeys = sub map (_.remove)
     val Some((key, count)) = lookupExpWithCount(this)
     unbindExp(this)
-    if (count == 1)
+    if (count == 1) {
       table -= ((key, kind, lits, subkeys))
+//      println(s"remove ${(key, kind, lits, subkeys)}")
+    }
     key
   }
 
   def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
     val Some((oldkey, oldcount)) = lookupExpWithCount(old)
-    val newkey = if (oldcount == 1) oldkey else nextKey()
+    val newkey = e.getkey.getOrElse(if (oldcount == 1) oldkey else nextKey())
+    val newcount = lookupExpCount(e)
     unbindExp(old)
     bindExp(e, newkey)
-    if (!(oldkey == newkey && oldsubkeys == newsubkeys))
-      table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
+    if (oldcount == 1 && newcount == 0 && oldsubkeys != newsubkeys) {
+//      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount")
+
+      // TODO this should be a single update event, but then the view nondeterministically ignores the new value
+      table -= (oldkey, old.kind, old.lits, oldsubkeys)
+      table += (newkey, e.kind, e.lits, newsubkeys)
+      //      table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
+    }
+    else if (oldcount == 1 && newcount >= 1) {
+//      println(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount")
+      table -= (oldkey, old.kind, old.lits, oldsubkeys)
+    }
+    else if (oldcount > 1 && newcount == 0) {
+//      println(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount, keep ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount")
+      table += (newkey, e.kind, e.lits, newsubkeys)
+    }
+    else if (oldcount > 1 && newcount >= 1) {
+      // do nothing
+    }
+//    println(s"updated ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
     newkey
   }
 
@@ -107,16 +130,16 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     else {
       // different structure, remove old subexpressions and insert new subexpressions
       val oldsubkeys = sub map (_.remove)
-      val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees due to _expMap
+      val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees if already present
       updateExp(this, e, oldsubkeys, newsubkeys)
     }
   }
 
   override def toString = {
     val subs = lits.map(_.toString) ++ sub.map(_.toString)
-    val subssep = subs.flatMap(s => Seq(", ", s)).tail
+    val subssep = if (subs.isEmpty) subs else subs.flatMap(s => Seq(", ", s)).tail
     val substring = subssep.foldLeft("")(_+_)
-    val keyString = getkey match {case None => ""; case Some(k) => s"$k@"}
+    val keyString = "" //getkey match {case None => ""; case Some(k) => s"$k@"}
     s"$keyString$kind($substring)"
   }
 }
