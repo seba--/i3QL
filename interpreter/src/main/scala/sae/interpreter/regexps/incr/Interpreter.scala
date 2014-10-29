@@ -14,6 +14,8 @@ import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
 
 object Interpreter {
 
+	val debug = true
+
 	def main(args : Array[String]) {
 		val table = createITable
 		val values = getValues(table)
@@ -25,7 +27,7 @@ object Interpreter {
 		println("> val s0 = insertString(\"abbac\",table)")
 		val s0 = insertString(table, "abbac")
 		println()
-/*		println("> val s1 = insertString(\"ab\",table)")
+		println("> val s1 = insertString(\"ab\",table)")
 		val s1 = insertString(table, "ab")
 		println()
 		println("> val s2 = insertString(\"ac\",table)")
@@ -39,13 +41,13 @@ object Interpreter {
 		println()
 		println("> val s5 = insertString(\"\",table)")
 		val s5 = insertString(table, "")
-		println()  */
+		println()
 
 
 		println("> val e0 = insertExp(table, Terminal(\"a\"))")
 		val e0 = insertExp(table, Terminal("a"))
 		println()
-	/*	println("> val e1 = insertExp(table, Alt(Terminal(\"b\"), Terminal(\"a\")))")
+		println("> val e1 = insertExp(table, Alt(Terminal(\"b\"), Terminal(\"a\")))")
 		val e1 = insertExp(table, Alt(Terminal("b"), Terminal("a")))
 		println()
 		println("> val e2 = insertExp(table, Sequence(Terminal(\"a\"), Terminal(\"b\")))")
@@ -103,14 +105,14 @@ object Interpreter {
 		println("> val t6_1 = insertNewTask(table, flatMapInterpTag,Seq(l0,e0))")
 		val t6_1 = insertTask(table, flatMapInterpTag,Seq(l0,e0))
 		println("return -> " + stringList(table, values(t6_1).asInstanceOf[ListKey]))
-		println()     */
+		println()
 
 
 		println("> val t7 = insertNewTask(table, interpTag,Seq(e0,s0))")
 		val t7 = insertTask(table, interpTag,Seq(e0,s0))
 		println("return -> " + stringList(table, values(t7).asInstanceOf[ListKey]))
 		println()
-	/*	println("> val t8 = insertNewTask(table, interpTag,Seq(e1,s0))")
+		println("> val t8 = insertNewTask(table, interpTag,Seq(e1,s0))")
 		val t8 = insertTask(table, interpTag,Seq(e1,s0))
 		println("return -> " + stringList(table, values(t8).asInstanceOf[ListKey]))
 		println()
@@ -121,68 +123,8 @@ object Interpreter {
 		println("> val t10 = insertNewTask(table, interpTag,Seq(e3,s4))")
 		val t10 = insertTask(table, interpTag,Seq(e3,s4))
 		println("return -> " + stringList(table, values(t10).asInstanceOf[ListKey]))
-		println()     */
-
-
-	  /*
-		val exp0 = Terminal("a")
-		val exp1 = Alt(Alt(Terminal("a"), Terminal("b")), Terminal("c"))
-		val exp2 =
-			Sequence(
-				Sequence(
-					Terminal("b"),
-					Terminal("a")
-				),
-				Alt(
-					Terminal("c"),
-					Terminal("b")
-				)
-			)
-
-		val exp3 =
-			Alt(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val exp4 =
-			Sequence(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val exp5 =
-			Asterisk(
-				Terminal("b")
-			)
-
-		val exp6 =
-			Sequence(
-				Terminal("b"),
-				Sequence(
-					Terminal("a"),
-					Sequence(
-						Asterisk(
-							Alt(
-								Terminal("a"),
-								Terminal("b")
-							)
-						),
-						Terminal("c")
-					)
-				)
-			)
-
-
-		val e0 = insertExp(exp3, table)
-
-		val task0 = insertNewTask("interp", Seq(exp0, s0), table)   */
+		println()
 	}
-
-
-	var printUpdates = true
-
-
 
 	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
@@ -314,7 +256,7 @@ object Interpreter {
 	type TaskKey = Int
 	type TaskIndex = Int
 	type TaskTag = String
-	type Task = (TaskKey, TaskTag, TaskIndex, InputKey) //Parent Task, Index of the task within one branch, input parameters
+	type Task = (TaskKey, TaskTag, TaskIndex, InputKey) //Parent Task, Index of the task within one method, input parameters
 
 	type InterpValue = Set[String]
 
@@ -532,6 +474,8 @@ object Interpreter {
 			(e : IExp) => e._2._1 == AsteriskKind
 		)
 
+
+
 		private val recTypeIsInput : Rep[RecType => Boolean] = staticData (
 			(r : RecType) => r.isInstanceOf[InputType]
 		)
@@ -574,7 +518,7 @@ object Interpreter {
 		)
 
 		protected def inputRelation(r : Rep[Query[RecType]]) : Rep[Query[IInput]] =
-			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsInput(e))
+			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[InputType])
 
 		protected def valueRelation(r : Rep[Query[RecType]]) : Rep[Query[IValue]] =
 			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsValue(e))

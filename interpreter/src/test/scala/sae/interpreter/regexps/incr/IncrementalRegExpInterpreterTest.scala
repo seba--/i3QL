@@ -41,6 +41,32 @@ object IncrementalRegExpInterpreterTest {
 			)
 		)
 	)
+	val e5 = defineRegExp(
+		Sequence(
+			Asterisk(
+				Alt(
+					Terminal("a"),
+					Alt(
+						Terminal("b"),
+					    Sequence(
+							Terminal("c"),
+							Terminal("c")
+						)
+					)
+				)
+			),
+			Sequence(
+				Terminal("c"),
+				Sequence(
+					Terminal("a"),
+					Sequence(
+						Asterisk(Terminal("b")),
+						Terminal("c")
+					)
+				)
+			)
+		)
+	)
 
 }
 
@@ -128,7 +154,7 @@ class IncrementalRegExpInterpreterTest {
 
 		assertThat (valToStringSet(v0), is (Set("ccb")))
 		assertThat (valToStringSet(v1), is (Set[String]()))
-		//assertThat (valToStringSet(v2), is (Set[String]()))
+		assertThat (valToStringSet(v2), is (Set[String]()))
 	}
 
 	@Test
@@ -139,7 +165,7 @@ class IncrementalRegExpInterpreterTest {
 
 		assertThat (valToStringSet(v0), is (Set("ccb")))
 		assertThat (valToStringSet(v1), is (Set[String]()))
-		//assertThat (valToStringSet(v2), is (Set[String]()))
+		assertThat (valToStringSet(v2), is (Set[String]()))
 	}
 
 	@Test
@@ -150,7 +176,7 @@ class IncrementalRegExpInterpreterTest {
 
 		assertThat (valToStringSet(v0), is (Set("cb")))
 		assertThat (valToStringSet(v1), is (Set[String]()))
-		//assertThat (valToStringSet(v2), is (Set[String]()))
+		assertThat (valToStringSet(v2), is (Set[String]()))
 	}
 
 	@Test
@@ -161,18 +187,31 @@ class IncrementalRegExpInterpreterTest {
 
 		assertThat (valToStringSet(v0), is (Set("bb", "b", "")))
 		assertThat (valToStringSet(v1), is (Set("accb")))
-		//assertThat (valToStringSet(v2), is (Set[String]()))
+		assertThat (valToStringSet(v2), is (Set[String]("")))
 	}
 
 	@Test
-	def testInterpAll () {
+	def testInterpAll1 () {
 		val v0 = incrInterpret(e4, s1)
 		val v1 = incrInterpret(e4, s3)
 		val v2 = incrInterpret(e4, s0)
 
+
 		assertThat (valToStringSet(v0), is (Set("")))
 		assertThat (valToStringSet(v1), is (Set[String]()))
-		//assertThat (valToStringSet(v2), is (Set[String]()))
+		assertThat (valToStringSet(v2), is (Set[String]()))
+	}
+
+	@Test
+	def testInterpAll2 () {
+		val v0 = incrInterpret(e5, s1)
+		val v1 = incrInterpret(e5, s3)
+		val v2 = incrInterpret(e5, s0)
+
+
+		assertThat (valToStringSet(v0), is (Set[String]()))
+		assertThat (valToStringSet(v1), is (Set[String]("")))
+		assertThat (valToStringSet(v2), is (Set[String]()))
 	}
 
 
