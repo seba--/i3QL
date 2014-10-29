@@ -1,5 +1,5 @@
 /** Project */
-name := "chart-parser"
+name := "flight"
 
 version := "0.0.1"
 

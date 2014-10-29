@@ -59,6 +59,11 @@ class Analyses(database : BytecodeDatabase) {
 		}
 	}
 
+	def all : List[(String, Relation[_])] = {
+		analysesList.map((f) => (f.getClass.getSimpleName, f(database)))
+
+	}
+
 	private def analysisName(analysis : BytecodeDatabase => _) : String = {
 		val className = analysis.getClass.getSimpleName
 		if (className.length > 0 && className.last == '$')

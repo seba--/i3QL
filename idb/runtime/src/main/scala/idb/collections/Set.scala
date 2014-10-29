@@ -16,16 +16,17 @@ trait Set[V]
     def size: Int = data.size
 
     def add_element (v: V) {
-        data.add (v)
+        if (data.add (v))
+			notify_added (v)
         data
 		notify_added(v)
     }
 
     def remove_element (v: V) {
-        if (!data.remove (v))
-			throw new IllegalStateException("Element not in set: " + v)
-        data
-		notify_removed(v)
+      if (!data.remove (v))
+  			throw new IllegalStateException("Element not in set: " + v)
+//      data
+  		notify_removed(v)
     }
 
 	def update_element (oldV: V, newV: V) {

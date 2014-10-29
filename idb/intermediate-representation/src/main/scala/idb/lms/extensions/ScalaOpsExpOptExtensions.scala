@@ -45,6 +45,8 @@ import idb.lms.extensions.operations.MirrorDefinitions
  */
 trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
+    with DateOpsExp
+    with FlightOpsExp
     with ScalaOpsPkgExpAlphaEquivalence
 
     with MirrorDefinitions
@@ -54,7 +56,7 @@ trait ScalaOpsExpOptExtensions
     with TupledFunctionsExpBetaReduction
     with TupleOpsExpOptBetaReduction
     with EffectExpAlphaEquivalence
-  //  with BooleanOpsExpSimplification
+//  with BooleanOpsExpSimplification
     //with BooleanOpsExpOrdering
     //with BooleanOpsExpDNFNormalization
 {

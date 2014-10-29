@@ -53,7 +53,7 @@ trait TupledFunctionsExpBetaReduction
         // we can replace any variable in an unboxed tuple, e.g., x in Unboxed(List(x,y)) by
         // a tuple access to the new boxed variable, e.g., x -> tuple2_get1(UnboxedTuple(List(newX,newY)))
         val oldParameters = parametersAsList (oldX)
-        val appliedParameters = parametersAsList (unbox (x))
+		val appliedParameters = parametersAsList (unbox (x))
         if (oldParameters.size == appliedParameters.size) {
             result ++=
                 oldParameters.zip (appliedParameters).foldLeft (
@@ -62,7 +62,6 @@ trait TupledFunctionsExpBetaReduction
         }
         result
     }
-
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext) =
         e match {

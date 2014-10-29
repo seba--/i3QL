@@ -13,5 +13,5 @@ object ASMDatabaseReplayTimeProfiler
 	override def createBytecodeDatabase: BytecodeDatabase = ASMDatabaseFactory.create
 
 	override def benchmarkType : String = "time"
-	override def queryType : String = "no-lms-opts"
+	override def queryType : String = "default"
 }

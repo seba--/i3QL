@@ -1,10 +1,11 @@
 == Table of Contents ==
 	1. Abstract
 	2. Tools
-	3. Install guide for i3Ql
-	4. Package Overview
-	5. Parser example walkthrough
-	6. Step-by-step guides
+	3. Loading the VM image
+	4. Install guide for i3Ql
+	5. Package Overview
+	6. Parser example walkthrough
+	7. Step-by-step guides
 	
 
 == 1. Abstract ==	
@@ -18,8 +19,18 @@
 	We use Lightweight Modular Staging (LMS, http://scala-lms.github.io) in order to compile our queries. LMS allows us to generate tree representations of functions and queries. This intermediate representation is used to optimize our queries. Further, LMS can produce Scala code out of these representations and compile the code during runtime. 
 	In order to built our project we use the SBT (http://www.scala-sbt.org), a build tool for Scala projects. 
 	
-== 3. Install guide for i3Ql ==
-		In order to install the project, you have to follow these steps:
+== 3. Loading the VM image ==
+
+	In order to run the project, we included a VM image for VirtualBox. In order to run the image you have to install VirtualBox first.
+		Download: https://www.virtualbox.org/wiki/Downloads	
+
+	Everything is already pre-installed on the image. You can load the image by starting VirtualBox and choose File > Import Appliance and choose the image. The user credentials for the operating system are
+		Loginname: stg
+		Password: stg
+	The i3Ql project can be accessed by the link on the desktop or at the location /home/stg/Projects/git/i3ql.
+
+== 4. Install guide for i3Ql ==
+		i3Ql is already installed on the VM image and you can skip this section if you want to run i3Ql on the VM only. However, if you want to install the project yourself, you have to follow these steps:
 
 		1. To build this project you need to have JDK, SBT and GIT installed
 			Download and install JDK: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
@@ -85,7 +96,7 @@
 					table += 1
 				}
 
-== 4. Package Overview ==
+== 5. Package Overview ==
 
 	This section gives an overview of all packages of the i3ql projects.
 	
@@ -108,22 +119,22 @@
 		analyses/metrics - Implements metrics 
 		analyses/profiler - Contains classes to profile the static analyses (time and memory profiler)
 		
-== 5. Parser example walkthrough ==
+== 6. Parser example walkthrough ==
 
-	This section describes how the parser can be run within the Scala interpreter. The parser project is located /demo/chart-parser.
+	This section describes how the parser can be run within the Scala interpreter. On the VM image, the parser project is located at /home/stg/Projects/git/i3ql/demo/chart-parser, the corresponding Scala source folder. The link on the desktop 'chartparser' links to the source folder of the project. 
 
-	-- 5.1 Executing the parser --
-		1. Open a terminal in the main directory of the project.
+	-- 6.1 Executing the parser --
+		1. Open a terminal.
 		
 		2. Move to the project folder of the parser
-			$ cd /demo/chart-parser
+			$ cd ~/Projects/git/i3ql/demo/chart-parser
 			
 		3. Start the SBT-Scala console
 			$ sbt console
 			
 		Now the Scala console is started with access to all classes of the parser. In order to use the parser consider the following example:
 		
-		4. Import the parser.
+		4. Import the parser. On the VM image, the SentenceParser and its super class (Parser) are both linked on the desktop. 
 			> import idb.demo.chartparser.SentenceParser 
 
 		5. Create a new value to have easier access to the parser
@@ -143,7 +154,7 @@
 			
 		The result relation stores the indices for all possible sub-sentences, i.e. the index of the first word and the index of the last word for every possible sentence. In our example, there are the pairs (0,2) and (1,2). The pair (0,2) says that there is a valid sentence from word 0 ("green") to word 2 ("sleep"), which is the whole sentence. That means that the input sentence is valid. Additionally, there is the edge (1,2). That means that there is also a valid sub-sentence, i.e. List("ideas", "sleep") would also be a valid sentence.
 	
-	-- 5.2 Incremental addition --
+	-- 6.2 Incremental addition --
 		10. Add a new word to the sentence
 			> parser.input += ("furiously", 3)
 			
@@ -152,7 +163,7 @@
 			
 		The result relation has been updated. The result relation contains the pair (0,3) and thus the whole sentence is valid.
 	
-	-- 5.3 Incremental update --
+	-- 6.3 Incremental update --
 		12. Update the first element from green to yellow
 			> parser.input update (("green",0),("yellow",0))
 			
@@ -170,39 +181,49 @@
 		Now, the pair (0,3) is in our result relation and thus the sentence is valid.
 		
 		
-== 6. Executing analyses ==
+== 7. Executing analyses ==
 
-	This section contains step-by-step guides for executing the analyses described in the paper (Section 6). 
+	This section contains step-by-step guides for executing the analyses described in the paper (Section 6). On the VM image, the analyses can be found at /home/stg/Projects/git/i3ql/analyses/findbugs. The project, as well as two analyses have been linked on the desktop.
 
-	-- 6.1. Step-by-step instructions for executing a single analysis  and output the results
+	-- 7.1. Step-by-step instructions for executing a single analysis  and output the results
 
-		1. Open a terminal in the main directory of the project.
+		1. Start the VM.
+			
+		2. Open a terminal
 
-		2. Execute sbt in the terminal
+		3. Move to the project folder of i3ql
+			$ cd ~/Projects/git/i3ql/
+
+		4. Execute sbt in the terminal
 			$ sbt
 			
-		3. Change project to the findbugs analyses
+		5. Change project to the findbugs analyses
 			> project analyses-findbugs
 			
-		4. Run the analysis with its name as argument. The analysis will be executed on JDK 1.7.0 64-bit. The names of all analyses are shown in the list below (Section 7.3).
+		6. Run the analysis with its name as argument. The analysis will be executed on JDK 1.7.0 64-bit. The names of all analyses are shown in the list below (Section 7.3).
 			> run-main sae.analyses.findbugs.AnalysisRunner FI_USELESS
 	
-	-- 6.2 Step-by-step instructions for executing the analyses benchmarks:
+	-- 7.2 Step-by-step instructions for executing the analyses benchmarks:
 
-		1. Open a terminal in the main directory of the project.
-	
-		2. Execute sbt in the terminal
+		1. Start the VM.
+			
+		2. Open a terminal
+
+		3. Move to the project folder of i3ql
+			$ cd ~/Projects/git/i3ql/
+
+		4. Execute sbt in the terminal
 			$ sbt
 			
-		3. Change project to the analysis profiler
+		5. Change project to the analysis profiler
 			> project analyses-profiler
 			
-		4. Run the profiler with a properties file as argument. There is a properties file for every analysis, which is named <analysis-name>.properties, e.g. FI_USELESS.properties. Analysis names can be found in the list below (Section 7.3).
+		6. Run the profiler with a properties file as argument. There is a properties file for every analysis, which is named <analysis-name>.properties, e.g. FI_USELESS.properties. Analysis names can be found in the list below (Section 7.3).
 			> run-main sae.analyses.profiler.ASMDatabaseReplayTimeRunner FI_USELESS.properties
 			
-		7. The results can be found as .csv file at /benchmarks/time/default/<analsis-name>.properties.csv 
+		7. The results can be found as .csv file at ~/Projects/git/i3ql/benchmarks/time/default/<analsis-name>.properties.csv 
 			
-	-- 6.3 List of possible analyses
+	-- 7.3 List of possible analyses
 		List of possible analyses (the intent of the analyses can be found at http://findbugs.sourceforge.net/bugDescriptions.html):
 			BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
 			CI_CONFUSED_INHERITANCE

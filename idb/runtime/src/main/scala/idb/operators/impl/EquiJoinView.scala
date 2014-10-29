@@ -33,7 +33,7 @@
 package idb.operators.impl
 
 import scala.Some
-import idb.{IndexService, Index, Relation}
+import idb.{MaterializedView, IndexService, Index, Relation}
 import idb.operators.EquiJoin
 import idb.observer.{NotifyObservers, Observer, Observable}
 
@@ -258,12 +258,16 @@ object EquiJoinView {
 		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
 		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
 
-		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
-		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+		val leftMaterialized = if (left.isInstanceOf[MaterializedView[DomainA]]) left else left.asMaterialized
+		val rightMaterialized = if (right.isInstanceOf[MaterializedView[DomainA]]) right else right.asMaterialized
+
+
+		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(leftMaterialized, leftKey)
+		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(rightMaterialized, rightKey)
 
 		return new EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
-			left,
-			right,
+			leftMaterialized,
+			rightMaterialized,
 			leftIndex,
 			rightIndex,
 			(_, _),
