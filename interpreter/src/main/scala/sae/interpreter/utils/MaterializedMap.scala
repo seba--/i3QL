@@ -1,6 +1,7 @@
 package sae.interpreter.utils
 
-import idb.observer.Observer
+import idb.Relation
+import idb.observer.{NotifyObservers, Observer}
 import com.google.common.collect.ArrayListMultimap
 
 /**
@@ -63,6 +64,5 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 			(e.getKey, e.getValue)
 		}
 	}
-
 
 }

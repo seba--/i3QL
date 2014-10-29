@@ -2,7 +2,7 @@ package sae.interpreter.regexps.incr
 
 import sae.interpreter.regexps._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.{BeforeClass, Ignore, Test}
 import org.hamcrest.CoreMatchers._
 
 /**
@@ -10,6 +10,9 @@ import org.hamcrest.CoreMatchers._
  */
 object IncrementalRegExpInterpreterTest {
 	val interpreter = new InterpreterImpl()
+
+	@BeforeClass
+	def setUp() {}
 
 	import IncrementalRegExpInterpreterTest.interpreter._
 	val s0 = defineString("")

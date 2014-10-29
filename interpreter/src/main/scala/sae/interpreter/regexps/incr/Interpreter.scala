@@ -1,12 +1,7 @@
 package sae.interpreter.regexps.incr
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.{SetTable, Table}
-import idb.observer.{NotifyObservers, Observer}
 import sae.interpreter.regexps._
-import sae.interpreter.regexps.nonincr
 
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
 
@@ -284,6 +279,8 @@ object Interpreter {
 	val appendTag : TaskTag = "List.append"
 	val flatMapInterpTag : TaskTag = "List.flatMapInterp"
 
+	val terminalKind = TerminalKind
+
 	val EMPTY_LIST : ListElement = (None, -1)
 
 	def insertTask(tab : ITable, tag : TaskTag, params : Seq[Any]) : TaskKey = {
@@ -332,8 +329,6 @@ object Interpreter {
 	}
 
 /*	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
-		//TODO add empty list element
-
 
 		val oldIList : ListElement = listTable(tab)(oldKey)
 		(oldIList, newList) match {
@@ -458,112 +453,91 @@ object Interpreter {
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
 
-		protected val conditionTerminal : Rep[IExp => Boolean] = staticData (
+		protected val isTerminal : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == TerminalKind
 		)
 
-		protected val conditionSequence : Rep[IExp => Boolean] = staticData (
+		protected val isSequence : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == SequenceKind
 		)
 
-		protected val conditionAlt : Rep[IExp => Boolean] = staticData (
+		protected val isAlt : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == AltKind
 		)
 
-		protected val conditionAsterisk : Rep[IExp => Boolean] = staticData (
+		protected val isAsterisk : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == AsteriskKind
 		)
 
 
-
-		private val recTypeIsInput : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[InputType]
-		)
-
-		private val recTypeIsValue : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ValueType]
-		)
-
-		private val recTypeIsTask : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[TaskType]
-		)
-
-		private val recTypeIsExp : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ExpType]
-		)
-
-		private val recTypeIsList : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ListType]  		)
-
-
 		private val recTypeToInput : Rep[RecType => IInput] = staticData (
-			(r : RecType) => r.asInstanceOf[InputType].input
+			(r : RecType) => r.asInstanceOf[InputType].e
 		)
 
 		private val recTypeToValue : Rep[RecType => IValue] = staticData (
-			(r : RecType) => r.asInstanceOf[ValueType].value
+			(r : RecType) => r.asInstanceOf[ValueType].e
 		)
 
 		private val recTypeToTask : Rep[RecType => ITask] = staticData (
-			(r : RecType) => r.asInstanceOf[TaskType].task
+			(r : RecType) => r.asInstanceOf[TaskType].e
 		)
 
 		private val recTypeToExp : Rep[RecType => IExp] = staticData (
-			(r : RecType) => r.asInstanceOf[ExpType].exp
+			(r : RecType) => r.asInstanceOf[ExpType].e
 		)
 
 		private val recTypeToList : Rep[RecType => IList] = staticData (
 			(r : RecType) =>
-				r.asInstanceOf[ListType].l
+				r.asInstanceOf[ListType].e
 		)
 
 		protected def inputRelation(r : Rep[Query[RecType]]) : Rep[Query[IInput]] =
 			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[InputType])
 
 		protected def valueRelation(r : Rep[Query[RecType]]) : Rep[Query[IValue]] =
-			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsValue(e))
+			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ValueType])
 
 		protected def taskRelation(r : Rep[Query[RecType]]) : Rep[Query[ITask]] =
-			SELECT ((e : Rep[RecType]) => recTypeToTask(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsTask(e))
+			SELECT ((e : Rep[RecType]) => recTypeToTask(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[TaskType])
 
 		protected def expRelation(r : Rep[Query[RecType]]) : Rep[Query[IExp]] =
-			SELECT ((e : Rep[RecType]) => recTypeToExp(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsExp(e))
+			SELECT ((e : Rep[RecType]) => recTypeToExp(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ExpType])
 
 		protected def listRelation(r : Rep[Query[RecType]]) : Rep[Query[IList]] =
-			SELECT ((e : Rep[RecType]) => recTypeToList(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsList(e))
+			SELECT ((e : Rep[RecType]) => recTypeToList(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ListType])
 
 
 		private val valueToRecType : Rep[((String, IValue)) => RecType] = staticData (
 			(r : (String, IValue)) => {
-				Predef.println("Value[" + r._1 + "]\t-> " + r._2)
+				if (debug) Predef.println("Value[" + r._1 + "]\t-> " + r._2)
 				ValueType(r._2)
 			}
 		)
 
 		private val taskToRecType : Rep[((String, ITask)) => RecType] = staticData (
 			(r : (String, ITask)) => {
-				Predef.println("Task[" + r._1 + "]\t-> " + r._2)
+				if (debug) Predef.println("Task[" + r._1 + "]\t-> " + r._2)
 				TaskType(r._2)
 			}
 		)
 
 		private val expToRecType : Rep[IExp => RecType] = staticData (
 			(r : IExp) => {
-				Predef.println("Exp\t-\t-\t-> " + r)
+				if (debug) Predef.println("Exp\t-\t-\t-> " + r)
 				ExpType(r)
 			}
 		)
 
 		private val inputToRecType : Rep[IInput => RecType] = staticData (
 			(r : IInput) => {
-				Predef.println("Input\t-\t-\t-> " + r)
+				if (debug) Predef.println("Input\t-\t-\t-> " + r)
 				InputType(r)
 			}
 		)
 
 		private val listToRecType : Rep[IList => RecType] = staticData (
 			(r : IList) => {
-				Predef.println("List\t-\t-\t-> " + r)
+				if (debug) Predef.println("List\t-\t-\t-> " + r)
 				ListType(r)
 			}
 		)
@@ -577,10 +551,7 @@ object Interpreter {
 		)
 
 		private val createList : Rep[Seq[Any] => ListKey] = staticData (
-			(e : Seq[Any]) => {
-				Predef.println("Create list: " + e)
-				insertList(tab,e)
-			}
+			(e : Seq[Any]) => insertList(tab,e)
 		)
 
 		private val consList : Rep[((Any, ListKey)) => ListKey] = staticData (
@@ -1044,7 +1015,7 @@ object Interpreter {
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e) AND
 											inputGetParams(in)(1) == listGetListKey(s) AND
-											conditionTerminal(e)
+											isTerminal(e)
 								)
 								,
 								//... && s1.startsWith(e1.s))
@@ -1142,7 +1113,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAlt(e1) AND
+											isAlt(e1) AND
 											expGetChildren(e1)(0) == expGetExpKey(r1)
 								)
 						        ,
@@ -1162,7 +1133,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAlt(e1) AND
+											isAlt(e1) AND
 											expGetChildren(e1)(1) == expGetExpKey(r2)
 								)
 								,
@@ -1221,7 +1192,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionSequence(e1)
+											isSequence(e1)
 								)
 								,
 								//flatmap
@@ -1277,7 +1248,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAsterisk(e1)
+											isAsterisk(e1)
 								)
 								,
 								//Propagate value
@@ -1306,7 +1277,7 @@ object Interpreter {
 			override val IR = idb.syntax.iql.IR
 		}
 
-		Predef.println(printer.quoteRelation(valuesInternal))
+		if (debug) Predef.println(printer.quoteRelation(valuesInternal))
 
 		val values : Relation[IValue] = valueRelation(valuesInternal)
 		val tasks = taskRelation(valuesInternal).asMaterialized
@@ -1314,10 +1285,9 @@ object Interpreter {
 
 		values.addObserver(result)
 	}
-
-
 }
 
+//These classes need to be defined outside the class in order to be referenceable by the queries.
 trait RegExpKind
 case object TerminalKind extends RegExpKind
 case object AltKind extends RegExpKind
@@ -1325,10 +1295,10 @@ case object AsteriskKind extends RegExpKind
 case object SequenceKind extends RegExpKind
 
 trait RecType
-case class ValueType(value : Interpreter.IValue) extends RecType
-case class InputType(input : Interpreter.IInput) extends RecType
-case class TaskType(task : Interpreter.ITask) extends RecType
-case class ExpType(exp : Interpreter.IExp) extends RecType
-case class ListType(l : Interpreter.IList) extends RecType
+case class ValueType(e : Interpreter.IValue) extends RecType
+case class InputType(e : Interpreter.IInput) extends RecType
+case class TaskType(e : Interpreter.ITask) extends RecType
+case class ExpType(e : Interpreter.IExp) extends RecType
+case class ListType(e : Interpreter.IList) extends RecType
 
 
