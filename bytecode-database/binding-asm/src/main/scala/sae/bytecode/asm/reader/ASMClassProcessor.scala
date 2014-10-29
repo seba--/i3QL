@@ -34,11 +34,11 @@ package sae.bytecode.asm.reader
 
 import org.objectweb.asm._
 import sae.bytecode.asm.ASMDatabase
-import sae.bytecode.asm.structure.MethodDeclaration
+/*import sae.bytecode.asm.structure.MethodDeclaration
 import sae.bytecode.asm.structure.EnclosingMethodAttribute
 import sae.bytecode.asm.structure.ClassDeclaration
 import sae.bytecode.asm.structure.InnerClassAttribute
-import sae.bytecode.asm.structure.FieldDeclaration
+import sae.bytecode.asm.structure.FieldDeclaration  */
 
 /**
  *
@@ -85,7 +85,7 @@ trait ASMClassProcessor
             val superType = if (superName == null) None else Some (Type.getObjectType (superName))
             val interfaceTypes = interfaces.map (Type.getObjectType)
 
-            classDeclaration = ClassDeclaration (
+            classDeclaration = sae.bytecode.asm.structure.ClassDeclaration (
                 version,
                 access,
                 classType,
@@ -106,7 +106,7 @@ trait ASMClassProcessor
             val parameterTypes = Type.getArgumentTypes (desc)
             val returnType = Type.getReturnType (desc)
 
-            val methodDeclaration = MethodDeclaration (
+            val methodDeclaration = sae.bytecode.asm.structure.MethodDeclaration (
                 classDeclaration,
                 access,
                 name,
@@ -127,7 +127,7 @@ trait ASMClassProcessor
         ): FieldVisitor = {
             val fieldType = Type.getType (desc)
 
-            val fieldDeclaration = FieldDeclaration (
+            val fieldDeclaration = sae.bytecode.asm.structure.FieldDeclaration (
                 classDeclaration,
                 access,
                 name,
@@ -146,7 +146,7 @@ trait ASMClassProcessor
             val outerClassType = if (outerName == null) None else Some (Type.getObjectType (outerName))
             val innerName = if (innerNameInternal == null) None else Some (innerNameInternal)
             val innerClassAttribute =
-                InnerClassAttribute (classDeclaration, innerClassType, outerClassType, innerName, access)
+				sae.bytecode.asm.structure.InnerClassAttribute (classDeclaration, innerClassType, outerClassType, innerName, access)
             processInnerClassAttribute (innerClassAttribute)
         }
 
@@ -156,7 +156,7 @@ trait ASMClassProcessor
             val parameterTypes: Option[Seq[Type]] = if (desc == null) None else Some (Type.getArgumentTypes (desc))
             val returnType = if (desc == null) None else Some (Type.getReturnType (desc))
             val enclosingMethodAttribute =
-                EnclosingMethodAttribute (classDeclaration, outerClassType, name, parameterTypes, returnType)
+				sae.bytecode.asm.structure.EnclosingMethodAttribute (classDeclaration, outerClassType, name, parameterTypes, returnType)
             processEnclosingMethodAttribute (enclosingMethodAttribute)
         }
 

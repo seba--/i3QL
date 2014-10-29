@@ -32,8 +32,8 @@
  */
 package idb.demo.chartparser.kilbury
 
-import idb.SetExtent
 import idb.demo.chartparser.schema.ParserSchema
+import idb.SetTable
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
@@ -44,25 +44,25 @@ import idb.syntax.iql.IR._
 trait Scanner
     extends ParserSchema
 {
-    val terminals = SetExtent.empty[Terminal]()
+    val terminals = SetTable.empty[Terminal]()
 
-    val input = SetExtent.empty[InputToken]()
+    val input = SetTable.empty[InputToken]()
 
     val passiveEdges: Rep[Query[Edge]] =
         SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
             PassiveEdge (in.position, in.position + 1, t.category)
-        ) FROM(terminals.asMaterialized, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
+        ) FROM (terminals, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
             t.tokenValue == in.value
-            )
+        )
 
 
     val unknownEdges: Rep[Query[Edge]] =
         SELECT ((in: Rep[InputToken]) =>
             PassiveEdge (in.position, in.position + 1, "Unknown")
-        ) FROM (input) WHERE ((in: Rep[InputToken]) =>
+        ) FROM input WHERE ((in: Rep[InputToken]) =>
             NOT (
                 EXISTS (
-                    SELECT (*) FROM terminals.asMaterialized WHERE ((t: Rep[Terminal]) =>
+                    SELECT (*) FROM terminals WHERE ((t: Rep[Terminal]) =>
                         t.tokenValue == in.value
                         )
                 )

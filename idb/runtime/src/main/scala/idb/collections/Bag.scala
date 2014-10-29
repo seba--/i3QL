@@ -43,8 +43,8 @@ trait Bag[V]
     }
 
     def add_element (v: V) {
-        data.add (v)
-		notify_added(v)
+      data.add (v)
+  		notify_added(v)
     }
 
 
