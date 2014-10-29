@@ -69,19 +69,21 @@ object ConstraintIncTypecheck {
   def freshStep(e: ExpKind, lits: Seq[Lit], sub: Seq[FreshData]): FreshData = {
     import scala.collection.Seq
     e match {
-      case Num => (Seq(), Map())
-      case Add => mergeFree(sub(0)._1, sub(1)._1)
+      case Num => (Seq(), Seq(Map()))
+      case Add =>
+        val (mfree, ren) = mergeFree(sub(0)._1, sub(1)._1)
+        (mfree, Seq(ren))
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        (Seq(Symbol("X_" + x.name)), Map())
+        (Seq(Symbol("X_" + x.name)), Seq(Map()))
       case App =>
         val (mfree, ren) = mergeFree(sub(1)._1, sub(2)._1)
         val x = tick('X$App, mfree)
-        (x +: mfree, ren)
+        (x +: mfree, Seq(ren))
       case Abs =>
         val x = tick('X$abs, sub(0)._1)
-        (x +: sub(0)._1, Map())
-      case Root.Root => if (sub.isEmpty) (Seq(), Map()) else sub(0)
+        (x +: sub(0)._1, Seq(Map()))
+      case Root.Root => if (sub.isEmpty) (Seq(), Seq(Map())) else sub(0)
     }
   }
 
@@ -97,7 +99,7 @@ object ConstraintIncTypecheck {
       case Add =>
         val (t1, cons1, reqs1) = sub(0)
         val (_t2, _cons2, _reqs2) = sub(1)
-        val ren = fresh._2
+        val Seq(ren) = fresh._2
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val lcons = EqConstraint(TNum, t1)
@@ -111,7 +113,7 @@ object ConstraintIncTypecheck {
       case App =>
         val (t1, cons1, reqs1) = sub(0)
         val (_t2, _cons2, _reqs2) = sub(1)
-        val ren = fresh._2
+        val Seq(ren) = fresh._2
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val X = TVar(fresh._1(0))
