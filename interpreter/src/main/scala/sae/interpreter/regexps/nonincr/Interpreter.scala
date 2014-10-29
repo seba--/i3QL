@@ -1,16 +1,8 @@
-package sae.interpreter.regexps
+package sae.interpreter.regexps.nonincr
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.{SetTable, Table}
-import idb.observer.{NotifyObservers, Observer}
-import sae.interpreter.regexps.Interpreter.TaskKey
+import sae.interpreter.regexps._
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
-
-import scala.collection.mutable
-import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 
 object Interpreter {
