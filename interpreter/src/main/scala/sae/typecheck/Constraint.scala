@@ -77,7 +77,7 @@ object Constraint {
 
   type FreshTuple = (ExpKey, FreshData)
   type FreshData = (Seq[Symbol], // fresh variables requested in all of subtree
-                    Seq[Map[Symbol, Symbol]]) // renaming for subtrees skipping first one (n-ary op => Seq.length == n - 1)
+                    Seq[Map[Symbol, Symbol]]) // renaming for subtrees skipping first one (n-ary op => Seq.length == max(0, n - 1))
 
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2

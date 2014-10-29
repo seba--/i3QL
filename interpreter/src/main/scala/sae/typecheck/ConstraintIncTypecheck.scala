@@ -69,20 +69,20 @@ object ConstraintIncTypecheck {
   def freshStep(e: ExpKind, lits: Seq[Lit], sub: Seq[FreshData]): FreshData = {
     import scala.collection.Seq
     e match {
-      case Num => (Seq(), Seq(Map()))
+      case Num => (Seq(), Seq())
       case Add =>
         val (mfree, ren) = mergeFree(sub(0)._1, sub(1)._1)
-        (mfree, Seq(ren))
+        (Seq(), Seq(ren))
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        (Seq(Symbol("X_" + x.name)), Seq(Map()))
+        (Seq(Symbol("X_" + x.name)), Seq())
       case App =>
         val (mfree, ren) = mergeFree(sub(1)._1, sub(2)._1)
         val x = tick('X$App, mfree)
         (x +: mfree, Seq(ren))
       case Abs =>
         val x = tick('X$abs, sub(0)._1)
-        (x +: sub(0)._1, Seq(Map()))
+        (x +: sub(0)._1, Seq())
       case Root.Root => if (sub.isEmpty) (Seq(), Seq(Map())) else sub(0)
     }
   }
