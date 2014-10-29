@@ -62,21 +62,26 @@ object ConstraintIncTypecheck {
     def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
   }
 
-  def freshStepRep: Rep[((ExpKind, Seq[Lit])) => Set[Symbol]] = staticData (
-    (p: (ExpKind, Seq[Lit])) => freshStep(p._1, p._2)
+  def freshStepRep: Rep[((ExpKind, Seq[Lit], Seq[FreshData])) => FreshData] = staticData (
+    (p: (ExpKind, Seq[Lit], Seq[FreshData])) => freshStep(p._1, p._2, p._3)
   )
 
-  def freshStep(e: ExpKind, lits: Seq[Lit]): Set[Symbol] = {
-    import scala.collection._
-    import Predef.Set
+  def freshStep(e: ExpKind, lits: Seq[Lit], sub: Seq[FreshData]): FreshData = {
+    import Predef.{Set,Map}
     e match {
-      case Num => Set()
-      case Add => Set()
+      case Num => (Set(), Map())
+      case Add => mergeFree(sub(0)._1, sub(1)._1)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        Set(Symbol("X_" + x.name))
-      case App => Set(Symbol("X$App"))
-      case Abs => Set(Symbol("X$Abs"))
+        (Set(Symbol("X_" + x.name)), Map())
+      case App =>
+        val (mfree, ren) = mergeFree(sub(1)._1, sub(2)._1)
+        val x = tick('X$App, mfree)
+        (mfree + x, ren)
+      case Abs =>
+        val x = tick('X$abs, sub(0)._1)
+        (sub(0)._1 + x, Map())
+      case Root.Root => if (sub.isEmpty) (Set(), Map()) else sub(0)
     }
   }
 
@@ -131,31 +136,50 @@ object ConstraintIncTypecheck {
     }
   }
 
-  type FreshFunTuple = (ExpKind, Seq[Lit] => Symbol)
-  val freshForKind = SetTable.empty[FreshFunTuple]
-  def initFreshForKind(): Unit = {
-    freshForKind += ((Var, (lits: Seq[Lit]) => {
-      val x = lits(0).asInstanceOf[Symbol]
-      Symbol("X_" + x.name)
-    }))
-    freshForKind += ((App, lits => Symbol("X$App")))
-    freshForKind += ((Abs, lits => Symbol("X$Abs")))
-  }
+//  type FreshFunTuple = (ExpKind, Seq[Lit] => Symbol)
+//  val freshForKind = SetTable.empty[FreshFunTuple]
+//  def initFreshForKind(): Unit = {
+//    freshForKind += ((Var, (lits: Seq[Lit]) => {
+//      val x = lits(0).asInstanceOf[Symbol]
+//      Symbol("X_" + x.name)
+//    }))
+//    freshForKind += ((App, lits => Symbol("X$App")))
+//    freshForKind += ((Abs, lits => Symbol("X$Abs")))
+//  }
+//
+//  val fresh = WITH.RECURSIVE[FreshTuple] (fresh =>
+//      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshFunTuple]) => id(e) -> f._2(lits(e)))
+//       FROM (Exp.table, freshForKind)
+//       WHERE ((e, f) => kind(e) == f._1))
+//    UNION ALL (
+//      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
+//       FROM (Exp.table, fresh) // propagate >=1-ary
+//       WHERE ((e,v) => subseq(e).length >= 1 AND subseq(e)(0) == v._1))
+//    UNION ALL (
+//      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
+//       FROM (Exp.table, fresh) // propagate >=2-ary
+//       WHERE ((e,v) => subseq(e).length >= 2 AND subseq(e)(1) == v._1)))
+//    )
+//  )
 
   val fresh = WITH.RECURSIVE[FreshTuple] (fresh =>
-      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshFunTuple]) => id(e) -> f._2(lits(e)))
-       FROM (Exp.table, freshForKind)
-       WHERE ((e, f) => kind(e) == f._1))
+      (SELECT ((e: Rep[ExpTuple]) => id(e) -> freshStepRep ((kind(e), lits(e), Seq())))
+       FROM Exp.table // 0-ary
+       WHERE (e => subseq(e).length == 0))
     UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
-       FROM (Exp.table, fresh) // propagate >=1-ary
-       WHERE ((e,v) => subseq(e).length >= 1 AND subseq(e)(0) == v._1))
-    UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
-       FROM (Exp.table, fresh) // propagate >=2-ary
-       WHERE ((e,v) => subseq(e).length >= 2 AND subseq(e)(1) == v._1)))
+      (SELECT ((e: Rep[ExpTuple], f1: Rep[FreshTuple]) => id(e) -> freshStepRep ((kind(e), lits(e), Seq(f1._2))))
+       FROM (Exp.table, fresh) // 1-ary
+       WHERE ((e,f1) => subseq(e).length == 1
+                    AND subseq(e)(0) == f1._1))
+    UNION ALL
+      (SELECT ((e: Rep[ExpTuple], f1: Rep[FreshTuple], f2: Rep[FreshTuple]) => id(e) -> freshStepRep ((kind(e), lits(e), Seq(f1._2, f2._2))))
+       FROM (Exp.table, fresh, fresh) // 2-ary
+       WHERE ((e,f1,f2) => subseq(e).length == 2
+                       AND subseq(e)(0) == f1._1
+                       AND subseq(e)(1) == f2._1))
     )
   )
+
 
   val constraints = WITH.RECURSIVE[ConstraintTuple] (constraints =>
       (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq())))
@@ -207,8 +231,6 @@ object ConstraintIncTypecheck {
   def main(args: Array[String]): Unit = {
     val resultTypes = constraints.asMaterialized
     val freshVars = fresh.asMaterialized
-
-    initFreshForKind()
     val root = Root(constraints, staticData (rootTypeExtractor))
 
     val e = Add(Num(17), Add(Num(10), Num(2)))
@@ -229,15 +251,21 @@ object ConstraintIncTypecheck {
     freshVars foreach (Predef.println(_))
     Predef.println()
 
-    val e4 = Abs('x, Add(Var('err), Var('x)))
+    val e4 = Abs('x, Add(Var('x), Var('x)))
     root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
     freshVars foreach (Predef.println(_))
     Predef.println()
 
-    val e5 = Abs('x, Abs('y, Add(Var('x), Var('y))))
+    val e5 = Abs('x, Add(Var('err), Var('x)))
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
+
+    val e6 = Abs('x, Abs('y, Add(Var('x), Var('y))))
+    root.set(e6)
+    Predef.println(s"Type of $e6 is ${root.Type}")
     freshVars foreach (Predef.println(_))
     Predef.println()
 

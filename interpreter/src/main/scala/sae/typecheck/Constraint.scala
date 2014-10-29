@@ -73,7 +73,7 @@ object Constraint {
   type ConstraintData = (Type, Seq[Constraint], Seq[Requirement], Set[Symbol])
 
   type FreshTuple = (ExpKey, FreshData)
-  type FreshData = Symbol
+  type FreshData = (Set[Symbol], Map[Symbol, Symbol])
 
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2
