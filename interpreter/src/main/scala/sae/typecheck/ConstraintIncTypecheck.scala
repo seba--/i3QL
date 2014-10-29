@@ -68,6 +68,7 @@ object ConstraintIncTypecheck {
 
   def freshStep(e: ExpKind, lits: Seq[Lit]): Set[Symbol] = {
     import scala.collection._
+    import Predef.Set
     e match {
       case Num => Set()
       case Add => Set()
@@ -130,19 +131,30 @@ object ConstraintIncTypecheck {
     }
   }
 
-  val newfresh =
-    (SELECT ((e: Rep[ExpTuple]) => freshStepRep((kind(e), lits(e))).head)
-     FROM Exp.table
-     WHERE (e => freshStepRep((kind(e), lits(e))).length == 1))
+  type FreshFunTuple = (ExpKind, Seq[Lit] => Symbol)
+  val freshForKind = SetTable.empty[FreshFunTuple]
+  def initFreshForKind(): Unit = {
+    freshForKind += ((Var, (lits: Seq[Lit]) => {
+      val x = lits(0).asInstanceOf[Symbol]
+      Symbol("X_" + x.name)
+    }))
+    freshForKind += ((App, lits => Symbol("X$App")))
+    freshForKind += ((Abs, lits => Symbol("X$Abs")))
+  }
 
   val fresh = WITH.RECURSIVE[FreshTuple] (fresh =>
-      (SELECT ((e: Rep[ExpTuple]) => id(e) -> freshStepRep ((kind(e), lits(e), Seq())))
-       FROM Exp.table // 0-ary
-       GROUP BY ((e: Rep[ExpTuple]) => id(e)))
+      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshFunTuple]) => id(e) -> f._2(lits(e)))
+       FROM (Exp.table, freshForKind)
+       WHERE ((e, f) => kind(e) == f._1))
     UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshTuple]) => id(e) -> f._2)
-       FROM (Exp.table, fresh) // propagate
-       WHERE ((e,f) => subseq(e).contains(f._1))))
+      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
+       FROM (Exp.table, fresh) // propagate >=1-ary
+       WHERE ((e,v) => subseq(e).length >= 1 AND subseq(e)(0) == v._1))
+    UNION ALL (
+      (SELECT ((e: Rep[ExpTuple], v: Rep[FreshTuple]) => id(e) -> v._2)
+       FROM (Exp.table, fresh) // propagate >=2-ary
+       WHERE ((e,v) => subseq(e).length >= 2 AND subseq(e)(1) == v._1)))
+    )
   )
 
   val constraints = WITH.RECURSIVE[ConstraintTuple] (constraints =>
@@ -194,27 +206,40 @@ object ConstraintIncTypecheck {
 
   def main(args: Array[String]): Unit = {
     val resultTypes = constraints.asMaterialized
+    val freshVars = fresh.asMaterialized
+
+    initFreshForKind()
     val root = Root(constraints, staticData (rootTypeExtractor))
 
     val e = Add(Num(17), Add(Num(10), Num(2)))
     root.set(e)
     Predef.println(s"Type of $e is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
 
     val e2 = Abs('x, Add(Num(10), Num(2)))
     root.set(e2)
     Predef.println(s"Type of $e2 is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
 
     val e3 = Abs('x, Add(Num(10), Var('x)))
     root.set(e3)
     Predef.println(s"Type of $e3 is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
 
     val e4 = Abs('x, Add(Var('err), Var('x)))
     root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
 
     val e5 = Abs('x, Abs('y, Add(Var('x), Var('y))))
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
+    freshVars foreach (Predef.println(_))
+    Predef.println()
 
 //    val e6 = Var('x)
 //    root.set(e6)
