@@ -67,9 +67,8 @@ object ConstraintTypecheck {
 
   def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintData]): ConstraintData = {
     import scala.collection._
-    import Predef.Set
     e match {
-      case Num => (TNum, Seq(), Seq(), Set())
+      case Num => (TNum, Seq(), Seq(), Seq())
       case Add =>
         val (t1, cons1, reqs1, free1) = sub(0)
         val (_t2, _cons2, _reqs2, free2) = sub(1)
@@ -82,8 +81,8 @@ object ConstraintTypecheck {
         (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        val X = TVar(tick(Symbol("X_" + x.name), Set()))
-        (X, Seq(), Seq(VarRequirement(x, X)), Set(X.x))
+        val X = TVar(tick(Symbol("X_" + x.name), Seq()))
+        (X, Seq(), Seq(VarRequirement(x, X)), Seq(X.x))
       case App =>
         val (t1, cons1, reqs1, free1) = sub(0)
         val (_t2, _cons2, _reqs2, free2) = sub(1)
@@ -93,7 +92,7 @@ object ConstraintTypecheck {
         val X = TVar(tick('X$App, mfree))
         val fcons = EqConstraint(TFun(t2, X), t1)
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
-        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree + X.x)
+        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs, X.x +: mfree)
       case Abs =>
         val x = lits(0).asInstanceOf[Symbol]
         val (t, cons, reqs, free) = sub(0)
@@ -101,10 +100,10 @@ object ConstraintTypecheck {
         val X = TVar(tick('X$Abs, free))
         val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
         val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t)}
-        (TFun(X, t), cons ++ xcons, otherReqs, free + X.x)
+        (TFun(X, t), cons ++ xcons, otherReqs, X.x +: free)
       case Root.Root =>
         if (sub.isEmpty)
-          (TVar('Uninitialized), Seq(EqConstraint(TNum, TFun(TNum, TNum))), Seq(), Set())
+          (TVar('Uninitialized), Seq(EqConstraint(TNum, TFun(TNum, TNum))), Seq(), Seq())
         else {
           val (t, cons, reqs, free) = sub(0)
           (Root.TRoot(t), cons, reqs, free)

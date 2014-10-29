@@ -40,22 +40,22 @@ object Constraint {
     None
   }
 
-  def mergeFree(free1: Set[Symbol], free2: Set[Symbol]) = {
+  def mergeFree(free1: Seq[Symbol], free2: Seq[Symbol]) = {
     var allfree = free1 ++ free2
     var mfree = free1
     var ren = Map[Symbol, Symbol]()
     for (x <- free2)
       if (free1.contains(x)) {
         val newx = tick(x, allfree)
-        allfree += newx
-        mfree += newx
+        allfree = newx +: allfree
+        mfree = newx +: mfree
         ren += x -> newx
       }
     (mfree, ren)
   }
 
   val name = """([^\d]+)_(\d+)""".r
-  def tick(x: Symbol, avoid: Set[Symbol]): Symbol = {
+  def tick(x: Symbol, avoid: Seq[Symbol]): Symbol = {
     val x2 = x.name match {
       case name(s, i) => Symbol(s + "_" + (i.toInt + 1))
       case s => Symbol(s + "_" + 0)
@@ -70,10 +70,13 @@ object Constraint {
     (p._1.rename(ren), p._2.map(_.rename(ren)), p._3.map(_.rename(ren)))
 
   type ConstraintTuple = (ExpKey, ConstraintData)
-  type ConstraintData = (Type, Seq[Constraint], Seq[Requirement], Set[Symbol])
+  type ConstraintData = (Type, Seq[Constraint], Seq[Requirement], Seq[Symbol])
+
+  type ConstraintIncTuple = (ExpKey, ConstraintIncData)
+  type ConstraintIncData = (Type, Seq[Constraint], Seq[Requirement])
 
   type FreshTuple = (ExpKey, FreshData)
-  type FreshData = (Set[Symbol], Map[Symbol, Symbol])
+  type FreshData = (Seq[Symbol], Map[Symbol, Symbol])
 
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2

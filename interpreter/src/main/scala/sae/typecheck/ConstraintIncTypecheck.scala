@@ -67,71 +67,71 @@ object ConstraintIncTypecheck {
   )
 
   def freshStep(e: ExpKind, lits: Seq[Lit], sub: Seq[FreshData]): FreshData = {
-    import Predef.{Set,Map}
+    import scala.collection.Seq
     e match {
-      case Num => (Set(), Map())
+      case Num => (Seq(), Map())
       case Add => mergeFree(sub(0)._1, sub(1)._1)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        (Set(Symbol("X_" + x.name)), Map())
+        (Seq(Symbol("X_" + x.name)), Map())
       case App =>
         val (mfree, ren) = mergeFree(sub(1)._1, sub(2)._1)
         val x = tick('X$App, mfree)
-        (mfree + x, ren)
+        (x +: mfree, ren)
       case Abs =>
         val x = tick('X$abs, sub(0)._1)
-        (sub(0)._1 + x, Map())
-      case Root.Root => if (sub.isEmpty) (Set(), Map()) else sub(0)
+        (x +: sub(0)._1, Map())
+      case Root.Root => if (sub.isEmpty) (Seq(), Map()) else sub(0)
     }
   }
 
-  def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
-    (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => typecheckStep(p._1, p._2, p._3)
+  def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintIncData], FreshData)) => ConstraintIncData] = staticData (
+    (p: (ExpKind, Seq[Lit], Seq[ConstraintIncData], FreshData)) => typecheckStep(p._1, p._2, p._3, p._4)
   )
 
-  def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintData]): ConstraintData = {
+  def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintIncData], fresh: FreshData): ConstraintIncData = {
     import scala.collection._
     import Predef.Set
     e match {
-      case Num => (TNum, Seq(), Seq(), Set())
+      case Num => (TNum, Seq(), Seq())
       case Add =>
-        val (t1, cons1, reqs1, free1) = sub(0)
-        val (_t2, _cons2, _reqs2, free2) = sub(1)
-        val (mfree, ren) = mergeFree(free1, free2)
+        val (t1, cons1, reqs1) = sub(0)
+        val (_t2, _cons2, _reqs2) = sub(1)
+        val ren = fresh._2
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val lcons = EqConstraint(TNum, t1)
         val rcons = EqConstraint(TNum, t2)
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
-        (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree)
+        (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        val X = TVar(tick(Symbol("X_" + x.name), Set()))
-        (X, Seq(), Seq(VarRequirement(x, X)), Set(X.x))
+        val X = TVar(fresh._1(0))
+        (X, Seq(), Seq(VarRequirement(x, X)))
       case App =>
-        val (t1, cons1, reqs1, free1) = sub(0)
-        val (_t2, _cons2, _reqs2, free2) = sub(1)
-        val (mfree, ren) = mergeFree(free1, free2)
+        val (t1, cons1, reqs1) = sub(0)
+        val (_t2, _cons2, _reqs2) = sub(1)
+        val ren = fresh._2
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
-        val X = TVar(tick('X$App, mfree))
+        val X = TVar(fresh._1(0))
         val fcons = EqConstraint(TFun(t2, X), t1)
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
-        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree + X.x)
+        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs)
       case Abs =>
         val x = lits(0).asInstanceOf[Symbol]
-        val (t, cons, reqs, free) = sub(0)
+        val (t, cons, reqs) = sub(0)
 
-        val X = TVar(tick('X$Abs, free))
+        val X = TVar(fresh._1(0))
         val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
         val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t)}
-        (TFun(X, t), cons ++ xcons, otherReqs, free + X.x)
+        (TFun(X, t), cons ++ xcons, otherReqs)
       case Root.Root =>
         if (sub.isEmpty)
-          (TVar('Uninitialized), Seq(EqConstraint(TNum, TFun(TNum, TNum))), Seq(), Set())
+          (TVar('Uninitialized), Seq(EqConstraint(TNum, TFun(TNum, TNum))), Seq())
         else {
-          val (t, cons, reqs, free) = sub(0)
-          (Root.TRoot(t), cons, reqs, free)
+          val (t, cons, reqs) = sub(0)
+          (Root.TRoot(t), cons, reqs)
         }
     }
   }
@@ -181,21 +181,26 @@ object ConstraintIncTypecheck {
   )
 
 
-  val constraints = WITH.RECURSIVE[ConstraintTuple] (constraints =>
-      (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq())))
-       FROM Exp.table // 0-ary
-       WHERE (e => subseq(e).length == 0))
-    UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(cdata(t1)))))
-       FROM (Exp.table, constraints) // 1-ary
-       WHERE ((e,t1) => subseq(e).length == 1
-                    AND subseq(e)(0) == cid(t1)))
+  val constraints = WITH.RECURSIVE[ConstraintIncTuple] (constraints =>
+      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(), f._2)))
+       FROM (Exp.table, fresh) // 0-ary
+       WHERE ((e,f) => id(e) == f._1
+                   AND subseq(e).length == 0))
+    UNION ALL ( queryToInfixOps
+      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshTuple], t1: Rep[ConstraintIncTuple]) =>
+         id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(t1._2), f._2)))
+       FROM (Exp.table, fresh, constraints) // 1-ary
+       WHERE ((e,f,t1) => id(e) == f._1
+                      AND subseq(e).length == 1
+                      AND subseq(e)(0) == t1._1))
     UNION ALL
-      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintTuple], t2: Rep[ConstraintTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(cdata(t1), cdata(t2)))))
-       FROM (Exp.table, constraints, constraints) // 2-ary
-       WHERE ((e,t1,t2) => subseq(e).length == 2
-                       AND subseq(e)(0) == cid(t1)
-                       AND subseq(e)(1) == cid(t2)))
+      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshTuple], t1: Rep[ConstraintIncTuple], t2: Rep[ConstraintIncTuple]) =>
+         id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(t1._2, t2._2), f._2)))
+       FROM (Exp.table, fresh, constraints, constraints) // 2-ary
+       WHERE ((e,f,t1,t2) => id(e) == f._1
+                         AND subseq(e).length == 2
+                         AND subseq(e)(0) == t1._1
+                         AND subseq(e)(1) == t2._1))
     )
   )
 
@@ -212,10 +217,10 @@ object ConstraintIncTypecheck {
   }
 
 
-  val rootTypeExtractor: ConstraintData => Either[Type, TError] = (x: ConstraintData) => {
-    val (t, cons, reqs, free) = x
+  val rootTypeExtractor: ConstraintIncData => Either[Type, TError] = (x: ConstraintIncData) => {
+    val (t, cons, reqs) = x
     if (!reqs.isEmpty)
-      scala.Right(s"Unresolved context requirements $reqs, type $t, constraints $cons, free $free")
+      scala.Right(s"Unresolved context requirements $reqs, type $t, constraints $cons")
     else {
       val (s, unres) = solveConstraints(cons)
       if (unres.isEmpty)
@@ -224,7 +229,7 @@ object ConstraintIncTypecheck {
           case _ => throw new RuntimeException(s"Unexpected root type $t")
         }
       else
-        scala.Right(s"Unresolved constraints $unres, type ${t.subst(s)}, free $free")
+        scala.Right(s"Unresolved constraints $unres, type ${t.subst(s)}")
     }
   }
 
