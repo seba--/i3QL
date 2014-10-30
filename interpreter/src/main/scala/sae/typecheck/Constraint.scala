@@ -40,7 +40,7 @@ object Constraint {
     None
   }
 
-  def mergeFree(free1: Seq[Symbol], free2: Seq[Symbol]) = {
+  def mergeFresh(free1: Seq[Symbol], free2: Seq[Symbol]) = {
     var allfree = free1 ++ free2
     var mfree = free1
     var ren = Map[Symbol, Symbol]()

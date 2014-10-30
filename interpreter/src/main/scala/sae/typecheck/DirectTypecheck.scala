@@ -40,12 +40,14 @@ object DirectTypecheck  {
     case Num => scala.Left(TNum)
     case String => scala.Left(TString)
     case Add =>
-      if (sub(0) != TNum)
-        scala.Right(s"Left child of Add should be TNum but was ${sub(0)}")
-      else if (sub(1) != TNum)
-        scala.Right(s"Right child of Add should be TNum but was ${sub(1)}")
+      val ltype = sub(0)
+      val rtype = sub(1)
+      if (ltype != rtype)
+        scala.Right(s"Left and right child of Add must have same type, but was $ltype and $rtype")
+      else if (ltype != TNum && ltype != TString)
+        scala.Right(s"Left and right child must have type TNum or TString, but was $ltype")
       else
-        scala.Left(TNum)
+        scala.Left(ltype)
     case Root.Root => if (sub.isEmpty) scala.Right("Uninitialized root") else scala.Left(Root.TRoot(sub(0)))
   }
 
@@ -74,15 +76,18 @@ object DirectTypecheck  {
   } 
   
   def main(args: Array[String]): Unit = {
+    val expressions = Exp.table.asMaterialized
     val resultTypes = types.asMaterialized
     val root = Root(types, staticData (rootTypeExtractor))
 
-    val e = Add(Num(17), Num(12))
+    val e = Add(Num(17), Num(18))
     root.set(e)
+    expressions foreach (Predef.println(_))
     Predef.println(s"Type of $e is ${root.Type}")
 
-    val e2 = Add(Num(17), Add(Num(10), Num(2)))
+    val e2 = Add(String("ab"), String("b"))
     root.set(e2)
+    expressions foreach (Predef.println(_))
     Predef.println(s"Type of $e2 is ${root.Type}")
 
     val e3 = Add(Add(Num(17), Num(1)), Add(Num(10), Num(2)))

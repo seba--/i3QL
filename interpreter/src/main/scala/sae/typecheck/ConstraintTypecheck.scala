@@ -72,7 +72,7 @@ object ConstraintTypecheck {
       case Add =>
         val (t1, cons1, reqs1, free1) = sub(0)
         val (_t2, _cons2, _reqs2, free2) = sub(1)
-        val (mfree, ren) = mergeFree(free1, free2)
+        val (mfree, ren) = mergeFresh(free1, free2)
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val lcons = EqConstraint(TNum, t1)
@@ -81,12 +81,12 @@ object ConstraintTypecheck {
         (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        val X = TVar(tick(Symbol("X_" + x.name), Seq()))
+        val X = TVar(tick(Symbol("X_" + 0), Seq()))
         (X, Seq(), Seq(VarRequirement(x, X)), Seq(X.x))
       case App =>
-        val (t1, cons1, reqs1, free1) = sub(0)
-        val (_t2, _cons2, _reqs2, free2) = sub(1)
-        val (mfree, ren) = mergeFree(free1, free2)
+        val (t1, cons1, reqs1, fresh1) = sub(0)
+        val (_t2, _cons2, _reqs2, fresh2) = sub(1)
+        val (mfree, ren) = mergeFresh(fresh1, fresh2)
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val X = TVar(tick('X$App, mfree))
@@ -170,7 +170,7 @@ object ConstraintTypecheck {
     root.set(e2)
     Predef.println(s"Type of $e2 is ${root.Type}")
 
-    val e3 = Abs('x, Add(Num(10), Var('x)))
+    val e3 = Abs('x, Add(Var('x), Var('x)))
     root.set(e3)
     Predef.println(s"Type of $e3 is ${root.Type}")
 
@@ -178,7 +178,7 @@ object ConstraintTypecheck {
     root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
 
-    val e5 = Abs('x, Abs('y, Add(Var('x), Var('y))))
+    val e5 = Abs('x, Abs('y, App(Var('x), Var('y))))
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
 

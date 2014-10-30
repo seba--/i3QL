@@ -71,13 +71,13 @@ object ConstraintIncTypecheck {
     e match {
       case Num => (Seq(), Seq())
       case Add =>
-        val (mfree, ren) = mergeFree(sub(0)._1, sub(1)._1)
-        (Seq(), Seq(ren))
+        val (mfree, ren) = mergeFresh(sub(0)._1, sub(1)._1)
+        (mfree, Seq(ren))
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
         (Seq(Symbol("X_" + x.name)), Seq())
       case App =>
-        val (mfree, ren) = mergeFree(sub(1)._1, sub(2)._1)
+        val (mfree, ren) = mergeFresh(sub(1)._1, sub(2)._1)
         val x = tick('X$App, mfree)
         (x +: mfree, Seq(ren))
       case Abs =>
