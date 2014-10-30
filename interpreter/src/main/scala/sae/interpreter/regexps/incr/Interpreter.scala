@@ -1,15 +1,15 @@
 package sae.interpreter.regexps.incr
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.{SetTable, Table}
-import idb.observer.{NotifyObservers, Observer}
+import sae.interpreter.regexps._
+
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
 
 
 
 object Interpreter {
+
+	val debug = true
 
 	def main(args : Array[String]) {
 		val table = createITable
@@ -33,6 +33,9 @@ object Interpreter {
 		println()
 		println("> val s4 = insertString(\"cccba\",table)")
 		val s4 = insertString(table, "cccba")
+		println()
+		println("> val s5 = insertString(\"\",table)")
+		val s5 = insertString(table, "")
 		println()
 
 
@@ -79,8 +82,8 @@ object Interpreter {
 		val t4_1 = insertTask(table, appendTag,Seq(s1,s2))
 		println("return -> " + string(table, values(t4_1).asInstanceOf[ListKey]))
 		println()
-		println("> val t4_2 = insertNewTask(table, appendTag,Seq(s0,-1))")
-		val t4_2 = insertTask(table, appendTag,Seq(s0,-1))
+		println("> val t4_2 = insertNewTask(table, appendTag,Seq(s0,s5))")
+		val t4_2 = insertTask(table, appendTag,Seq(s0,s5))
 		println("return -> " + string(table, values(t4_2).asInstanceOf[ListKey]))
 		println()
 
@@ -116,71 +119,7 @@ object Interpreter {
 		val t10 = insertTask(table, interpTag,Seq(e3,s4))
 		println("return -> " + stringList(table, values(t10).asInstanceOf[ListKey]))
 		println()
-
-
-	  /*
-		val exp0 = Terminal("a")
-		val exp1 = Alt(Alt(Terminal("a"), Terminal("b")), Terminal("c"))
-		val exp2 =
-			Sequence(
-				Sequence(
-					Terminal("b"),
-					Terminal("a")
-				),
-				Alt(
-					Terminal("c"),
-					Terminal("b")
-				)
-			)
-
-		val exp3 =
-			Alt(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val exp4 =
-			Sequence(
-				Terminal("b"),
-				Terminal("a")
-			)
-
-		val exp5 =
-			Asterisk(
-				Terminal("b")
-			)
-
-		val exp6 =
-			Sequence(
-				Terminal("b"),
-				Sequence(
-					Terminal("a"),
-					Sequence(
-						Asterisk(
-							Alt(
-								Terminal("a"),
-								Terminal("b")
-							)
-						),
-						Terminal("c")
-					)
-				)
-			)
-
-
-		val e0 = insertExp(exp3, table)
-
-		val task0 = insertNewTask("interp", Seq(exp0, s0), table)   */
 	}
-
-
-	var printUpdates = true
-
-	trait RegExp
-	case class Terminal(s: String) extends RegExp
-	case class Alt(r1: RegExp, r2: RegExp) extends RegExp
-	case class Asterisk(r1: RegExp) extends RegExp
-	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
 
 	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
@@ -312,7 +251,7 @@ object Interpreter {
 	type TaskKey = Int
 	type TaskIndex = Int
 	type TaskTag = String
-	type Task = (TaskKey, TaskTag, TaskIndex, InputKey) //Parent Task, Index of the task within one branch, input parameters
+	type Task = (TaskKey, TaskTag, TaskIndex, InputKey) //Parent Task, Index of the task within one method, input parameters
 
 	type InterpValue = Set[String]
 
@@ -339,6 +278,10 @@ object Interpreter {
 	val sublistTag : TaskTag = "List.sublist"
 	val appendTag : TaskTag = "List.append"
 	val flatMapInterpTag : TaskTag = "List.flatMapInterp"
+
+	val terminalKind = TerminalKind
+
+	val EMPTY_LIST : ListElement = (None, -1)
 
 	def insertTask(tab : ITable, tag : TaskTag, params : Seq[Any]) : TaskKey = {
 		val input = inputTable(tab).add(params)
@@ -371,25 +314,44 @@ object Interpreter {
 
 	def insertList(tab : ITable, s : Seq[Any]) : ListKey =
 		if (s.isEmpty)
-			-1
+			listTable(tab).add(EMPTY_LIST)
 		else
 			listTable(tab).add((s.head,insertList(tab,s.tail)))
 
-	def list(tab : ITable, k : ListKey) : List[Any] =
-		if (k == -1)
-			Nil
-		else {
-			val e = listTable(tab)(k)
-			e._1 :: list(tab, e._2)
+	def list(tab : ITable, k : ListKey) : List[Any] = listTable(tab)(k) match {
+		case EMPTY_LIST => Nil
+		case (head , tail) => head :: list(tab, tail)
+	}
+
+	def string(tab : ITable, k : ListKey) : String = listTable(tab)(k) match {
+		case EMPTY_LIST => ""
+		case (head , tail) => head.toString + string(tab, tail)
+	}
+
+/*	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
+
+		val oldIList : ListElement = listTable(tab)(oldKey)
+		(oldIList, newList) match {
+			case (())
 		}
 
-	def string(tab : ITable, k : ListKey) : String =
-		if (k == -1)
-			""
-		else {
-			val e = listTable(tab)(k)
-			e._1.toString + string(tab, e._2)
+	}
+
+	def diffExp(tab : ITable, oldKey : ExpKey, newExp : Exp) {
+		val oldIExp : ExpNode = expTable(tab)(oldKey)
+		(oldIExp, newExp) match {
+			case ((TerminalKind, _, Seq(s0)), Terminal(s1)) => expTable(tab).update(oldKey, (TerminalKind, Seq(), Seq(s1)))
+
+			case ((AltKind, Seq(a0,a1), _), Alt(b0, b1)) => {
+				diffExp(tab, a0, b0)
+				diffExp(tab, a1, b1)
+			}
+
+
+
+
 		}
+	}   */
 
 
 
@@ -491,109 +453,91 @@ object Interpreter {
 		import idb.syntax.iql.IR._
 		import idb.syntax.iql._
 
-		protected val conditionTerminal : Rep[IExp => Boolean] = staticData (
+		protected val isTerminal : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == TerminalKind
 		)
 
-		protected val conditionSequence : Rep[IExp => Boolean] = staticData (
+		protected val isSequence : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == SequenceKind
 		)
 
-		protected val conditionAlt : Rep[IExp => Boolean] = staticData (
+		protected val isAlt : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == AltKind
 		)
 
-		protected val conditionAsterisk : Rep[IExp => Boolean] = staticData (
+		protected val isAsterisk : Rep[IExp => Boolean] = staticData (
 			(e : IExp) => e._2._1 == AsteriskKind
 		)
 
-		private val recTypeIsInput : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[InputType]
-		)
-
-		private val recTypeIsValue : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ValueType]
-		)
-
-		private val recTypeIsTask : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[TaskType]
-		)
-
-		private val recTypeIsExp : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ExpType]
-		)
-
-		private val recTypeIsList : Rep[RecType => Boolean] = staticData (
-			(r : RecType) => r.isInstanceOf[ListType]  		)
-
 
 		private val recTypeToInput : Rep[RecType => IInput] = staticData (
-			(r : RecType) => r.asInstanceOf[InputType].input
+			(r : RecType) => r.asInstanceOf[InputType].e
 		)
 
 		private val recTypeToValue : Rep[RecType => IValue] = staticData (
-			(r : RecType) => r.asInstanceOf[ValueType].value
+			(r : RecType) => r.asInstanceOf[ValueType].e
 		)
 
 		private val recTypeToTask : Rep[RecType => ITask] = staticData (
-			(r : RecType) => r.asInstanceOf[TaskType].task
+			(r : RecType) => r.asInstanceOf[TaskType].e
 		)
 
 		private val recTypeToExp : Rep[RecType => IExp] = staticData (
-			(r : RecType) => r.asInstanceOf[ExpType].exp
+			(r : RecType) => r.asInstanceOf[ExpType].e
 		)
 
 		private val recTypeToList : Rep[RecType => IList] = staticData (
-			(r : RecType) => r.asInstanceOf[ListType].l
+			(r : RecType) =>
+				r.asInstanceOf[ListType].e
 		)
 
 		protected def inputRelation(r : Rep[Query[RecType]]) : Rep[Query[IInput]] =
-			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsInput(e))
+			SELECT ((e : Rep[RecType]) => recTypeToInput(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[InputType])
 
 		protected def valueRelation(r : Rep[Query[RecType]]) : Rep[Query[IValue]] =
-			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsValue(e))
+			SELECT ((e : Rep[RecType]) => recTypeToValue(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ValueType])
 
 		protected def taskRelation(r : Rep[Query[RecType]]) : Rep[Query[ITask]] =
-			SELECT ((e : Rep[RecType]) => recTypeToTask(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsTask(e))
+			SELECT ((e : Rep[RecType]) => recTypeToTask(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[TaskType])
 
 		protected def expRelation(r : Rep[Query[RecType]]) : Rep[Query[IExp]] =
-			SELECT ((e : Rep[RecType]) => recTypeToExp(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsExp(e))
+			SELECT ((e : Rep[RecType]) => recTypeToExp(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ExpType])
 
 		protected def listRelation(r : Rep[Query[RecType]]) : Rep[Query[IList]] =
-			SELECT ((e : Rep[RecType]) => recTypeToList(e)) FROM r WHERE ( (e : Rep[RecType]) => recTypeIsList(e))
+			SELECT ((e : Rep[RecType]) => recTypeToList(e)) FROM r WHERE ( (e : Rep[RecType]) => e.IsInstanceOf[ListType])
 
 
 		private val valueToRecType : Rep[((String, IValue)) => RecType] = staticData (
 			(r : (String, IValue)) => {
-				Predef.println("Value[" + r._1 + "]\t-> " + r._2)
+				if (debug) Predef.println("Value[" + r._1 + "]\t-> " + r._2)
 				ValueType(r._2)
 			}
 		)
 
 		private val taskToRecType : Rep[((String, ITask)) => RecType] = staticData (
 			(r : (String, ITask)) => {
-				Predef.println("Task[" + r._1 + "]\t-> " + r._2)
+				if (debug) Predef.println("Task[" + r._1 + "]\t-> " + r._2)
 				TaskType(r._2)
 			}
 		)
 
 		private val expToRecType : Rep[IExp => RecType] = staticData (
 			(r : IExp) => {
-				Predef.println("Exp\t-\t-\t-> " + r)
+				if (debug) Predef.println("Exp\t-\t-\t-> " + r)
 				ExpType(r)
 			}
 		)
 
 		private val inputToRecType : Rep[IInput => RecType] = staticData (
 			(r : IInput) => {
-				Predef.println("Input\t-\t-\t-> " + r)
+				if (debug) Predef.println("Input\t-\t-\t-> " + r)
 				InputType(r)
 			}
 		)
 
 		private val listToRecType : Rep[IList => RecType] = staticData (
 			(r : IList) => {
-				Predef.println("List\t-\t-\t-> " + r)
+				if (debug) Predef.println("List\t-\t-\t-> " + r)
 				ListType(r)
 			}
 		)
@@ -631,7 +575,7 @@ object Interpreter {
 		protected def makeExp(k : Rep[ExpKey], e : Rep[ExpNode]) =
 			expToRecType((k,e))
 
-		protected def makeStringList(k : Rep[ListKey], e : Rep[ListElement]) : Rep[RecType] =
+		protected def makeList(k : Rep[ListKey], e : Rep[ListElement]) : Rep[RecType] =
 			listToRecType((k,e))
 
 		protected def newTask(info : Rep[String])(t : Rep[Task]) : Rep[RecType] =
@@ -652,7 +596,7 @@ object Interpreter {
 			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2)) FROM tab._3
 
 		protected val listRec : Relation[RecType] =
-			SELECT ((e : Rep[IList]) => makeStringList(e._1,e._2)) FROM tab._4
+			SELECT ((e : Rep[IList]) => makeList(e._1,e._2)) FROM tab._4
 
 		protected val recursionBase :  Relation[RecType] =
 			tasksRec UNION ALL (expRec) UNION ALL (inputRec) UNION ALL (listRec)
@@ -685,6 +629,7 @@ object Interpreter {
 		private def listGetListKey(s : Rep[IList]) : Rep[ListKey] = s._1
 		private def listGetHead(s : Rep[IList]) : Rep[Any] = s._2._1
 		private def listGetTail(s : Rep[IList]) : Rep[ListKey] = s._2._2
+		private def listIsEmpty(s : Rep[IList]) : Rep[Boolean] = s._2 == __anythingAsUnit(EMPTY_LIST)
 
 		private val valuesInternal : Rep[Query[RecType]] = {
 			WITH RECURSIVE (
@@ -705,15 +650,16 @@ object Interpreter {
 							*/
 							 	//if (s2 == "")
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l : Rep[IList]) =>
 										makeValue(startsWithTag + "#val0")(taskGetId(t),__anythingAsUnit(true))
 								) FROM (
-									taskRel, inputRel
+									taskRel, inputRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(startsWithTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(1) == __anythingAsUnit(-1)
+											inputGetParams(in)(1) == listGetListKey(l) AND
+											listIsEmpty(l) == true
 									)
 								,
 								//if (s1 == "" && s2 != "")
@@ -723,30 +669,30 @@ object Interpreter {
 								) FROM (
 									taskRel, inputRel, listRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput], s1 : Rep[IList], s2 : Rep[IList]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList], l2 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(startsWithTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == __anythingAsUnit(-1) AND
-											inputGetParams(in)(1) == listGetListKey(s2) AND
-											listGetListKey(s2) != __anythingAsUnit(-1)
-
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											inputGetParams(in)(1) == listGetListKey(l2) AND
+											listIsEmpty(l1) == true AND
+											listIsEmpty(l2) == false
 									)
 								,
 								//if (s1 != "" && s2 != "" && s1(0) != s2(0))
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput], s1 : Rep[IList], s2 : Rep[IList]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList], l2 : Rep[IList]) =>
 										makeValue(startsWithTag + "#val2")(taskGetId(t),__anythingAsUnit(false))
 								) FROM (
 									taskRel, inputRel, listRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput], s1 : Rep[IList], s2 : Rep[IList]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList], l2 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(startsWithTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == listGetListKey(s1) AND
-											inputGetParams(in)(1) == listGetListKey(s2) AND
-											listGetListKey(s1) != __anythingAsUnit(-1) AND
-											listGetListKey(s2) != __anythingAsUnit(-1) AND
-											listGetHead(s1) != listGetHead(s2)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											inputGetParams(in)(1) == listGetListKey(l2) AND
+											listIsEmpty(l1) == false AND
+											listIsEmpty(l2) == false AND
+											listGetHead(l1) != listGetHead(l2)
 									)
 								,
 								//if (s1 != "" && s2 != "" && s1(0) == s2(0) startsWith(s1.tail, s2.tail)
@@ -767,8 +713,8 @@ object Interpreter {
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == listGetListKey(s1) AND
 											inputGetParams(in)(1) == listGetListKey(s2) AND
-											listGetListKey(s1) != __anythingAsUnit(-1) AND
-											listGetListKey(s2) != __anythingAsUnit(-1) AND
+											listIsEmpty(s1) == false AND
+											listIsEmpty(s2) == false AND
 											listGetHead(s1) == listGetHead(s2)
 								)
 								,
@@ -794,16 +740,17 @@ object Interpreter {
 							*/
 								//if (l1 == nil)
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										makeValue(sizeTag + "#val0")(taskGetId(t),__anythingAsUnit(0))
 								) FROM (
-									taskRel, inputRel
+									taskRel, inputRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(sizeTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == __anythingAsUnit(-1)
-									)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == true
+								)
 								,
 								//if (l1 != "")
 								//Task creation
@@ -821,7 +768,8 @@ object Interpreter {
 									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(sizeTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == listGetListKey(l1)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == false
 
 									)
 								,
@@ -847,15 +795,16 @@ object Interpreter {
 						    */
 								 //if (l1 == nil || n == 0)
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										makeValue(sublistTag + "#val0")(taskGetId(t), inputGetParams(in)(0))
 								) FROM (
-									taskRel, inputRel
+									taskRel, inputRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(sublistTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											(inputGetParams(in)(0) == __anythingAsUnit(-1) OR inputGetParams(in)(1) == __anythingAsUnit(0))
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											(listIsEmpty(l1) == true OR inputGetParams(in)(1) == __anythingAsUnit(0))
 								)
 								,
 								//if (l1 != nil && n != 0)
@@ -874,6 +823,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(sublistTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == false AND
 											inputGetParams(in)(1) != __anythingAsUnit(0)
 								)
 								,
@@ -898,15 +848,16 @@ object Interpreter {
 							*/
 								//if (l1 == nil)
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										makeValue(appendTag + "#val0")(taskGetId(t),inputGetParams(in)(1))
 								) FROM (
-									taskRel, inputRel
+									taskRel, inputRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(appendTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == __anythingAsUnit(-1)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == true
 								)
 								,
 								//if (l1 != nil)
@@ -924,7 +875,8 @@ object Interpreter {
 									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(appendTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == listGetListKey(l1)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == false
 								)
 								,
 								//Value propagation
@@ -951,15 +903,16 @@ object Interpreter {
 							*/
 								//if (l1.isEmpty)
 								SELECT (
-									(t : Rep[ITask], in : Rep[IInput]) =>
-										makeValue(flatMapInterpTag + "#val0.0")(taskGetId(t),__anythingAsUnit(-1))
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
+										makeValue(flatMapInterpTag + "#val0.0")(taskGetId(t),createList(Seq()))
 								) FROM (
-									taskRel, inputRel
+									taskRel, inputRel, listRel
 								) WHERE (
-									(t : Rep[ITask], in : Rep[IInput]) =>
+									(t : Rep[ITask], in : Rep[IInput], l1 : Rep[IList]) =>
 										taskGetTag(t) == __anythingAsUnit(flatMapInterpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
-											inputGetParams(in)(0) == __anythingAsUnit(-1)
+											inputGetParams(in)(0) == listGetListKey(l1) AND
+											listIsEmpty(l1) == true
 								)
 								,
 								//if !(l1.isEmpty)
@@ -978,7 +931,8 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(flatMapInterpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == listGetListKey(l1) AND
-											inputGetParams(in)(1) == expGetExpKey(e1)
+											inputGetParams(in)(1) == expGetExpKey(e1) AND
+											listIsEmpty(l1) == false
 								)
 								,
 								SELECT (
@@ -995,7 +949,8 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(flatMapInterpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == listGetListKey(l1) AND
-											inputGetParams(in)(1) == expGetExpKey(e1)
+											inputGetParams(in)(1) == expGetExpKey(e1) AND
+											listIsEmpty(l1) == false
 								)
 								,
 								SELECT (
@@ -1060,7 +1015,7 @@ object Interpreter {
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e) AND
 											inputGetParams(in)(1) == listGetListKey(s) AND
-											conditionTerminal(e)
+											isTerminal(e)
 								)
 								,
 								//... && s1.startsWith(e1.s))
@@ -1109,7 +1064,12 @@ object Interpreter {
 								,
 								SELECT (
 									(t : Rep[ITask], child : Rep[ITask], v : Rep[IValue]) =>
-										makeValue(interpTag + "#val0.0")(taskGetId(t),createList(Seq(valGetValue(v))))
+										makeValue(interpTag + "#val0.0")(
+											taskGetId(t),
+											consList(
+												valGetValue(v), createList(Seq()) //TODO: Why can't we say createList(Seq(valGetValue(v)))
+											)
+										)
 								) FROM (
 									taskRel, taskRel, valueRel
 								) WHERE (
@@ -1123,7 +1083,7 @@ object Interpreter {
 						        //... && !s1.startsWith(e1.s))
 								SELECT (
 									(t : Rep[ITask], child : Rep[ITask], v : Rep[IValue]) =>
-										makeValue(interpTag + "#val0.1")(taskGetId(t), __anythingAsUnit(-1))
+										makeValue(interpTag + "#val0.1")(taskGetId(t), createList(Seq()))
 								) FROM (
 									taskRel, taskRel, valueRel
 								) WHERE (
@@ -1153,7 +1113,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAlt(e1) AND
+											isAlt(e1) AND
 											expGetChildren(e1)(0) == expGetExpKey(r1)
 								)
 						        ,
@@ -1173,7 +1133,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAlt(e1) AND
+											isAlt(e1) AND
 											expGetChildren(e1)(1) == expGetExpKey(r2)
 								)
 								,
@@ -1232,7 +1192,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionSequence(e1)
+											isSequence(e1)
 								)
 								,
 								//flatmap
@@ -1288,7 +1248,7 @@ object Interpreter {
 										taskGetTag(t) == __anythingAsUnit(interpTag) AND
 											taskGetInputKey(t) == inputGetInputKey(in) AND
 											inputGetParams(in)(0) == expGetExpKey(e1) AND
-											conditionAsterisk(e1)
+											isAsterisk(e1)
 								)
 								,
 								//Propagate value
@@ -1317,7 +1277,7 @@ object Interpreter {
 			override val IR = idb.syntax.iql.IR
 		}
 
-		Predef.println(printer.quoteRelation(valuesInternal))
+		if (debug) Predef.println(printer.quoteRelation(valuesInternal))
 
 		val values : Relation[IValue] = valueRelation(valuesInternal)
 		val tasks = taskRelation(valuesInternal).asMaterialized
@@ -1325,10 +1285,9 @@ object Interpreter {
 
 		values.addObserver(result)
 	}
-
-
 }
 
+//These classes need to be defined outside the class in order to be referenceable by the queries.
 trait RegExpKind
 case object TerminalKind extends RegExpKind
 case object AltKind extends RegExpKind
@@ -1336,10 +1295,10 @@ case object AsteriskKind extends RegExpKind
 case object SequenceKind extends RegExpKind
 
 trait RecType
-case class ValueType(value : Interpreter.IValue) extends RecType
-case class InputType(input : Interpreter.IInput) extends RecType
-case class TaskType(task : Interpreter.ITask) extends RecType
-case class ExpType(exp : Interpreter.IExp) extends RecType
-case class ListType(l : Interpreter.IList) extends RecType
+case class ValueType(e : Interpreter.IValue) extends RecType
+case class InputType(e : Interpreter.IInput) extends RecType
+case class TaskType(e : Interpreter.ITask) extends RecType
+case class ExpType(e : Interpreter.IExp) extends RecType
+case class ListType(e : Interpreter.IList) extends RecType
 
 

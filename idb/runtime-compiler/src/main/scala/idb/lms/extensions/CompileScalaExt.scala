@@ -47,7 +47,7 @@ trait CompileScalaExt
 
     var compileCount = 0
 
-    var dumpGeneratedCode = true
+    var dumpGeneratedCode = false
 
     var silent = true
 

@@ -154,8 +154,8 @@ trait Index[K, V]
     }
 
     def added(v: V) {
-        val k = keyFunction (v)
-        add_element (k, v)
-        notify_added ((k, v))
+		val k = keyFunction(v)
+		add_element(k, v)
+		notify_added((k, v))
     }
 }

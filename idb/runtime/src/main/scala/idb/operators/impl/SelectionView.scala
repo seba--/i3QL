@@ -122,6 +122,7 @@ class SelectionView[Domain] (
 		} catch {
 			case e : IndexOutOfBoundsException => false
 			case e : ClassCastException => false
+			case e : NoSuchElementException => false
 		}
 	}
 

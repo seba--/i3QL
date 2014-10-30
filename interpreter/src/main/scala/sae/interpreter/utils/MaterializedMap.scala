@@ -1,6 +1,7 @@
 package sae.interpreter.utils
 
-import idb.observer.Observer
+import idb.Relation
+import idb.observer.{NotifyObservers, Observer}
 import com.google.common.collect.ArrayListMultimap
 
 /**
@@ -44,8 +45,10 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 
 	def apply(k: Key): Value = {
 		val result = materializedMap.get(k)
-		if (result.size != 1)
+		if (result.size > 1)
 			throw new IllegalStateException("There are more values at this position. Key = " + k + ", Value = " + result)
+		else if (result.size == 0)
+			throw new IllegalStateException("There are no values at this position. Key = " + k)
 		result.get(0)
 	}
 
@@ -61,6 +64,5 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 			(e.getKey, e.getValue)
 		}
 	}
-
 
 }

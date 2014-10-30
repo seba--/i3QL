@@ -1,16 +1,8 @@
-package sae.interpreter.regexps
+package sae.interpreter.regexps.nonincr
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.{SetTable, Table}
-import idb.observer.{NotifyObservers, Observer}
-import sae.interpreter.regexps.Interpreter.TaskKey
+import sae.interpreter.regexps._
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
-
-import scala.collection.mutable
-import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 
 object Interpreter {
@@ -99,12 +91,6 @@ object Interpreter {
 
 
 	var printUpdates = true
-
-	trait RegExp
-	case class Terminal(s: String) extends RegExp
-	case class Alt(r1: RegExp, r2: RegExp) extends RegExp
-	case class Asterisk(r1: RegExp) extends RegExp
-	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
 
 	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
