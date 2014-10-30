@@ -138,17 +138,6 @@ object ConstraintIncTypecheck {
     }
   }
 
-//  type FreshFunTuple = (ExpKind, Seq[Lit] => Symbol)
-//  val freshForKind = SetTable.empty[FreshFunTuple]
-//  def initFreshForKind(): Unit = {
-//    freshForKind += ((Var, (lits: Seq[Lit]) => {
-//      val x = lits(0).asInstanceOf[Symbol]
-//      Symbol("X_" + x.name)
-//    }))
-//    freshForKind += ((App, lits => Symbol("X$App")))
-//    freshForKind += ((Abs, lits => Symbol("X$Abs")))
-//  }
-//
 //  val fresh = WITH.RECURSIVE[FreshTuple] (fresh =>
 //      (SELECT ((e: Rep[ExpTuple], f: Rep[FreshFunTuple]) => id(e) -> f._2(lits(e)))
 //       FROM (Exp.table, freshForKind)
@@ -163,6 +152,36 @@ object ConstraintIncTypecheck {
 //       WHERE ((e,v) => subseq(e).length >= 2 AND subseq(e)(1) == v._1)))
 //    )
 //  )
+
+  def cast[T:Manifest]: Rep[Any => T] = staticData (a => a.asInstanceOf[T])
+  def isVar: Rep[ExpKind => Boolean] = staticData (k => k == Var)
+  def isAbs: Rep[ExpKind => Boolean] = staticData (k => k == Abs)
+  def isApp: Rep[ExpKind => Boolean] = staticData (k => k == App)
+  def isAdd: Rep[ExpKind => Boolean] = staticData (k => k == Add)
+
+  type FreevarTuple = (ExpKey, Symbol)
+  val freevar = WITH.RECURSIVE[FreevarTuple] (freevar =>
+      (SELECT ((e: Rep[ExpTuple]) => id(e) -> cast(manifest[Symbol])(lits(e)(0)))
+       FROM Exp.table // 0-ary
+       WHERE (e => isVar(kind(e))))
+    UNION ALL (
+      (SELECT ((e: Rep[ExpTuple], f1: Rep[FreevarTuple]) => id(e) -> f1._2)
+       FROM (Exp.table, freevar) // Abs
+       WHERE ((e,f1) => isAbs(kind(e))
+                    AND subseq(e)(0) == f1._1
+                    AND f1._2 != lits(e)(0)))
+    UNION ALL
+      (SELECT ((e: Rep[ExpTuple], f1: Rep[FreevarTuple]) => id(e) -> f1._2)
+       FROM (Exp.table, freevar) // App, Add 1
+       WHERE ((e,f1) => (isApp(kind(e)) || isAdd(kind(e)))
+                    AND subseq(e)(0) == f1._1))
+    UNION ALL
+      (SELECT ((e: Rep[ExpTuple], f2: Rep[FreevarTuple]) => id(e) -> f2._2)
+       FROM (Exp.table, freevar) // App, Add 2
+       WHERE ((e,f2) => (isApp(kind(e)) || isAdd(kind(e)))
+                    AND subseq(e)(1) == f2._1))
+    )
+  )
 
   val fresh = WITH.RECURSIVE[FreshTuple] (fresh =>
       (SELECT ((e: Rep[ExpTuple]) => id(e) -> freshStepRep ((kind(e), lits(e), Seq())))
@@ -238,42 +257,49 @@ object ConstraintIncTypecheck {
   def main(args: Array[String]): Unit = {
     val resultTypes = constraints.asMaterialized
     val freshVars = fresh.asMaterialized
+    val freeVars = freevar.asMaterialized
     val root = Root(constraints, staticData (rootTypeExtractor))
 
     val e = Add(Num(17), Add(Num(10), Num(2)))
     root.set(e)
     Predef.println(s"Type of $e is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
     val e2 = Abs('x, Add(Num(10), Num(2)))
     root.set(e2)
     Predef.println(s"Type of $e2 is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
     val e3 = Abs('x, Add(Num(10), Var('x)))
     root.set(e3)
     Predef.println(s"Type of $e3 is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
     val e4 = Abs('x, Add(Var('x), Var('x)))
     root.set(e4)
     Predef.println(s"Type of $e4 is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
     val e5 = Abs('x, Add(Var('err), Var('x)))
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
     val e6 = Abs('x, Abs('y, Add(Var('x), Var('y))))
     root.set(e6)
     Predef.println(s"Type of $e6 is ${root.Type}")
     freshVars foreach (Predef.println(_))
+    freeVars foreach (Predef.println(_))
     Predef.println()
 
 //    val e6 = Var('x)

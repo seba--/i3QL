@@ -2,7 +2,7 @@ package sae.typecheck
 
 import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
-import idb.BagTable
+import idb.{BagTable, SetTable}
 
 /**
  * Created by seba on 27/10/14.
