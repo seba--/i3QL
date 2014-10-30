@@ -53,10 +53,9 @@ trait Bag[V]
     }
 
     def remove_element (v: V) {
-       	if (!data.remove (v))
-			throw new IllegalStateException("element is not in bag: " + v)
-		data.remove(v)
-		notify_removed(v)
+      if (!data.remove (v))
+  			throw new IllegalStateException("element is not in bag: " + v)
+	  	notify_removed(v)
     }
 
     def remove_element (v: V, count: Int) {
