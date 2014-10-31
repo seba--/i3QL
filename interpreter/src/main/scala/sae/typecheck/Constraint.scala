@@ -13,6 +13,7 @@ import Type._
 
 object Constraint {
   abstract class Constraint {
+    def solve: Option[Map[Symbol, Type]]
     def rename(ren: Map[Symbol, Symbol]): Constraint
   }
 

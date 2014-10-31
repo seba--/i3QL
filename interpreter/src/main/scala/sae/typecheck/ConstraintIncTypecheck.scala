@@ -52,6 +52,7 @@ object ConstraintIncTypecheck {
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint {
     def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
+    def solve = expected.unify(actual)
   }
 
   case class VarRequirement(x: Symbol, t: Type) extends Requirement {

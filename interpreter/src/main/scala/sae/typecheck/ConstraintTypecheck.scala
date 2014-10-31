@@ -51,6 +51,7 @@ object ConstraintTypecheck {
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint {
     def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
+    def solve = expected.unify(actual)
   }
 
   case class VarRequirement(x: Symbol, t: Type) extends Requirement {
@@ -129,16 +130,25 @@ object ConstraintTypecheck {
     )
   )
 
+  var oldConstraints = scala.Seq[Constraint]()
+  val solver = Solve[Constraint](x => x)()
   def solveConstraints(cons: Seq[Constraint]): (TSubst, Seq[Constraint]) = {
-    var unres = scala.Seq[Constraint]()
-    var res = Map[Symbol, Type]()
-    for (c <- cons) c match {
-      case EqConstraint(t1, t2) => t1.subst(res).unify(t2.subst(res)) match {
-        case scala.Some(s) => res = res.mapValues(_.subst(s)) ++ s
-        case scala.None => unres = cons +: unres
-      }
-    }
-    (res, unres)
+    for (c <- oldConstraints)
+      solver.remove(c, scala.Seq())
+    oldConstraints = cons
+
+    for (c <- cons)
+      solver.add(c, scala.Seq())
+    solver.get
+//    var unres = scala.Seq[Constraint]()
+//    var res = Map[Symbol, Type]()
+//    for (c <- cons) c match {
+//      case EqConstraint(t1, t2) => t1.subst(res).unify(t2.subst(res)) match {
+//        case scala.Some(s) => res = res.mapValues(_.subst(s)) ++ s
+//        case scala.None => unres = cons +: unres
+//      }
+//    }
+//    (res, unres)
   }
 
 
