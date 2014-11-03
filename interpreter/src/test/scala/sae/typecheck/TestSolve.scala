@@ -19,7 +19,8 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     val (was, unres) = solver.get()
     assert(unres.isEmpty, s"Expected solution $s but found unresolvable constraints $unres")
 
-    val msg = s"Missing bindings ${was.keys.toSeq diff s.keys.toSeq}, superfluous bindings ${s.keys.toSeq diff was.keys.toSeq}"
+    lazy val diff = for (k <- was.keys.toSet intersect s.keys.toSet if was(k) != s(k)) yield (k -> (was(k), s(k)))
+    lazy val msg = s"Missing bindings ${was.keys.toSeq diff s.keys.toSeq}, superfluous bindings ${s.keys.toSeq diff was.keys.toSeq}, differing bindings $diff"
     assertResult(s, msg)(was)
   }
 
@@ -85,10 +86,9 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     solver.reset()
   }
 
-  test ("scaling") {
-    val its = 500
-    val removes = its/10
-
+  val its = 500
+  val removes = its/10
+  test (s"scaling constraint solving to $its constraints") {
     assertSolution(Map())
     for (i <- 1 to its by 2) {
       addEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
@@ -97,13 +97,22 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
       assertSolution(subst.toMap)
     }
 
-    val subst = (for (j <- 1 to its) yield if (j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+2}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+1}")))).toMap
+    var subst = (for (j <- 1 to its) yield if (j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+2}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+1}")))).toMap
     assertSolution(subst)
 
     for (i <- removes to its by (its/removes)) {
       remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
       assertSolution(subst)
     }
+
+    for (i <- 1 until 5)
+      subst = subst + (if (i % 2 == 0) (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+2}"))) else (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+1}"))))
+    for (i <- 5 to Math.min(10, its)) {
+      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+      subst = subst - Symbol(s"x_$i")
+    }
+
+    assertSolution(subst)
   }
 }
 
