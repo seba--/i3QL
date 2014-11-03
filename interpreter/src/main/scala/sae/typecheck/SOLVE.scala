@@ -29,7 +29,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
   def reset() {
     substs = Map()
     unres = Seq()
-    result = null
+    result = (Map(), Seq())
   }
 
   def get =

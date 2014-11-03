@@ -18,7 +18,9 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
   def assertSolution(s: TSubst) = {
     val (was, unres) = solver.get()
     assert(unres.isEmpty, s"Expected solution $s but found unresolvable constraints $unres")
-    assertResult(s)(was)
+
+    val msg = s"Missing bindings ${was.keys.toSeq diff s.keys.toSeq}, superfluous bindings ${s.keys.toSeq diff was.keys.toSeq}"
+    assertResult(s, msg)(was)
   }
 
   def assertUnsolvable() = {
@@ -66,7 +68,7 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     solver.reset()
   }
 
-  test ("nested constraints") {
+  test ("transitive constraints") {
     addEq(TFun(TVar('x), TVar('y)), TVar('f))
     addEq(TFun(TVar('y), TVar('x)), TVar('f))
     assertSolution(Map('x -> TVar('y), 'f -> TFun(TVar('y), TVar('y))))
@@ -81,6 +83,27 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     assertSolution(Map('x -> TFun(TVar('a), TVar('b)), 'f -> TFun(TFun(TVar('a), TVar('b)), TFun(TVar('c), TVar('c))), 'y -> TFun(TVar('c), TVar('c)), 'z1 -> TVar('c), 'z2 -> TVar('c)))
 
     solver.reset()
+  }
+
+  test ("scaling") {
+    val its = 500
+    val removes = its/10
+
+    assertSolution(Map())
+    for (i <- 1 to its by 2) {
+      addEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+
+      val subst = for (j <- 1 to i+1) yield if(j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+3}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+2}")))
+      assertSolution(subst.toMap)
+    }
+
+    val subst = (for (j <- 1 to its) yield if (j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+2}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+1}")))).toMap
+    assertSolution(subst)
+
+    for (i <- removes to its by (its/removes)) {
+      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+      assertSolution(subst)
+    }
   }
 }
 
