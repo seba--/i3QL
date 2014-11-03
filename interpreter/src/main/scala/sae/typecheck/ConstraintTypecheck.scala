@@ -27,10 +27,19 @@ object ConstraintTypecheck {
       case _ => None
     }
   }
+  case object TString extends Type {
+    def rename(ren: Map[Symbol, Symbol]) = this
+    def subst(s: TSubst) = this
+    def unify(other: Type): Option[TSubst] = other match {
+      case TString => scala.Some(Map())
+      case TVar(x) => scala.Some(Map(x -> this))
+      case _ => None
+    }
+  }
   case class TVar(x: Symbol) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TVar(ren.getOrElse(x, x))
     def subst(s: Map[Symbol, Type]) = s.getOrElse(x, this)
-    def unify(other: Type): Option[TSubst] = scala.Some(Map(x -> other))
+    def unify(other: Type): Option[TSubst] = if (other == this) scala.Some(Map()) else scala.Some(Map(x -> other))
   }
   case class TFun(t1: Type, t2: Type) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TFun(t1.rename(ren), t2.rename(ren))
@@ -82,7 +91,7 @@ object ConstraintTypecheck {
         (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
-        val X = TVar(tick(Symbol("X_" + 0), Seq()))
+        val X = TVar(Symbol("X$" + x.name))
         (X, Seq(), Seq(VarRequirement(x, X)), Seq(X.x))
       case App =>
         val (t1, cons1, reqs1, fresh1) = sub(0)
@@ -130,34 +139,21 @@ object ConstraintTypecheck {
     )
   )
 
-  var oldConstraints = scala.Seq[Constraint]()
   val solver = Solve[Constraint](x => x)()
-  def solveConstraints(cons: Seq[Constraint]): (TSubst, Seq[Constraint]) = {
-    for (c <- oldConstraints)
-      solver.remove(c, scala.Seq())
-    oldConstraints = cons
-
-    for (c <- cons)
-      solver.add(c, scala.Seq())
-    solver.get
-//    var unres = scala.Seq[Constraint]()
-//    var res = Map[Symbol, Type]()
-//    for (c <- cons) c match {
-//      case EqConstraint(t1, t2) => t1.subst(res).unify(t2.subst(res)) match {
-//        case scala.Some(s) => res = res.mapValues(_.subst(s)) ++ s
-//        case scala.None => unres = cons +: unres
-//      }
-//    }
-//    (res, unres)
-  }
-
-
+  var lastConstraints = scala.Seq[Constraint]()
   val rootTypeExtractor: ConstraintData => Either[Type, TError] = (x: ConstraintData) => {
     val (t, cons, reqs, free) = x
     if (!reqs.isEmpty)
       scala.Right(s"Unresolved context requirements $reqs, type $t, constraints $cons, free $free")
     else {
-      val (s, unres) = solveConstraints(cons)
+      val addedCons = cons diff lastConstraints
+      val removedCons = lastConstraints diff cons
+      lastConstraints = cons
+
+      for (c <- removedCons) solver.remove(c, scala.Seq())
+      for (c <- addedCons) solver.add(c, scala.Seq())
+      val (s, unres) = solver.get()
+
       if (unres.isEmpty)
         t.subst(s) match {
           case Root.TRoot(t) => scala.Left(t)
@@ -192,10 +188,10 @@ object ConstraintTypecheck {
     root.set(e5)
     Predef.println(s"Type of $e5 is ${root.Type}")
 
-//    val e6 = Var('x)
-//    root.set(e6)
-//    Predef.println(s"Type of $e6 is ${root.Type}")
-//
+    val e6 = Abs('x, Abs('y, Add(Var('x), Var('y))))
+    root.set(e6)
+    Predef.println(s"Type of $e6 is ${root.Type}")
+
 //    val e7 = Abs(scala.Seq('y), scala.Seq(Var('y)))
 //    root.set(e7)
 //    Predef.println(s"Type of $e7 is ${root.Type}")

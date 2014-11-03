@@ -16,8 +16,9 @@ object SolveHelper {
 }
 import SolveHelper._
 
-private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends NotSelfMaintainableAggregateFunction[Domain, Result]
-{
+trait Resetable { def reset() }
+
+class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelfMaintainableAggregateFunction[Domain, ()=>Result] with Resetable {
   var substs: Map[Constraint, TSubst] = Map()
   var unres: Unsolvable = Seq()
 
@@ -25,9 +26,15 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
 
   var count = 0
 
+  def reset() {
+    substs = Map()
+    unres = Seq()
+    result = null
+  }
+
   def get =
     if (result != null)
-      result
+      ()=>result
     else {
       count += 1
       println(s"---Number of recomputation of solution to constraint system: $count")
@@ -37,7 +44,7 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
       for ((c, s) <- substs)
         addSolution(c, s)
 
-      result
+      ()=>result
     }
 
   def addSolution(c: Constraint, s: TSubst) = {
@@ -52,7 +59,7 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
         case None => subst = subst.mapValues(_.subst(Map(k -> t))) + (k -> t)
         case Some(t2) => t2.unify(t) match {
           case None => unres = c +: unres
-          case Some(s2) => subst = subst.mapValues(_.subst(s2))
+          case Some(s2) => subst = subst.mapValues(_.subst(s2)) ++ s2
         }
       }
     }
@@ -73,7 +80,7 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
         if (result != null)
           addSolution(c, s)
     }
-    get
+    ()=>get()
   }
 
   def remove(d: Domain, data: Seq[Domain]) = {
@@ -82,13 +89,13 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
     substs -= c
     unres = unres diff Seq(c)
     result = null
-    get
+    ()=>get()
   }
 
   def update(oldV: Domain, newV: Domain, data: Seq[Domain]) = {
     remove(oldV, data)
     add(newV, data)
-    get
+    ()=>get()
   }
 
 }
@@ -96,8 +103,8 @@ private class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint)extends 
 object Solve
 {
   def apply[Domain <: AnyRef](f: (Domain => Constraint)) = {
-    new NotSelfMaintainableAggregateFunctionFactory[Domain, Result] {
-      def apply(): NotSelfMaintainableAggregateFunction[Domain, Result] = {
+    new NotSelfMaintainableAggregateFunctionFactory[Domain, ()=>Result] {
+      def apply(): NotSelfMaintainableAggregateFunction[Domain, ()=>Result] = {
         new SolveIntern[Domain](f)
       }
     }
