@@ -1,9 +1,10 @@
 package sae.typecheck
 
 import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction}
-import sae.typecheck.Constraint.Constraint
+import sae.typecheck.Constraint.{Unsolvable, Constraint}
 
 import SolveHelper._
+import sae.typecheck.Type.TSubst
 
 /**
  * Created by seba on 03/11/14.

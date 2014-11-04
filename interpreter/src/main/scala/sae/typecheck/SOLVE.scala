@@ -2,16 +2,14 @@ package sae.typecheck
 
 import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction}
 
-import sae.typecheck.Constraint.Constraint
+import sae.typecheck.Constraint.{Unsolvable, Constraint}
 import sae.typecheck.ConstraintTypecheck.EqConstraint
-import sae.typecheck.Type.Type
+import sae.typecheck.Type.{TSubst, Type}
 
 /**
  * Created by seba on 30/10/14.
  */
 object SolveHelper {
-  type TSubst = Map[Symbol, Type]
-  type Unsolvable = Seq[Constraint]
   type Result = (TSubst, Unsolvable)
 }
 import SolveHelper._
@@ -37,7 +35,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
       ()=>result
     else {
       count += 1
-      println(s"---Number of recomputation of solution to constraint system: $count")
+//      println(s"---Number of recomputation of solution to constraint system: $count")
 
       result = (Map(), this.unres)
 
@@ -69,7 +67,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
 
   def add(d: Domain, data: Seq[Domain]) = {
     val c = f(d)
-    println(s"add constraint $c")
+//    println(s"add constraint $c")
     c.solve match {
       case None =>
         unres = c +: unres
@@ -85,7 +83,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
 
   def remove(d: Domain, data: Seq[Domain]) = {
     val c = f(d)
-    println(s"rem constraint $c")
+//    println(s"rem constraint $c")
     substs -= c
     unres = unres diff Seq(c)
     result = null
