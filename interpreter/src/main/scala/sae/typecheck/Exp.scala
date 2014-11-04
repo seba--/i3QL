@@ -131,8 +131,8 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     }
     else {
       // different structure, remove old subexpressions and insert new subexpressions
-      val oldsubkeys = sub map (_.remove)
       val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees if already present
+      val oldsubkeys = sub map (_.remove)
       updateExp(this, e, oldsubkeys, newsubkeys)
     }
   }
