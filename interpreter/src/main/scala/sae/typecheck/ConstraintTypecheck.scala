@@ -14,9 +14,12 @@ object ConstraintTypecheck {
 
   case object Num extends ExpKind
   case object Add extends ExpKind
+  case object Mul extends ExpKind
   case object Var extends ExpKind
   case object Abs extends ExpKind
   case object App extends ExpKind
+  case object If0 extends ExpKind
+  case object Fix extends ExpKind
 
   case object TNum extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
@@ -72,23 +75,27 @@ object ConstraintTypecheck {
   }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
-    (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => typecheckStep(p._1, p._2, p._3)
+    (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => {
+      val d = typecheckStep(p._1, p._2, p._3)
+//      Predef.println(s"${p._1} -> $d")
+      d
+    }
   )
 
   def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintData]): ConstraintData = {
     import scala.collection._
     e match {
       case Num => (TNum, Seq(), Seq(), Seq())
-      case Add =>
+      case k if k == Add || k == Mul =>
         val (t1, cons1, reqs1, free1) = sub(0)
         val (_t2, _cons2, _reqs2, free2) = sub(1)
-        val (mfree, ren) = mergeFresh(free1, free2)
+        val (mfresh, ren) = mergeFresh(free1, free2)
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
         val lcons = EqConstraint(TNum, t1)
         val rcons = EqConstraint(TNum, t2)
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
-        (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfree)
+        (TNum, lcons +: rcons +: (cons1 ++ cons2 ++ mcons), mreqs, mfresh)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
         val X = TVar(Symbol("X$" + x.name))
@@ -96,21 +103,44 @@ object ConstraintTypecheck {
       case App =>
         val (t1, cons1, reqs1, fresh1) = sub(0)
         val (_t2, _cons2, _reqs2, fresh2) = sub(1)
-        val (mfree, ren) = mergeFresh(fresh1, fresh2)
+        val (mfresh, ren) = mergeFresh(fresh1, fresh2)
         val (t2, cons2, reqs2) = rename(ren)(_t2, _cons2, _reqs2)
 
-        val X = TVar(tick('X$App, mfree))
+        val X = TVar(tick('X$App, mfresh))
         val fcons = EqConstraint(TFun(t2, X), t1)
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
-        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs, X.x +: mfree)
+        (X, fcons +: (cons1 ++ cons2 ++ mcons), mreqs, X.x +: mfresh)
       case Abs =>
         val x = lits(0).asInstanceOf[Symbol]
-        val (t, cons, reqs, free) = sub(0)
+        val (t, cons, reqs, fresh) = sub(0)
 
-        val X = TVar(tick('X$Abs, free))
+        val X = TVar(tick('X$Abs, fresh))
         val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
         val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t)}
-        (TFun(X, t), cons ++ xcons, otherReqs, X.x +: free)
+        (TFun(X, t), cons ++ xcons, otherReqs, X.x +: fresh)
+      case If0 =>
+        val (t1, cons1, reqs1, fresh1) = sub(0)
+        val (_t2, _cons2, _reqs2, fresh2) = sub(1)
+        val (_t3, _cons3, _reqs3, fresh3) = sub(2)
+        val (mfresh12, ren12) = mergeFresh(fresh1, fresh2)
+        val (t2, cons2, reqs2) = rename(ren12)(_t2, _cons2, _reqs2)
+        val (mfresh123, ren23) = mergeFresh(mfresh12, fresh3)
+        val (t3, cons3, reqs3) = rename(ren23)(_t3, _cons3, _reqs3)
+
+        val (mcons12, mreqs12) = mergeReqs(reqs1, reqs2)
+        val (mcons23, mreqs123) = mergeReqs(mreqs12, reqs3)
+
+        val cond = EqConstraint(TNum, t1)
+        val body = EqConstraint(t2, t3)
+
+        (t2, cond +: body +: (mcons12 ++ mcons23), mreqs123, mfresh123)
+
+      case Fix =>
+        val (t, cons, reqs, fresh) = sub(0)
+        val X = TVar(tick('X$Fix, fresh))
+        val fixCons = EqConstraint(t, TFun(X, X))
+        (X, fixCons +: cons, reqs, X.x +: fresh)
+
       case Root.Root =>
         if (sub.isEmpty)
           (TVar('Uninitialized), Seq(EqConstraint(TNum, TFun(TNum, TNum))), Seq(), Seq())
@@ -136,6 +166,15 @@ object ConstraintTypecheck {
        WHERE ((e,t1,t2) => subseq(e).length == 2
                        AND subseq(e)(0) == cid(t1)
                        AND subseq(e)(1) == cid(t2)))
+    UNION ALL
+      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintTuple], t2: Rep[ConstraintTuple], t3: Rep[ConstraintTuple]) =>
+             id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(cdata(t1), cdata(t2), cdata(t3)))))
+       FROM (Exp.table, constraints, constraints, constraints) // 2-ary
+       WHERE ((e,t1,t2,t3) => subseq(e).length == 3
+                          AND subseq(e)(0) == cid(t1)
+                          AND subseq(e)(1) == cid(t2)
+                          AND subseq(e)(2) == cid(t3)))
+
     )
   )
 
@@ -192,7 +231,27 @@ object ConstraintTypecheck {
     root.set(e6)
     Predef.println(s"Type of $e6 is ${root.Type}")
 
-//    val e7 = Abs(scala.Seq('y), scala.Seq(Var('y)))
+    val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
+    root.set(fac)
+    Predef.println(s"Type of $fac function is ${root.Type}")
+
+    val facapp = Abs('x, App(fac, Var('x)))
+    root.set(facapp)
+    Predef.println(s"Type of $facapp function is ${root.Type}")
+
+    val fib = Fix(Abs('f, Abs('n,
+      If0(Var('n), Num(1),
+        If0(Add(Var('n), Num(-1)), Num(1),
+          Add(App(Var('f), Add(Var('n), Num(-1))),
+              App(Var('f), Add(Var('n), Num(-2)))))))))
+    root.set(fib)
+    Predef.println(s"Type of fibonacci function is ${root.Type}")
+
+    val facfib = Abs('x, Add(App(fac, Var('x)), App(fib, Var('x))))
+    root.set(facfib)
+    Predef.println(s"Type of facfib function is ${root.Type}")
+
+    //    val e7 = Abs(scala.Seq('y), scala.Seq(Var('y)))
 //    root.set(e7)
 //    Predef.println(s"Type of $e7 is ${root.Type}")
   }
