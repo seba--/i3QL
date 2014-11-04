@@ -92,9 +92,10 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val Some((oldkey, oldcount)) = lookupExpWithCount(old)
     val newkey = e.getkey.getOrElse(if (oldcount == 1) oldkey else nextKey())
     val newcount = lookupExpCount(e)
+//    println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
     unbindExp(old)
     bindExp(e, newkey)
-    if (oldcount == 1 && newcount == 0 && (old.lits != e.lits || oldsubkeys != newsubkeys)) {
+    if (oldcount == 1 && newcount == 0 && (old.kind != e.kind || old.lits != e.lits || oldsubkeys != newsubkeys)) {
 //      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount")
 
       // TODO this should be a single update event, but then the view nondeterministically ignores the new value

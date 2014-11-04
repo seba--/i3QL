@@ -251,9 +251,9 @@ object ConstraintTypecheck {
     root.set(facfib)
     Predef.println(s"Type of facfib function is ${root.Type}")
 
-    //    val e7 = Abs(scala.Seq('y), scala.Seq(Var('y)))
-//    root.set(e7)
-//    Predef.println(s"Type of $e7 is ${root.Type}")
+    val e7 = Abs('y, Var('y))
+    root.set(e7)
+    Predef.println(s"Type of $e7 is ${root.Type}")
   }
 
 }
