@@ -22,6 +22,7 @@ object DirectTypecheck  {
       case TNum => scala.Some(Map())
       case _ => None
     }
+    def vars = Predef.Set()
   }
   case object TString extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
@@ -30,6 +31,7 @@ object DirectTypecheck  {
       case TString => scala.Some(Map())
       case _ => None
     }
+    def vars = Predef.Set()
   }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (

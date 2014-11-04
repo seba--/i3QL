@@ -15,15 +15,20 @@ import Type._
 object Constraint {
   type Unsolvable = Seq[Constraint]
   type Solution = (TSubst, Unsolvable)
+  def solutionVars(s: Solution) = substVars(s._1) ++ s._2.foldLeft(Set[Symbol]())((vs,c) => vs++c.vars)
+  def substVars(s: TSubst) = s.foldLeft(Set[Symbol]())((vs,kv) => (vs + kv._1) ++ kv._2.vars)
+  def requirementVars(reqs: Seq[Requirement]) = reqs.foldLeft(Set[Symbol]())((vs,r) => vs ++ r.vars)
 
   abstract class Constraint {
     def solve: Option[Map[Symbol, Type]]
     def rename(ren: Map[Symbol, Symbol]): Constraint
+    def vars: Set[Symbol]
   }
 
   abstract class Requirement {
     def rename(ren: Map[Symbol, Symbol]): Requirement
     def merge(r: Requirement): Option[(Seq[Constraint], Seq[Requirement])]
+    def vars: Set[Symbol]
   }
   def mergeReqs(reqs1: Seq[Requirement], reqs2: Seq[Requirement]) = {
     var mcons = Seq[Constraint]()
@@ -45,43 +50,57 @@ object Constraint {
     None
   }
 
-  def mergeFresh(free1: Seq[Symbol], free2: Seq[Symbol]) = {
-    var allfree = free1 ++ free2
-    var mfree = free1
+  def mergeFresh(fresh1: Seq[Symbol], fresh2: Seq[Symbol]) = {
+    var allfree = fresh1 ++ fresh2
+    var mfresh = fresh1
     var ren = Map[Symbol, Symbol]()
-    for (x <- free2)
-      if (free1.contains(x)) {
+    for (x <- fresh2)
+      if (fresh1.contains(x)) {
         val newx = tick(x, allfree)
         allfree = newx +: allfree
-        mfree = newx +: mfree
+        mfresh = newx +: mfresh
         ren += x -> newx
       }
-    (mfree, ren)
+      else
+        mfresh = x +: mfresh
+    
+//    if (!ren.isEmpty)
+//      println(s"Merge fresh vars $fresh1 and $fresh2")
+    
+    (mfresh, ren)
   }
 
   def mergeSolution(sol1: Solution, sol2: Solution): Solution = {
     val s1 = sol1._1
     val s2 = sol2._1
-
-    var s = s1 mapValues (_.subst(s2))
     var unres: Unsolvable = sol1._2 ++ sol2._2
 
-    for ((x,_t2) <- s2) {
-      val t2 = _t2.subst(s1)
-      s.get(x) match {
-        case None => s += x -> t2
-        case Some(t1) => t1.unify(t2) match {
-          case None => unres = EqConstraint(t1, t2) +: unres
-          case Some(u) => s = s.mapValues(_.subst(u)) ++ u
+    if (s1.keySet.intersect(s2.keySet).isEmpty)
+      (s1 ++ s2, unres)
+    else {
+//      println(s"Merge solution with keys ${s1.keys} and ${s2.keys}")
+
+      var s = s1 mapValues (_.subst(s2))
+
+      for ((x, _t2) <- s2) {
+        val t2 = _t2.subst(s1)
+        s.get(x) match {
+          case None => s += x -> t2
+          case Some(t1) => t1.unify(t2) match {
+            case None => unres = EqConstraint(t1, t2) +: unres
+            case Some(u) => s = s.mapValues(_.subst(u)) ++ u
+          }
         }
       }
-    }
 
-    (s, unres)
+      (s, unres)
+    }
   }
 
-  def extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Seq[Constraint]) =
-    cs.foldLeft(sol)(extendSolution)
+  def extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Seq[Constraint]) = {
+    val esol = cs.foldLeft[Solution]((Map(), Seq()))(extendSolution)
+    mergeSolution(sol, esol)
+  }
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Seq[Constraint]) = {
     c.solve match {

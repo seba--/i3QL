@@ -29,6 +29,7 @@ object ConstraintSolutionTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = Predef.Set()
   }
   case object TString extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
@@ -38,11 +39,13 @@ object ConstraintSolutionTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = Predef.Set()
   }
   case class TVar(x: Symbol) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TVar(ren.getOrElse(x, x))
     def subst(s: Map[Symbol, Type]) = s.getOrElse(x, this)
     def unify(other: Type): Option[TSubst] = if (other == this) scala.Some(Map()) else scala.Some(Map(x -> other))
+    def vars = Predef.Set(x)
   }
   case class TFun(t1: Type, t2: Type) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TFun(t1.rename(ren), t2.rename(ren))
@@ -59,11 +62,13 @@ object ConstraintSolutionTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = t1.vars ++ t2.vars
   }
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint {
     def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
     def solve = expected.unify(actual)
+    def vars = expected.vars ++ actual.vars
   }
 
   case class VarRequirement(x: Symbol, t: Type) extends Requirement {
@@ -72,11 +77,24 @@ object ConstraintSolutionTypecheck {
       case _ => None
     }
     def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
+    def vars = t.vars
   }
 
-  def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
-    (p: (ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
-      val d = typecheckStep(p._1, p._2, p._3)
+  def typecheckStepRep: Rep[((ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
+    (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
+//      Predef.println(p._1)
+      val d = typecheckStep(p._2, p._3, p._4)
+
+      val usedVars = d._1.vars ++ solutionVars(d._2) ++ requirementVars(d._3)
+      val freshVars = d._4
+
+      if (!usedVars.forall(freshVars.contains(_))) {
+        Predef.println(s"$usedVars not in $freshVars")
+        Predef.println(s"${p._1}  -> type vars\t\t${d._1.vars}")
+        Predef.println(s"   -> solution vars\t${solutionVars(d._2)}")
+        Predef.println(s"   -> requires vars\t${requirementVars(d._3)}")
+        Predef.println(s"   -> fresh vars\t${d._4.toSet}")
+      }
 //      Predef.println(s"${p._1} -> $d")
       d
     }
@@ -150,12 +168,12 @@ object ConstraintSolutionTypecheck {
         val (t, sol, reqs, fresh) = sub(0)
         val X = TVar(tick('X$Fix, fresh))
         val fixCons = EqConstraint(t, TFun(X, X))
-        val fsol = extendSolution(sol, fixCons)
+        val fsol = extendSolution(sol, Seq(fixCons))
         (X.subst(fsol._1), fsol, reqs, X.x +: fresh)
 
       case Root.Root =>
         if (sub.isEmpty)
-          (TVar('Uninitialized), (Map(), Seq(EqConstraint(TNum, TFun(TNum, TNum)))), Seq(), Seq())
+          (TVar('Uninitialized), (Map(), Seq(EqConstraint(TNum, TFun(TNum, TNum)))), Seq(), Seq('Uninitialized))
         else {
           val (t, sol, reqs, free) = sub(0)
           (Root.TRoot(t), sol, reqs, free)
@@ -164,23 +182,23 @@ object ConstraintSolutionTypecheck {
   }
 
   val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
-      (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq())))
+      (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq())))
        FROM Exp.table // 0-ary
        WHERE (e => subseq(e).length == 0))
     UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(t1._2))))
+      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2))))
        FROM (Exp.table, constraints) // 1-ary
        WHERE ((e,t1) => subseq(e).length == 1
                     AND subseq(e)(0) == t1._1))
     UNION ALL
-      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(t1._2, t2._2))))
+      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2, t2._2))))
        FROM (Exp.table, constraints, constraints) // 2-ary
        WHERE ((e,t1,t2) => subseq(e).length == 2
                        AND subseq(e)(0) == t1._1
                        AND subseq(e)(1) == t2._1))
     UNION ALL
       (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple], t3: Rep[ConstraintSolutionTuple]) =>
-             id(e) -> typecheckStepRep ((kind(e), lits(e), Seq(t1._2, t2._2, t3._2))))
+             id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2, t2._2, t3._2))))
        FROM (Exp.table, constraints, constraints, constraints) // 2-ary
        WHERE ((e,t1,t2,t3) => subseq(e).length == 3
                           AND subseq(e)(0) == t1._1

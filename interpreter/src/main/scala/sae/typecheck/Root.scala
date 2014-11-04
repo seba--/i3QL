@@ -33,6 +33,7 @@ object Root {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = t.vars
   }
 
   def apply[U: Manifest, V: Manifest](types: Relation[(Exp.ExpKey, U)], f: Rep[U => V]): Root[V] = {

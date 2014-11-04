@@ -29,6 +29,7 @@ object ConstraintTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = Predef.Set()
   }
   case object TString extends Type {
     def rename(ren: Map[Symbol, Symbol]) = this
@@ -38,11 +39,13 @@ object ConstraintTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = Predef.Set()
   }
   case class TVar(x: Symbol) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TVar(ren.getOrElse(x, x))
     def subst(s: Map[Symbol, Type]) = s.getOrElse(x, this)
     def unify(other: Type): Option[TSubst] = if (other == this) scala.Some(Map()) else scala.Some(Map(x -> other))
+    def vars = Predef.Set(x)
   }
   case class TFun(t1: Type, t2: Type) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TFun(t1.rename(ren), t2.rename(ren))
@@ -59,11 +62,13 @@ object ConstraintTypecheck {
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
+    def vars = t1.vars ++ t2.vars
   }
 
   case class EqConstraint(expected: Type, actual: Type) extends Constraint {
     def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
     def solve = expected.unify(actual)
+    def vars = expected.vars ++ actual.vars
   }
 
   case class VarRequirement(x: Symbol, t: Type) extends Requirement {
@@ -72,6 +77,7 @@ object ConstraintTypecheck {
       case _ => None
     }
     def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
+    def vars = t.vars
   }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (

@@ -16,6 +16,7 @@ object Type {
     def rename(ren: Map[Symbol, Symbol]): Type
     def subst(s: TSubst): Type
     def unify(other: Type): Option[TSubst]
+    def vars: Set[Symbol]
   }
 
   type TypeTuple = (ExpKey, Either[Type, TError])
