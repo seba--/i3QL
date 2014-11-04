@@ -97,11 +97,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     bindExp(e, newkey)
     if (oldcount == 1 && newcount == 0 && (old.kind != e.kind || old.lits != e.lits || oldsubkeys != newsubkeys)) {
 //      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount")
-
-      // TODO this should be a single update event, but then the view nondeterministically ignores the new value
-      table -= (oldkey, old.kind, old.lits, oldsubkeys)
-      table += (newkey, e.kind, e.lits, newsubkeys)
-      //      table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
+      table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
     }
     else if (oldcount == 1 && newcount >= 1) {
 //      println(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount")
