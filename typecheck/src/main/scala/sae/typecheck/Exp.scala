@@ -8,6 +8,9 @@ import idb.{BagTable, SetTable}
  * Created by seba on 27/10/14.
  */
 object Exp {
+  val LOG_TABLE_OPS = true
+  def log(s: String) = if(LOG_TABLE_OPS) println(s)
+
   type Lit = Any
   abstract class ExpKind
   type ExpKey = Int
@@ -67,7 +70,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     getkey match {
       case None =>
         val key = nextKey()
-//        println(s"insert ${(key, kind, lits, subkeys)}")
+        log(s"insert ${(key, kind, lits, subkeys)}")
         table += ((key, kind, lits, subkeys))
         bindExp(this, key)
         key
@@ -82,7 +85,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val Some((key, count)) = lookupExpWithCount(this)
     unbindExp(this)
     if (count == 1) {
-//      println(s"remove ${(key, kind, lits, subkeys)}")
+      log(s"remove ${(key, kind, lits, subkeys)}")
       table -= ((key, kind, lits, subkeys))
     }
     key
@@ -98,17 +101,17 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       // terms are flat-equal, do nothing
     }
     else if (oldcount == 1 && newcount == 0) {
-//      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
+      log(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
       table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
 //      table -= (oldkey, old.kind, old.lits, oldsubkeys)
 //      table += (newkey, e.kind, e.lits, newsubkeys)
     }
     else if (oldcount == 1 && newcount >= 1) {
-//      println(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)}")
+      log(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)}")
       table -= (oldkey, old.kind, old.lits, oldsubkeys)
     }
     else if (oldcount > 1 && newcount == 0) {
-//      println(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
+      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
       table += (newkey, e.kind, e.lits, newsubkeys)
     }
     else if (oldcount > 1 && newcount >= 1) {
