@@ -1,10 +1,4 @@
-package sae.typecheck
-
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-
-import Exp._
-import TypeStuff._
+package sae.typecheck.bottomup;
 
 /**
 * Created by seba on 26/10/14.
@@ -52,8 +46,8 @@ object DirectTypecheck  {
     case scala.Left(Root.TRoot(t)) => scala.Left(t)
     case scala.Right(msg) => scala.Right(msg)
     case scala.Left(t) => throw new RuntimeException(s"Unexpected root type $t")
-  } 
-  
+  }
+
   def main(args: Array[String]): Unit = {
     val resultTypes = types.asMaterialized
     val root = Root(types, staticData (rootTypeExtractor))

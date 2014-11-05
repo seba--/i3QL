@@ -1,11 +1,4 @@
-package sae.typecheck
-
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-
-import Exp._
-import TypeStuff._
-import Constraint._
+package sae.typecheck.bottomup;
 
 /**
 * Created by seba on 26/10/14.
