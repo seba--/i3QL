@@ -31,7 +31,6 @@ object Exp {
   private var _nextKey = 0
   private[this] var _expMap = Map[Exp, (ExpKey, Int)]()
   private def bindExp(e: Exp, k: ExpKey): Unit = {
-    e.key = k
     _expMap.get(e) match {
       case None => _expMap += e -> (k, 1)
       case Some((`k`, count)) => _expMap += e -> (k, count+1)
@@ -39,7 +38,6 @@ object Exp {
     }
   }
   private def unbindExp(e: Exp): Unit = {
-    e.key = -1
     _expMap.get(e) match {
       case None => {}
       case Some((k, 1)) => _expMap -= e
@@ -72,16 +70,8 @@ object Exp {
 
 import Exp._
 case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
-  var key = -1
+  def key = lookupExp(this).get
   def getkey = lookupExp(this)
-
-  override def equals(a: Any) = a.isInstanceOf[Exp] && {
-    val e = a.asInstanceOf[Exp]
-    if (key >= 0 && e.key >= 0)
-      key == e.key
-    else
-      kind == e.kind && lits == e.lits && sub == e.sub
-  }
 
   def insert: ExpKey = {
     val subkeys = sub map (_.insert)
