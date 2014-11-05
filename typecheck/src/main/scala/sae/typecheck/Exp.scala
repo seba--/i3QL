@@ -8,8 +8,16 @@ import idb.{BagTable, SetTable}
  * Created by seba on 27/10/14.
  */
 object Exp {
+  var change: Long = System.nanoTime
   val LOG_TABLE_OPS = true
-  def log(s: String) = if(LOG_TABLE_OPS) println(s)
+  def log(s: String) = {
+    val newchange = System.nanoTime
+    if(LOG_TABLE_OPS) {
+      println(s"Time since last table op ${(newchange - change)/1000000.0}ms")
+      println(s)
+    }
+    change = newchange
+  }
 
   type Lit = Any
   abstract class ExpKind
@@ -68,13 +76,13 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   def insert: ExpKey = {
     val subkeys = sub map (_.insert)
     getkey match {
+      case Some(key) =>
+        bindExp(this, key)
+        key
       case None =>
         val key = nextKey()
         log(s"insert ${(key, kind, lits, subkeys)}")
         table += ((key, kind, lits, subkeys))
-        bindExp(this, key)
-        key
-      case Some(key) =>
         bindExp(this, key)
         key
     }

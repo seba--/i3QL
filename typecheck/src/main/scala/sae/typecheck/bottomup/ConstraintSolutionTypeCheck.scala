@@ -18,9 +18,11 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
   def typecheckStepRep: Rep[((ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
     (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
 //      Predef.println(p._1)
-//      val start = System.nanoTime()
+      val start = System.nanoTime()
+      Predef.println(s"Table change -> TypecheckStep = ${(start - Exp.change)/1000000.0}ms")
+
       val d = typecheckStep(p._2, p._3, p._4)
-//      val end = System.nanoTime()
+      val end = System.nanoTime()
 
       val usedVars = d._1.vars ++ solutionVars(d._2) ++ requirementVars(d._3)
       val freshVars = d._4
@@ -32,7 +34,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         Predef.println(s"   -> requires vars\t${requirementVars(d._3)}")
         Predef.println(s"   -> fresh vars\t${d._4.toSet}")
       }
-//      Predef.println(s"${p._1} in ${(end-start)/1000000.0} ms -> $d")
+      Predef.println(s"TypecheckStep completed ${p._1}->$d in ${(end-start)/1000000.0}ms")
       d
     }
   )
