@@ -2,14 +2,13 @@ package sae.typecheck
 
 import idb.operators.NotSelfMaintainableAggregateFunction
 import org.scalatest.FunSuite
-import sae.typecheck.Constraint.{Unsolvable, Constraint}
-import ConstraintTypecheck._
-import Type._
+import sae.typecheck.Constraint.Unsolvable
+import TypeStuff._
 
 /**
  * Created by seba on 03/11/14.
  */
-class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TSubst, Unsolvable)] with Resetable) extends FunSuite {
+class TestConstraintSolver(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TSubst, Unsolvable)] with Resetable) extends FunSuite {
 
   def addEq(t1: Type, t2: Type) = solver.add(EqConstraint(t1, t2), Seq())
   def remEq(t1: Type, t2: Type) = solver.remove(EqConstraint(t1, t2), Seq())
@@ -102,34 +101,34 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
 
   val its = 500
   val removes = its/10
-//  test (s"scaling constraint solving to $its constraints") {
-//    assertSolution(Map())
-//    for (i <- 1 to its by 2) {
-//      addEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
-//
-//      val subst = for (j <- 1 to i+1) yield if(j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+3}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+2}")))
-//      assertSolution(subst.toMap)
-//    }
-//
-//    var subst = (for (j <- 1 to its) yield if (j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+2}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+1}")))).toMap
-//    assertSolution(subst)
-//
-//    for (i <- removes to its by (its/removes)) {
-//      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
-//      assertSolution(subst)
-//    }
-//
-//    for (i <- 1 until 5)
-//      subst = subst + (if (i % 2 == 0) (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+2}"))) else (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+1}"))))
-//    for (i <- 5 to Math.min(10, its)) {
-//      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
-//      subst = subst - Symbol(s"x_$i")
-//    }
-//
-//    assertSolution(subst)
-//  }
+  test (s"scaling constraint solving to $its constraints") {
+    assertSolution(Map())
+    for (i <- 1 to its by 2) {
+      addEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+
+      val subst = for (j <- 1 to i+1) yield if(j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+3}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${i+2}")))
+      assertSolution(subst.toMap)
+    }
+
+    var subst = (for (j <- 1 to its) yield if (j % 2 == 0) (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+2}"))) else (Symbol(s"x_$j") -> TVar(Symbol(s"x_${its+1}")))).toMap
+    assertSolution(subst)
+
+    for (i <- removes to its by (its/removes)) {
+      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+      assertSolution(subst)
+    }
+
+    for (i <- 1 until 5)
+      subst = subst + (if (i % 2 == 0) (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+2}"))) else (Symbol(s"x_$i") -> TVar(Symbol(s"x_${4+1}"))))
+    for (i <- 5 to Math.min(10, its)) {
+      remEq(TFun(TVar(Symbol(s"x_$i")), TVar(Symbol(s"x_${i + 1}"))), TFun(TVar(Symbol(s"x_${i + 2}")), TVar(Symbol(s"x_${i + 3}"))))
+      subst = subst - Symbol(s"x_$i")
+    }
+
+    assertSolution(subst)
+  }
 }
 
 
-class RunTest extends TestSolve(new SolveIntern[Constraint](x => x))
-//class RunTest extends TestSolve(new SolveVarTrackingIntern[Constraint](x => x))
+class RunTest extends TestConstraintSolver(new SolveIntern[Constraint](x => x))
+//class RunTest extends TestConstraintSolver(new SolveVarTrackingIntern[Constraint](x => x))
