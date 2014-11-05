@@ -1,5 +1,15 @@
 package sae.typecheck.bottomup;
 
+import idb.syntax.iql._
+import idb.syntax.iql.IR.{String=>_,_}
+
+import sae.typecheck._
+import sae.typecheck.Exp
+import sae.typecheck.Exp._
+import sae.typecheck.TypeStuff._
+import sae.typecheck.Constraint._
+import sae.typecheck.TypeCheck
+
 /**
 * Created by seba on 26/10/14.
 */
