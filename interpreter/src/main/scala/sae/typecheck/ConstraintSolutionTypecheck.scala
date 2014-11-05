@@ -10,7 +10,7 @@ import Constraint._
 /**
 * Created by seba on 26/10/14.
 */
-object ConstraintSolutionTypecheck {
+object ConstraintSolutionTypecheck extends TypeCheck {
 
   def typecheckStepRep: Rep[((ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
     (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
@@ -155,57 +155,32 @@ object ConstraintSolutionTypecheck {
       scala.Right(s"Unresolved constraints ${sol._2}, solution $sol, free $free")
   }
 
-  def main(args: Array[String]): Unit = {
-    val resultTypes = constraints.asMaterialized
-    val root = Root(constraints, staticData (rootTypeExtractor))
-
-    val e = Add(Num(17), Add(Num(10), Num(2)))
+  val root = Root(constraints, staticData (rootTypeExtractor))
+  def typecheck(e: Exp) = {
     root.set(e)
-    Predef.println(s"Type of $e is ${root.Type}")
+    root.Type
+  }
 
-    val e2 = Abs('x, Add(Num(10), Num(2)))
-    root.set(e2)
-    Predef.println(s"Type of $e2 is ${root.Type}")
-
-    val e3 = Abs('x, Add(Var('x), Var('x)))
-    root.set(e3)
-    Predef.println(s"Type of $e3 is ${root.Type}")
-
-    val e4 = Abs('x, Add(Var('err), Var('x)))
-    root.set(e4)
-    Predef.println(s"Type of $e4 is ${root.Type}")
-
-    val e5 = Abs('x, Abs('y, App(Var('x), Var('y))))
-    root.set(e5)
-    Predef.println(s"Type of $e5 is ${root.Type}")
-
-    val e6 = Abs('x, Abs('y, Add(Var('x), Var('y))))
-    root.set(e6)
-    Predef.println(s"Type of $e6 is ${root.Type}")
+  def main(args: Array[String]): Unit = {
+    printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
+    printTypecheck(Abs('x, Add(Num(10), Num(2))))
+    printTypecheck(Abs('x, Add(Var('x), Var('x))))
+    printTypecheck(Abs('x, Add(Var('err), Var('x))))
+    printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
+    printTypecheck(Abs('x, Abs('y, Add(Var('x), Var('y)))))
 
     val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
-    root.set(fac)
-    Predef.println(s"Type of fac function is ${root.Type}")
-
-    val facapp = Abs('x, App(fac, Var('x)))
-    root.set(facapp)
-    Predef.println(s"Type of faceta function is ${root.Type}")
+    printTypecheck("factorial", fac)
+    printTypecheck("eta-expanded factorial", Abs('x, App(fac, Var('x))))
 
     val fib = Fix(Abs('f, Abs('n,
       If0(Var('n), Num(1),
         If0(Add(Var('n), Num(-1)), Num(1),
           Add(App(Var('f), Add(Var('n), Num(-1))),
               App(Var('f), Add(Var('n), Num(-2)))))))))
-    root.set(fib)
-    Predef.println(s"Type of fibonacci function is ${root.Type}")
-
-    val facfib = Abs('x, Add(App(fac, Var('x)), App(fib, Var('x))))
-    root.set(facfib)
-    Predef.println(s"Type of facfib function is ${root.Type}")
-
-    val e7 = Abs('y, Var('y))
-    root.set(e7)
-    Predef.println(s"Type of $e7 is ${root.Type}")
+    printTypecheck("fibonacci function", fib)
+    printTypecheck("factorial+fibonacci", Abs('x, Add(App(fac, Var('x)), App(fib, Var('x)))))
+    printTypecheck(Abs('y, Var('y)))
   }
 
 }
