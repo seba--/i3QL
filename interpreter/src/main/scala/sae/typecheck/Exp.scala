@@ -147,3 +147,13 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   }
 }
 
+
+case object Num extends ExpKind
+case object String extends ExpKind
+case object Add extends ExpKind
+case object Mul extends ExpKind
+case object Var extends ExpKind
+case object Abs extends ExpKind
+case object App extends ExpKind
+case object If0 extends ExpKind
+case object Fix extends ExpKind

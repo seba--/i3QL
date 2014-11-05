@@ -12,15 +12,6 @@ import Constraint._
 */
 object ConstraintTypecheck {
 
-  case object Num extends ExpKind
-  case object Add extends ExpKind
-  case object Mul extends ExpKind
-  case object Var extends ExpKind
-  case object Abs extends ExpKind
-  case object App extends ExpKind
-  case object If0 extends ExpKind
-  case object Fix extends ExpKind
-
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => {
       val d = typecheckStep(p._1, p._2, p._3)

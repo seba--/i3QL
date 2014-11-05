@@ -11,10 +11,6 @@ import TypeStuff._
 */
 object DirectTypecheck  {
 
-  case object Num extends ExpKind
-  case object Add extends ExpKind
-  case object String extends ExpKind
-
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[Type])) => typecheckStep(p._1, p._2, p._3)
   )

@@ -12,16 +12,6 @@ import Constraint._
 */
 object ConstraintSolutionTypecheck {
 
-  case object Num extends ExpKind
-  case object Add extends ExpKind
-  case object Mul extends ExpKind
-  case object Var extends ExpKind
-  case object Abs extends ExpKind
-  case object App extends ExpKind
-  case object If0 extends ExpKind
-  case object Fix extends ExpKind
-
-
   def typecheckStepRep: Rep[((ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
     (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
 //      Predef.println(p._1)
