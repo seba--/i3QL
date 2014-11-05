@@ -19,37 +19,6 @@
 //  case object Abs extends ExpKind
 //  case object App extends ExpKind
 //
-//  case object TNum extends Type {
-//    def rename(ren: Map[Symbol, Symbol]) = this
-//    def subst(s: TSubst) = this
-//    def unify(other: Type): Option[TSubst] = other match {
-//      case TNum => scala.Some(Map())
-//      case TVar(x) => scala.Some(Map(x -> this))
-//      case _ => None
-//    }
-//  }
-//  case class TVar(x: Symbol) extends Type {
-//    def rename(ren: Map[Symbol, Symbol]) = TVar(ren.getOrElse(x, x))
-//    def subst(s: Map[Symbol, Type]) = s.getOrElse(x, this)
-//    def unify(other: Type): Option[TSubst] = scala.Some(Map(x -> other))
-//  }
-//  case class TFun(t1: Type, t2: Type) extends Type {
-//    def rename(ren: Map[Symbol, Symbol]) = TFun(t1.rename(ren), t2.rename(ren))
-//    def subst(s: Map[Symbol, Type]) = TFun(t1.subst(s), t2.subst(s))
-//    def unify(other: Type): Option[TSubst] = other match {
-//      case TFun(t1_, t2_) =>
-//        t1.unify(t1_) match {
-//          case scala.None => None
-//          case scala.Some(s1) => t2.subst(s1).unify(t2_.subst(s1)) match {
-//            case scala.None => None
-//            case scala.Some(s2) => scala.Some(s1.mapValues(_.subst(s2)) ++ s2)
-//          }
-//        }
-//      case TVar(x) => scala.Some(Map(x -> this))
-//      case _ => None
-//    }
-//  }
-//
 //  case class EqConstraint(expected: Type, actual: Type) extends Constraint {
 //    def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
 //    def solve = expected.unify(actual)

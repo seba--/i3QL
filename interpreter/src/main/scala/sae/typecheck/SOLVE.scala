@@ -4,7 +4,7 @@ import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMainta
 
 import sae.typecheck.Constraint.{Unsolvable, Constraint}
 import sae.typecheck.ConstraintTypecheck.EqConstraint
-import sae.typecheck.Type.{TSubst, Type}
+import TypeStuff.TSubst
 
 /**
  * Created by seba on 30/10/14.

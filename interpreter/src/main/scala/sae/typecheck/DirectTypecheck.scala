@@ -3,8 +3,8 @@ package sae.typecheck
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
-import sae.typecheck.Exp._
-import sae.typecheck.Type._
+import Exp._
+import TypeStuff._
 
 /**
 * Created by seba on 26/10/14.
@@ -14,25 +14,6 @@ object DirectTypecheck  {
   case object Num extends ExpKind
   case object Add extends ExpKind
   case object String extends ExpKind
-
-  case object TNum extends Type {
-    def rename(ren: Map[Symbol, Symbol]) = this
-    def subst(s: TSubst) = this
-    def unify(other: Type) = other match {
-      case TNum => scala.Some(Map())
-      case _ => None
-    }
-    def vars = Predef.Set()
-  }
-  case object TString extends Type {
-    def rename(ren: Map[Symbol, Symbol]) = this
-    def subst(s: TSubst) = this
-    def unify(other: Type) = other match {
-      case TString => scala.Some(Map())
-      case _ => None
-    }
-    def vars = Predef.Set()
-  }
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[Type])) => typecheckStep(p._1, p._2, p._3)
@@ -78,18 +59,15 @@ object DirectTypecheck  {
   } 
   
   def main(args: Array[String]): Unit = {
-    val expressions = Exp.table.asMaterialized
     val resultTypes = types.asMaterialized
     val root = Root(types, staticData (rootTypeExtractor))
 
     val e = Add(Num(17), Num(18))
     root.set(e)
-    expressions foreach (Predef.println(_))
     Predef.println(s"Type of $e is ${root.Type}")
 
     val e2 = Add(String("ab"), String("b"))
     root.set(e2)
-    expressions foreach (Predef.println(_))
     Predef.println(s"Type of $e2 is ${root.Type}")
 
     val e3 = Add(Add(Num(17), Num(1)), Add(Num(10), Num(2)))

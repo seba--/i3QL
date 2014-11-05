@@ -5,12 +5,12 @@ import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
 import idb.syntax.iql.SELECT
 import sae.typecheck.ConstraintSolutionTypecheck.EqConstraint
+import Exp._
+import TypeStuff._
 
 /**
  * Created by seba on 27/10/14.
  */
-import Exp._
-import Type._
 
 object Constraint {
   type Unsolvable = Seq[Constraint]

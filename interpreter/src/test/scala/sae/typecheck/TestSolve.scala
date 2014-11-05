@@ -2,8 +2,7 @@ package sae.typecheck
 
 import idb.operators.NotSelfMaintainableAggregateFunction
 import org.scalatest.FunSuite
-import sae.typecheck.SolveHelper.{Unsolvable, TSubst}
-import Constraint.Constraint
+import sae.typecheck.Constraint.{Unsolvable, Constraint}
 import ConstraintTypecheck._
 import Type._
 
@@ -132,5 +131,5 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
 }
 
 
-//class RunTest extends TestSolve(new SolveIntern[Constraint](x => x))
-class RunTest extends TestSolve(new SolveVarTrackingIntern[Constraint](x => x))
+class RunTest extends TestSolve(new SolveIntern[Constraint](x => x))
+//class RunTest extends TestSolve(new SolveVarTrackingIntern[Constraint](x => x))

@@ -1,0 +1,7 @@
+package sae. typecheck
+
+import Type._
+
+trait TypeCheck {
+  def typecheck(e: Exp): Either[Type, TError]
+}
