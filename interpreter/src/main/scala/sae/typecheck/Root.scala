@@ -1,26 +1,33 @@
 package sae.typecheck
 
 import idb.observer.Observer
-import idb.syntax.iql.IR._
+import idb.syntax.iql.IR._ //{Rep,Relation,Const,Sym}
 import idb.syntax.iql.SELECT
-import sae.typecheck.ConstraintTypecheck.TVar
-import sae.typecheck.Exp.ExpKind
-import sae.typecheck.Type._
+import Exp.ExpKind
+import TypeStuff._
+
+
 
 /**
  * Created by seba on 28/10/14.
  *
  * Use root to ensure fixed rootkey for all programs
  */
-class Root[V](private var rootNode: Exp) {
+class Root(private var rootNode: Exp) {
   def set(e: Exp): Unit = {
     val newroot = Root.Root(e)
     rootNode.replaceWith(newroot)
     rootNode = newroot
   }
 
-  var Type: V = _
-  def store(t: V) = Type = t
+  var Types: Set[Either[Type, TError]] = Predef.Set()
+  def Type = Types.size match {
+    case 0 => scala.Right("Unitialized root type")
+    case 1 => Types.head
+    case _ => scala.Right(s"Ambiguous root type: $Types")
+  }
+  def store(t: Either[Type, TError]) = Types += t
+  def unstore(t: Either[Type, TError]) = Types -= t
 }
 
 object Root {
@@ -36,15 +43,15 @@ object Root {
     def vars = t.vars
   }
 
-  def apply[U: Manifest, V: Manifest](types: Relation[(Exp.ExpKey, U)], f: Rep[U => V]): Root[V] = {
+  def apply[U: Manifest](types: Relation[(Exp.ExpKey, U)], f: Rep[U => Either[Type, TError]]): Root = {
     val rootNode = Exp(Root, scala.Seq(), scala.Seq())
-    val root = new Root[V](rootNode)
+    val root = new Root(rootNode)
     val rootKey: Rep[Int] = Exp.prefetchKey
-    val rootQuery = SELECT ((t: Rep[(Exp.ExpKey, U)]) => f(t._2)) FROM types WHERE (t => t._1 == rootKey)
-    rootQuery.addObserver(new Observer[V] {
-      override def updated(oldV: V, newV: V): Unit = root.store(newV)
-      override def removed(v: V): Unit = root.store(null.asInstanceOf[V])
-      override def added(v: V): Unit = root.store(v)
+    val rootQuery = SELECT ((t: Rep[(Exp.ExpKey, U)]) => f(t._2)) FROM types WHERE (t => {println(t);t._1 == rootKey})
+    rootQuery.addObserver(new Observer[Either[Type, TError]] {
+      override def updated(oldV: Either[Type, TError], newV: Either[Type, TError]): Unit = {root.unstore(oldV); root.store(newV)}
+      override def removed(v: Either[Type, TError]): Unit = root.unstore(v)
+      override def added(v: Either[Type, TError]): Unit = root.store(v)
       override def endTransaction(): Unit = {}
     })
     rootNode.insert
