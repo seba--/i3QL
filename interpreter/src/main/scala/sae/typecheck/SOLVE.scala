@@ -2,8 +2,7 @@ package sae.typecheck
 
 import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction}
 
-import sae.typecheck.Constraint.{Unsolvable, Constraint}
-import sae.typecheck.ConstraintTypecheck.EqConstraint
+import sae.typecheck.Constraint.Unsolvable
 import TypeStuff.TSubst
 
 /**

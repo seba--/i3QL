@@ -1,10 +1,6 @@
 package sae.typecheck
 
-import idb.{Relation, MaterializedView}
-import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
-import idb.syntax.iql.SELECT
-import sae.typecheck.ConstraintSolutionTypecheck.EqConstraint
 import Exp._
 import TypeStuff._
 
@@ -19,17 +15,6 @@ object Constraint {
   def substVars(s: TSubst) = s.foldLeft(Set[Symbol]())((vs,kv) => (vs + kv._1) ++ kv._2.vars)
   def requirementVars(reqs: Seq[Requirement]) = reqs.foldLeft(Set[Symbol]())((vs,r) => vs ++ r.vars)
 
-  abstract class Constraint {
-    def solve: Option[Map[Symbol, Type]]
-    def rename(ren: Map[Symbol, Symbol]): Constraint
-    def vars: Set[Symbol]
-  }
-
-  abstract class Requirement {
-    def rename(ren: Map[Symbol, Symbol]): Requirement
-    def merge(r: Requirement): Option[(Seq[Constraint], Seq[Requirement])]
-    def vars: Set[Symbol]
-  }
   def mergeReqs(reqs1: Seq[Requirement], reqs2: Seq[Requirement]) = {
     var mcons = Seq[Constraint]()
     var mreqs = reqs1
@@ -159,3 +144,31 @@ object Constraint {
   def cons(c: ConstraintData) = c._2
   def reqs(c: ConstraintData) = c._3
 }
+
+abstract class Constraint {
+  def solve: Option[Map[Symbol, Type]]
+  def rename(ren: Map[Symbol, Symbol]): Constraint
+  def vars: Set[Symbol]
+}
+
+abstract class Requirement {
+  def rename(ren: Map[Symbol, Symbol]): Requirement
+  def merge(r: Requirement): Option[(Seq[Constraint], Seq[Requirement])]
+  def vars: Set[Symbol]
+}
+
+case class EqConstraint(expected: Type, actual: Type) extends Constraint {
+  def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
+  def solve = expected.unify(actual)
+  def vars = expected.vars ++ actual.vars
+}
+
+case class VarRequirement(x: Symbol, t: Type) extends Requirement {
+  def merge(r: Requirement) = r match {
+    case VarRequirement(`x`, t2) => scala.Some((scala.Seq(EqConstraint(t, t2)), scala.Seq(this)))
+    case _ => None
+  }
+  def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
+  def vars = t.vars
+}
+

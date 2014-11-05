@@ -21,21 +21,6 @@ object ConstraintTypecheck {
   case object If0 extends ExpKind
   case object Fix extends ExpKind
 
-  case class EqConstraint(expected: Type, actual: Type) extends Constraint {
-    def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
-    def solve = expected.unify(actual)
-    def vars = expected.vars ++ actual.vars
-  }
-
-  case class VarRequirement(x: Symbol, t: Type) extends Requirement {
-    def merge(r: Requirement) = r match {
-      case VarRequirement(`x`, t2) => scala.Some((scala.Seq(EqConstraint(t, t2)), scala.Seq(this)))
-      case _ => None
-    }
-    def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
-    def vars = t.vars
-  }
-
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[ConstraintData])) => ConstraintData] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[ConstraintData])) => {
       val d = typecheckStep(p._1, p._2, p._3)
