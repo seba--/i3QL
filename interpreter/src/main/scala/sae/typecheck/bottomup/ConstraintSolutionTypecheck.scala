@@ -13,7 +13,7 @@ import sae.typecheck.TypeCheck
 /**
 * Created by seba on 26/10/14.
 */
-object ConstraintSolutionTypecheck extends TypeCheck {
+object ConstraintSolutionTypeCheck extends TypeCheck {
 
   def typecheckStepRep: Rep[((ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => ConstraintSolutionData] = staticData (
     (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {

@@ -13,7 +13,7 @@ import sae.typecheck.TypeCheck
 /**
 * Created by seba on 26/10/14.
 */
-object DirectTypecheck  {
+object DirectTypeCheck extends TypeCheck {
 
   def typecheckStepRep: Rep[((ExpKind, Seq[Lit], Seq[Type])) => Either[Type, TError]] = staticData (
     (p: (ExpKind, Seq[Lit], Seq[Type])) => typecheckStep(p._1, p._2, p._3)
@@ -58,41 +58,21 @@ object DirectTypecheck  {
     case scala.Left(t) => throw new RuntimeException(s"Unexpected root type $t")
   }
 
-  def main(args: Array[String]): Unit = {
-    val resultTypes = types.asMaterialized
-    val root = Root(types, staticData (rootTypeExtractor))
-
-    val e = Add(Num(17), Num(18))
+  val root = Root(types, staticData (rootTypeExtractor))
+  def typecheck(e: Exp) = {
     root.set(e)
-    Predef.println(s"Type of $e is ${root.Type}")
+    root.Type
+  }
 
-    val e2 = Add(String("ab"), String("b"))
-    root.set(e2)
-    Predef.println(s"Type of $e2 is ${root.Type}")
-
-    val e3 = Add(Add(Num(17), Num(1)), Add(Num(10), Num(2)))
-    root.set(e3)
-    Predef.println(s"Type of $e3 is ${root.Type}")
-
-    val e4 = Add(Add(Num(17), Num(1)), Add(Num(17), Num(1)))
-    root.set(e4)
-    Predef.println(s"Type of $e4 is ${root.Type}")
-
-    val e5 = Num(30)
-    root.set(e5)
-    Predef.println(s"Type of $e5 is ${root.Type}")
-
-    val e6 = Add(Num(17), Num(12))
-    root.set(e6)
-    Predef.println(s"Type of $e6 is ${root.Type}")
-
-    val e7 = Add(Num(17), String("abcdef"))
-    root.set(e7)
-    Predef.println(s"Type of $e7 is ${root.Type}")
-
-    val e8 = Add(Num(17), Num(13))
-    root.set(e8)
-    Predef.println(s"Type of $e8 is ${root.Type}")
+  def main(args: Array[String]): Unit = {
+    printTypecheck(Add(Num(17), Num(18)))
+    printTypecheck(Add(String("ab"), String("b")))
+    printTypecheck(Add(Add(Num(17), Num(1)), Add(Num(10), Num(2))))
+    printTypecheck(Add(Add(Num(17), Num(1)), Add(Num(17), Num(1))))
+    printTypecheck(Num(30))
+    printTypecheck(Add(Num(17), Num(12)))
+    printTypecheck(Add(Num(17), String("abcdef")))
+    printTypecheck(Add(Num(17), Num(13)))
   }
 
 }
