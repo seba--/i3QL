@@ -130,5 +130,5 @@ class TestConstraintSolver(solver: NotSelfMaintainableAggregateFunction[Constrai
 }
 
 
-class RunTest extends TestConstraintSolver(new SolveIntern[Constraint](x => x))
+//class RunTest extends TestConstraintSolver(new SolveIntern[Constraint](x => x))
 //class RunTest extends TestConstraintSolver(new SolveVarTrackingIntern[Constraint](x => x))

@@ -87,6 +87,8 @@ object Constraint {
     mergeSolution(sol, esol)
   }
 
+  def solve(cs: Iterable[Constraint]) = cs.foldLeft[Solution]((Map(), Seq()))(extendSolution)
+
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Seq[Constraint]) = {
     c.solve match {
       case None => mergeSolution(sol, (Map(), Seq(c)))
