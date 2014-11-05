@@ -67,8 +67,8 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     getkey match {
       case None =>
         val key = nextKey()
-        table += ((key, kind, lits, subkeys))
 //        println(s"insert ${(key, kind, lits, subkeys)}")
+        table += ((key, kind, lits, subkeys))
         bindExp(this, key)
         key
       case Some(key) =>
@@ -82,8 +82,8 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val Some((key, count)) = lookupExpWithCount(this)
     unbindExp(this)
     if (count == 1) {
-      table -= ((key, kind, lits, subkeys))
 //      println(s"remove ${(key, kind, lits, subkeys)}")
+      table -= ((key, kind, lits, subkeys))
     }
     key
   }
@@ -92,19 +92,23 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val Some((oldkey, oldcount)) = lookupExpWithCount(old)
     val newkey = e.getkey.getOrElse(if (oldcount == 1) oldkey else nextKey())
     val newcount = lookupExpCount(e)
-//    println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
     unbindExp(old)
     bindExp(e, newkey)
-    if (oldcount == 1 && newcount == 0 && (old.kind != e.kind || old.lits != e.lits || oldsubkeys != newsubkeys)) {
-//      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount")
-      table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
+    if (old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys) {
+      // terms are flat-equal, do nothing
+    }
+    else if (oldcount == 1 && newcount == 0) {
+//      println(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
+      table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
+//      table -= (oldkey, old.kind, old.lits, oldsubkeys)
+//      table += (newkey, e.kind, e.lits, newsubkeys)
     }
     else if (oldcount == 1 && newcount >= 1) {
-//      println(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount")
+//      println(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)}")
       table -= (oldkey, old.kind, old.lits, oldsubkeys)
     }
     else if (oldcount > 1 && newcount == 0) {
-//      println(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*$newcount, keep ($oldkey, $kind, $lits, $oldsubkeys)*$oldcount")
+//      println(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
       table += (newkey, e.kind, e.lits, newsubkeys)
     }
     else if (oldcount > 1 && newcount >= 1) {
@@ -116,15 +120,15 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def replaceWith(e: Exp): ExpKey = {
     if (kind == e.kind && lits == e.lits && sub.length == e.sub.length) {
-      if (sub == e.sub)
-        // equal to old expression, no change required
-        key
-      else {
-        // same structure, just replace subexpressions
-        val oldsubkeys = sub map (_.key)
-        val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
-        updateExp(this, e, oldsubkeys, newsubkeys)
-      }
+      // same structure, just replace subexpressions
+      val oldsubkeys = sub map (_.key)
+      val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
+      updateExp(this, e, oldsubkeys, newsubkeys)
+//      else
+//        getkey match {
+//          case None => throw new RuntimeException(s"$this does not have key")
+//          case Some(k) => k
+//        }
     }
     else {
       // different structure, remove old subexpressions and insert new subexpressions
