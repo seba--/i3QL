@@ -1,6 +1,5 @@
 package sae.typecheck
 
-import idb.observer.Observer
 import idb.syntax.iql.IR.Rep
 import idb.{BagTable, SetTable}
 
@@ -29,24 +28,6 @@ object Exp {
   def subseq(e: Rep[ExpTuple]) = e._4
 
   private var _nextKey = 0
-  private[this] var _expMap = Map[Exp, (ExpKey, Int)]()
-  private def bindExp(e: Exp, k: ExpKey): Unit = {
-    _expMap.get(e) match {
-      case None => _expMap += e -> (k, 1)
-      case Some((`k`, count)) => _expMap += e -> (k, count+1)
-      case Some((k2, count)) => throw new IllegalStateException(s"conflicting key bindings $k and $k2 for expression $e")
-    }
-  }
-  private def unbindExp(e: Exp): Unit = {
-    _expMap.get(e) match {
-      case None => {}
-      case Some((k, 1)) => _expMap -= e
-      case Some((k, count)) => _expMap += e -> (k, count-1)
-    }
-  }
-  private def lookupExp(e: Exp) = _expMap.get(e).map(_._1)
-  private def lookupExpCount(e: Exp) = _expMap.get(e).map(_._2).getOrElse(0)
-  private def lookupExpWithCount(e: Exp) = _expMap.get(e)
 
   val table = BagTable.empty[ExpTuple]
 
@@ -70,83 +51,45 @@ object Exp {
 
 import Exp._
 case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
-  def key = lookupExp(this).get
-  def getkey = lookupExp(this)
+  var key = -1
 
   def insert: ExpKey = {
+    if (key != -1)
+      throw new RuntimeException(s"Attempted double insert of exp $key->$this")
     val subkeys = sub map (_.insert)
-    getkey match {
-      case Some(key) =>
-        bindExp(this, key)
-        key
-      case None =>
-        val key = nextKey()
-        log(s"insert ${(key, kind, lits, subkeys)}")
-        table += ((key, kind, lits, subkeys))
-        bindExp(this, key)
-        key
-    }
+    key = nextKey()
+    log(s"insert ${(key, kind, lits, subkeys)}")
+    table += ((key, kind, lits, subkeys))
+    key
   }
 
   def remove: ExpKey = {
     val subkeys = sub map (_.remove)
-    val Some((key, count)) = lookupExpWithCount(this)
-    unbindExp(this)
-    if (count == 1) {
-      log(s"remove ${(key, kind, lits, subkeys)}")
-      table -= ((key, kind, lits, subkeys))
-    }
-    key
+    log(s"remove ${(key, kind, lits, subkeys)}")
+    table -= ((key, kind, lits, subkeys))
+    val k = key
+    key = -1
+    k
   }
 
   def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
-    val Some((oldkey, oldcount)) = lookupExpWithCount(old)
-    val newkey = e.getkey.getOrElse(if (oldcount == 1) oldkey else nextKey())
-    val newcount = lookupExpCount(e)
-    unbindExp(old)
-    bindExp(e, newkey)
-    if (old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys) {
-      // terms are flat-equal, do nothing
-    }
-    else if (oldcount == 1 && newcount == 0) {
-      log(s"update  ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
-      table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
-//      table -= (oldkey, old.kind, old.lits, oldsubkeys)
-//      table += (newkey, e.kind, e.lits, newsubkeys)
-    }
-    else if (oldcount == 1 && newcount >= 1) {
-      log(s"remove ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)}")
-      table -= (oldkey, old.kind, old.lits, oldsubkeys)
-    }
-    else if (oldcount > 1 && newcount == 0) {
-      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
-      table += (newkey, e.kind, e.lits, newsubkeys)
-    }
-    else if (oldcount > 1 && newcount >= 1) {
-      // do nothing
-    }
-//    println(s"updated ($oldkey, $kind, $lits, $oldsubkeys)*${lookupExpCount(old)} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${lookupExpCount(e)}")
+    val oldkey = old.key
+    if (e.key != -1)
+      throw new RuntimeException(s"Attempted double insert of exp $key->$this")
+    val newkey = old.key
+    e.key = newkey
+    log(s"update  ($oldkey, $kind, $lits, $oldsubkeys) -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
+    table ~= (oldkey, old.kind, old.lits, oldsubkeys) -> (newkey, e.kind, e.lits, newsubkeys)
     newkey
   }
 
   def replaceWith(e: Exp): ExpKey = {
-    if (kind == e.kind && lits == e.lits && sub.length == e.sub.length) {
-      // same structure, just replace subexpressions
-      val oldsubkeys = sub map (_.key)
-      val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
-      updateExp(this, e, oldsubkeys, newsubkeys)
-//      else
-//        getkey match {
-//          case None => throw new RuntimeException(s"$this does not have key")
-//          case Some(k) => k
-//        }
-    }
-    else {
-      // different structure, remove old subexpressions and insert new subexpressions
-      val newsubkeys = e.sub map (_.insert) // will be shared with previous subtrees if already present
-      val oldsubkeys = sub map (_.remove)
-      updateExp(this, e, oldsubkeys, newsubkeys)
-    }
+    val oldsubkeys = sub map (_.key)
+    val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
+    if (sub.size > e.sub.size) sub.drop(e.sub.size).map(_.remove)
+    val moreNewsubkeys = if (e.sub.size > sub.size) e.sub.drop(sub.size).map(_.insert) else Seq()
+
+    updateExp(this, e, oldsubkeys, newsubkeys ++ moreNewsubkeys)
   }
 
   override def toString = {

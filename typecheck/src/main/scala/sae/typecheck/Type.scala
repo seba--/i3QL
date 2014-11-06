@@ -29,14 +29,11 @@ object TypeStuff {
 
   def printTyings(e: Exp, types: Map[ExpKey, Either[Type, TError]]) {
     e.sub foreach (printTyings(_, types))
-    e.getkey match {
-      case Some(key) =>
-        types.get(key) match {
-          case Some(Left(t)) => Predef.println(s"$key -> $t, $e")
-          case Some(Right(msg)) => Predef.println(s"$key -> Error $msg, $e")
-          case None => Predef.println(s"$key -> ERROR: not defined")
-        }
-      case None => throw new RuntimeException(s"ERROR: unregistered expression without key $e")
+    val key = e.key
+    types.get(key) match {
+      case Some(Left(t)) => Predef.println(s"$key -> $t, $e")
+      case Some(Right(msg)) => Predef.println(s"$key -> Error $msg, $e")
+      case None => Predef.println(s"$key -> ERROR: not defined")
     }
   }
 }
