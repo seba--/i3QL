@@ -1,16 +1,9 @@
-package sae.typecheck
-
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
-
-import sae.typecheck.Exp._
-import sae.typecheck.Type._
-import sae.typecheck.Constraint._
+package sae.typecheck;
 
 /**
  * Created by seba on 26/10/14.
  */
-object ConstraintTypecheckSimple {
+/*object ConstraintTypecheckSimple {
 
 	case object Num extends ExpKind
 	case object Add extends ExpKind
@@ -329,4 +322,4 @@ object ConstraintTypecheckSimple {
 		//    Predef.println(s"Type of $e7 is ${root.Type}")
 	}
 
-}
+}  */

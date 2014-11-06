@@ -2,15 +2,13 @@ package sae.typecheck
 
 import idb.operators.NotSelfMaintainableAggregateFunction
 import org.scalatest.FunSuite
-import sae.typecheck.SolveHelper.{Unsolvable, TSubst}
-import Constraint.Constraint
-import ConstraintTypecheck._
-import Type._
+import sae.typecheck.Constraint.Unsolvable
+import TypeStuff._
 
 /**
  * Created by seba on 03/11/14.
  */
-class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TSubst, Unsolvable)] with Resetable) extends FunSuite {
+class TestConstraintSolver(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TSubst, Unsolvable)] with Resetable) extends FunSuite {
 
   def addEq(t1: Type, t2: Type) = solver.add(EqConstraint(t1, t2), Seq())
   def remEq(t1: Type, t2: Type) = solver.remove(EqConstraint(t1, t2), Seq())
@@ -19,8 +17,8 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     val (was, unres) = solver.get()
     assert(unres.isEmpty, s"Expected solution $s but found unresolvable constraints $unres")
 
-    lazy val diff = for (k <- was.keys.toSet intersect s.keys.toSet if was(k) != s(k)) yield (k -> (was(k), s(k)))
-    lazy val msg = s"Missing bindings ${was.keys.toSeq diff s.keys.toSeq}, superfluous bindings ${s.keys.toSeq diff was.keys.toSeq}, differing bindings $diff"
+    lazy val diff = (for (k <- was.keys.toSet intersect s.keys.toSet if was(k) != s(k)) yield (k -> (was(k), s(k)))).toMap
+    lazy val msg = s"Superfluous bindings ${was.keys.toSeq diff s.keys.toSeq}, missing bindings ${s.keys.toSeq diff was.keys.toSeq}, differing bindings $diff"
     assertResult(s, msg)(was)
   }
 
@@ -66,6 +64,12 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     remEq(TNum, TVar('x))
     assertSolution(Map('x -> TString, 'y -> TString))
 
+    remEq(TString, TVar('x))
+    assertSolution(Map('y -> TString))
+
+    addEq(TNum, TVar('x))
+    assertSolution(Map('y -> TString, 'x -> TNum))
+
     solver.reset()
   }
 
@@ -80,10 +84,19 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
     addEq(TVar('f), TFun(TFun(TVar('a), TVar('b)), TFun(TVar('c), TVar('c))))
     assertSolution(Map('x -> TFun(TVar('c), TVar('c)), 'f -> TFun(TFun(TVar('c), TVar('c)), TFun(TVar('c), TVar('c))), 'y -> TFun(TVar('c), TVar('c)), 'a -> TVar('c), 'b -> TVar('c), 'z1 -> TVar('c), 'z2 -> TVar('c)))
 
+    addEq(TVar('a), TNum)
+    addEq(TVar('b), TString)
+    assertUnsolvable()
+
     remEq(TFun(TVar('y), TVar('x)), TVar('f))
-    assertSolution(Map('x -> TFun(TVar('a), TVar('b)), 'f -> TFun(TFun(TVar('a), TVar('b)), TFun(TVar('c), TVar('c))), 'y -> TFun(TVar('c), TVar('c)), 'z1 -> TVar('c), 'z2 -> TVar('c)))
+    assertSolution(Map('x -> TFun(TNum, TString), 'f -> TFun(TFun(TNum, TString), TFun(TVar('z2), TVar('z2))), 'y -> TFun(TVar('z2), TVar('z2)), 'z1 -> TVar('z2), 'c -> TVar('z2), 'a -> TNum, 'b -> TString))
 
     solver.reset()
+  }
+
+  test ("realistic constraints") {
+    val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
+
   }
 
   val its = 500
@@ -117,4 +130,5 @@ class TestSolve(solver: NotSelfMaintainableAggregateFunction[Constraint, ()=>(TS
 }
 
 
-class RunTest extends TestSolve(new SolveIntern[Constraint](x => x))
+//class RunTest extends TestConstraintSolver(new SolveIntern[Constraint](x => x))
+//class RunTest extends TestConstraintSolver(new SolveVarTrackingIntern[Constraint](x => x))
