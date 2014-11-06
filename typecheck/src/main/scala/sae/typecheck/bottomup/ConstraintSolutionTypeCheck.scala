@@ -168,6 +168,11 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     root.Type
   }
 
+  def typecheckIncremental(e: Exp) = {
+    root.update(e)
+    root.Type
+  }
+
   def main(args: Array[String]): Unit = {
     printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
     printTypecheck(Add(Num(17), Add(Num(10), Num(5))))

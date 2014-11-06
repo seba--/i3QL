@@ -31,6 +31,39 @@ object Exp {
 
   val table = BagTable.empty[ExpTuple]
 
+  def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
+    val oldkey = old.key
+    val oldcount = old.count
+    val newcount = e.count
+
+
+    if (oldcount == 1 && newcount == 0) {
+      val newkey = oldkey
+      val same = old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys
+      if (!same) {
+        log(s"update ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${newcount}")
+        table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
+      }
+      e.key = newkey
+    }
+    else if (oldcount == 1 && newcount >= 1) {
+      log(s"remove ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount}")
+      table -= (oldkey, old.kind, old.lits, oldsubkeys)
+    }
+    else if (oldcount > 1 && newcount == 0) {
+      val newkey = nextKey()
+      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
+      table += (newkey, e.kind, e.lits, newsubkeys)
+      e.key = newkey
+    }
+    else if (oldcount > 1 && newcount >= 1) {
+      // do nothing
+    }
+    old.decCount
+    e.incCount
+    //    println(s"updated ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${old.count} -> (${e.key}, ${e.kind}, ${e.lits}, $newsubkeys)*${e.count}")
+    e.key
+  }
 
   def nextKey() = {
     val k = _nextKey
@@ -116,40 +149,6 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     }
     else
       key
-  }
-
-  def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
-    val oldkey = old.key
-    val oldcount = old.count
-    val newcount = e.count
-
-
-    if (oldcount == 1 && newcount == 0) {
-      val newkey = oldkey
-      val same = old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys
-      if (!same) {
-        log(s"update ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${newcount}")
-        table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
-      }
-      e.key = newkey
-    }
-    else if (oldcount == 1 && newcount >= 1) {
-      log(s"remove ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount}")
-      table -= (oldkey, old.kind, old.lits, oldsubkeys)
-    }
-    else if (oldcount > 1 && newcount == 0) {
-      val newkey = nextKey()
-      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
-      table += (newkey, e.kind, e.lits, newsubkeys)
-      e.key = newkey
-    }
-    else if (oldcount > 1 && newcount >= 1) {
-      // do nothing
-    }
-    old.decCount
-    e.incCount
-//    println(s"updated ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${old.count} -> (${e.key}, ${e.kind}, ${e.lits}, $newsubkeys)*${e.count}")
-    e.key
   }
 
   def replaceWith(e: Exp): ExpKey = {

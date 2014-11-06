@@ -146,9 +146,14 @@ object ConstraintTypeCheck extends TypeCheck {
     }
   }
 
-    val root = Root(constraints, staticData (rootTypeExtractor))
+  val root = Root(constraints, staticData (rootTypeExtractor))
   def typecheck(e: Exp): Either[Type, TError] = {
     root.set(e)
+    root.Type
+  }
+
+  def typecheckIncremental(e: Exp): Either[Type, TError] = {
+    root.update(e)
     root.Type
   }
 

@@ -18,6 +18,8 @@ object ConstraintTypeCheck extends TypeCheck {
     v
   }
 
+  def typecheckIncremental(e: Exp) = typecheck(e)
+
   def typecheck(e: Exp): Either[Type, TError] = {
     _nextId = 0
     try {

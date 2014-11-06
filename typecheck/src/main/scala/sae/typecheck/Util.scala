@@ -15,4 +15,9 @@ object Util {
       println(s"Time to $desc is ${(end-start)/1000000.0}ms")
     a
   }
+
+  def log(s: String): Unit = {
+    if (LOGGING)
+      println(s)
+  }
 }
