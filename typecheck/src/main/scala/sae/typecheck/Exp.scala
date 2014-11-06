@@ -8,10 +8,10 @@ import idb.{BagTable, SetTable}
  */
 object Exp {
   var change: Long = System.nanoTime
-  val LOG_TABLE_OPS = false
+
   def log(s: String) = {
     val newchange = System.nanoTime
-    if(LOG_TABLE_OPS) {
+    if(Util.LOG_TABLE_OPS) {
       println(s"Time since last table op ${(newchange - change)/1000000.0}ms")
       println(s)
     }
@@ -154,49 +154,49 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def replaceWith(e: Exp): ExpKey = {
     val oldSubexps = this.subexps
-    val newSubexps = e.subexps
-    val newSubexpsSet = e.subexps.toSet
+    val newSubexps = Util.timed("collect new subexps", e.subexps)
 
     val free = collection.mutable.ArrayBuffer[Exp]()
     val common = new ExtHashSet[Exp]()
 
-    for (i <- 0 until oldSubexps.size) {
-      val old = oldSubexps(i)
-      if (newSubexpsSet.contains(old))
-        common += old
-      else
-        free += old
-    }
+    Util.timed("build common and free",
+      for (i <- 0 until oldSubexps.size) {
+        val old = oldSubexps(i)
+        if (newSubexps.contains(old))
+          common += old
+        else
+          free += old
+      }
+    )
 
-//    println(s"new ${newSubexps.size}, free ${free.size}")
-//    println(s"new ${newSubexps}, free ${free}")
     val diff = newSubexps.size - free.size
 
-    for (i <- 0 until newSubexps.size) {
-      val e = newSubexps(i)
-      common.findEntry(e) match {
-        case Some(old) =>
-          if (e.count == 0) {
-            log(s"reuse   (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys}) for (${e.key}, ${e.kind}, ${e.lits}, ${e.subkeys})")
-            e._delegate = old
-            e.key = old.key
-            old.incCount
-          }
-          else
-            assert(e._delegate != null || e.key == old.key)
+    Util.timed("insert new subexps",
+      for (i <- 0 until newSubexps.size) {
+        val e = newSubexps(i)
+        common.findEntry(e) match {
+          case Some(old) =>
+            if (e.count == 0) {
+              log(s"reuse   (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys}) for (${e.key}, ${e.kind}, ${e.lits}, ${e.subkeys})")
+              e._delegate = old
+              e.key = old.key
+              old.incCount
+            }
+            else
+              assert(e._delegate != null || e.key == old.key)
 
-        case None =>
-          if (i < diff)
-            e.flatinsert
-          else {
-            val old = free(i - diff)
-            updateExp(old, e, old.subkeys, e.subkeys)
-          }
+          case None =>
+            if (i < diff)
+              e.flatinsert
+            else {
+              val old = free(i - diff)
+              updateExp(old, e, old.subkeys, e.subkeys)
+            }
+        }
+        for (i <- newSubexps.size until free.size)
+          free(free.size - i - 1).flatremove
       }
-    }
-
-    for (i <- newSubexps.size until free.size)
-      free(free.size - i - 1).flatremove
+    )
 
     e.key
   }
