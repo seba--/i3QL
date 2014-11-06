@@ -7,7 +7,7 @@ object Util {
   val LOGGING = true
   val LOG_TABLE_OPS = false
 
-  def timed[A](desc: String, f: => A): A = {
+  def timed[A](desc: String)(f: => A): A = {
     val start = System.nanoTime()
     val a = f
     val end = System.nanoTime()

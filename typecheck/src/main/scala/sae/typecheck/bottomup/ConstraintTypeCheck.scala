@@ -158,26 +158,52 @@ object ConstraintTypeCheck extends TypeCheck {
   }
 
   def main(args: Array[String]): Unit = {
-    printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
-    printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
-    printTypecheck(Abs('x, Add(Num(10), Num(5))))
-    printTypecheck(Abs('x, Add(Var('x), Var('x))))
-    printTypecheck(Abs('x, Add(Var('err), Var('x))))
-    printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
-    printTypecheck(Abs('x, Abs('y, Add(Var('x), Var('y)))))
+    Util.timed("type check suite non-incrementally") {
+      printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
+      printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
+      printTypecheck(Abs('x, Add(Num(10), Num(5))))
+      printTypecheck(Abs('x, Add(Var('x), Var('x))))
+      printTypecheck(Abs('x, Add(Var('err), Var('x))))
+      printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
+      printTypecheck(Abs('x, Abs('y, Add(Var('x), Var('y)))))
 
-    val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
-    printTypecheck("factorial", fac)
-    printTypecheck("eta-expanded factorial", Abs('x, App(fac, Var('x))))
+      val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
+      printTypecheck("factorial", fac)
+      printTypecheck("eta-expanded factorial", Abs('x, App(fac, Var('x))))
 
-    val fib = Fix(Abs('f, Abs('n,
-      If0(Var('n), Num(1),
-        If0(Add(Var('n), Num(-1)), Num(1),
-          Add(App(Var('f), Add(Var('n), Num(-1))),
-            App(Var('f), Add(Var('n), Num(-2)))))))))
-    printTypecheck("fibonacci function", fib)
-    printTypecheck("factorial+fibonacci", Abs('x, Add(App(fac, Var('x)), App(fib, Var('x)))))
-    printTypecheck(Abs('y, Var('y)))
+      val fib = Fix(Abs('f, Abs('n,
+        If0(Var('n), Num(1),
+          If0(Add(Var('n), Num(-1)), Num(1),
+            Add(App(Var('f), Add(Var('n), Num(-1))),
+              App(Var('f), Add(Var('n), Num(-2)))))))))
+      printTypecheck("fibonacci function", fib)
+      printTypecheck("factorial+fibonacci", Abs('x, Add(App(fac, Var('x)), App(fib, Var('x)))))
+      printTypecheck(Abs('y, Var('y)))
+    }
+
+    root.reset()
+    Util.timed("type check suite incrementally") {
+      printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
+      printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
+      printTypecheck(Abs('x, Add(Num(10), Num(5))))
+      printTypecheck(Abs('x, Add(Var('x), Var('x))))
+      printTypecheck(Abs('x, Add(Var('err), Var('x))))
+      printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
+      printTypecheck(Abs('x, Abs('y, Add(Var('x), Var('y)))))
+
+      val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
+      printTypecheck("factorial", fac)
+      printTypecheck("eta-expanded factorial", Abs('x, App(fac, Var('x))))
+
+      val fib = Fix(Abs('f, Abs('n,
+        If0(Var('n), Num(1),
+          If0(Add(Var('n), Num(-1)), Num(1),
+            Add(App(Var('f), Add(Var('n), Num(-1))),
+              App(Var('f), Add(Var('n), Num(-2)))))))))
+      printTypecheck("fibonacci function", fib)
+      printTypecheck("factorial+fibonacci", Abs('x, Add(App(fac, Var('x)), App(fib, Var('x)))))
+      printTypecheck(Abs('y, Var('y)))
+    }
   }
 
 }

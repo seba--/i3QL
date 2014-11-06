@@ -17,6 +17,16 @@ class Root() {
   val key = Exp.prefetchKey
   def insert = rootNode.insert
 
+  def reset(): Unit = {
+    val oldSubkeys = rootNode.subkeys
+    if (!rootNode.sub.isEmpty)
+      rootNode.sub(0).remove
+
+    val newRootNode = Exp(Root.Root, Seq(), Seq())
+    Exp.updateExp(rootNode, newRootNode, oldSubkeys, Seq())
+    rootNode = newRootNode
+  }
+
   def set(e: Exp): Unit = {
     val oldSubkeys = rootNode.subkeys
     if (!rootNode.sub.isEmpty)
