@@ -73,6 +73,10 @@ object Constraint {
   type ConstraintTuple = (ExpKey, ConstraintData)
   type ConstraintData = (Type, Seq[Constraint], Seq[Requirement], Seq[Symbol])
 
+  type DataTuple = (ExpKey, Data)
+  type Data = Either[Type, Either[Constraint, Either[Requirement, Symbol]]]
+
+
   type ConstraintIncTuple = (ExpKey, ConstraintIncData)
   type ConstraintIncData = (Type, Seq[Constraint], Seq[Requirement])
 
