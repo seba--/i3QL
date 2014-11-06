@@ -59,7 +59,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   def key_=(k: ExpKey): Unit = if (_delegate != null) _delegate.key = k else _key = k
   def count: Int = if (_delegate != null) _delegate.count else _count
   def decCount: Unit = if (_delegate != null) _delegate.decCount else _count -= 1
-  def incCount: Unit = if (_delegate != null) _delegate.incCount else if (_key == -1) throw new RuntimeException(s"$this") else _count += 1
+  def incCount: Unit = if (_delegate != null) _delegate.incCount else _count += 1
 
   override def equals(a: Any) = a.isInstanceOf[Exp] && {
     val e = a.asInstanceOf[Exp]
@@ -154,25 +154,16 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def replaceWith(e: Exp): ExpKey = {
     val oldSubexps = this.subexps
-    val free = collection.mutable.ArrayBuffer[Exp]()
     val newSubexps = e.subexps
+    val newSubexpsSet = e.subexps.toSet
+
+    val free = collection.mutable.ArrayBuffer[Exp]()
+    val common = new ExtHashSet[Exp]()
+
     for (i <- 0 until oldSubexps.size) {
       val old = oldSubexps(i)
-      if (old.key == -1) {
-        println(s"***** bogus old $old key ${old.key} count ${old._count} delegate ${old._delegate} is (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys})")
-      }
-      val newIndex = newSubexps.indexOf(old)
-      if (newIndex >= 0) {
-        val e = newSubexps.remove(newIndex)
-        if (e.count == 0) {
-          log(s"reuse   (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys}) for (${e.key}, ${e.kind}, ${e.lits}, ${e.subkeys})")
-          e._delegate = old
-          e.key = old.key
-          old.incCount
-        }
-        else
-          assert(e._delegate != null || e.key == old.key)
-      }
+      if (newSubexpsSet.contains(old))
+        common += old
       else
         free += old
     }
@@ -183,11 +174,24 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
     for (i <- 0 until newSubexps.size) {
       val e = newSubexps(i)
-      if (i < diff)
-        e.flatinsert
-      else {
-        val old = free(i - diff)
-        updateExp(old, e, old.subkeys, e.subkeys)
+      common.findEntry(e) match {
+        case Some(old) =>
+          if (e.count == 0) {
+            log(s"reuse   (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys}) for (${e.key}, ${e.kind}, ${e.lits}, ${e.subkeys})")
+            e._delegate = old
+            e.key = old.key
+            old.incCount
+          }
+          else
+            assert(e._delegate != null || e.key == old.key)
+
+        case None =>
+          if (i < diff)
+            e.flatinsert
+          else {
+            val old = free(i - diff)
+            updateExp(old, e, old.subkeys, e.subkeys)
+          }
       }
     }
 
@@ -195,13 +199,6 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       free(free.size - i - 1).flatremove
 
     e.key
-
-//    val oldsubkeys = sub map (_.key)
-//    val newsubkeys = sub.zip(e.sub).map(p => p._1.replaceWith(p._2))
-//    if (sub.size > e.sub.size) sub.drop(e.sub.size).map(_.remove)
-//    val moreNewsubkeys = if (e.sub.size > sub.size) e.sub.drop(sub.size).map(_.insert) else Seq()
-//
-//    updateExp(this, e, oldsubkeys, newsubkeys ++ moreNewsubkeys)
   }
 
   override def toString = {
@@ -223,3 +220,8 @@ case object Abs extends ExpKind
 case object App extends ExpKind
 case object If0 extends ExpKind
 case object Fix extends ExpKind
+
+
+class ExtHashSet[A] extends collection.mutable.HashSet[A] {
+  override def findEntry(elem: A) = super.findEntry(elem)
+}
