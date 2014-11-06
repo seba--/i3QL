@@ -77,6 +77,7 @@ object ConstraintTypeCheck extends TypeCheck {
 
   def main(args: Array[String]): Unit = {
     printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
+    printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
     printTypecheck(Abs('x, Add(Num(10), Num(2))))
     printTypecheck(Abs('x, Add(Var('x), Var('x))))
     printTypecheck(Abs('x, Add(Var('err), Var('x))))

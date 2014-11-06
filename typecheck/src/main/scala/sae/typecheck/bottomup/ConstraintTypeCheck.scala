@@ -139,7 +139,7 @@ object ConstraintTypeCheck extends TypeCheck {
       if (unres.isEmpty)
         t.subst(s) match {
           case Root.TRoot(t) => scala.Left(t)
-          case _ => throw new RuntimeException(s"Unexpected root type $t")
+          case _ => scala.Right(s"Unexpected root type $t")
         }
       else
         scala.Right(s"Unresolved constraints $unres, type ${t.subst(s)}, free $free")
@@ -154,7 +154,8 @@ object ConstraintTypeCheck extends TypeCheck {
 
   def main(args: Array[String]): Unit = {
     printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
-    printTypecheck(Abs('x, Add(Num(10), Num(2))))
+    printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
+    printTypecheck(Abs('x, Add(Num(10), Num(5))))
     printTypecheck(Abs('x, Add(Var('x), Var('x))))
     printTypecheck(Abs('x, Add(Var('err), Var('x))))
     printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))

@@ -19,7 +19,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     (p: (ExpKey, ExpKind, Seq[Lit], Seq[ConstraintSolutionData])) => {
 //      Predef.println(p._1)
       val start = System.nanoTime()
-      Predef.println(s"Table change -> TypecheckStep = ${(start - Exp.change)/1000000.0}ms")
+//      Predef.println(s"Table change -> TypecheckStep = ${(start - Exp.change)/1000000.0}ms")
 
       val d = typecheckStep(p._2, p._3, p._4)
       val end = System.nanoTime()
@@ -34,7 +34,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         Predef.println(s"   -> requires vars\t${requirementVars(d._3)}")
         Predef.println(s"   -> fresh vars\t${d._4.toSet}")
       }
-      Predef.println(s"TypecheckStep completed ${p._1}->$d in ${(end-start)/1000000.0}ms")
+//      Predef.println(s"TypecheckStep completed ${p._1}->$d in ${(end-start)/1000000.0}ms")
       d
     }
   )
@@ -170,7 +170,8 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 
   def main(args: Array[String]): Unit = {
     printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
-    printTypecheck(Abs('x, Add(Num(10), Num(2))))
+    printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
+    printTypecheck(Abs('x, Add(Num(10), Num(5))))
     printTypecheck(Abs('x, Add(Var('x), Var('x))))
     printTypecheck(Abs('x, Add(Var('err), Var('x))))
     printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
