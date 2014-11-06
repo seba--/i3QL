@@ -20,14 +20,14 @@ class Root(private var rootNode: Exp) {
     rootNode = newroot
   }
 
-  var Types: Set[Either[Type, TError]] = Predef.Set()
+  var Types: Seq[Either[Type, TError]] = scala.Seq()
   def Type = Types.size match {
     case 0 => scala.Right("Unitialized root type")
     case 1 => Types.head
     case _ => scala.Right(s"Ambiguous root type: $Types")
   }
-  def store(t: Either[Type, TError]) = Types += t
-  def unstore(t: Either[Type, TError]) = Types -= t
+  def store(t: Either[Type, TError]) = Types = t+:Types
+  def unstore(t: Either[Type, TError]) = Types = Types diff scala.Seq(t)
 }
 
 object Root {
@@ -50,7 +50,7 @@ object Root {
     val rootQuery = SELECT ((t: Rep[(Exp.ExpKey, U)]) => f(t._2)) FROM types WHERE (t => {println(t);t._1 == rootKey})
     rootQuery.addObserver(new Observer[Either[Type, TError]] {
       override def updated(oldV: Either[Type, TError], newV: Either[Type, TError]): Unit = {root.unstore(oldV); root.store(newV)}
-      override def removed(v: Either[Type, TError]): Unit = root.unstore(v)
+      override def removed(v: Either[Type, TError]): Unit = {root.unstore(v)}
       override def added(v: Either[Type, TError]): Unit = root.store(v)
       override def endTransaction(): Unit = {}
     })
