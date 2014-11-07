@@ -42,31 +42,32 @@ package idb.observer
  *
  * @author Ralf Mitschke
  */
-trait NotifyObservers[V]
-{
+trait NotifyObservers[V] {
 
-    protected def observers: Iterable[Observer[Any]]
+  protected def observers: Iterable[Observer[Any]]
 
-    protected def notify_added (v: V) {
-        observers.foreach (_.added (v))
-    }
-    protected def notify_addedAll (vs: Seq[V]) {
-      observers.foreach (_.addedAll (vs))
-    }
+  protected def notify_added(v: V) {
+    observers.foreach(_.added(v))
+  }
 
-    protected def notify_removed (v: V) {
-        observers.foreach (_.removed (v))
-    }
-    protected def notify_removedAll (vs: Seq[V]) {
-      observers.foreach (_.removedAll (vs))
-    }
+  protected def notify_addedAll(vs: Seq[V]) {
+    observers.foreach(_.addedAll(vs))
+  }
 
-    protected def notify_updated (oldV: V, newV: V) {
-        observers.foreach (_.updated (oldV, newV))
-    }
+  protected def notify_removed(v: V) {
+    observers.foreach(_.removed(v))
+  }
 
-    protected def notify_endTransaction () {
-        observers.foreach (_.endTransaction ())
-    }
+  protected def notify_removedAll(vs: Seq[V]) {
+    observers.foreach(_.removedAll(vs))
+  }
+
+  protected def notify_updated(oldV: V, newV: V) {
+    observers.foreach(_.updated(oldV, newV))
+  }
+
+  protected def notify_endTransaction() {
+    observers.foreach(_.endTransaction())
+  }
 
 }
