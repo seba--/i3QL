@@ -45,22 +45,22 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite {
   val unshared20 = makeUnshared(20)
 
 
-  test ("maximally unshared tree with height 5") {
+  test ("unshared tree with height 5") {
     val res = checker.typecheck(unshared5)
     assertResult(Left(TNum))(res)
   }
 
-  test ("maximally unshared tree with height 10") {
+  test ("unshared tree with height 10") {
     val res = checker.typecheck(unshared10)
     assertResult(Left(TNum))(res)
   }
 
-  test ("maximally unshared tree with height 15") {
+  test ("unshared tree with height 15") {
     val res = checker.typecheck(unshared15)
     assertResult(Left(TNum))(res)
   }
 
-  test ("maximally unshared tree with height 20") {
+  test ("unshared tree with height 20") {
     val res = checker.typecheck(unshared20)
     assertResult(Left(TNum))(res)
   }
