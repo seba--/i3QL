@@ -17,16 +17,16 @@ trait Resetable { def reset() }
 
 class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelfMaintainableAggregateFunction[Domain, ()=>Result] with Resetable {
   var substs: Map[Constraint, TSubst] = Map()
-  var unres: Unsolvable = Seq()
+  var unres: Unsolvable = Set()
 
-  var result: Result = (Map(), Seq())
+  var result: Result = (Map(), Set())
 
   var count = 0
 
   def reset() {
     substs = Map()
-    unres = Seq()
-    result = (Map(), Seq())
+    unres = Set()
+    result = (Map(), Set())
   }
 
   def get =
@@ -55,7 +55,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
       subst.get(k) match {
         case None => subst = subst.mapValues(_.subst(Map(k -> t))) + (k -> t)
         case Some(t2) => t2.unify(t) match {
-          case None => unres = c +: unres
+          case None => unres += c
           case Some(s2) => subst = subst.mapValues(_.subst(s2)) ++ s2
         }
       }
@@ -69,9 +69,9 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
 //    println(s"add constraint $c")
     c.solve match {
       case None =>
-        unres = c +: unres
+        unres += c
         if (result != null)
-          result = (result._1, c +: result._2)
+          result = (result._1, result._2 + c)
       case Some(s) =>
         substs += c -> s
         if (result != null)
@@ -84,7 +84,7 @@ class SolveIntern[Domain <: AnyRef](val f: Domain => Constraint) extends NotSelf
     val c = f(d)
 //    println(s"rem constraint $c")
     substs -= c
-    unres = unres diff Seq(c)
+    unres = unres diff Set(c)
     result = null
     ()=>get()
   }

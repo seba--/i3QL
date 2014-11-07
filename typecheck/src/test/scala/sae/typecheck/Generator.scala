@@ -16,4 +16,16 @@ object Generator {
         Add(l, r)
     }
   }
+
+  def makeFunType(length: Int, returnType: Type, argMaker: () => Type): Type = {
+    var argTypes = Seq[Type]()
+    for (i <- 1 to length)
+      argTypes = argMaker() +: argTypes
+    var t = returnType
+    for (i <- 1 to length) {
+      t = TFun(argTypes.head, t)
+      argTypes = argTypes.tail
+    }
+    t
+  }
 }
