@@ -56,32 +56,31 @@ import idb.observer.{NotifyObservers, Observer, Observable}
  *
  */
 trait Index[K, V]
-    extends View[(K, V)]
-    with Observer[V]
-	with NotifyObservers[(K,V)]
-{
+  extends View[(K, V)]
+  with Observer[V]
+  with NotifyObservers[(K, V)] {
 
-    def relation: Relation[V]
+  def relation: Relation[V]
 
-    def keyFunction: V => K
+  def keyFunction: V => K
 
-    override def endTransaction() {
-        notify_endTransaction()
+  override def endTransaction() {
+    notify_endTransaction()
+  }
+
+  override protected def children = List(relation)
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-    override protected def children = List (relation)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
-
-    /**
-     * remove all observers, since indices are not observers they must treat the removal in a special way.
-     * Not this will only get called if index.observers.isEmpty
-     */
+  /**
+   * remove all observers, since indices are not observers they must treat the removal in a special way.
+   * Not this will only get called if index.observers.isEmpty
+   */
   /*  override def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
         for (relation <- children) {
             // remove all observers for this observable
@@ -96,66 +95,83 @@ trait Index[K, V]
         }
     }    */
 
-    // an index is lazy isInitialized by calling build
-    def lazyInitialize() {
-        relation.foreach (
-            v => {
-                put (keyFunction (v), v)
-            }
-        )
+  // an index is lazy isInitialized by calling build
+  def lazyInitialize() {
+    relation.foreach(
+      v => {
+        put(keyFunction(v), v)
+      }
+    )
+  }
+
+  /**
+   * Returns the size of the view in terms of elements.
+   * This can be a costly operation.
+   * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
+   */
+  def size: Int
+
+  /**
+   * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
+   * The question remains whether this is needed, or if bag indices should always make
+   * computations over number of contained elements since they basically are sets of the type
+   * { (elem, count) } anyway.
+   */
+  def foreachKey[U](f: (K) => U)
+
+
+  def put(key: K, value: V)
+
+  def get(key: K): Option[Traversable[V]]
+
+  def contains(key: K): Boolean
+
+  def count(key: K): Int
+
+  def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get(key).getOrElse(f)
+
+  def add_element(key: K, value: V)
+
+  def remove_element(key: K, value: V)
+
+  def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
+
+  def updated(oldV: V, newV: V) {
+    if (oldV == newV)
+      return
+    val k1 = keyFunction(oldV)
+    val k2 = keyFunction(newV)
+    update_element(k1, oldV, k2, newV)
+    notify_updated((k1, oldV), (k2, newV))
+  }
+
+  def removed(v: V) {
+    val k = keyFunction(v)
+    remove_element(k, v)
+    notify_removed((k, v))
+  }
+
+  def added(v: V) {
+    val k = keyFunction(v)
+    add_element(k, v)
+    notify_added((k, v))
+  }
+
+  def addedAll(vs: Seq[V]) {
+    val kvs = for (v <- vs) yield {
+      val k = keyFunction(v)
+      add_element(k, v)
+      (k, v)
     }
+    notify_addedAll(kvs)
+  }
 
-    /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
-     */
-    def size  : Int
-
-    /**
-     * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
-     * The question remains whether this is needed, or if bag indices should always make
-     * computations over number of contained elements since they basically are sets of the type
-     * { (elem, count) } anyway.
-     */
-    def foreachKey[U](f: (K) => U)
-
-
-
-    def put(key: K, value: V)
-
-    def get(key: K): Option[Traversable[V]]
-
-    def contains(key: K): Boolean
-
-    def count(key: K): Int
-
-    def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get (key).getOrElse (f)
-
-    def add_element(key: K, value: V)
-
-    def remove_element(key: K, value: V)
-
-    def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
-
-    def updated(oldV: V, newV: V) {
-        if (oldV == newV)
-            return
-        val k1 = keyFunction (oldV)
-        val k2 = keyFunction (newV)
-        update_element (k1, oldV, k2, newV)
-        notify_updated ((k1, oldV), (k2, newV))
+  def removedAll(vs: Seq[V]) {
+    val kvs = for (v <- vs) yield {
+      val k = keyFunction(v)
+      remove_element(k, v)
+      (k, v)
     }
-
-    def removed(v: V) {
-        val k = keyFunction (v)
-        remove_element (k, v)
-        notify_removed ((k, v))
-    }
-
-    def added(v: V) {
-		val k = keyFunction(v)
-		add_element(k, v)
-		notify_added((k, v))
-    }
+    notify_removedAll(kvs)
+  }
 }

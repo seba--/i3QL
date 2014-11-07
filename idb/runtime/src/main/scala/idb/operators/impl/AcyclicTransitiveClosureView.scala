@@ -132,7 +132,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     def lazyInitialize() {
         source.foreach (
-            x => internal_add (x, notify = false)
+            x => internal_add (x)
         )
     }
 
@@ -142,7 +142,9 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
 
-    def internal_add(edge: Edge, notify: Boolean) {
+    def internal_add(edge: Edge): Seq[(Vertex,Vertex)] = {
+        var added = Seq[(Vertex,Vertex)]()
+
         val head = getHead (edge)
         val tail = getTail (edge)
 
@@ -160,7 +162,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         pathsOfTailVertex.descendants.add (head)
 
         //Step 4 // the new edge itself
-        if (notify) notify_added ((tail, head))
+        added = ((tail, head)) +: added
 
 
         //Step 1 // all new paths constructed by adding the new edge to the back of an existing path
@@ -172,7 +174,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             if (!connectedVertices.descendants.contains (head)) {
                 connectedVertices.descendants.add (head)
                 pathsOfHeadVertex.ancestors.add (x)
-                if (notify) notify_added ((x, head))
+                added = ((x, head)) +: added
             }
 
         })
@@ -187,7 +189,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                 pathsOfTailVertex.descendants.add (x)
                 //tailHeadAdjacencyList.put(startVertex(edge), x)
                 // && headTailAdjacencyList.put(x, startVertex(edge)))
-                if (notify) notify_added ((tail, x))
+                added = ((tail, x)) +: added
             }
 
 
@@ -202,18 +204,36 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                     //=> e'=(x,y) new edge in the transitive closure
                     connectedVertices.descendants.add (y)
                     transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    if (notify) notify_added ((x, y))
+                    added = ((x, y)) +: added
                 }
 
             })
         })
+
+        added
     }
 
-    def added(edge: Edge) {
-        internal_add (edge, notify = true)
-    }
+  def added(edge: Edge) {
+    val added = internal_add (edge)
+    notify_addedAll(added)
+  }
 
-    def removed(edge: Edge) {
+  def addedAll(edges: Seq[Edge]) {
+    val added = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq, e) => seq ++ internal_add(e))
+    notify_addedAll(added)
+  }
+
+  def removed(edge: Edge): Unit = {
+    val removed = internal_remove(edge)
+    notify_removedAll(removed)
+  }
+
+  def removedAll(edges: Seq[Edge]) {
+    val removed = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq, e) => seq ++ internal_remove(e))
+    notify_removedAll(removed)
+  }
+
+    def internal_remove(edge: Edge): Seq[(Vertex,Vertex)] = {
 
         val head = getHead (edge)
         val tail = getTail (edge)
@@ -287,10 +307,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
         }
 
-        // edges = TC_old - TC_new
-        suspiciousEdges.foreach (x => {
-            notify_removed (x._1, x._2)
-        })
+        Seq() ++ suspiciousEdges
     }
 
     def updated(oldV: Edge, newV: Edge) {
