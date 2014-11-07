@@ -71,7 +71,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
      */
     def lazyInitialize () {
         source.foreach ((v: Domain) => {
-            intern_added (v, notify = false)
+            intern_added (v)
         })
 
     }
@@ -153,23 +153,56 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         }
     }
 
+  def removed (v: Domain) {
+    intern_removed (v) match {
+      case None => {}
+      case Some((key, Left(removed))) => notify_removed(removed)
+      case Some((key, Right((old, res)))) => notify_updated(old, res)
+    }
+  }
+
+  def removedAll (vs: Seq[Domain]) {
+
+    var removed = Map[Key,Result]()
+    var updated = Map[Key, (Result,Result)]()
+
+    vs foreach { v => intern_removed(v) match {
+      case None => {}
+      case Some((key, Left(r))) => removed += key -> r
+      case Some((key, Right((old, res)))) =>
+        removed.get(key) match {
+          case Some(`old`) => removed += key -> res
+          case Some(old2) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+          case None =>
+            updated.get(key) match {
+              case Some((oldold,`old`)) => updated += key -> (oldold, res)
+              case Some((oldold, old2)) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+              case None => updated += key -> (old, res)
+            }
+        }
+    }}
+
+    notify_removedAll(removed.values.toSeq)
+    updated.values foreach (v => notify_updated(v._1, v._2))
+  }
+
     /**
      *
      */
-    def removed (v: Domain) {
+    def intern_removed (v: Domain): Option[(Key, Either[Result, (Result,Result)])] = {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         val key = groupingFunction (v)
         if (!groups.contains (key)) {
             println ()
             System.err.println (v + " => " + key)
-            return
+            return None
         }
         val (data, aggregationFunction, oldResult) = groups (key)
 
         if (data.size == 1) {
             //remove a group
             groups -= key
-            notify_removed (oldResult)
+            Some(key, Left(oldResult))
         }
         else
         {
@@ -179,25 +212,51 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put (key, (data, aggregationFunction, res))
-                notify_updated (oldResult, res)
+                Some(key, Right((oldResult, res)))
             }
+            else
+              None
         }
     }
 
-    /**
-     *
-     */
     def added (v: Domain) {
-        intern_added (v, notify = true)
+        intern_added (v) match {
+          case None => {}
+          case Some((key, Left(added))) => notify_added(added)
+          case Some((key, Right((old, res)))) => notify_updated(old, res)
+        }
     }
+
+  def addedAll (vs: Seq[Domain]) {
+
+    var added = Map[Key,Result]()
+    var updated = Map[Key, (Result,Result)]()
+
+    vs foreach { v => intern_added(v) match {
+      case None => {}
+      case Some((key, Left(r))) => added += key -> r
+      case Some((key, Right((old, res)))) =>
+        added.get(key) match {
+          case Some(`old`) => added += key -> res
+          case Some(old2) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+          case None =>
+            updated.get(key) match {
+              case Some((oldold,`old`)) => updated += key -> (oldold, res)
+              case Some((oldold, old2)) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+              case None => updated += key -> (old, res)
+            }
+        }
+    }}
+
+    notify_addedAll(added.values.toSeq)
+    updated.values foreach (v => notify_updated(v._1, v._2))
+  }
 
     /**
      * internal added method for added
      * @param v : Domain
-     * @param notify: true -> notify observers if a change occurs
-     *              false -> dont notify any observer
      */
-    private def intern_added (v: Domain, notify: Boolean) {
+    private def intern_added (v: Domain): Option[(Key, Either[Result, (Result,Result)])] = {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         val key = groupingFunction (v)
         if (groups.contains (key)) {
@@ -209,8 +268,10 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             if (res != oldResult) {
                 //some aggregation value changed => updated event
                 groups.put (key, (data, aggregationFunction, res))
-                if (notify) notify_updated (oldResult, res)
+                Some((key, Right((oldResult, res))))
             }
+            else
+              None
         }
         else
         {
@@ -221,7 +282,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             val aggregationResult = aggregationFunction.add (v, data.to[Seq])
             val res = convertKeyAndAggregateValueToResult (key, aggregationResult)
             groups.put (key, (data, aggregationFunction, res))
-            if (notify) notify_added (res)
+            Some((key, Left(res)))
         }
     }
 }
