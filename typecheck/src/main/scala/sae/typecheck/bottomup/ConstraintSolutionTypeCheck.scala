@@ -1,5 +1,6 @@
 package sae.typecheck.bottomup;
 
+import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 
@@ -173,7 +174,18 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     root.Type
   }
 
+  def printQuery(file: String): Unit = {
+    val printer = new RelationalAlgebraPrintPlan {
+      override val IR = idb.syntax.iql.IR
+    }
+
+    val s = printer.quoteRelation(constraints)
+    scala.tools.nsc.io.File(file).writeAll(s)
+  }
+
   def main(args: Array[String]): Unit = {
+    printQuery("constraints.query")
+
     printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
     printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
     printTypecheck(Abs('x, Add(Num(10), Num(5))))
