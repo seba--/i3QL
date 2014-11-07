@@ -43,7 +43,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
   def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintSolutionData]): ConstraintSolutionData = {
     import scala.collection.immutable._
     e match {
-      case Num => (TNum, (Map(), Seq()), Seq(), Seq())
+      case Num => (TNum, (Map(), Set()), Set(), Set())
       case k if k == Add || k == Mul =>
         val (t1, sol1, reqs1, free1) = sub(0)
         val (_t2, _sol2, _reqs2, free2) = sub(1)
@@ -55,12 +55,12 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
 
         val sol12 = mergeSolution(sol1, sol2)
-        val sol = extendSolution(sol12, lcons +: rcons +: mcons)
+        val sol = extendSolution(sol12, mcons + lcons + rcons)
         (TNum, sol, mreqs, mfresh)
       case Var =>
         val x = lits(0).asInstanceOf[Symbol]
         val X = TVar(Symbol("X$" + x.name))
-        (X, (Map(), Seq()), Seq(VarRequirement(x, X)), Seq(X.x))
+        (X, (Map(), Set()), Set(VarRequirement(x, X)), Set(X.x))
       case App =>
         val (t1, sol1, reqs1, fresh1) = sub(0)
         val (_t2, _sol2, _reqs2, fresh2) = sub(1)
@@ -72,9 +72,9 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
 
         val sol12 = mergeSolution(sol1, sol2)
-        val sol = extendSolution(sol12, fcons +: mcons)
+        val sol = extendSolution(sol12, mcons + fcons)
 
-        (X.subst(sol._1), sol, mreqs, X.x +: mfresh)
+        (X.subst(sol._1), sol, mreqs, mfresh + X.x)
       case Abs =>
         val x = lits(0).asInstanceOf[Symbol]
         val (t, sol, reqs, fresh) = sub(0)
@@ -83,7 +83,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
         val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t.subst(sol._1))}
         val fsol = extendSolution(sol, xcons)
-        (TFun(X, t).subst(fsol._1), fsol, otherReqs, X.x +: fresh)
+        (TFun(X, t).subst(fsol._1), fsol, otherReqs, fresh + X.x)
       case If0 =>
         val (t1, sol1, reqs1, fresh1) = sub(0)
         val (_t2, _sol2, _reqs2, fresh2) = sub(1)
@@ -100,7 +100,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val body = EqConstraint(t2, t3)
 
         val sol123 = mergeSolution(sol1, mergeSolution(sol2, sol3))
-        val sol = extendSolution(sol123, cond +: body +: (mcons12 ++ mcons23))
+        val sol = extendSolution(sol123, mcons12 ++ mcons23 + cond + body)
 
         (t2.subst(sol._1), sol, mreqs123, mfresh123)
 
@@ -108,12 +108,12 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val (t, sol, reqs, fresh) = sub(0)
         val X = TVar(tick('X$Fix, fresh))
         val fixCons = EqConstraint(t, TFun(X, X))
-        val fsol = extendSolution(sol, Seq(fixCons))
-        (X.subst(fsol._1), fsol, reqs, X.x +: fresh)
+        val fsol = extendSolution(sol, Set(fixCons))
+        (X.subst(fsol._1), fsol, reqs, fresh + X.x)
 
       case Root.Root =>
         if (sub.isEmpty)
-          (TVar('Uninitialized), (Map(), Seq(EqConstraint(TNum, TFun(TNum, TNum)))), Seq(), Seq('Uninitialized))
+          (TVar('Uninitialized), (Map(), Set(EqConstraint(TNum, TFun(TNum, TNum)))), Set(), Set('Uninitialized))
         else {
           val (t, sol, reqs, free) = sub(0)
           (Root.TRoot(t), sol, reqs, free)
