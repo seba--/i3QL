@@ -153,12 +153,12 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def replaceWith(e: Exp): ExpKey = {
     val oldSubexps = this.subexps
-    val newSubexps = Util.timed("collect new subexps")(e.subexps)
+    val newSubexps = Util.logTime("collect new subexps")(e.subexps)
 
     val free = collection.mutable.ArrayBuffer[Exp]()
     val common = new ExtHashSet[Exp]()
 
-    Util.timed("build common and free") {
+    Util.logTime("build common and free") {
       for (i <- 0 until oldSubexps.size) {
         val old = oldSubexps(i)
         if (newSubexps.contains(old))
@@ -170,7 +170,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
     val diff = newSubexps.size - free.size
 
-    Util.timed("insert new subexps") {
+    Util.logTime("insert new subexps") {
       for (i <- 0 until newSubexps.size) {
         val e = newSubexps(i)
         common.findEntry(e) match {

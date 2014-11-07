@@ -3,6 +3,7 @@ package sae.typecheck
 import TypeStuff._
 
 trait TypeCheck {
+  def reset()
   def typecheck(e: Exp): Either[Type, TError]
   def typecheckIncremental(e: Exp): Either[Type, TError]
 

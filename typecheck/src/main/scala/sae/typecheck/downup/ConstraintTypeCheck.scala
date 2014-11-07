@@ -18,6 +18,8 @@ object ConstraintTypeCheck extends TypeCheck {
     v
   }
 
+  def reset() {}
+
   def typecheckIncremental(e: Exp) = typecheck(e)
 
   def typecheck(e: Exp): Either[Type, TError] = {

@@ -7,13 +7,19 @@ object Util {
   val LOGGING = true
   val LOG_TABLE_OPS = false
 
-  def timed[A](desc: String)(f: => A): A = {
+  def logTime[A](desc: String)(f: => A): A = {
+    val (a, time) = timed(f)
+    if (LOGGING)
+      println(s"Time to $desc is ${time}ms")
+    a
+  }
+
+  def timed[A](f: => A): (A, Double) = {
     val start = System.nanoTime()
     val a = f
     val end = System.nanoTime()
-    if (LOGGING)
-      println(s"Time to $desc is ${(end-start)/1000000.0}ms")
-    a
+    val time = (end-start)/1000000.0
+    (a, time)
   }
 
   def log(s: String): Unit = {

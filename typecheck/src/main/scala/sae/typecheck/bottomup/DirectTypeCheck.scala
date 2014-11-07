@@ -69,6 +69,8 @@ object DirectTypeCheck extends TypeCheck {
     root.Type
   }
 
+  def reset() {root.reset()}
+
   def main(args: Array[String]): Unit = {
     printTypecheck(Add(Num(17), Num(18)))
     printTypecheck(Add(String("ab"), String("b")))

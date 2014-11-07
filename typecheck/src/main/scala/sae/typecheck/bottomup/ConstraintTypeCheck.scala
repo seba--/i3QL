@@ -157,8 +157,10 @@ object ConstraintTypeCheck extends TypeCheck {
     root.Type
   }
 
+  def reset() {root.reset()}
+
   def main(args: Array[String]): Unit = {
-    Util.timed("type check suite non-incrementally") {
+    Util.logTime("type check suite non-incrementally") {
       printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
       printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
       printTypecheck(Abs('x, Add(Num(10), Num(5))))
@@ -182,7 +184,7 @@ object ConstraintTypeCheck extends TypeCheck {
     }
 
     root.reset()
-    Util.timed("type check suite incrementally") {
+    Util.logTime("type check suite incrementally") {
       printTypecheck(Add(Num(17), Add(Num(10), Num(2))))
       printTypecheck(Add(Num(17), Add(Num(10), Num(5))))
       printTypecheck(Abs('x, Add(Num(10), Num(5))))

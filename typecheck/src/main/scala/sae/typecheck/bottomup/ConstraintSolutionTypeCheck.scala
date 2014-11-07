@@ -215,6 +215,8 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     root.Type
   }
 
+  def reset() {root.reset()}
+
   def printQuery(file: String): Unit = {
     val printer = new RelationalAlgebraPrintPlan {
       override val IR = idb.syntax.iql.IR

@@ -6,12 +6,34 @@ import Generator._
 /**
  * Created by seba on 05/11/14.
  */
-class TestInitialChecking(checker: TypeCheck) extends FunSuite {
+class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAfterEach {
   def makeShared(h: Int) = makeBinAddTree(h, () => Num(1))
   val shared5 = makeShared(5)
   val shared10 = makeShared(10)
   val shared15 = makeShared(15)
   val shared20 = makeShared(20)
+
+  override def beforeEach(): Unit = {
+    checker.reset()
+  }
+
+  override def afterEach(): Unit = {
+    if (Constraint.mergeFreshTime != 0)
+      Util.log(f"Time to merge fresh vars was   ${Constraint.mergeFreshTime}%.3fms")
+    if (Constraint.renameSolutionTime != 0)
+      Util.log(f"Time to rename solutions was   ${Constraint.renameSolutionTime}%.3fms")
+    if (Constraint.mergeReqsTime != 0)
+      Util.log(f"Time to merge requirements was ${Constraint.mergeReqsTime}%.3fms")
+    if (Constraint.mergeSolutionTime != 0)
+      Util.log(f"Time to merge solutions was    ${Constraint.mergeSolutionTime}%.3fms")
+    if (Constraint.extendSolutionTime != 0)
+      Util.log(f"Time to extend solutions was   ${Constraint.extendSolutionTime}%.3fms")
+    Constraint.mergeFreshTime = 0
+    Constraint.renameSolutionTime = 0
+    Constraint.mergeReqsTime = 0
+    Constraint.mergeSolutionTime = 0
+    Constraint.extendSolutionTime = 0
+  }
 
   test ("maximally shared tree with height 5") {
     val res = checker.typecheck(shared5)
@@ -124,10 +146,10 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite {
 //    assertResult(Left(varUnshared15Type))(res)
 //  }
 
-  //  test ("var-unshared tree with height 20") {
-  //    val res = checker.typecheck(varUnshared20)
-  //    assertResult(Left(varUnshared20Type))(res)
-  //  }
+//  test ("var-unshared tree with height 20") {
+//    val res = checker.typecheck(varUnshared20)
+//    assertResult(Left(varUnshared20Type))(res)
+//  }
 
   def makeVarAppUnshared(h: Int) = {
     var i = 1

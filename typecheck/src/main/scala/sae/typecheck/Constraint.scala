@@ -15,7 +15,14 @@ object Constraint {
   def substVars(s: TSubst) = s.foldLeft(Set[Symbol]())((vs,kv) => (vs + kv._1) ++ kv._2.vars)
   def requirementVars(reqs: Set[Requirement]) = reqs.foldLeft(Set[Symbol]())((vs,r) => vs ++ r.vars)
 
+  var mergeReqsTime = 0.0
   def mergeReqs(reqs1: Set[Requirement], reqs2: Set[Requirement]) = {
+    val (res, time) = Util.timed(_mergeReqs(reqs1, reqs2))
+    mergeReqsTime += time
+    res
+  }
+
+  def _mergeReqs(reqs1: Set[Requirement], reqs2: Set[Requirement]) = {
     var mcons = Set[Constraint]()
     var mreqs = reqs1
     for (r2 <- reqs2)
@@ -35,7 +42,14 @@ object Constraint {
     None
   }
 
+  var mergeFreshTime = 0.0
   def mergeFresh(fresh1: Set[Symbol], fresh2: Set[Symbol]) = {
+    val (merged, time) = Util.timed(_mergeFresh(fresh1, fresh2))
+    mergeFreshTime += time
+    merged
+  }
+
+  def _mergeFresh(fresh1: Set[Symbol], fresh2: Set[Symbol]) = {
     var allfree = fresh1 ++ fresh2
     var mfresh = fresh1
     var ren = Map[Symbol, Symbol]()
@@ -55,7 +69,15 @@ object Constraint {
     (mfresh, ren)
   }
 
+  var mergeSolutionTime = 0.0
+
   def mergeSolution(sol1: Solution, sol2: Solution): Solution = {
+    val (res, time) = Util.timed(_mergeSolution(sol1, sol2))
+    mergeSolutionTime += time
+    res
+  }
+
+  def _mergeSolution(sol1: Solution, sol2: Solution): Solution = {
     val s1 = sol1._1
     val s2 = sol2._1
     var unres: Unsolvable = sol1._2 ++ sol2._2
@@ -82,9 +104,16 @@ object Constraint {
     }
   }
 
+  var extendSolutionTime = 0.0
   def extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
+    val (res, time) = Util.timed(_extendSolution(sol, cs))
+    extendSolutionTime += time
+    res
+  }
+
+  def _extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
     val esol = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
-    mergeSolution(sol, esol)
+    _mergeSolution(sol, esol)
   }
 
   def solve(cs: Iterable[Constraint]) = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
@@ -115,8 +144,13 @@ object Constraint {
   def rename(ren: Map[Symbol, Symbol])(p: (Type, Set[Constraint], Set[Requirement])) =
     (p._1.rename(ren), p._2.map(_.rename(ren)), p._3.map(_.rename(ren)))
 
-  def renameSolution(ren: Map[Symbol, Symbol])(p: (Type, Solution, Set[Requirement])): (Type, Solution, Set[Requirement]) =
-    (p._1.rename(ren), renameSolution(ren, p._2), p._3.map(_.rename(ren)))
+  var renameSolutionTime = 0.0
+
+  def renameSolution(ren: Map[Symbol, Symbol])(p: (Type, Solution, Set[Requirement])): (Type, Solution, Set[Requirement]) = {
+    val (res, time) = Util.timed((p._1.rename(ren), renameSolution(ren, p._2), p._3.map(_.rename(ren))))
+    renameSolutionTime += time
+    res
+  }
 
   def renameSolution(ren: Map[Symbol, Symbol], sol: Solution): Solution =
     (sol._1.map(kv => ren.getOrElse(kv._1, kv._1) -> kv._2.rename(ren)), sol._2.map(_.rename(ren)))
