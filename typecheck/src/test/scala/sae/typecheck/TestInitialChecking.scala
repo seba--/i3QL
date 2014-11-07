@@ -7,34 +7,61 @@ import Generator._
  * Created by seba on 05/11/14.
  */
 class TestInitialChecking(checker: TypeCheck) extends FunSuite {
-  val e5 = makeBinAddTree(5, () => Num(1))
-  val e10 = makeBinAddTree(10, () => Num(1))
-  val e20 = makeBinAddTree(20, () => Num(1))
-  val e21 = makeBinAddTree(21, () => Num(1))
-  val e22 = makeBinAddTree(22, () => Num(1))
+  def makeShared(h: Int) = makeBinAddTree(h, () => Num(1))
+  val shared5 = makeShared(5)
+  val shared10 = makeShared(10)
+  val shared15 = makeShared(15)
+  val shared20 = makeShared(20)
 
   test ("maximally shared tree with height 5") {
-    val res = checker.typecheck(e5)
+    val res = checker.typecheck(shared5)
     assertResult(Left(TNum))(res)
   }
 
   test ("maximally shared tree with height 10") {
-    val res = checker.typecheck(e10)
+    val res = checker.typecheck(shared10)
+    assertResult(Left(TNum))(res)
+  }
+
+  test ("maximally shared tree with height 15") {
+    val res = checker.typecheck(shared15)
     assertResult(Left(TNum))(res)
   }
 
   test ("maximally shared tree with height 20") {
-    val res = checker.typecheck(e20)
+    val res = checker.typecheck(shared20)
     assertResult(Left(TNum))(res)
   }
 
-  test ("maximally shared tree with height 21") {
-    val res = checker.typecheck(e21)
+
+  def makeUnshared(h: Int) = {
+    var i = 1
+    def next() = {val r = i; i += 1; r}
+    makeBinAddTree(h, () => Num(next()))
+  }
+  val unshared5 = makeUnshared(5)
+  val unshared10 = makeUnshared(10)
+  val unshared15 = makeUnshared(15)
+  val unshared20 = makeUnshared(20)
+
+
+  test ("maximally unshared tree with height 5") {
+    val res = checker.typecheck(unshared5)
     assertResult(Left(TNum))(res)
   }
 
-  test ("maximally shared tree with height 22") {
-    val res = checker.typecheck(e22)
+  test ("maximally unshared tree with height 10") {
+    val res = checker.typecheck(unshared10)
+    assertResult(Left(TNum))(res)
+  }
+
+  test ("maximally unshared tree with height 15") {
+    val res = checker.typecheck(unshared15)
+    assertResult(Left(TNum))(res)
+  }
+
+  test ("maximally unshared tree with height 20") {
+    val res = checker.typecheck(unshared20)
     assertResult(Left(TNum))(res)
   }
 }
