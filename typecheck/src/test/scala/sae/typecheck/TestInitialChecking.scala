@@ -104,10 +104,10 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite {
   val varUnshared10 = makeVarUnshared(10)
   val varUnshared15 = makeVarUnshared(15)
   val varUnshared20 = makeVarUnshared(20)
-  val varUnshared5Type = makeFunType(Math.pow(2,5).toInt, TNum, () => TNum)
-  val varUnshared10Type = makeFunType(Math.pow(2,10).toInt, TNum, () => TNum)
-  val varUnshared15Type = makeFunType(Math.pow(2,15).toInt, TNum, () => TNum)
-  val varUnshared20Type = makeFunType(Math.pow(2,20).toInt, TNum, () => TNum)
+  val varUnshared5Type = makeFunType(Math.pow(2,5-1).toInt, TNum, () => TNum)
+  val varUnshared10Type = makeFunType(Math.pow(2,10-1).toInt, TNum, () => TNum)
+  val varUnshared15Type = makeFunType(Math.pow(2,15-1).toInt, TNum, () => TNum)
+  val varUnshared20Type = makeFunType(Math.pow(2,20-1).toInt, TNum, () => TNum)
 
   test ("var-unshared tree with height 5") {
     val res = checker.typecheck(varUnshared5)
@@ -119,16 +119,60 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite {
     assertResult(Left(varUnshared10Type))(res)
   }
 
-  //  test ("var-unshared tree with height 15") {
-  //    val res = checker.typecheck(varUnshared15)
-  //    assertResult(Left(TFun(TNum, TNum)))(res)
-  //  }
+//  test ("var-unshared tree with height 15") {
+//    val res = checker.typecheck(varUnshared15)
+//    assertResult(Left(varUnshared15Type))(res)
+//  }
 
   //  test ("var-unshared tree with height 20") {
   //    val res = checker.typecheck(varUnshared20)
-  //    assertResult(Left(TFun(TNum, TNum)))(res)
+  //    assertResult(Left(varUnshared20Type))(res)
   //  }
 
+  def makeVarAppUnshared(h: Int) = {
+    var i = 1
+    def next() = {val r = i; i += 1; Symbol(s"x$r")}
+    var t = makeBinAppTree(h, () => Var(next()))
+    for (j <- 1 until i)
+      t = Abs(Symbol(s"x$j"), t)
+    t
+  }
+  val varAppUnshared5 = makeVarAppUnshared(5)
+  val varAppUnshared10 = makeVarAppUnshared(10)
+  val varAppUnshared15 = makeVarAppUnshared(15)
+  val varAppUnshared20 = makeVarAppUnshared(20)
+
+  test ("var-app-unshared tree with height 5") {
+    val res = checker.typecheck(varAppUnshared5)
+    assert(res match {
+      case Left(TFun(_, _) ) => true
+      case _ => false
+    })
+  }
+
+  test ("var-app-unshared tree with height 10") {
+    val res = checker.typecheck(varAppUnshared10)
+    assert(res match {
+      case Left(TFun(_, _) ) => true
+      case _ => false
+    })
+  }
+
+//    test ("var-app-unshared tree with height 15") {
+//      val res = checker.typecheck(varUnshared15)
+//      assert(res match {
+//        case Left(TFun(_, _) ) => true
+//        case _ => false
+//      })
+//    }
+
+//    test ("var-app-unshared tree with height 20") {
+//      val res = checker.typecheck(varUnshared20)
+//      assert(res match {
+//        case Left(TFun(_, _) ) => true
+//        case _ => false
+//      })
+//    }
 }
 
 class TestInitialChecking_DownUp extends TestInitialChecking(downup.ConstraintTypeCheck)
