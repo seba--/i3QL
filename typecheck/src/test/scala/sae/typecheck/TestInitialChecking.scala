@@ -81,15 +81,53 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite {
     assertResult(Left(TFun(TNum, TNum)))(res)
   }
 
-  test ("var-shared tree with height 15") {
-    val res = checker.typecheck(varShared15)
-    assertResult(Left(TFun(TNum, TNum)))(res)
-  }
+//  test ("var-shared tree with height 15") {
+//    val res = checker.typecheck(varShared15)
+//    assertResult(Left(TFun(TNum, TNum)))(res)
+//  }
 
 //  test ("var-shared tree with height 20") {
 //    val res = checker.typecheck(varShared20)
 //    assertResult(Left(TFun(TNum, TNum)))(res)
 //  }
+
+
+  def makeVarUnshared(h: Int) = {
+    var i = 1
+    def next() = {val r = i; i += 1; Symbol(s"x$r")}
+    var t = makeBinAddTree(h, () => Var(next()))
+    for (j <- 1 until i)
+      t = Abs(Symbol(s"x$j"), t)
+    t
+  }
+  val varUnshared5 = makeVarUnshared(5)
+  val varUnshared10 = makeVarUnshared(10)
+  val varUnshared15 = makeVarUnshared(15)
+  val varUnshared20 = makeVarUnshared(20)
+  val varUnshared5Type = makeFunType(Math.pow(2,5).toInt, TNum, () => TNum)
+  val varUnshared10Type = makeFunType(Math.pow(2,10).toInt, TNum, () => TNum)
+  val varUnshared15Type = makeFunType(Math.pow(2,15).toInt, TNum, () => TNum)
+  val varUnshared20Type = makeFunType(Math.pow(2,20).toInt, TNum, () => TNum)
+
+  test ("var-unshared tree with height 5") {
+    val res = checker.typecheck(varUnshared5)
+    assertResult(Left(varUnshared5Type))(res)
+  }
+
+  test ("var-unshared tree with height 10") {
+    val res = checker.typecheck(varUnshared10)
+    assertResult(Left(varUnshared10Type))(res)
+  }
+
+  //  test ("var-unshared tree with height 15") {
+  //    val res = checker.typecheck(varUnshared15)
+  //    assertResult(Left(TFun(TNum, TNum)))(res)
+  //  }
+
+  //  test ("var-unshared tree with height 20") {
+  //    val res = checker.typecheck(varUnshared20)
+  //    assertResult(Left(TFun(TNum, TNum)))(res)
+  //  }
 
 }
 
