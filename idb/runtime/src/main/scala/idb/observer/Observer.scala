@@ -39,8 +39,10 @@ trait Observer[-V]
     def updated (oldV: V, newV: V)
 
     def removed (v: V)
+    def removedAll (vs: Seq[V])
 
     def added (v: V)
+    def addedAll (vs: Seq[V])
 
     def endTransaction ()
 }
