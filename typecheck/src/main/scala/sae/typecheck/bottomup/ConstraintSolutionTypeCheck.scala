@@ -81,7 +81,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 
         val X = TVar(tick('X$Abs, fresh))
         val (xreqs, otherReqs) = reqs.partition{case VarRequirement(`x`, _) => true; case _ => false}
-        val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t)}
+        val xcons = xreqs map {case VarRequirement(_, t) => EqConstraint(X, t.subst(sol._1))}
         val fsol = extendSolution(sol, xcons)
         (TFun(X, t).subst(fsol._1), fsol, otherReqs, X.x +: fresh)
       case If0 =>
