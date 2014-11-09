@@ -156,6 +156,11 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
 
     }
 
+  // TODO more efficient version possible?
+  def addedAll(vs: Seq[Domain]): Unit = {
+    vs foreach (added(_))
+  }
+
     def removed(v: Domain) {
         if (deletedElements.contains (v)) {
             // we have reached a value that was previously defined.
@@ -234,6 +239,11 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
         )
         rederivations = Nil
     }
+
+  // TODO more efficient version possible?
+  def removedAll(vs: Seq[Domain]): Unit = {
+    vs foreach (removed(_))
+  }
 
     def updated(oldV: Domain, newV: Domain) {
         if (!additionRecursionStack.isEmpty) {
