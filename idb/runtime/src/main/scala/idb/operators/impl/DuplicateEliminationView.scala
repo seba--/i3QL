@@ -156,4 +156,15 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain],
 			notify_added(v)
 		}
 	}
+
+  def addedAll(vs: Seq[Domain]) {
+    val added = vs filter (add_element(_))
+    notify_addedAll(added)
+  }
+
+  def removedAll(vs: Seq[Domain]) {
+    val removed = vs filter (remove_element(_))
+    notify_removedAll(removed)
+  }
+
 }

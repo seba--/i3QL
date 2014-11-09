@@ -145,7 +145,7 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 	override  def lazyInitialize() {
         source.foreach (
-            x => internal_add (x, notify = false)
+            x => internal_add(x)
         )
     }
 
@@ -155,7 +155,8 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
 
-    def internal_add(edge: Edge, notify: Boolean) {
+    def internal_add(edge: Edge): Seq[(Vertex,Vertex)] = {
+        var added = Seq[(Vertex,Vertex)]()
         val adjacencyEdgesToTailVertex = transitiveClosure
             .getOrElseUpdate (getTail (edge), (HashSet[Vertex](), HashSet[Vertex]()))
         val adjacencyEdgesToHeadVertex = transitiveClosure
@@ -164,7 +165,7 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             if (!adjacencyEdgesToTailVertex._1.contains (getHead (edge))) {
                 adjacencyEdgesToTailVertex._1.add (getHead (edge))
                 adjacencyEdgesToHeadVertex._2.add (getTail (edge))
-                if (notify) notify_added ((getTail (edge), getHead (edge)))
+                added = (getTail (edge), getHead (edge)) +: added
             }
         }
         //Step 1
@@ -176,7 +177,7 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             if (!connectedVertices._1.contains (getHead (edge))) {
                 connectedVertices._1.add (getHead (edge))
                 adjacencyEdgesToHeadVertex._2.add (x)
-                if (notify) notify_added ((x, getHead (edge)))
+                added = (x, getHead (edge)) +: added
             }
 
         })
@@ -191,7 +192,7 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                 adjacencyEdgesToTailVertex._1.add (x)
                 //tailHeadAdjacencyList.put(startVertex(edge), x)
                 // && headTailAdjacencyList.put(x, startVertex(edge)))
-                if (notify) notify_added ((getTail (edge), x))
+                added = (getTail (edge), x) +: added
             }
 
 
@@ -206,19 +207,25 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                     //=> e'=(x,y) new edge in the transitive closure
                     connectedVertices._1.add (y)
                     transitiveClosure.getOrElse (y, throw new Error ())._2.add (x)
-                    if (notify) notify_added ((x, y))
+                    added = (x, y) +: added
                 }
 
             })
         })
+        added
     }
 
-	override  def added(edge: Edge) {
-        internal_add (edge, notify = true)
-    }
+  override def added(edge: Edge) {
+    val added = internal_add(edge)
+    notify_addedAll(added)
+  }
 
-	override  def removed(e: Edge) {
+  override def addedAll(edges: Seq[Edge]) {
+    val added = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq,edge) => seq ++ internal_add(edge))
+    notify_addedAll(added)
+  }
 
+	def internal_remove(e: Edge): Seq[(Vertex,Vertex)] = {
         graph.remove (getTail (e), getHead (e))
 
         //set of all paths that maybe go through e
@@ -277,13 +284,21 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             })
         }
         // edges = TC_old - TC_new
-        edges.foreach (x => {
-			notify_removed (x._1, x._2)
-        })
-
+        edges.toSeq
     }
 
-    override def updated(oldV: Edge, newV: Edge) {
+  override def removed(edge: Edge) {
+    val removed = internal_remove(edge)
+    notify_removedAll(removed)
+  }
+
+  override def removedAll(edges: Seq[Edge]) {
+    val removed = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq,edge) => seq ++ internal_remove(edge))
+    notify_removedAll(removed)
+  }
+
+
+  override def updated(oldV: Edge, newV: Edge) {
         //a direct update is not supported
         removed (oldV)
         added (newV)

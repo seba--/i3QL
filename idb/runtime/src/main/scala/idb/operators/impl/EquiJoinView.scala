@@ -154,28 +154,59 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 		}
 
 		def removed(kv: (Key, DomainA)) {
+      var removed = Seq[Range]()
 			rightIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
-
-						notify_removed(projection(kv._2, u))
+						removed = projection(kv._2, u) +: removed
 					)
 				}
 				case _ => // do nothing
 			}
+      notify_removedAll(removed)
 		}
 
-		def added(kv: (Key, DomainA)) {
+    def removedAll(kvs: Seq[(Key, DomainA)]) {
+      var removed = Seq[Range]()
+      for (kv <- kvs)
+        rightIndex.get(kv._1) match {
+          case Some(col) => {
+            col.foreach(u =>
+              removed = projection(kv._2, u) +: removed
+            )
+          }
+          case _ => // do nothing
+        }
+      notify_removedAll(removed)
+    }
+
+    def added(kv: (Key, DomainA)) {
+      var added = Seq[Range]()
 			rightIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
-
-						notify_added(projection(kv._2, u))
+						added = projection(kv._2, u) +: added
 					)
 				}
 				case _ => // do nothing
 			}
+      notify_addedAll(added)
 		}
+
+    def addedAll(kvs: Seq[(Key, DomainA)]) {
+      var added = Seq[Range]()
+      for (kv <- kvs)
+        rightIndex.get(kv._1) match {
+          case Some(col) => {
+            col.foreach(u =>
+
+              added = projection(kv._2, u) +: added
+            )
+          }
+          case _ => // do nothing
+        }
+      notify_addedAll(added)
+    }
 
 	}
 
@@ -219,29 +250,58 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 		}
 
 		def removed(kv: (Key, DomainB)) {
+      var removed = Seq[Range]()
 			leftIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
-						notify_removed(projection(u, kv._2))
+						removed = projection(u, kv._2) +: removed
 					)
 				}
 				case _ => // do nothing
 			}
-
+      notify_removedAll(removed)
 		}
+
+    def removedAll(kvs: Seq[(Key, DomainB)]) {
+      var removed = Seq[Range]()
+      for (kv <- kvs)
+        leftIndex.get(kv._1) match {
+          case Some(col) => {
+            col.foreach(u =>
+              removed = projection(u, kv._2) +: removed
+            )
+          }
+          case _ => // do nothing
+        }
+      notify_removedAll(removed)
+    }
 
 		def added(kv: (Key, DomainB)) {
+      var added = Seq[Range]()
 			leftIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
-						notify_added(projection(u, kv._2))
+						added = projection(u, kv._2) +: added
 					)
 				}
 				case _ => // do nothing
 			}
-
+      notify_addedAll(added)
 		}
 
+    def addedAll(kvs: Seq[(Key, DomainB)]) {
+      var added = Seq[Range]()
+      for (kv <- kvs)
+        leftIndex.get(kv._1) match {
+          case Some(col) => {
+            col.foreach(u =>
+              added = projection(u, kv._2) +: added
+            )
+          }
+          case _ => // do nothing
+        }
+      notify_addedAll(added)
+    }
 
 	}
 

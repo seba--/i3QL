@@ -51,7 +51,14 @@ trait NotifyObservers[V] {
   }
 
   protected def notify_addedAll(vs: Seq[V]) {
-    observers.foreach(_.addedAll(vs))
+    if (vs.isEmpty) {
+    }
+    else if (vs.size == 1) {
+      val v = vs.head
+      observers.foreach(_.added(v))
+    }
+    else
+      observers.foreach(_.addedAll(vs))
   }
 
   protected def notify_removed(v: V) {
@@ -59,7 +66,14 @@ trait NotifyObservers[V] {
   }
 
   protected def notify_removedAll(vs: Seq[V]) {
-    observers.foreach(_.removedAll(vs))
+    if (vs.isEmpty) {
+    }
+    else if (vs.size == 1) {
+      val v = vs.head
+      observers.foreach(_.removed(v))
+    }
+    else
+      observers.foreach(_.removedAll(vs))
   }
 
   protected def notify_updated(oldV: V, newV: V) {

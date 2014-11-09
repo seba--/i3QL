@@ -136,12 +136,25 @@ class ExistsInSameDomainView[Domain](val left: MaterializedView[Domain],
             }
         }
 
+      def removedAll(vs: Seq[Domain]) {
+        // check that this was a removal where the element did not exist on the right side
+        val removed = vs filter (right.count(_) > 0)
+        notify_removedAll(removed)
+      }
+
         def added(v: Domain) {
             // check that this was an addition where the element did not exist on the right side
             if (right.count (v) > 0) {
                 notify_added (v)
             }
         }
+
+      def addedAll(vs: Seq[Domain]) {
+        // check that this was an addition where the element did not exist on the right side
+        val added = vs filter (right.count(_) > 0)
+        notify_addedAll(added)
+      }
+
     }
 
     object RightObserver extends Observer[Domain]
@@ -175,29 +188,63 @@ class ExistsInSameDomainView[Domain](val left: MaterializedView[Domain],
             }
         }
 
-        def removed(v: Domain) {
-            // check that this was the last removal of an element on the right side, then remove all from left side
-            if (right.count (v) == 0) {
-                var newCount = left.count (v)
-                while (newCount > 0)
-                {
-                    notify_removed (v)
-                    newCount -= 1
-                }
-            }
+      def removed(v: Domain) {
+        // check that this was the last removal of an element on the right side, then remove all from left side
+        var removed = Seq[Domain]()
+        if (right.count (v) == 0) {
+          var newCount = left.count (v)
+          while (newCount > 0)
+          {
+            removed = v +: removed
+            newCount -= 1
+          }
         }
+        notify_removedAll(removed)
+      }
 
-        def added(v: Domain) {
-            // we know there is now at least one element on the right side, but we remove only the first time this was added
-            if (right.count (v) == 1) {
-                var oldCount = left.count (v)
-                while (oldCount > 0)
-                {
-                    notify_added (v)
-                    oldCount -= 1
-                }
+      def removedAll(vs: Seq[Domain]) {
+        // check that this was the last removal of an element on the right side, then remove all from left side
+        var removed = Seq[Domain]()
+        vs foreach { v =>
+          if (right.count(v) == 0) {
+            var newCount = left.count(v)
+            while (newCount > 0) {
+              removed = v +: removed
+              newCount -= 1
             }
+          }
         }
+        notify_removedAll(removed)
+      }
+
+      def added(v: Domain) {
+        // we know there is now at least one element on the right side, but we remove only the first time this was added
+        var added = Seq[Domain]()
+        if (right.count (v) == 1) {
+          var oldCount = left.count (v)
+          while (oldCount > 0)
+          {
+            added = v +: added
+            oldCount -= 1
+          }
+        }
+        notify_addedAll(added)
+      }
+
+      def addedAll(vs: Seq[Domain]) {
+        // we know there is now at least one element on the right side, but we remove only the first time this was added
+        var added = Seq[Domain]()
+        vs foreach { v =>
+          if (right.count(v) == 1) {
+            var oldCount = left.count(v)
+            while (oldCount > 0) {
+              added = v +: added
+              oldCount -= 1
+            }
+          }
+        }
+        notify_addedAll(added)
+      }
 
      }
 
