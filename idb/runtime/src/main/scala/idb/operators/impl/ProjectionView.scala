@@ -94,5 +94,15 @@ class ProjectionView[Domain, Range] (
     }
 
 
+  override def removedAll(vs: Seq[Domain]) {
+    val removed = vs map (projection(_))
+    notify_removedAll(removed)
+  }
+
+  override def addedAll(vs: Seq[Domain]) {
+    val added = vs map (projection(_))
+    notify_addedAll(added)
+  }
+
 }
 
