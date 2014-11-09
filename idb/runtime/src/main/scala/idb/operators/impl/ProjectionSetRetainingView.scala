@@ -49,45 +49,54 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  */
 class ProjectionSetRetainingView[Domain, Range](val relation: Relation[Domain],
                                                 val projection: Domain => Range,
-												override val isSet : Boolean)
-    extends Projection[Domain, Range]
-    with Observer[Domain]
-	with NotifyObservers[Range]
-{
-    relation addObserver this
+                                                override val isSet: Boolean)
+  extends Projection[Domain, Range]
+  with Observer[Domain]
+  with NotifyObservers[Range] {
+  relation addObserver this
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-	override def lazyInitialize() {
+  override def lazyInitialize() {
 
-	}
+  }
 
-    override def endTransaction() {
-        notify_endTransaction()
-    }
+  override def endTransaction() {
+    notify_endTransaction()
+  }
 
-    /**
-     * Applies f to all elements of the view.
-     */
-    override def foreach[T](f: (Range) => T) {
-        relation.foreach ((v: Domain) => f (projection (v)))
-    }
+  /**
+   * Applies f to all elements of the view.
+   */
+  override def foreach[T](f: (Range) => T) {
+    relation.foreach((v: Domain) => f(projection(v)))
+  }
 
-	override def updated(oldV: Domain, newV: Domain) {
-		notify_updated (projection (oldV), projection (newV))
-    }
+  override def updated(oldV: Domain, newV: Domain) {
+    notify_updated(projection(oldV), projection(newV))
+  }
 
-	override def removed(v: Domain) {
-		notify_removed (projection (v))
-    }
+  override def removed(v: Domain) {
+    notify_removed(projection(v))
+  }
 
-	override def added(v: Domain) {
-		notify_added (projection (v))
-    }
+  override def removedAll(vs: Seq[Domain]) {
+    val removed = vs map (projection(_))
+    notify_removedAll(removed)
+  }
+
+  override def added(v: Domain) {
+    notify_added(projection(v))
+  }
+
+  override def addedAll(vs: Seq[Domain]) {
+    val added = vs map (projection(_))
+    notify_addedAll(added)
+  }
 }
 
