@@ -42,89 +42,105 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  */
 class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
                                                               val right: Relation[DomainB],
-															  override val isSet : Boolean)
-        extends Union[Range, DomainA, DomainB]
-		with NotifyObservers[Range]
-{
+                                                              override val isSet: Boolean)
+  extends Union[Range, DomainA, DomainB]
+  with NotifyObservers[Range] {
 
-    left addObserver LeftObserver
-    right addObserver RightObserver
+  left addObserver LeftObserver
+  right addObserver RightObserver
 
-	var leftTransactionEnded : Boolean = false
-	var rightTransactionEnded : Boolean = false
+  var leftTransactionEnded: Boolean = false
+  var rightTransactionEnded: Boolean = false
 
-	override def lazyInitialize() {
+  override def lazyInitialize() {
 
-	}
+  }
 
 
-    private def doEndTransaction() {
-        if(!leftTransactionEnded || !rightTransactionEnded)
-			return
+  private def doEndTransaction() {
+    if (!leftTransactionEnded || !rightTransactionEnded)
+      return
 
-		leftTransactionEnded = false
-		rightTransactionEnded = false
-        notify_endTransaction()
+    leftTransactionEnded = false
+    rightTransactionEnded = false
+    notify_endTransaction()
 
+  }
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == left) {
+      return List(LeftObserver)
+    }
+    if (o == right) {
+      return List(RightObserver)
+    }
+    Nil
+  }
+
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: (Range) => T) {
+    left.foreach(f)
+    right.foreach(f)
+  }
+
+  object LeftObserver extends Observer[DomainA] {
+
+    override def updated(oldV: DomainA, newV: DomainA) {
+      removed(oldV)
+      added(newV)
     }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left)  {
-            return List(LeftObserver)
-        }
-		if (o == right)  {
-			return List(RightObserver)
-		}
-        Nil
+    override def removed(v: DomainA) {
+      notify_removed(v)
     }
 
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        left.foreach(f)
-        right.foreach(f)
+    override def removedAll(vs: Seq[DomainA]): Unit = {
+      notify_removedAll(vs)
     }
 
-	object LeftObserver extends Observer[DomainA] {
+    override def added(v: DomainA) {
+      notify_added(v)
+    }
 
-		override def updated(oldV: DomainA, newV: DomainA) {
-			removed(oldV)
-			added(newV)
-		}
+    override def addedAll(vs: Seq[DomainA]) {
+      notify_addedAll(vs)
+    }
 
-		override def removed(v: DomainA) {
-			notify_removed(v)
-		}
+    def endTransaction() {
+      leftTransactionEnded = true
+      doEndTransaction()
+    }
+  }
 
-		override def added(v: DomainA) {
-			notify_added(v)
-		}
+  object RightObserver extends Observer[DomainB] {
 
-		def endTransaction() {
-			leftTransactionEnded = true
-			doEndTransaction()
-		}
-	}
+    override def updated(oldV: DomainB, newV: DomainB) {
+      removed(oldV)
+      added(newV)
+    }
 
-	object RightObserver extends Observer[DomainB] {
+    override def removed(v: DomainB) {
+      notify_removed(v)
+    }
 
-		override def updated(oldV: DomainB, newV: DomainB) {
-			removed(oldV)
-			added(newV)
-		}
+    override def removedAll(vs: Seq[DomainB]) {
+      notify_removedAll(vs)
+    }
 
-		override def removed(v: DomainB) {
-			notify_removed(v)
-		}
+    override def added(v: DomainB) {
+      notify_added(v)
+    }
 
-		override def added(v: DomainB) {
-			notify_added(v)
-		}
+    override def addedAll(vs: Seq[DomainB]) {
+      notify_addedAll(vs)
+    }
 
-		def endTransaction() {
-			rightTransactionEnded = true
-			doEndTransaction()
-		}
-	}
+    def endTransaction() {
+      rightTransactionEnded = true
+      doEndTransaction()
+    }
+  }
+
 }
