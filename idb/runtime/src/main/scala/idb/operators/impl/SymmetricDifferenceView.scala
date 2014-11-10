@@ -59,6 +59,18 @@ class SymmetricDifferenceView[Domain](val left: MaterializedView[Domain],
 			}
 		}
 
+    def addedAll(vs: Seq[Domain]) {
+      val (added,removed) = vs partition(right.count(_) == 0)
+      notify_removedAll(removed)
+      notify_addedAll(added)
+    }
+
+    def removedAll(vs: Seq[Domain]) {
+      val (removed,added) = vs partition(right.count(_) == 0)
+      notify_removedAll(removed)
+      notify_addedAll(added)
+    }
+
 		def endTransaction() {
 			notify_endTransaction()
 		}
@@ -84,6 +96,18 @@ class SymmetricDifferenceView[Domain](val left: MaterializedView[Domain],
 				notify_removed(v)
 			}
 		}
+
+    def addedAll(vs: Seq[Domain]) {
+      val (added,removed) = vs partition(left.count(_) == 0)
+      notify_removedAll(removed)
+      notify_addedAll(added)
+    }
+
+    def removedAll(vs: Seq[Domain]) {
+      val (removed,added) = vs partition(left.count(_) == 0)
+      notify_removedAll(removed)
+      notify_addedAll(added)
+    }
 
 		def endTransaction() {
 			notify_endTransaction()
