@@ -150,6 +150,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def insert: ExpKey = {
     val (k, ts) = insertCollect
+//    println(s"batch insertion $k -> $ts")
     table ++= ts
     k
   }
@@ -187,6 +188,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
   def remove: ExpKey = {
     val (k, ts) = removeCollect
+//    println(s"batch removal $k -> $ts")
     table --= ts
     k
   }
