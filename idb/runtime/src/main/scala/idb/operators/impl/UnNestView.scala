@@ -37,71 +37,80 @@ import idb.observer.{Observable, NotifyObservers, Observer}
 import idb.operators.UnNest
 
 
-class UnNestView[Domain, Range] (
-    val relation: Relation[Domain],
-    val unNestFunction: Domain => Traversable[Range],
-    override val isSet: Boolean
-)
-    extends UnNest[Domain, Range]
-    with Observer[Domain]
-    with NotifyObservers[(Domain, Range)]
-{
+class UnNestView[Domain, Range](
+                                 val relation: Relation[Domain],
+                                 val unNestFunction: Domain => Traversable[Range],
+                                 override val isSet: Boolean
+                                 )
+  extends UnNest[Domain, Range]
+  with Observer[Domain]
+  with NotifyObservers[(Domain, Range)] {
 
-    relation.addObserver (this)
+  relation.addObserver(this)
 
-    override def lazyInitialize () {
+  override def lazyInitialize() {
 
+  }
+
+  override def endTransaction() {
+    notify_endTransaction()
+  }
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-    override def endTransaction () {
-        notify_endTransaction ()
-    }
-
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
-
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T] (f: ((Domain, Range)) => T) {
-        relation.foreach ((v: Domain) =>
-            unNestFunction (v).foreach ((u: Range) =>
-                f ((v, u))
-            )
-        )
-    }
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: ((Domain, Range)) => T) {
+    relation.foreach((v: Domain) =>
+      unNestFunction(v).foreach((u: Range) =>
+        f((v, u))
+      )
+    )
+  }
 
 
-    def updated (oldV: Domain, newV: Domain) {
-        removed (oldV)
-        added (newV)
-    }
+  def updated(oldV: Domain, newV: Domain) {
+    removed(oldV)
+    added(newV)
+  }
 
-    def removed (v: Domain) {
-        unNestFunction (v).foreach ((u: Range) =>
-            notify_removed ((v, u))
-        )
-    }
+  def unnestPairs(v: Domain): Seq[(Domain, Range)] =
+    unNestFunction(v).toSeq map (r => (v,r))
 
-    def added (v: Domain) {
-        unNestFunction (v).foreach ((u: Range) =>
-            notify_added ((v, u))
-        )
-    }
+  def removed(v: Domain) {
+    val removed = unnestPairs(v)
+    notify_removedAll(removed)
+  }
+
+  def removedAll(vs: Seq[Domain]) {
+    val removed = vs.foldLeft(Seq[(Domain,Range)]())((seq,v) => seq ++ unnestPairs(v))
+    notify_removedAll(removed)
+  }
+
+  def added(v: Domain) {
+    val added = unnestPairs(v)
+    notify_addedAll(added)
+  }
+
+  def addedAll(vs: Seq[Domain]) {
+    val added = vs.foldLeft(Seq[(Domain,Range)]())((seq,v) => seq ++ unnestPairs(v))
+    notify_addedAll(added)
+  }
 }
 
-object UnNestView
-{
-    def apply[Domain, Range] (
-        relation: Relation[Domain],
-        unNestFunction: Domain => Traversable[Range],
-        isSet: Boolean
-    ): UnNestView[Domain, Range] = {
-        new UnNestView[Domain, Range](relation, unNestFunction, isSet)
-    }
+object UnNestView {
+  def apply[Domain, Range](
+                            relation: Relation[Domain],
+                            unNestFunction: Domain => Traversable[Range],
+                            isSet: Boolean
+                            ): UnNestView[Domain, Range] = {
+    new UnNestView[Domain, Range](relation, unNestFunction, isSet)
+  }
 
 }
