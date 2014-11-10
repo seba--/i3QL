@@ -52,6 +52,7 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 	override def endTransaction() {
 
 		//Update additions
+    var added = Seq[Result]()
 		val keyAddIt = additionsMap.keys().iterator()
 		for (key <- keyAddIt.asScala) {
 			val (aggregateFunction, functionExisted) = getFunctionForKey(key)
@@ -68,10 +69,12 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			if (functionExisted)
 				notify_updated(convertKeyAndAggregateValueToResult(key, oldV), convertKeyAndAggregateValueToResult(key, newV))
 			else
-				notify_added(convertKeyAndAggregateValueToResult(key, newV))
+				added = convertKeyAndAggregateValueToResult(key, newV) +: added
 		}
+    notify_addedAll(added)
 
 		//Update deletions
+    var removed = Seq[Result]()
 		val keyDelIt = deletionsMap.keys().iterator()
 		for (key <- keyDelIt.asScala) {
 			val (aggregateFunction, functionExisted) = getFunctionForKey(key)
@@ -88,8 +91,9 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			if (functionExisted)
 				notify_updated(convertKeyAndAggregateValueToResult(key, oldV), convertKeyAndAggregateValueToResult(key, newV))
 			else
-				notify_removed(convertKeyAndAggregateValueToResult(key, newV))
+				removed = convertKeyAndAggregateValueToResult(key, newV) +: removed
 		}
+    notify_removedAll(removed)
 
 		clear()
 		notify_endTransaction()
@@ -134,9 +138,19 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 		deletionsMap.put(groupingFunction(v), v)
 	}
 
+  def removedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      deletionsMap.put(groupingFunction(v), v)
+  }
+
 	def added(v: Domain) {
 		additionsMap.put(groupingFunction(v), v)
 	}
+
+  def addedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      additionsMap.put(groupingFunction(v), v)
+  }
 
 }
 

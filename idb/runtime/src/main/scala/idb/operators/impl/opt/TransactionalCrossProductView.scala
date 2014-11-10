@@ -44,26 +44,31 @@ class TransactionalCrossProductView[DomainA, DomainB, Range](val left: Relation[
 			return
 
 		/*Update deletions*/
+    var removed = Seq[Range]()
 		val itDelLeft = LeftObserver.deletions.iterator()
 		while (itDelLeft.hasNext) {
 			val e1 = itDelLeft.next()
 			val itDelRight = RightObserver.deletions.iterator()
 			while (itDelRight.hasNext) {
 				val e2 = itDelRight.next()
-				notify_removed( projection(e1,e2) )
+				removed = projection(e1,e2) +: removed
 			}
 		}
 
 		/*Update additions*/
+    var added = Seq[Range]()
 		val itAddLeft = LeftObserver.additions.iterator()
 		while (itAddLeft.hasNext) {
 			val e1 = itAddLeft.next()
 			val itAddRight = RightObserver.additions.iterator()
 			while (itAddRight.hasNext) {
 				val e2 = itAddRight.next()
-				notify_added( projection(e1,e2) )
+				added = projection(e1,e2) +: added
 			}
 		}
+
+    notify_removedAll(removed)
+    notify_addedAll(added)
 
 		clear()
 		notify_endTransaction()

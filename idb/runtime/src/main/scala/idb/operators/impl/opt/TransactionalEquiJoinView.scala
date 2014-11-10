@@ -38,206 +38,268 @@ import idb.observer.{Observable, Observer, NotifyObservers}
 
 
 class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
-															  val right: Relation[DomainB],
-															  val leftAdditionIndex: Index[Key, DomainA],
-															  val rightAdditionIndex: Index[Key, DomainB],
-															  val leftDeletionIndex: Index[Key, DomainA],
-															  val rightDeletionIndex: Index[Key, DomainB],
-															  val leftKey: DomainA => Key,
-															  val rightKey: DomainB => Key,
-															  val projection: (DomainA, DomainB) => Range,
-																 override val isSet : Boolean)
-	extends EquiJoin[DomainA, DomainB, Range, Key]
-	with NotifyObservers[Range] {
+                                                              val right: Relation[DomainB],
+                                                              val leftAdditionIndex: Index[Key, DomainA],
+                                                              val rightAdditionIndex: Index[Key, DomainB],
+                                                              val leftDeletionIndex: Index[Key, DomainA],
+                                                              val rightDeletionIndex: Index[Key, DomainB],
+                                                              val leftKey: DomainA => Key,
+                                                              val rightKey: DomainB => Key,
+                                                              val projection: (DomainA, DomainB) => Range,
+                                                              override val isSet: Boolean)
+  extends EquiJoin[DomainA, DomainB, Range, Key]
+  with NotifyObservers[Range] {
 
 
-	// we observe the indices, but the indices are not part of the observer chain
-	// indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
+  // we observe the indices, but the indices are not part of the observer chain
+  // indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
 
-	leftAdditionIndex addObserver LeftObserver
+  leftAdditionIndex addObserver LeftObserver
 
-	leftDeletionIndex addObserver LeftObserver
+  leftDeletionIndex addObserver LeftObserver
 
-	rightAdditionIndex addObserver RightObserver
+  rightAdditionIndex addObserver RightObserver
 
-	rightDeletionIndex addObserver RightObserver
-
-
-	override def children = List(leftAdditionIndex, leftDeletionIndex, rightAdditionIndex, rightAdditionIndex)
-
-	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-		if (o == leftAdditionIndex || o == leftDeletionIndex) {
-			return List(LeftObserver)
-		}
-		if (o == rightAdditionIndex || o == rightDeletionIndex) {
-			return List(RightObserver)
-		}
-		Nil
-	}
-
-	def lazyInitialize() {
-
-	}
-
-	/**
-	 * Applies f to all elements of the view.
-	 */
-	def foreach[T](f: (Range) => T) {
-		/*if (leftAdditionIndex.size <= rightAdditionIndex.size) {
-			leftEquiJoin(f)
-
-		}
-		else {
-			rightEquiJoin(f)
-		} */
-		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
-	}
-
-	// use the left relation as keys, since this relation is smaller
-	def leftEquiJoin[T](f: (Range) => T) {
-		leftAdditionIndex.foreach(
-		{
-			case (key, v) =>
-				rightAdditionIndex.get(key) match {
-					case Some(col) => {
-						col.foreach(u =>
-							f(projection(v, u))
-						)
-					}
-					case _ => // do nothing
-				}
-		}
-		)
-	}
-
-	// use the right relation as keys, since this relation is smaller
-	def rightEquiJoin[T](f: (Range) => T) {
-		rightAdditionIndex.foreach(
-		{
-			case (key, u) =>
-				leftAdditionIndex.get(key) match {
-					case Some(col) => {
-						col.foreach(v =>
-							f(projection(v, u))
-						)
-					}
-					case _ => // do nothing
-				}
-		}
-		)
-	}
+  rightDeletionIndex addObserver RightObserver
 
 
-	var leftFinished = false
-	var rightFinished = false
+  override def children = List(leftAdditionIndex, leftDeletionIndex, rightAdditionIndex, rightAdditionIndex)
 
-	object LeftObserver extends Observer[(Key, DomainA)] {
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == leftAdditionIndex || o == leftDeletionIndex) {
+      return List(LeftObserver)
+    }
+    if (o == rightAdditionIndex || o == rightDeletionIndex) {
+      return List(RightObserver)
+    }
+    Nil
+  }
 
-		override def endTransaction() {
-			leftFinished = true
-			if (rightFinished) {
-				notify_endTransaction()
-				leftFinished = false
-				rightFinished = false
-			}
-		}
+  def lazyInitialize() {
 
-		// update operations on left relation
-		def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
-			throw new UnsupportedOperationException
-		}
+  }
 
-		def removed(kv: (Key, DomainA)) {
-			rightDeletionIndex.get(kv._1) match {
-				case Some(col) => {
-					col.map(u => (projection(kv._2, u))).foreach(notify_removed)
-				}
-				case _ => // do nothing
-			}
-		}
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: (Range) => T) {
+    /*if (leftAdditionIndex.size <= rightAdditionIndex.size) {
+      leftEquiJoin(f)
 
-		def added(kv: (Key, DomainA)) {
-			rightAdditionIndex.get(kv._1) match {
-				case Some(col) => {
-					col.map(u => (projection(kv._2, u))).foreach(notify_added)
-				}
-				case _ => // do nothing
-			}
-		}
+    }
+    else {
+      rightEquiJoin(f)
+    } */
+    throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
+  }
 
-		override def toString: String = TransactionalEquiJoinView.this.toString + "$LeftObserver"
-	}
+  // use the left relation as keys, since this relation is smaller
+  def leftEquiJoin[T](f: (Range) => T) {
+    leftAdditionIndex.foreach(
+    {
+      case (key, v) =>
+        rightAdditionIndex.get(key) match {
+          case Some(col) => {
+            col.foreach(u =>
+              f(projection(v, u))
+            )
+          }
+          case _ => // do nothing
+        }
+    }
+    )
+  }
 
-	object RightObserver extends Observer[(Key, DomainB)] {
+  // use the right relation as keys, since this relation is smaller
+  def rightEquiJoin[T](f: (Range) => T) {
+    rightAdditionIndex.foreach(
+    {
+      case (key, u) =>
+        leftAdditionIndex.get(key) match {
+          case Some(col) => {
+            col.foreach(v =>
+              f(projection(v, u))
+            )
+          }
+          case _ => // do nothing
+        }
+    }
+    )
+  }
 
-		override def endTransaction() {
-			rightFinished = true
-			if (leftFinished) {
-				notify_endTransaction()
-				leftFinished = false
-				rightFinished = false
-			}
-		}
 
-		// update operations on right relation
-		def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
-			throw new UnsupportedOperationException
-		}
+  var leftFinished = false
+  var rightFinished = false
 
-		def removed(kv: (Key, DomainB)) {
-			leftDeletionIndex.get(kv._1) match {
-				case Some(col) => {
-					col.map(u => (projection(u, kv._2))).foreach(notify_removed)
-				}
-				case _ => // do nothing
-			}
+  object LeftObserver extends Observer[(Key, DomainA)] {
 
-		}
+    override def endTransaction() {
+      leftFinished = true
+      if (rightFinished) {
+        notify_endTransaction()
+        leftFinished = false
+        rightFinished = false
+      }
+    }
 
-		def added(kv: (Key, DomainB)) {
-			leftAdditionIndex.get(kv._1) match {
-				case Some(col) => {
-					col.map(u => (projection(u, kv._2))).foreach(notify_added)
-				}
-				case _ => // do nothing
-			}
+    // update operations on left relation
+    def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
+      throw new UnsupportedOperationException
+    }
 
-		}
+    def removed(kv: (Key, DomainA)) {
+      var removed = Seq[Range]()
+      rightDeletionIndex.get(kv._1) match {
+        case Some(col) => {
+          for (u <- col)
+            removed = projection(kv._2, u) +: removed
+        }
+        case _ => // do nothing
+      }
+      notify_removedAll(removed)
+    }
 
-		override def toString: String = TransactionalEquiJoinView.this.toString + "$RightObserver"
-	}
+    def removedAll(kvs: Seq[(Key, DomainA)]) {
+      var removed = Seq[Range]()
+      for (kv <- kvs)
+        rightDeletionIndex.get(kv._1) match {
+          case Some(col) => {
+            for (u <- col)
+              removed = projection(kv._2, u) +: removed
+          }
+          case _ => // do nothing
+        }
+      notify_removedAll(removed)
+    }
+
+    def added(kv: (Key, DomainA)) {
+      var added = Seq[Range]()
+      rightAdditionIndex.get(kv._1) match {
+        case Some(col) => {
+          for (u <- col)
+            added = projection(kv._2, u) +: added
+        }
+        case _ => // do nothing
+      }
+      notify_addedAll(added)
+    }
+
+    def addedAll(kvs: Seq[(Key, DomainA)]) {
+      var added = Seq[Range]()
+      for (kv <- kvs)
+        rightAdditionIndex.get(kv._1) match {
+          case Some(col) => {
+            for (u <- col)
+              added = projection(kv._2, u) +: added
+          }
+          case _ => // do nothing
+        }
+      notify_addedAll(added)
+    }
+
+    override def toString: String = TransactionalEquiJoinView.this.toString + "$LeftObserver"
+  }
+
+  object RightObserver extends Observer[(Key, DomainB)] {
+
+    override def endTransaction() {
+      rightFinished = true
+      if (leftFinished) {
+        notify_endTransaction()
+        leftFinished = false
+        rightFinished = false
+      }
+    }
+
+    // update operations on right relation
+    def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
+      throw new UnsupportedOperationException
+    }
+
+    def removed(kv: (Key, DomainB)) {
+      var removed = Seq[Range]()
+      leftDeletionIndex.get(kv._1) match {
+        case Some(col) => {
+          for (u <- col)
+            removed = projection(u, kv._2) +: removed
+        }
+        case _ => // do nothing
+      }
+      notify_removedAll(removed)
+    }
+
+    def removedAll(kvs: Seq[(Key, DomainB)]) {
+      var removed = Seq[Range]()
+      for (kv <- kvs)
+        leftDeletionIndex.get(kv._1) match {
+          case Some(col) => {
+            for (u <- col)
+              removed = projection(u, kv._2) +: removed
+          }
+          case _ => // do nothing
+        }
+      notify_removedAll(removed)
+    }
+
+    def added(kv: (Key, DomainB)) {
+      var added = Seq[Range]()
+      leftAdditionIndex.get(kv._1) match {
+        case Some(col) => {
+          for (u <- col)
+            added = projection(u, kv._2) +: added
+        }
+        case _ => // do nothing
+      }
+      notify_addedAll(added)
+    }
+
+    def addedAll(kvs: Seq[(Key, DomainB)]) {
+      var added = Seq[Range]()
+      for (kv <- kvs)
+        leftAdditionIndex.get(kv._1) match {
+          case Some(col) => {
+            for (u <- col)
+              added = projection(u, kv._2) +: added
+          }
+          case _ => // do nothing
+        }
+      notify_addedAll(added)
+    }
+
+    override def toString: String = TransactionalEquiJoinView.this.toString + "$RightObserver"
+  }
 
 }
 
 object TransactionalEquiJoinView {
-	def apply[DomainA, DomainB](left: Relation[DomainA],
-								right: Relation[DomainB],
-								leftEq: Seq[(DomainA => Any)],
-								rightEq: Seq[(DomainB => Any)],
-								isSet: Boolean): Relation[(DomainA, DomainB)] = {
+  def apply[DomainA, DomainB](left: Relation[DomainA],
+                              right: Relation[DomainB],
+                              leftEq: Seq[(DomainA => Any)],
+                              rightEq: Seq[(DomainB => Any)],
+                              isSet: Boolean): Relation[(DomainA, DomainB)] = {
 
-		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
-		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
+    val leftKey: DomainA => Seq[Any] = x => leftEq.map(f => f(x))
+    val rightKey: DomainB => Seq[Any] = x => rightEq.map(f => f(x))
 
-		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
-		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
-		val leftDelIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
-		val rightDelIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+    val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
+    val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+    val leftDelIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
+    val rightDelIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
 
-		return new TransactionalEquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
-			left,
-			right,
-			leftIndex,
-			rightIndex,
-			leftDelIndex,
-			rightDelIndex,
-			leftKey,
-			rightKey,
-			(_, _),
-			isSet
-		)
+    return new TransactionalEquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
+      left,
+      right,
+      leftIndex,
+      rightIndex,
+      leftDelIndex,
+      rightDelIndex,
+      leftKey,
+      rightKey,
+      (_, _),
+      isSet
+    )
 
 
-	}
+  }
 
 }

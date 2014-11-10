@@ -43,105 +43,114 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
 class TransactionalDuplicateEliminationView[Domain](val relation: Relation[Domain],
-													override val isSet : Boolean)
-    extends DuplicateElimination[Domain]
-    with Observer[Domain]
-	with NotifyObservers[Domain]
-{
+                                                    override val isSet: Boolean)
+  extends DuplicateElimination[Domain]
+  with Observer[Domain]
+  with NotifyObservers[Domain] {
 
-    relation addObserver this
+  relation addObserver this
 
-    import com.google.common.collect.HashMultiset
+  import com.google.common.collect.HashMultiset
 
-    private var data: HashMultiset[Domain] = HashMultiset.create[Domain]()
+  private var data: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
-    lazyInitialize ()
+  lazyInitialize()
 
-    override def endTransaction() {
-        data = HashMultiset.create[Domain]()
-        notify_endTransaction ()
+  override def endTransaction() {
+    data = HashMultiset.create[Domain]()
+    notify_endTransaction()
+  }
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
+  def lazyInitialize() {
+    relation.foreach(
+      t => data.add(t)
+    )
+  }
+
+  def foreach[U](f: Domain => U) {
+    /* val it = data.elementSet ().iterator ()
+     while (it.hasNext) {
+         f (it.next ())
+     }*/
+    throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
+  }
+
+  def foreachWithCount[T](f: (Domain, Int) => T) {
+    val it = data.elementSet().iterator()
+    while (it.hasNext) {
+      f(it.next(), 1)
     }
+  }
 
-    def lazyInitialize() {
-        relation.foreach (
-            t => data.add (t)
-        )
+
+  def isDefinedAt(v: Domain) = {
+    data.contains(v)
+  }
+
+  def elementCountAt[T >: Domain](v: T) = {
+    data.count(v)
+  }
+
+  /**
+   * We use a generalized bag semantics, thus this method
+   * returns true if the element was not already present in the list
+   * otherwise the method returns false
+   */
+  private def add_element(v: Domain): Boolean = {
+    val result = data.count(v) == 0
+    data.add(v)
+    result
+  }
+
+  /**
+   * We use a bag semantics, thus this method
+   * returns false if the element is still present in the list
+   * otherwise the method returns true, i.e., the element is
+   * completely removed.
+   */
+  private def remove_element(v: Domain): Boolean = {
+    val result = data.count(v) == 1
+    data.remove(v)
+    result
+  }
+
+  // update operations
+  def updated(oldV: Domain, newV: Domain) {
+    if (oldV == newV) {
+      return
     }
+    val count = data.count(oldV)
+    data.remove(oldV, count)
+    data.add(newV, count)
+    notify_updated(oldV, newV)
+  }
 
-    def foreach[U](f: Domain => U) {
-       /* val it = data.elementSet ().iterator ()
-        while (it.hasNext) {
-            f (it.next ())
-        }*/
-		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
+  def removed(v: Domain) {
+    if (remove_element(v)) {
+      notify_removed(v)
     }
+  }
 
-    def foreachWithCount[T](f: (Domain, Int) => T) {
-        val it = data.elementSet ().iterator ()
-        while (it.hasNext) {
-            f (it.next (), 1)
-        }
+  def removedAll(vs: Seq[Domain]) {
+    val removed = vs filter (remove_element(_))
+    notify_removedAll(removed)
+  }
+
+  def added(v: Domain) {
+    if (add_element(v)) {
+      notify_added(v)
     }
+  }
 
-
-    def isDefinedAt(v: Domain) = {
-        data.contains (v)
-    }
-
-    def elementCountAt[T >: Domain](v: T) = {
-        data.count (v)
-    }
-
-    /**
-     * We use a generalized bag semantics, thus this method
-     * returns true if the element was not already present in the list
-     * otherwise the method returns false
-     */
-    private def add_element(v: Domain): Boolean = {
-        val result = data.count (v) == 0
-        data.add (v)
-        result
-    }
-
-    /**
-     * We use a bag semantics, thus this method
-     * returns false if the element is still present in the list
-     * otherwise the method returns true, i.e., the element is
-     * completely removed.
-     */
-    private def remove_element(v: Domain): Boolean = {
-        val result = data.count (v) == 1
-        data.remove (v)
-        result
-    }
-
-    // update operations
-    def updated(oldV: Domain, newV: Domain) {
-        if (oldV == newV) {
-            return
-        }
-        val count = data.count (oldV)
-        data.remove (oldV, count)
-        data.add (newV, count)
-        notify_updated (oldV, newV)
-    }
-
-    def removed(v: Domain) {
-        if (remove_element (v)) {
-			notify_removed (v)
-        }
-    }
-
-    def added(v: Domain) {
-        if (add_element (v)) {
-			notify_added (v)
-        }
-    }
+  def addedAll(vs: Seq[Domain]) {
+    val added = vs filter (add_element(_))
+    notify_addedAll(added)
+  }
 }

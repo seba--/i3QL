@@ -47,186 +47,192 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
                                                                       val domainKeyFunction: Domain => Key,
                                                                       val rangeKeyFunction: Range => Key,
                                                                       val step: (Domain, Range) => Range)
-    extends Relation[Range]
-    with TransactionKeyValueObserver[Key, Domain]
-	with NotifyObservers[Range]
-{
+  extends Relation[Range]
+  with TransactionKeyValueObserver[Key, Domain]
+  with NotifyObservers[Range] {
 
-    anchors.addObserver (AnchorObserver)
+  anchors.addObserver(AnchorObserver)
 
-    source addObserver this
-
-
-    var additionAnchors: List[Range] = Nil
-    var additionResults              = mutable.HashSet.empty[Range]
-    var deletionAnchors: List[Range] = Nil
-    var deletionResults              = mutable.HashSet.empty[Range]
+  source addObserver this
 
 
-    def keyFunc = domainKeyFunction
-
-	def children = List(anchors,source)
-
-	override def lazyInitialize() {
-
-	}
-
-    private var recursionStack: List[List[Range]] = Nil
-
-    def doRecursionForAddedElements() {
-        val stackBase =
-            for (anchor <- additionAnchors
-                 if !additionResults.contains (anchor)
-            ) yield
-            {
-                additionResults.add (anchor)
-                notify_added (anchor)
-                anchor
-            }
-
-        if (stackBase.isEmpty) {
-            return
-        }
-
-        recursionStack = List (stackBase)
-
-        while (!recursionStack.isEmpty) {
-
-            //println(recursionStack.size)
-            println(recursionStack.size)
-            println(additionResults.size)
-            // we have derived base and now we want to derive further values recursively
-            val currentResult = recursionStack.head.head
-            // remove the current value from the current level
-            recursionStack = recursionStack.head.tail :: recursionStack.tail
+  var additionAnchors: List[Range] = Nil
+  var additionResults = mutable.HashSet.empty[Range]
+  var deletionAnchors: List[Range] = Nil
+  var deletionResults = mutable.HashSet.empty[Range]
 
 
-            var it: java.util.Iterator[Domain] = additions.get (rangeKeyFunction (currentResult)).iterator ()
-            var nextResults: List[Range] = Nil
-            while (it.hasNext) {
-                val joinedElement: Domain = it.next ()
-                val nextResult: Range = step (joinedElement, currentResult)
-                if (!additionResults.contains (nextResult)) {
-                    additionResults.add (nextResult)
-                    // add elements of the next level
-					notify_added (nextResult)
-                    nextResults = nextResult :: nextResults
-                }
-            }
+  def keyFunc = domainKeyFunction
 
-            // add a the next Results at the beginning of the next level
-            recursionStack = nextResults :: recursionStack
+  def children = List(anchors, source)
 
+  override def lazyInitialize() {
 
-            // we did not compute a new level, i.e., the next recursion level of values is empty
-            // remove all empty levels
-            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
-                recursionStack = recursionStack.tail
-            }
-        }
+  }
 
+  private var recursionStack: List[List[Range]] = Nil
+
+  def doRecursionForAddedElements() {
+    var addedBase = Seq[Range]()
+    val stackBase =
+      for (anchor <- additionAnchors
+           if !additionResults.contains(anchor)
+      ) yield {
+        additionResults.add(anchor)
+        addedBase = anchor +: addedBase
+        anchor
+      }
+    notify_addedAll(addedBase)
+
+    if (stackBase.isEmpty) {
+      return
     }
 
-    def doRecursionForRemovedElements() {
-        // all domain values are stored in the Multimap "deletions"
+    recursionStack = List(stackBase)
 
-        for (anchor <- deletionAnchors) {
-            deleteResult (anchor)
+    while (!recursionStack.isEmpty) {
+
+      //println(recursionStack.size)
+      println(recursionStack.size)
+      println(additionResults.size)
+      // we have derived base and now we want to derive further values recursively
+      val currentResult = recursionStack.head.head
+      // remove the current value from the current level
+      recursionStack = recursionStack.head.tail :: recursionStack.tail
+
+
+      var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(currentResult)).iterator()
+      var nextResults: List[Range] = Nil
+      while (it.hasNext) {
+        val joinedElement: Domain = it.next()
+        val nextResult: Range = step(joinedElement, currentResult)
+        if (!additionResults.contains(nextResult)) {
+          additionResults.add(nextResult)
+          // add elements of the next level
+          notify_added(nextResult)
+          nextResults = nextResult :: nextResults
         }
+      }
+
+      // add a the next Results at the beginning of the next level
+      recursionStack = nextResults :: recursionStack
+
+
+      // we did not compute a new level, i.e., the next recursion level of values is empty
+      // remove all empty levels
+      while (!recursionStack.isEmpty && recursionStack.head == Nil) {
+        recursionStack = recursionStack.tail
+      }
     }
 
-    private def deleteResult(delResult: Range) {
+  }
 
-        //If the result has already been deleted or has been added by the added results.
-        if (deletionResults.contains (delResult)) {
-            return
-            //Delete the result and continue deleting recursively.
-        }
-        else
-        {
-            deletionResults.add (delResult)
-			notify_removed (delResult)
+  def doRecursionForRemovedElements() {
+    // all domain values are stored in the Multimap "deletions"
 
-            var it: java.util.Iterator[Domain] = deletions.get (rangeKeyFunction (delResult)).iterator ()
-            while (it.hasNext) {
-                val next: Domain = it.next ()
-                val nextResult: Range = step (next, delResult)
-                deleteResult (nextResult)
-            }
-        }
+    for (anchor <- deletionAnchors) {
+      deleteResult(anchor)
+    }
+  }
+
+  private def deleteResult(delResult: Range) {
+
+    //If the result has already been deleted or has been added by the added results.
+    if (deletionResults.contains(delResult)) {
+      return
+      //Delete the result and continue deleting recursively.
+    }
+    else {
+      deletionResults.add(delResult)
+      notify_removed(delResult)
+
+      var it: java.util.Iterator[Domain] = deletions.get(rangeKeyFunction(delResult)).iterator()
+      while (it.hasNext) {
+        val next: Domain = it.next()
+        val nextResult: Range = step(next, delResult)
+        deleteResult(nextResult)
+      }
+    }
+  }
+
+  override def endTransaction() {
+    sourcesTransactionEnded = true
+    if (!anchorsTransactionEnded) {
+      return
+    }
+
+
+    doRecursionForAddedElements()
+    doRecursionForRemovedElements()
+    clear()
+    sourcesTransactionEnded = false
+    notify_endTransaction()
+
+  }
+
+  override def clear() {
+    additionAnchors = Nil
+    deletionAnchors = Nil
+    additionResults = mutable.HashSet.empty[Range]
+    deletionResults = mutable.HashSet.empty[Range]
+    // please store them as "var" and do,  x = new HashMap, or something
+    super.clear()
+  }
+
+
+  def foreach[T](f: (Range) => T) {
+    throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
+  }
+
+  /**
+   * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+   */
+  def isStored = false
+
+  def isSet = false
+
+  var anchorsTransactionEnded = false
+
+  var sourcesTransactionEnded = false
+
+  object AnchorObserver extends Observer[Range] {
+
+
+    def added(v: Range) {
+      additionAnchors = v :: additionAnchors
+    }
+
+    def addedAll(vs: Seq[Range]): Unit = {
+      additionAnchors = additionAnchors ++ vs
+    }
+
+    def removed(v: Range) {
+      deletionAnchors = v :: deletionAnchors
+    }
+
+    def removedAll(vs: Seq[Range]) {
+      deletionAnchors = deletionAnchors ++ vs
     }
 
     override def endTransaction() {
-        sourcesTransactionEnded = true
-        if (!anchorsTransactionEnded) {
-            return
-        }
+      anchorsTransactionEnded = true
+      if (!sourcesTransactionEnded) {
+        return
+      }
 
+      doRecursionForRemovedElements()
+      doRecursionForAddedElements()
+      clear()
 
-        doRecursionForAddedElements ()
-        doRecursionForRemovedElements ()
-        clear ()
-        sourcesTransactionEnded = false
-        notify_endTransaction ()
+      anchorsTransactionEnded = false
 
+      notify_endTransaction()
     }
 
-    override def clear() {
-        additionAnchors = Nil
-        deletionAnchors = Nil
-        additionResults = mutable.HashSet.empty[Range]
-        deletionResults = mutable.HashSet.empty[Range]
-        // please store them as "var" and do,  x = new HashMap, or something
-        super.clear ()
+    def updated(oldV: Range, newV: Range) {
+      removed(oldV)
+      added(newV)
     }
-
-
-    def foreach[T](f: (Range) => T) {
-		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
-    }
-
-    /**
-     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
-     */
-    def isStored = false
-
-    def isSet = false
-
-    var anchorsTransactionEnded = false
-
-    var sourcesTransactionEnded = false
-
-    object AnchorObserver extends Observer[Range]
-    {
-
-
-        def added(v: Range) {
-            additionAnchors = v :: additionAnchors
-        }
-
-        def removed(v: Range) {
-            deletionAnchors = v :: deletionAnchors
-        }
-
-        override def endTransaction() {
-            anchorsTransactionEnded = true
-            if (!sourcesTransactionEnded) {
-                return
-            }
-
-            doRecursionForRemovedElements ()
-            doRecursionForAddedElements ()
-            clear ()
-
-            anchorsTransactionEnded = false
-
-            notify_endTransaction ()
-        }
-
-        def updated(oldV: Range, newV: Range) {
-            removed(oldV)
-			added(newV)
-        }
-    }
+  }
 
 }
