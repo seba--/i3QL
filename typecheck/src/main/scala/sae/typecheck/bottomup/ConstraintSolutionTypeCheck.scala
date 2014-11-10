@@ -206,8 +206,8 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 
   val root = Root(constraints, staticData (rootTypeExtractor))
   def typecheck(e: Exp) = {
-    root.set(e)
-    root.Type
+    val fire = root.set(e)
+    () => {fire(); root.Type}
   }
 
   def typecheckIncremental(e: Exp) = {

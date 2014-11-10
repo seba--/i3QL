@@ -27,16 +27,17 @@ class Root() {
     rootNode = newRootNode
   }
 
-  def set(e: Exp): Unit = {
+  def set(e: Exp) = {
     val oldSubkeys = rootNode.subkeys
     if (!rootNode.sub.isEmpty)
       rootNode.sub(0).remove
-    e.insert
+    val (_,ts) = e.insertCollect
 
     val newRootNode = Exp(Root.Root, Seq(), Seq(e))
     Exp.updateExp(rootNode, newRootNode, oldSubkeys, Seq(e.key))
 
     rootNode = newRootNode
+    () => Exp.fireAdd(ts)
   }
 
   def update(e: Exp): Unit = {

@@ -65,6 +65,11 @@ object Exp {
     e.key
   }
 
+  def fireAdd(ts: Seq[ExpTuple]): Unit = {
+    println(s"fire batch insertion, size ${ts.size}")
+    table ++= ts
+  }
+
   def nextKey() = {
     val k = _nextKey
     _nextKey += 1
@@ -115,7 +120,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     set += this
   }
 
-  private def insertCollect: (ExpKey, Seq[ExpTuple]) = {
+  def insertCollect: (ExpKey, Seq[ExpTuple]) = {
     var added = Seq[ExpTuple]()
     sub map {e =>
       val (k, seq) = e.insertCollect

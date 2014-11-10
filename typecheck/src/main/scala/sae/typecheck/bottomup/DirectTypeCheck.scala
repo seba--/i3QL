@@ -60,8 +60,8 @@ object DirectTypeCheck extends TypeCheck {
 
   val root = Root(types, staticData (rootTypeExtractor))
   def typecheck(e: Exp) = {
-    root.set(e)
-    root.Type
+    val fire = root.set(e)
+    () => {fire(); root.Type}
   }
 
   def typecheckIncremental(e: Exp) = {

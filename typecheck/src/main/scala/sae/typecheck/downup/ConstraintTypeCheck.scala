@@ -20,20 +20,21 @@ object ConstraintTypeCheck extends TypeCheck {
 
   def reset() {}
 
-  def typecheckIncremental(e: Exp) = typecheck(e)
+  def typecheckIncremental(e: Exp) = typecheck(e)()
 
-  def typecheck(e: Exp): Either[Type, TError] = {
+  def typecheck(e: Exp) = {
     _nextId = 0
-    try {
-      val (t, cons) = typecheck(e, Map())
-      val (s, unres) = Constraint.solve(cons)
-      if (unres.isEmpty)
-        Left(t.subst(s))
-      else
-        Right(s"Unresolved constraints $unres, type ${t.subst(s)}")
-    } catch {
-      case e: UnboundVariable => Right(s"Unbound variable ${e.x} in context ${e.ctx}")
-    }
+    () =>
+      try {
+        val (t, cons) = typecheck(e, Map())
+        val (s, unres) = Constraint.solve(cons)
+        if (unres.isEmpty)
+          Left(t.subst(s))
+        else
+          Right(s"Unresolved constraints $unres, type ${t.subst(s)}")
+      } catch {
+        case e: UnboundVariable => Right(s"Unbound variable ${e.x} in context ${e.ctx}")
+      }
   }
 
   def typecheck(e: Exp, ctx: TSubst): (Type, Set[Constraint]) = e.kind match {
