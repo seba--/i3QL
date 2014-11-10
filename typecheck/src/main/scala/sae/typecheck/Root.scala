@@ -77,7 +77,9 @@ object Root {
     rootQuery.addObserver(new Observer[Either[Type, TError]] {
       override def updated(oldV: Either[Type, TError], newV: Either[Type, TError]): Unit = {root.unstore(oldV); root.store(newV)}
       override def removed(v: Either[Type, TError]): Unit = {root.unstore(v)}
+      override def removedAll(vs: Seq[Either[Type, TError]]) = for (v <- vs) removed(v)
       override def added(v: Either[Type, TError]): Unit = root.store(v)
+      override def addedAll(vs: Seq[Either[Type, TError]]) = for (v <- vs) added(v)
       override def endTransaction(): Unit = {}
     })
     root.insert
