@@ -42,23 +42,42 @@ package idb.observer
  *
  * @author Ralf Mitschke
  */
+//object NotifyObservers {
+//  var indent = 0
+//  def spaces = "| " * indent
+//}
+//import NotifyObservers._
+
 trait NotifyObservers[V] {
 
   protected def observers: Iterable[Observer[Any]]
 
   protected def notify_added(v: V) {
+//    println(s"${spaces}size 1 -> \t${this.getClass}")
+//    indent = indent + 1
     observers.foreach(_.added(v))
+//    indent = indent - 1
+//    println(s"${spaces}size 1 <- \t${this.getClass}")
   }
 
   protected def notify_addedAll(vs: Seq[V]) {
     if (vs.isEmpty) {
     }
     else if (vs.size == 1) {
+//      println(s"${spaces}size 1 -> \t${this.getClass}")
+//      indent = indent + 1
       val v = vs.head
       observers.foreach(_.added(v))
+//      indent = indent - 1
+//      println(s"${spaces}size 1 <- \t${this.getClass}")
     }
-    else
+    else {
+//      println(s"${spaces}size ${vs.size} -> \t${this.getClass}")
+//      indent = indent + 1
       observers.foreach(_.addedAll(vs))
+//      indent = indent - 1
+//      println(s"${spaces}size ${vs.size} <- \t${this.getClass}")
+    }
   }
 
   protected def notify_removed(v: V) {

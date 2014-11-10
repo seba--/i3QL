@@ -106,7 +106,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
   }
 
   def addedAll(vs: Seq[Domain]) {
-    println(s"Recursive add, size ${vs.size}")
+//    println(s"Recursive add, size ${vs.size}")
 
     val newVs = vs filter {v =>
       if (supportedElements.contains(v)) {
@@ -169,8 +169,8 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
   }
 
   def removedAll(vs: Seq[Domain]) {
-    println(s"Recursive rem, size ${vs.size}")
-    
+//    println(s"Recursive rem, size ${vs.size}")
+
     val newVs = vs filter { v =>
       if (deletedElements.contains(v)) {
         // we have reached a value that was previously defined.
