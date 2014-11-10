@@ -48,193 +48,219 @@ import idb.observer.{Observer, Observable, NotifyObservers}
 class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[Edge],
                                                            val getTail: Edge => Vertex,
                                                            val getHead: Edge => Vertex,
-														override val isSet : Boolean)
-    extends TransitiveClosure[Edge, Vertex]
-    with Observer[Edge]
-	with NotifyObservers[(Vertex,Vertex)]
-	with MaterializedView[(Vertex,Vertex)]
-{
-    source addObserver this
+                                                           override val isSet: Boolean)
+  extends TransitiveClosure[Edge, Vertex]
+  with Observer[Edge]
+  with NotifyObservers[(Vertex, Vertex)]
+  with MaterializedView[(Vertex, Vertex)] {
+  source addObserver this
 
-    private val graphIncomingEdges = mutable.HashMap[Vertex, List[Edge]]()
+  private val graphIncomingEdges = mutable.HashMap[Vertex, List[Edge]]()
 
-    private val graphOutgoingEdges = mutable.HashMap[Vertex, List[Edge]]()
+  private val graphOutgoingEdges = mutable.HashMap[Vertex, List[Edge]]()
 
-    lazyInitialize ()
+  lazyInitialize()
 
-    private def transitiveClosureApplyForward[U](start: Vertex, f: (Vertex, Vertex) => U) {
-        transitiveClosureRecurseForward (start, start, f)
+  private def transitiveClosureApplyForward[U](start: Vertex, f: (Vertex, Vertex) => U) {
+    transitiveClosureRecurseForward(start, start, f)
+  }
+
+  private def transitiveClosureRecurseForward[U](start: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
+    graphOutgoingEdges.getOrElse((current), return).foreach(
+      edge => {
+        val head = getHead(edge)
+        f(start, head)
+        transitiveClosureRecurseForward(start, head, f)
+      }
+    )
+  }
+
+
+  private def transitiveClosureApplyBackward[U](end: Vertex, f: (Vertex, Vertex) => U) {
+    transitiveClosureRecurseBackward(end, end, f)
+  }
+
+  private def transitiveClosureRecurseBackward[U](end: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
+    println("transitiveClosureRecurseBackward(" + end + ", " + current + ", f)")
+    graphIncomingEdges.getOrElse((current), return).foreach(
+      edge => {
+        val tail = getTail(edge)
+        f(tail, end)
+        transitiveClosureRecurseBackward(end, tail, f)
+      }
+    )
+  }
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == source) {
+      return List(this)
     }
+    Nil
+  }
 
-    private def transitiveClosureRecurseForward[U](start: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
-        graphOutgoingEdges.getOrElse ((current), return).foreach (
-            edge => {
-                val head = getHead (edge)
-                f (start, head)
-                transitiveClosureRecurseForward (start, head, f)
-            }
-        )
-    }
-
-
-    private def transitiveClosureApplyBackward[U](end: Vertex, f: (Vertex, Vertex) => U) {
-        transitiveClosureRecurseBackward (end, end, f)
-    }
-
-    private def transitiveClosureRecurseBackward[U](end: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
-        println("transitiveClosureRecurseBackward(" + end + ", " + current + ", f)")
-        graphIncomingEdges.getOrElse ((current), return).foreach (
-            edge => {
-                val tail = getTail (edge)
-                f (tail, end)
-                transitiveClosureRecurseBackward (end, tail, f)
-            }
-        )
-    }
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
+  /**
+   * access in O(n)
+   */
+  def isDefinedAt(edge: (Vertex, Vertex)): Boolean = {
+    transitiveClosureApplyForward[Unit](
+      edge._1,
+      (start: Vertex, end: Vertex) => {
+        if (end == edge._2) {
+          return true
         }
-        Nil
-    }
+      }
+    )
+    false
+  }
 
-    /**
-     * access in O(n)
-     */
-    def isDefinedAt(edge: (Vertex, Vertex)): Boolean = {
-        transitiveClosureApplyForward[Unit](
-            edge._1,
-            (start: Vertex, end: Vertex) => {
-                if (end == edge._2) {
-                    return true
-                }
-            }
-        )
-        false
-    }
+  /**
+   * access in O(n&#94;2)
+   */
+  def count[T >: (Vertex, Vertex)](edge: T): Int = {
+    throw new UnsupportedOperationException
+  }
 
-    /**
-     * access in O(n&#94;2)
-     */
-    def count[T >: (Vertex, Vertex)](edge: T): Int = {
-        throw new UnsupportedOperationException
-    }
+  override def size(): Int = {
+    throw new UnsupportedOperationException
+  }
 
-	override def size() : Int = {
-		throw new UnsupportedOperationException
-	}
+  def contains[U >: (Vertex, Vertex)](element: U): Boolean = {
+    throw new UnsupportedOperationException
+  }
 
-	def contains[U >: (Vertex,Vertex)] (element: U): Boolean = {
-		throw new UnsupportedOperationException
-	}
-
-    def foreach[T](f: ((Vertex, Vertex)) => T) {
-        graphOutgoingEdges.keys.foreach (v =>
-            transitiveClosureApplyForward[Unit](
-                v,
-                (start: Vertex, end: Vertex) => {
-                    f ((start, end))
-                }
-            )
-        )
-    }
-
-    def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
-        throw new UnsupportedOperationException
-    }
-
-
-    private def addGraphEdge(edge: Edge) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
-        graphIncomingEdges (head) = edge :: graphIncomingEdges.getOrElseUpdate (head, Nil)
-        graphOutgoingEdges (tail) = edge :: graphOutgoingEdges.getOrElseUpdate (tail, Nil)
-    }
-
-    private def removeGraphEdge(edge: Edge) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
-        graphIncomingEdges (head) = graphIncomingEdges (head) filterNot (_ == edge)
-        graphOutgoingEdges (tail) = graphOutgoingEdges (tail) filterNot (_ == edge)
-    }
-
-    private def graphContains(edge: Edge): Boolean = {
-        val head = getHead (edge)
-        val tail = getTail (edge)
-        graphIncomingEdges.getOrElse (head, return false).contains (edge) &&
-            graphOutgoingEdges.getOrElse (tail, return false).contains (edge)
-    }
-
-    def lazyInitialize() {
-        source.foreach (addGraphEdge)
-    }
-
-	override def endTransaction() {
-		notify_endTransaction()
-	}
-
-    def added(edge: Edge) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
-
-        if (graphContains (edge)) {
-            return
+  def foreach[T](f: ((Vertex, Vertex)) => T) {
+    graphOutgoingEdges.keys.foreach(v =>
+      transitiveClosureApplyForward[Unit](
+        v,
+        (start: Vertex, end: Vertex) => {
+          f((start, end))
         }
+      )
+    )
+  }
 
-        var reachableFromHead: List[Vertex] = Nil
-        var reachingToTail: List[Vertex] = Nil
+  def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
+    throw new UnsupportedOperationException
+  }
 
-        transitiveClosureApplyForward (head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
-        transitiveClosureApplyBackward (tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
 
-        addGraphEdge (edge)
+  private def addGraphEdge(edge: Edge) {
+    val head = getHead(edge)
+    val tail = getTail(edge)
+    graphIncomingEdges(head) = edge :: graphIncomingEdges.getOrElseUpdate(head, Nil)
+    graphOutgoingEdges(tail) = edge :: graphOutgoingEdges.getOrElseUpdate(tail, Nil)
+  }
 
-        notify_added (tail, head)
-        reachingToTail.foreach (notify_added (_, head))
+  private def removeGraphEdge(edge: Edge) {
+    val head = getHead(edge)
+    val tail = getTail(edge)
+    graphIncomingEdges(head) = graphIncomingEdges(head) filterNot (_ == edge)
+    graphOutgoingEdges(tail) = graphOutgoingEdges(tail) filterNot (_ == edge)
+  }
 
-        reachableFromHead.foreach (
-            end => {
-                reachingToTail.foreach (
-                    start => {
-						notify_added (start, end)
-                    }
-                )
-				notify_added (tail, end)
-            }
+  private def graphContains(edge: Edge): Boolean = {
+    val head = getHead(edge)
+    val tail = getTail(edge)
+    graphIncomingEdges.getOrElse(head, return false).contains(edge) &&
+      graphOutgoingEdges.getOrElse(tail, return false).contains(edge)
+  }
+
+  def lazyInitialize() {
+    source.foreach(addGraphEdge)
+  }
+
+  override def endTransaction() {
+    notify_endTransaction()
+  }
+
+  def internal_add(edge: Edge): Seq[(Vertex, Vertex)] = {
+    var added = Seq[(Vertex,Vertex)]()
+
+    val head = getHead(edge)
+    val tail = getTail(edge)
+
+    if (graphContains(edge)) {
+      return added
+    }
+
+    var reachableFromHead: List[Vertex] = Nil
+    var reachingToTail: List[Vertex] = Nil
+
+    transitiveClosureApplyForward(head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
+    transitiveClosureApplyBackward(tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
+
+    addGraphEdge(edge)
+
+    added = (tail, head) +: added
+    reachingToTail.foreach(v => added = (v, head) +: added)
+
+    reachableFromHead.foreach(
+      end => {
+        reachingToTail.foreach(
+          start => {
+            added = (start, end) +: added
+          }
         )
-    }
+        added = (tail, end) +: added
+      }
+    )
 
-    def removed(edge: Edge) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
+    added
+  }
 
-        var reachableFromHead: List[Vertex] = Nil
-        var reachingToTail: List[Vertex] = Nil
+  def added(edge: Edge): Unit = {
+    val added = internal_add(edge)
+    notify_addedAll(added)
+  }
 
-        transitiveClosureApplyForward (head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
-        transitiveClosureApplyBackward (tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
+  def addedAll(edges: Seq[Edge]): Unit = {
+    val added = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq,edge) => seq ++ internal_add(edge))
+    notify_addedAll(added)
+  }
 
-        removeGraphEdge (edge)
+  def internal_remove(edge: Edge): Seq[(Vertex,Vertex)] = {
+    var removed = Seq[(Vertex,Vertex)]()
 
-		notify_removed (tail, head)
-        reachingToTail.foreach (notify_removed (_, head))
+    val head = getHead(edge)
+    val tail = getTail(edge)
 
-        reachableFromHead.foreach (
-            end => {
-                reachingToTail.foreach (
-                    start => {
-						notify_removed (start, end)
-                    }
-                )
-				notify_removed (tail, end)
-            }
+    var reachableFromHead: List[Vertex] = Nil
+    var reachingToTail: List[Vertex] = Nil
+
+    transitiveClosureApplyForward(head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
+    transitiveClosureApplyBackward(tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
+
+    removeGraphEdge(edge)
+
+    removed = (tail, head) +: removed
+    reachingToTail.foreach(v => removed = (v, head) +: removed)
+
+    reachableFromHead.foreach(
+      end => {
+        reachingToTail.foreach(
+          start => {
+            removed = (start, end) +: removed
+          }
         )
-    }
+        removed = (tail, end) +: removed
+      }
+    )
+    removed
+  }
 
-    def updated(oldV: Edge, newV: Edge) {
-        //a direct update is not supported
-        removed (oldV)
-        added (newV)
-    }
+  def removed(edge: Edge): Unit = {
+    val removed = internal_remove(edge)
+    notify_removedAll(removed)
+  }
+
+  def removedAll(edges: Seq[Edge]): Unit = {
+    val removed = edges.foldLeft(Seq[(Vertex,Vertex)]())((seq,edge) => seq ++ internal_remove(edge))
+    notify_addedAll(removed)
+  }
+
+  def updated(oldV: Edge, newV: Edge) {
+    //a direct update is not supported
+    removed(oldV)
+    added(newV)
+  }
 }
