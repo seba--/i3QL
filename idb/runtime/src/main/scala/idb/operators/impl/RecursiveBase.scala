@@ -82,6 +82,7 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
   // TODO more efficient version possible?
   override def addedAll(vs: Seq[Domain]) {
+    println(s"WARNING: Running slow incremental recursive add: $vs")
     vs foreach (added(_))
   }
 
@@ -105,6 +106,7 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
   // TODO more efficient version possible?
   override def removedAll(vs: Seq[Domain]) {
+    println(s"WARNING: Running slow incremental recursive remove: $vs")
     vs foreach (removed(_))
   }
 
