@@ -158,6 +158,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
 
   // TODO more efficient version possible?
   def addedAll(vs: Seq[Domain]): Unit = {
+    println(s"WARNING: Running slow incremental recursive add: $vs")
     vs foreach (added(_))
   }
 
@@ -242,6 +243,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
 
   // TODO more efficient version possible?
   def removedAll(vs: Seq[Domain]): Unit = {
+    println(s"WARNING: Running slow incremental recursive remove: $vs")
     vs foreach (removed(_))
   }
 
