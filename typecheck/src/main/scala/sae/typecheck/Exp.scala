@@ -91,8 +91,8 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   def key: ExpKey = if (_delegate != null) _delegate.key else _key
   def key_=(k: ExpKey): Unit = if (_delegate != null) _delegate.key = k else _key = k
   def count: Int = if (_delegate != null) _delegate.count else _count
-  def decCount: Unit = if (_delegate != null) _delegate.decCount else _count -= 1
-  def incCount: Unit = if (_delegate != null) _delegate.incCount else _count += 1
+  def decCount(): Unit = if (_delegate != null) _delegate.decCount() else _count -= 1
+  def incCount(): Unit = if (_delegate != null) _delegate.incCount() else _count += 1
 
   override def equals(a: Any) = a.isInstanceOf[Exp] && {
     val e = a.asInstanceOf[Exp]
@@ -115,41 +115,82 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     set += this
   }
 
-  def insert: ExpKey = {
-    sub map (_.insert)
-    flatinsert
+  private def insertCollect: (ExpKey, Seq[ExpTuple]) = {
+    var added = Seq[ExpTuple]()
+    sub map {e =>
+      val (k, seq) = e.insertCollect
+      added = added ++ seq
+      k
+    }
+    flatInsertCollect match {
+      case Some(tuple) => (tuple._1, tuple +: added)
+      case None => (key, added)
+    }
   }
 
-  def flatinsert: ExpKey =
+  private def flatInsertCollect: Option[ExpTuple] =
     if (count > 0) {
       //      throw new RuntimeException(s"Attempted double insert of exp $key->$this")
-      incCount
-      key
+      incCount()
+      None
     }
     else {
       key = nextKey()
-      incCount
+      incCount()
       log(s"insert ${(key, kind, lits, subkeys)}")
-      table += ((key, kind, lits, subkeys))
-      key
+      Some((key, kind, lits, subkeys))
     }
 
-  def remove: ExpKey = {
-    val subkeys = sub map (_.remove)
-    flatremove
+  private def flatInsert: Unit = {
+    flatInsertCollect match {
+      case None => {}
+      case Some(t) => table += t
+    }
   }
 
-  def flatremove: ExpKey = {
-    decCount
-    if (count == 0) {
-      log(s"remove ${(key, kind, lits, subkeys)}")
-      table -= ((key, kind, lits, subkeys))
-      val k = key
+  def insert: ExpKey = {
+    val (k, ts) = insertCollect
+    table ++= ts
+    k
+  }
+
+  private def removeCollect: (ExpKey, Seq[ExpTuple]) = {
+    var removed = Seq[ExpTuple]()
+    sub map {e =>
+      val (k, seq) = e.removeCollect
+      removed = removed ++ seq
       k
     }
-    else
-      key
+    flatRemoveCollect match {
+      case Some(tuple) => (tuple._1, tuple +: removed)
+      case None => (key, removed)
+    }
+
   }
+
+  def flatRemoveCollect: Option[ExpTuple] = {
+    decCount()
+    if (count == 0) {
+      log(s"remove ${(key, kind, lits, subkeys)}")
+      Some((key, kind, lits, subkeys))
+    }
+    else
+      None
+  }
+
+  private def flatRemove: Unit = {
+    flatRemoveCollect match {
+      case None => {}
+      case Some(t) => table -= t
+    }
+  }
+
+  def remove: ExpKey = {
+    val (k, ts) = removeCollect
+    table --= ts
+    k
+  }
+
 
   def replaceWith(e: Exp): ExpKey = {
     val oldSubexps = this.subexps
@@ -186,14 +227,14 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
 
           case None =>
             if (i < diff)
-              e.flatinsert
+              e.flatInsert
             else {
               val old = free(i - diff)
               updateExp(old, e, old.subkeys, e.subkeys)
             }
         }
         for (i <- newSubexps.size until free.size)
-          free(free.size - i - 1).flatremove
+          free(free.size - i - 1).flatRemove
       }
     }
 
