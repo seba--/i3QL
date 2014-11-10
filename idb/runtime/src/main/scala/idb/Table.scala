@@ -50,52 +50,69 @@ import idb.observer.NotifyObservers
  * @author Ralf Mitschke
  */
 trait Table[V]
-    extends Relation[V]
-    with NotifyObservers[V]
-{
-    def update (oldV: V, newV: V) {
-        notify_updated (oldV, newV)
-    }
+  extends Relation[V]
+  with NotifyObservers[V] {
+  def update(oldV: V, newV: V) {
+    notify_updated(oldV, newV)
+  }
 
-	def ~= (vs : (V,V)) : Table[V] = {
-		update(vs._1,vs._2)
-		this
-	}
+  def ~=(vs: (V, V)): Table[V] = {
+    update(vs._1, vs._2)
+    this
+  }
 
-    def remove (v: V) {
-        notify_removed (v)
-    }
+  def remove(v: V) {
+    notify_removed(v)
+  }
 
-	def -=(v: V) : Table[V] =  {
-		remove(v)
-		this
-	}
+  def removeAll(vs: Seq[V]) {
+    notify_removedAll(vs)
+  }
 
-    def add (v: V) {
-        notify_added (v)
-    }
+  def -=(v: V): Table[V] = {
+    remove(v)
+    this
+  }
 
-	def +=(v : V) : Table[V] = {
-		add(v)
-		this
-	}
+  def --=(vs: Seq[V]): Table[V] = {
+    removeAll(vs)
+    this
+  }
+
+  def add(v: V) {
+    notify_added(v)
+  }
+
+  def addAll(vs: Seq[V]) {
+    notify_addedAll(vs)
+  }
+
+  def +=(v: V): Table[V] = {
+    add(v)
+    this
+  }
+
+  def ++=(vs: Seq[V]): Table[V] = {
+    addAll(vs)
+    this
+  }
 
 
-    def endTransaction () {
-        notify_endTransaction ()
-    }
+  def endTransaction() {
+    notify_endTransaction()
+  }
 
-    def foreach[T] (f: (V) => T) {}
+  def foreach[T](f: (V) => T) {}
 
-    def foreachWithCount[T] (f: (V, Int) => T) {}
+  def foreachWithCount[T](f: (V, Int) => T) {}
 
-    def contains (element: V): Boolean = false
+  def contains(element: V): Boolean = false
 
-    def count (element: V): Int = 0
+  def count(element: V): Int = 0
 
-    def size: Int = 0
+  def size: Int = 0
 
-    def lazyInitialize () {}
+  def lazyInitialize() {}
 
-    def children = Nil
+  def children = Nil
 }
