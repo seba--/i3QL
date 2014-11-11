@@ -43,8 +43,8 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
   def typecheckStep(e: ExpKind, lits: Seq[Lit], sub: Seq[ConstraintSolutionData]): ConstraintSolutionData = {
     import scala.collection.immutable._
     e match {
-      case Num => (TNum, (Map(), Set()), Set(), Set())
-      case k if k == Add || k == Mul =>
+      case (Num, 0) => (TNum, (Map(), Set()), Set(), Set())
+      case (op, 2) if op == Add || op == Mul =>
         val (t1, sol1, reqs1, free1) = sub(0)
         val (_t2, _sol2, _reqs2, free2) = sub(1)
         val (mfresh, ren) = mergeFresh(free1, free2)
@@ -57,11 +57,11 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val sol12 = mergeSolution(sol1, sol2)
         val sol = extendSolution(sol12, mcons + lcons + rcons)
         (TNum, sol, mreqs, mfresh)
-      case Var =>
+      case (Var, 0) =>
         val x = lits(0).asInstanceOf[Symbol]
         val X = TVar(Symbol("X$" + x.name))
         (X, (Map(), Set()), Set(VarRequirement(x, X)), Set(X.x))
-      case App =>
+      case (App, 2) =>
         val (t1, sol1, reqs1, fresh1) = sub(0)
         val (_t2, _sol2, _reqs2, fresh2) = sub(1)
         val (mfresh, ren) = mergeFresh(fresh1, fresh2)
@@ -75,7 +75,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         val sol = extendSolution(sol12, mcons + fcons)
 
         (X.subst(sol._1), sol, mreqs, mfresh + X.x)
-      case Abs =>
+      case (Abs, 1) =>
         val x = lits(0).asInstanceOf[Symbol]
         val (t, sol, reqs, fresh) = sub(0)
 
@@ -88,7 +88,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
         Constraint.computeReqsTime += time
         val fsol = extendSolution(sol, xcons)
         (TFun(X, t).subst(fsol._1), fsol, otherReqs, fresh + X.x)
-      case If0 =>
+      case (If0, 3) =>
         val (t1, sol1, reqs1, fresh1) = sub(0)
         val (_t2, _sol2, _reqs2, fresh2) = sub(1)
         val (_t3, _sol3, _reqs3, fresh3) = sub(2)
@@ -108,14 +108,14 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 
         (t2.subst(sol._1), sol, mreqs123, mfresh123)
 
-      case Fix =>
+      case (Fix, 1) =>
         val (t, sol, reqs, fresh) = sub(0)
         val X = TVar(tick('X$Fix, fresh))
         val fixCons = EqConstraint(t, TFun(X, X))
         val fsol = extendSolution(sol, Set(fixCons))
         (X.subst(fsol._1), fsol, reqs, fresh + X.x)
 
-      case Root.Root =>
+      case (Root.Root, _) =>
         if (sub.isEmpty)
           (TVar('Uninitialized), (Map(), Set(EqConstraint(TNum, TFun(TNum, TNum)))), Set(), Set('Uninitialized))
         else {
@@ -127,41 +127,40 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 
 
   val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
-      (SELECT ((e: Rep[ExpTuple]) => id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq())))
+      (SELECT ((e: Rep[ExpTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq()))))
        FROM Exp.table // 0-ary
-       WHERE (e => subseq(e).length == 0))
+       WHERE (e => arity(e) == 0))
     UNION ALL (
-      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2))))
+      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1))))))
        FROM (Exp.table, constraints) // 1-ary
-       WHERE ((e,t1) => subseq(e).length == 1
-                    AND subseq(e)(0) == t1._1))
+       WHERE ((e,t1) => arity(e) == 1
+                    AND csparent(t1) == e._1 AND cspos(t1) == 0))
     UNION ALL
       (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => {
                  val e = et1._1
                  val t1 = et1._2
-                 id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2, t2._2)))
+                (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2)))))
                })
           FROM (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
                 FROM (Exp.table, constraints)
-                WHERE ((e, t1) => subseq(e).length == 2 AND subseq(e)(0) == t1._1),
+                WHERE ((e, t1) => arity(e) == 2 AND csparent(t1) == e._1 AND cspos(t1) == 0),
                 constraints) // 2-ary
-          WHERE ((et1,t2) => subseq(et1._1)(1) == t2._1))
+          WHERE ((et1,t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1))
           UNION ALL
             (SELECT ((et1t2: Rep[(ExpTuple,ConstraintSolutionTuple,ConstraintSolutionTuple)], t3: Rep[ConstraintSolutionTuple]) => {
                        val e = et1t2._1
                        val t1 = et1t2._2
                        val t2 = et1t2._3
-                       id(e) -> typecheckStepRep ((id(e), kind(e), lits(e), Seq(t1._2, t2._2, t3._2)))
+                       (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2), csdata(t3)))))
                      })
             FROM (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => (et1._1, et1._2, t2))
                   FROM(SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
                        FROM (Exp.table, constraints)
-                       WHERE ((e, t1) => subseq(e).length == 3 AND subseq(e)(0) == t1._1),
+                       WHERE ((e, t1) => arity(e) == 3 AND csparent(t1) == e._1 AND cspos(t1) == 0),
                        constraints)
-                  WHERE  ((et1, t2) => subseq(et1._1)(1) == t2._1),
+                  WHERE  ((et1, t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1),
                   constraints) // 3-ary
-             WHERE ((et1t2,t3) => subseq(et1t2._1)(2) == t3._1))
-
+             WHERE ((et1t2,t3) => csparent(t3) == et1t2._1._1 AND cspos(t3) == 2))
     )
   )
 
@@ -200,10 +199,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     if (!reqs.isEmpty)
       scala.Right(s"Unresolved context requirements $reqs, type $t, solution $sol, free $free")
     else if (sol._2.isEmpty)
-      t match {
-        case Root.TRoot(t) => scala.Left(t)
-        case _ => throw new RuntimeException(s"Unexpected root type $t")
-      }
+      scala.Left(t)
     else
       scala.Right(s"Unresolved constraints ${sol._2}, solution $sol, free $free")
   }

@@ -168,7 +168,7 @@ object Constraint {
   type FreshData = (Set[Symbol], // fresh variables requested in all of subtree
                     Set[Map[Symbol, Symbol]]) // renaming for subtrees skipping first one (n-ary op => Set.length == max(0, n - 1))
 
-  type ConstraintSolutionTuple = (ExpKey, ConstraintSolutionData)
+  type ConstraintSolutionTuple = (Parent, Position, ConstraintSolutionData)
   type ConstraintSolutionData = (Type, Solution, Set[Requirement], Set[Symbol])
 
   def cid(c: Rep[ConstraintTuple]) = c._1
@@ -181,6 +181,10 @@ object Constraint {
   def ctype(c: ConstraintData) = c._1
   def cons(c: ConstraintData) = c._2
   def reqs(c: ConstraintData) = c._3
+
+  def csparent(c: Rep[ConstraintSolutionTuple]) = c._1
+  def cspos(c: Rep[ConstraintSolutionTuple]) = c._2
+  def csdata(c: Rep[ConstraintSolutionTuple]) = c._3
 }
 
 abstract class Constraint {

@@ -38,33 +38,33 @@ object ConstraintTypeCheck extends TypeCheck {
   }
 
   def typecheck(e: Exp, ctx: TSubst): (Type, Set[Constraint]) = e.kind match {
-    case Num => (TNum, Set())
-    case k if k == Add || k == Mul =>
+    case (Num, 0) => (TNum, Set())
+    case (k, 2) if k == Add || k == Mul =>
       val (t1, cons1) = typecheck(e.sub(0), ctx)
       val (t2, cons2) = typecheck(e.sub(1), ctx)
       val lcons = EqConstraint(TNum, t1)
       val rcons = EqConstraint(TNum, t2)
       (TNum, cons1 ++ cons2 + lcons + rcons)
-    case Var =>
+    case (Var, 0) =>
       val x = e.lits(0).asInstanceOf[Symbol]
       ctx.get(x) match {
         case None => throw UnboundVariable(x, ctx)
         case Some(t) => (t, Set())
       }
-    case App =>
+    case (App, 2) =>
       val (t1, cons1) = typecheck(e.sub(0), ctx)
       val (t2, cons2) = typecheck(e.sub(1), ctx)
 
       val X = freshTVar()
       val fcons = EqConstraint(TFun(t2, X), t1)
       (X, cons1 ++ cons2 + fcons)
-    case Abs =>
+    case (Abs, 1) =>
       val x = e.lits(0).asInstanceOf[Symbol]
       val X = freshTVar()
 
       val (t, cons) = typecheck(e.sub(0), ctx + (x -> X))
       (TFun(X, t), cons)
-    case If0 =>
+    case (If0, 3) =>
       val (t1, cons1) = typecheck(e.sub(0), ctx)
       val (t2, cons2) = typecheck(e.sub(1), ctx)
       val (t3, cons3) = typecheck(e.sub(2), ctx)
@@ -73,7 +73,7 @@ object ConstraintTypeCheck extends TypeCheck {
       val body = EqConstraint(t2, t3)
 
       (t2, cons1 ++ cons2 ++ cons3 + cond + body)
-    case Fix =>
+    case (Fix, 1) =>
       val (t, cons) = typecheck(e.sub(0), ctx)
       val X = freshTVar()
       val fixCons = EqConstraint(t, TFun(X, X))

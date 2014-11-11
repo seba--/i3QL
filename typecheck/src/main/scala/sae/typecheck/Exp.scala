@@ -19,15 +19,18 @@ object Exp {
   }
 
   type Lit = Any
-  abstract class ExpKind
+  abstract class ExpKindTag
+  type ExpKind = (ExpKindTag, Int)
   type ExpKey = Int
   type Parent = ExpKey
   type Position = Int
   type ExpTuple = (ExpKey, ExpKind, Seq[Lit], Parent, Position)
   def id(e: Rep[ExpTuple]) = e._1
   def kind(e: Rep[ExpTuple]) = e._2
+  def arity(e: Rep[ExpTuple]) = e._2._2
   def lits(e: Rep[ExpTuple]) = e._3
-  def subseq(e: Rep[ExpTuple]) = e._4
+  def parent(e: Rep[ExpTuple]) = e._4
+  def pos(e: Rep[ExpTuple]) = e._5
 
   private var _nextKey = 0
 
@@ -80,12 +83,12 @@ object Exp {
   def prefetchKey = _nextKey
 
   import scala.language.implicitConversions
-  implicit def constructable(k: ExpKind) = new Constructable(k)
-  class Constructable(k: ExpKind) {
-    def apply(): Exp = Exp(k, scala.Seq(), scala.Seq())
-    def apply(l: Lit, sub: Exp*): Exp = Exp(k, scala.Seq(l), scala.Seq(sub:_*))
-    def apply(e: Exp, sub: Exp*): Exp = Exp(k, scala.Seq(), e +: scala.Seq(sub:_*))
-    def apply(lits: Seq[Lit], sub: Seq[Exp]): Exp = Exp(k, lits, sub)
+  implicit def constructable(k: ExpKindTag) = new Constructable(k)
+  class Constructable(k: ExpKindTag) {
+    def apply(): Exp = Exp((k,0), scala.Seq(), scala.Seq())
+    def apply(l: Lit, sub: Exp*): Exp = Exp((k, sub.size), scala.Seq(l), scala.Seq(sub:_*))
+    def apply(e: Exp, sub: Exp*): Exp = Exp((k, sub.size + 1), scala.Seq(), e +: scala.Seq(sub:_*))
+    def apply(lits: Seq[Lit], sub: Seq[Exp]): Exp = Exp((k, sub.size), lits, sub)
   }
 }
 
@@ -236,20 +239,20 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     val subssep = if (subs.isEmpty) subs else subs.flatMap(s => Seq(", ", s)).tail
     val substring = subssep.foldLeft("")(_+_)
     val keyString = "" //getkey match {case None => ""; case Some(k) => s"$k@"}
-    s"$keyString$kind($substring)"
+    s"$keyString${kind._1}($substring)"
   }
 }
 
 
-case object Num extends ExpKind
-case object String extends ExpKind
-case object Add extends ExpKind
-case object Mul extends ExpKind
-case object Var extends ExpKind
-case object Abs extends ExpKind
-case object App extends ExpKind
-case object If0 extends ExpKind
-case object Fix extends ExpKind
+case object Num extends ExpKindTag
+case object String extends ExpKindTag
+case object Add extends ExpKindTag
+case object Mul extends ExpKindTag
+case object Var extends ExpKindTag
+case object Abs extends ExpKindTag
+case object App extends ExpKindTag
+case object If0 extends ExpKindTag
+case object Fix extends ExpKindTag
 
 
 class ExtHashSet[A] extends collection.mutable.HashSet[A] {

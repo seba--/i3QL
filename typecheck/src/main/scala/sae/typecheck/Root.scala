@@ -2,7 +2,7 @@ package sae.typecheck
 
 import idb.observer.Observer
 import idb.syntax.iql.SELECT
-import Exp.ExpKind
+import sae.typecheck.Exp.{ExpKindTag, ExpKind}
 import TypeStuff._
 
 
@@ -13,29 +13,32 @@ import TypeStuff._
  * Use root to ensure fixed rootkey for all programs
  */
 class Root() {
-  var rootNode: Exp = Exp(Root.Root, Seq(), Seq())
-  val key = Exp.prefetchKey
-  def insert = rootNode.insert(-1, -1)
+  def insert { Exp((Root.Root, 1), Seq(), Seq()).insert(-1, -1) }
+  val rootKey = Exp.prefetchKey
+  var topexp: Option[Exp] = None
 
   def reset(): Unit = {
-    if (!rootNode.sub.isEmpty)
-      rootNode.sub(0).remove(rootNode.key, 0)
+    if (topexp.isDefined)
+      topexp.get.remove(rootKey, 0)
   }
 
   def set(e: Exp) = {
-    if (!rootNode.sub.isEmpty)
-      rootNode.sub(0).remove(rootNode.key, 0)
+    if (topexp.isDefined)
+      topexp.get.remove(rootKey, 0)
 
-    val ts = e.insertCollect(rootNode.key, 0)
+    val ts = e.insertCollect(rootKey, 0)
+    topexp = Some(e)
+
     () => Exp.fireAdd(ts)
   }
 
   def update(e: Exp): Unit = {
-    if (rootNode.sub.isEmpty)
+    if (topexp.isEmpty)
       set(e)
     else {
-      val old = rootNode.sub(0)
+      val old = topexp.get
       old.replaceWith(e)
+      topexp = Some(e)
     }
   }
 
@@ -52,7 +55,7 @@ class Root() {
 object Root {
   import idb.syntax.iql.IR._
 
-  case object Root extends ExpKind
+  case object Root extends ExpKindTag
   case class TRoot(t: Type) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TRoot(t.rename(ren))
     def subst(s: TSubst) = TRoot(t.subst(s))
@@ -64,10 +67,10 @@ object Root {
     def vars = t.vars
   }
 
-  def apply[U: Manifest](types: Relation[(Exp.ExpKey, U)], f: Rep[U => Either[Type, TError]]): Root = {
+  def apply[U : Manifest](types: Relation[(Exp.Parent, Exp.Position, U)], f: Rep[U => Either[Type, TError]]): Root = {
     val root = new Root()
-    val rootKey: Rep[Int] = root.key
-    val rootQuery = SELECT ((t: Rep[(Exp.ExpKey, U)]) => f(t._2)) FROM types WHERE (t => t._1 == rootKey)
+    val rootKey: Rep[Int] = root.rootKey
+    val rootQuery = SELECT ((t: Rep[(Exp.Parent, Exp.Position, U)]) => f(t._3)) FROM types WHERE (t => t._1 == rootKey)
     rootQuery.addObserver(new Observer[Either[Type, TError]] {
       override def updated(oldV: Either[Type, TError], newV: Either[Type, TError]): Unit = {root.unstore(oldV); root.store(newV)}
       override def removed(v: Either[Type, TError]): Unit = {root.unstore(v)}
