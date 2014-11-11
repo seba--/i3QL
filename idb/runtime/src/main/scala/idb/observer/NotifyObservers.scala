@@ -100,13 +100,13 @@ trait NotifyObservers[V] {
 
 
   def printed[T](size: Int)(f: => T): T = {
-    f
-//    println(s"${spaces}size $size -> \t${this.getClass}")
-//    indent = indent + 1
-//    val t = f
-//    indent = indent - 1
-//    println(s"${spaces}size $size <- \t${this.getClass}")
-//    t
+//    f
+    println(s"${spaces}size $size -> \t${this}")
+    indent = indent + 1
+    val t = f
+    indent = indent - 1
+    println(s"${spaces}size $size <- \t${this}")
+    t
   }
 
 }
