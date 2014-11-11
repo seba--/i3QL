@@ -32,9 +32,11 @@
  */
 package idb.algebra.opt
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.FunctionUtils
-import scala.virtualization.lms.common.{EqualExp, TupledFunctionsExp}
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import scala.virtualization.lms.common._
 import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
 /**
@@ -50,14 +52,29 @@ trait RelationalAlgebraIROptCreateJoin
     with FunctionUtils
     with FunctionsExpDynamicLambdaAlphaEquivalence
 {
+
+	def printPrivRel(q : Rep[Query[_]]) = q match {
+		case Def(d) => println(d)
+		case _ => println(q)
+	}
+
+
+
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] = {
+		print("selection : ")
+		printPrivRel(relation)
+
+
+
         (relation match {
             // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
-            case Def (CrossProduct (a, b)) if isDisjunctiveParameterEquality (function) =>
-                equiJoin (a, b, List (createEqualityFunctions (function)))(domainOf(a), domainOf(b))
+            case Def (CrossProduct (a, b)) if isDisjunctiveParameterEquality (function) => {
+				println("CP found")
+				equiJoin(a, b, List(createEqualityFunctions(function)))(domainOf(a), domainOf(b))
+			}
 
             // add further equality tests to the join
             case Def (EquiJoin (a, b, xs)) if isDisjunctiveParameterEquality (function) =>

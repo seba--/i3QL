@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp, TupleOpsExp}
+import scala.virtualization.lms.common.{BooleanOpsExp, TupledFunctionsExp, TupleOpsExp, SeqOpsExp}
 import scala.reflect.SourceContext
 
 
@@ -43,6 +43,7 @@ import scala.reflect.SourceContext
 trait FunctionUtils
     extends TupledFunctionsExp
     with BooleanOpsExp
+	with SeqOpsExp
     with ExpressionUtils
 {
 
@@ -63,7 +64,7 @@ trait FunctionUtils
 	//override def findDefinition[T](d: Def[T]): Option[Stm] = None
 
     def parametersAsList[A] (params: Exp[A]): List[Exp[Any]] = {
-        params match {
+		params match {
             case UnboxedTuple (xs) => xs
             case Def (ETuple2 (a, b)) => List (a, b)
             case Def (ETuple3 (a, b, c)) => List (a, b, c)
@@ -150,18 +151,42 @@ trait FunctionUtils
         }
     }
 
+	def printPriv(f : Rep[_]) : String = f match {
+		case Def(Equal(a,b)) => "Equal[" + f + "](" + printPriv(a) + ", " + printPriv(b) + ")"
+		case Def(SeqApply(a,b)) => "SeqApply[" + f + "](" + printPriv(a) + ", " + printPriv(b) + ")"
+		case Def(Tuple2Access1(a)) => "_1[" + f + "](" + printPriv(a)+ ")"
+		case Def(Tuple2Access2(a)) => "_2[" + f + "](" + printPriv(a)+ ")"
+		case Def(Tuple4Access4(a)) => "_4[" + f + "](" + printPriv(a)+ ")"
+		case Def(e) => "def[" + f + "](" + e + ")"
+		case _ => f.toString
+	}
+
+
     def isDisjunctiveParameterEquality[A] (function: Exp[A => Boolean]): Boolean = {
-        val params = parameters (function)
+		println("=== Parameter Equality ===")
+        var params = parameters (function)
+		println("params = " + params)
         if (params.size != 2) {
+			println("params.size != 2 ==> false")
             return false
         }
-        body (function) match {
+
+        val b = body (function)
+		println("body = " + printPriv(b))
+		b match {
             case Def (Equal (lhs, rhs)) => {
                 val usedByLeft = findSyms (lhs)(params.toSet)
+				println("usedByLeft = " + usedByLeft)
                 val usedByRight = findSyms (rhs)(params.toSet)
-                usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+				println("usedByRight = " + usedByRight)
+				val bool = usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+				println("body is Equal(l,r) ==> " + bool)
+				bool
             }
-            case _ => false
+            case _ => {
+				println("body no Equal(l,r) ==> false")
+				false
+			}
         }
     }
 
