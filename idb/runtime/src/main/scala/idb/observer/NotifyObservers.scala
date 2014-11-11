@@ -55,24 +55,30 @@ trait NotifyObservers[V] {
   protected def observers: Iterable[Observer[Any]]
 
   protected def notify_added(v: V) {
-    printed(1) {
-      observers.foreach(_.added(v))
-    }
+    observers.foreach(obs =>
+      printed(1, obs) {
+        obs.added(v)
+      }
+    )
   }
 
   protected def notify_addedAll(vs: Seq[V]) {
     if (vs.isEmpty) {
     }
     else if (vs.size == 1) {
-      printed(1) {
-        val v = vs.head
-        observers.foreach(_.added(v))
-      }
+      val v = vs.head
+      observers.foreach(obs =>
+        printed(1, obs) {
+          obs.added(v)
+        }
+      )
     }
     else {
-      printed(vs.size) {
-        observers.foreach(_.addedAll(vs))
-      }
+      observers.foreach(obs =>
+        printed(vs.size, obs) {
+          obs.addedAll(vs)
+        }
+      )
     }
   }
 
@@ -100,15 +106,15 @@ trait NotifyObservers[V] {
   }
 
 
-  def printed[T](size: Int)(f: => T): T = {
+  def printed[T](size: Int, obs: Any)(f: => T): T = {
     if (!DEBUG)
       f
     else {
-      println(s"${spaces}size $size -> \t${this}")
+      println(s"${spaces}size $size \t${this} -> \t${obs}")
       indent = indent + 1
       val t = f
       indent = indent - 1
-      println(s"${spaces}size $size <- \t${this}")
+      println(s"${spaces}size $size \t${this} <- \t${obs}")
       t
     }
   }
