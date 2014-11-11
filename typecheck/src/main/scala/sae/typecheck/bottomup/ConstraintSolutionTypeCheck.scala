@@ -125,6 +125,11 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     }
   }
 
+  def atPos(constraints: Relation[ConstraintSolutionTuple], i1: Int, i2: Int): Relation[(Exp.Parent, Seq[ConstraintSolutionData])] = (
+    SELECT ((t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => csparent(t1) -> Seq(csdata(t1), csdata(t2)))
+    FROM (constraints, constraints)
+    WHERE ((t1, t2) => csparent(t1) == csparent(t2) AND cspos(t1) == i1 AND cspos(t2) == i2)
+  )
 
   val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
       (SELECT ((e: Rep[ExpTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq()))))
@@ -133,36 +138,56 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     UNION ALL (
       (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1))))))
        FROM (Exp.table, constraints) // 1-ary
-       WHERE ((e,t1) => arity(e) == 1
-                    AND csparent(t1) == e._1 AND cspos(t1) == 0))
+       WHERE ((e,t1) => arity(e) == 1 AND csparent(t1) == id(e) AND cspos(t1) == 0))
     UNION ALL
-      (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => {
-                 val e = et1._1
-                 val t1 = et1._2
-                (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2)))))
-               })
-          FROM (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
-                FROM (Exp.table, constraints)
-                WHERE ((e, t1) => arity(e) == 2 AND csparent(t1) == e._1 AND cspos(t1) == 0),
-                constraints) // 2-ary
-          WHERE ((et1,t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1))
-          UNION ALL
-            (SELECT ((et1t2: Rep[(ExpTuple,ConstraintSolutionTuple,ConstraintSolutionTuple)], t3: Rep[ConstraintSolutionTuple]) => {
-                       val e = et1t2._1
-                       val t1 = et1t2._2
-                       val t2 = et1t2._3
-                       (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2), csdata(t3)))))
-                     })
-            FROM (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => (et1._1, et1._2, t2))
-                  FROM(SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
-                       FROM (Exp.table, constraints)
-                       WHERE ((e, t1) => arity(e) == 3 AND csparent(t1) == e._1 AND cspos(t1) == 0),
-                       constraints)
-                  WHERE  ((et1, t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1),
-                  constraints) // 3-ary
-             WHERE ((et1t2,t3) => csparent(t3) == et1t2._1._1 AND cspos(t3) == 2))
+        (SELECT ((e: Rep[ExpTuple], ts: Rep[(Exp.Parent, Seq[ConstraintSolutionData])]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), ts._2))))
+          FROM (Exp.table, (
+          SELECT ((t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => csparent(t1) -> Seq(csdata(t1), csdata(t2)))
+            FROM (constraints, constraints)
+            WHERE ((t1, t2) => csparent(t1) == csparent(t2) AND cspos(t1) == 0 AND cspos(t2) == 1)
+          )) // 2-ary
+          WHERE ((e,ts) => arity(e) == 2 AND ts._1 == id(e)))
     )
+
   )
+
+//  val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
+//      (SELECT ((e: Rep[ExpTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq()))))
+//       FROM Exp.table // 0-ary
+//       WHERE (e => arity(e) == 0))
+//    UNION ALL (
+//      (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1))))))
+//       FROM (Exp.table, constraints) // 1-ary
+//       WHERE ((e,t1) => arity(e) == 1
+//                    AND csparent(t1) == e._1 AND cspos(t1) == 0))
+//    UNION ALL
+//      (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => {
+//                 val e = et1._1
+//                 val t1 = et1._2
+//                (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2)))))
+//               })
+//          FROM (SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
+//                FROM (Exp.table, constraints)
+//                WHERE ((e, t1) => arity(e) == 2 AND csparent(t1) == e._1 AND cspos(t1) == 0),
+//                constraints) // 2-ary
+//          WHERE ((et1,t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1))
+//          UNION ALL
+//            (SELECT ((et1t2: Rep[(ExpTuple,ConstraintSolutionTuple,ConstraintSolutionTuple)], t3: Rep[ConstraintSolutionTuple]) => {
+//                       val e = et1t2._1
+//                       val t1 = et1t2._2
+//                       val t2 = et1t2._3
+//                       (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), Seq(csdata(t1), csdata(t2), csdata(t3)))))
+//                     })
+//            FROM (SELECT ((et1: Rep[(ExpTuple, ConstraintSolutionTuple)], t2: Rep[ConstraintSolutionTuple]) => (et1._1, et1._2, t2))
+//                  FROM(SELECT ((e: Rep[ExpTuple], t1: Rep[ConstraintSolutionTuple]) => (e, t1))
+//                       FROM (Exp.table, constraints)
+//                       WHERE ((e, t1) => arity(e) == 3 AND csparent(t1) == e._1 AND cspos(t1) == 0),
+//                       constraints)
+//                  WHERE  ((et1, t2) => csparent(t2) == et1._1._1 AND cspos(t2) == 1),
+//                  constraints) // 3-ary
+//             WHERE ((et1t2,t3) => csparent(t3) == et1t2._1._1 AND cspos(t3) == 2))
+//    )
+//  )
 
 
 //  val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
