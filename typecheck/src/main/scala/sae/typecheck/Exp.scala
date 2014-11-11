@@ -21,7 +21,9 @@ object Exp {
   type Lit = Any
   abstract class ExpKind
   type ExpKey = Int
-  type ExpTuple = (ExpKey, ExpKind, Seq[Lit], Seq[ExpKey])
+  type Parent = ExpKey
+  type Position = Int
+  type ExpTuple = (ExpKey, ExpKind, Seq[Lit], Parent, Position)
   def id(e: Rep[ExpTuple]) = e._1
   def kind(e: Rep[ExpTuple]) = e._2
   def lits(e: Rep[ExpTuple]) = e._3
@@ -92,6 +94,8 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   var _key = -1
   var _count = 0
   var _delegate: Exp = null
+  var parent = -1
+  var pos = -1
 
   def key: ExpKey = if (_delegate != null) _delegate.key else _key
   def key_=(k: ExpKey): Unit = if (_delegate != null) _delegate.key = k else _key = k
@@ -120,20 +124,23 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     set += this
   }
 
-  def insertCollect: (ExpKey, Seq[ExpTuple]) = {
+  def insertCollect(parent: ExpKey, pos: Position): Seq[ExpTuple] = {
     var added = Seq[ExpTuple]()
-    sub map {e =>
-      val (k, seq) = e.insertCollect
-      added = added ++ seq
-      k
+
+    val k = flatInsertCollect(parent, pos) match {
+      case None => key
+      case Some(tuple) =>
+        added = tuple +: added
+        tuple._1
     }
-    flatInsertCollect match {
-      case Some(tuple) => (tuple._1, tuple +: added)
-      case None => (key, added)
-    }
+
+    for (i <- 0 until sub.size)
+      added = added ++ sub(i).insertCollect(k, i)
+
+    added
   }
 
-  private def flatInsertCollect: Option[ExpTuple] =
+  private def flatInsertCollect(parent: ExpKey, pos: Position): Option[ExpTuple] =
     if (count > 0) {
       //      throw new RuntimeException(s"Attempted double insert of exp $key->$this")
       incCount()
@@ -142,60 +149,60 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     else {
       key = nextKey()
       incCount()
-      log(s"insert ${(key, kind, lits, subkeys)}")
-      Some((key, kind, lits, subkeys))
+      log(s"insert ${(key, kind, lits, parent, pos)}")
+      Some((key, kind, lits, parent, pos))
     }
 
-  private def flatInsert: Unit = {
-    flatInsertCollect match {
+  private def flatInsert(parent: ExpKey, pos: Position): Unit = {
+    flatInsertCollect(parent, pos) match {
       case None => {}
       case Some(t) => table += t
     }
   }
 
-  def insert: ExpKey = {
-    val (k, ts) = insertCollect
+  def insert(parent: ExpKey, pos: Position): Unit = {
+    val ts = insertCollect(parent, pos)
     println(s"batch insertion, size ${ts.size}")
     table ++= ts
-    k
   }
 
-  private def removeCollect: (ExpKey, Seq[ExpTuple]) = {
+  private def removeCollect(parent: ExpKey, pos: Position): Seq[ExpTuple] = {
     var removed = Seq[ExpTuple]()
-    sub map {e =>
-      val (k, seq) = e.removeCollect
-      removed = removed ++ seq
-      k
-    }
-    flatRemoveCollect match {
-      case Some(tuple) => (tuple._1, tuple +: removed)
-      case None => (key, removed)
+
+    val k = flatRemoveCollect(parent, pos) match {
+      case None => key
+      case Some(tuple) =>
+        removed = tuple +: removed
+        tuple._1
     }
 
+    for (i <- 0 until sub.size)
+      removed = removed ++ sub(i).removeCollect(k, i)
+
+    removed
   }
 
-  def flatRemoveCollect: Option[ExpTuple] = {
+  def flatRemoveCollect(parent: ExpKey, pos: Position): Option[ExpTuple] = {
     decCount()
     if (count == 0) {
-      log(s"remove ${(key, kind, lits, subkeys)}")
-      Some((key, kind, lits, subkeys))
+      log(s"remove ${(key, kind, lits, parent, pos)}")
+      Some((key, kind, lits, parent, pos))
     }
     else
       None
   }
 
-  private def flatRemove: Unit = {
-    flatRemoveCollect match {
+  private def flatRemove(parent: ExpKey, pos: Position): Unit = {
+    flatRemoveCollect(parent, pos) match {
       case None => {}
       case Some(t) => table -= t
     }
   }
 
-  def remove: ExpKey = {
-    val (k, ts) = removeCollect
+  def remove(parent: ExpKey, pos: Position): Unit = {
+    val ts = removeCollect(parent, pos)
     println(s"batch removal, size ${ts.size}")
     table --= ts
-    k
   }
 
 
