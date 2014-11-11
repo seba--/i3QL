@@ -1,5 +1,6 @@
 package sae.typecheck
 
+import idb.observer.NotifyObservers
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 import Generator._
 
@@ -7,6 +8,8 @@ import Generator._
  * Created by seba on 05/11/14.
  */
 class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAfterEach {
+//  NotifyObservers.DEBUG = true
+
   def makeShared(h: Int) = makeBinAddTree(h, () => Num(1))
   val shared5 = makeShared(5)
   val shared10 = makeShared(10)
@@ -28,11 +31,14 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
       Util.log(f"Time to merge solutions was    ${Constraint.mergeSolutionTime}%.3fms")
     if (Constraint.extendSolutionTime != 0)
       Util.log(f"Time to extend solutions was   ${Constraint.extendSolutionTime}%.3fms")
+    if (Constraint.computeReqsTime != 0)
+      Util.log(f"Time to compute req cons was   ${Constraint.computeReqsTime}%.3fms")
     Constraint.mergeFreshTime = 0
     Constraint.renameSolutionTime = 0
     Constraint.mergeReqsTime = 0
     Constraint.mergeSolutionTime = 0
     Constraint.extendSolutionTime = 0
+    Constraint.computeReqsTime = 0
   }
 
   def testTypeCheck(desc: String, e: Exp, t: Type): Unit = {
@@ -65,6 +71,7 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
     def next() = {val r = i; i += 1; r}
     makeBinAddTree(h, () => Num(next()))
   }
+
   val unshared5 = makeUnshared(5)
   val unshared10 = makeUnshared(10)
   val unshared15 = makeUnshared(15)
@@ -123,14 +130,14 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
   val varAppUnshared15 = makeVarAppUnshared(15)
   val varAppUnshared20 = makeVarAppUnshared(20)
 
-//  testTypeCheck("var-app-unshared tree with height 5", varAppUnshared5) {
-//    case Left(TFun(_, _) ) => true
-//    case _ => false
-//  }
-//  testTypeCheck("var-app-unshared tree with height 10", varAppUnshared10) {
-//    case Left(TFun(_, _) ) => true
-//    case _ => false
-//  }
+  testTypeCheck("var-app-unshared tree with height 5", varAppUnshared5) {
+    case Left(TFun(_, _) ) => true
+    case _ => false
+  }
+  testTypeCheck("var-app-unshared tree with height 10", varAppUnshared10) {
+    case Left(TFun(_, _) ) => true
+    case _ => false
+  }
 //  testTypeCheck("var-app-unshared tree with height 15", varAppUnshared15) {
 //    case Left(TFun(_, _) ) => true
 //    case _ => false

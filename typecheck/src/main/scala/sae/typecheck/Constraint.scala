@@ -104,6 +104,8 @@ object Constraint {
     }
   }
 
+  var computeReqsTime = 0.0
+
   var extendSolutionTime = 0.0
   def extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
     val (res, time) = Util.timed(_extendSolution(sol, cs))
