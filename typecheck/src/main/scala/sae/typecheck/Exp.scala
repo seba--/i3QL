@@ -33,39 +33,39 @@ object Exp {
 
   val table = BagTable.empty[ExpTuple]
 
-  def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
-    val oldkey = old.key
-    val oldcount = old.count
-    val newcount = e.count
-
-
-    if (oldcount == 1 && newcount == 0) {
-      val newkey = oldkey
-      val same = old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys
-      if (!same) {
-        log(s"update ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${newcount}")
-        table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
-      }
-      e.key = newkey
-    }
-    else if (oldcount == 1 && newcount >= 1) {
-      log(s"remove ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount}")
-      table -= (oldkey, old.kind, old.lits, oldsubkeys)
-    }
-    else if (oldcount > 1 && newcount == 0) {
-      val newkey = nextKey()
-      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
-      table += (newkey, e.kind, e.lits, newsubkeys)
-      e.key = newkey
-    }
-    else if (oldcount > 1 && newcount >= 1) {
-      // do nothing
-    }
-    old.decCount
-    e.incCount
-    //    println(s"updated ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${old.count} -> (${e.key}, ${e.kind}, ${e.lits}, $newsubkeys)*${e.count}")
-    e.key
-  }
+//  def updateExp(old: Exp, e: Exp, oldsubkeys: Seq[ExpKey], newsubkeys: Seq[ExpKey]): ExpKey = {
+//    val oldkey = old.key
+//    val oldcount = old.count
+//    val newcount = e.count
+//
+//
+//    if (oldcount == 1 && newcount == 0) {
+//      val newkey = oldkey
+//      val same = old.kind == e.kind && old.lits == e.lits && oldsubkeys == newsubkeys
+//      if (!same) {
+//        log(s"update ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount} -> ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)*${newcount}")
+//        table ~= (oldkey, old.kind, old.lits, oldsubkeys) ->(newkey, e.kind, e.lits, newsubkeys)
+//      }
+//      e.key = newkey
+//    }
+//    else if (oldcount == 1 && newcount >= 1) {
+//      log(s"remove ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${oldcount}")
+//      table -= (oldkey, old.kind, old.lits, oldsubkeys)
+//    }
+//    else if (oldcount > 1 && newcount == 0) {
+//      val newkey = nextKey()
+//      log(s"insert ($newkey, ${e.kind}, ${e.lits}, $newsubkeys)")
+//      table += (newkey, e.kind, e.lits, newsubkeys)
+//      e.key = newkey
+//    }
+//    else if (oldcount > 1 && newcount >= 1) {
+//      // do nothing
+//    }
+//    old.decCount
+//    e.incCount
+//    //    println(s"updated ($oldkey, ${old.kind}, ${old.lits}, $oldsubkeys)*${old.count} -> (${e.key}, ${e.kind}, ${e.lits}, $newsubkeys)*${e.count}")
+//    e.key
+//  }
 
   def fireAdd(ts: Seq[ExpTuple]): Unit = {
     println(s"fire batch insertion, size ${ts.size}")
@@ -116,7 +116,6 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   def subexps = {
     val set = collection.mutable.ArrayBuffer[Exp]()
     addSubexps(set)
-//    println(s"Subexps $this -> $set")
     set
   }
   def addSubexps(set: collection.mutable.ArrayBuffer[Exp]): Unit = {
@@ -124,23 +123,38 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
     set += this
   }
 
-  def insertCollect(parent: ExpKey, pos: Position): Seq[ExpTuple] = {
+
+  def insert(parent: ExpKey, pos: Int): Unit = {
+    val ts = insertCollect(parent, pos)
+    println(s"batch insertion, size ${ts.size}")
+    table ++= ts
+  }
+  def insertCollect(parent: ExpKey, pos: Int) = {
+    this.parent = parent
+    this.pos = pos
+    _insertCollect
+  }
+  private def _insertCollect: Seq[ExpTuple] = {
     var added = Seq[ExpTuple]()
 
-    val k = flatInsertCollect(parent, pos) match {
+    val k = flatInsertCollect match {
       case None => key
       case Some(tuple) =>
         added = tuple +: added
         tuple._1
     }
 
-    for (i <- 0 until sub.size)
-      added = added ++ sub(i).insertCollect(k, i)
+    for (i <- 0 until sub.size) {
+      val s = sub(i)
+      s.parent = k
+      s.pos = i
+      added = added ++ s._insertCollect
+    }
 
     added
   }
 
-  private def flatInsertCollect(parent: ExpKey, pos: Position): Option[ExpTuple] =
+  private def flatInsertCollect: Option[ExpTuple] =
     if (count > 0) {
       //      throw new RuntimeException(s"Attempted double insert of exp $key->$this")
       incCount()
@@ -153,36 +167,44 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       Some((key, kind, lits, parent, pos))
     }
 
-  private def flatInsert(parent: ExpKey, pos: Position): Unit = {
-    flatInsertCollect(parent, pos) match {
+  private def flatInsert: Unit = {
+    flatInsertCollect match {
       case None => {}
       case Some(t) => table += t
     }
   }
 
-  def insert(parent: ExpKey, pos: Position): Unit = {
-    val ts = insertCollect(parent, pos)
-    println(s"batch insertion, size ${ts.size}")
-    table ++= ts
+  def remove(parent: ExpKey, pos: Int): Unit = {
+    val ts = _removeCollect
+    println(s"batch removal, size ${ts.size}")
+    table --= ts
   }
-
-  private def removeCollect(parent: ExpKey, pos: Position): Seq[ExpTuple] = {
+  def removeCollect(parent: ExpKey, pos: Int) = {
+    this.parent = parent
+    this.pos = pos
+    _removeCollect
+  }
+  private def _removeCollect: Seq[ExpTuple] = {
     var removed = Seq[ExpTuple]()
 
-    val k = flatRemoveCollect(parent, pos) match {
+    val k = flatRemoveCollect match {
       case None => key
       case Some(tuple) =>
         removed = tuple +: removed
         tuple._1
     }
 
-    for (i <- 0 until sub.size)
-      removed = removed ++ sub(i).removeCollect(k, i)
+    for (i <- 0 until sub.size) {
+      val s = sub(i)
+      s.parent = k
+      s.pos = i
+      removed = removed ++ s._removeCollect
+    }
 
     removed
   }
 
-  def flatRemoveCollect(parent: ExpKey, pos: Position): Option[ExpTuple] = {
+  def flatRemoveCollect: Option[ExpTuple] = {
     decCount()
     if (count == 0) {
       log(s"remove ${(key, kind, lits, parent, pos)}")
@@ -192,67 +214,21 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
       None
   }
 
-  private def flatRemove(parent: ExpKey, pos: Position): Unit = {
-    flatRemoveCollect(parent, pos) match {
+  private def flatRemove: Unit = {
+    flatRemoveCollect match {
       case None => {}
       case Some(t) => table -= t
     }
   }
 
-  def remove(parent: ExpKey, pos: Position): Unit = {
-    val ts = removeCollect(parent, pos)
-    println(s"batch removal, size ${ts.size}")
-    table --= ts
-  }
 
+  def replaceWith(e: Exp): Unit = {
+    val removed = this._removeCollect
+    val added = e.insertCollect(this.parent, this.pos)
 
-  def replaceWith(e: Exp): ExpKey = {
-    val oldSubexps = this.subexps
-    val newSubexps = Util.logTime("collect new subexps")(e.subexps)
-
-    val free = collection.mutable.ArrayBuffer[Exp]()
-    val common = new ExtHashSet[Exp]()
-
-    Util.logTime("build common and free") {
-      for (i <- 0 until oldSubexps.size) {
-        val old = oldSubexps(i)
-        if (newSubexps.contains(old))
-          common += old
-        else
-          free += old
-      }
-    }
-
-    val diff = newSubexps.size - free.size
-
-    Util.logTime("insert new subexps") {
-      for (i <- 0 until newSubexps.size) {
-        val e = newSubexps(i)
-        common.findEntry(e) match {
-          case Some(old) =>
-            if (e.count == 0) {
-              log(s"reuse   (${old.key}, ${old.kind}, ${old.lits}, ${old.subkeys}) for (${e.key}, ${e.kind}, ${e.lits}, ${e.subkeys})")
-              e._delegate = old
-              e.key = old.key
-              old.incCount
-            }
-            else
-              assert(e._delegate != null || e.key == old.key)
-
-          case None =>
-            if (i < diff)
-              e.flatInsert
-            else {
-              val old = free(i - diff)
-              updateExp(old, e, old.subkeys, e.subkeys)
-            }
-        }
-        for (i <- newSubexps.size until free.size)
-          free(free.size - i - 1).flatRemove
-      }
-    }
-
-    e.key
+    // TODO more incremental update
+    table --= removed
+    table ++= added
   }
 
   override def toString = {

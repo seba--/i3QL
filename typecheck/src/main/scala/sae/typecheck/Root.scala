@@ -15,35 +15,28 @@ import TypeStuff._
 class Root() {
   var rootNode: Exp = Exp(Root.Root, Seq(), Seq())
   val key = Exp.prefetchKey
-  def insert = rootNode.insert
+  def insert = rootNode.insert(-1, -1)
 
   def reset(): Unit = {
-    val oldSubkeys = rootNode.subkeys
     if (!rootNode.sub.isEmpty)
-      rootNode.sub(0).remove
-
-    val newRootNode = Exp(Root.Root, Seq(), Seq())
-    Exp.updateExp(rootNode, newRootNode, oldSubkeys, Seq())
-    rootNode = newRootNode
+      rootNode.sub(0).remove(rootNode.key, 0)
   }
 
   def set(e: Exp) = {
-    val oldSubkeys = rootNode.subkeys
     if (!rootNode.sub.isEmpty)
-      rootNode.sub(0).remove
-    val (_,ts) = e.insertCollect
+      rootNode.sub(0).remove(rootNode.key, 0)
 
-    val newRootNode = Exp(Root.Root, Seq(), Seq(e))
-    Exp.updateExp(rootNode, newRootNode, oldSubkeys, Seq(e.key))
-
-    rootNode = newRootNode
+    val ts = e.insertCollect(rootNode.key, 0)
     () => Exp.fireAdd(ts)
   }
 
   def update(e: Exp): Unit = {
-    val newRootNode = Exp(Root.Root, Seq(), Seq(e))
-    rootNode.replaceWith(newRootNode)
-    rootNode = newRootNode
+    if (rootNode.sub.isEmpty)
+      set(e)
+    else {
+      val old = rootNode.sub(0)
+      old.replaceWith(e)
+    }
   }
 
   var Types: Seq[Either[Type, TError]] = scala.Seq()
