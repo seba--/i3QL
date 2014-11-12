@@ -226,7 +226,6 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
 //    )
 //  )
 
-  val solver = Solve[Constraint](x => x)()
   var lastConstraints = scala.Seq[Constraint]()
   val rootTypeExtractor: ConstraintSolutionData => Either[Type, TError] = (x: ConstraintSolutionData) => {
     val (t, sol, reqs, free) = x

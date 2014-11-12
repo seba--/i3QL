@@ -72,9 +72,19 @@ object Constraint {
   var mergeSolutionTime = 0.0
 
   def mergeSolution(sol1: Solution, sol2: Solution): Solution = {
-    val (res, time) = Util.timed(_mergeSolution(sol1, sol2))
+    val (res, time) = Util.timed(mergeSolutionConflictfree(sol1, sol2))
     mergeSolutionTime += time
     res
+  }
+
+  def mergeSolutionConflictfree(sol1: Solution, sol2: Solution): Solution = {
+    val s1 = sol1._1
+    val s2 = sol2._1
+    var unres: Unsolvable = sol1._2 ++ sol2._2
+
+    val res = s1.mapValues(_.subst(s2)) ++ s2
+    assert(res.size == s1.size + s2.size)
+    (res, unres)
   }
 
   def _mergeSolution(sol1: Solution, sol2: Solution): Solution = {
@@ -82,26 +92,19 @@ object Constraint {
     val s2 = sol2._1
     var unres: Unsolvable = sol1._2 ++ sol2._2
 
-    if (s1.keySet.intersect(s2.keySet).isEmpty)
-      (s1 ++ s2, unres)
-    else {
-//      println(s"Merge solution with keys ${s1.keys} and ${s2.keys}")
+    var s = s1 mapValues (_.subst(s2))
 
-      var s = s1 mapValues (_.subst(s2))
-
-      for ((x, _t2) <- s2) {
-        val t2 = _t2.subst(s1)
-        s.get(x) match {
-          case None => s += x -> t2
-          case Some(t1) => t1.unify(t2) match {
-            case None => unres += EqConstraint(t1, t2)
-            case Some(u) => s = s.mapValues(_.subst(u)) ++ u
-          }
+    for ((x, t2) <- s2) {
+      s.get(x) match {
+        case None => s += x -> t2.subst(s)
+        case Some(t1) => t1.unify(t2, s) match {
+          case None => unres += EqConstraint(t1, t2)
+          case Some(u) => s = s.mapValues(_.subst(u)) ++ u
         }
       }
-
-      (s, unres)
     }
+
+    (s, unres)
   }
 
   var computeReqsTime = 0.0
@@ -122,11 +125,11 @@ object Constraint {
   def solve(cs: Iterable[Constraint]) = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
-    c.solve match {
-      case None => mergeSolution(sol, (Map(), Set(c)))
+    c.solve(sol._1) match {
+      case None => _mergeSolution(sol, (Map(), Set(c)))
       case Some(u) =>
 //        println(s"Extend solution with $c: $u + $sol")
-        val res = mergeSolution(sol, (u, Set()))
+        val res = _mergeSolution(sol, (u, Set()))
 //        println(s"  => $res")
         res
     }
@@ -192,7 +195,7 @@ object Constraint {
 }
 
 abstract class Constraint {
-  def solve: Option[Map[Symbol, Type]]
+  def solve(s: TSubst): Option[Map[Symbol, Type]]
   def rename(ren: Map[Symbol, Symbol]): Constraint
   def vars: Set[Symbol]
 }
@@ -205,7 +208,7 @@ abstract class Requirement {
 
 case class EqConstraint(expected: Type, actual: Type) extends Constraint {
   def rename(ren: Map[Symbol, Symbol]) = EqConstraint(expected.rename(ren), actual.rename(ren))
-  def solve = expected.unify(actual)
+  def solve(s: TSubst) = expected.unify(actual, s)
   def vars = expected.vars ++ actual.vars
 }
 

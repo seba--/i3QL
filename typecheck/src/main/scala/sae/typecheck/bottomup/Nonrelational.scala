@@ -63,9 +63,10 @@ object Nonrelational extends TypeCheck {
 
       val lcons = EqConstraint(TNum, t1)
       val rcons = EqConstraint(TNum, t2)
-      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
 
       val sol12 = mergeSolution(sol1, sol2)
+      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
+
       val sol = extendSolution(sol12, mcons + lcons + rcons)
       (TNum, sol, mreqs)
     case (Var, 0) =>

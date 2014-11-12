@@ -63,8 +63,8 @@ object Root {
   case class TRoot(t: Type) extends Type {
     def rename(ren: Map[Symbol, Symbol]) = TRoot(t.rename(ren))
     def subst(s: TSubst) = TRoot(t.subst(s))
-    def unify(other: Type) = other match {
-      case TRoot(t2) => t.unify(t2)
+    def unify(other: Type, s: TSubst) = other match {
+      case TRoot(t2) => t.unify(t2, s)
       case TVar(x) => scala.Some(Map(x -> this))
       case _ => None
     }
