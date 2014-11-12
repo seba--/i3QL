@@ -13,7 +13,11 @@ import TypeStuff._
  * Use root to ensure fixed rootkey for all programs
  */
 class Root() {
-  def insert { Exp((Root.Root, 1), Seq(), Seq()).insert(-1, -1) }
+  def insert {
+    val e = Exp((Root.Root, 1), Seq(), Seq())
+    e.insert(-1, -1)
+    assert (rootKey == e.key, s"Expected prefetched rootKey $rootKey to equal actual root key ${e.key}")
+  }
   val rootKey = Exp.prefetchKey
   var topexp: Option[Exp] = None
 
