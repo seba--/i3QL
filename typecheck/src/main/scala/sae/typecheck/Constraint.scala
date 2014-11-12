@@ -11,9 +11,13 @@ import TypeStuff._
 object Constraint {
   type Unsolvable = Set[Constraint]
   type Solution = (TSubst, Unsolvable)
+  val emptySolution: Solution = (Map(), Set())
+
   def solutionVars(s: Solution) = substVars(s._1) ++ s._2.foldLeft(Set[Symbol]())((vs,c) => vs++c.vars)
   def substVars(s: TSubst) = s.foldLeft(Set[Symbol]())((vs,kv) => (vs + kv._1) ++ kv._2.vars)
   def requirementVars(reqs: Set[Requirement]) = reqs.foldLeft(Set[Symbol]())((vs,r) => vs ++ r.vars)
+
+  def subst(reqs: Map[Symbol, Type], s: TSubst) = reqs.mapValues(_.subst(s))
 
   def mergeReqMaps(reqs1: Map[Symbol, Type], reqs2: Map[Symbol, Type]) = {
     val (res, time) = Util.timed(_mergeReqMaps(reqs1, reqs2))
@@ -149,7 +153,8 @@ object Constraint {
     _mergeSolution(sol, esol)
   }
 
-  def solve(cs: Iterable[Constraint]) = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
+  def solve(cs: Iterable[Constraint]): Solution = cs.foldLeft(emptySolution)(extendSolution)
+  def solve(c: Constraint): Solution = extendSolution(emptySolution, c)
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
     val (res, time) = Util.timed(_extendSolution(sol, c))
@@ -209,7 +214,7 @@ object Constraint {
   type ConstraintSolutionData = (Type, Solution, Set[Requirement], Set[Symbol])
 
   type ConstraintNonrelationalSolutionTuple = (Parent, Position, ConstraintSolutionData)
-  type ConstraintNonrelationalSolutionData = (Type, Solution, Map[Symbol, Type])
+  type ConstraintNonrelationalSolutionData = (Type, Map[Symbol, Type], Unsolvable)
 
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2
