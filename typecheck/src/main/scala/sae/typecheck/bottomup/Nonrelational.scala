@@ -38,17 +38,20 @@ object Nonrelational extends TypeCheck {
     }
   }
 
-  def typecheckSpine(e: BUExp[ConstraintNonrelationalSolutionData]): Unit ={
-    val isFirstTime = e.Type == null
-    val isRoot = e.parent == null
+  def typecheckSpine(e2: BUExp[ConstraintNonrelationalSolutionData]): Unit ={
 
-    val t = typecheckStep(e)
-    if (e.Type != t) {
-      e.Type = t
-      if (!isRoot && isFirstTime)
-        e.parent.markKidTypeAvailable(e.pos)
-      if (!isRoot && e.parent.allKidTypesAvailable)
-        typecheckSpine(e.parent)
+    var current = e2
+    while (current != null && current.allKidTypesAvailable) {
+      val isFirstTime = current.Type == null
+      val isRoot = current.parent == null
+
+      val t = typecheckStep(current)
+      if (current.Type != t) {
+        current.Type = t
+        if (!isRoot && isFirstTime)
+          current.parent.markKidTypeAvailable(current.pos)
+        current = current.parent
+      }
     }
   }
 
@@ -146,6 +149,8 @@ object Nonrelational extends TypeCheck {
 
 
 object BUExp {
+  def apply[T](kind: ExpKind, lits: Seq[Any], parent: BUExp[T], pos: Int) = new BUExp(kind, lits, parent, pos)
+
   def from[T](e: Exp): (BUExp[T], Seq[BUExp[T]]) = {
     val leaves = collection.mutable.ArrayBuffer[BUExp[T]]()
     val bue = convert[T](e, null, -1, leaves)
@@ -153,20 +158,60 @@ object BUExp {
   }
 
   private def convert[T](e: Exp, parent: BUExp[T], pos: Int, leaves: collection.mutable.ArrayBuffer[BUExp[T]]): BUExp[T] = {
-    val bue = BUExp[T](e.kind, e.lits,parent, pos)
-    if (e.sub.isEmpty) {
-      bue.kids = Seq()
-      leaves += bue
+    var input = Seq[(Exp, BUExp[T], Int)]()
+    var pending = Seq[BUExp[T]]()
+    var output = Seq[BUExp[T]]()
+
+    input = (e, null, -1) +: input
+
+    while (!input.isEmpty || !pending.isEmpty) {
+      if (!pending.isEmpty && (input.isEmpty || input.head._2 != pending.head)) {
+        val next = pending.head
+        pending = pending.tail
+
+        var kids = Seq[BUExp[T]]()
+        while (!output.isEmpty && output.head.parent == next) {
+          kids = output.head +: kids
+          output = output.tail
+        }
+
+        next.kids = kids.reverse
+        output = next +: output
+      }
+      else {
+        val (next, parent, pos) = input.head
+        input = input.tail
+
+        val bue = BUExp[T](next.kind, next.lits, parent, pos)
+        if (next.sub.isEmpty) {
+          bue.kids = Seq()
+          output = bue +: output
+          leaves += bue
+        }
+        else {
+          pending = bue +: pending
+          for (i <- 0 until next.sub.size)
+            input = (next.sub(i), bue, i) +: input
+        }
+      }
     }
-    else {
-      val kids = for (i <- 0 until e.sub.size)
-        yield convert[T](e.sub(i), bue, i, leaves)
-      bue.kids = kids
-    }
-    bue
+
+    output.head
+
+//    val bue = BUExp[T](e.kind, e.lits,parent, pos)
+//    if (e.sub.isEmpty) {
+//      bue.kids = Seq()
+//      leaves += bue
+//    }
+//    else {
+//      val kids = for (i <- 0 until e.sub.size)
+//        yield convert[T](e.sub(i), bue, i, leaves)
+//      bue.kids = kids
+//    }
+//    bue
   }
 }
-case class BUExp[T](kind: ExpKind, lits: Seq[Any], parent: BUExp[T], pos: Int) {
+class BUExp[T](val kind: ExpKind, val lits: Seq[Any], val parent: BUExp[T], val pos: Int) {
   private var _kids: Seq[BUExp[T]] = _
   var availableKidTypes: Seq[Boolean] = _
 
@@ -181,5 +226,17 @@ case class BUExp[T](kind: ExpKind, lits: Seq[Any], parent: BUExp[T], pos: Int) {
   def markKidTypeAvailable(pos: Int) =
     availableKidTypes = availableKidTypes.updated(pos, true)
 
-  def allKidTypesAvailable = availableKidTypes.foldLeft(true)(_&&_)
+  def allKidTypesAvailable = {
+    val (b, time) = Util.timed(availableKidTypes.foldLeft(true)(_&&_))
+    Constraint.allVailableCheckTime += time
+    b
+  }
+
+  override def toString = {
+    val subs = lits.map(_.toString) ++ _kids.map(_.toString)
+    val subssep = if (subs.isEmpty) subs else subs.flatMap(s => Seq(", ", s)).tail
+    val substring = subssep.foldLeft("")(_+_)
+    s"${kind._1}($substring)"
+
+  }
 }

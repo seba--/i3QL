@@ -33,12 +33,15 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
       Util.log(f"Time to extend solutions was   ${Constraint.extendSolutionTime}%.3fms")
     if (Constraint.computeReqsTime != 0)
       Util.log(f"Time to compute req cons was   ${Constraint.computeReqsTime}%.3fms")
+    if (Constraint.allVailableCheckTime != 0)
+      Util.log(f"Time to check availability was ${Constraint.allVailableCheckTime}%.3fms")
     Constraint.mergeFreshTime = 0
     Constraint.renameSolutionTime = 0
     Constraint.mergeReqsTime = 0
     Constraint.mergeSolutionTime = 0
     Constraint.extendSolutionTime = 0
     Constraint.computeReqsTime = 0
+    Constraint.allVailableCheckTime = 0
   }
 
   def testTypeCheck(desc: String, e: Exp, t: Type): Unit = {
@@ -63,7 +66,7 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
   testTypeCheck("maximally shared tree with height 5", shared5, TNum)
   testTypeCheck("maximally shared tree with height 10", shared10, TNum)
   testTypeCheck("maximally shared tree with height 15", shared15, TNum)
-//  testTypeCheck("maximally shared tree with height 20", shared20, TNum)
+  testTypeCheck("maximally shared tree with height 20", shared20, TNum)
 
 
   def makeUnshared(h: Int) = {
@@ -89,10 +92,10 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
   val varShared15 = makeVarShared(15)
   val varShared20 = makeVarShared(20)
 
-//  testTypeCheck("var-shared tree with height 5", varShared5, TFun(TNum, TNum))
-//  testTypeCheck("var-shared tree with height 10", varShared10, TFun(TNum, TNum))
-//  testTypeCheck("var-shared tree with height 15", varShared15, TFun(TNum, TNum))
-//  testTypeCheck("var-shared tree with height 20", varShared20, TFun(TNum, TNum))
+  testTypeCheck("var-shared tree with height 5", varShared5, TFun(TNum, TNum))
+  testTypeCheck("var-shared tree with height 10", varShared10, TFun(TNum, TNum))
+  testTypeCheck("var-shared tree with height 15", varShared15, TFun(TNum, TNum))
+  testTypeCheck("var-shared tree with height 20", varShared20, TFun(TNum, TNum))
 
 
   def makeVarUnshared(h: Int) = {
@@ -112,8 +115,8 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
   val varUnshared15Type = makeFunType(Math.pow(2,15-1).toInt, TNum, () => TNum)
   val varUnshared20Type = makeFunType(Math.pow(2,20-1).toInt, TNum, () => TNum)
 
-//  testTypeCheck("var-unshared tree with height 5", varUnshared5, varUnshared5Type)
-//  testTypeCheck("var-unshared tree with height 10", varUnshared10, varUnshared10Type)
+  testTypeCheck("var-unshared tree with height 5", varUnshared5, varUnshared5Type)
+  testTypeCheck("var-unshared tree with height 10", varUnshared10, varUnshared10Type)
 //  testTypeCheck("var-unshared tree with height 15", varUnshared15, varUnshared15Type)
 //  testTypeCheck("var-unshared tree with height 20", varUnshared20, varUnshared20Type)
 
