@@ -150,4 +150,5 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
 
 class TestInitialChecking_DownUp extends TestInitialChecking(downup.ConstraintTypeCheck)
 //class TestInitialChecking_ConstraintTypeCheck extends TestInitialChecking(bottomup.ConstraintTypeCheck)
-class TestInitialChecking_ConstraintSolutionTypeCheck extends TestInitialChecking(bottomup.ConstraintSolutionTypeCheck)
+//class TestInitialChecking_ConstraintSolutionTypeCheck extends TestInitialChecking(bottomup.ConstraintSolutionTypeCheck)
+class TestInitialChecking_Nonrelational extends TestInitialChecking(bottomup.Nonrelational)
