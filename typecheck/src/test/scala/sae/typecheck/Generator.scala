@@ -22,9 +22,9 @@ object Generator {
       for (i <- 0 until Math.pow(2, h-1).toInt-1 by 2) {
         val l = ts(i)
         val r = ts(i+1)
-        if (l == r)
-          ts(i/2) = kind(l, l)
-        else
+//        if (l == r)
+//          ts(i/2) = kind(l, l)
+//        else
           ts(i/2) = kind(l, r)
       }
 
