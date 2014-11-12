@@ -15,6 +15,25 @@ object Constraint {
   def substVars(s: TSubst) = s.foldLeft(Set[Symbol]())((vs,kv) => (vs + kv._1) ++ kv._2.vars)
   def requirementVars(reqs: Set[Requirement]) = reqs.foldLeft(Set[Symbol]())((vs,r) => vs ++ r.vars)
 
+  def mergeReqMaps(reqs1: Map[Symbol, Type], reqs2: Map[Symbol, Type]) = {
+    val (res, time) = Util.timed(_mergeReqMaps(reqs1, reqs2))
+    mergeReqsTime += time
+    res
+  }
+
+  def _mergeReqMaps(reqs1: Map[Symbol, Type], reqs2: Map[Symbol, Type]) = {
+    var mcons = Set[Constraint]()
+    var mreqs = reqs1
+    for ((x, r2) <- reqs2)
+      reqs1.get(x) match {
+        case None => mreqs += x -> r2
+        case Some(r1) =>
+          mcons = mcons + EqConstraint(r1, r2)
+      }
+
+    (mcons, mreqs)
+  }
+
   var mergeReqsTime = 0.0
   def mergeReqs(reqs1: Set[Requirement], reqs2: Set[Requirement]) = {
     val (res, time) = Util.timed(_mergeReqs(reqs1, reqs2))
@@ -36,8 +55,7 @@ object Constraint {
   def mergeReq(reqs1: Set[Requirement], r2: Requirement): Option[(Set[Constraint], Set[Requirement])] = {
     for (r1 <- reqs1)
       r1 merge r2 match {
-        case Some((newcons, newreqs)) => return Some((newcons, newreqs ++ (reqs1 diff Set(r1))))
-        case _ => {}
+        case (mr, newcons) => return Some((newcons, (reqs1 diff Set(r1)) + mr.asInstanceOf[Requirement]))
       }
     None
   }
@@ -176,7 +194,7 @@ object Constraint {
   type ConstraintSolutionData = (Type, Solution, Set[Requirement], Set[Symbol])
 
   type ConstraintNonrelationalSolutionTuple = (Parent, Position, ConstraintSolutionData)
-  type ConstraintNonrelationalSolutionData = (Type, Solution, Set[Requirement])
+  type ConstraintNonrelationalSolutionData = (Type, Solution, Map[Symbol, Type])
 
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2
@@ -200,9 +218,11 @@ abstract class Constraint {
   def vars: Set[Symbol]
 }
 
-abstract class Requirement {
+trait SimpleRequirement {
+  def merge(r: SimpleRequirement): (SimpleRequirement, Set[Constraint])
+}
+abstract class Requirement extends SimpleRequirement {
   def rename(ren: Map[Symbol, Symbol]): Requirement
-  def merge(r: Requirement): Option[(Set[Constraint], Set[Requirement])]
   def vars: Set[Symbol]
 }
 
@@ -213,11 +233,15 @@ case class EqConstraint(expected: Type, actual: Type) extends Constraint {
 }
 
 case class VarRequirement(x: Symbol, t: Type) extends Requirement {
-  def merge(r: Requirement) = r match {
-    case VarRequirement(`x`, t2) => scala.Some((Set(EqConstraint(t, t2)), Set(this)))
-    case _ => None
+  def merge(r: SimpleRequirement) = r match {
+    case VarRequirement(`x`, t2) => (this, Set(EqConstraint(t, t2)))
   }
   def rename(ren: Map[Symbol, Symbol]) = VarRequirement(ren.getOrElse(x, x), t.rename(ren))
   def vars = t.vars
 }
 
+case class SimpleVarRequirement(t: Type) extends SimpleRequirement {
+  def merge(r: SimpleRequirement) = r match {
+    case SimpleVarRequirement(t2) => (this, Set(EqConstraint(t, t2)))
+  }
+}

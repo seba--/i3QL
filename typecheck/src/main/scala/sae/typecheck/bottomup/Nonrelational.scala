@@ -56,7 +56,7 @@ object Nonrelational extends TypeCheck {
   }
 
   def typecheckStep(e: BUExp[ConstraintNonrelationalSolutionData]): ConstraintNonrelationalSolutionData = e.kind match {
-    case (Num, 0) => (TNum, (Map(), Set()), Set())
+    case (Num, 0) => (TNum, (Map(), Set()), Map())
     case (op, 2) if op == Add || op == Mul =>
       val (t1, sol1, reqs1) = e.kids(0).Type
       val (t2, sol2, reqs2) = e.kids(1).Type
@@ -65,21 +65,21 @@ object Nonrelational extends TypeCheck {
       val rcons = EqConstraint(TNum, t2)
 
       val sol12 = mergeSolution(sol1, sol2)
-      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
+      val (mcons, mreqs) = mergeReqMaps(reqs1, reqs2)
 
       val sol = extendSolution(sol12, mcons + lcons + rcons)
       (TNum, sol, mreqs)
     case (Var, 0) =>
       val x = e.lits(0).asInstanceOf[Symbol]
       val X = freshTVar()
-      (X, (Map(), Set()), Set(VarRequirement(x, X)))
+      (X, (Map(), Set()), Map(x -> X))
     case (App, 2) =>
       val (t1, sol1, reqs1) = e.kids(0).Type
       val (t2, sol2, reqs2) = e.kids(1).Type
 
       val X = freshTVar()
       val fcons = EqConstraint(TFun(t2, X), t1)
-      val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
+      val (mcons, mreqs) = mergeReqMaps(reqs1, reqs2)
 
       val sol12 = mergeSolution(sol1, sol2)
       val sol = extendSolution(sol12, mcons + fcons)
@@ -90,21 +90,22 @@ object Nonrelational extends TypeCheck {
       val (t, sol, reqs) = e.kids(0).Type
 
       val X = freshTVar()
-      val ((otherReqs, xcons), time) = Util.timed {
-        val (xreqs, otherReqs) = reqs.partition { case VarRequirement(`x`, _) => true; case _ => false}
-        val xcons = xreqs map { case VarRequirement(_, t) => EqConstraint(X, t.subst(sol._1))}
-        (otherReqs, xcons)
+      reqs.get(x) match {
+        case None =>
+          (TFun(X, t), sol, reqs)
+        case Some(treq) =>
+          val otherReqs = reqs - x
+          val xcons = EqConstraint(X, treq)
+          val fsol = extendSolution(sol, xcons)
+          (TFun(X, t).subst(fsol._1), fsol, otherReqs)
       }
-      Constraint.computeReqsTime += time
-      val fsol = extendSolution(sol, xcons)
-      (TFun(X, t).subst(fsol._1), fsol, otherReqs)
     case (If0, 3) =>
       val (t1, sol1, reqs1) = e.kids(0).Type
       val (t2, sol2, reqs2) = e.kids(1).Type
       val (t3, sol3, reqs3) = e.kids(2).Type
 
-      val (mcons12, mreqs12) = mergeReqs(reqs1, reqs2)
-      val (mcons23, mreqs123) = mergeReqs(mreqs12, reqs3)
+      val (mcons12, mreqs12) = mergeReqMaps(reqs1, reqs2)
+      val (mcons23, mreqs123) = mergeReqMaps(mreqs12, reqs3)
 
       val cond = EqConstraint(TNum, t1)
       val body = EqConstraint(t2, t3)
