@@ -1,6 +1,6 @@
 package sae.typecheck
 
-import sae.typecheck.Exp.ExpKind
+import sae.typecheck.Exp.{ExpKindTag, ExpKind}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -11,7 +11,7 @@ object Generator {
   def makeBinAddTree(height: Int, leaveMaker: () => Exp) = makeBinTree(height, Add, leaveMaker)
   def makeBinAppTree(height: Int, leaveMaker: () => Exp) = makeBinTree(height, App, leaveMaker)
 
-  def makeBinTree(height: Int, kind: ExpKind, leaveMaker: () => Exp): Exp = {
+  def makeBinTree(height: Int, kind: ExpKindTag, leaveMaker: () => Exp): Exp = {
     val leaveCount = Math.pow(2, height-1).toInt
     val ts = Array.ofDim[Exp](leaveCount)
 
