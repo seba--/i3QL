@@ -140,15 +140,24 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
        FROM (Exp.table, constraints) // 1-ary
        WHERE ((e,t1) => arity(e) == 1 AND csparent(t1) == id(e) AND cspos(t1) == 0))
     UNION ALL
-        (SELECT ((e: Rep[ExpTuple], ts: Rep[(Exp.Parent, Seq[ConstraintSolutionData])]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), ts._2))))
-          FROM (Exp.table, (
-          SELECT ((t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => csparent(t1) -> Seq(csdata(t1), csdata(t2)))
-            FROM (constraints, constraints)
-            WHERE ((t1, t2) => csparent(t1) == csparent(t2) AND cspos(t1) == 0 AND cspos(t2) == 1)
-          )) // 2-ary
+      // 2-ary
+      (SELECT ((e: Rep[ExpTuple], ts: Rep[(Exp.Parent, Seq[ConstraintSolutionData])]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), ts._2))))
+       FROM (Exp.table, (
+             SELECT ((t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => csparent(t1) -> Seq(csdata(t1), csdata(t2)))
+             FROM (constraints, constraints)
+             WHERE ((t1, t2) => csparent(t1) == csparent(t2) AND cspos(t1) == 0 AND cspos(t2) == 1)))
           WHERE ((e,ts) => arity(e) == 2 AND ts._1 == id(e)))
+    UNION ALL
+      (SELECT ((e: Rep[ExpTuple], ts: Rep[(Exp.Parent, Seq[ConstraintSolutionData])]) => (parent(e), pos(e), typecheckStepRep ((id(e), kind(e), lits(e), ts._2))))
+       FROM (Exp.table, (
+             SELECT ((t: Rep[ConstraintSolutionTuple], ts: Rep[(Exp.Parent, Seq[ConstraintSolutionData])]) => csparent(t) -> (csdata(t) +: ts._2))
+             FROM (constraints, (
+                   SELECT ((t1: Rep[ConstraintSolutionTuple], t2: Rep[ConstraintSolutionTuple]) => csparent(t1) -> Seq(csdata(t1), csdata(t2)))
+                   FROM (constraints, constraints)
+                   WHERE ((t1, t2) => csparent(t1) == csparent(t2) AND cspos(t1) == 0 AND cspos(t2) == 1)))
+             WHERE ((t, ts) => csparent(t) == ts._1 AND cspos(t) == 2)))
+       WHERE ((e,ts) => arity(e) == 3 AND ts._1 == id(e)))
     )
-
   )
 
 //  val constraints = WITH.RECURSIVE[ConstraintSolutionTuple] (constraints =>
@@ -261,6 +270,7 @@ object ConstraintSolutionTypeCheck extends TypeCheck {
     printTypecheck(Abs('x, Add(Var('err), Var('x))))
     printTypecheck(Abs('x, Abs('y, App(Var('x), Var('y)))))
     printTypecheck(Abs('x, Abs('y, Add(Var('x), Var('y)))))
+    printTypecheck(If0(Num(17), Num(0), Num(1)))
 
     val fac = Fix(Abs('f, Abs('n, If0(Var('n), Num(1), Mul(Var('n), App(Var('f), Add(Var('n), Num(-1))))))))
     printTypecheck("factorial", fac)
