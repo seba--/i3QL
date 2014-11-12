@@ -16,6 +16,11 @@ object Nonrelational extends TypeCheck {
     _nextId += 1
     v
   }
+  def freshTVarForVar(): TVar = {
+    val v = TVar(Symbol("var$" + _nextId))
+    _nextId += 1
+    v
+  }
 
   def reset() {}
   def typecheckIncremental(e: Exp): Either[Type, TError] = typecheck(e)()
@@ -46,6 +51,8 @@ object Nonrelational extends TypeCheck {
       val isRoot = current.parent == null
 
       val t = typecheckStep(current)
+      println(s"$current -> ${t._1}")
+      println(s"  ${t._2._1}")
       if (current.Type != t) {
         current.Type = t
         if (!isRoot && isFirstTime)
@@ -71,7 +78,7 @@ object Nonrelational extends TypeCheck {
       (TNum, sol, mreqs)
     case (Var, 0) =>
       val x = e.lits(0).asInstanceOf[Symbol]
-      val X = freshTVar()
+      val X = freshTVarForVar()
       (X, (Map(), Set()), Map(x -> X))
     case (App, 2) =>
       val (t1, sol1, reqs1) = e.kids(0).Type

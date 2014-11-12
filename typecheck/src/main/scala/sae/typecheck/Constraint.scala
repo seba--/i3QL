@@ -95,22 +95,31 @@ object Constraint {
     res
   }
 
-  def mergeSolutionConflictfree(sol1: Solution, sol2: Solution): Solution = {
+  private def mergeSolutionConflictfree(sol1: Solution, sol2: Solution): Solution = {
     val s1 = sol1._1
     val s2 = sol2._1
     var unres: Unsolvable = sol1._2 ++ sol2._2
 
-    val res = s1.mapValues(_.subst(s2)) ++ s2
-    assert(res.size == s1.size + s2.size)
+    val s1s = s1 // s1.mapValues(_.subst(s2))
+    val res = s1s ++ s2
+//    assert(res.size == s1.size + s2.size)
+//
+//    if (s1s != s1)
+//      println(s"*** difference found")
+
     (res, unres)
   }
 
-  def _mergeSolution(sol1: Solution, sol2: Solution): Solution = {
+  private def _mergeSolution(sol1: Solution, sol2: Solution): Solution = {
     val s1 = sol1._1
     val s2 = sol2._1
     var unres: Unsolvable = sol1._2 ++ sol2._2
 
     var s = s1 mapValues (_.subst(s2))
+
+//    val overlap = s1.keySet.intersect(s2.keySet)
+//    if (!overlap.isEmpty)
+//      println(s"Overlap in merge solution: $overlap")
 
     for ((x, t2) <- s2) {
       s.get(x) match {
@@ -135,14 +144,20 @@ object Constraint {
     res
   }
 
-  def _extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
-    val esol = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
+  private def _extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
+    val esol = cs.foldLeft[Solution]((Map(), Set()))(_extendSolution)
     _mergeSolution(sol, esol)
   }
 
   def solve(cs: Iterable[Constraint]) = cs.foldLeft[Solution]((Map(), Set()))(extendSolution)
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
+    val (res, time) = Util.timed(_extendSolution(sol, c))
+    extendSolutionTime += time
+    res
+  }
+
+  private def _extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
     c.solve(sol._1) match {
       case None => _mergeSolution(sol, (Map(), Set(c)))
       case Some(u) =>
