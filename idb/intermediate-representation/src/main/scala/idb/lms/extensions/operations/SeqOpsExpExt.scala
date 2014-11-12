@@ -51,8 +51,9 @@ trait SeqOpsExpExt
     class SeqOpsClsExt[T:Manifest](a: Rep[Seq[T]]) extends SeqOpsCls[T](a) {
         def head(implicit pos: SourceContext) = seq_head(a)
         def tail(implicit pos: SourceContext) = seq_tail(a)
-		def isEmpty(implicit pos: SourceContext) = seq_isempty(a)
-		def contains(e : Rep[Any])(implicit pos: SourceContext) = seq_contains(a, e)
+        def isEmpty(implicit pos: SourceContext) = seq_isempty(a)
+        def contains(e : Rep[Any])(implicit pos: SourceContext) = seq_contains(a, e)
+        def +:(e: Rep[T]) = seq_add(a, e)
     }
 
     case class SeqHead[T:Manifest](xs: Exp[Seq[T]]) extends Def[T]
@@ -60,18 +61,21 @@ trait SeqOpsExpExt
 	case class SeqFoldLeft[T1 : Manifest, T2 : Manifest](xs : Exp[Seq[T1]], z: Exp[T2], op: Exp[(T2, T1) => T2]) extends Def[T2]
 	case class SeqIsEmpty[T : Manifest](xs: Exp[Seq[T]]) extends Def[Boolean]
 	case class SeqContains[T : Manifest](xs : Exp[Seq[T]], e : Exp[Any]) extends Def[Boolean]
+  case class SeqAdd[T : Manifest](xs : Exp[Seq[T]], e : Exp[T]) extends Def[Seq[T]]
 
     def seq_head[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[T] = SeqHead(xs)
     def seq_tail[T:Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[Seq[T]] = SeqTail(xs)
 	def seq_foldleft[T1 : Manifest, T2 : Manifest](xs : Exp[Seq[T1]], z: Exp[T2], op: Exp[(T2, T1) => T2])(implicit pos: SourceContext): Exp[T2] = SeqFoldLeft(xs, z, op)
 	def seq_isempty[T : Manifest](xs: Exp[Seq[T]])(implicit pos: SourceContext): Exp[Boolean] = SeqIsEmpty(xs)
 	def seq_contains[T : Manifest](xs : Exp[Seq[T]], e : Exp[Any])(implicit pos: SourceContext) : Exp[Boolean] = SeqContains (xs, e)
+  def seq_add[T : Manifest](xs : Exp[Seq[T]], e : Exp[T])(implicit pos: SourceContext) : Exp[Seq[T]] = SeqAdd (xs, e)
 
     override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
         case SeqHead (xs) => seq_head (f (xs))
         case SeqTail (xs) => seq_tail (f (xs))
 		case SeqIsEmpty (xs) => seq_isempty (f (xs))
-		case SeqContains (xs, e) => seq_contains (f (xs), e)
+		case SeqContains (xs, e) => seq_contains (f (xs), f(e))
+        case SeqAdd(xs, e) => seq_add(f(xs), f(e))
 		//case SeqFoldLeft (xs, z, op) => f (seq_foldleft (xs, z, op))
         case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
@@ -91,6 +95,7 @@ extends ScalaGenSeqOps
 		case SeqIsEmpty (xs) => emitValDef(sym, quote(xs) + ".isEmpty")
 		case SeqFoldLeft (xs, z, op) => emitValDef (sym, quote(xs) + ".foldLeft(" + quote(z) + ")(" + quote(op) + ")")
 		case SeqContains (xs, e) => emitValDef(sym, quote(xs) + ".contains(" + quote(e) + ")")
+    case SeqAdd (xs, e) => emitValDef(sym, quote(xs) + ".+:(" + quote(e) + ")")
         case _ => super.emitNode(sym, rhs)
     }
 }
