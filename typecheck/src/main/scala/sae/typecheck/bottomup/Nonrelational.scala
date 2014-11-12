@@ -10,27 +10,35 @@ import sae.typecheck._
  */
 object Nonrelational extends TypeCheck {
 
+  private var _nextId = 0
+  def freshTVar(): TVar = {
+    val v = TVar(Symbol("x$" + _nextId))
+    _nextId += 1
+    v
+  }
+
   def reset() {}
   def typecheckIncremental(e: Exp): Either[Type, TError] = typecheck(e)()
 
 
   def typecheck(e: Exp): () => Either[Type, TError] = {
-    val (root, leaves) = BUExp.from[ConstraintSolutionData](e)
+    _nextId = 0
+    val (root, leaves) = BUExp.from[ConstraintNonrelationalSolutionData](e)
 
     () => {
       leaves foreach (typecheckSpine(_))
 
-      val (t, sol, reqs, free) = root.Type
+      val (t, sol, reqs) = root.Type
       if (!reqs.isEmpty)
-        scala.Right(s"Unresolved context requirements $reqs, type $t, solution $sol, free $free")
+        scala.Right(s"Unresolved context requirements $reqs, type $t, solution $sol")
       else if (sol._2.isEmpty)
         scala.Left(t)
       else
-        scala.Right(s"Unresolved constraints ${sol._2}, solution $sol, free $free")
+        scala.Right(s"Unresolved constraints ${sol._2}, solution $sol")
     }
   }
 
-  def typecheckSpine(e: BUExp[ConstraintSolutionData]): Unit ={
+  def typecheckSpine(e: BUExp[ConstraintNonrelationalSolutionData]): Unit ={
     val isFirstTime = e.Type == null
     val isRoot = e.parent == null
 
@@ -44,13 +52,11 @@ object Nonrelational extends TypeCheck {
     }
   }
 
-  def typecheckStep(e: BUExp[ConstraintSolutionData]): ConstraintSolutionData = e.kind match {
-    case (Num, 0) => (TNum, (Map(), Set()), Set(), Set())
+  def typecheckStep(e: BUExp[ConstraintNonrelationalSolutionData]): ConstraintNonrelationalSolutionData = e.kind match {
+    case (Num, 0) => (TNum, (Map(), Set()), Set())
     case (op, 2) if op == Add || op == Mul =>
-      val (t1, sol1, reqs1, free1) = e.kids(0).Type
-      val (_t2, _sol2, _reqs2, free2) = e.kids(1).Type
-      val (mfresh, ren) = mergeFresh(free1, free2)
-      val (t2, sol2, reqs2) = renameSolution(ren)(_t2, _sol2, _reqs2)
+      val (t1, sol1, reqs1) = e.kids(0).Type
+      val (t2, sol2, reqs2) = e.kids(1).Type
 
       val lcons = EqConstraint(TNum, t1)
       val rcons = EqConstraint(TNum, t2)
@@ -58,30 +64,28 @@ object Nonrelational extends TypeCheck {
 
       val sol12 = mergeSolution(sol1, sol2)
       val sol = extendSolution(sol12, mcons + lcons + rcons)
-      (TNum, sol, mreqs, mfresh)
+      (TNum, sol, mreqs)
     case (Var, 0) =>
       val x = e.lits(0).asInstanceOf[Symbol]
-      val X = TVar(Symbol("X$" + x.name))
-      (X, (Map(), Set()), Set(VarRequirement(x, X)), Set(X.x))
+      val X = freshTVar()
+      (X, (Map(), Set()), Set(VarRequirement(x, X)))
     case (App, 2) =>
-      val (t1, sol1, reqs1, fresh1) = e.kids(0).Type
-      val (_t2, _sol2, _reqs2, fresh2) = e.kids(1).Type
-      val (mfresh, ren) = mergeFresh(fresh1, fresh2)
-      val (t2, sol2, reqs2) = renameSolution(ren)(_t2, _sol2, _reqs2)
+      val (t1, sol1, reqs1) = e.kids(0).Type
+      val (t2, sol2, reqs2) = e.kids(1).Type
 
-      val X = TVar(tick('X$App, mfresh))
+      val X = freshTVar()
       val fcons = EqConstraint(TFun(t2, X), t1)
       val (mcons, mreqs) = mergeReqs(reqs1, reqs2)
 
       val sol12 = mergeSolution(sol1, sol2)
       val sol = extendSolution(sol12, mcons + fcons)
 
-      (X.subst(sol._1), sol, mreqs, mfresh + X.x)
+      (X.subst(sol._1), sol, mreqs)
     case (Abs, 1) =>
       val x = e.lits(0).asInstanceOf[Symbol]
-      val (t, sol, reqs, fresh) = e.kids(0).Type
+      val (t, sol, reqs) = e.kids(0).Type
 
-      val X = TVar(tick('X$Abs, fresh))
+      val X = freshTVar()
       val ((otherReqs, xcons), time) = Util.timed {
         val (xreqs, otherReqs) = reqs.partition { case VarRequirement(`x`, _) => true; case _ => false}
         val xcons = xreqs map { case VarRequirement(_, t) => EqConstraint(X, t.subst(sol._1))}
@@ -89,15 +93,11 @@ object Nonrelational extends TypeCheck {
       }
       Constraint.computeReqsTime += time
       val fsol = extendSolution(sol, xcons)
-      (TFun(X, t).subst(fsol._1), fsol, otherReqs, fresh + X.x)
+      (TFun(X, t).subst(fsol._1), fsol, otherReqs)
     case (If0, 3) =>
-      val (t1, sol1, reqs1, fresh1) = e.kids(0).Type
-      val (_t2, _sol2, _reqs2, fresh2) = e.kids(1).Type
-      val (_t3, _sol3, _reqs3, fresh3) = e.kids(2).Type
-      val (mfresh12, ren12) = mergeFresh(fresh1, fresh2)
-      val (t2, sol2, reqs2) = renameSolution(ren12)(_t2, _sol2, _reqs2)
-      val (mfresh123, ren23) = mergeFresh(mfresh12, fresh3)
-      val (t3, sol3, reqs3) = renameSolution(ren23)(_t3, _sol3, _reqs3)
+      val (t1, sol1, reqs1) = e.kids(0).Type
+      val (t2, sol2, reqs2) = e.kids(1).Type
+      val (t3, sol3, reqs3) = e.kids(2).Type
 
       val (mcons12, mreqs12) = mergeReqs(reqs1, reqs2)
       val (mcons23, mreqs123) = mergeReqs(mreqs12, reqs3)
@@ -108,14 +108,14 @@ object Nonrelational extends TypeCheck {
       val sol123 = mergeSolution(sol1, mergeSolution(sol2, sol3))
       val sol = extendSolution(sol123, mcons12 ++ mcons23 + cond + body)
 
-      (t2.subst(sol._1), sol, mreqs123, mfresh123)
+      (t2.subst(sol._1), sol, mreqs123)
 
     case (Fix, 1) =>
-      val (t, sol, reqs, fresh) = e.kids(0).Type
-      val X = TVar(tick('X$Fix, fresh))
+      val (t, sol, reqs) = e.kids(0).Type
+      val X = freshTVar()
       val fixCons = EqConstraint(t, TFun(X, X))
       val fsol = extendSolution(sol, Set(fixCons))
-      (X.subst(fsol._1), fsol, reqs, fresh + X.x)
+      (X.subst(fsol._1), fsol, reqs)
   }
 
 

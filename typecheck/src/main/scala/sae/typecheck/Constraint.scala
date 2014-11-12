@@ -171,6 +171,9 @@ object Constraint {
   type ConstraintSolutionTuple = (Parent, Position, ConstraintSolutionData)
   type ConstraintSolutionData = (Type, Solution, Set[Requirement], Set[Symbol])
 
+  type ConstraintNonrelationalSolutionTuple = (Parent, Position, ConstraintSolutionData)
+  type ConstraintNonrelationalSolutionData = (Type, Solution, Set[Requirement])
+
   def cid(c: Rep[ConstraintTuple]) = c._1
   def cdata(c: Rep[ConstraintTuple]) = c._2
 
