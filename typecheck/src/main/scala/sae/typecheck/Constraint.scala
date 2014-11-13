@@ -164,7 +164,7 @@ object Constraint {
 
   private def _extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
     c.solve(sol._1) match {
-      case None => _mergeSolution(sol, (Map(), Set(c)))
+      case None => (sol._1, sol._2 + c)
       case Some(u) =>
 //        println(s"Extend solution with $c: $u + $sol")
         val res = _mergeSolution(sol, (u, Set()))
