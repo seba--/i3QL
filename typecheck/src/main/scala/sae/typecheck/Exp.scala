@@ -97,6 +97,7 @@ case class Exp(kind: ExpKind, lits: Seq[Lit], sub: Seq[Exp]) {
   var _key = -1
   var _count = 0
   var _delegate: Exp = null
+
   var parent = -1
   var pos = -1
 
