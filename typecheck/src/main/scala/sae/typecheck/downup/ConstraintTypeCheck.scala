@@ -59,11 +59,29 @@ object ConstraintTypeCheck extends TypeCheck {
       val fcons = EqConstraint(TFun(t2, X), t1)
       (X, cons1 ++ cons2 + fcons)
     case (Abs, 1) =>
-      val x = e.lits(0).asInstanceOf[Symbol]
-      val X = freshTVar()
+      if (e.lits(0).isInstanceOf[Symbol]) {
+        val x = e.lits(0).asInstanceOf[Symbol]
+        val X = freshTVar()
 
-      val (t, cons) = typecheck(e.sub(0), ctx + (x -> X))
-      (TFun(X, t), cons)
+        val (t, cons) = typecheck(e.sub(0), ctx + (x -> X))
+        (TFun(X, t), cons)
+      }
+      else if (e.lits(0).isInstanceOf[Seq[Symbol]]) {
+        val xs = e.lits(0).asInstanceOf[Seq[Symbol]]
+        val Xs = xs map (_ => freshTVar())
+
+        val (t, cons) = typecheck(e.sub(0), ctx ++ (xs zip Xs))
+
+        var tfun = t
+        for (i <- xs.size-1 to 0 by -1) {
+          val X = Xs(i)
+          tfun = TFun(X, tfun)
+        }
+
+        (tfun, cons)
+      }
+      else
+        throw new RuntimeException(s"Cannot handle Abs variables ${e.lits(0)}")
     case (If0, 3) =>
       val (t1, cons1) = typecheck(e.sub(0), ctx)
       val (t2, cons2) = typecheck(e.sub(1), ctx)
