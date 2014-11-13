@@ -97,15 +97,13 @@ object Nonrelational extends TypeCheck {
         val x = e.lits(0).asInstanceOf[Symbol]
         val (t, reqs, unres) = e.kids(0).Type
 
-        val X = freshTVar()
         reqs.get(x) match {
           case None =>
+            val X = freshTVar()
             (TFun(X, t), reqs, unres)
           case Some(treq) =>
             val otherReqs = reqs - x
-            val xcons = EqConstraint(X, treq)
-            val (s, newunres) = solve(xcons)
-            (TFun(X, t).subst(s), subst(otherReqs, s), unres ++ newunres)
+            (TFun(treq, t), otherReqs, unres)
         }
       }
       else if (e.lits(0).isInstanceOf[Seq[Symbol]]) {
@@ -115,26 +113,23 @@ object Nonrelational extends TypeCheck {
         val Xs = xs map (_ => freshTVar())
 
         var restReqs = reqs
-        var xscons = Seq[Constraint]()
-        for (i <- 0 until xs.size) {
+        var tfun = t
+        for (i <- xs.size-1 to 0 by -1) {
           val x = xs(i)
-          val X = Xs(i)
           restReqs.get(x) match {
-            case None => {}
+            case None =>
+              val X = freshTVar()
+              tfun = TFun(X, tfun)
             case Some(treq) =>
               restReqs = restReqs - x
-              xscons = EqConstraint(X, treq) +: xscons
+              tfun = TFun(treq, tfun)
           }
         }
 
-        val (s, newunres) = solve(xscons)
-        val tfun = Xs.foldRight(t.subst(s))((X, t) => TFun(X.subst(s), t))
-        (tfun, subst(restReqs, s), unres ++ newunres)
+        (tfun, restReqs, unres)
       }
-      else {
-        println(s"cannot handle ${e.lits(0)}")
-        throw new RuntimeException()
-      }
+      else
+        throw new RuntimeException(s"Cannot handle Abs variables ${e.lits(0)}")
     case (If0, 3) =>
       val (t1, reqs1, unres1) = e.kids(0).Type
       val (t2, reqs2, unres2) = e.kids(1).Type
