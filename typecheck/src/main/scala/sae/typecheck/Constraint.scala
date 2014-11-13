@@ -114,6 +114,12 @@ object Constraint {
     (res, unres)
   }
 
+  def mergeSolutionC(sol1: Solution, sol2: Solution): Solution = {
+    val (res, time) = Util.timed(_mergeSolution(sol1, sol2))
+    mergeSolutionTime += time
+    res
+  }
+
   private def _mergeSolution(sol1: Solution, sol2: Solution): Solution = {
     val s1 = sol1._1
     val s2 = sol2._1
@@ -143,6 +149,7 @@ object Constraint {
 
   var extendSolutionTime = 0.0
   def extendSolution(sol: Solution, cs: Iterable[Constraint]): (TSubst, Set[Constraint]) = {
+    constraintCount += cs.size
     val (res, time) = Util.timed(_extendSolution(sol, cs))
     extendSolutionTime += time
     res
@@ -156,15 +163,14 @@ object Constraint {
 
   var constraintCount = 0
   def solve(cs: Iterable[Constraint]): Solution = {
-    constraintCount += cs.size
     cs.foldLeft(emptySolution)(extendSolution)
   }
   def solve(c: Constraint): Solution = {
-    constraintCount += 1
     extendSolution(emptySolution, c)
   }
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
+    constraintCount += 1
     val (res, time) = Util.timed(_extendSolution(sol, c))
     extendSolutionTime += time
     res
