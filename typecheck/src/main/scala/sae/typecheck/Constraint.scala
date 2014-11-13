@@ -153,8 +153,16 @@ object Constraint {
     _mergeSolution(sol, esol)
   }
 
-  def solve(cs: Iterable[Constraint]): Solution = cs.foldLeft(emptySolution)(extendSolution)
-  def solve(c: Constraint): Solution = extendSolution(emptySolution, c)
+
+  var constraintCount = 0
+  def solve(cs: Iterable[Constraint]): Solution = {
+    constraintCount += cs.size
+    cs.foldLeft(emptySolution)(extendSolution)
+  }
+  def solve(c: Constraint): Solution = {
+    constraintCount += 1
+    extendSolution(emptySolution, c)
+  }
 
   def extendSolution(sol: Solution, c: Constraint): (TSubst, Set[Constraint]) = {
     val (res, time) = Util.timed(_extendSolution(sol, c))

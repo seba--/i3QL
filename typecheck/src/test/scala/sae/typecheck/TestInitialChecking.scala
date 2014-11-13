@@ -21,6 +21,7 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
   }
 
   override def afterEach(): Unit = {
+    Util.log(s"Solved ${Constraint.constraintCount} constraints")
     if (Constraint.mergeFreshTime != 0)
       Util.log(f"Time to merge fresh vars was   ${Constraint.mergeFreshTime}%.3fms")
     if (Constraint.renameSolutionTime != 0)
@@ -42,6 +43,7 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
     Constraint.extendSolutionTime = 0
     Constraint.computeReqsTime = 0
     Constraint.allVailableCheckTime = 0
+    Constraint.constraintCount = 0
   }
 
   def testTypeCheck(desc: String, e: Exp, t: Type): Unit = {
@@ -141,14 +143,14 @@ class TestInitialChecking(checker: TypeCheck) extends FunSuite with BeforeAndAft
     case Left(TFun(_, _) ) => true
     case _ => false
   }
-//  testTypeCheck("var-app-unshared tree with height 15", varAppUnshared15) {
-//    case Left(TFun(_, _) ) => true
-//    case _ => false
-//  }
-//  testTypeCheck("var-app-unshared tree with height 20", varAppUnshared20) {
-//    case Left(TFun(_, _) ) => true
-//    case _ => false
-//  }
+  testTypeCheck("var-app-unshared tree with height 15", varAppUnshared15) {
+    case Left(TFun(_, _) ) => true
+    case _ => false
+  }
+  testTypeCheck("var-app-unshared tree with height 20", varAppUnshared20) {
+    case Left(TFun(_, _) ) => true
+    case _ => false
+  }
 }
 
 class TestInitialChecking_DownUp extends TestInitialChecking(downup.ConstraintTypeCheck)

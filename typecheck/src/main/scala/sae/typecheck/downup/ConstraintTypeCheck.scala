@@ -27,6 +27,7 @@ object ConstraintTypeCheck extends TypeCheck {
     () =>
       try {
         val (t, cons) = typecheck(e, Map())
+        println(s"Solve ${cons.size} constraints non-incrementally")
         val (s, unres) = Constraint.solve(cons)
         if (unres.isEmpty)
           Left(t.subst(s))
