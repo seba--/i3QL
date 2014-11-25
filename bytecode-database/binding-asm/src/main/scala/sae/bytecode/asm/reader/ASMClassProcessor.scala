@@ -33,6 +33,7 @@
 package sae.bytecode.asm.reader
 
 import org.objectweb.asm._
+import sae.bytecode.BytecodeDatabase
 import sae.bytecode.asm.ASMDatabase
 /*import sae.bytecode.asm.structure.MethodDeclaration
 import sae.bytecode.asm.structure.EnclosingMethodAttribute

@@ -1,5 +1,7 @@
 package sae.analyses.profiler.util
 
+import java.io.InputStream
+
 import sae.bytecode.BytecodeDatabase
 
 /**
@@ -29,4 +31,12 @@ class BytecodeDatabaseReader(val database: BytecodeDatabase) extends DatabaseRea
 	def fieldCount: Int = fields.size
 	def instructionCount: Int = instructions.size
 
+	override def addClassFiles(streams: Seq[InputStream]) =
+		database.addClassFiles(streams)
+
+	override def removeClassFiles(streams: Seq[InputStream]) =
+		database.removeClassFiles(streams)
+
+	override def updateClassFiles(oldStreams: Seq[InputStream], newStreams: Seq[InputStream]) =
+		database.updateClassFiles(oldStreams, newStreams)
 }

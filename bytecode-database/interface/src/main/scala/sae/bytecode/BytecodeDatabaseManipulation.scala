@@ -32,6 +32,8 @@
  */
 package sae.bytecode
 
+import java.io.InputStream
+
 /**
  *
  * @author Ralf Mitschke
@@ -49,5 +51,11 @@ trait BytecodeDatabaseManipulation
     def addArchive (stream: java.io.InputStream)
 
     def removeArchive (stream: java.io.InputStream)
+
+	def addClassFiles (streams : Seq[InputStream])
+
+	def removeClassFiles (streams : Seq[InputStream])
+
+	def updateClassFiles (oldStreams : Seq[InputStream], newStreams : Seq[InputStream])
 
 }

@@ -30,33 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.asm.reader
+package sae.bytecode
 
-import org.objectweb.asm.{FieldVisitor, Opcodes}
-import sae.bytecode.BytecodeDatabase
-import sae.bytecode.asm.ASMDatabase
+import sae.bytecode.asm.{ASMBatchDatabase, ASMDatabase}
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait ASMFieldProcessor
+object ASMBatchDatabaseFactory extends BytecodeDatabaseFactory
 {
-    val database: ASMDatabase
-
-    import database._
-
-    def fieldVisitor (fieldDeclaration: FieldDeclaration): FieldVisitor =
-        new ASMFieldVisitor (fieldDeclaration)
-
-    class ASMFieldVisitor (
-        val fieldDeclaration: FieldDeclaration
-    )
-        extends FieldVisitor (Opcodes.ASM4)
-    {
-
-
-    }
-
-
+    def create : BytecodeDatabase = new ASMBatchDatabase ()
 }

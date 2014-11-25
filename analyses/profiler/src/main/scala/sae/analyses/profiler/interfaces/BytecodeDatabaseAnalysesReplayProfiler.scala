@@ -46,12 +46,8 @@ import idb.syntax.iql.compilation.CompilerBinding
  *
  */
 
-abstract class BytecodeDatabaseAnalysesReplayProfiler
-    extends AbstractAnalysesReplayProfiler
-{
+abstract class BytecodeDatabaseAnalysesReplayProfiler {
 	def createBytecodeDatabase : BytecodeDatabase
-
-
 
 	var database : DatabaseReader = null
 	private var bytecodeDatabase : BytecodeDatabase = null
@@ -62,6 +58,7 @@ abstract class BytecodeDatabaseAnalysesReplayProfiler
     def classCount : Int = classDeclarations.size
 
 	var storeResults = false
+
 
 	def getAnalysis(query: String): Relation[_] =
 		analyses (query)

@@ -64,15 +64,9 @@ trait RelationalAlgebraIROptCreateJoin
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] = {
-		print("selection : ")
-		printPrivRel(relation)
-
-
-
         (relation match {
             // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
             case Def (CrossProduct (a, b)) if isDisjunctiveParameterEquality (function) => {
-				println("CP found")
 				equiJoin(a, b, List(createEqualityFunctions(function)))(domainOf(a), domainOf(b))
 			}
 

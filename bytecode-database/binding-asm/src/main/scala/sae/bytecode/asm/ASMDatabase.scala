@@ -59,9 +59,9 @@ class ASMDatabase
     with ASMDatabaseManipulation
 {
 
-    def additionProcessor = AdditionProcessor
+    def additionProcessor : ASMProcessor = AdditionProcessor
 
-    def removalProcessor = RemovalProcessor
+    def removalProcessor : ASMProcessor = RemovalProcessor
 
     object AdditionProcessor extends ASMProcessor
     {

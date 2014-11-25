@@ -112,7 +112,7 @@ class ReplayReader(val location: File)
     }
 
     /**
-     * @return: a list with all Events in a directory and all sub directories
+     * @return a list with all Events in a directory and all sub directories
      *          sorted by the eventTime
      */
     private def getAllFilesSortedByEventTime(currentLocation: File): Array[ReplayEvent] = {

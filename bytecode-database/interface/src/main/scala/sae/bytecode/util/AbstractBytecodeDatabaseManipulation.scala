@@ -74,6 +74,11 @@ trait AbstractBytecodeDatabaseManipulation
         doEndTransaction ()
     }
 
+	def addClassFiles (streams : Seq[InputStream]) = {
+		streams.foreach(doAddClassFile)
+		doEndTransaction()
+	}
+
     def removeArchive (stream: InputStream) {
         processArchive (stream, removeClassFile)
     }
@@ -83,9 +88,20 @@ trait AbstractBytecodeDatabaseManipulation
         doEndTransaction ()
     }
 
+	def removeClassFiles (streams : Seq[InputStream]) = {
+		streams.foreach (doRemoveClassFile)
+		doEndTransaction()
+	}
+
     def updateClassFile (oldStream: InputStream, newStream: InputStream) {
         doAddClassFile (newStream)
         doRemoveClassFile (oldStream)
         doEndTransaction ()
     }
+
+	def updateClassFiles (oldStreams : Seq[InputStream], newStreams : Seq[InputStream]) = {
+ 		oldStreams.foreach(doRemoveClassFile)
+		newStreams.foreach(doAddClassFile)
+		doEndTransaction()
+	}
 }

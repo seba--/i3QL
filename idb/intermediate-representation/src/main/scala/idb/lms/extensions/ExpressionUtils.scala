@@ -96,7 +96,6 @@ trait ExpressionUtils
             case _ => Set.empty[Exp[Any]]
         }
         val startResult = search.filter ((_: Exp[Any]) == e)
-		println("search: " + search)
         startResult.union (findSymsRec (e, search.asInstanceOf[Set[Exp[Any]]], traversed))
     }
 

@@ -163,28 +163,20 @@ trait FunctionUtils
 
 
     def isDisjunctiveParameterEquality[A] (function: Exp[A => Boolean]): Boolean = {
-		println("=== Parameter Equality ===")
         var params = parameters (function)
-		println("params = " + params)
         if (params.size != 2) {
-			println("params.size != 2 ==> false")
             return false
         }
 
         val b = body (function)
-		println("body = " + printPriv(b))
 		b match {
             case Def (Equal (lhs, rhs)) => {
                 val usedByLeft = findSyms (lhs)(params.toSet)
-				println("usedByLeft = " + usedByLeft)
                 val usedByRight = findSyms (rhs)(params.toSet)
-				println("usedByRight = " + usedByRight)
 				val bool = usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
-				println("body is Equal(l,r) ==> " + bool)
 				bool
             }
             case _ => {
-				println("body no Equal(l,r) ==> false")
 				false
 			}
         }
