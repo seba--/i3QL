@@ -162,24 +162,43 @@ trait FunctionUtils
 	}
 
 
-    def isDisjunctiveParameterEquality[A] (function: Exp[A => Boolean]): Boolean = {
-        var params = parameters (function)
-        if (params.size != 2) {
-            return false
-        }
+    def isDisjunctiveParameterEquality[A,B,C](function: Exp[A => Boolean])(implicit mDomX : Manifest[B], mDomY : Manifest[C]): Boolean = {
+        val params = parameters (function)
+		val b = body (function)
 
-        val b = body (function)
-		b match {
-            case Def (Equal (lhs, rhs)) => {
-                val usedByLeft = findSyms (lhs)(params.toSet)
-                val usedByRight = findSyms (rhs)(params.toSet)
-				val bool = usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
-				bool
-            }
-            case _ => {
-				false
+		//If function has one parameter that is a tuple
+		//Type of function: Tuple2[B,C] => Boolean
+        if (params.size == 1 && isTuple2Manifest(params(0).tp)) {
+
+			val t = params(0).asInstanceOf[Exp[Tuple2[B,C]]]
+			val tupledParams = scala.collection.immutable.Set(t._1, t._2)
+			b match {
+				case Def (Equal (lhs, rhs)) =>
+					val usedByLeft = findSyms (lhs)(tupledParams)
+					val usedByRight = findSyms (rhs)(tupledParams)
+					return usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+
+				case _ =>
+					return false
+
 			}
-        }
+		//... else if the function has two parameters
+		} else if (params.size == 2) {
+
+			b match {
+				case Def (Equal (lhs, rhs)) =>
+					val usedByLeft = findSyms (lhs)(params.toSet)
+					val usedByRight = findSyms (rhs)(params.toSet)
+					val bool = usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+					return bool
+
+				case _ =>
+					return false
+
+			}
+        } else {
+			return false
+		}
     }
 
 
@@ -390,13 +409,14 @@ trait FunctionUtils
         case Def(Reify(e, _, ef)) => s"reify(${printExp(e)}, {${printEffects(ef)}})"
         case Def(Equal(e1, e2)) => s"${printExp(e1)} == ${printExp(e2)}"
         //    case Def(Field(a)) => a
+	//	case Def(Tuple2Access1(t)) => s"Tuple2._1(${printExp(t)})"
         case Const(c) => c.toString
         case Def(d) => d.toString
     }
 
     def printFun[A,B](function: Rep[Function[A,B]]): String = function match {
         case Def (Lambda (_, x, body)) =>
-            s"(${x.tp.toString()} => ${printExp(body.res)}})"
+            s"(${x.tp.toString()})[${parameter(function)}] => ${printExp(body.res)}})"
         case Const (c) => c.toString
         case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
     }

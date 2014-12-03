@@ -47,7 +47,7 @@ trait AbstractTestAnalysesOnJDK
 
     def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
-    def getDatabase = ASMDatabaseFactory.create ()
+    def getDatabase = ASMDatabaseFactory.create
 
 	def executeAnalysis(analysis : (BytecodeDatabase => Relation[_]), expectedMatches : Int) {
 

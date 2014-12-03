@@ -46,64 +46,85 @@ import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
  */
 
 trait RelationalAlgebraIROptCreateJoin
-    extends RelationalAlgebraIRBasicOperators
-    with TupledFunctionsExp
-    with EqualExp
-    with FunctionUtils
-    with FunctionsExpDynamicLambdaAlphaEquivalence
-{
+	extends RelationalAlgebraIRBasicOperators
+	with TupledFunctionsExp
+	with EqualExp
+	with FunctionUtils
+	with FunctionsExpDynamicLambdaAlphaEquivalence {
 
-	def printPrivRel(q : Rep[Query[_]]) = q match {
-		case Def(d) => println(d)
-		case _ => println(q)
+
+	override def selection[Domain: Manifest](
+		relation: Rep[Query[Domain]],
+		function: Rep[Domain => Boolean]
+	): Rep[Query[Domain]] = {
+		(relation match {
+			// rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
+			case Def(c@CrossProduct(a, b)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) => {
+				equiJoin(a, b, List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB)
+			}
+
+			// add further equality tests to the join
+			case Def(c@EquiJoin(a, b, xs)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) =>
+				equiJoin(a, b, xs ::: List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB)
+
+			case _ => super.selection(relation, function)
+		}).asInstanceOf[Rep[Query[Domain]]]
 	}
 
 
+	def createEqualityFunctions[A,B,C](function: Exp[A => Boolean])(implicit mDomX : Manifest[B], mDomY : Manifest[C]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
+		val params = parameters(function)
+		val b = body(function)
 
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] = {
-        (relation match {
-            // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
-            case Def (CrossProduct (a, b)) if isDisjunctiveParameterEquality (function) => {
-				equiJoin(a, b, List(createEqualityFunctions(function)))(domainOf(a), domainOf(b))
+		if (params.size == 1 && isTuple2Manifest(params(0).tp)) {
+			val t = params(0).asInstanceOf[Exp[Tuple2[B,C]]]
+			val tupledParams = scala.collection.immutable.Set(t._1, t._2)
+
+			b match {
+				case Def(Equal(lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
+					val usedByLeft = findSyms(lhs)(tupledParams)
+					val usedByRight = findSyms(rhs)(tupledParams)
+					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+						throw new IllegalArgumentException(
+							"Expected equality that separates left and right parameter in function " + function)
+					}
+
+					val l = tupledParams.toList
+
+					val x = l(0)
+					val y = l(1)
+					if (usedByLeft == Set(x)) {
+						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+					}
+					else {
+						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+					}
+				}
+				case _ => throw new IllegalArgumentException("Expected equality in function " + function)
 			}
+		} else if (params.size == 2) {
+			 b match {
+				case Def(Equal(lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
+					val usedByLeft = findSyms(lhs)(params.toSet)
+					val usedByRight = findSyms(rhs)(params.toSet)
+					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+						throw new IllegalArgumentException(
+							"Expected equality that separates left and right parameter in function " + function)
+					}
+					val x = params(0)
+					val y = params(1)
+					if (usedByLeft == Set(x)) {
+						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+					}
+					else {
+						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+					}
+				}
+				case _ => throw new IllegalArgumentException("Expected equality in function " + function)
+			}
+		}
 
-            // add further equality tests to the join
-            case Def (EquiJoin (a, b, xs)) if isDisjunctiveParameterEquality (function) =>
-                equiJoin (a, b, xs ::: List(createEqualityFunctions (function)) )(domainOf(a), domainOf(b))
+		throw new IllegalArgumentException("Expected two parameters or Tuple2 parameter for function " + function)
 
-            case _ => super.selection (relation, function)
-        }).asInstanceOf[Rep[Query[Domain]]]
-    }
-
-
-
-    def createEqualityFunctions[A, B] (function: Exp[A => Boolean]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
-        val params = parameters (function)
-        if (params.size != 2) {
-            throw new IllegalArgumentException ("Expected two parameters for function " + function)
-        }
-        body (function) match {
-            case Def (Equal (lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
-                val usedByLeft = findSyms (lhs)(params.toSet)
-                val usedByRight = findSyms (rhs)(params.toSet)
-                if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
-                    throw new IllegalArgumentException (
-                        "Expected equality that separates left and right parameter in function " + function)
-                }
-                val x = params (0)
-                val y = params (1)
-                if (usedByLeft == Set (x)) {
-                    (dynamicLambda (x, lhs), dynamicLambda (y, rhs))
-                }
-                else
-                {
-                    (dynamicLambda (x, rhs), dynamicLambda (y, lhs))
-                }
-            }
-            case _ => throw new IllegalArgumentException ("Expected equality in function " + function)
-        }
-    }
+	}
 }

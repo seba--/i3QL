@@ -172,27 +172,30 @@ trait RelationalAlgebraIROptPushSelection
             return (None, None)
         }
 
-    /*  println("---")
-      println(s"params $symsInQuestion")
-      println(s"free: $freeV")
-      println(printFun(function))    */
 
         // TODO Using symsInQuestion(i) below as parameter means that we can have x._1 and x._2 as a parameter.
         // We could change that.
         // However, there is no problem, since there is always a variable (i.e., a Sym) for x._1, i.e., y = x._1
         // Thus function application will replace the whole y.
+
         val functionBody = body (function)
+
+		val sym0 = symsInQuestion (0)
+		val sym1 = symsInQuestion (1)
+
         if (freeV.size == 2) {
-            return (
-                Some (dynamicLambda (symsInQuestion (0), functionBody)),
-                Some (dynamicLambda (symsInQuestion (1), functionBody))
+           return (
+                Some (dynamicLambda (sym0, functionBody)),
+                Some (dynamicLambda (sym1, functionBody))
                 )
         }
 
         symsInQuestion.indexOf (freeV (0)) match {
-            case 0 => (None, Some (dynamicLambda (symsInQuestion (1), functionBody)))
-            case 1 => (Some (dynamicLambda (symsInQuestion (0), functionBody)), None)
+            case 0 => return (None, Some (dynamicLambda (sym1, functionBody)))
+            case 1 => return (Some (dynamicLambda (sym0, functionBody)), None)
         }
+
+		return (None, None)
     }
 
 
