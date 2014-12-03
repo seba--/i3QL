@@ -5,9 +5,8 @@ import sae.bytecode.ASMDatabaseFactory
 /**
  * @author Mirko Köhler
  */
-abstract class AbstractBytcodeDatabaseRunner {
+trait AbstractBytcodeDatabaseRunner extends BytecodeDatabaseAnalysesReplayProfiler with AbstractPropertiesFileReplayProfiler {
 
-	var profiler : BytecodeDatabaseAnalysesReplayProfiler with AbstractPropertiesFileReplayProfiler
 
 	def main(args: Array[String]) {
 		if (args.length == 0) {
@@ -20,9 +19,7 @@ abstract class AbstractBytcodeDatabaseRunner {
 
 			println("Running analyses for properties file " + propertiesFile +"...")
 
-			profiler.execute(propertiesFile)
-
-			profiler = null
+			execute(propertiesFile)
 
 			val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
 			memoryMXBean.gc ()

@@ -242,6 +242,8 @@ class ASMBatchDatabase
 	private def doEndTransaction[A](table : Table[A], listAdd : mutable.ListBuffer[A], listDel : mutable.ListBuffer[A]) {
 		table.addAll(listAdd.result())
 		table.removeAll(listDel.result())
+		listAdd.clear()
+		listDel.clear()
 		table.endTransaction()
 	}
 

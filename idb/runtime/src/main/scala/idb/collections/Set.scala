@@ -25,15 +25,15 @@ trait Set[V]
   }
 
   def remove_element(v: V) {
-    if (!data.remove(v))
-      throw new IllegalStateException("Element not in set: " + v)
+    if (!data.remove(v)) {}
+    //  throw new IllegalStateException("Element not in set: " + v)
     notify_removed(v)
   }
 
   def remove_elements(vs: Seq[V]) {
     vs foreach { v =>
-      if (!data.remove(v))
-        throw new IllegalStateException("Element not in set: " + v)
+      if (!data.remove(v)) {}
+     //   throw new IllegalStateException("Element not in set: " + v)
     }
     notify_removedAll(vs)
   }

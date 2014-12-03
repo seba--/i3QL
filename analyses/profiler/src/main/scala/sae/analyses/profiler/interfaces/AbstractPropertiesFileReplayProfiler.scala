@@ -59,10 +59,10 @@ trait AbstractPropertiesFileReplayProfiler extends PropertiesFileImporter
 		}
 		)
 
-		val warmupIterations = 2//properties.getProperty("sae.warmup.iterations").toInt
+		val warmupIterations = properties.getProperty("sae.warmup.iterations").toInt
 		val warmupLocation = properties.getProperty("sae.warmup.location")
 
-		val measurementIterations = 3//properties.getProperty("sae.benchmark.iterations").toInt
+		val measurementIterations = properties.getProperty("sae.benchmark.iterations").toInt
 		val measurementLocation = properties.getProperty("sae.benchmark.location")
 
 		val queries =
