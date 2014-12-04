@@ -6,7 +6,7 @@ package idb.collections
 trait Set[V]
   extends
   Collection[V] {
-  private var data: java.util.HashSet[V] = new java.util.HashSet[V]()
+  private val data: java.util.HashSet[V] = new java.util.HashSet[V]()
 
   def isSet = true
 
@@ -20,20 +20,20 @@ trait Set[V]
   }
 
   def add_elements(vs: Seq[V]) {
-    val added = vs.filter(data.add(_))
+    val added = vs.filter(data.add)
     notify_addedAll(added)
   }
 
   def remove_element(v: V) {
-    if (!data.remove(v)) {}
-    //  throw new IllegalStateException("Element not in set: " + v)
+    if (!data.remove(v))
+      throw new IllegalStateException("Element not in set: " + v)
     notify_removed(v)
   }
 
   def remove_elements(vs: Seq[V]) {
     vs foreach { v =>
-      if (!data.remove(v)) {}
-     //   throw new IllegalStateException("Element not in set: " + v)
+      if (!data.remove(v))
+        throw new IllegalStateException("Element not in set: " + v)
     }
     notify_removedAll(vs)
   }
