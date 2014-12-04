@@ -14,7 +14,7 @@ object AnalysisRunner {
 
 		val analysisName = args(0)
 
-		val database = ASMDatabaseFactory.create()
+		val database = ASMDatabaseFactory.create
 		val analysis : Relation[_] = new Analyses(database).apply(analysisName)
 
 		val counter = count(analysis)

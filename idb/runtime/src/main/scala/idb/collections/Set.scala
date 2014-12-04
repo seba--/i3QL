@@ -22,9 +22,9 @@ trait Set[V]
     }
 
     def remove_element (v: V) {
-        if (data.remove (v))
-			notify_removed(v)
-        data
+        if (!data.remove (v))
+			    throw new IllegalStateException("Element not in set: " + v)
+        notify_removed(v)
     }
 
     def foreach[U] (f: V => U) {
