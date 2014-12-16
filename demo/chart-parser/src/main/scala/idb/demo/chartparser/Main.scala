@@ -132,6 +132,10 @@ object Main
 
 		override def added(v: A): Unit =
 			println("added : " + v)
+
+		override def removedAll(vs: Seq[A]): Unit = println("addedAll : " + vs)
+
+		override def addedAll(vs: Seq[A]): Unit =  println("removedAll : " + vs)
 	}
 
 }

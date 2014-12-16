@@ -44,9 +44,9 @@ import idb.syntax.iql.IR._
 trait Scanner
     extends ParserSchema
 {
-    val terminals = SetTable.empty[Terminal]()
+    val terminals = SetTable.empty[Terminal]
 
-    val input = SetTable.empty[InputToken]()
+    val input = SetTable.empty[InputToken]
 
     val passiveEdges: Rep[Query[Edge]] =
         SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>

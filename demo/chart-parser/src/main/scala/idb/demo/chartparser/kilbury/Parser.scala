@@ -45,7 +45,7 @@ trait Parser
 {
 
 
-    val productions = SetTable.empty[Production]()
+    val productions = SetTable.empty[Production]
 
     def topLevelCategory: Category
 
