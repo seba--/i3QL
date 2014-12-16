@@ -21,3 +21,7 @@ Single Add
 Batch Add
         Average time for additions = 31.32ms
         Average time for deletions = 527.72ms
+		
+Single Add (no recursion batch)
+        Average time for additions = 0.3125ms
+        Average time for deletions = 461.0208333333333ms
