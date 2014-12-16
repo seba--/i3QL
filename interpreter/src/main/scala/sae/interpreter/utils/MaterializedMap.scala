@@ -1,6 +1,7 @@
 package sae.interpreter.utils
 
-import idb.observer.Observer
+import idb.Relation
+import idb.observer.{NotifyObservers, Observer}
 import com.google.common.collect.ArrayListMultimap
 
 /**
@@ -18,6 +19,11 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 			materializedMap.put(key, value)
 	}
 
+  override def addedAll(vs: Seq[(Key, Value)]) {
+    for (v <- vs)
+      added(v)
+  }
+
 	override def removed(v: (Key, Value)) {
 		materializedMap.remove(v._1, v._2)/* match {
 			case None => throw new IllegalStateException("Value not contained in map: " + v._2)
@@ -25,6 +31,11 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 			case _ => {}
 		}   */
 	}
+
+  def removedAll(vs: Seq[(Key, Value)]): Unit = {
+    for (v <- vs)
+      removed(v)
+  }
 
 	override def updated(oldV: (Key, Value), newV: (Key, Value)): Unit = {
 		if (oldV._1 != newV._1)
@@ -44,8 +55,10 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 
 	def apply(k: Key): Value = {
 		val result = materializedMap.get(k)
-		if (result.size != 1)
+		if (result.size > 1)
 			throw new IllegalStateException("There are more values at this position. Key = " + k + ", Value = " + result)
+		else if (result.size == 0)
+			throw new IllegalStateException("There are no values at this position. Key = " + k)
 		result.get(0)
 	}
 
@@ -61,6 +74,5 @@ class MaterializedMap[Key, Value] extends Observer[(Key, Value)] with PartialFun
 			(e.getKey, e.getValue)
 		}
 	}
-
 
 }

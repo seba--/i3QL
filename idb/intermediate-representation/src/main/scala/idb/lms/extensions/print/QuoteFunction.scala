@@ -64,7 +64,7 @@ trait QuoteFunction
                 stream.print (indent)
                 x match {
                     case UnboxedTuple (xs) => {
-                        stream.print ("(" + xs.map (s => quote (s) + ":" + remap (s.tp)).mkString ("(", ",", ")"))
+                        stream.print ("(" + xs.map (s => quote (s) + ":" + remap (s.tp)).mkString ("(", ",", ")") + ")")
                     }
                     case _ => {
                         stream.print ("(" + quote (x) + ": " + x.tp + ")")

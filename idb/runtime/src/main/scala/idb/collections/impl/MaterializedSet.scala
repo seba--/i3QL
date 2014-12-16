@@ -39,45 +39,49 @@ import idb.observer.{Observable, Observer}
 /**
  * A newResult that materializes all data from the underlying relation into a set
  */
-class MaterializedSet[V] (val relation: Relation[V])
-    extends Set[V]
-    with Observer[V]
-{
+class MaterializedSet[V](val relation: Relation[V])
+  extends Set[V]
+  with Observer[V] {
 
-    relation addObserver this
+  relation addObserver this
 
-    def endTransaction () {
-        notify_endTransaction ()
+  def endTransaction() {
+    notify_endTransaction()
+  }
+
+  override protected def children = List(relation)
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-    override protected def children = List (relation)
-
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
-
-    def lazyInitialize () {
-        relation.foreach (
-            v => add_element (v)
-        )
-    }
+  def lazyInitialize() {
+    relation.foreach(
+      v => add_element(v)
+    )
+  }
 
 
-    def updated (oldV: V, newV: V) {
-        update_element(oldV, newV)
-    }
+  def updated(oldV: V, newV: V) {
+    update_element(oldV, newV)
+  }
 
-    def removed (v: V) {
-        this -= v
-    }
+  def removed(v: V) {
+    this -= v
+  }
 
-    def added (v: V) {
-        this += v
-    }
+  def added(v: V) {
+    this += v
+  }
 
+  def addedAll(vs: Seq[V]): Unit = {
+    this ++= vs
+  }
 
-
+  def removedAll(vs: Seq[V]): Unit = {
+    this --= vs
+  }
 }

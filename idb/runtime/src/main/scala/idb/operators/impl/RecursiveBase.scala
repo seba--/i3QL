@@ -44,63 +44,74 @@ import idb.observer.NotifyObservers
  */
 
 case class RecursiveBase[Domain](relation: Relation[Domain],
-								override val isSet : Boolean)
-    extends Recursive[Domain]
-	with NotifyObservers[Domain]
-{
-    relation.addObserver (this)
+                                 override val isSet: Boolean)
+  extends Recursive[Domain]
+  with NotifyObservers[Domain] {
+  relation.addObserver(this)
 
-    var nextElement: Option[Domain] = None
+  var nextElement: Option[Domain] = None
 
-    var recursiveNotification = false
+  var recursiveNotification = false
 
-	override def lazyInitialize() {
+  override def lazyInitialize() {
 
-	}
+  }
 
-	override def endTransaction() {
-		notify_endTransaction()
-	}
+  override def endTransaction() {
+    notify_endTransaction()
+  }
 
-	override def added(v: Domain) {
-        if (recursiveNotification) {
-            nextElement = Some (v)
-            return
-        }
-
-        recursiveNotification = true
-        notify_added (v)
-		//println("Base -> Added " + v)
-
-        while (nextElement.isDefined) {
-            val next = nextElement.get
-            nextElement = None
-			notify_added (next)
-			//println("Base -> Added " + next)
-        }
-        recursiveNotification = false
+  override def added(v: Domain) {
+    if (recursiveNotification) {
+      nextElement = Some(v)
+      return
     }
 
-	override def removed(v: Domain) {
-        if (recursiveNotification) {
-            nextElement = Some (v)
-            return
-        }
+    recursiveNotification = true
+    notify_added(v)
+    //println("Base -> Added " + v)
 
-        recursiveNotification = true
-		notify_removed (v)
-		//println("Base -> Removed")
+    while (nextElement.isDefined) {
+      val next = nextElement.get
+      nextElement = None
+      notify_added(next)
+      //println("Base -> Added " + next)
+    }
+    recursiveNotification = false
+  }
 
-        while (nextElement.isDefined) {
-            val next = nextElement.get
-            nextElement = None
-			notify_removed (next)
-        }
-        recursiveNotification = false
+  // TODO more efficient version possible?
+  override def addedAll(vs: Seq[Domain]) {
+    println(s"WARNING: Running slow incremental recursive add, size ${vs.size}")
+    vs foreach (added(_))
+  }
+
+  override def removed(v: Domain) {
+    if (recursiveNotification) {
+      nextElement = Some(v)
+      return
     }
 
-	override def updated(oldV: Domain, newV: Domain) {
-        throw new UnsupportedOperationException
+    recursiveNotification = true
+    notify_removed(v)
+    //println("Base -> Removed")
+
+    while (nextElement.isDefined) {
+      val next = nextElement.get
+      nextElement = None
+      notify_removed(next)
     }
+    recursiveNotification = false
+  }
+
+  // TODO more efficient version possible?
+  override def removedAll(vs: Seq[Domain]) {
+    println(s"WARNING: Running slow incremental recursive remove, size ${vs.size}")
+    vs foreach (removed(_))
+  }
+
+  override def updated(oldV: Domain, newV: Domain) {
+    throw new UnsupportedOperationException
+  }
 
 }

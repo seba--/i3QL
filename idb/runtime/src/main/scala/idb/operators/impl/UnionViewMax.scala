@@ -46,104 +46,137 @@ import idb.MaterializedView
  */
 class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: MaterializedView[DomainA],
                                                               val right: MaterializedView[DomainB],
-															  override val isSet : Boolean)
-    extends Union[Range, DomainA, DomainB]
-	with NotifyObservers[Range]
-{
-    left addObserver LeftObserver
-    right addObserver RightObserver
+                                                              override val isSet: Boolean)
+  extends Union[Range, DomainA, DomainB]
+  with NotifyObservers[Range] {
+  left addObserver LeftObserver
+  right addObserver RightObserver
 
 
-	override def lazyInitialize() {
+  override def lazyInitialize() {
 
-	}
+  }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left) {
-            return List (LeftObserver)
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == left) {
+      return List(LeftObserver)
+    }
+    if (o == right) {
+      return List(RightObserver)
+    }
+    Nil
+  }
+
+
+  def foreach[T](f: (Range) => T) {
+    left.foreach(
+      (v: Range) => {
+        val max = scala.math.max(left.count(v), right.count(v))
+        var i = 0
+        while (i < max) {
+          f(v)
+          i += 1
         }
-        if (o == right) {
-            return List (RightObserver)
-        }
-        Nil
+      }
+    )
+  }
+
+  object LeftObserver extends Observer[DomainA] {
+
+    override def endTransaction() {
+      notify_endTransaction()
     }
 
-
-    def foreach[T](f: (Range) => T) {
-        left.foreach (
-            (v: Range) =>
-            {
-                val max = scala.math.max (left.count (v), right.count (v))
-                var i = 0
-                while (i < max) {
-                    f (v)
-                    i += 1
-                }
-            }
-        )
+    def updated(oldV: DomainA, newV: DomainA) {
+      if (oldV == newV)
+        return
+      // if we assume that update means all instances are updated this is correct
+      notify_updated(oldV, newV)
     }
 
-    object LeftObserver extends Observer[DomainA]
-    {
-
-		override def endTransaction() {
-			notify_endTransaction()
-		}
-
-        def updated(oldV: DomainA, newV: DomainA) {
-            if (oldV == newV)
-                return
-            // if we assume that update means all instances are updated this is correct
-            notify_updated (oldV, newV)
-        }
-
-        def removed(v: DomainA) {
-            val oldCount = left.count (v) +1
-            val rightCount = right.count (v)
-            if (rightCount < oldCount - 1) {
-				notify_removed (v)
-            }
-        }
-
-        def added(v: DomainA) {
-            val oldCount = left.count (v) - 1
-            val rightCount = right.count (v)
-            if (rightCount < oldCount + 1) {
-				notify_added (v)
-            }
-        }
-
+    def removed(v: DomainA) {
+      val oldCount = left.count(v) + 1
+      val rightCount = right.count(v)
+      if (rightCount < oldCount - 1) {
+        notify_removed(v)
+      }
     }
 
-    object RightObserver extends Observer[DomainB] {
-
-		override def endTransaction() {
-			notify_endTransaction()
-		}
-
-        // update operations on right relation
-        def updated(oldV: DomainB, newV: DomainB) {
-            if (oldV == newV)
-                return
-            // if we assume that update means all instances are updated this is correct
-			notify_updated (oldV, newV)
-        }
-
-        def removed(v: DomainB) {
-            val leftCount = left.count (v)
-            val oldCount = right.count (v) + 1
-            if (leftCount < oldCount - 1) {
-				notify_removed (v)
-            }
-        }
-
-        def added(v: DomainB) {
-            val leftCount = left.count (v)
-            val oldCount = right.count (v) -1
-            if (leftCount < oldCount + 1) {
-				notify_added (v)
-            }
-        }
+    def removedAll(vs: Seq[DomainA]) {
+      val removed = vs filter {v =>
+        val oldCount = left.count(v) + 1
+        val rightCount = right.count(v)
+        rightCount < oldCount - 1
+      }
+      notify_removedAll(removed)
     }
+
+    def added(v: DomainA) {
+      val oldCount = left.count(v) - 1
+      val rightCount = right.count(v)
+      if (rightCount < oldCount + 1) {
+        notify_added(v)
+      }
+    }
+
+    def addedAll(vs: Seq[DomainA]) {
+      val added = vs filter {v =>
+        val oldCount = left.count(v) - 1
+        val rightCount = right.count(v)
+        rightCount < oldCount + 1
+      }
+      notify_addedAll(added)
+    }
+
+  }
+
+  object RightObserver extends Observer[DomainB] {
+
+    override def endTransaction() {
+      notify_endTransaction()
+    }
+
+    // update operations on right relation
+    def updated(oldV: DomainB, newV: DomainB) {
+      if (oldV == newV)
+        return
+      // if we assume that update means all instances are updated this is correct
+      notify_updated(oldV, newV)
+    }
+
+    def removed(v: DomainB) {
+      val leftCount = left.count(v)
+      val oldCount = right.count(v) + 1
+      if (leftCount < oldCount - 1) {
+        notify_removed(v)
+      }
+    }
+
+    def removedAll(vs: Seq[DomainB]) {
+      val removed = vs filter {v =>
+        val leftCount = left.count(v)
+        val oldCount = right.count(v) + 1
+        leftCount < oldCount - 1
+      }
+      notify_removedAll(removed)
+    }
+
+    def added(v: DomainB) {
+      val leftCount = left.count(v)
+      val oldCount = right.count(v) - 1
+      if (leftCount < oldCount + 1) {
+        notify_added(v)
+      }
+    }
+
+    def addedAll(vs: Seq[DomainB]) {
+      val added = vs filter {v =>
+        val leftCount = left.count(v)
+        val oldCount = right.count(v) - 1
+        leftCount < oldCount + 1
+      }
+      notify_addedAll(added)
+    }
+  }
 
 }

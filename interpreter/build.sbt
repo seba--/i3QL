@@ -9,6 +9,14 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
+scalaVersion := "2.10.2-RC2"
+
+scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
+
 libraryDependencies ++= Seq(
-	"EPFL" %% "lms" % "latest.integration"
+	"EPFL" %% "lms" % "latest.integration",
+  "de.tud.cs.st" %% "idb-syntax-iql" % "latest.integration",
+  "de.tud.cs.st" %% "idb-runtime" % "latest.integration"
 )
+
+libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.2.1" % "test"

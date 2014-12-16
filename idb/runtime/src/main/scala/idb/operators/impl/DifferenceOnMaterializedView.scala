@@ -120,13 +120,24 @@ class DifferenceOnMaterializedView[Domain](val left: MaterializedView[Domain],
             }
         }
 
-        def added(v: Domain) {
+      def removedAll(vs: Seq[Domain]) {
+        // check that this was a removal where we still had more elements than right side
+        val removed = vs filter (v => left.count (v) >= right.count (v))
+        notify_removedAll(removed)
+      }
+
+      def added(v: Domain) {
             // check that this was an addition where we did not have less elements than right side
             if (left.count (v) > right.count (v)) {
                 notify_added (v)
             }
         }
 
+      def addedAll(vs: Seq[Domain]) {
+        // check that this was an addition where we did not have less elements than right side
+        val added = vs filter (v => left.count (v) > right.count (v))
+        notify_addedAll(added)
+      }
 
     }
 
@@ -165,12 +176,24 @@ class DifferenceOnMaterializedView[Domain](val left: MaterializedView[Domain],
             }
         }
 
+      def removedAll(vs: Seq[Domain]) {
+        // check that this was the last removal of an element not in left side
+        val added = vs filter (v => left.count (v) > right.count (v))
+        notify_addedAll(added)
+      }
+
         def added(v: Domain) {
             // check that this was an addition where we have more or equal amount of elements compared to left side
             if (left.count (v) >= right.count (v)) {
                 notify_removed (v)
             }
         }
+
+      def addedAll(vs: Seq[Domain]) {
+        // check that this was an addition where we have more or equal amount of elements compared to left side
+        val removed = vs filter (v => left.count (v) >= right.count (v))
+        notify_removedAll(removed)
+      }
     }
 
 

@@ -42,31 +42,40 @@ import idb.observer.Observer
  */
 
 trait TransactionKeyValueObserver[Key, Domain]
-    extends Observer[Domain]
-{
+  extends Observer[Domain] {
 
-    def keyFunc : Domain => Key
+  def keyFunc: Domain => Key
 
-    var additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+  var additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
 
-    var deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+  var deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
 
-    def clear() {
-        additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
-        deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
-    }
+  def clear() {
+    additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+    deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+  }
 
-    // update operations on right relation
-    override def updated(oldV: Domain, newV: Domain) {
-        removed(oldV)
-        added(newV)
-    }
+  // update operations on right relation
+  override def updated(oldV: Domain, newV: Domain) {
+    removed(oldV)
+    added(newV)
+  }
 
-    override def removed(v: Domain) {
-        deletions.put (keyFunc (v), v)
-    }
+  override def removed(v: Domain) {
+    deletions.put(keyFunc(v), v)
+  }
 
-    override def added(v: Domain) {
-        additions.put (keyFunc (v), v)
-    }
+  override def removedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      deletions.put(keyFunc(v), v)
+  }
+
+  override def added(v: Domain) {
+    additions.put(keyFunc(v), v)
+  }
+
+  override def addedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      additions.put(keyFunc(v), v)
+  }
 }

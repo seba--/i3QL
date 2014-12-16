@@ -73,7 +73,6 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 		}
 
 		override def removed(v: DomainA) {
-
 			if (leftSet.remove(v)) {
 				val it = rightSet.iterator()
 				while(it.hasNext) {
@@ -85,7 +84,19 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 			}
 		}
 
-		override def added(v: DomainA) {
+    override def removedAll(vs: Seq[DomainA]) {
+      vs foreach (v => if(!leftSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
+
+      var removed = Seq[Range]()
+      val it = rightSet.iterator()
+      while(it.hasNext) {
+        val b = it.next
+        removed = removed ++ vs.map(projection(_, b))
+      }
+      notify_removedAll(removed)
+    }
+
+    override def added(v: DomainA) {
 			leftSet.add(v)
 			val it = rightSet.iterator()
 			while(it.hasNext) {
@@ -93,6 +104,19 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 				notify_added(projection(v,b))
 			}
 		}
+
+    override def addedAll(vs: Seq[DomainA]) {
+      for (v <- vs)
+        leftSet.add(v)
+
+      var added = Seq[Range]()
+      val it = rightSet.iterator()
+      while(it.hasNext) {
+        val b = it.next
+        added = added ++ vs.map(projection(_,b))
+      }
+      notify_addedAll(added)
+    }
 	}
 
 	object RightObserver extends Observer[DomainB] {
@@ -128,7 +152,19 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 			}
 		}
 
-		override def added(v: DomainB) {
+    override def removedAll(vs: Seq[DomainB]) {
+      vs foreach (v => if(!rightSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
+
+      var removed = Seq[Range]()
+      val it = leftSet.iterator()
+      while(it.hasNext) {
+        val a = it.next
+        removed = removed ++ vs.map(projection(a,_))
+      }
+      notify_removedAll(removed)
+    }
+
+    override def added(v: DomainB) {
 			rightSet.add(v)
 			val it = leftSet.iterator()
 			while(it.hasNext) {
@@ -136,6 +172,19 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 				notify_added(projection(a,v))
 			}
 		}
+
+    override def addedAll(vs: Seq[DomainB]) {
+      for (v <- vs)
+        rightSet.add(v)
+
+      var added = Seq[Range]()
+      val it = leftSet.iterator()
+      while(it.hasNext) {
+        val a = it.next
+        added = added ++ vs.map(projection(a,_))
+      }
+      notify_addedAll(added)
+    }
 	}
 
 

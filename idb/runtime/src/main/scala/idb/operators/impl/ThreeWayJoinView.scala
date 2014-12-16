@@ -40,219 +40,254 @@ import idb.{Index, Relation}
 class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: Relation[DomainA],
                                                                      val middle: Relation[DomainB],
                                                                      val right: Relation[DomainC],
-																	 val leftIndex : Index[KeyA,DomainA],
-																	 val middleToLeftIndex : Index[KeyA,DomainB],
-                                                                     val middleToRightIndex : Index[KeyC,DomainB],
-																	 val rightIndex : Index[KeyC,DomainC],
+                                                                     val leftIndex: Index[KeyA, DomainA],
+                                                                     val middleToLeftIndex: Index[KeyA, DomainB],
+                                                                     val middleToRightIndex: Index[KeyC, DomainB],
+                                                                     val rightIndex: Index[KeyC, DomainC],
                                                                      val projection: (DomainA, DomainB, DomainC) => Range,
-																	override val isSet : Boolean)
-    extends ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
-	with NotifyObservers[Range]
-{
+                                                                     override val isSet: Boolean)
+  extends ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
+  with NotifyObservers[Range] {
 
 
-    // we observe the indices, but the indices are not part of the observer chain
-    // indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
+  // we observe the indices, but the indices are not part of the observer chain
+  // indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
 
-	val leftKey: DomainA => KeyA = leftIndex.keyFunction
-	val middleToLeftKey: DomainB => KeyA = middleToLeftIndex.keyFunction
-	val middleToRightKey: DomainB => KeyC = middleToRightIndex.keyFunction
-	val rightKey: DomainC => KeyC = rightIndex.keyFunction
+  val leftKey: DomainA => KeyA = leftIndex.keyFunction
+  val middleToLeftKey: DomainB => KeyA = middleToLeftIndex.keyFunction
+  val middleToRightKey: DomainB => KeyC = middleToRightIndex.keyFunction
+  val rightKey: DomainC => KeyC = rightIndex.keyFunction
 
-    leftIndex addObserver LeftObserver
+  leftIndex addObserver LeftObserver
 
-    middleToLeftIndex addObserver MiddleToLeftObserver
+  middleToLeftIndex addObserver MiddleToLeftObserver
 
-    middleToRightIndex addObserver MiddleToRightObserver
+  middleToRightIndex addObserver MiddleToRightObserver
 
-    rightIndex addObserver RightObserver
+  rightIndex addObserver RightObserver
 
-    override def children = List (leftIndex, middleToLeftIndex, middleToRightIndex, rightIndex)
+  override def children = List(leftIndex, middleToLeftIndex, middleToRightIndex, rightIndex)
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == leftIndex) {
-            return List (LeftObserver)
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == leftIndex) {
+      return List(LeftObserver)
+    }
+    if (o == middleToLeftIndex) {
+      return List(MiddleToLeftObserver)
+    }
+    if (o == middleToRightIndex) {
+      return List(MiddleToRightObserver)
+    }
+    if (o == rightIndex) {
+      return List(RightObserver)
+    }
+    Nil
+  }
+
+  override def lazyInitialize() {
+
+  }
+
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: (Range) => T) {
+    threeWayJoin(f)
+  }
+
+
+  private def threeWayJoin[T](f: (Range) => T) {
+    leftIndex.foreach {
+      case (key, v) =>
+        joinOnLeft(v, key) map f
+    }
+  }
+
+  private def joinOnLeft[T](v: DomainA, key: KeyA): Seq[Range] = {
+    var changed = Seq[Range]()
+    if (middleToLeftIndex.contains(key)) {
+      val middleElements = middleToLeftIndex.get(key).get
+      for (middle <- middleElements) {
+        val rightKey = middleToRightKey(middle)
+        if (middleToRightIndex.contains(rightKey) && rightIndex.contains(rightKey)) {
+          val rightElements = rightIndex.get(rightKey).get
+          for (right <- rightElements) {
+            changed = projection(v, middle, right) +: changed
+          }
         }
-        if (o == middleToLeftIndex) {
-            return List (MiddleToLeftObserver)
+      }
+    }
+    changed
+  }
+
+  private def joinOnMiddleToLeft[T](v: DomainB, leftKey: KeyA): Seq[Range] = {
+    var changed = Seq[Range]()
+    val rightKey = middleToRightKey(v)
+    if (middleToRightIndex.contains(rightKey) && middleToRightIndex.get(rightKey).get.exists(_ == v) && leftIndex.contains(leftKey) && rightIndex.contains(rightKey)) {
+      val leftElements = leftIndex.get(leftKey).get
+      val rightElements = rightIndex.get(rightKey).get
+      for (left <- leftElements; right <- rightElements) {
+        changed = projection(left, v, right) +: changed
+      }
+    }
+    changed
+  }
+
+  private def joinOnMiddleToRight[T](v: DomainB, rightKey: KeyC): Seq[Range] = {
+    var changed = Seq[Range]()
+    val leftKey = middleToLeftKey(v)
+    if (middleToLeftIndex.contains(leftKey) && middleToLeftIndex.get(leftKey).get.exists(_ == v) && leftIndex.contains(leftKey) && rightIndex.contains(rightKey)) {
+      val leftElements = leftIndex.get(leftKey).get
+      val rightElements = rightIndex.get(rightKey).get
+      for (left <- leftElements; right <- rightElements) {
+        changed = projection(left, v, right) +: changed
+      }
+    }
+    changed
+  }
+
+
+  private def joinOnRight[T](v: DomainC, key: KeyC): Seq[Range] = {
+    var changed = Seq[Range]()
+    if (middleToRightIndex.contains(key)) {
+      val middleElements = middleToRightIndex.get(key).get
+      for (middle <- middleElements) {
+        val leftKey = middleToLeftKey(middle)
+        if (middleToLeftIndex.contains(leftKey) && leftIndex.contains(leftKey)) {
+          val leftElements = leftIndex.get(leftKey).get
+          for (left <- leftElements) {
+            changed = projection(left, middle, v) +: changed
+          }
         }
-        if (o == middleToRightIndex) {
-            return List (MiddleToRightObserver)
-        }
-        if (o == rightIndex) {
-            return List (RightObserver)
-        }
-        Nil
+      }
+    }
+    changed
+  }
+
+  object LeftObserver extends Observer[(KeyA, DomainA)] {
+
+    override def endTransaction() {
+      notify_endTransaction()
     }
 
-	override def lazyInitialize() {
-
-	}
-
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        threeWayJoin (f)
+    // update operations on left relation
+    def updated(oldKV: (KeyA, DomainA), newKV: (KeyA, DomainA)) {
+      throw new UnsupportedOperationException
     }
 
-
-    private def threeWayJoin[T](f: (Range) => T) {
-        leftIndex.foreach {
-            case (key, v) =>
-                joinOnLeft (v, key, f)
-        }
+    def removed(kv: (KeyA, DomainA)) {
+      val removed = joinOnLeft(kv._2, kv._1)
+      notify_removedAll(removed)
     }
 
-    private def joinOnLeft[T](v: DomainA,
-                              key: KeyA,
-                              f: (Range) => T)
-    {
-        if (middleToLeftIndex.contains (key)) {
-            val middleElements = middleToLeftIndex.get (key).get
-            for (middle <- middleElements) {
-                val rightKey = middleToRightKey (middle)
-                if (middleToRightIndex.contains(rightKey) && rightIndex.contains (rightKey)) {
-                    val rightElements = rightIndex.get (rightKey).get
-                    for (right <- rightElements) {
-                        f (projection (v, middle, right))
-                    }
-                }
-
-            }
-        }
+    def removedAll(kvs: Seq[(KeyA, DomainA)]) {
+      val removed = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnLeft(kv._2, kv._1))
+      notify_removedAll(removed)
     }
 
-    private def joinOnMiddleToLeft[T](v: DomainB,
-                                      leftKey: KeyA,
-                                      f: (Range) => T)
-    {
-
-        val rightKey = middleToRightKey (v)
-        if (middleToRightIndex.contains(rightKey) && middleToRightIndex.get(rightKey).get.exists(_ == v) && leftIndex.contains (leftKey) && rightIndex.contains (rightKey)) {
-            val leftElements = leftIndex.get (leftKey).get
-            val rightElements = rightIndex.get (rightKey).get
-            for (left <- leftElements; right <- rightElements) {
-                f (projection (left, v, right))
-            }
-        }
+    def added(kv: (KeyA, DomainA)) {
+      val added = joinOnLeft(kv._2, kv._1)
+      notify_addedAll(added)
     }
 
-    private def joinOnMiddleToRight[T](v: DomainB,
-                                       rightKey: KeyC,
-                                       f: (Range) => T)
-    {
-        val leftKey = middleToLeftKey (v)
-        if (middleToLeftIndex.contains(leftKey) && middleToLeftIndex.get(leftKey).get.exists(_ == v) && leftIndex.contains (leftKey) && rightIndex.contains (rightKey)) {
-            val leftElements = leftIndex.get (leftKey).get
-            val rightElements = rightIndex.get (rightKey).get
-            for (left <- leftElements; right <- rightElements) {
-                f (projection (left, v, right))
-            }
-        }
+    def addedAll(kvs: Seq[(KeyA, DomainA)]) {
+      val added = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnLeft(kv._2, kv._1))
+      notify_addedAll(added)
+    }
+  }
+
+  object MiddleToLeftObserver extends Observer[(KeyA, DomainB)] {
+
+    override def endTransaction() {
+      notify_endTransaction()
     }
 
-
-    private def joinOnRight[T](v: DomainC,
-                               key: KeyC,
-                               f: (Range) => T)
-    {
-        if (middleToRightIndex.contains (key)) {
-            val middleElements = middleToRightIndex.get (key).get
-            for (middle <- middleElements) {
-                val leftKey = middleToLeftKey (middle)
-                if (middleToLeftIndex.contains(leftKey) && leftIndex.contains (leftKey)) {
-                    val leftElements = leftIndex.get (leftKey).get
-                    for (left <- leftElements) {
-                        f (projection (left, middle, v))
-                    }
-                }
-
-            }
-        }
+    def updated(oldKV: (KeyA, DomainB), newKV: (KeyA, DomainB)) {
+      throw new UnsupportedOperationException
     }
 
-    object LeftObserver extends Observer[(KeyA, DomainA)]
-    {
-
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
-
-        // update operations on left relation
-        def updated(oldKV: (KeyA, DomainA), newKV: (KeyA, DomainA)) {
-            throw new UnsupportedOperationException
-        }
-
-        def removed(kv: (KeyA, DomainA)) {
-            joinOnLeft (kv._2, kv._1, notify_removed)
-        }
-
-        def added(kv: (KeyA, DomainA)) {
-            joinOnLeft (kv._2, kv._1, notify_added)
-        }
+    def removed(kv: (KeyA, DomainB)) {
+      val removed = joinOnMiddleToLeft(kv._2, kv._1)
+      notify_removedAll(removed)
     }
 
-    object MiddleToLeftObserver extends Observer[(KeyA, DomainB)]
-    {
-
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
-
-        def updated(oldKV: (KeyA, DomainB), newKV: (KeyA, DomainB)) {
-            throw new UnsupportedOperationException
-        }
-
-        def removed(kv: (KeyA, DomainB)) {
-            joinOnMiddleToLeft (kv._2, kv._1, notify_removed)
-        }
-
-        def added(kv: (KeyA, DomainB)) {
-            joinOnMiddleToLeft (kv._2, kv._1, notify_added)
-        }
+    def removedAll(kvs: Seq[(KeyA, DomainB)]) {
+      val removed = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnMiddleToLeft(kv._2, kv._1))
+      notify_removedAll(removed)
     }
 
-    object MiddleToRightObserver extends Observer[(KeyC, DomainB)]
-    {
-
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
-
-        def updated(oldKV: (KeyC, DomainB), newKV: (KeyC, DomainB)) {
-            throw new UnsupportedOperationException
-        }
-
-        def removed(kv: (KeyC, DomainB)) {
-            joinOnMiddleToRight (kv._2, kv._1, notify_removed)
-        }
-
-        def added(kv: (KeyC, DomainB)) {
-            joinOnMiddleToRight (kv._2, kv._1, notify_added)
-        }
-
+    def added(kv: (KeyA, DomainB)) {
+      val added = joinOnMiddleToLeft(kv._2, kv._1)
+      notify_addedAll(added)
     }
 
-
-    object RightObserver extends Observer[(KeyC, DomainC)]
-    {
-
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
-
-        def updated(oldKV: (KeyC, DomainC), newKV: (KeyC, DomainC)) {
-            throw new UnsupportedOperationException
-        }
-
-        def removed(kv: (KeyC, DomainC)) {
-            joinOnRight (kv._2, kv._1, notify_removed)
-        }
-
-        def added(kv: (KeyC, DomainC)) {
-            joinOnRight (kv._2, kv._1, notify_added)
-        }
+    def addedAll(kvs: Seq[(KeyA, DomainB)]) {
+      val added = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnMiddleToLeft(kv._2, kv._1))
+      notify_addedAll(added)
     }
+  }
+
+  object MiddleToRightObserver extends Observer[(KeyC, DomainB)] {
+
+    override def endTransaction() {
+      notify_endTransaction()
+    }
+
+    def updated(oldKV: (KeyC, DomainB), newKV: (KeyC, DomainB)) {
+      throw new UnsupportedOperationException
+    }
+
+    def removed(kv: (KeyC, DomainB)) {
+      val removed = joinOnMiddleToRight(kv._2, kv._1)
+      notify_removedAll(removed)
+    }
+
+    def removedAll(kvs: Seq[(KeyC, DomainB)]) {
+      val removed = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnMiddleToRight(kv._2, kv._1))
+      notify_removedAll(removed)
+    }
+
+    def added(kv: (KeyC, DomainB)) {
+      val added = joinOnMiddleToRight(kv._2, kv._1)
+      notify_addedAll(added)
+    }
+
+    def addedAll(kvs: Seq[(KeyC, DomainB)]) {
+      val added = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnMiddleToRight(kv._2, kv._1))
+      notify_addedAll(added)
+    }
+  }
+
+
+  object RightObserver extends Observer[(KeyC, DomainC)] {
+
+    override def endTransaction() {
+      notify_endTransaction()
+    }
+
+    def updated(oldKV: (KeyC, DomainC), newKV: (KeyC, DomainC)) {
+      throw new UnsupportedOperationException
+    }
+
+    def removed(kv: (KeyC, DomainC)) {
+      val removed = joinOnRight(kv._2, kv._1)
+      notify_removedAll(removed)
+    }
+
+    def removedAll(kvs: Seq[(KeyC, DomainC)]) {
+      val removed = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnRight(kv._2, kv._1))
+      notify_removedAll(removed)
+    }
+
+    def added(kv: (KeyC, DomainC)) {
+      val added = joinOnRight(kv._2, kv._1)
+      notify_addedAll(added)
+    }
+
+    def addedAll(kvs: Seq[(KeyC, DomainC)]) {
+      val added = kvs.foldLeft(Seq[Range]())((seq,kv) => seq ++ joinOnRight(kv._2, kv._1))
+      notify_addedAll(added)
+    }
+  }
 
 }

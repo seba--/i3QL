@@ -42,25 +42,81 @@ package idb.observer
  *
  * @author Ralf Mitschke
  */
-trait NotifyObservers[V]
-{
+object NotifyObservers {
+  var indent = 0
+  def spaces = "| " * indent
 
-    protected def observers: Iterable[Observer[Any]]
+  var DEBUG = false
+}
+import NotifyObservers._
 
-    protected def notify_added (v: V) {
-        observers.foreach (_.added (v))
+trait NotifyObservers[V] {
+
+  protected def observers: Iterable[Observer[Any]]
+
+  protected def notify_added(v: V) {
+    observers.foreach(obs =>
+      printed(1, obs) {
+        obs.added(v)
+      }
+    )
+  }
+
+  protected def notify_addedAll(vs: Seq[V]) {
+    if (vs.isEmpty) {
     }
-
-    protected def notify_removed (v: V) {
-        observers.foreach (_.removed (v))
+    else if (vs.size == 1) {
+      val v = vs.head
+      observers.foreach(obs =>
+        printed(1, obs) {
+          obs.added(v)
+        }
+      )
     }
-
-    protected def notify_updated (oldV: V, newV: V) {
-        observers.foreach (_.updated (oldV, newV))
+    else {
+      observers.foreach(obs =>
+        printed(vs.size, obs) {
+          obs.addedAll(vs)
+        }
+      )
     }
+  }
 
-    protected def notify_endTransaction () {
-        observers.foreach (_.endTransaction ())
+  protected def notify_removed(v: V) {
+    observers.foreach(_.removed(v))
+  }
+
+  protected def notify_removedAll(vs: Seq[V]) {
+    if (vs.isEmpty) {
     }
+    else if (vs.size == 1) {
+      val v = vs.head
+      observers.foreach(_.removed(v))
+    }
+    else
+      observers.foreach(_.removedAll(vs))
+  }
+
+  protected def notify_updated(oldV: V, newV: V) {
+    observers.foreach(_.updated(oldV, newV))
+  }
+
+  protected def notify_endTransaction() {
+    observers.foreach(_.endTransaction())
+  }
+
+
+  def printed[T](size: Int, obs: Any)(f: => T): T = {
+    if (!DEBUG)
+      f
+    else {
+      println(s"${spaces}size $size \t${this} -> \t${obs}")
+      indent = indent + 1
+      val t = f
+      indent = indent - 1
+      println(s"${spaces}size $size \t${this} <- \t${obs}")
+      t
+    }
+  }
 
 }

@@ -69,30 +69,60 @@ trait RelationalAlgebraIROptCreateJoin
 
 
 
-    def createEqualityFunctions[A, B] (function: Exp[A => Boolean]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
-        val params = parameters (function)
-        if (params.size != 2) {
-            throw new IllegalArgumentException ("Expected two parameters for function " + function.toString)
-        }
-        body (function) match {
-            case Def (Equal (lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
-                val usedByLeft = findSyms (lhs)(params.toSet)
-                val usedByRight = findSyms (rhs)(params.toSet)
-                if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
-                    throw new IllegalArgumentException (
-                        "Expected equality that separates left and right parameter in function " + function.toString)
-                }
-                val x = params (0)
-                val y = params (1)
-                if (usedByLeft == Set (x)) {
-                    (dynamicLambda (x, lhs), dynamicLambda (y, rhs))
-                }
-                else
-                {
-                    (dynamicLambda (x, rhs), dynamicLambda (y, lhs))
-                }
-            }
-            case _ => throw new IllegalArgumentException ("Expected equality in function " + function.toString)
-        }
-    }
+
+	def createEqualityFunctions[A,B,C](function: Exp[A => Boolean])(implicit mDomX : Manifest[B], mDomY : Manifest[C]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
+		val params = parameters(function)
+		val b = body(function)
+
+		if (params.size == 1 && isTuple2Manifest(params(0).tp)) {
+			val t = params(0).asInstanceOf[Exp[Tuple2[B,C]]]
+			val tupledParams = scala.collection.immutable.Set(t._1, t._2)
+
+			b match {
+				case Def(Equal(lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
+					val usedByLeft = findSyms(lhs)(tupledParams)
+					val usedByRight = findSyms(rhs)(tupledParams)
+					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+						throw new java.lang.IllegalArgumentException(
+							"Expected equality that separates left and right parameter in function " + function.toString)
+					}
+
+					val l = tupledParams.toList
+
+					val x = l(0)
+					val y = l(1)
+					if (usedByLeft == Set(x)) {
+						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+					}
+					else {
+						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+					}
+				}
+				case _ => throw new java.lang.IllegalArgumentException("Expected equality in function " + function.toString)
+			}
+		} else if (params.size == 2) {
+			 b match {
+				case Def(Equal(lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
+					val usedByLeft = findSyms(lhs)(params.toSet)
+					val usedByRight = findSyms(rhs)(params.toSet)
+					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+						throw new java.lang.IllegalArgumentException(
+							"Expected equality that separates left and right parameter in function " + function.toString)
+					}
+					val x = params(0)
+					val y = params(1)
+					if (usedByLeft == Set(x)) {
+						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+					}
+					else {
+						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+					}
+				}
+				case _ => throw new java.lang.IllegalArgumentException("Expected equality in function " + function.toString)
+			}
+		}
+
+		throw new java.lang.IllegalArgumentException("Expected two parameters or Tuple2 parameter for function " + function.toString)
+
+	}
 }

@@ -37,12 +37,13 @@ class KeyMapTable[K,V](val keyGenerator : KeyGenerator[K]) extends Relation[(K, 
 		id
 	}
 
-	def update(oldKey : K, newV : V) {
+	def update(oldKey : K, newV : V) : K = {
 		if (!materializedMap.contains(oldKey))
 			throw new IllegalStateException("Key could not be updated, because it does not exist. Key: " + oldKey)
 		val Some(oldV) = materializedMap.put(oldKey,newV)
 
 		notify_updated((oldKey, oldV), (oldKey, newV))
+		oldKey
 	}
 
 	/*def put(k : K, v : V) = {

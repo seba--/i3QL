@@ -43,29 +43,38 @@ import idb.observer.Observer
  */
 
 trait TransactionElementObserver[Domain]
-    extends Observer[Domain]
-{
+  extends Observer[Domain] {
 
-    var additions = HashMultiset.create[Domain]()
+  var additions = HashMultiset.create[Domain]()
 
-    var deletions = HashMultiset.create[Domain]()
+  var deletions = HashMultiset.create[Domain]()
 
-    def clear() {
-        additions = HashMultiset.create[Domain]()
-        deletions = HashMultiset.create[Domain]()
-    }
+  def clear() {
+    additions = HashMultiset.create[Domain]()
+    deletions = HashMultiset.create[Domain]()
+  }
 
-    // update operations on right relation
-    override def updated(oldV: Domain, newV: Domain) {
-        removed(oldV)
-        added(newV)
-    }
+  // update operations on right relation
+  override def updated(oldV: Domain, newV: Domain) {
+    removed(oldV)
+    added(newV)
+  }
 
-    override def removed(v: Domain) {
-        deletions.add (v)
-    }
+  override def removed(v: Domain) {
+    deletions.add(v)
+  }
 
-    override def added(v: Domain) {
-        additions.add (v)
-    }
+  override def removedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      deletions.add(v)
+  }
+
+  override def added(v: Domain) {
+    additions.add(v)
+  }
+
+  override def addedAll(vs: Seq[Domain]) {
+    for (v <- vs)
+      additions.add(v)
+  }
 }

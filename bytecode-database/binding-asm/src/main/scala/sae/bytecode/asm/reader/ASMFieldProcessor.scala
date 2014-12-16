@@ -33,6 +33,7 @@
 package sae.bytecode.asm.reader
 
 import org.objectweb.asm.{FieldVisitor, Opcodes}
+import sae.bytecode.BytecodeDatabase
 import sae.bytecode.asm.ASMDatabase
 
 /**

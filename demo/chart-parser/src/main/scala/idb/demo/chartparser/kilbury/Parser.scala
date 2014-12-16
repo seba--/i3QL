@@ -32,9 +32,9 @@
  */
 package idb.demo.chartparser.kilbury
 
+import idb.SetTable
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import idb.SetExtent
 
 /**
  *
@@ -44,7 +44,8 @@ trait Parser
     extends Scanner
 {
 
-    val productions = SetExtent.empty[Production]()
+
+    val productions = SetTable.empty[Production]
 
     def topLevelCategory: Category
 
@@ -59,13 +60,13 @@ trait Parser
     val initialEdges: Rep[Query[Edge]] = passiveEdges UNION ALL (activeEdges)
     */
 
-    val parseTrees: Rep[Query[Edge]] =
+    val parseTrees: Relation[Edge] =
         WITH RECURSIVE (
             (edges: Rep[Query[Edge]]) =>
                 passiveEdges UNION ALL (
                     // derive edges from productions
                     SELECT ((p: Rep[Production], e: Rep[Edge]) => ActiveEdge (e.start, e.end, p.head, p.body.tail))
-                        FROM(productions.asMaterialized, edges) WHERE (
+                        FROM(productions, edges) WHERE (
                         (p: Rep[Production], e: Rep[Edge]) => e.isPassive AND p.body.head == e.category
                         )
                         UNION ALL (
@@ -82,7 +83,11 @@ trait Parser
                 )
             )
 
-    val success: Rep[Query[Edge]] =
-        SELECT (*) FROM parseTrees WHERE ((e: Rep[Edge]) => e.next == Nil AND e.category == topLevelCategory)
-    //SELECT (*) FROM (SELECT (*)  FROM parseTrees WHERE (_.next == Nil)) WHERE (_.category == topLevelCategory)
+    val success: Relation[(Int,Int)] =
+        SELECT ((e: Rep[Edge]) => (e._1, e._2 - 1)) FROM parseTrees WHERE ((e: Rep[Edge]) => e.next == Nil AND e.category == topLevelCategory)
+
+
+	def setInput(words : List[String]) {
+		words.zipWithIndex.foreach (input += _)
+	}
 }

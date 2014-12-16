@@ -40,41 +40,48 @@ import idb.collections.Bag
 /**
  * A collection that materializes all data from the underlying relation into a bag
  */
-class MaterializedBag[V] (val relation: Relation[V])
-    extends Bag[V]
-    with Observer[V]
-{
+class MaterializedBag[V](val relation: Relation[V])
+  extends Bag[V]
+  with Observer[V] {
 
-    relation addObserver this
+  relation addObserver this
 
-    def endTransaction () {
-        notify_endTransaction ()
+  def endTransaction() {
+    notify_endTransaction()
+  }
+
+  override protected def children = List(relation)
+
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == relation) {
+      return List(this)
     }
+    Nil
+  }
 
-    override protected def children = List (relation)
+  def lazyInitialize() {
+    relation.foreach(
+      (v: V) => add_element(v)
+    )
+  }
 
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
+  def updated(oldV: V, newV: V) {
+    update_element(oldV, newV)
+  }
 
-    def lazyInitialize () {
-        relation.foreach (
-            (v: V) => add_element (v)
-        )
-    }
+  def removed(v: V) {
+    this -= v
+  }
 
-    def updated (oldV: V, newV: V) {
-        update_element (oldV, newV)
-    }
+  def added(v: V) {
+    this += v
+  }
 
-    def removed (v: V) {
-        this -= v
-    }
+  def addedAll(vs: Seq[V]): Unit = {
+    this ++= vs
+  }
 
-    def added (v: V) {
-        this += v
-    }
+  def removedAll(vs: Seq[V]): Unit = {
+    this --= vs
+  }
 }

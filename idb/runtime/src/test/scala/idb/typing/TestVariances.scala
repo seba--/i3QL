@@ -87,8 +87,10 @@ class TestVariances
             ) {}
 
             def removed (v: TestVariances.this.type#Student) {}
+            def removedAll (vs: Seq[TestVariances.this.type#Student]) {}
 
             def added (v: TestVariances.this.type#Student) {}
+            def addedAll (vs: Seq[TestVariances.this.type#Student]) {}
 
             def endTransaction () {}
         })

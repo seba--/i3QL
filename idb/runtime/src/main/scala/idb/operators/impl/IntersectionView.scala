@@ -102,7 +102,13 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
             }
         }
 
-        /**
+      override def addedAll(vs: Seq[Domain]) {
+        val added = vs filter (v => left.count (v) <= right.count (v))
+        notify_addedAll(added)
+      }
+
+
+      /**
          * as long as left has more elements than right we only remove excess duplicates
          */
 		override def removed(v: Domain) {
@@ -110,6 +116,11 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
 				notify_removed (v)
             }
         }
+
+      override def removedAll(vs: Seq[Domain]) {
+        val removed = vs filter (v => left.count (v) < right.count (v))
+        notify_removedAll(removed)
+      }
 
 		override def updated(oldV: Domain, newV: Domain) {
             val oldDef = right.isDefinedAt (oldV)
@@ -148,6 +159,11 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
             }
         }
 
+      override def addedAll(vs: Seq[Domain]) {
+        val added = vs filter (v => right.count (v) <= left.count (v))
+        notify_addedAll(added)
+      }
+
         /**
          * as long as left has more elements than right we only remove excess duplicates
          */
@@ -156,6 +172,11 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
 				notify_removed (v)
             }
         }
+
+      override def removedAll(vs: Seq[Domain]) {
+        val removed = vs filter (v => right.count (v) < left.count (v))
+        notify_removedAll(removed)
+      }
 
 		override def updated(oldV: Domain, newV: Domain) {
 

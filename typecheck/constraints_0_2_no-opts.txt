@@ -1,0 +1,114 @@
+RecursionResult(
+    unionAdd(
+        projection(
+            selection[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]](
+                table2013048523: Table[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]][ref=QueryTable(idb.BagTable@77fcaecb,false,false,false)],
+                ((x12:Int,x13:sae.typecheck.Exp$ExpKind,x14:scala.collection.Seq[Any],x15:scala.collection.Seq[Int])): Boolean => {
+                    val x16 = x15.length
+                    val x17 = x16 == 0
+                    x17
+                }
+            )[ref=Sym(19)],
+            ((x1:Int,x2:sae.typecheck.Exp$ExpKind,x3:scala.collection.Seq[Any],x4:scala.collection.Seq[Int])): scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]] => {
+                val x5 = px5 // static data: <function1>
+                val x6 = Seq()
+                val x8 = x5(x1,x2,x3,x6)
+                val x9 = (x1,x8)
+                x9
+            }
+        )[ref=Sym(20)],
+        projection(
+            selection[scala.Tuple3[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]]](
+                selection[scala.Tuple3[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]]](
+                    selection[scala.Tuple3[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]]](
+                        projection(
+                            crossProduct[scala.Tuple2[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]],scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]](
+                                crossProduct[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]],scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]](
+                                    table2013048523: Table[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]][ref=QueryTable(idb.BagTable@77fcaecb,false,false,false)],
+                                    Recursion(
+                                        projection(
+                                            selection[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]](
+                                                table2013048523: Table[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]][ref=QueryTable(idb.BagTable@77fcaecb,false,false,false)],
+                                                ((x12:Int,x13:sae.typecheck.Exp$ExpKind,x14:scala.collection.Seq[Any],x15:scala.collection.Seq[Int])): Boolean => {
+                                                    val x16 = x15.length
+                                                    val x17 = x16 == 0
+                                                    x17
+                                                }
+                                            )[ref=Sym(19)],
+                                            ((x1:Int,x2:sae.typecheck.Exp$ExpKind,x3:scala.collection.Seq[Any],x4:scala.collection.Seq[Int])): scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]] => {
+                                                val x5 = px5 // static data: <function1>
+                                                val x6 = Seq()
+                                                val x8 = x5(x1,x2,x3,x6)
+                                                val x9 = (x1,x8)
+                                                x9
+                                            }
+                                        )[ref=Sym(20)],
+                                        Sym(77)
+                                    )
+                                )[ref=Sym(59)],
+                                Recursion(
+                                    projection(
+                                        selection[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]](
+                                            table2013048523: Table[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]]][ref=QueryTable(idb.BagTable@77fcaecb,false,false,false)],
+                                            ((x12:Int,x13:sae.typecheck.Exp$ExpKind,x14:scala.collection.Seq[Any],x15:scala.collection.Seq[Int])): Boolean => {
+                                                val x16 = x15.length
+                                                val x17 = x16 == 0
+                                                x17
+                                            }
+                                        )[ref=Sym(19)],
+                                        ((x1:Int,x2:sae.typecheck.Exp$ExpKind,x3:scala.collection.Seq[Any],x4:scala.collection.Seq[Int])): scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]] => {
+                                            val x5 = px5 // static data: <function1>
+                                            val x6 = Seq()
+                                            val x8 = x5(x1,x2,x3,x6)
+                                            val x9 = (x1,x8)
+                                            x9
+                                        }
+                                    )[ref=Sym(20)],
+                                    Sym(77)
+                                )
+                            )[ref=Sym(60)],
+                            ((x61:scala.Tuple2[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]],x62:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]])): scala.Tuple3[scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]], scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]]] => {
+                                val x63 = x61._1
+                                val x64 = x61._2
+                                val x65 = (x63,x64,x62)
+                                x65
+                            }
+                        )[ref=Sym(67)],
+                        ((x39:scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]],x40:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]],x41:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]])): Boolean => {
+                            val x45 = x39._4
+                            val x46 = x45.length
+                            val x47 = x46 == 2
+                            x47
+                        }
+                    )[ref=Sym(70)],
+                    ((x39:scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]],x40:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]],x41:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]])): Boolean => {
+                        val x45 = x39._4
+                        val x48 = x45(0)
+                        val x49 = x40._1
+                        val x51 = x48 == x49
+                        x51
+                    }
+                )[ref=Sym(72)],
+                ((x39:scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]],x40:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]],x41:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]])): Boolean => {
+                    val x45 = x39._4
+                    val x53 = x45(1)
+                    val x54 = x41._1
+                    val x56 = x53 == x54
+                    x56
+                }
+            )[ref=Sym(74)],
+            ((x21:scala.Tuple4[Int, sae.typecheck.Exp$ExpKind, scala.collection.Seq[Any], scala.collection.Seq[Int]],x22:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]],x23:scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]])): scala.Tuple2[Int, scala.Tuple4[sae.typecheck.Type, scala.Tuple2[scala.collection.immutable.Map[scala.Symbol, sae.typecheck.Type], scala.collection.immutable.Set[sae.typecheck.Constraint]], scala.collection.immutable.Set[sae.typecheck.Requirement], scala.collection.immutable.Set[scala.Symbol]]] => {
+                val x24 = x21._1
+                val x25 = x21._2
+                val x26 = x21._3
+                val x28 = px28 // static data: <function1>
+                val x30 = x22._2
+                val x32 = x23._2
+                val x33 = Seq(x30,x32)
+                val x35 = x28(x24,x25,x26,x33)
+                val x36 = (x24,x35)
+                x36
+            }
+        )[ref=Sym(75)]
+    )[ref=Sym(76)]
+)

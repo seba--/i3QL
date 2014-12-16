@@ -59,7 +59,7 @@ object sae extends Build {
 	Project Interpreter
    */
 	lazy val interpreter = Project(id = "interpreter", base = file("interpreter"))
-    	.dependsOn(syntax % "compile")
+    	.dependsOn(syntax % "compile;test")
    
   /*
     Project Test Data

@@ -85,6 +85,9 @@ trait RelationalAlgebraIRBasicOperators
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps {
 
+		val mDomA = implicitly[Manifest[DomainA]]
+		val mDomB = implicitly[Manifest[DomainB]]
+
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal

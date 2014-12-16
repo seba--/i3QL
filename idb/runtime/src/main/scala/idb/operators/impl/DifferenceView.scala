@@ -145,6 +145,18 @@ class DifferenceView[Domain](val left: Relation[Domain],
             }
         }
 
+      def addedAll(vs: Seq[Domain]) {
+        val added = vs filter (v =>
+          if (rightDiffLeft.count (v) == 0) {
+            leftDiffRight.add(v)
+            true
+          } else {
+            rightDiffLeft.remove(v)
+            false
+          })
+        notify_addedAll(added)
+      }
+
         /**
          * - Δleft-  - (right - left)
          */
@@ -160,7 +172,22 @@ class DifferenceView[Domain](val left: Relation[Domain],
             }
         }
 
-        def updated(oldV: Domain, newV: Domain) {
+      def removedAll(vs: Seq[Domain]) {
+        val removed = vs filter (v =>
+          if (leftDiffRight.count (v) > 0) {
+            leftDiffRight.remove (v)
+            true
+          }
+          else
+          {
+            // if it was not in the leftDiffRight newResult it was filtered by being in right
+            rightDiffLeft.add (v)
+            false
+          })
+        notify_removedAll(removed)
+      }
+
+      def updated(oldV: Domain, newV: Domain) {
             var count = leftDiffRight.count (oldV) + rightDiffLeft.count (oldV)
             if (count == 0) {
                 added (newV)
@@ -191,7 +218,21 @@ class DifferenceView[Domain](val left: Relation[Domain],
             }
         }
 
-        def removed(v: Domain) {
+      def addedAll(vs: Seq[Domain]) {
+        val removed = vs filter (v =>
+          if (leftDiffRight.count (v) > 0) {
+            leftDiffRight.remove (v)
+            true
+          }
+          else
+          {
+            rightDiffLeft.add (v)
+            false
+          })
+        notify_removedAll(removed)
+      }
+
+      def removed(v: Domain) {
             if (rightDiffLeft.count (v) == 0) {
                 leftDiffRight.add (v)
 				notify_added (v)
@@ -202,7 +243,19 @@ class DifferenceView[Domain](val left: Relation[Domain],
             }
         }
 
-        def updated(oldV: Domain, newV: Domain) {
+      def removedAll(vs: Seq[Domain]) {
+        val added = vs filter (v =>
+          if (rightDiffLeft.count (v) == 0) {
+            leftDiffRight.add (v)
+          }
+          else
+          {
+            rightDiffLeft.remove (v)
+          })
+        notify_addedAll(added)
+      }
+
+      def updated(oldV: Domain, newV: Domain) {
             var count = leftDiffRight.count (oldV) + rightDiffLeft.count (oldV)
             if (count == 0) {
                 added (newV)

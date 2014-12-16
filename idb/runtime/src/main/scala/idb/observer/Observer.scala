@@ -33,14 +33,17 @@
 package idb.observer
 
 
-trait Observer[-V]
-{
+trait Observer[-V] {
 
-    def updated (oldV: V, newV: V)
+  def updated(oldV: V, newV: V)
 
-    def removed (v: V)
+  def removed(v: V)
 
-    def added (v: V)
+  def removedAll(vs: Seq[V])
 
-    def endTransaction ()
+  def added(v: V)
+
+  def addedAll(vs: Seq[V])
+
+  def endTransaction()
 }

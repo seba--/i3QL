@@ -59,7 +59,7 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
      */
     def lazyInitialize() {
         source.foreach ((v: Domain) => {
-            internal_added (v, notify = false)
+            internal_added (v)
         })
     }
 
@@ -140,10 +140,41 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
         }
     }
 
-    /**
-     *
-     */
-    def removed(v: Domain) {
+
+  def removed (v: Domain) {
+    intern_removed (v) match {
+      case None => {}
+      case Some((key, Left(removed))) => notify_removed(removed)
+      case Some((key, Right((old, res)))) => notify_updated(old, res)
+    }
+  }
+
+  def removedAll (vs: Seq[Domain]) {
+
+    var removed = Map[Key,Result]()
+    var updated = Map[Key, (Result,Result)]()
+
+    vs foreach { v => intern_removed(v) match {
+      case None => {}
+      case Some((key, Left(r))) => removed += key -> r
+      case Some((key, Right((old, res)))) =>
+        removed.get(key) match {
+          case Some(`old`) => removed += key -> res
+          case Some(old2) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+          case None =>
+            updated.get(key) match {
+              case Some((oldold,`old`)) => updated += key -> (oldold, res)
+              case Some((oldold, old2)) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+              case None => updated += key -> (old, res)
+            }
+        }
+    }}
+
+    notify_removedAll(removed.values.toSeq)
+    updated.values foreach (v => notify_updated(v._1, v._2))
+  }
+
+    def intern_removed (v: Domain): Option[(Key, Either[Result, (Result,Result)])] = {
         val key = groupingFunction (v)
 		try {
         	val (count, aggregationFunction, oldResult) = groups (key)
@@ -151,7 +182,7 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
 			if (count.dec == 0) {
 				//remove a group
 				groups -= key
-				notify_removed (oldResult)
+				Some((key, Left(oldResult)))
 			}
 			else
 			{
@@ -161,8 +192,10 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
 				if (newResult != oldResult) {
 					//some aggregation values changed => updated event
 					groups.put (key, (count, aggregationFunction, newResult))
-					notify_updated (oldResult, newResult)
+					Some((key, Right((oldResult, newResult))))
 				}
+        else
+          None
 			}
 
 		} catch {
@@ -171,14 +204,41 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
 
     }
 
-    /**
-     *
-     */
-    def added(v: Domain) {
-        internal_added (v, notify = true)
+  def added (v: Domain) {
+    internal_added (v) match {
+      case None => {}
+      case Some((key, Left(added))) => notify_added(added)
+      case Some((key, Right((old, res)))) => notify_updated(old, res)
     }
+  }
 
-    private def internal_added(v: Domain, notify: Boolean) {
+  def addedAll (vs: Seq[Domain]) {
+
+    var added = Map[Key,Result]()
+    var updated = Map[Key, (Result,Result)]()
+
+    vs foreach { v => internal_added(v) match {
+      case None => {}
+      case Some((key, Left(r))) => added += key -> r
+      case Some((key, Right((old, res)))) =>
+        added.get(key) match {
+          case Some(`old`) => added += key -> res
+          case Some(old2) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+          case None =>
+            updated.get(key) match {
+              case Some((oldold,`old`)) => updated += key -> (oldold, res)
+              case Some((oldold, old2)) => throw new RuntimeException(s"unexpected old value $old2, expected $old")
+              case None => updated += key -> (old, res)
+            }
+        }
+    }}
+
+    notify_addedAll(added.values.toSeq)
+    updated.values foreach (v => notify_updated(v._1, v._2))
+  }
+
+
+    private def internal_added(v: Domain): Option[(Key, Either[Result, (Result,Result)])] = {
         val key = groupingFunction (v)
         if (groups.contains (key)) {
             //update key group
@@ -189,8 +249,10 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
             if (res != oldResult) {
                 //some aggregation values changed => updated event
                 groups.put (key, (count, aggregationFunction, res))
-                if (notify) notify_updated (oldResult, res)
+                Some((key, Right((oldResult, res))))
             }
+            else
+              None
         }
         else
         {
@@ -201,7 +263,7 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
             val aggRes = aggregationFunction.add (v)
             val res = convertKeyAndAggregateValueToResult (key, aggRes)
             groups.put (key, (c, aggregationFunction, res))
-            if (notify) notify_added (res)
+            Some((key, Left(res)))
         }
     }
 

@@ -1,16 +1,8 @@
-package sae.interpreter.regexps
+package sae.interpreter.regexps.nonincr
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import idb.{SetTable, Table}
-import idb.observer.{NotifyObservers, Observer}
-import sae.interpreter.regexps.Interpreter.TaskKey
+import sae.interpreter.regexps._
 import sae.interpreter.utils.{IntKeyGenerator, KeyMapTable, MaterializedMap}
-
-import scala.collection.mutable
-import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 
 object Interpreter {
@@ -49,13 +41,30 @@ object Interpreter {
 				Terminal("b")
 			)
 
-		val s1 = "babac"
+		val exp6 =
+			Sequence(
+				Terminal("b"),
+				Sequence(
+					Terminal("a"),
+					Sequence(
+						Asterisk(
+							Alt(
+								Terminal("a"),
+								Terminal("b")
+							)
+						),
+						Terminal("c")
+					)
+				)
+			)
+
+		val s1 = "babbac"
 		val s2 = "bacab"
 
 		val values = getValues(tab)
 		val matTasks = tab._2.asMaterialized
 
-		val ref1 = addInput(exp4, Set.empty[String] + s1, tab)
+		val ref1 = addInput(exp6, Set.empty[String] + s1, tab)
 
 /*			println("Before update: "
 				+ values(ref1)
@@ -83,16 +92,10 @@ object Interpreter {
 
 	var printUpdates = true
 
-	trait RegExp
-	case class Terminal(s: String) extends RegExp
-	case class Alt(r1: RegExp, r2: RegExp) extends RegExp
-	case class Asterisk(r1: RegExp) extends RegExp
-	case class Sequence(r1: RegExp, r2: RegExp) extends RegExp
-
 	def matchRegexp(e: Exp, c: Text): Boolean = interp(e, c).contains("")
 
 	def interp(e : Exp, c : Text): Value = e match {
-		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else Some(s))
+		case Terminal(s2) => c flatMap (s => if (s.startsWith(s2)) Some(s.substring(s2.length)) else None)
 		case Alt(r1, Alt(r2, r3)) if r2 == r3 => interp(Alt(r1,r2),c)
 		case Alt(r1, r2) => interp(r1, c) ++ interp(r2, c)
 		case ths@Asterisk(r) => {
@@ -115,7 +118,7 @@ object Interpreter {
 		var result : Value = null
 		if (e._1.isInstanceOf[Terminal]) {
 			val t1 : Terminal = e._1.asInstanceOf[Terminal]
-			val res : Value = e._2 flatMap (s => if (s.startsWith(t1.s)) Some(s.substring(t1.s.length)) else Some(s))
+			val res : Value = e._2 flatMap (s => if (s.startsWith(t1.s)) Some(s.substring(t1.s.length)) else None)
 			result = res
 		} else if (e._1.isInstanceOf[Alt]) {
 			val t1 : Alt = e._1.asInstanceOf[Alt]
@@ -383,7 +386,7 @@ object Interpreter {
 				val values : Seq[Value] = t._3
 
 				val param0 : String = e._3(0).asInstanceOf[String]
-				val res : Value = c flatMap (s => if (s.startsWith(param0)) scala.Some(s.substring(param0.length)) else scala.Some(s))
+				val res : Value = c flatMap (s => if (s.startsWith(param0)) scala.Some(s.substring(param0.length)) else scala.None)
 				res
 			}
 		)
@@ -407,8 +410,8 @@ object Interpreter {
 				val c : Text = t._2
 				val values : Seq[Value] = t._3
 
-				val value0: Value = values(0)
-				val value1: Value = values(1)
+				//val value0: Value = values(0)
+				val value1: Value = values(0)
 				val res: Value = c ++ value1
 				res
 			}
@@ -546,10 +549,10 @@ object Interpreter {
 			}
 		)
 
-		private val taskToRecType : Rep[ITask => RecType] = staticData (
-			(r : ITask) => {
-				Predef.println("Task  -> " + r)
-				TaskType(r)
+		private val taskToRecType : Rep[((String, ITask)) => RecType] = staticData (
+			(r : (String, ITask)) => {
+				Predef.println("Task[" + r._1 + "]\t-> " + r)
+				TaskType(r._2)
 			}
 		)
 
@@ -579,13 +582,13 @@ object Interpreter {
 			valueToRecType((k,v))
 
 		protected def makeTask(k : Rep[TaskKey], t : Rep[Task]) : Rep[RecType] =
-			taskToRecType((k,t))
+			taskToRecType("",(k,t))
 
 		protected def makeExp(k : Rep[ExpKey], e : Rep[ExpNode]) =
 			expToRecType((k,e))
 
-		protected def newTask(t : Rep[Task]) : Rep[RecType] =
-			taskToRecType((freshTaskKey(0), t))
+		protected def newTask(tag : Rep[String])(t : Rep[Task]) : Rep[RecType] =
+			taskToRecType(tag,(freshTaskKey(0), t))
 
 
 		protected val freshTaskKey : Rep[Int => TaskKey] = staticData (
@@ -642,7 +645,7 @@ object Interpreter {
 							//Alt task creation left
 							SELECT (
 								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
+									newTask("Alt1")(taskGetId(parentTask), ZERO, createInput(e._1, inputGetText(in)))
 							) FROM (
 								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
@@ -656,7 +659,7 @@ object Interpreter {
 							//Alt task creation right
 							SELECT (
 								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ONE, inputGetInputKey(in))
+									newTask("Alt2")(taskGetId(parentTask), ONE, createInput(e._1, inputGetText(in)))
 							) FROM (
 								inputRel, expressionRel, expressionRel, taskRel
 								) WHERE (
@@ -690,7 +693,7 @@ object Interpreter {
 							//Ast Cond1 task 1
 							SELECT (
 								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
+									newTask("Ast1")(taskGetId(parentTask), ZERO, createInput(e._1,inputGetText(in)))
 							) FROM (
 								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
@@ -704,7 +707,7 @@ object Interpreter {
 							//Ast Cond1 task 2
 							SELECT (
 								(in : Rep[IInput], parent: Rep[IExp], childVal : Rep[IValue],  tasks : Rep[(ITask, ITask)]) =>
-									newTask(taskGetId(tasks._1), ONE, createInput(expGetExpKey(parent), valueToTextRep(valGetValue(childVal)))) //TODO How to create new input?
+									newTask("Ast2")(taskGetId(tasks._1), ONE, createInput(expGetExpKey(parent), valueToTextRep(valGetValue(childVal))))
 							) FROM (
 								inputRel, expressionRel, valueRel, SELECT (*) FROM (taskRel, taskRel)
 							) WHERE (
@@ -749,7 +752,7 @@ object Interpreter {
 							//Seq task propagation left
 							SELECT(
 								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], parentTask : Rep[ITask]) =>
-									newTask(taskGetId(parentTask), ZERO, inputGetInputKey(in))
+									newTask("Seq1")(taskGetId(parentTask), ZERO, createInput(e._1,inputGetText(in)))
 							) FROM(
 								inputRel, expressionRel, expressionRel, taskRel
 							) WHERE (
@@ -763,7 +766,7 @@ object Interpreter {
 							//Seq child(0) value -> child(1) Text
 							SELECT(
 								(in : Rep[IInput], e: Rep[IExp], parent: Rep[IExp], child0Val: Rep[IValue], tasks : Rep[(ITask, ITask)]) =>
-									newTask(taskGetId(tasks._1), ONE, createInput(e._1, valueToTextRep(valGetValue(child0Val)))) //TODO How to create new input
+									newTask("Seq2")(taskGetId(tasks._1), ONE, createInput(e._1, valueToTextRep(valGetValue(child0Val)))) //TODO How to create new input
 							) FROM (
 								inputRel, expressionRel, expressionRel, valueRel, SELECT (*) FROM (taskRel, taskRel)
 							) WHERE (

@@ -77,7 +77,7 @@ class TestBasicOperators
 	@Test
 	def testStudentNames2() {
 
-		val query = compile (
+		val query = compile(
 			SELECT (
 				( p : Rep[(String,String)]) => p._1 + " " + p._2
 			) FROM

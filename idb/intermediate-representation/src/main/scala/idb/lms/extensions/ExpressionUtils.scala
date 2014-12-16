@@ -90,13 +90,12 @@ trait ExpressionUtils
     }
 
 
-    def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Exp[Any]] = {
+	def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Exp[Any]] = {
         val traversed = e match {
             case s@Sym (_) => Set (s).asInstanceOf[Set[Exp[Any]]]
             case _ => Set.empty[Exp[Any]]
         }
         val startResult = search.filter ((_: Exp[Any]) == e)
-
         startResult.union (findSymsRec (e, search.asInstanceOf[Set[Exp[Any]]], traversed))
     }
 

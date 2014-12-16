@@ -54,7 +54,7 @@ trait FunctionUtils
         function.tp.typeArguments (1).asInstanceOf[Manifest[Any]]
     }
 
-    def parameters[A, B] (function: Exp[A => B]): Seq[Exp[Any]] = {
+    def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
         parametersAsList (
             parameter (function)
         )
@@ -126,7 +126,7 @@ trait FunctionUtils
         function match {
             case Def (Lambda (_, x: Exp[A], _)) => x
             case c@Const (_) => unboxedFresh[A](c.tp.typeArguments (0).typeArguments (0).asInstanceOf[Manifest[A]])
-            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function.toString)
+            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
 
@@ -135,19 +135,19 @@ trait FunctionUtils
     }
 
 
-    def freeVars[A, B] (function: Exp[A => B]): Seq[Exp[Any]] = {
+    def freeVars[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
         val params = parameters (function)
         unusedVars (function, params)
     }
 
-    def unusedVars[A, B] (function: Exp[A => B], vars: Seq[Exp[Any]]): Seq[Exp[Any]] = {
+    def unusedVars[A, B] (function: Exp[A => B], vars: List[Exp[Any]]): List[Exp[Any]] = {
         val varsAsSet = vars.toSet
         val used =
             function match {
                 case Def (Lambda (_, _, body)) =>
                     findSyms (body.res)(varsAsSet)
                 case Const (_) => Set.empty[Exp[Any]]
-                case _ => throw new IllegalArgumentException ("expected Lambda, found " + function.toString)
+                case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
             }
         varsAsSet.diff (used).toList
     }
@@ -157,7 +157,7 @@ trait FunctionUtils
         function match {
             case Def (Lambda (_, _, Block (b))) => b
             case c: Const[B@unchecked] => c // a constant function returns a value of type B
-            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function.toString)
+            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
 
@@ -179,34 +179,26 @@ trait FunctionUtils
 
     def isTuple2Manifest[T] (m: Manifest[T]): Boolean = m.erasure.getName startsWith "scala.Tuple2"
 
-	//TODO is this right?
-    def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = function match {
-		case Def(Lambda(_, UnboxedTuple(l1), Block(Def(Struct(tag, fields))))) =>
-			l1 == fields.map((t) => t._2)
-		case Def(Lambda(_, x, Block(body))) =>
-			body == x
-		case _ => false
-	}
-
-   /* function match {
-		case Def (Lambda (_, UnboxedTuple (List (a1, b1)), Block (Def (ETuple2 (a2, b2))))) =>
-			a1 == a2 && b1 == b2
-		case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1)), Block (Def (ETuple3 (a2, b2, c2))))) =>
-			a1 == a2 && b1 == b2 && c1 == c2
-		case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1)), Block (Def (ETuple4 (a2, b2, c2, d2))))) =>
-			a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2
-		case Def (
-		Lambda (_, UnboxedTuple (List (a1, b1, c1, d1, e1)), Block (Def (ETuple5 (a2, b2, c2, d2, e2))))) =>
-			a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2 && e1 == e2
-		case Def (Lambda (_, x, Block (body))) =>
-			body == x
-		case _ => false
-	}  */
-
+    def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = {
+        function match {
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1)), Block (Def (ETuple2 (a2, b2))))) =>
+                a1 == a2 && b1 == b2
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1)), Block (Def (ETuple3 (a2, b2, c2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2
+            case Def (Lambda (_, UnboxedTuple (List (a1, b1, c1, d1)), Block (Def (ETuple4 (a2, b2, c2, d2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2
+            case Def (
+            Lambda (_, UnboxedTuple (List (a1, b1, c1, d1, e1)), Block (Def (ETuple5 (a2, b2, c2, d2, e2))))) =>
+                a1 == a2 && b1 == b2 && c1 == c2 && d1 == d2 && e1 == e2
+            case Def (Lambda (_, x, Block (body))) =>
+                body == x
+            case _ => false
+        }
+    }
 
     def returnsLeftOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
         function match {
-            case Def (Lambda (_, x, Block (Def (Field (t, "_1"))))) =>
+            case Def (Lambda (_, x, Block (Def (Tuple2Access1 (t))))) =>
                 x == t
             case Def (Lambda (_, UnboxedTuple (List (a, _)), Block (r))) =>
                 a == r
@@ -216,34 +208,14 @@ trait FunctionUtils
 
     def returnsRightOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
         function match {
-            case Def (Lambda (_, x, Block (Def (Field (t, "_2"))))) =>
+            case Def (Lambda (_, x, Block (Def (Tuple2Access2 (t))))) =>
                 x == t
             case Def (Lambda (_, UnboxedTuple (List (_, b)), Block (r))) =>
                 b == r
             case _ => false
         }
     }
-	/*
-	def returnsLeftOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
-		function match {
-			case Def (Lambda (_, x, Block (Def (Tuple2Access1 (t))))) =>
-				x == t
-			case Def (Lambda (_, UnboxedTuple (List (a, _)), Block (r))) =>
-				a == r
-			case _ => false
-		}
-	}
 
-	def returnsRightOfTuple2[Domain, Range] (function: Rep[Domain => Range]) = {
-		function match {
-			case Def (Lambda (_, x, Block (Def (Tuple2Access2 (t))))) =>
-				x == t
-			case Def (Lambda (_, UnboxedTuple (List (_, b)), Block (r))) =>
-				b == r
-			case _ => false
-		}
-	}
-    */
     def isObjectEquality[DomainA, DomainB] (
         equality: (Rep[DomainA => Any], Rep[DomainB => Any])
     ): Boolean = equality match {
@@ -265,6 +237,11 @@ trait FunctionUtils
                 if body == a => 0
             case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
                 if body == b => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple2Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple2Access2 (t)))))
+                if p == t => 1
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
                 if body == a => 0
@@ -272,6 +249,13 @@ trait FunctionUtils
                 if body == b => 1
             case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
                 if body == c => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple3Access3 (t)))))
+                if p == t => 2
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
                 if body == a => 0
@@ -281,6 +265,15 @@ trait FunctionUtils
                 if body == c => 2
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
                 if body == d => 3
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access3 (t)))))
+                if p == t => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple4Access4 (t)))))
+                if p == t => 3
+
 
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
                 if body == a => 0
@@ -292,17 +285,16 @@ trait FunctionUtils
                 if body == d => 3
             case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
                 if body == e => 4
-
-			case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Field (t, "_1")))))
-				if p == t => 0
-			case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Field (t, "_2")))))
-				if p == t => 1
-			case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Field (t, "_3")))))
-				if p == t => 2
-			case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Field (t, "_4")))))
-				if p == t => 3
-			case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Field (t, "_5")))))
-				if p == t => 4
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access1 (t)))))
+                if p == t => 0
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access2 (t)))))
+                if p == t => 1
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access3 (t)))))
+                if p == t => 2
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access4 (t)))))
+                if p == t => 3
+            case Def (Lambda (_, p: UnboxedTuple[_], Block (Def (Tuple5Access5 (t)))))
+                if p == t => 4
 
             case Def (Lambda (_, x, Block (body)))
                 if body == x => 0
@@ -400,7 +392,7 @@ trait FunctionUtils
         case Def (Lambda (_, x, body)) =>
             s"(${x.tp.toString()} => ${printExp(body.res)}})"
         case Const (c) => c.toString
-        case _ => throw new IllegalArgumentException ("expected Lambda, found " + function.toString)
+        case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
     }
 
 
