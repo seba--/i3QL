@@ -32,6 +32,8 @@
  */
 package idb.lms.extensions.reduction
 
+import idb.lms.extensions.operations.TupleOpsExpExt
+
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{TupledFunctionsExp, IfThenElseExp, TupleOpsExp}
 import scala.language.implicitConversions
@@ -41,28 +43,33 @@ import scala.language.implicitConversions
  * @author Ralf Mitschke
  */
 trait TupleOpsExpOptBetaReduction
-    extends TupleOpsExp
+    extends TupleOpsExpExt
     with TupledFunctionsExp
     with IfThenElseExp
 {
 
     override implicit def make_tuple2[A: Manifest, B: Manifest] (
         t: (Exp[A], Exp[B])
-    )(implicit pos: SourceContext): Exp[(A, B)] =
+    )(implicit pos: SourceContext): Exp[(A, B)] = {
+
         t match {
-            case (Def (Field (a, "_1")), Def (Field (b, "_2")))
+            case (Def(Field(a, "_1")), Def(Field(b, "_2")))
                 if a == b => a.asInstanceOf[Exp[(A, B)]]
-            case _ => super.make_tuple2 (t)
+            case _ => super.make_tuple2(t)
         }
+    }
 
     override implicit def make_tuple3[A: Manifest, B: Manifest, C: Manifest] (
         t: (Exp[A], Exp[B], Exp[C])
     )(implicit pos: SourceContext): Exp[(A, B, C)] =
+    {
+
         t match {
             case (Def (Field (a, "_1")), Def (Field (b, "_2")), Def (Field (c, "_3")))
                 if a == b && a == c => a.asInstanceOf[Exp[(A, B, C)]]
             case _ => super.make_tuple3 (t)
         }
+    }
 
 
     override implicit def make_tuple4[A: Manifest, B: Manifest, C: Manifest, D: Manifest] (

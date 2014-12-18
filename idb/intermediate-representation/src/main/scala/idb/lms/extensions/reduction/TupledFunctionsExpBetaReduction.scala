@@ -33,6 +33,7 @@
 package idb.lms.extensions.reduction
 
 import idb.lms.extensions.FunctionUtils
+import idb.lms.extensions.operations.TupleOpsExpExt
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.TupledFunctionsExp
 
@@ -46,6 +47,7 @@ trait TupledFunctionsExpBetaReduction
     extends TupledFunctionsExp
     with FunctionsExpBetaReduction
     with FunctionUtils
+    with TupleOpsExpExt
 {
 
     override protected def substitutions[A: Manifest] (oldX: Exp[A], x: Exp[A]): Map[Exp[Any], Exp[Any]] = {

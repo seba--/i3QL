@@ -33,6 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraMultiRelations
+import idb.lms.extensions.operations.TupleOpsExpExt
 import scala.virtualization.lms.common.{FunctionsExp, TupleOpsExp}
 
 

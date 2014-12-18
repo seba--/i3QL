@@ -60,7 +60,7 @@ trait LMSTestUtils
     def assertEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
         val expectedString = printer.quoteFunction (a)
         val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
+        val message = "expected:\n<" + expectedString + ">\nbut was:\n<" + actualString + ">"
         if (a != b) {
             Assert.fail (message)
         }
@@ -70,7 +70,7 @@ trait LMSTestUtils
     def assertNotEqualFunctions[A1, A2, B1, B2] (a: Rep[A1 => B1], b: Rep[A2 => B2]) {
         val expectedString = printer.quoteFunction (a)
         val actualString = printer.quoteFunction (b)
-        val message = "expected:<" + expectedString + "> to be different from:<" + actualString + ">"
+        val message = "expected:\n<" + expectedString + ">\nto be different from:\n<" + actualString + ">"
         if (a.equals (b)) {
             Assert.fail (message)
         }

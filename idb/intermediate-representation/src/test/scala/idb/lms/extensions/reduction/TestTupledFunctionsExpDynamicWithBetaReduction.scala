@@ -37,6 +37,8 @@ import idb.lms.extensions.equivalence._
 import idb.lms.extensions.functions.{FunctionsExpDynamicLambdaAlphaEquivalence, TupledFunctionsExpDynamicLambda}
 import org.junit.Test
 
+import scala.reflect.SourceContext
+
 /**
  *
  * @author Ralf Mitschke
@@ -72,8 +74,8 @@ class TestTupledFunctionsExpDynamicWithBetaReduction
 
     @Test
     def testApplyNotBoxedThenBoxed () {
+        //TODO "This test does not actually fail."
         val f1 = fun((i: Rep[Int], j: Rep[Int]) => i == j)
-
 
 
         val x1 = fresh[(Int,Int)]

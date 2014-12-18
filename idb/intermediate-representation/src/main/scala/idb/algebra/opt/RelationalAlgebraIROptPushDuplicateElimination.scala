@@ -161,7 +161,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainA]) => (f1 (x), f2 (x)))(mA,
+                fun ((x: Rep[DomainA]) => make_tuple2(f1 (x), f2 (x)))(mA,
                     tupledManifest (returnType (f1), returnType (f2))
                 )
 
@@ -194,7 +194,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             case List (f) => f
 
             case List (f1, f2) =>
-                fun ((x: Rep[DomainB]) => (f1 (x), f2 (x)))(mB,
+                fun ((x: Rep[DomainB]) => make_tuple2(f1 (x), f2 (x)))(mB,
                     tupledManifest (returnType (f1), returnType (f2))
                 )
 

@@ -58,14 +58,14 @@ trait RelationalAlgebraIROptLiftProjection
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
         (relationA, relationB) match {
-            case (Def (Projection (ra, fa)), Def (Projection (rb, fb))) =>
+            case (Def (p1@Projection (ra, fa)), Def (p2@Projection (rb, fb))) =>
                 projection (
                     crossProduct (
                         ra,
                         rb
                     )(domainOf (ra), domainOf (rb)),
                     fun (
-                        (x: Rep[Any], y: Rep[Any]) => (fa (x), fb (y))
+                        (x: Rep[Any], y: Rep[Any]) => make_tuple2(fa (x), fb (y))//(p1.mRan, p2.mRan)
                     )(
                         parameterManifest (parameter (fa)), // dynamic manifests for x
                         parameterManifest (parameter (fb)), // dynamic manifests for y
@@ -73,14 +73,14 @@ trait RelationalAlgebraIROptLiftProjection
                     )
                 )
 
-            case (Def (Projection (ra, fa)), rb) =>
+            case (Def (p1@Projection (ra, fa)), rb) =>
                 projection (
                     crossProduct (
                         ra,
                         rb
                     )(domainOf (ra), manifest[DomainB]),
                     fun (
-                        (x: Rep[Any], y: Rep[DomainB]) => (fa (x), y)
+                        (x: Rep[Any], y: Rep[DomainB]) => make_tuple2(fa (x), y)//(p1.mRan, manifest[DomainB])
                     )(
                         parameterManifest (parameter (fa)), // dynamic manifests for x
                         manifest[DomainB],
@@ -91,7 +91,7 @@ trait RelationalAlgebraIROptLiftProjection
 
             case (ra, Def (Projection (rb, fb))) => {
                 val newProjection =        fun (
-                    (x: Rep[DomainA], y: Rep[Any]) => (x, fb (y))
+                    (x: Rep[DomainA], y: Rep[Any]) => make_tuple2(x, fb (y))
                 )(
                     manifest[DomainA],
                     parameterManifest (parameter (fb)), // dynamic manifests for y

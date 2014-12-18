@@ -51,4 +51,5 @@ trait NumericOpsExpNormalization
             // super optimizations
             case _ => super.numeric_plus (lhs, rhs)
         }
+
 }

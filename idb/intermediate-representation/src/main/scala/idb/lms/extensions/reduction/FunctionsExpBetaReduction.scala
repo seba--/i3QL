@@ -32,10 +32,13 @@
  */
 package idb.lms.extensions.reduction
 
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.print.QuoteFunction
+
 import scala.reflect.SourceContext
-import scala.virtualization.lms.common.{BaseFatExp, ForwardTransformer, FunctionsExp}
+import scala.virtualization.lms.common._
 import scala.collection.immutable.Map
-import idb.lms.extensions.ExpressionUtils
+import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
 import idb.lms.extensions.equivalence.EffectExpAlphaEquivalence
 
 /**
@@ -55,32 +58,39 @@ trait FunctionsExpBetaReduction
         val IR: FunctionsExpBetaReduction.this.type = FunctionsExpBetaReduction.this
     }
 
+
     override def doApply[A: Manifest, B: Manifest] (
         f: Exp[A => B], x: Exp[A]
     )(
         implicit pos: SourceContext
-    ): Exp[B] = f match {
-        case Def (Lambda (_, oldX: Rep[A@unchecked], Block (Def (Reify (body, summary, effects))))) => {
-            val block = reifyEffects (body)
-            val result = transformBlock (substitutions (oldX, x)(manifest[A]), block)
-            // adds all old effectful statements that are still referenced to the context, thus a correct Reify node will
-            // be created again
-            context :::= findSyms(result)(effects.toSet).toList
-            // adds all new effectful statements to the context and returns a non-reified version of the sym
-            result match {
-                case Def (Reify (inner, _, newEffects)) => {
-                    context :::= newEffects
-                    inner
+    ): Exp[B] = {
+        f match {
+            case Def (Lambda (_, oldX: Rep[A@unchecked], Block (Def (Reify (body, summary, effects))))) =>
+                val block = reifyEffects (body)
+                val result = transformBlock (substitutions (oldX, x)(manifest[A]), block)
+                // adds all old effectful statements that are still referenced to the context, thus a correct Reify node will
+                // be created again
+                context :::= findSyms(result)(effects.toSet).toList
+                // adds all new effectful statements to the context and returns a non-reified version of the sym
+                result match {
+                    case Def (Reify (inner, _, newEffects)) =>
+                        context :::= newEffects
+                        inner
+
+                    case _ => result
                 }
-                case _ => result
-            }
-        }
 
-        case Def (Lambda (_, oldX : Rep[A@unchecked], block)) => {
-            transformBlock (substitutions (oldX, x)(manifest[A]), block)
-        }
 
-        case _ => super.doApply (f, x)
+            case Def (l@Lambda (_, oldX : Rep[A@unchecked], block)) =>
+                val subs = substitutions (oldX, x)(manifest[A])
+                val r = transformBlock (subs, block)(l.mB.asInstanceOf[Manifest[B]])
+                r
+
+
+            case _ =>
+                super.doApply (f, x)
+
+        }
     }
 
     protected def transformBlock[B: Manifest] (subsitutions: Map[Exp[Any], Exp[Any]], block: Block[B]): Exp[B] = {

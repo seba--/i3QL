@@ -47,7 +47,7 @@ trait ScalaCodegenExt
 
 	var compileCount = 0
 
-    var dumpGeneratedCode = false
+    var dumpGeneratedCode = true
 
     var silent = true
 

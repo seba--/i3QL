@@ -56,6 +56,8 @@ trait NumericOpsExpAlphaEquivalence
                 isEquivalent (x, u) && isEquivalent (y, v)
             case (NumericDivide (x, y), NumericDivide (u, v)) =>
                 isEquivalent (x, u) && isEquivalent (y, v)
+            case (IntPlus (x, y), IntPlus (u, v)) =>
+                isEquivalent(x, u) && isEquivalent(y, v)
             case _ => super.isEquivalentDef (a, b)
         }
 

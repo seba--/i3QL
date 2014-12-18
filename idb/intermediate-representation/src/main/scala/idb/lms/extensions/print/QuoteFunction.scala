@@ -56,6 +56,15 @@ trait QuoteFunction
 
     import IR._
 
+    def quoteBlock[A] (b : Block[A]): String = {
+        val writer = new StringWriter ()
+        stream = new PrintWriter (writer)
+        emitBlock(b)
+        stream.close ()
+        writer.toString
+    }
+
+
     def quoteFunction[A, B] (f: Exp[A => B]): String = {
         val writer = new StringWriter ()
         stream = new PrintWriter (writer)
