@@ -1,5 +1,7 @@
 package idb.lms.extensions
 
+
+import scala.reflect.RefinedManifest
 import scala.virtualization.lms.internal.{ScalaFatCodegen, ScalaCodegen}
 import scala.tools.nsc.{Settings, Global}
 import scala.tools.nsc.reporters.ConsoleReporter
@@ -17,6 +19,7 @@ trait ScalaCodegenExt
 {
 
     val IR: BaseExp with FunctionsExp
+
 
     var compiler: Global = _
     var reporter: ConsoleReporter = _
@@ -53,6 +56,22 @@ trait ScalaCodegenExt
 
     def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
         compileFunction (IR.doApply (f, _))
+    }
+
+    override def remap[A](m: Manifest[A]): String = m match {
+        case rm: RefinedManifest[A] =>  super.remap(m)
+        case _ if m.erasure == classOf[IR.Variable[Any]] => super.remap(m)
+        case _ if m.typeArguments.size > 0 =>
+            m.toString()// + m.typeArguments.map(t => remap(t)).mkString("[",",","]")
+
+        /*    // call remap on all type arguments
+            val targs = m.typeArguments
+            if (targs.length > 0) {
+                val ms = m.toString
+                ms.take(ms.indexOf("[")+1) + targs.map(tp => remap(tp)).mkString(", ") + "]"
+            }
+            else m.toString  */
+        case _ => super.remap(m)
     }
 
 

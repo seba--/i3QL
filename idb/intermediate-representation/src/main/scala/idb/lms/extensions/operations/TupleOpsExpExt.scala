@@ -7,7 +7,7 @@ import scala.language.implicitConversions
 /**
  * @author Mirko Köhler
  */
-trait TupleOpsExpExt extends TupleOpsExp {
+trait TupleOpsExpExt extends TupleOpsExp with StructExpExt {
 
 	implicit override def make_tuple2[A:Manifest,B:Manifest](t: (Exp[A],Exp[B]))(implicit pos: SourceContext) : Exp[(A,B)] =
 		super.make_tuple2(t)(t._1.tp, t._2.tp, pos)
