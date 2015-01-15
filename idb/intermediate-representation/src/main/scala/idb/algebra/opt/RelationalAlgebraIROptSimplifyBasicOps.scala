@@ -32,9 +32,14 @@
  */
 package idb.algebra.opt
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.equivalence.TupledFunctionsExpAlphaEquivalence
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.print.QuoteFunction
+
+import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -47,6 +52,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
     extends RelationalAlgebraIRBasicOperators
     with TupledFunctionsExpAlphaEquivalence
     with FunctionUtils
+    with ScalaOpsPkgExp
 {
 
     /**
@@ -76,6 +82,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
             // check if the projection ignores some values
             // these rules are primarily being used to simplify expressions after generating exists sub queries
             val bodyReturnsParameter = returnedParameter (function)
+
 
             bodyReturnsParameter match {
                 // { (x,y) => x}

@@ -43,16 +43,12 @@ import idb.lms.extensions.operations._
  */
 trait QuoteFunction
     extends ScalaCodeGenPkg
-    with ScalaGenStruct
     with ScalaGenStaticData
-    with ScalaGenOptionOps
-    with ScalaGenStringOpsExt
-    with ScalaGenSeqOpsExt
     with ScalaGenTupledFunctions
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp  with FunctionUtils
+    override val IR: ScalaOpsPkgExp with StaticDataExp with TupledFunctionsExp with FunctionUtils
 
     import IR._
 

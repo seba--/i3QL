@@ -106,7 +106,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                         innerProjection
                                     )
                                 ),
-                                List ((equalityProjection, fun ((x: Rep[Any]) => x)))
+                                scala.List ((equalityProjection, fun ((x: Rep[Any]) => x)))
                             )(manifest[Domain], returnType (innerProjection))
 
                         projection (
@@ -131,7 +131,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                     )
                                 ),
                                 duplicateElimination (relationB),
-                                List ((fun ((x: Rep[Any]) => x), equalityProjection))
+                                scala.List ((fun ((x: Rep[Any]) => x), equalityProjection))
                             )(returnType (innerProjection), manifest[Domain])
 
                         projection (
@@ -158,24 +158,24 @@ trait RelationalAlgebraIROptPushDuplicateElimination
     ): Rep[DomainA => Any] = {
         implicit val mA = parameterType (equalities (0)._1).asInstanceOf[Manifest[DomainA]]
         equalities.map (_._1) match {
-            case List (f) => f
+            case scala.List (f) => f
 
-            case List (f1, f2) =>
+            case scala.List (f1, f2) =>
                 fun ((x: Rep[DomainA]) => make_tuple2(f1 (x), f2 (x)))(mA,
                     tupledManifest (returnType (f1), returnType (f2))
                 )
 
-            case List (f1, f2, f3) =>
+            case scala.List (f1, f2, f3) =>
                 fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x)))(mA,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3))
                 )
 
-            case List (f1, f2, f3, f4) =>
+            case scala.List (f1, f2, f3, f4) =>
                 fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x), f4 (x)))(mA,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4))
                 )
 
-            case List (f1, f2, f3, f4, f5) =>
+            case scala.List (f1, f2, f3, f4, f5) =>
                 fun ((x: Rep[DomainA]) => (f1 (x), f2 (x), f3 (x), f4 (x), f5 (x)))(mA,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4), returnType (f5))
                 )
@@ -191,24 +191,24 @@ trait RelationalAlgebraIROptPushDuplicateElimination
     ): Rep[DomainB => Any] = {
         implicit val mB = parameterType (equalities (0)._2).asInstanceOf[Manifest[DomainB]]
         equalities.map (_._2) match {
-            case List (f) => f
+            case scala.List (f) => f
 
-            case List (f1, f2) =>
+            case scala.List (f1, f2) =>
                 fun ((x: Rep[DomainB]) => make_tuple2(f1 (x), f2 (x)))(mB,
                     tupledManifest (returnType (f1), returnType (f2))
                 )
 
-            case List (f1, f2, f3) =>
+            case scala.List (f1, f2, f3) =>
                 fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x)))(mB,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3))
                 )
 
-            case List (f1, f2, f3, f4) =>
+            case scala.List (f1, f2, f3, f4) =>
                 fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x), f4 (x)))(mB,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4))
                 )
 
-            case List (f1, f2, f3, f4, f5) =>
+            case scala.List (f1, f2, f3, f4, f5) =>
                 fun ((x: Rep[DomainB]) => (f1 (x), f2 (x), f3 (x), f4 (x), f5 (x)))(mB,
                     tupledManifest (returnType (f1), returnType (f2), returnType (f3), returnType (f4), returnType (f5))
                 )

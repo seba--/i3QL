@@ -155,7 +155,7 @@ trait RelationalAlgebraIROptPushSelection
     ): (Option[Rep[Any => Boolean]], Option[Rep[Any => Boolean]]) = {
         val symsInQuestion =
             parameter (function) match {
-                case UnboxedTuple (List (a, b)) =>
+                case UnboxedTuple (scala.List (a, b)) =>
                     scala.List (a, b)
 
                 // in case we have a function f(x:Tuple2[A,B]) we are looking for usage of only x._1 or x._2

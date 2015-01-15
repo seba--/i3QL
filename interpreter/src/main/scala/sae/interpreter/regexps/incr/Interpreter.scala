@@ -240,13 +240,18 @@ object Interpreter {
 	type ExpKind = RegExpKind
 	type ExpKey = Int
 	type ExpNode = (ExpKind, Seq[ExpKey], Seq[Any])
+	//id, constructor task, value
+	type IExp = (ExpKey, (TaskKey, ExpNode))
+
 
 	type ListElement = (Any, ListKey)
 	type ListKey = Int
-	type IList = (ListKey, ListElement)
+	//id, constructor task, value
+	type IList = (ListKey, (TaskKey, ListElement))
 
 	type Input = Seq[Any]
 	type InputKey = Int
+	type IInput = (InputKey, (TaskKey, Seq[Any]))
 
 	type TaskKey = Int
 	type TaskIndex = Int
@@ -255,15 +260,14 @@ object Interpreter {
 
 	type InterpValue = Set[String]
 
-	type IExp = (ExpKey, ExpNode)
+
 	type ITask = (TaskKey, Task)
 	type IValue = (TaskKey, Any)
-	type IInput = (InputKey, Seq[Any])
 
-	type IExpTable = KeyMapTable[ExpKey, ExpNode]
+	type IExpTable = KeyMapTable[ExpKey, (TaskKey, ExpNode)]
 	type ITaskTable = KeyMapTable[TaskKey,Task]
-	type IInputTable = KeyMapTable[InputKey, Input]
-	type IListTable = KeyMapTable[ListKey, ListElement]
+	type IInputTable = KeyMapTable[InputKey, (TaskKey, Input)]
+	type IListTable = KeyMapTable[ListKey, (TaskKey, ListElement)]
 
 	type ITable = (IInputTable, ITaskTable, IExpTable, IListTable)
 
@@ -279,34 +283,47 @@ object Interpreter {
 	val appendTag : TaskTag = "List.append"
 	val flatMapInterpTag : TaskTag = "List.flatMapInterp"
 
+	val listNewTag : TaskTag = "List.NEW"
+	val inputNewTag : TaskTag = "Input.NEW"
+	val expNewTag : TaskTag = "Exp.NEW"
+
 	val terminalKind = TerminalKind
 
+	val NO_TASK = -1
 	val EMPTY_LIST : ListElement = (None, -1)
 
 	def insertTask(tab : ITable, tag : TaskTag, params : Seq[Any]) : TaskKey = {
-		val input = inputTable(tab).add(params)
-		taskTable(tab).add((tab._2.keyGenerator.fresh(), tag, -1, input))
+		val input = inputTable(tab).add((NO_TASK, params))
+		taskTable(tab).add((taskTable(tab).keyGenerator.fresh(), tag, NO_TASK, input))
 	}
 
 	def insertExp(tab : ITable, e : Exp) : ExpKey = e match {
 		case Terminal(s) =>
-			expTable(tab).add((TerminalKind, Seq(), Seq(insertString(tab,s))))
+			expTable(tab).add(
+				(NO_TASK, (TerminalKind, Seq(), Seq(insertString(tab,s))))
+			)
 
 		case Alt(e1,e2) => {
 			val t1 = insertExp(tab, e1)
 			val t2 = insertExp(tab, e2)
-			expTable(tab).add((AltKind, Seq(t1,t2), Seq()))
+			expTable(tab).add(
+				(NO_TASK, (AltKind, Seq(t1,t2), Seq()))
+			)
 
 		}
 		case Sequence(e1, e2) => {
 			val t1 = insertExp(tab, e1)
 			val t2 = insertExp(tab, e2)
-			expTable(tab).add((SequenceKind, Seq(t1,t2), Seq()))
+			expTable(tab).add(
+				(NO_TASK, (SequenceKind, Seq(t1,t2), Seq()))
+			)
 		}
 
 		case Asterisk(e1) => {
 			val t1 = insertExp(tab, e1)
-			expTable(tab).add((AsteriskKind, Seq(t1), Seq()))
+			expTable(tab).add(
+				(NO_TASK, (AsteriskKind, Seq(t1), Seq()))
+			)
 		}
 	}
 
@@ -314,18 +331,20 @@ object Interpreter {
 
 	def insertList(tab : ITable, s : Seq[Any]) : ListKey =
 		if (s.isEmpty)
-			listTable(tab).add(EMPTY_LIST)
+			listTable(tab).add((NO_TASK, EMPTY_LIST))
 		else
-			listTable(tab).add((s.head,insertList(tab,s.tail)))
+			listTable(tab).add(
+				(NO_TASK, (s.head,insertList(tab,s.tail)))
+			)
 
 	def list(tab : ITable, k : ListKey) : List[Any] = listTable(tab)(k) match {
-		case EMPTY_LIST => Nil
-		case (head , tail) => head :: list(tab, tail)
+		case (_, EMPTY_LIST) => Nil
+		case (_, (head , tail)) => head :: list(tab, tail)
 	}
 
 	def string(tab : ITable, k : ListKey) : String = listTable(tab)(k) match {
-		case EMPTY_LIST => ""
-		case (head , tail) => head.toString + string(tab, tail)
+		case (_, EMPTY_LIST) => ""
+		case (_, (head , tail)) => head.toString + string(tab, tail)
 	}
 
 /*	def diffList(tab : ITable, oldKey : ListKey, newList : Seq[Any]) {
@@ -437,10 +456,10 @@ object Interpreter {
 	}
 
 	def createITable : ITable = (
-		new KeyMapTable[InputKey, Input](new IntKeyGenerator),
+		new KeyMapTable[InputKey, (TaskKey, Input)](new IntKeyGenerator),
 		new KeyMapTable[TaskKey, Task](new IntKeyGenerator),
-		new KeyMapTable[ExpKey, ExpNode](new IntKeyGenerator),
-		new KeyMapTable[ListKey, ListElement](new IntKeyGenerator)
+		new KeyMapTable[ExpKey, (TaskKey, ExpNode)](new IntKeyGenerator),
+		new KeyMapTable[ListKey, (TaskKey, ListElement)](new IntKeyGenerator)
 	)
 
 
@@ -546,8 +565,8 @@ object Interpreter {
 		/*
 			Create a new entry in a table
 		 */
-		private val createInput : Rep[Seq[Any] => InputKey] = staticData (
-			(e : Seq[Any]) => inputTable(tab).add(e)
+	/*	private val createInput : Rep[Seq[Any] => InputKey] = staticData (
+			(e : Seq[Any]) => inputTable(tab).add((NO_TASK, e))
 		)
 
 		private val createList : Rep[Seq[Any] => ListKey] = staticData (
@@ -555,15 +574,14 @@ object Interpreter {
 		)
 
 		private val consList : Rep[((Any, ListKey)) => ListKey] = staticData (
-			(e : (Any, ListKey)) => listTable(tab).add(e)
+			(e : (Any, ListKey)) => listTable(tab).add((NO_TASK,e))
 		)
 
 		private val createSequenceExpression : Rep[((Seq[ExpKey], Seq[Any])) => ExpKey] = staticData (
-			(e : ((Seq[ExpKey], Seq[Any]))) => expTable(tab).add((SequenceKind, e._1, e._2))
-		)
+			(e : ((Seq[ExpKey], Seq[Any]))) => expTable(tab).add((NO_TASK, (SequenceKind, e._1, e._2)))
+		) */
 
-		protected def makeInput(k : Rep[InputKey], in : Rep[Input]) : Rep[RecType] =
-			inputToRecType((k,in))
+
 
 
 		protected def makeValue(info : Rep[String])(k : Rep[TaskKey], v : Rep[Any]) : Rep[RecType] =
@@ -572,31 +590,48 @@ object Interpreter {
 		protected def makeTask(info : Rep[String])(k : Rep[TaskKey], t : Rep[Task]) : Rep[RecType] =
 			taskToRecType(info,(k,t))
 
-		protected def makeExp(k : Rep[ExpKey], e : Rep[ExpNode]) =
-			expToRecType((k,e))
+		protected def makeInput(k : Rep[InputKey], constructor : Rep[TaskKey], in : Rep[Input]) : Rep[RecType] =
+			inputToRecType(make_tuple2(k, make_tuple2(constructor, in)))
 
-		protected def makeList(k : Rep[ListKey], e : Rep[ListElement]) : Rep[RecType] =
-			listToRecType((k,e))
+		protected def makeExp(k : Rep[ExpKey], constructor : Rep[TaskKey], e : Rep[ExpNode]) =
+			expToRecType( make_tuple2(k, make_tuple2(constructor, e)) )
 
-		protected def newTask(info : Rep[String])(t : Rep[Task]) : Rep[RecType] =
-			taskToRecType(info,(freshTaskKey(0), t))
+		protected def makeList(k : Rep[ListKey], constructor : Rep[TaskKey], e : Rep[ListElement]) : Rep[RecType] =
+			listToRecType( make_tuple2(k, make_tuple2(constructor, e)))
+
+		/*protected def newTask(info : Rep[String])(t : Rep[Task]) : Rep[RecType] =
+			taskToRecType(info,(t._t._3 + 1, t))
+
+		protected def newExp(const : Rep[Task], e : Rep[ExpNode]) : Rep[RecType] =
+			expToRecType(make_tuple2(freshExpKey(0), make_tuple2(const, e)))
+
+		protected def newList(const : Rep[Task], e : Rep[ListElement]) : Rep[RecType] =
+			listToRecType(make_tuple2(freshListKey(0), make_tuple2(const, e)))  */
 
 
 		protected val freshTaskKey : Rep[Int => TaskKey] = staticData (
 			(i : Int) => tab._2.keyGenerator.fresh()
 		)
 
+		protected val freshListKey : Rep[Int => ListKey] = staticData (
+			(i : Int) => tab._4.keyGenerator.fresh()
+		)
+
+		protected val freshExpKey : Rep[Int => ExpKey] = staticData (
+			(i : Int) => tab._3.keyGenerator.fresh()
+		)
+
 		protected val inputRec : Relation[RecType] =
-			SELECT ((e : Rep[IInput]) => makeInput(e._1, e._2)) FROM tab._1
+			SELECT ((e : Rep[IInput]) => makeInput(e._1, e._2._1, e._2._2)) FROM tab._1
 
 		protected val tasksRec : Relation[RecType] =
 			SELECT ((e : Rep[ITask]) => makeTask("init")(e._1, e._2)) FROM tab._2
 
 		protected val expRec : Relation[RecType] =
-			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2)) FROM tab._3
+			SELECT ((e : Rep[IExp]) => makeExp(e._1, e._2._1, e._2._2)) FROM tab._3
 
 		protected val listRec : Relation[RecType] =
-			SELECT ((e : Rep[IList]) => makeList(e._1,e._2)) FROM tab._4
+			SELECT ((e : Rep[IList]) => makeList(e._1, e._2._1, e._2._2)) FROM tab._4
 
 		protected val recursionBase :  Relation[RecType] =
 			tasksRec UNION ALL (expRec) UNION ALL (inputRec) UNION ALL (listRec)
@@ -615,21 +650,25 @@ object Interpreter {
 		private def taskGetTag(t : Rep[ITask]) : Rep[TaskTag] = t._2._2
 
 		private def inputGetInputKey(t : Rep[IInput]) : Rep[InputKey] = t._1
-		private def inputGetParams(t : Rep[IInput]) : Rep[Seq[Any]] = t._2
+		private def inputGetParams(t : Rep[IInput]) : Rep[Seq[Any]] = t._2._2
+		private def inputGetConstructorTaskKey(t : Rep[IInput]) : Rep[TaskKey] = t._2._1
+
 
 		private def expGetExpKey(e : Rep[IExp]) : Rep[ExpKey] = e._1
-		private def expGetExp(e : Rep[IExp]) : Rep[ExpNode] = e._2
-		private def expGetKind(e : Rep[IExp]) : Rep[ExpKind] = e._2._1
-		private def expGetChildren(e : Rep[IExp]) : Rep[Seq[ExpKey]] = e._2._2
-		private def expGetParams(e : Rep[IExp]) : Rep[Seq[Any]] = e._2._3
+		private def expGetExp(e : Rep[IExp]) : Rep[ExpNode] = e._2._2
+		private def expGetKind(e : Rep[IExp]) : Rep[ExpKind] = e._2._2._1
+		private def expGetChildren(e : Rep[IExp]) : Rep[Seq[ExpKey]] = e._2._2._2
+		private def expGetParams(e : Rep[IExp]) : Rep[Seq[Any]] = e._2._2._3
+		private def expGetConstructorTaskKey(e : Rep[IExp]) : Rep[TaskKey] = e._2._1
 
 		private def valGetId(v : Rep[IValue]) : Rep[TaskKey] = v._1
 		private def valGetValue(v : Rep[IValue]) : Rep[Any] = v._2
 
 		private def listGetListKey(s : Rep[IList]) : Rep[ListKey] = s._1
-		private def listGetHead(s : Rep[IList]) : Rep[Any] = s._2._1
-		private def listGetTail(s : Rep[IList]) : Rep[ListKey] = s._2._2
-		private def listIsEmpty(s : Rep[IList]) : Rep[Boolean] = s._2 == __anythingAsUnit(EMPTY_LIST)
+		private def listGetHead(s : Rep[IList]) : Rep[Any] = s._2._2._1
+		private def listGetTail(s : Rep[IList]) : Rep[ListKey] = s._2._2._2
+		private def listGetConstructorTaskKey(s : Rep[IList]) : Rep[TaskKey] = s._2._1
+		private def listIsEmpty(s : Rep[IList]) : Rep[Boolean] = s._2._2 == __anythingAsUnit(EMPTY_LIST)
 
 		private val valuesInternal : Rep[Query[RecType]] = {
 			WITH RECURSIVE (
@@ -642,6 +681,40 @@ object Interpreter {
 
 					recursionBase UNION ALL (
 						unionPrivate (
+
+							/*
+								Constructors
+							*/
+								SELECT (
+									(e : Rep[IInput]) =>
+										makeValue("inputConst")(inputGetConstructorTaskKey(e), inputGetInputKey(e))
+								) FROM (
+									inputRel
+								) WHERE (
+									(e : Rep[IInput]) =>
+										inputGetConstructorTaskKey(e) != __anythingAsUnit(NO_TASK)
+								)
+							,
+								SELECT (
+									(e : Rep[IExp]) =>
+										makeValue("expConst")(expGetConstructorTaskKey(e), expGetExpKey(e))
+								) FROM (
+									expressionRel
+								) WHERE (
+									(e : Rep[IExp]) =>
+										expGetConstructorTaskKey(e) != __anythingAsUnit(NO_TASK)
+								)
+							,
+								SELECT (
+									(e : Rep[IList]) =>
+										makeValue("listConst")(listGetConstructorTaskKey(e), listGetListKey(e))
+								) FROM (
+									listRel
+								) WHERE (
+									(e : Rep[IList]) =>
+										listGetConstructorTaskKey(e) != __anythingAsUnit(NO_TASK)
+								)
+							,
 							/*Function: List.startsWith(s1,s2) //List s1 starts with list s2
 							 	if (s2 == "") true
 							 	else if (s1 == "" && s2 != "") false
@@ -699,11 +772,12 @@ object Interpreter {
 								//Task creation
 								SELECT (
 									(t : Rep[ITask], in : Rep[IInput], s1 : Rep[IList], s2 : Rep[IList]) =>
-										newTask(startsWithTag + "#rec3")(
-											taskGetId(t),
+										makeTask(startsWithTag + "#rec3")(
+											taskGetId(t) + 1
+											(taskGetId(t),
 											__anythingAsUnit(startsWithTag),
 											__anythingAsUnit(0),
-											createInput(Seq(listGetTail(s1), listGetTail(s2)))
+											createInput(Seq(listGetTail(s1), listGetTail(s2))))
 										)
 								) FROM (
 									taskRel, inputRel, listRel, listRel
